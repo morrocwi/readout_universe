@@ -109,3 +109,11 @@ Full suite after integration: `python3 -m pytest -q` → **43 passed**.
 | Λ-anchor: 1/α₃(M_P) = (b₃/2π)·ln(M_P/Λ) ทั้งก้อน; depth ฝั่ง coupling 47.05 vs ฝั่งมวลอิสระ ln(m_Pl/m_p)=44.04 — ต่างกัน 3.01 = ln(m_p/Λ) **pin ในบ้านทั้งสองฝั่ง** | `python3 -m pytest ap/ap9_coupling_channels.py -q` | 5 passed |
 
 Full suite: `python3 -m pytest -q` → **56 passed**.
+
+## 2026-07-19 (ดึก) — AP10: b₁₂₃ แยกร่าง (ไม่ใช่ derive)
+
+| Check | Command | Result |
+|-------|---------|--------|
+| AP10 (3 tests exact-Fraction: counting×atoms คืน (7, 19/6, 41/10) เป๊ะ; abelian ไร้ selfload; atoms load-bearing ทุกตัวด้วย sensitivity pin) | `python3 -m pytest ap/ap10_b_decomposition.py -q` | 3 passed |
+
+Full suite: `python3 -m pytest -q` → **59 passed**.
