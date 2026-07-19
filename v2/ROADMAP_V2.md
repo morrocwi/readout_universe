@@ -82,7 +82,12 @@ Order by artifact readiness:
       0.119 drift was a wrong-charge artifact; the Legendre charge of the
       nonlinear Lagrangian (k2ΦΨ → Ψᵀ∇V(Φ), plus −JᵀΨ) conserves <2e-3 with
       O(dt²) scaling; reduces identically to the linear charge at k4=0.
-- [ ] **AP9+** further blind trials on problems with unknown frontier answers —
+- [x] **AP9** channel-count falsifier (`ap/ap9_coupling_channels.py`, 4 pytest
+      PASS) — naive "coupling = 1/k_eff" maps KILLED at precision (adjoint-dim
+      76% off; shared-k spread 42%); surviving content = b0-as-channel-count
+      (standard) + order-of-magnitude shared budget; real derivation of k_eff
+      from ROM-3.3 grammar stays [Open]; anti-numerology exhibit pinned.
+- [ ] **AP10+** further blind trials on problems with unknown frontier answers —
       the standing test of the "no philosophy does this cheaper" stance
       (`v2/POSITION.md` §5).
 

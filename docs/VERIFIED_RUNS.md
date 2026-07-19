@@ -88,3 +88,9 @@ Full suite after integration: `python3 -m pytest -q` → **43 passed**.
 | Check | Command | Result |
 |-------|---------|--------|
 | AP8 (4 tests: quartic drift <2e-3 ด้วย H_nl ที่ถูก [เทียบ >1e-2 ของประจุผิด], forced case <5e-3, ยุบกลับประจุเดิม identical เมื่อ k4=0, O(dt²) via dt-halving) | `python3 -m pytest ap/ap8_h_quartic.py -q` | 4 passed |
+
+## 2026-07-19 — AP9: falsifier ของ stance "coupling = 1/k_eff"
+
+| Check | Command | Result |
+|-------|---------|--------|
+| AP9 (4 tests: 1/α ที่ Planck = 33.3/49.4/52.4; shared-k spread 42% = ตายที่ precision รอดแค่ order-of-magnitude; adjoint-dim map ตาย 76%; numerology exhibit 12% ติดป้าย "ไม่ใช่หลักฐาน") | `python3 -m pytest ap/ap9_coupling_channels.py -q` | 4 passed |
