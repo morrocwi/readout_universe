@@ -69,7 +69,10 @@ Order by artifact readiness:
       4.4e-10) with conserved distinction charge (drift 1.5e-4) — closes the
       corpus's declared "D-term BORROWED" gap in-repo; Coq lift + general-graph
       + literature falsifier pending.
-- [ ] **AP6+** further blind trials on problems with unknown frontier answers —
+- [x] **AP6** DRL generalization (`ap/ap6_drl_general.py`, ultracode, 4 pytest
+      PASS) — nonlinear+forced+heterogeneous EL derived (2.2e-10); OPEN finding:
+      quadratic-H breaks under quartic V (drift 0.119) — hunt H_quartic.
+- [ ] **AP7+** further blind trials on problems with unknown frontier answers —
       the standing test of the "no philosophy does this cheaper" stance
       (`v2/POSITION.md` §5).
 

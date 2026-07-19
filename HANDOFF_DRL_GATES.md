@@ -16,8 +16,10 @@ DRL จะเลื่อนขั้นเป็น "สมการแม่" 
 - วินัย: tier-honest, toy scope ประกาศ, ห้าม overclaim, ทุกตัวเลข executed,
   workers = sonnet เท่านั้น (Fable = orchestrator อย่างเดียว)
 
-**Run:** workflow "drl-three-gates" — resume ด้วย Workflow({scriptPath, resumeFromRunId})
-(runId ดูใน tool result หลัง launch; script ถูก persist อัตโนมัติใต้ session dir)
+**Run:** workflow "drl-three-gates" — **runId `wf_ddeca0cf-fbb`**, script persisted at
+`~/.claude/projects/-home-yaoharee-lt-ANSE-ASIA-readout-universe/e4ff62dd-.../workflows/scripts/drl-three-gates-wf_ddeca0cf-fbb.js`
+— resume: `Workflow({scriptPath: <ไฟล์ข้างบน>, resumeFromRunId: "wf_ddeca0cf-fbb"})`;
+เช็คว่าจบแล้วหรือยัง: journal.jsonl ใน transcript dir `subagents/workflows/wf_ddeca0cf-fbb`
 
 **Workers เขียนไฟล์บน branch `feat/drl-gates`** (สร้างก่อน launch):
 - Gate1 Coq → `evidence/DRL_Discrete.v` (ห้ามแตะไฟล์อื่น)

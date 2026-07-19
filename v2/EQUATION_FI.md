@@ -59,8 +59,13 @@ non-absorption จริง: สอง θ★-record ที่ขึ้นกั�
   Doctrine of Quantity (Q3), decision rule ข้อ 3 และข้อบังคับ negative control ข้อ 4
   — ต่างจาก tension metrics ในวรรณกรรม (Δχ², suspiciousness, Q_DMAP) ที่วัด*ความแรง*
   ของ tension ระหว่าง dataset แต่ไม่ตอบว่า "เป็นของ posit ตัวไหน กี่ส่วน"
-  → ต้องผ่าน literature falsifier ก่อนอ้างนอกวง (ค้นว่ามีใครนิยาม
-  closure-attribution fraction แบบนี้แล้วหรือยัง)
+  → **literature falsifier รอบแรกผ่านแล้ว (ultracode 2026-07-19, มี verifier):**
+  Q_DMAP/suspiciousness วัด magnitude ไม่ใช่ attribution; แนวปฏิบัติ "ปลดทีละตัว
+  แล้วดู tension ลด" มีอยู่จริงแบบ informal ในวรรณกรรม Hubble/S8 (เช่น
+  arXiv:2309.03286 ซึ่งเตือนตรงกับ doctrine เราว่า reduction-of-tension ≠
+  favored model) — ความใหม่ของเราจึง**แคบลงเหลือ**: การ formalize เป็นสัดส่วน
+  ต่อ posit ที่มีชื่อ + decision rule + negative control บังคับ [ยัง Open
+  สำหรับการอ้างนอกวง — ต้องผ่าน peer review ภายนอก]
 - **Falsifier ของสมการ:** (ก) พบ metric ในวรรณกรรมที่นิยามเหมือนกันเชิง semantics —
   ความใหม่ตาย เหลือสถานะ "การนำเข้าเลนส์" (ข) พบระบบที่รู้เฉลยว่า closure-borne
   แต่ Φ_FI ต่ำ หรือ world-side แต่ Φ_FI สูง โดยที่เลือก π ถูกต้อง — ตัวสมการตาย

@@ -69,10 +69,42 @@ Doubled field X = (Φ, Ψ)ᵀ บน node ของกราฟ × step เว�
 - (ค) ประจุ H ไม่อนุรักษ์ในกรณีทั่วไปกว่า (กราฟไม่สม่ำเสมอ, M,D,K ต่อ node) —
   ทดสอบแล้วบนกราฟ ring เท่านั้น [toy tier — ประกาศชัด]
 
-## งานต่อ (ROADMAP)
+## สถานะสามด่าน (ultracode run wf_ddeca0cf-fbb, 2026-07-19 — ทุกด่านมี independent verifier)
 
-- ยก EL-derivation + H-conservation เป็น Th_coqc (พีชคณิตจำกัด ทำได้)
-- ทดสอบกราฟทั่วไป + พารามิเตอร์ต่อ node + damping ไม่เชิงเส้น (falsifier ข)
-- literature falsifier ก่อนอ้างนอกวง
-- เชื่อมกลับ solver: เสนอ DRL เข้า `research_universal_solver` เพื่อปิดแถว BORROWED
-  ของ D-term ใน ledger ต้นทาง (ผ่าน PR + adversarial audit ของ repo นั้น)
+**ด่าน 1 — Coq: ผ่าน (ในขอบเขตประกาศ).** `evidence/DRL_Discrete.v` (Coq 8.20.1
+exit 0, ตรวจซ้ำโดย verifier จาก clean slate):
+- **T1 EL-identity (iff สองทิศ):** dS/dΨ=0 ⟺ damped recurrence ของ ap5 เป๊ะ
+  (พิสูจน์ที่ node 1 และ 2 — ไม่ special-case) และ dS/dΦ=0 ⟺ anti-damped
+- **T2 D-cancellation:** Legendre H ไม่มี D — `ring` identity ล้วน ทุก state
+- **T3 (โบนัส):** leapfrog shadow energy อนุรักษ์ exact เมื่อ D=0
+- Axiom profile ตรงไปตรงมา: 2 classical Reals axioms (sig_forall_dec,
+  functional_extensionality) — Th_coqc แบบประกาศ axiom ตาม precedent ของ RD.v
+- ขอบเขต: 3-ring, 3 time slices (เพียงพอสำหรับ EL) — general-N เป็นงานต่อ
+
+**ด่าน 2 — Generalize: ผ่าน + ค้นพบของใหม่.** `ap/ap6_drl_general.py` (4 pytest):
+- EL residual **2.2×10⁻¹⁰** บนระบบเต็ม: กราฟถ่วงน้ำหนักสุ่ม N=8 + M_i,D_i ต่อ node
+  + V quartic + forcing J — DRL derive สมการหน่วง nonlinear+forced ได้จริง
+- H อนุรักษ์ (2.2×10⁻⁴) ในเคส quadratic ต่างชนิด node — ทั่วไปกว่า ap5
+- **FINDING (ซื่อสัตย์ ไม่บังคับผล):** เมื่อ k₄>0 (quartic) ประจุ H รูป quadratic
+  เดิม**ไม่อนุรักษ์** (drift 0.119 ≈ 540×) — คำถามเปิด: มี H_quartic รูปแก้ไขไหม
+  [Open — งานถัดไปที่คมที่สุดของสมการนี้]
+- Reduction กลับ ap5 แบบ exact (allclose 1e-9)
+
+**ด่าน 3 — Literature falsifier: novelty รอดทั้งสามชั้น (แบบ narrowed).**
+adversarial search + verifier ตรวจ reference ตัว load-bearing เต็มฉบับ:
+- ต้นตระกูลยืนยัน: Bateman 1931, Morse–Feshbach mirror-image, CTP/Keldysh,
+  **Galley 2013 (arXiv:1210.2745)** — general nonconservative variational doubling
+  ต่อเนื่อง ซึ่งตัว doubled variable ถูกทิ้งใน "physical limit" (ไม่รอดเป็นปริมาณ
+  กายภาพ — paraphrase ตามเนื้อความจริงของเปเปอร์) ต่างจาก Ψ ของเราที่ ontic
+- ใกล้สุดฝั่งกราฟ: **GraphCON (arXiv:2202.02296)** — damped oscillators บนกราฟ
+  แต่*ตั้ง*สมการหน่วงตรงๆ ไม่มี action derive (ยืนยันจาก full text)
+- **ไม่พบ**งานที่รวม Bateman-doubling + graph-Laplacian tensor form G⊗L_R +
+  ontic record ในที่เดียว → ชั้น novelty ทั้งสามยัง SURVIVES [Open → Dr-leaning,
+  ยังต้อง peer review ภายนอกก่อนอ้างแข็ง]
+
+## งานต่อ (อัพเดต)
+
+- หา H_quartic (conserved charge ของเคส nonlinear) — คำถามเปิดที่คมที่สุด
+- Coq general-N + per-node params (ตอนนี้ 3-ring)
+- เสนอ DRL เข้า `research_universal_solver` ปิดแถว BORROWED ของ D-term ใน ledger
+  ต้นทาง (ผ่าน PR + adversarial audit ของ repo นั้น)
