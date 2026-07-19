@@ -43,6 +43,16 @@ Requirements: Python 3 + numpy; Coq (8.18+; 8.20.1 verified — see
 
 Found a genuine falsification? That is the book working as designed — report it.
 
+## The lens as code + installable skill (v2)
+
+- `lens/gates.py` — Ω_all G1–G8 forcing gates as a callable API (identifiability
+  null-space, LTP3 load-bearing test, quantity-by-role guard, Ω_∞ screen) →
+  produces the 7-piece `Extraction`; built ON `lens/vendor/` (snapshot of the
+  verified operator/universe/lexicon engine, provenance in `lens/vendor/README.md`).
+- `skill/readout-lens/` — Claude Code skill driving the W1–W7 issue workflow
+  against the API. Install: `bash skill/install.sh [--global]`, details in
+  `skill/INSTALL.md`. Verify: `python3 -m pytest -q`.
+
 ## Repository layout
 
 ```
