@@ -132,7 +132,7 @@ repo นี้ ⇒ ยังอ้างไม่ได้จนกว่าจ�
 
 ## งานต่อ (อัพเดต)
 
-- หา H_quartic (conserved charge ของเคส nonlinear) — คำถามเปิดที่คมที่สุด
+- ~~หา H_quartic~~ ✅ RESOLVED (AP8): H_nl = MΦ̇Ψ̇+KΦL_wΨ+Ψᵀ∇V(Φ)−JᵀΨ — เหลือ Coq lift ของ nonlinear cancellation (รวมกับ general-N)
 - Coq general-N + per-node params (ตอนนี้ 3-ring)
 - เสนอ DRL เข้า `research_universal_solver` ปิดแถว BORROWED ของ D-term ใน ledger
   ต้นทาง (ผ่าน PR + adversarial audit ของ repo นั้น)
