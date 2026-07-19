@@ -8,6 +8,9 @@ Design rule (readout-not-truth): a gate that can COMPUTE, computes and tags
 `finite_diagnostic`; a gate that requires judgment returns verdict `PROMPT`
 with the exact question the operator (human/AI) must answer -- it never fakes
 an answer. Every Extraction states its overall tier as the WEAKEST tier used.
+
+PRIVATE / PROPRIETARY -- not under the repo's CC BY 4.0 grant (see LICENSE
+EXCEPTIONS + lens/vendor/LICENSE). Do not publish.
 """
 from __future__ import annotations
 
@@ -79,8 +82,15 @@ class Extraction:
 
 
 def g1_translate(issue: Issue) -> GateResult:
-    """G1: translate via the REAL lexicon (never paraphrase from memory)."""
+    """G1: translate via the REAL lexicon (never paraphrase from memory).
+    If no glossary term matched (echo-back), say so -- the Lens Law needs the
+    operator to add dictionary rows, not to mistake an echo for a translation."""
     phil = translate_to_philosophy(issue.statement)
+    if phil.strip() == issue.statement.strip():
+        return GateResult("G1_translate", "PROMPT", "Open",
+                          "no glossary term matched -- statement echoed back; "
+                          "add dictionary rows (TRANSLATION_PROTOCOL step 1) "
+                          "before proceeding")
     return GateResult("G1_translate", "PASS", "Dr", phil)
 
 
@@ -89,7 +99,8 @@ def g2_infinity(text: str) -> GateResult:
     if hits:
         return GateResult("G2_omega_inf", "FLAG", "Dr",
                           f"injected: {', '.join(hits)} -- dissolve or restate "
-                          "as finite readout before answering")
+                          "as finite readout before answering (heuristic screen; "
+                          "false positives possible -- operator confirms)")
     return GateResult("G2_omega_inf", "PASS", "Dr", "no infinity marker detected "
                       "(heuristic screen -- operator confirms)")
 
@@ -147,12 +158,22 @@ def g5_identifiability(issue: Issue) -> GateResult:
                               f"{issue.hypothesis_dims} hypothesis directions vs "
                               f"{rec}-coordinate record: alternatives live in the "
                               "null space -- undecidable from this record by construction")
+        return GateResult("G5_identifiability", "PASS", "Dr",
+                          f"{issue.hypothesis_dims} hypothesis directions <= "
+                          f"{rec}-coordinate record: no structural obstruction "
+                          "(counting argument only -- a grammar run is stronger)")
     return GateResult("G5_identifiability", "PROMPT", "Open",
                       "supply the grammar A (or record/hypothesis dims) to run this gate")
 
 
 def g6_load_bearing(issue: Issue) -> GateResult:
-    """LTP3 executable: does dropping the declared rows move the query answer?"""
+    """LTP3 executable: does dropping the declared rows move the query answer?
+
+    Method note: uses unit evidence d=1 + lstsq, NOT the canonical battery's
+    damped-descent settle() with d=[1.0,0.5,-0.3] (code/LTP2_3_4_battery.py).
+    The idle/load-bearing dichotomy is a structural property of which query
+    overlaps the dropped row -- verified invariant across evidence vectors --
+    but keep the canonical battery as the citable LTP3 anchor."""
     if issue.grammar is None or issue.query is None or not issue.discard_rows:
         return GateResult("G6_load_bearing", "PROMPT", "Open",
                           "supply grammar + query + discard_rows to run this gate")
@@ -188,8 +209,11 @@ def run_gates(issue: Issue) -> Extraction:
     g = [g1_translate(issue), g2_infinity(issue.statement), g3_quantity_role(issue),
          g4_pi_selection(issue), g5_identifiability(issue), g6_load_bearing(issue),
          g7_readout_vs_readout(issue)]
+    # weakest-tier-wins over the ordering Open < Dr < finite_diagnostic < Th_coqc
+    _ORDER = ["Open", "Dr", "finite_diagnostic", "Th_coqc"]
     tiers = [r.tier for r in g]
-    overall = "Open" if "Open" in tiers else "Dr"
+    overall = _ORDER[min(_ORDER.index(t) for t in tiers)]
+    overall = "Dr" if overall in ("finite_diagnostic", "Th_coqc") else overall
     ex = Extraction(
         translation=g[0].detail,
         posit_ledger="operator fills: every closure assumption + verdict class "

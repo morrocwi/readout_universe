@@ -4,6 +4,7 @@ Each test pins a gate to the LTP battery case it descends from, so the code
 layer stays anchored to the book's verified protocols.
 
 Run: python3 -m pytest ap/ap0_lens_gates.py -q
+PRIVATE / PROPRIETARY (LICENSE EXCEPTIONS block) -- do not publish.
 """
 import sys
 from pathlib import Path
@@ -50,6 +51,16 @@ def test_g5_reproduces_ltp4_null_space():
 def test_g5_full_rank_passes():
     iss = Issue(statement="s", grammar=[[1., 0.], [0., 1.]])
     assert g5_identifiability(iss).verdict == "PASS"
+
+
+def test_g5_hypothesis_dims_both_branches():
+    """Counting path: more hypothesis dims than record coords -> FLAG;
+    fewer/equal -> PASS (not a PROMPT fall-through)."""
+    q = [Quantity("Ep", "spectral fit"), Quantity("Eiso", "flux+z")]
+    flag = g5_identifiability(Issue(statement="s", quantities=q, hypothesis_dims=3))
+    ok = g5_identifiability(Issue(statement="s", quantities=q, hypothesis_dims=2))
+    assert flag.verdict == "FLAG" and ok.verdict == "PASS"
+    assert "no structural obstruction" in ok.detail
 
 
 def test_g6_reproduces_ltp3_dichotomy():

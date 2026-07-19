@@ -1,5 +1,7 @@
 # Installing the readout-lens skill
 
+> **PRIVATE / PROPRIETARY** — skill/, lens/, ap/ are excluded from the repo's CC BY 4.0 grant (LICENSE EXCEPTIONS).
+
 ## Requirements
 - Python 3.10+ with numpy, scipy (pytest to verify)
 - A clone of this repo (private): `git clone <origin> readout_universe`
