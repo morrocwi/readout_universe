@@ -59,7 +59,11 @@ Source: `docs/root/math/PGFT_Roots_of_Mathematics_and_Geometry.md` §ROM-Ω.3.
 Machine-checked: `formal/RD.v` (≈183 Theorem/Lemma declarations — RD3/RD4 as
 theorems, add/mul laws, Peano isomorphism `iso_to_of`/`iso_of_to`, order) and
 `formal/URCF_RD_All.v` (≈678 Theorem/Lemma declarations; counts = grep of
-`Theorem|Lemma` lines, 2026-07-19).
+`Theorem|Lemma` lines, 2026-07-19). **Evidence snapshots live IN THIS REPO at
+`evidence/RD.v` + `evidence/URCF_RD_All.v`, re-compiled here 2026-07-19 (Coq
+8.20.1, both exit 0) with the axiom profile recorded un-softened in
+`evidence/README.md` — discrete core axiom-free; ℝ-touching theorems borrow
+classical axioms, which is the doctrine made visible.**
 
 **Stratum 2 — the logic built on the genome: RAR A1–A8.**
 Source: `docs/root/math/Retained_Distinction_Logic.tex` §sec:rar. The eight
