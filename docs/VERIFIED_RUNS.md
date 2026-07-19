@@ -13,3 +13,10 @@ if a dated executed run appears here (machine-dependent timings are never claime
 
 All expected values match `CLAIMS.md` exactly. Note: README floor is Coq 8.18;
 this run used 8.20.1 — compiles clean, axiom-free check intact.
+
+## 2026-07-19 — evidence/ clone re-verification (same machine, Coq 8.20.1)
+
+| Check | Command | Result |
+|-------|---------|--------|
+| RD object stratum | `cd evidence && coqc RD.v` | exit 0; discrete core `Closed under the global context`; some sections report `classic` (see evidence/README.md) |
+| URCF consolidated | `coqc URCF_RD_All.v` | exit 0; bulk axiom-free; ℝ-touching theorems borrow `classic` / `functional_extensionality_dep` / `ClassicalDedekindReals.*` — recorded un-softened |
