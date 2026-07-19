@@ -1,7 +1,16 @@
-# Readout Universe — Philosophy and Logic (v1.0)
+# Readout Universe — Philosophy and Logic (v1.0 → v2.0-dev "of Everything")
 
 Open-science, reproducible textbook (83 pp.). Author: Yaoharee Lahtee
 (ORCID 0009-0005-3861-0626), Open Civil Science Initiative. License: CC BY 4.0.
+
+**v2.0-dev:** this repo is being elevated toward *The Philosophy and Logic of
+Everything* — a tier-honest candidacy, never a declared ToE. The governing law of
+v2 is the **Lens Law**: every problem, from any domain, is first TRANSLATED into
+this book's information-philosophy language and solved inside its logic
+(`v2/TRANSLATION_PROTOCOL.md` — Ω_all), with bridges to the machine-checked
+physics/biology/AI corpus recorded per-domain in `v2/DOMAIN_LEDGER.md` and release
+gates in `v2/ROADMAP_V2.md`. The v1.0 text in `main.tex` is frozen; v2 adds, it
+never silently edits.
 
 This repository is the canonical git home of the book so that **any AI or human
 can read the full philosophy and logic system directly from source** — no PDF

@@ -3,6 +3,22 @@
 Purpose: let any AI agent load this philosophy-and-logic system correctly from git,
 without collapsing its claim tiers or over-reading its scope.
 
+## v2 layer (read BEFORE v1.0 if you are here to THINK with the system)
+
+The v2.0-dev layer in `v2/` makes the lens itself explicit and binding:
+
+1. `v2/INFORMATION_DNA.md` — the root: RD1–RD9 (arithmetic genome) + RAR A1–A8
+   (logic of retention) + the Coq inventory. มองทุกอย่างเป็น Information DNA.
+2. `v2/TRANSLATION_PROTOCOL.md` — the Lens Law + Ω_all: translate EVERY problem
+   into this language before solving; never argue in foreign vocabulary past Step 1.
+3. `v2/DOCTRINE_OF_QUANTITY.md` — quantity = projection on readout space;
+   identity by role, not by number; the equal-number fallacy is banned.
+4. `v2/ONTOLOGY_EXTRACTION.md` — the counted inventory: DNA strata, interaction
+   kinds per layer, and what space is.
+5. `v2/EVERYTHING_BRIDGE.md` + `v2/DOMAIN_LEDGER.md` + `v2/ROADMAP_V2.md` —
+   bridges to the physics/biology/AI corpus and the gates for the title
+   "of everything" (candidacy, never declared).
+
 ## Reading order
 
 1. **`main.tex`** front matter: "Open Science and Reproducibility Statement" and
