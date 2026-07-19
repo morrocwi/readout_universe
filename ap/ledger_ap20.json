@@ -1,0 +1,36 @@
+{
+  "artifact": "ap/ap20_retention_self_interaction.py",
+  "date": "2026-07-20",
+  "tier": "finite_diagnostic",
+  "claim": "Given A1-A4, ordered self-carrier channel composition forces the missing spin-1 self-interaction unit with coefficient one.",
+  "premises": {
+    "A1": "one bilinear associative ordered channel product",
+    "A2": "circulation is the exchange-odd order defect of that product",
+    "A3": "self-carrier closure: fluctuations inhabit the same channel algebra",
+    "A4": "quadratic load induced by the order-defect norm"
+  },
+  "executed_results": {
+    "exchange_odd_and_jacobi": "pass",
+    "epsilon_squared_term_coefficient": 1,
+    "hessian_extra_curvature_unit": 1,
+    "commutative_control": 0,
+    "external_payload_control": 0,
+    "paper_IV_geometry_plus_composition": "1 + 1 = 2; quadratic response = 4"
+  },
+  "borrowed": [
+    "finite associative matrix algebra",
+    "so(3) finite representation",
+    "Paper IV geometric unit = 1"
+  ],
+  "not_claimed": [
+    "RD4 uniquely forces A1-A4",
+    "full Yang-Mills or +11/3 beta-function derivation",
+    "ghost or longitudinal bookkeeping",
+    "Standard Model gauge group or representations"
+  ],
+  "kill_conditions": [
+    "a valid retained-distinction grammar selects commutative channels while retaining the claimed physical sector",
+    "self-carrier closure cannot be derived and external-payload transport is forced instead",
+    "the unit changes under a normalization fixed independently by the same channel product"
+  ]
+}
