@@ -96,7 +96,10 @@ def test_graph_reads_its_own_dimension():
 
 def test_partition_tracks_dimension_not_size():
     """Control: changing torus SIZE at fixed d must not move the partition
-    (it reads dimension, not node count)."""
-    a, b = direction_partition(12, 2), direction_partition(20, 2)
-    assert abs(a - b) < 0.04
+    (it reads dimension, not node count). Ensemble 160 draws per size
+    (40 was under-sampled: caught red on first run -- honest fix is MORE
+    statistics, not a looser bound; measured 0.4813 vs 0.5061)."""
+    a = direction_partition(12, 2, draws=160)
+    b = direction_partition(20, 2, draws=160)
+    assert abs(a - b) < 0.04                      # measured |diff| = 0.0248
     assert abs(a - 0.5) < 0.05 and abs(b - 0.5) < 0.05
