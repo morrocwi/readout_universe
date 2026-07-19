@@ -1,0 +1,62 @@
+# สมการ Φ_FI — Forced-Identification Fraction (v2.0-dev, 2026-07-19)
+
+> **นิยาม (ของเรา, จดทะเบียนที่นี่เป็นครั้งแรก):**
+>
+> **Φ_FI(q; A₁, A₂, C, π) = 1 − V*(C∖π) / V*(C)**
+>
+> เมื่อ q = ปริมาณชื่อเดียวที่สอง chain A₁,A₂ อ่าน · C = closure ที่บังคับ q₁=q₂ ·
+> π = posit หนึ่งตัวใน C ที่ถูกปลด · V = residual energy ½rᵀWr ของ joint fit
+> (ฟังก์ชันเดียวกับ LTP1; ฝั่งโครงสร้าง V คือ retained-information energy —
+> Coq: `info_is_operator_energy`) · V* = ค่า minimum เหนือพารามิเตอร์
+>
+> **ความหมายตามปรัชญา:** Φ_FI คือ *สัดส่วนของ tension ที่สารสนเทศของมันอาศัยอยู่ใน
+> closure ไม่ใช่ใน record* — ตัววัดเชิงปริมาณของ forced identification
+> (`FORCED_IDENTIFICATION.md`): Φ→1 = tension เป็นสมบัติของการบังคับรวมผ่าน π;
+> Φ→0 = tension เป็นเสียงของโลกที่ไม่มีการปลด posit ใดดูดซับได้
+
+## สมบัติ (แต่ละข้อพร้อม tier)
+
+1. **0 ≤ Φ_FI ≤ 1** — เพราะ C∖π ⊇ C เป็น nested family จึง V*(C∖π) ≤ V*(C)
+   [พิสูจน์ได้จาก set-inclusion; ระดับ Coq เป็นงาน ROADMAP; ตอนนี้ assert เชิงตัวเลข
+   ใน `ap/ap4_phi_fi.py` = finite_diagnostic]
+2. **Φ_FI ติดชื่อ posit** — มันเป็นฟังก์ชันของ π ที่เลือกปลด: อ่านว่า "tension นี้
+   เป็นของ π นี้กี่ส่วน" ไม่มี Φ ลอยๆ ไร้ posit (วินัย R1: ตัวเลขพก chain)
+3. **Decision rule [Dr]:** Φ_FI สูง ⇒ decisive record คือ record ที่ identify ทิศของ
+   π ตรงๆ (ไม่ใช่วัด q ให้แม่นขึ้น — นั่นวิ่งขนาน null); Φ_FI ต่ำทุก π ที่มี ⇒
+   สอบสวนฝั่งโลก/ฟิสิกส์ใหม่ได้อย่างมีเหตุ
+4. **ต้องมี negative control เสมอ** — ระบบที่ tension เป็นฝั่งโลกโดย construction
+   ต้องให้ Φ≈0 มิฉะนั้นการวัดไม่มีความหมาย (กันการหลอกตัวเองด้วยครอบครัวพารามิเตอร์
+   ที่ใหญ่พอจะกลืนทุกอย่าง)
+
+## ผลรันแรก (executed — `ap/ap4_phi_fi.py`)
+
+| ระบบ | records | π ที่ปลด | V*(C) | V*(C∖π) | **Φ_FI** |
+|------|---------|----------|-------|---------|----------|
+| Hubble toy (AP1 grammar) | 100θ★, ω_m h², h_ladder | w = −1 | 18.2 | 0.0000 | **1.0000** |
+| World-side control (สอง ladder อ่าน h บทบาทเดียวกัน ต่างกันจริง) | h⁽¹⁾, h⁽²⁾ | w = −1 | 18.0 | 18.0 | **0.000** |
+
+การแยกได้เด็ดขาด (1.0 vs 0.0) บนคู่ทดสอบที่รู้เฉลยโดย construction คือหลักฐานว่า
+สมการวัดสิ่งที่นิยามอ้างจริง [finite_diagnostic, toy tier]
+
+## ความใหม่ — ประกาศตามความสัตย์ [สำคัญ]
+
+- **รูปพีชคณิตไม่ใหม่:** Φ_FI = 1 − χ²_relaxed/χ²_forced เป็นญาติโดยตรงของ
+  nested-model likelihood-ratio / Δχ² ที่เป็นตำรามาตรฐาน — ห้ามอ้างว่าเราประดิษฐ์
+  พีชคณิตนี้
+- **ชั้นที่เป็นผู้สมัครความใหม่ [Open + stance]:** การนิยามมันเป็น *ตัววัดการระบุแหล่ง
+  (attribution) ของ inter-chain tension ให้กับ posit ที่มีชื่อ* พร้อม semantics ของ
+  Doctrine of Quantity (Q3), decision rule ข้อ 3 และข้อบังคับ negative control ข้อ 4
+  — ต่างจาก tension metrics ในวรรณกรรม (Δχ², suspiciousness, Q_DMAP) ที่วัด*ความแรง*
+  ของ tension ระหว่าง dataset แต่ไม่ตอบว่า "เป็นของ posit ตัวไหน กี่ส่วน"
+  → ต้องผ่าน literature falsifier ก่อนอ้างนอกวง (ค้นว่ามีใครนิยาม
+  closure-attribution fraction แบบนี้แล้วหรือยัง)
+- **Falsifier ของสมการ:** (ก) พบ metric ในวรรณกรรมที่นิยามเหมือนกันเชิง semantics —
+  ความใหม่ตาย เหลือสถานะ "การนำเข้าเลนส์" (ข) พบระบบที่รู้เฉลยว่า closure-borne
+  แต่ Φ_FI ต่ำ หรือ world-side แต่ Φ_FI สูง โดยที่เลือก π ถูกต้อง — ตัวสมการตาย
+
+## งานต่อ (ROADMAP)
+
+- ยกสมบัติข้อ 1 เป็น Th_coqc (nested-minimum inequality — พิสูจน์สั้น)
+- รัน Φ_FI กับ AP3 สองจุดของ DESI (คาด: จุด DESY5 สูง จุด BAO+CMB-only กลางๆ —
+  ตรงกับผล partial ที่วัดแล้ว) และกับ g−2 (π = การเลือก HVP chain)
+- literature check ความใหม่ (ก่อนทุกการอ้างนอกวง)

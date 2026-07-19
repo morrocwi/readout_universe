@@ -58,7 +58,12 @@ Order by artifact readiness:
       leaves 1.33% residual (> best floor) → PARTIAL cross-chain reading only;
       some genuine BAO-side pull remains. Falsifier: BAO-alone full likelihood
       preferring CPL >~2σ.
-- [ ] **AP4+** further blind trials on problems with unknown frontier answers —
+- [x] **AP4** Φ_FI first run (`ap/ap4_phi_fi.py`, 4 pytest PASS 2026-07-19) —
+      the new equation (v2/EQUATION_FI.md) separates closure-borne (Hubble,
+      Φ=1.0000) from world-side (control, Φ=0.000) exactly. Next: Coq lift of
+      the nested-inclusion bound; Φ_FI on DESI two points + g−2; literature
+      novelty falsifier before ANY external claim.
+- [ ] **AP5+** further blind trials on problems with unknown frontier answers —
       the standing test of the "no philosophy does this cheaper" stance
       (`v2/POSITION.md` §5).
 
