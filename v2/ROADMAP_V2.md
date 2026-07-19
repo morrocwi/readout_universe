@@ -51,7 +51,14 @@ Order by artifact readiness:
       literature); Π-selection + null-space demands recorded
       in `v2/POSITION.md` §2. Caveat: abstract-only reading — retract the
       "ยังไม่ปิด" half if the full paper already does selection modeling/Γ-bounds.
-- [ ] **AP3+** further blind trials on problems with unknown frontier answers —
+- [x] **AP3** DESI DR2 evolving dark energy (`ap/ap3_desi_mirage.py`, 5 pytest
+      PASS 2026-07-19) — toy tier, TWO best-fit points tested: BAO+CMB+DESY5
+      point near-null within BAO (0.50%, ≤ per-bin floor 0.7–2.5%) → SN-driven
+      part reads as cross-chain clash (AP1 structure); BAO+CMB-only point
+      leaves 1.33% residual (> best floor) → PARTIAL cross-chain reading only;
+      some genuine BAO-side pull remains. Falsifier: BAO-alone full likelihood
+      preferring CPL >~2σ.
+- [ ] **AP4+** further blind trials on problems with unknown frontier answers —
       the standing test of the "no philosophy does this cheaper" stance
       (`v2/POSITION.md` §5).
 
