@@ -9,6 +9,7 @@
 | `RD.v` | `research_universal_solver/formal/RD.v` | 2026-07-19 | The Information-DNA object stratum: RD1–RD9 as Inductive D + theorems (RD3/RD4), commutative semiring, total order, semiring+order isomorphism D ≅ ℕ, equational transfer RD↔PA (deep-embedded term language) |
 | `URCF_RD_All.v` | `research_universal_solver/formal/URCF_RD_All.v` | 2026-07-19 | The consolidated URCF/RD verified foundations (≈678 Theorem/Lemma declarations) |
 | `UPL_Sorites.v` | this repo, `code/UPL_Sorites.v` (v1.0) | — | the book's own formal floor (sorites core, monotone scope) — kept in `code/`, listed here for the inventory |
+| `DRL_General_Legendre.v` | this repo (NEW 2026-07-19) | — | general-N Legendre D-cancellation: any nodes/heterogeneous/abstract graph+potential (covers H_nl), axiom-free, list induction |
 | `DRL_Discrete.v` | this repo (NEW, ultracode 2026-07-19) | — | DRL: T1 EL-identity iff (damped/anti-damped), T2 Legendre D-cancellation, T3 leapfrog D=0 invariant — 3-ring scope; axioms: sig_forall_dec + functional_extensionality (declared) |
 
 ## Re-verification (executed 2026-07-19, Coq 8.20.1, this machine)

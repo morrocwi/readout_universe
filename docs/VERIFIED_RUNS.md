@@ -94,3 +94,10 @@ Full suite after integration: `python3 -m pytest -q` → **43 passed**.
 | Check | Command | Result |
 |-------|---------|--------|
 | AP9 (4 tests: 1/α ที่ Planck = 33.3/49.4/52.4; shared-k spread 42% = ตายที่ precision รอดแค่ order-of-magnitude; adjoint-dim map ตาย 76%; numerology exhibit 12% ติดป้าย "ไม่ใช่หลักฐาน") | `python3 -m pytest ap/ap9_coupling_channels.py -q` | 4 passed |
+
+## 2026-07-19 — Coq general-N Legendre (Task #2 ปิด)
+
+| Check | Command | Result |
+|-------|---------|--------|
+| `DRL_General_Legendre.v` (general-N/heterogeneous/abstract-graph+potential D-cancellation + kinetic corollary) | `coqc evidence/DRL_General_Legendre.v` | exit 0; **2× Closed under the global context (axiom-free)** |
+| Solver PR #185 merged after adversarial audit APPROVE (51ea29b): ℚ-port 6/6 axiom-free + THEOREM_INDEX + ledger amendment proposal (ledger row untouched, gated on ratification) | — | merged, verified on solver main |
