@@ -106,7 +106,13 @@ Order by artifact readiness:
       (2s)² + 1/d_s + statistics sign from graph channel structure → atoms →
       slopes → 52 → hierarchy all emerge. [kinship declared; nothing new
       derived here]
-- [ ] **AP12+** further blind trials on problems with unknown frontier answers —
+- [x] **AP12** the graph spits out the atom (`ap/ap12_dimension_readout.py`,
+      3 pytest PASS) — direction-partition on Z_n^d tori = 1/d (1.000/0.486/
+      0.342) + heat-kernel spectral dimension (1.1/2.3/3.3) computed from L_R
+      alone; size-control confirms it reads dimension not node count. Torus
+      scope declared; irregular-d_s probe + capstone `v2/MYSTERY_LADDER.md`
+      terminal frontier: (2s)², statistics sign, why d_s=3. [Open ×3]
+- [ ] **AP13+** further blind trials on problems with unknown frontier answers —
       the standing test of the "no philosophy does this cheaper" stance
       (`v2/POSITION.md` §5).
 
