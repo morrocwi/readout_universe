@@ -43,15 +43,53 @@ Requirements: Python 3 + numpy; Coq (8.18+; 8.20.1 verified — see
 
 Found a genuine falsification? That is the book working as designed — report it.
 
-## The lens as code + installable skill (v2)
+## For AI operators — the APIs, where they are, how to call them (v2)
 
-- `lens/gates.py` — Ω_all G1–G8 forcing gates as a callable API (identifiability
-  null-space, LTP3 load-bearing test, quantity-by-role guard, Ω_∞ screen) →
-  produces the 7-piece `Extraction`; built ON `lens/vendor/` (snapshot of the
-  verified operator/universe/lexicon engine, provenance in `lens/vendor/README.md`).
-- `skill/readout-lens/` — Claude Code skill driving the W1–W7 issue workflow
-  against the API. Install: `bash skill/install.sh [--global]`, details in
-  `skill/INSTALL.md`. Verify: `python3 -m pytest -q`.
+Everything below runs from the repo root with `sys.path.insert(0, '.')`.
+Verify the whole stack first: `python3 -m pytest -q` (must be all-green).
+
+**1. The gates — `lens/gates.py` (Ω_all G1–G13, 8-piece Extraction):**
+```python
+from lens import Issue, Quantity, run_gates
+ex = run_gates(Issue(statement="...", quantities=[Quantity("h", chain="...")]))
+for g in ex.gates: print(g.gate, g.verdict, g.tier, g.detail)
+```
+Computable gates compute `finite_diagnostic` when fully specified (else Dr/Open): G5 null-space (LTP4), G6
+load-bearing discard (LTP3), G10 limit certificate, G11 formula equivalence,
+G13 timescale atlas. Judgment gates return `PROMPT` — answer them, never skip.
+Full field list of `Issue` and the W1–W7 workflow: `skill/readout-lens/SKILL.md`.
+
+**2. Numerical computation — `lens/compute.py` (USE BEFORE hand-writing numpy):**
+```python
+from lens import compute
+compute.list_closures(category="kinematics")        # 231 audited closures
+compute.solve_closure("acceleration", dv=10.0, t=2.0)  # value+units+citation
+compute.describe_closure("acceleration")            # required args per closure
+compute.list_systems()                              # 9 solvers: truss/FEM/modal/Ising/...
+compute.domain("thermodynamics")                    # 7 domain calculator modules
+```
+Raises `SolverUnavailable` when the live solver is absent → record SKIPPED in
+the extraction's not-checked ledger; never improvise the number.
+
+**3. Verified operator + lexicon (vendored snapshots) — `lens/vendor/`:**
+```python
+from lens.vendor.operator_api import Operator       # OP1–OP6, two-axis tier
+from lens.vendor.lexicon import translate_to_philosophy, translate_to_world
+```
+Provenance + md5 + known gotchas: `lens/vendor/README.md` (never edit snapshots).
+
+**4. Live solver link — `lens/solver_link.py`:** G9–G13 and `compute` reach the
+sibling `research_universal_solver` LIVE (override path with env
+`ANSE_SOLVER_PATH`). Its three MCP servers (`operator`/`universe`/`arc` — incl.
+`coq_verify` and `arc_search` over 292 Coq files) are documented in
+`skill/readout-lens/SKILL.md` §Live solver link.
+
+**5. The Claude Code skill — `skill/readout-lens/`:** drives W1–W7 against the
+APIs above. Install `bash skill/install.sh [--global]`; details `skill/INSTALL.md`.
+
+**6. Executed case studies — `ap/`:** AP0 (gate anchors), AP1 (Hubble), AP2
+(FXT), AP3 (DESI) — every numerical claim in the docs has its pytest here;
+runs logged in `docs/VERIFIED_RUNS.md`.
 
 ## Repository layout
 
@@ -65,7 +103,16 @@ code/LTP2_3_4_battery.py              finite_diagnostic protocols 2–4 (C4–C6
 code/UPL_Sorites.v                    Th_coqc formal floor, axiom-free (C7)
 docs/AI_READING_GUIDE.md              how an AI should read this system
 docs/VERIFIED_RUNS.md                 executed verification log (dated, per machine)
+v2/                                   the lens doctrine (DNA, Lens Law, Doctrine of
+                                      Quantity, Position, Forced-Identification thesis)
+lens/                                 the lens as code: gates.py (G1–G13) ·
+                                      compute.py (audited calculators) ·
+                                      solver_link.py (live) · vendor/ (snapshots)
+ap/                                   executed case studies (pytest; ap0–ap3)
+skill/readout-lens/                   installable Claude Code skill (W1–W7)
+evidence/                             in-repo Coq evidence (RD.v, URCF_RD_All.v)
 ```
+Note: `lens/`, `skill/`, `ap/` are proprietary (LICENSE EXCEPTIONS), not CC BY.
 
 ## We do NOT claim
 
