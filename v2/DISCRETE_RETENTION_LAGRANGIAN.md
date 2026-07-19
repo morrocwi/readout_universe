@@ -85,7 +85,12 @@ exit 0, ตรวจซ้ำโดย verifier จาก clean slate):
 - **T3 (โบนัส):** leapfrog shadow energy อนุรักษ์ exact เมื่อ D=0
 - Axiom profile ตรงไปตรงมา: 2 classical Reals axioms (sig_forall_dec,
   functional_extensionality) — Th_coqc แบบประกาศ axiom ตาม precedent ของ RD.v
-- ขอบเขต: 3-ring, 3 time slices (เพียงพอสำหรับ EL) — general-N เป็นงานต่อ
+- ขอบเขต EL-identity: 3-ring, 3 slices — general-N EL ยังเปิด
+- **general-N Legendre ปิดแล้ว (2026-07-19):** `evidence/DRL_General_Legendre.v`
+  (axiom-free ทั้งคู่, list induction) — **D-cancellation ยืนที่ความทั่วไปเต็ม**:
+  ทุกจำนวน node, M_i/D_i ต่างชนิด, กราฟใดก็ได้ (GB abstract), potential ใดก็ได้
+  (w_i abstract — ครอบ k₂qr, quartic Ψᵀ∇V ของ H_nl, และ forcing −JᵀΨ):
+  H = Σ Mᵢvqᵢvrᵢ + GB + Σ wᵢ — โครงประจุของสมการแม่ไม่ขึ้นกับขนาด/รูปกราฟ/รูปศักย์
 
 **ด่าน 2 — Generalize: ผ่าน + ค้นพบของใหม่.** `ap/ap6_drl_general.py` (4 pytest):
 - EL residual **2.2×10⁻¹⁰** บนระบบเต็ม: กราฟถ่วงน้ำหนักสุ่ม N=8 + M_i,D_i ต่อ node
