@@ -21,11 +21,15 @@ The v2.0-dev layer in `v2/` makes the lens itself explicit and binding:
 6. `v2/EQUATION_FI.md` — the lens's own equation Φ_FI = 1 − V*(C∖π)/V*(C):
    the fraction of an inter-chain tension attributable to a named closure
    posit; executed first run in `ap/ap4_phi_fi.py` (novelty layer [Open]).
-7. `v2/FORCED_IDENTIFICATION.md` — the standing thesis: today's headline
+7. `v2/DISCRETE_RETENTION_LAGRANGIAN.md` — the DRL: RD4-forced (Φ,Ψ) doubling
+   with retention metric G (zero diagonal: quantity = reader×record pairing);
+   derives the damped spine from an action + conservation of distinction
+   (executed in `ap/ap5_drl.py`; novelty layer [Open], Bateman kinship declared).
+8. `v2/FORCED_IDENTIFICATION.md` — the standing thesis: today's headline
    physics crises share one structure (same-named quantities from different
    chains forced equal under a closure; the chains' clash misread as the
    world's voice) — with its case table, reporting standard, and falsifier.
-8. `v2/POSITION.md` — who we are (control layer, not knowledge store), the
+9. `v2/POSITION.md` — who we are (control layer, not knowledge store), the
    G1–G13 forcing gates, the 8-piece maximal-extraction checklist, and the
    ISSUE WORKFLOW W1–W7 with tools — load this before working ANY new issue;
    executed case studies live in `ap/` (pytest, toy tier declared).
