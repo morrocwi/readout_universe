@@ -10,7 +10,8 @@ taking the Yang-Mills trilinear vertex [a,a] as an input.
 
 PREMISES (declared; this is a conditional derivation, not RD4-alone)
 -------------------------------------------------------------------
-A1. Channels compose by one bilinear associative product m(x,y).
+A1. Channels compose by one UNITAL bilinear associative product m(x,y); the
+    identity is the no-op channel and fixes the product normalization.
 A2. Directional circulation/curvature is the order defect
         K(x,y) = m(x,y) - m(y,x)
     (the exchange-odd readout of ordered composition).
@@ -30,7 +31,7 @@ unit: 1_geo + 1_comp = 2, and the quadratic response is 2^2=4.
 HONEST SCOPE
 ------------
 - finite-dimensional algebra/operator diagnostic; no continuum or infinity;
-- ordinary matrix composition is borrowed mathematics; the candidate-new
+- ordinary unital matrix composition is borrowed mathematics; the candidate-new
   content is the retention reading and the conditional forcing chain A1-A4;
 - this does NOT prove that RD4 uniquely forces A1-A4, a gauge group, ghosts,
   the full +11/3 beta coefficient, or the Standard Model;
@@ -148,6 +149,17 @@ def background(seed: int = 20) -> tuple[np.ndarray, np.ndarray]:
     if np.linalg.norm(order_defect(ad(bg_x), ad(bg_y))) < 0.2:
         bg_y += np.array([0.3, -0.4, 0.5])
     return bg_x, bg_y
+
+
+def test_no_op_identity_fixes_composition_normalization():
+    """A rescaled product is forbidden unless it preserves the no-op identity."""
+    rng = np.random.default_rng(3)
+    x = rng.normal(size=(3, 3))
+    identity = np.eye(3)
+    assert np.linalg.norm(compose(identity, x) - x) < TOL
+    assert np.linalg.norm(compose(x, identity) - x) < TOL
+    scale = 1.7
+    assert np.linalg.norm(scale * compose(identity, x) - x) > 1e-3
 
 
 def test_order_defect_is_exchange_odd_and_jacobi_follows_from_composition():
