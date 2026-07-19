@@ -117,3 +117,11 @@ Full suite: `python3 -m pytest -q` → **56 passed**.
 | AP10 (3 tests exact-Fraction: counting×atoms คืน (7, 19/6, 41/10) เป๊ะ; abelian ไร้ selfload; atoms load-bearing ทุกตัวด้วย sensitivity pin) | `python3 -m pytest ap/ap10_b_decomposition.py -q` | 3 passed |
 
 Full suite: `python3 -m pytest -q` → **59 passed**.
+
+## 2026-07-19 (ดึกมาก) — AP11: อะตอมสามเม็ดยุบเป็นสูตรเดียว
+
+| Check | Command | Result |
+|-------|---------|--------|
+| AP11 (4 tests: (−1)^{2s}[(2s)²−1/3] คืนอะตอมทั้งสาม exact; reconstruct slopes AP10; ⟨cos²⟩=1/d pinned d=3(0.3326)+d=4(0.2505); paramagnetic axis = (2s)² ทุก s∈{0..2}) | `python3 -m pytest ap/ap11_spin_atoms.py -q` | 4 passed |
+
+Full suite: `python3 -m pytest -q` → **63 passed**.
