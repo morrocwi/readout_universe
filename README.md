@@ -27,13 +27,15 @@ with the compiled book in `main.pdf`.
 3. **Readout-not-truth + tier discipline.** ทุก claim ติดป้าย
    `Th_coqc / finite_diagnostic / Dr / Open` และไม่มีตัวเลขใดเข้าเอกสารโดยไม่มี
    executed run ประกบ (`docs/VERIFIED_RUNS.md`); ทุก PR ผ่าน adversarial review
-4. **ปรัชญา-นำ แล้วสมการตามหลัง — และมันจ่ายจริง:** สมการที่เกิดจากเลนส์ในบ้านนี้
+4. **ปรัชญา-นำ แล้วสมการตามหลัง — และตรวจแล้วว่าปิดแผลได้จริง (narrow):** สมการที่เกิดจากเลนส์ในบ้านนี้
    - **Φ_FI** = 1 − V*(C∖π)/V*(C) — attribution fraction ของ inter-chain tension
      ต่อ posit ที่มีชื่อ (`v2/EQUATION_FI.md`, AP4)
    - **DRL** — Discrete Retention Lagrangian: RD4 บังคับคู่ reader–record →
-     derive พจน์หน่วงจาก action ได้ (Coq axiom-free, general-N Legendre) +
-     conservation of pairing ทั้งครอบครัว nonlinear (`v2/DISCRETE_RETENTION_
-     LAGRANGIAN.md`, AP5/6/8) — และถูกนำเข้า `research_universal_solver` ผ่าน
+     derive พจน์หน่วงจาก action ได้ (Coq: EL-iff ที่ 3-ring — ℝ-version 2 classical
+     axioms declared; ℚ-version ใน solver axiom-free) และ**โครงประจุ/D-cancellation
+     ปิด axiom-free ที่ general-N** (`DRL_General_Legendre.v` — คนละทฤษฎีบทกัน,
+     แยกให้ชัด) + conservation of pairing ทั้งครอบครัว nonlinear
+     (`v2/DISCRETE_RETENTION_LAGRANGIAN.md`, AP5/6/8) — และถูกนำเข้า `research_universal_solver` ผ่าน
      audit จน **ledger row 8 (D-term) เปลี่ยน BORROWED → DERIVED-narrow**
      (solver PR #185+#186, audit record: cpg DEC-drl-d-term-ratification-2026-0719)
    - **Tape layer** — append-only record ที่ realize RD4 ใน dynamics + สะพาน
@@ -136,7 +138,7 @@ v2/                                   the lens doctrine + equations (DNA, Lens L
 lens/                                 the lens as code: gates.py (G1–G13) ·
                                       compute.py (audited calculators) ·
                                       solver_link.py (live) · vendor/ (snapshots)
-ap/                                   executed case studies (pytest; ap0–ap3)
+ap/                                   executed case studies (pytest; ap0–ap9)
 skill/readout-lens/                   installable Claude Code skill (W1–W7)
 evidence/                             in-repo Coq evidence (RD.v, URCF_RD_All.v,
                                       DRL_Discrete.v, DRL_General_Legendre.v)
