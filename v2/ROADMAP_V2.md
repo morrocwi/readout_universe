@@ -85,8 +85,12 @@ Order by artifact readiness:
 - [x] **AP9** channel-count falsifier (`ap/ap9_coupling_channels.py`, 4 pytest
       PASS) — naive "coupling = 1/k_eff" maps KILLED at precision (adjoint-dim
       76% off; shared-k spread 42%); surviving content = b0-as-channel-count
-      (standard) + order-of-magnitude shared budget; real derivation of k_eff
-      from ROM-3.3 grammar stays [Open]; anti-numerology exhibit pinned.
+      (standard) + order-of-magnitude shared budget; restated target (2026-07-19 late,
+      external-AI exchange): derive the SLOPES (b1,b2,b3) from the
+      Degree-Circulation grammar — 52 then emerges free as accumulated
+      impedance (Λ-anchor test pinned: whole value = slope×depth, no
+      boundary residue; same depth 47 as the proton hierarchy);
+      anti-numerology exhibit pinned.
 - [ ] **AP10+** further blind trials on problems with unknown frontier answers —
       the standing test of the "no philosophy does this cheaper" stance
       (`v2/POSITION.md` §5).
