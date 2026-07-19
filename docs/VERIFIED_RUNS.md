@@ -48,3 +48,9 @@ Both TOY TIER (declared in file headers). Full suite: `python3 -m pytest -q` →
 | Check | Command | Result |
 |-------|---------|--------|
 | AP3 (5 tests: grammar sanity/CPL→ΛCDM exact, pivot z∈[0.3,0.6], DESY5-combo near-null 0.50% over 10 BAO observables with (h,ωm) free, BAO+CMB-only point residual 1.33% (NOT fully null — asserted honestly), Ωm-alone insufficient >1%) | `python3 -m pytest ap/ap3_desi_mirage.py -q` | 5 passed |
+
+## 2026-07-19 — AP4: สมการใหม่ Φ_FI (Forced-Identification Fraction)
+
+| Check | Command | Result |
+|-------|---------|--------|
+| AP4 (4 tests: Hubble closure-borne Φ=1.0000 [V 18.2→0.0000 ปลด w], world-side control Φ=0.000, nested-inclusion bounds, Φ-carries-its-posit) | `python3 -m pytest ap/ap4_phi_fi.py -q` | 4 passed |
