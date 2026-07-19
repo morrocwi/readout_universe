@@ -60,3 +60,13 @@ Both TOY TIER (declared in file headers). Full suite: `python3 -m pytest -q` →
 | Check | Command | Result |
 |-------|---------|--------|
 | AP5 (4 tests: EL residual <1e-8 บน trajectory จริง [วัด 4.4e-10] — D-term derive จาก action สำเร็จ; reader ตาย/record โต; ประจุ distinction H drift <1e-3 [วัด 1.5e-4]; reduction D=0 อนุรักษ์) | `python3 -m pytest ap/ap5_drl.py -q` | 4 passed |
+
+## 2026-07-19 — ultracode <run-id>: DRL three gates (6 sonnet agents, ทุกด่านมี verifier)
+
+| Check | Command | Result |
+|-------|---------|--------|
+| Coq DRL_Discrete.v (T1 EL-iff ×3, T2 D-cancellation, T3 D=0 invariant) | `coqc evidence/DRL_Discrete.v` | exit 0; axioms: sig_forall_dec + funext (declared); verifier recompiled clean-slate + non-vacuousness hand-derivation |
+| AP6 general DRL (EL residual 2.2e-10 nonlinear+forced+heterogeneous N=8; H quadratic 2.2e-4; **finding: quartic breaks quadratic-H, drift 0.119**; exact reduction to ap5) | `python3 -m pytest ap/ap6_drl_general.py -q` | 4 passed; verifier re-ran + heterogeneity/tautology probes CONFIRMED |
+| Literature falsifier | WebSearch/WebFetch adversarial | novelty SURVIVES ×3 (narrowed); verifier full-text-checked Galley/GraphCON/2309.03286, caught 1 fabricated quote (fixed: paraphrase) |
+
+Full suite after integration: `python3 -m pytest -q` → **43 passed**.
