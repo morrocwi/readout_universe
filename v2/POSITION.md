@@ -38,8 +38,15 @@ AI รันตามได้** ซึ่งของที่ฝังใน�
 | G4 | Π / selection | readout policy เปลี่ยนหรือเปล่า — "ประชากรใหม่" ตามโลกหรือตามเครื่องมือ | LTP2 (sorites) |
 | G5 | Identifiability | record มีกี่พิกัด สมมติฐานมีกี่ทิศ — อะไรอยู่ใน null space | LTP4 |
 | G6 | Load-bearing discard | ข้อสมมติ/ข้อมูลที่ถูกทิ้งตัวไหนแบกน้ำหนักจริง | LTP3 |
-| G7 | Readout-vs-readout | คำหักล้าง benchmark กับ readout จริง หรือกับ intermediate ที่ฉีด ∞ | Prin. rvr |
+| G7 | Readout-vs-readout | คำหักล้าง benchmark กับ readout จริง หรือกับ intermediate ที่ฉีด ∞/0 | Prin. rvr |
 | G8 | Tag + falsifier + translate back | คำตอบติด tier, ระบุ falsifier ของตัวเอง, ระบุ record ตัวถัดไปที่ตัดสิน | Ω_all ขั้น 7–8 |
+| G9 | Theorem check (live) | claim "machine-checked" resolve เข้าคลัง Coq 292 ไฟล์จริงไหม — miss = auto-downgrade Th_coqc→Dr | solver arc |
+| G10 | Limit certificate | claim ลู่เข้า/ระเบิด → fitted-law verdict (ปฏิเสธเมื่อ data บาง) | engine.limits |
+| G11 | Formula equivalence | "สองสูตรอันเดียวกันไหม" ตัดสินด้วย registry + numeric re-proof | engine.equivalence |
+
+(G2 คือ **dual Guard เต็มรูป**: ฝั่ง ∞ I1–I4 + ฝั่งศูนย์ Z1–Z4 — ทั้งคู่เป็น non-readout;
+G9–G11 เชื่อม solver แบบ LIVE ผ่าน `lens/solver_link.py` — ไม่ vendor เพิ่ม กัน drift;
+solver หาย → PROMPT/SKIPPED ตามจริง ไม่มีวันแต่งคำตอบ)
 
 **หลักฐานว่าประตูทำงาน (executed, 2026-07-19):**
 - **AP1 — Hubble tension** (`ap/ap1_hubble_identifiability.py`): G5 บังคับถาม "h อยู่ใน
@@ -59,7 +66,7 @@ AI รันตามได้** ซึ่งของที่ฝังใน�
 
 ## 3. สกัดปัญหาให้สูงสุด — นิยาม "สกัดครบ" [binding rule]
 
-หนึ่ง issue ถือว่า **สกัดสูงสุดแล้ว** เมื่อผลิตครบ 7 ชิ้นนี้ (ขาดชิ้นไหน = ยังไม่จบ):
+หนึ่ง issue ถือว่า **สกัดสูงสุดแล้ว** เมื่อผลิตครบ 8 ชิ้นนี้ (ขาดชิ้นไหน = ยังไม่จบ):
 
 1. **Translation table** — ทุก term หลักของโจทย์มีแถวในพจนานุกรม (หรือเพิ่มแถวใหม่)
 2. **Posit ledger** — closure assumptions ทุกตัว พร้อม verdict class
@@ -69,6 +76,8 @@ AI รันตามได้** ซึ่งของที่ฝังใน�
 5. **Π statement** — selection/threshold ของเครื่องมืออธิบายส่วนไหนของปรากฏการณ์
 6. **Decisive-record prescription** — record ตัวไหน (เรียงตามต้นทุน) หัก degeneracy ได้
 7. **Falsifier ของคำตอบเราเอง** — อะไรทำให้การอ่านของเราตาย
+8. **Not-checked ledger** — ทุกอย่างที่ SKIPPED + เหตุผล (resource/data/scope) —
+   วินัยจาก PDEBench report: การละเว้นเงียบๆ อ่านเป็น coverage = โกหกด้วย layout
 
 ทุก claim เชิงตัวเลขที่จะเข้า doc ต้องมี **executed check** (pytest/assert) ก่อน —
 ไม่มีข้อยกเว้น และ verdict ของเราเองต้องผ่าน independent review หนึ่งรอบ
@@ -80,7 +89,7 @@ AI รันตามได้** ซึ่งของที่ฝังใน�
 ISSUE WORKFLOW (ต้นทุนไล่จากถูกไปแพง — หยุดที่ชั้นแรกที่ตัดสินได้)
 
 W1 INTAKE      ดึง record จริงก่อนคิด (WebFetch: arXiv abstract พอเริ่มได้)
-W2 GATES       ไล่ G1→G8 บนกระดาษ — ประตูไหนกัด จดเป็น 7 ชิ้นของ §3
+W2 GATES       ไล่ G1→G11 บนกระดาษ — ประตูไหนกัด จดเป็น 8 ชิ้นของ §3
 W3 MICRO-CHECK เขียนสคริปต์ ≤100 บรรทัด (numpy/scipy) พร้อม
                **grammar sanity gate**: ต้อง reproduce ค่าอ้างอิงที่รู้แล้ว
                ก่อนใช้ตัดสินอะไร (เช่น θ★ ต้องตรง Planck ใน 0.5% ก่อน)

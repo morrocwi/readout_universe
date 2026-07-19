@@ -19,7 +19,7 @@ The v2.0-dev layer in `v2/` makes the lens itself explicit and binding:
    bridges to the physics/biology/AI corpus and the gates for the title
    "of everything" (candidacy, never declared).
 6. `v2/POSITION.md` — who we are (control layer, not knowledge store), the
-   G1–G8 forcing gates, the 7-piece maximal-extraction checklist, and the
+   G1–G11 forcing gates, the 8-piece maximal-extraction checklist, and the
    ISSUE WORKFLOW W1–W7 with tools — load this before working ANY new issue;
    executed case studies live in `ap/` (pytest, toy tier declared).
 

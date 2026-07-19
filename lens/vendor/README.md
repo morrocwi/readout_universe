@@ -10,6 +10,14 @@ proprietary), byte-identical at snapshot time (`diff` empty), md5:
 | `universe.py` | a889c7ab4e0a98300cbb5926f342194e | Universe API v2 (L0→L3) |
 | `lexicon.py` | b096f1f1435054d3bc77249ca48955ba | lexicon suite 47 tests (upstream) |
 
+Known gotchas (from the solver's own GLOSSARY audit — read before using):
+- Three unrelated classes named `Spine` exist across the ecosystem
+  (`engine.universe`, `engine.pde`, sibling `spine_pde`) — ours here is
+  `universe.py`'s; do not conflate.
+- `universe.py`'s docstring equation shows J/η/∇V but they are NOT wired into
+  its `Spine.__init__` — only `engine.pde.Spine` implements forcing. A naive
+  read of the docstring overstates what this snapshot computes.
+
 Rules:
 - **Never edit these snapshots.** Upstream development continues in
   `research_universal_solver`; refresh = re-copy + update this table.
