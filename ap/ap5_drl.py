@@ -32,20 +32,33 @@ def action(Phi, Psi, dt=DT):
     return kin + damp - pot
 
 
-def el_trajectories(damping=D, seed=7):
-    """Step the exact discrete EL equations of the action above."""
-    a_plus = (M / DT**2) * np.eye(N) + (damping / (2 * DT)) * np.eye(N)
-    a_minus = (M / DT**2) * np.eye(N) - (damping / (2 * DT)) * np.eye(N)
-    a_mid = -2 * (M / DT**2) * np.eye(N) + K * L_R + K2 * np.eye(N)
-    Phi, Psi = np.zeros((T, N)), np.zeros((T, N))
+def el_trajectories(damping=D, seed=7, dt=DT, steps=T):
+    """Step the exact discrete EL equations of the action above.
+    NOTE: the two endpoints in time are boundary data (initial conditions),
+    not interior stencil points -- EL residual claims apply to interior n only
+    by construction (reviewer note, PR #11)."""
+    a_plus = (M / dt**2) * np.eye(N) + (damping / (2 * dt)) * np.eye(N)
+    a_minus = (M / dt**2) * np.eye(N) - (damping / (2 * dt)) * np.eye(N)
+    a_mid = -2 * (M / dt**2) * np.eye(N) + K * L_R + K2 * np.eye(N)
+    Phi, Psi = np.zeros((steps, N)), np.zeros((steps, N))
     rng = np.random.default_rng(seed)
     Phi[0] = rng.normal(size=N); Phi[1] = Phi[0]
     Psi[0] = rng.normal(size=N) * 0.1; Psi[1] = Psi[0]
     ip, im = np.linalg.inv(a_plus), np.linalg.inv(a_minus)
-    for n in range(1, T - 1):
+    for n in range(1, steps - 1):
         Phi[n + 1] = ip @ (-(a_mid @ Phi[n]) - a_minus @ Phi[n - 1])  # damped reader
         Psi[n + 1] = im @ (-(a_mid @ Psi[n]) - a_plus @ Psi[n - 1])   # anti-damped record
     return Phi, Psi
+
+
+def _charge_drift(dt, steps):
+    Phi, Psi = el_trajectories(dt=dt, steps=steps)
+    def h(n):
+        vp = (Phi[n + 1] - Phi[n - 1]) / (2 * dt)
+        vs = (Psi[n + 1] - Psi[n - 1]) / (2 * dt)
+        return M * vp @ vs + K * Phi[n] @ L_R @ Psi[n] + K2 * Phi[n] @ Psi[n]
+    hh = np.array([h(n) for n in range(1, steps - 1, 10)])
+    return (hh.max() - hh.min()) / abs(hh.mean())
 
 
 def readout_energy(Phi, n):
@@ -67,8 +80,8 @@ def test_el_derives_damped_spine_from_action():
     precision => the dissipative D-term IS variational under RD4 doubling."""
     Phi, Psi = el_trajectories()
     eps, grads = 1e-6, []
-    for n in (5, 100, 1500):
-        for i in (0, 3):
+    for n in (5, 37, 100, 500, 1500, 3200):
+        for i in range(N):
             pp, pm = Psi.copy(), Psi.copy(); pp[n, i] += eps; pm[n, i] -= eps
             grads.append((action(Phi, pp) - action(Phi, pm)) / (2 * eps))
             qp, qm = Phi.copy(), Phi.copy(); qp[n, i] += eps; qm[n, i] -= eps
@@ -92,6 +105,15 @@ def test_conservation_of_distinction():
     h = np.array([distinction_charge(Phi, Psi, n) for n in range(1, T - 1, 10)])
     assert abs(h.mean()) > 0.01                # a genuinely nonzero charge
     assert (h.max() - h.min()) / abs(h.mean()) < 1e-3   # measured 1.5e-4
+
+
+def test_charge_drift_scales_as_dt_squared():
+    """Reviewer NIT (PR #11) committed as a test: halving dt shrinks the
+    distinction-charge drift ~4x => the residual drift is O(dt^2)
+    discretization error, not a broken conservation law."""
+    d1 = _charge_drift(DT, T)
+    d2 = _charge_drift(DT / 2, 2 * T)
+    assert 3.0 < d1 / d2 < 5.0, (d1, d2)
 
 
 def test_reduction_d_zero_conservative():
