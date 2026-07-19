@@ -64,6 +64,6 @@ calibration ภายใน chain ผิดปกติ (เพราะมั�
 - n=4 และทั้งสี่เป็น toy-tier/gate-level — ยังไม่มีเคสไหนถูกไล่ถึง full likelihood
 - muon g−2: ผมยังไม่ได้อ่าน theory-initiative whitepaper ฉบับล่าสุดเต็ม (อ้างจาก
   abstract 2 ฉบับ); JWST: สถานะ "little red dots" อ้างจากวรรณกรรมที่เคลื่อนเร็ว
-- thesis นี้เองเป็น readout ของผู้อ่านขอบเขตจำกัด (Bounded-Judge) — ผ่าน
-  adversarial review หนึ่งรอบก่อน merge แล้ว แต่ยังไม่เคยถูกท้าโดยนักจักรวาลวิทยา
-  มืออาชีพ [Open สำหรับการใช้นอกวง]
+- thesis นี้เองเป็น readout ของผู้อ่านขอบเขตจำกัด (Bounded-Judge) — ต้องผ่าน
+  adversarial review ก่อน merge (สถานะ review ดูที่ PR) และยังไม่เคยถูกท้าโดย
+  นักจักรวาลวิทยามืออาชีพ [Open สำหรับการใช้นอกวง]
