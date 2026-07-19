@@ -54,7 +54,7 @@ from lens import Issue, Quantity, run_gates
 ex = run_gates(Issue(statement="...", quantities=[Quantity("h", chain="...")]))
 for g in ex.gates: print(g.gate, g.verdict, g.tier, g.detail)
 ```
-Computable gates compute (`finite_diagnostic`): G5 null-space (LTP4), G6
+Computable gates compute `finite_diagnostic` when fully specified (else Dr/Open): G5 null-space (LTP4), G6
 load-bearing discard (LTP3), G10 limit certificate, G11 formula equivalence,
 G13 timescale atlas. Judgment gates return `PROMPT` — answer them, never skip.
 Full field list of `Issue` and the W1–W7 workflow: `skill/readout-lens/SKILL.md`.
