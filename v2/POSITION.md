@@ -47,10 +47,11 @@ AI รันตามได้** ซึ่งของที่ฝังใน�
   0.62→0.76 โดย θ★ นิ่งถึงทศนิยม 4 ตำแหน่ง ⇒ h_CMB คือพิกัดหลัง closure ไม่ใช่ readout
   ตรง ⇒ tension ย้ายจากโลกไปที่ closure posits (ทรงเดียวกับที่ Sorites ถูกแก้)
   และ G6 ชี้ record ตัดสิน: r_s ที่อิสระจาก CMB — ทั้งหมดบรรจบกับ frontier framing
-  (Efstathiou & Bond 1999; Knox & Millea 2019) โดยเลนส์พาไปเองด้วยโค้ด ~60 บรรทัด
+  (Efstathiou & Bond 1999; Knox & Millea arXiv 2019 / PRD 2020) โดยเลนส์พาไปเองด้วยโค้ด ~60 บรรทัด
 - **AP2 — Einstein Probe FXTs** (`ap/ap2_fxt_amati.py`, arXiv:2607.14317): G7 ตรวจข้อ
-  หักล้างของผู้เขียน → พีชคณิต deboost 5 บรรทัดยืนยัน (ใต้ Amati locus ไปไม่ถึงด้วย
-  viewing angle) / G4 จับ overclaim: แบนด์อ่อนของ EP คัดเลือก E_p ต่ำโดยการออกแบบ
+  หักล้างของผู้เขียน → พีชคณิต deboost ยืนยัน*ภายในครอบครัว power-law เดี่ยว*
+  (E_iso∝δ^p, p∈[2,3] — exponent เป็น toy-assumed) ว่าใต้ Amati locus ไปไม่ถึงด้วย
+  viewing angle; **ไม่ครอบคลุม** structured jets ที่ E_p ขึ้นกับมุม (สาย GRB 170817A) / G4 จับ overclaim: แบนด์อ่อนของ EP คัดเลือก E_p ต่ำโดยการออกแบบ
   ต้อง forward-model selection ก่อนประกาศ "ประชากรใหม่" (precedent: X-ray flashes) /
   G5 ตัดสิน: ทางเลือกทั้งสามของผู้เขียนอยู่ใน null space ของ record สองพิกัด —
   งานที่คมกว่าคือ Γ-bound จาก compactness [ยังเป็นการอ่านจาก abstract เท่านั้น —

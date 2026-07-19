@@ -45,7 +45,10 @@ Order by artifact readiness:
       closure posits. Upgrade path: full likelihood + error propagation.
 - [x] **AP2** Einstein Probe FXTs (`ap/ap2_fxt_amati.py`, 3 pytest PASS
       2026-07-19) — toy tier: below-Amati unreachable by viewing angle
-      (confirms paper's refutation); Π-selection + null-space demands recorded
+      *within the single-power-law deboost family (E_iso∝δ^p, p∈[2,3],
+      toy-assumed)* — family-scoped support for the paper's refutation, NOT a
+      bound on structured jets with angle-dependent E_p (GRB 170817A
+      literature); Π-selection + null-space demands recorded
       in `v2/POSITION.md` §2. Caveat: abstract-only reading — retract the
       "ยังไม่ปิด" half if the full paper already does selection modeling/Γ-bounds.
 - [ ] **AP3+** further blind trials on problems with unknown frontier answers —
