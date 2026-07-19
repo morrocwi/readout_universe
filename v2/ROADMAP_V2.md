@@ -63,7 +63,13 @@ Order by artifact readiness:
       Φ=1.0000) from world-side (control, Φ=0.000) exactly. Next: Coq lift of
       the nested-inclusion bound; Φ_FI on DESI two points + g−2; literature
       novelty falsifier before ANY external claim.
-- [ ] **AP5+** further blind trials on problems with unknown frontier answers —
+- [x] **AP5** DRL first run (`ap/ap5_drl.py`, 4 pytest PASS 2026-07-19) — the
+      Discrete Retention Lagrangian (v2/DISCRETE_RETENTION_LAGRANGIAN.md):
+      RD4-forced doubling derives the damped spine from an action (EL residual
+      4.4e-10) with conserved distinction charge (drift 1.5e-4) — closes the
+      corpus's declared "D-term BORROWED" gap in-repo; Coq lift + general-graph
+      + literature falsifier pending.
+- [ ] **AP6+** further blind trials on problems with unknown frontier answers —
       the standing test of the "no philosophy does this cheaper" stance
       (`v2/POSITION.md` §5).
 

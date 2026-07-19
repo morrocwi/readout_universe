@@ -54,3 +54,9 @@ Both TOY TIER (declared in file headers). Full suite: `python3 -m pytest -q` →
 | Check | Command | Result |
 |-------|---------|--------|
 | AP4 (4 tests: Hubble closure-borne Φ=1.0000 [V 18.2→0.0000 ปลด w], world-side control Φ=0.000, nested-inclusion bounds, Φ-carries-its-posit) | `python3 -m pytest ap/ap4_phi_fi.py -q` | 4 passed |
+
+## 2026-07-19 — AP5: DRL (Discrete Retention Lagrangian)
+
+| Check | Command | Result |
+|-------|---------|--------|
+| AP5 (4 tests: EL residual <1e-8 บน trajectory จริง [วัด 4.4e-10] — D-term derive จาก action สำเร็จ; reader ตาย/record โต; ประจุ distinction H drift <1e-3 [วัด 1.5e-4]; reduction D=0 อนุรักษ์) | `python3 -m pytest ap/ap5_drl.py -q` | 4 passed |
