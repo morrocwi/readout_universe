@@ -56,19 +56,24 @@ def test_hubble_tension_is_closure_borne():
 
 
 def test_world_side_control_yields_zero():
-    """Negative control (mandatory, property 4): two records reading h in the
-    SAME role differ genuinely; freeing w cannot absorb it => Phi_FI ~ 0."""
-    y2, s2 = np.array([0.67, 0.73]), np.array([0.01, 0.01])
+    """Negative control (mandatory, property 4), NON-TAUTOLOGICAL version
+    (review PR #9): two theta*-like records that BOTH genuinely depend on w
+    in the same way disagree; freeing w moves both model predictions
+    together, so it cannot absorb the split => Phi_FI ~ 0. This tests real
+    non-absorption, not parameter non-participation."""
+    y2, s2 = np.array([1.0411, 1.0511]), np.array([0.0011, 0.0011])
 
     def V2(p, w_free):
-        h = p[0]
-        return float(np.sum(((np.array([h, h]) - y2) / s2) ** 2))
+        h, wm = p[0], p[1]
+        w = p[2] if w_free else -1.0
+        t = theta100(h, 0.02237, wm, w)      # same prediction feeds BOTH records
+        return float(np.sum(((np.array([t, t]) - y2) / s2) ** 2))
 
-    vf = _fit(lambda p: V2(p, False), [0.70])
-    vr = _fit(lambda p: V2(p, True), [0.70, -1.2])
+    vf = _fit(lambda p: V2(p, False), [0.70, 0.142])
+    vr = _fit(lambda p: V2(p, True), [0.70, 0.142, -1.2])
     assert vf > 10.0
     phi = phi_fi(vf, vr)
-    assert abs(phi) < 0.05, phi               # measured 0.000
+    assert abs(phi) < 0.05, phi
 
 
 def test_property_bounds_nested_inclusion():
@@ -81,11 +86,24 @@ def test_property_bounds_nested_inclusion():
 
 
 def test_phi_carries_its_posit():
-    """Property 2: Phi_FI is a function OF the freed posit -- freeing an
-    IRRELEVANT posit (curvature-like dummy that we keep at zero effect by
-    construction: refit with the same forced model twice) must give Phi ~ 0,
-    not inherit the w-result."""
-    vf = _fit(lambda p: V_hubble(p, False), [0.70, 0.142])
-    # "freeing" a posit with no lever on the records = same family
-    vr_same = _fit(lambda p: V_hubble(p[:2], False), [0.70, 0.142, 0.0])
-    assert abs(phi_fi(vf, vr_same)) < 0.05
+    """Property 2, NON-TAUTOLOGICAL version (review PR #9): freeing a
+    DIFFERENT, genuinely-constrained posit (omega_b, with its real tight
+    prior sigma=0.00015) must give low Phi -- the tension is NOT attributable
+    to omega_b -- while freeing w gives Phi~1. Also encodes property 5:
+    without the prior, ANY third free knob saturates dof=0 and fakes Phi=1,
+    so priors representing the posit's true constraint are mandatory."""
+    WB0, SWB = 0.02237, 0.00015
+
+    def V_wb(p, wb_free):
+        h, wm = p[0], p[1]
+        wb = p[2] if wb_free else WB0
+        y = np.array([theta100(h, wb, wm, -1.0), wm, h])
+        prior = ((wb - WB0) / SWB) ** 2
+        return float(np.sum(((y - Y_OBS) / SIG) ** 2)) + prior
+
+    vf = _fit(lambda p: V_wb(p, False), [0.70, 0.142])
+    vr_wb = _fit(lambda p: V_wb(p, True), [0.70, 0.142, WB0])
+    phi_wb = phi_fi(vf, vr_wb)
+    assert phi_wb < 0.10, phi_wb             # measured ~0.025: NOT omega_b's tension
+    vr_w = _fit(lambda p: V_hubble(p, True), [0.73, 0.142, -1.2])
+    assert phi_fi(vf, vr_w) > 0.95           # ...while it IS w's tension
