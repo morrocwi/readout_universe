@@ -18,6 +18,7 @@
 .*.aux
 .lia.cache
 .nia.cache
+.nra.cache
 
 # Python
 __pycache__/
