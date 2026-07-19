@@ -36,7 +36,7 @@ Doubled field X = (Φ, Ψ)ᵀ บน node ของกราฟ × step เว�
    ตาย 100.00%) — **แต่ระบบเชิงเส้นนี้ Φ,Ψ decoupled ใน EL: การโตของ Ψ มาจาก
    initial condition ของมันเอง ไม่ใช่การรับข้อมูลจาก Φ** (executed: Ψ₀=0 ⇒
    Ψ≡0 ตลอด) ⇒ "dissipation = handoff เข้า Ψ" มีสถานะ [Open] ในโมเดลนี้ —
-   กลไก handoff จริงต้องการโครงสร้างเพิ่ม (ดู "ทิศ append-only" ล่าง)
+   กลไก handoff จริงต้องการโครงสร้างเพิ่ม (ดู `APPEND_ONLY_RECORD.md` — AP7 ทำแล้ว: handoff เป็นจริงเชิงคำนวณในชั้น tape)
 3. **Bilinear invariant H:** Legendre transform ⇒ พจน์ D หักล้างกันเอง เหลือ
    **H = M·vΦᵀvΨ + K·ΦᵀL_RΨ + k₂·ΦᵀΨ** อนุรักษ์ — วัดจริง: rel. drift **1.5×10⁻⁴**
    ตลอด 4,000 steps [finite_diagnostic] **ขอบเขตความหมาย (แก้ตาม external
