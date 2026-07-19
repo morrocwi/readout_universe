@@ -1,0 +1,15 @@
+# Verified runs — executed check log
+
+Rule: a claim from `CLAIMS.md` may be cited as `finite_diagnostic`/`Th_coqc` only
+if a dated executed run appears here (machine-dependent timings are never claimed).
+
+## 2026-07-19 — Lenovo Legion 5 15ARH05 (Ubuntu, Python 3 miniforge, Coq 8.20.1)
+
+| Check | Command | Result |
+|-------|---------|--------|
+| C1–C3 | `python3 code/LTP1_logic_as_residual_flow.py` | `SUITE: PASS 3/3` — C1 V→8.20e-26, 0 violations; C2 +1.000→−1.000; C3 mean V=0.00795>0 |
+| C4–C6 | `python3 code/LTP2_3_4_battery.py` | `SUITE: PASS 8/8` — LTP2 3/3 (flip n=1039@Π=0.5, n=2414@Π=0.8); LTP3 2/2; LTP4 3/3 (rank 3/4, det=0) |
+| C7 | `coqc code/UPL_Sorites.v` | exit 0; 3× `Closed under the global context` |
+
+All expected values match `CLAIMS.md` exactly. Note: README floor is Coq 8.18;
+this run used 8.20.1 — compiles clean, axiom-free check intact.
