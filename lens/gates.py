@@ -62,6 +62,7 @@ class Issue:
     limit_series: tuple[list[float], list[float]] | None = None  # (samples, limit_vars)
     limit_side: str = "zero"                   # 'zero' | 'infinity' (which limit is claimed)
     formula_pair: tuple[str, str] | None = None  # two closure ids claimed (in)equivalent
+    claimed_tau_s: float | None = None         # a timescale the issue asserts (seconds)
 
 
 @dataclass
@@ -304,12 +305,59 @@ def g11_equivalence(issue: Issue) -> GateResult:
                       "inequivalence; register the mapping to adjudicate")
 
 
+def g12_triage(issue: Issue) -> GateResult:
+    """G12: structural intake triage via the solver's murg operators -- names
+    which of the 14 cross-domain reasoning operators (Repair, Cost, Boundary,
+    Persistence, ...) the issue is made of, BEFORE the gates argue anything.
+    Informational (Dr): a triage is a reading aid, never a verdict."""
+    murg = solver_link.import_engine("murg")
+    if murg is None:
+        return GateResult("G12_triage", "PROMPT", "Open",
+                          "SKIPPED: solver unavailable -- triage by hand")
+    r = murg.route(issue.statement)
+    return GateResult("G12_triage", "PASS", "Dr",
+                      f"domain~{r.domain}, operators={r.operators}, "
+                      f"confidence={r.confidence:.2f} (keyword router -- reading aid, "
+                      "not a verdict; low confidence => triage by hand)")
+
+
+def g13_timescale(issue: Issue) -> GateResult:
+    """G13: a claimed timescale is checked against the solver's tau_c atlas
+    (220 entries / 36 disciplines, ~85 orders of magnitude) -- naming the
+    regime it lands in and its nearest measured neighbours, so an issue
+    cannot silently conflate regimes."""
+    if issue.claimed_tau_s is None:
+        return GateResult("G13_timescale", "PASS", "Dr", "no timescale claim")
+    if issue.claimed_tau_s <= 0:
+        return GateResult("G13_timescale", "PROMPT", "Open",
+                          "non-positive timescale -- restate as a finite readout")
+    tc = solver_link.import_engine("tau_c")
+    if tc is None:
+        return GateResult("G13_timescale", "PROMPT", "Open",
+                          "SKIPPED: solver unavailable -- timescale unchecked")
+    import math
+    tau = issue.claimed_tau_s
+    neighbours = []
+    for cat, entries in tc.ATLAS.items():
+        for (nm, t, _kind, _src) in entries:
+            if t > 0:
+                neighbours.append((abs(math.log10(tau / t)), f"{nm} [{cat}] {t:.3g}s"))
+    neighbours.sort()
+    near = "; ".join(n for _, n in neighbours[:3])
+    floor = getattr(tc, "TAU_C_FLOOR_S", None)
+    below = floor is not None and tau < floor
+    return GateResult("G13_timescale", "FLAG" if below else "PASS",
+                      "finite_diagnostic",
+                      (f"BELOW the tau_c floor ({floor:.3g}s) -- non-readout territory; "
+                       if below else "") + f"nearest atlas neighbours: {near}")
+
+
 def run_gates(issue: Issue) -> Extraction:
-    """Walk G1-G7 + G9-G11; assemble the 8-piece extraction (= G8)."""
+    """Walk G1-G7 + G9-G13; assemble the 8-piece extraction (= G8)."""
     g = [g1_translate(issue), g2_infinity(issue.statement), g3_quantity_role(issue),
          g4_pi_selection(issue), g5_identifiability(issue), g6_load_bearing(issue),
          g7_readout_vs_readout(issue), g9_theorem_check(issue), g10_limit(issue),
-         g11_equivalence(issue)]
+         g11_equivalence(issue), g12_triage(issue), g13_timescale(issue)]
     # weakest-tier-wins over the ordering Open < Dr < finite_diagnostic < Th_coqc
     _ORDER = ["Open", "Dr", "finite_diagnostic", "Th_coqc"]
     tiers = [r.tier for r in g]

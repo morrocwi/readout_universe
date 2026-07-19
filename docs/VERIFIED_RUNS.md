@@ -35,3 +35,10 @@ Both TOY TIER (declared in file headers). Full suite: `python3 -m pytest -q` →
 | Check | Command | Result |
 |-------|---------|--------|
 | Gates suite incl. G2 dual Guard (Z+I), G9 theorem hook (real hit `sqrt2_is_not_a_readout` + fake-name auto-downgrade), G10 LimitCertificate on 1/n decay, G11 unregistered-pair refusal | `python3 -m pytest -q` | **19 passed** |
+
+## 2026-07-19 — lens Phase 2+3 (triage, timescale atlas, compute muscle, drift detector)
+
+| Check | Command | Result |
+|-------|---------|--------|
+| Full suite incl. G12 murg triage, G13 tau_c atlas (electron-zone neighbour + floor flag), compute.solve_closure('acceleration')=5.0, vendor md5 drift detector | `python3 -m pytest -q` | **25 passed** |
+| evidence/ Coq recompile (opt-in) | `RUN_COQ=1 python3 -m pytest ap/ap0_lens_gates.py::test_evidence_recompiles_opt_in -q` | 1 passed (55.8s) |

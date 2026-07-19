@@ -8,3 +8,4 @@
 PRIVATE / PROPRIETARY - do not publish outside the org.
 """
 from .gates import Issue, Quantity, Extraction, GateResult, run_gates  # noqa: F401
+from . import compute  # noqa: F401  (W3 muscle: audited calculators, live-linked)
