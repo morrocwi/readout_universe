@@ -1,24 +1,29 @@
 {
-  "artifact": "ap/ap20_retention_self_interaction.py",
+  "artifacts": [
+    "ap/ap20_retention_self_interaction.py",
+    "ap/ap20_symbolic_forcing.py",
+    "v2/RETENTION_SELF_INTERACTION.md"
+  ],
   "date": "2026-07-20",
-  "tier": "finite_diagnostic",
-  "claim": "Given A1-A4, ordered self-carrier channel composition forces the missing spin-1 self-interaction unit with coefficient one.",
+  "tier": "finite_diagnostic + symbolic_exact",
+  "claim": "Given A1-A4, unital ordered self-carrier channel composition forces the missing spin-1 self-interaction unit with coefficient one.",
   "premises": {
-    "A1": "one bilinear associative ordered channel product",
+    "A1": "one unital bilinear associative ordered channel product; the no-op identity fixes normalization",
     "A2": "circulation is the exchange-odd order defect of that product",
     "A3": "self-carrier closure: fluctuations inhabit the same channel algebra",
     "A4": "quadratic load induced by the order-defect norm"
   },
   "executed_results": {
+    "no_op_identity_normalization": "pass",
     "exchange_odd_and_jacobi": "pass",
-    "epsilon_squared_term_coefficient": 1,
+    "symbolic_epsilon_squared_term_coefficient": 1,
     "hessian_extra_curvature_unit": 1,
     "commutative_control": 0,
     "external_payload_control": 0,
     "paper_IV_geometry_plus_composition": "1 + 1 = 2; quadratic response = 4"
   },
   "borrowed": [
-    "finite associative matrix algebra",
+    "finite unital associative matrix algebra",
     "so(3) finite representation",
     "Paper IV geometric unit = 1"
   ],
@@ -31,6 +36,7 @@
   "kill_conditions": [
     "a valid retained-distinction grammar selects commutative channels while retaining the claimed physical sector",
     "self-carrier closure cannot be derived and external-payload transport is forced instead",
-    "the unit changes under a normalization fixed independently by the same channel product"
+    "the unit changes after normalization is fixed by the same no-op identity",
+    "the symbolic coefficient ceases to be one in a valid unital bilinear channel algebra"
   ]
 }
