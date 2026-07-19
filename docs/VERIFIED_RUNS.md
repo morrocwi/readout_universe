@@ -42,3 +42,9 @@ Both TOY TIER (declared in file headers). Full suite: `python3 -m pytest -q` →
 |-------|---------|--------|
 | Full suite incl. G12 murg triage, G13 tau_c atlas (electron-zone neighbour + floor flag), compute.solve_closure('acceleration')=5.0, vendor md5 drift detector | `python3 -m pytest -q` | **25 passed** |
 | evidence/ Coq recompile (opt-in) | `RUN_COQ=1 python3 -m pytest ap/ap0_lens_gates.py::test_evidence_recompiles_opt_in -q` | 1 passed (55.8s) |
+
+## 2026-07-19 — AP3 blind trial #3 (DESI DR2 evolving dark energy)
+
+| Check | Command | Result |
+|-------|---------|--------|
+| AP3 (5 tests: grammar sanity/CPL→ΛCDM exact, pivot z∈[0.3,0.6], DESY5-combo near-null 0.50% over 10 BAO observables with (h,ωm) free, BAO+CMB-only point residual 1.33% (NOT fully null — asserted honestly), Ωm-alone insufficient >1%) | `python3 -m pytest ap/ap3_desi_mirage.py -q` | 5 passed |
