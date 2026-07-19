@@ -1,0 +1,880 @@
+\documentclass[11pt,a4paper,twoside]{book}
+
+% ============================================================================
+% READOUT UNIVERSE — PHILOSOPHY AND LOGIC
+% An Open-Science, Reproducible Textbook. Version 1.0 (2026-07-19)
+% Author: Yaoharee Lahtee (ORCID 0009-0005-3861-0626), Open Civil Science Initiative
+% License: CC BY 4.0.  Reproduce: `make all` (see README.md in this bundle)
+% ============================================================================
+
+\usepackage[margin=1.1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{fancyhdr}
+\usepackage{microtype}
+\usepackage[hidelinks]{hyperref}
+
+% ---- claim-tier machinery -------------------------------------------------
+\newcommand{\tier}[1]{\textnormal{\small\textsf{[#1]}}}
+\newcommand{\Ax}{\tier{Ax}}\newcommand{\Th}{\tier{Th}}\newcommand{\Thstar}{\tier{Th$^{*}$}}
+\newcommand{\Dr}{\tier{Dr}}\newcommand{\Cj}{\tier{Cj}}\newcommand{\Wf}{\tier{Wf}}
+\newcommand{\Df}{\tier{Df}}\newcommand{\OpenT}{\tier{Open}}
+\newcommand{\coq}{\tier{Th\_coqc}}\newcommand{\fd}{\tier{finite\_diagnostic}}
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[chapter]
+\newtheorem{proposition}[theorem]{Proposition}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{axiom}[theorem]{Axiom}
+\newtheorem{principle}[theorem]{Principle}
+\newtheorem{falsifier}[theorem]{Falsifier}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+\lstset{basicstyle=\ttfamily\footnotesize, breaklines=true, frame=single,
+        columns=fullflexible, keepspaces=true}
+
+\pagestyle{fancy}\fancyhf{}
+\fancyhead[LE]{\small\nouppercase\leftmark}\fancyhead[RO]{\small\nouppercase\rightmark}
+\fancyfoot[C]{\thepage}
+
+\title{\Huge\bfseries Readout Universe\\[4pt]\LARGE Philosophy and Logic\\[10pt]
+\large An Open-Science, Reproducible Textbook}
+\author{Yaoharee Lahtee\\\small Open Civil Science Initiative, Bangkok\\
+\small ORCID 0009-0005-3861-0626}
+\date{Version 1.0 --- July 2026\\\small License: CC BY 4.0}
+
+\begin{document}
+\frontmatter
+\maketitle
+
+\chapter*{Open Science and Reproducibility Statement}
+\addcontentsline{toc}{chapter}{Open Science and Reproducibility Statement}
+
+This textbook is built on a single non-negotiable rule inherited from its parent
+research programme: \emph{deliver operationally before claiming symbolically}
+($T_{\mathrm{op}}$ before $T_{\mathrm{sym}}$). Every load-bearing claim in this
+book therefore falls into exactly one of the following classes, and says so in
+the margin of the claim itself:
+
+\begin{enumerate}
+\item \coq\ --- machine-checked in Coq (v8.18), axiom-free over the discrete
+  core: the proof script is reprinted in Appendix~B, compiles with
+  \texttt{coqc} exit code $0$, and every theorem answers
+  \texttt{Print Assumptions} with \emph{Closed under the global context}.
+\item \fd\ --- verified by an executable Logic Test Protocol (LTP): the exact
+  Python source is reprinted in Appendix~A; running it reproduces the quoted
+  numbers. A finite diagnostic is \emph{evidence}, never a proof.
+\item \Dr\ / \Thstar\ --- derived under an explicitly declared bridge
+  assumption (each bridge is named, numbered, and listed in Appendix~D).
+\item \Cj\ / \Wf\ / \OpenT\ --- conjecture, working form, or open problem. An
+  \OpenT\ never appears bare: the author's current stance is always attached.
+\end{enumerate}
+
+\noindent\textbf{To reproduce everything in this book:}
+\begin{lstlisting}[language=bash]
+# in the bundle root (Python 3 + numpy; Coq 8.18 for the formal floor)
+python3 code/LTP1_logic_as_residual_flow.py    # expect: PASS 3/3
+python3 code/LTP2_3_4_battery.py               # expect: PASS 8/8
+coqc code/UPL_Sorites.v                        # expect: exit 0 and three times
+                                               # "Closed under the global context"
+\end{lstlisting}
+A claims register with one falsifiable statement per row and its exact check
+command is given in Appendix~C. If you find a genuine falsification, you have
+not embarrassed this book; you have used it exactly as designed.
+
+\paragraph{AI assistance disclosure.} The research direction, the core ideas,
+and all final decisions are the work of the human author. AI assistants were
+used in an assistant role only --- formal-proof drafting to the author's
+specification, numerical implementation, adversarial self-review, and
+editorial structuring.
+
+\paragraph{Lineage.} This volume is the English, textbook-form edition of the
+UPL programme (Universal Philosophy \& Logic), a lens over the author's
+physics--philosophy canon \emph{Genesis of the Universe, Step by Step} and its
+machine-checked successor system. The parent canon retains ontological
+authority: where this book and the canon disagree, the canon wins.
+
+\chapter*{How to Read This Book: The Reading Contract}
+\addcontentsline{toc}{chapter}{How to Read This Book}
+
+\begin{enumerate}
+\item \textbf{One language.} Everything in this book is causal-informational
+  structure on a finite discrete graph. Physics, logic, mind, and society are
+  \emph{one stream read at different causal-memory times} $\tau_c$. Nothing is
+  ``translated between domains''; we only slide along the stream.
+\item \textbf{Readout, not truth.} Everything a finite agency reads is a
+  finite, discrete \emph{readout}. The continuum, $\mathbb{R}$, and actual
+  infinity are \emph{non-readouts}. Where a proof needs them, the tier tag
+  says so.
+\item \textbf{The book is a testable engine.} Each chapter ends with the
+  condition under which that chapter is wrong. The universal falsifier of the
+  whole programme: exhibit any observer with $\varepsilon_{\mathrm{tot}}=0$
+  (a system whose representation of the world coincides with the world) and
+  every page of this book collapses.
+\item \textbf{No silent lifts.} Every strengthening of a claim between
+  versions is recorded in the regression log (Appendix~D), including the
+  retractions.
+\end{enumerate}
+
+\tableofcontents
+
+\mainmatter
+
+% ============================================================================
+\part{The Root}
+% ============================================================================
+
+\chapter{The Third Stance: Logic Is Neither Eternal Nor Conventional}
+
+Western philosophy of logic has long oscillated between two poles. The first
+is \emph{logical Platonism}: the laws of logic are eternal truths, prior to
+the world and to any thinker (Frege carried this banner). The second is
+\emph{conventionalism or psychologism}: logic is a human agreement, or a habit
+of the brain --- the pole Frege and Husserl attacked so effectively that it
+nearly vanished from twentieth-century philosophy.
+
+This book proposes a third stance, parallel to the informationalism of the
+parent canon:
+
+\begin{principle}[The Third Stance]\Dr\label{prin:third}
+Logic is the structure that necessarily emerges from the condition of a
+\emph{finite knower on a discrete graph}. It is the admissible transport
+grammar that any finite system must possess in order to bring retained
+distinguishabilities into comparison at all.
+\end{principle}
+
+Against Platonism: there is no ``third realm'' of logical law --- there is one
+stream of causally ordered difference, and logic is the reading of that stream
+at the knower's $\tau_c$. Against psychologism: the derivation does not start
+from empirical human psychology but from \emph{structural} finitude ---
+$\varepsilon_{\mathrm{tot}}>0$, bounded bandwidth, $\tau_c>0$ --- constraints
+that bind \emph{any} finite system, human, animal, or machine. This answers
+Frege's classical objection: we do not reduce logic to how humans happen to
+think; we elevate it to how any finite system \emph{must} handle difference.
+
+\begin{falsifier}
+Exhibit a system that performs contentful comparison with no admissible
+grammar whatsoever. Then the third stance fails (cf.\ falsifiers U2/U3,
+Appendix~C).
+\end{falsifier}
+
+\chapter{Why Logic Must Have a Genesis}
+
+A standard logic textbook begins ``let $p$ be a proposition'' --- as if
+propositions, negation, and implication fell from the sky together. The
+question such books never ask is: \emph{what must already exist for there to
+be a proposition at all?}
+
+The parent canon answered this style of question for physics (mass is not
+substance but inverse memory time; time is not a container but the total
+sequence of asymmetric transitions). This book does the same for logic:
+
+\begin{principle}[Birth Certificates]\Df
+Every logical constant must exhibit its own birth certificate: the step of the
+42-step genesis stream from which it emerges, and every bridge assumption it
+carries.
+\end{principle}
+
+The principle has teeth because it can \emph{reject}: if a logical constant
+requires actual infinity, direct access to the latent world $\theta$, or
+$\varepsilon_{\mathrm{tot}}=0$, then it is at best an idealized projection,
+not native logic of a finite knower. Chapter~7 shows that classical bivalence
+falls exactly into this class.
+
+\chapter{The Primordial Logic Stream (L-01 to L-04)}
+
+\begin{axiom}[L-01: Identity and difference are born as a pair]\Ax
+From the primordial axiom $\exists\,a,b:\ a\neq b$, the statement $a=a$ is
+definable only against the background of $a\neq b$. Identity does not precede
+difference; the two arise together as the first contrast.
+\end{axiom}
+
+Here we stand against Leibniz (identity of indiscernibles as a first
+principle) and closer to Heraclitus and N\=ag\=arjuna (Chapters~16--17).
+
+\begin{theorem}[L-02: Negation as exclusion]\Th\label{th:negation}
+Given distinguishability (the first bit), ``not this'' becomes sayable:
+$\neg$ is definable as \emph{exclusion within a field of alternatives}
+$A_D$.
+\end{theorem}
+
+This is by birth a \emph{choice negation}: ``not $a$'' means ``some other
+member of $A_D$'', not the absolute complement of a universe. Consequence:
+the law of excluded middle is licensed only when $A_D$ has been exhaustively
+enumerated --- and for a finite knower whose salient field satisfies
+$S_A \subsetneq \Delta$, exhaustiveness is never guaranteed. This is the root
+of our sympathy with intuitionism (Chapter~21) without Brouwer's mentalism.
+
+\begin{theorem}[L-03: Directed implication]\Th
+From causal asymmetry ($A{\to}B \neq B{\to}A$), implication is a
+\emph{directed walk along causal chains}, not a static truth table. Material
+implication ($p\to q \equiv \neg p \lor q$) is the projection of directed
+implication onto a static table; the notorious ``paradoxes of material
+implication'' are the price of that projection, not deep truths about
+implication. \Dr
+\end{theorem}
+
+\begin{theorem}[L-04: Inference as descent]\Dr\ + \fd\label{th:descent}
+Inference is a countable path of Lyapunov descent toward consistency:
+$\dot\varepsilon = -\Lambda A^{\!\top} W r$, where a proof is a path on the
+graph. \textbf{Operational evidence (LTP1-C1):} under constant evidence,
+$V(0)=0.654$ descends monotonically (zero violations) to $8.2\times10^{-26}$.
+\end{theorem}
+
+This is the first time in the programme that ``inference'' has an executable
+mathematical meaning rather than a metaphor. Its precise status --- a
+\emph{chosen reading} supported by a finite diagnostic, with alternatives not
+excluded --- is recorded in the Arrow Ledger (Appendix~D).
+
+% ============================================================================
+\part{The Logic of the Finite Knower}
+% ============================================================================
+
+\chapter{The Engine: $A\varepsilon=\delta$ Read at the Knower's $\tau_c$}
+
+The formal heart of the book is a \emph{re-reading} (not a re-derivation) of
+the seed algebra of the parent programme's minimal viable foundation:
+
+\begin{center}
+\begin{tabular}{@{}lll@{}}
+\toprule
+Symbol & In physics (MVF) & In this book (knower's $\tau_c$)\\
+\midrule
+$A$ & relational Jacobian & logical grammar (admissible transport)\\
+$\varepsilon$ & field deviation & belief-state deviation of a finite knower\\
+$\delta$ & observational mismatch & world-resistance readout (never $\theta$ itself)\\
+$r=A\varepsilon-\delta$ & residual & logical incoherence (epistemic residual)\\
+$V=\tfrac12 r^{\!\top}Wr$ & Lyapunov energy & incoherence energy of a belief state\\
+$\dot\varepsilon=-\Lambda A^{\!\top}Wr$ & dissipative flow & inference as descent\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+This is the parent canon's scale principle at work: \emph{one equation, every
+scale; only $\tau_c$ changes}. Physics and logic are not two sciences awaiting
+unification; they are one stream read at two positions.
+
+\begin{definition}[Bridge B1 --- declared openly]\Dr\label{def:B1}
+The belief dynamics of a finite knower instantiate residual flow in \emph{some}
+admissible triple $(A,W,\Lambda)$. This book claims the \emph{existence} of the
+reading, not the \emph{uniqueness} of the implementation. Uniqueness across
+dynamical classes is \OpenT\ (stance: we expect a \emph{negative} settlement
+--- logical implementation is plural; an adjudication campaign in the style of
+the parent programme's $M$-term audit is queued).
+\end{definition}
+
+\chapter{The Defeasibility Theorem (L-06)}
+
+\begin{theorem}[Defeasibility]\Thstar\ (under B1) + \fd\label{th:defeasible}
+The logic of a finite knower must be defeasible: every settled conclusion
+structurally carries the status ``may require revision''.
+\end{theorem}
+
+\begin{proof}[Proof sketch]
+$\varepsilon_{\mathrm{tot}}>0$ (the parent programme's irreducible error
+floor) implies the readout $\delta$ never coincides with the latent world
+$\theta$; hence for every settled conclusion there exists a trajectory of
+$\delta(t)$ under which that conclusion must revise. Non-monotonicity is
+therefore not a defect of an inference system but the \emph{normal dynamics}
+of any system tracking a world it cannot access directly.
+\end{proof}
+
+\noindent\textbf{Operational evidence (LTP1-C2):} a conclusion settled at
+$+1.000$ revises to $-1.000$ when the evidence flips at $t=30$; $V$ spikes to
+$1.876$ and re-descends to $2.9\times10^{-13}$. The ``change of mind'' of a
+logical system is captured as pure dynamics, with no ad-hoc revision machinery
+added (Chapter~21 compares AGM).
+
+\begin{remark}[Hume relocated]\Dr
+The problem of induction transforms: ``what justifies inference from past to
+future?'' becomes ``under what bound does a tracking system operate?'' The
+answer is input-to-state stability: bounded $\dot\delta$ implies bounded $r$.
+We do not \emph{solve} Hume; we \emph{relocate} the problem from
+justification to bounds.
+\end{remark}
+
+\chapter{Truth as Tracking (L-07)}
+
+The three classical camps --- correspondence, coherence, pragmatism --- are
+shown to be projections of a single object:
+
+\begin{definition}[Truth as maintained alignment]\Dr\label{def:truth}
+Truth is the \emph{event} of alignment under resistance, maintained rather
+than possessed. Formally: the ISS bound, bounded $\dot\delta \Rightarrow$
+bounded $r$.
+\end{definition}
+
+The correspondence face is the resistance of $\theta$ through $\delta$
+(world-side); the coherence face is the descent of $V$ (system-side); the
+pragmatist face is that alignment must keep \emph{working through time},
+without a terminus.
+
+\noindent\textbf{Operational evidence (LTP1-C3):} under persistent noise the
+time-averaged incoherence $\bar V = 0.008 > 0$ forever: there is no state
+``perfectly true, now stop''; there is only tracking that is good enough.
+This is the operational face of $\varepsilon_{\mathrm{tot}}>0$.
+
+\begin{remark}[Honesty reclassification]
+The Arrow Ledger (Appendix~D) records that this identification is a
+\emph{chosen weld}: the ISS mathematics is standard control theory,
+re-labelled. The contribution is the reading, not the mathematics. Earlier
+drafts carried a derivational flavour; that is retracted (R3).
+\end{remark}
+
+\chapter{Classical Logic as an Idealized Projection (L-09)}
+
+First-order logic with bivalence and monotonicity is the \emph{ideal limit}:
+$\dot\delta=0$ (a frozen world), $\eta=0$ (a noiseless readout),
+$t\to\infty$ (unbounded inference time), whence $r\to0$ exactly and every
+proposition is crisply decidable.
+
+\begin{proposition}[Structural isomorphism]\Dr
+The relation of classical logic to native logic is isomorphic to the relation
+of the continuum to the discrete graph, and of overdamped classical physics
+($k<k_c$) to the full dispersion relation, in the parent canon.
+\end{proposition}
+
+Classical logic is therefore not \emph{wrong} --- it is extremely accurate in
+near-limit regimes (pure mathematics, where $\delta$ is pinned by definition,
+is the most near-limit regime there is, which is why FOL flourishes there).
+It fails when applied to the live world ($\eta>0$, $\dot\delta\neq0$): the
+problem of induction, the paradoxes of material implication, and the failures
+of monotonic reasoning in common sense are all symptoms of using a projection
+outside its regime.
+
+\chapter{The Relocation of Paradox (L-10)}
+
+We apply to classical paradoxes the same discipline the parent canon applies
+to the hard problem of consciousness: \emph{relocate precisely; never claim to
+have solved}.
+
+\section{Sorites: the cut is in the readout}
+
+World-side, there is only a smooth graded quantity $g(n)$; the knower reads it
+through a retention threshold $\Pi$ as a binary predicate
+$H(n) = [\,g(n)\ge\Pi\,]$.
+
+\begin{theorem}[Sorites relocation --- machine-checked core]\coq\label{th:sorites}
+For monotone $g:\mathbb{N}\to\mathbb{N}$ and threshold readout $H$:
+\emph{(T1)} the readout never flips back; \emph{(T2)} at most one flip point
+exists; \emph{(T3)} the ``paradoxical step'' $H(n)\neq H(n{+}1)$ occurs
+exactly at the flip point; \emph{(T4)} raising the threshold can only delay
+truth. All four are proved in Coq 8.18, axiom-free
+(\texttt{Print Assumptions}: \emph{Closed under the global context});
+the script is Appendix~B.
+\end{theorem}
+
+\noindent\textbf{Operational instantiation (LTP2, \fd):} with
+$g(n)=1-e^{-n/1500}$ (smooth: $\max|\Delta g| = 6.7\times10^{-4}$), the
+binary readout has exactly one forced jump at $n=1039$ for $\Pi=0.5$; moving
+$\Pi$ to $0.8$ moves the jump to $n=2414$ while $g$ is untouched.
+
+\textbf{Conclusion.} The sorites cut is a property of the $\Pi$-readout,
+provably not of the graded world --- the price paid when a bounded-bandwidth
+system compresses a graded residual into a binary readout. \textbf{Honest
+scope:} the Coq theorem covers monotone $g$ (exactly LTP2's regime);
+non-monotone $g$ admits multiple flips.
+
+\section{The Liar: a residual loop without a world anchor}
+
+``This sentence is false'' forces the model $M_A$ to evaluate its own
+alignment with itself: its $\delta$ is its own output --- a residual loop
+with no world-side $\theta$ to anchor it (the pure-hallucination regime of
+the parent canon's world-resistance axiom). \Wf\ --- formalization is queued
+as LTP5; stance: we expect a no-fixed-point/oscillation result formalizable
+at the Coq level.
+
+\section{The infinity-injection diagnosis (operator $\Omega_\infty$)}
+
+Imported from the successor system's sharpest stance: everything an agency
+reads is a finite discrete readout; $\mathbb{R}$ and actual infinity are
+non-readouts. When a paradox involves infinity, first ask \emph{which
+infinity was injected}: \textbf{I1} $\mathbb{R}$-completeness; \textbf{I2}
+infinite divisibility ($h\to0$); \textbf{I3} infinite scale; \textbf{I4}
+actual $+\infty$.
+
+\begin{center}
+\begin{tabular}{@{}lll@{}}
+\toprule
+Paradox & Injection & Diagnosis (all \Dr\ unless noted)\\
+\midrule
+Zeno (dichotomy/Achilles) & I2 & no supertask exists on a discrete stepper ($\Delta\theta>0$)\\
+Thomson's lamp / supertasks & I2+I4 & ``the state after infinitely many steps'' is a non-readout\\
+Hilbert's Hotel & I4 & the strangeness is a property of a non-readout\\
+Continuum-framed sorites & I1 & discrete core closed by Theorem~\ref{th:sorites}\\
+Tarski hierarchy regress & I4 & \Cj\ --- requires real work; queued\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\chapter{Incompleteness as Identifiability (L-11)}
+
+\begin{proposition}[True but unreachable, constructed]\fd\label{prop:null}
+Take the grammar $A$ of LTP1 (rank $3<n=4$). Two world configurations
+$\theta_1\neq\theta_2$ differing along the null space
+($\|\theta_1-\theta_2\|=2.6$) produce \emph{identical} records
+$A\theta_1\equiv A\theta_2$; every inference trajectory of the knower
+coincides forever, and the Fisher matrix is singular (rank $3/4$,
+$\det=0$). There exist truths that are real and permanently inaccessible
+from any record --- as an \emph{identifiability statement}, not mysticism.
+\end{proposition}
+
+\textbf{Declared limit.} This is a \emph{structural analogy} to G\"odel: we
+have not constructed G\"odel's self-referential sentence. Elevating the
+analogy to a formal bridge is \OpenT\ (stance: we expect a mapping through
+the null space of a self-referential grammar --- not done, not claimed).
+Claiming ``this book solved G\"odel'' is an auto-fail of its own claim
+discipline.
+
+% ============================================================================
+\part{Philosophy Re-read}
+% ============================================================================
+
+\chapter{Ontology (Stream Steps 01--15)}
+
+``What exists?'' transforms into ``which eigenmodes have not yet decayed?''
+Three strongest consequences: (1) \emph{substance ontology falls} --- there
+is no ``thing'' beneath properties, only temporarily retained patterns of
+difference; mass itself is inverse memory, not stuff. (2) \emph{Impermanence
+is a theorem}, not a doctrine: every mode decays,
+$|a_k[n]| \le |a_k[0]|\,e^{-\gamma_k n\Delta\theta}$. (3) Several classical
+ontological questions become ill-formed --- ``what was before the Big Bang?''
+commits the same grammatical error as ``which direction is north of the North
+Pole?'' --- and the method operator $\Omega_{\mathrm{phil}}$ (Chapter~22) has
+a grammar gate built to catch exactly this class.
+
+\chapter{Epistemology (Steps 18--28)}
+
+Post-Gettier epistemology circles ``justified true belief plus what?''. This
+book changes the unit of analysis: knowledge is not a \emph{state} to be
+audited for three properties but an \emph{event} of alignment under
+resistance. Justification becomes legitimacy conditions: a knowledge claim is
+legitimate when (a) real world-resistance is in the loop (no hallucination),
+(b) the correction channel is open, and (c) the claim does not exceed its
+accessibility class. Foundationalism, coherentism, and reliabilism become
+three projections of one condition set --- exactly as the three truth
+theories were unified in Chapter~6. \Dr
+
+\begin{remark}[Gettier re-read]\Dr
+A Gettier case is a situation where $r$ is low \emph{by accident}: alignment
+occurs but is not maintained by genuine coupling to $\theta$. Compare
+LTP1-C2: a genuinely tracking system must re-descend when $\delta$ changes; a
+system that was ``right by luck'' does not respond. Knowledge differs from
+true belief in its \emph{dynamics}, not by one more static property.
+\end{remark}
+
+\chapter{Philosophy of Mind (Steps 29--34)}
+
+Direct inheritance from the parent canon: the knower forms \emph{inside} the
+epistemic horizon, out of error --- it does not pre-exist (step 29);
+phenomenalization requires embodiment ($\Xi_A>0$); and the hard problem is
+\emph{relocated} --- to the gap between the necessary conditions and
+phenomenal character --- never claimed solved (step 34). That discipline is
+this book's model everywhere: relocating a problem to sharper coordinates is
+worth more than a hollow declaration of victory. For AI, the parent canon has
+already fixed the stance: an AI is not a knower ($\Xi_A=0$) but an
+accelerator of knowing --- a sentence under which this book itself was
+produced.
+
+\chapter{Philosophy of Science (The Operator Calculus)}
+
+Popper gave falsifiability as a demarcation line but no \emph{calculus} of
+where to repair after a refutation; Kuhn gave paradigm shifts but no formal
+mechanism. This book supplies both: methodology is an executable operator
+loop, and refutation has \emph{coordinates} --- each falsifier points at the
+step it breaks. Kuhn's ``crisis'' is the state in which residuals accumulate
+while the identifiability gate says parameter repair is insufficient: the
+grammar $A$ itself must change. Paradigm $=A$; normal science $=$ descent
+under fixed $A$; revolution $=$ change of $A$. \Dr
+
+\begin{principle}[Readout-vs-readout falsification]\Dr\label{prin:rvr}
+A refutation benchmarked against an infinity-injected intermediate is
+invalid. A valid test must compare readout against readout --- predict the
+finite measured quantity directly. This is one notch sharper than bare
+Popperianism: it filters \emph{false refutations}, not only false theories.
+\end{principle}
+
+The discipline ``identifiability before claiming'' (orbit data identify $GM$,
+never $G$ and $M$ separately) is likewise elevated here from good practice to
+a binding rule of method --- something mainstream philosophy of science still
+lacks as an enforced gate.
+
+\chapter{Ethics (L-16)}
+
+\textbf{What is derivable} \Dr: with several finite knowers, each with
+$\varepsilon_{\mathrm{tot}}>0$ and different accessibility, no one holds
+$\theta$; shared correction is therefore a \emph{structurally forced} feature
+of co-existence without systemic collapse. Its conditions --- open channels,
+the prohibition on destroying one another's repair capacity, the obligation
+to hear readouts one cannot access oneself --- are the structural core of
+ethics.
+
+\textbf{What is not derivable (declared):} first-order moral content.
+This book provides the frame of legitimate deliberation, not ready-made
+verdicts; claiming more is an auto-fail.
+
+\begin{remark}\Cj
+The structure lands closer to discourse ethics (legitimate conditions of
+deliberation) than to utilitarianism or deontology --- but it is obtained
+from the ontology of error, not from a theory of communication. The detailed
+comparison is open work.
+\end{remark}
+
+\chapter{Aesthetics and Political Philosophy (Open Frontier)}
+
+Both fields lack a hard derivation chain in version 1.0 and are therefore
+tagged \Cj\ throughout. \emph{Aesthetic experience} may be read as the
+perception of excellent compression --- a pattern that reduces $V$ greatly at
+small description length (cf.\ elegance in mathematics); no LTP exists yet.
+\emph{Politics} reads as institutions qua shared-correction infrastructure at
+scale; the legitimacy of an institution is its preservation of correction
+channels, not its being right. This chapter is short by design: a world-class
+textbook is not one that covers everything, but one that never lies about
+what it covers.
+
+% ============================================================================
+\part{Dialogue with World Traditions}
+% ============================================================================
+
+\noindent\emph{Discipline of this part: every comparison is interpretive
+(\Df/\Dr). We state agreement, difference, and what this framework adds. We
+claim no supersession, and we refuse anachronism --- ancient traditions are
+not claimed to have ``already known'' these results. Every analogy row
+carries an explicit mapping and is registered; refuted analogies are
+registered too (the false-equivalence immune system, Appendix~D).}
+
+\chapter{Greece: Heraclitus to Aristotle}
+
+\textbf{Heraclitus} --- \emph{panta rhei} plus \emph{logos}: the closest
+Greek to this book. The world is flux with an \emph{order of change}
+(logos $\approx$ causal ordering of difference). What we add: the logos
+becomes one runnable equation. \textbf{Parmenides} --- the exact opposite
+pole: one unchanging Being is the choice of identity before difference,
+which axiom L-01 rejects. \textbf{Aristotle} --- the Organon read as the
+first systematic codification of the classical projection (Chapter~7):
+genuinely great, and correct within its regime. Deep difference: Aristotle
+takes essence/substance as primary (rejected in Chapter~10); yet his
+\emph{phronesis} and the defeasible reasoning of the \emph{Topics} are closer
+to the Defeasibility Theorem than standard textbooks admit. \Df
+
+\chapter{India: Ny\=aya and Buddhist Logic}
+
+\textbf{Ny\=aya} --- \emph{pram\=a\d{n}a} theory (legitimate channels of
+knowledge) is a pre-modern legitimacy-conditions theory: perception,
+inference, comparison, and testimony each carry their own validity
+conditions, mapping strikingly onto accessibility classes. \textbf{Dign\=aga
+and Dharmak\={\i}rti} --- \emph{apoha} (meaning as exclusion) corresponds
+precisely to Theorem~\ref{th:negation}, negation as exclusion within a field
+of alternatives; the \emph{trair\=upya} (three conditions of a valid reason)
+is a theory of admissible transport for inference. \textbf{N\=ag\=arjuna} ---
+\'s\=unyat\=a read as isomorphic to ``no substance, only relational
+eigenmodes'' (Chapter~10), and the \emph{catu\d{s}ko\d{t}i} as the rejection
+of bivalence outside its regime --- consistent with Chapter~7 without reading
+N\=ag\=arjuna as an irrationalist. The parent canon's declared Kant--Buddhist
+bridge ($\varepsilon_{\mathrm{tot}} = \varepsilon_{\mathrm{universal}} +
+\varepsilon_{\mathrm{conditioned}}$) is unfolded across this part. \Df/\Dr
+
+\textbf{Registered refusal (immune system):} ``catu\d{s}ko\d{t}i $=$
+Priest's dialetheism'' is \emph{refuted} in our reading --- N\=ag\=arjuna
+rejects bivalence outside its regime; he does not assert true contradictions.
+
+\chapter{China: The Mohist Canons}
+
+The Mohist Canons develop a theory of names and kinds, of reasons, and of
+disputation, distinctive for being more pragmatic--operational than the Greek
+line: the three tests judge a claim by its root, its evidence, and its use
+--- closer to this book's ``deliver before claiming'' than to Greek
+apodicticity. What we add: a formal engine under that operational instinct.
+Gongsun Long's ``a white horse is not a horse'' reads through this framework
+as a grammar-level fault: comparison across categories without a declared
+transport. \Df
+
+\chapter{Islamic Logic: Avicenna}
+
+Avicenna separates essence from existence and develops a temporal--modal
+syllogistic finer than Aristotle's; binding modality to \emph{time}
+(necessary $=$ at all times, possible $=$ at some time) resonates with this
+programme's reading of modality through modal difference (chance is not
+first; the retained field of alternatives is). Difference: his Necessary
+Existent is a metaphysical closure this framework does not accept --- our
+system closes at primordial difference, not at necessary being. \Df
+
+\chapter{Kant to Frege}
+
+\textbf{Kant} --- the closest modern relative: phenomena/noumena maps to
+record/world ($M_A/\theta$); conditions of possibility map to
+$\varepsilon_{\mathrm{universal}}$. Two deep differences: (1) the categories
+are not fixed a priori --- the grammar $A$ is revisable (paradigm change,
+Chapter~13); (2) we supply the \emph{dynamics} of revision, which Kant lacks.
+\textbf{Hegel} --- dialectic reads as residual dynamics in narrative form:
+thesis--antithesis as high $r$, synthesis as descent to lower $V$ under an
+enlarged $A$; but Hegel claims a terminal closure (the Absolute) that
+$\varepsilon_{\mathrm{tot}}>0$ forbids. \Cj\ \textbf{Frege} --- father of
+FOL and enemy of psychologism: we accept the Begriffsschrift's achievement
+fully \emph{as the calculus of the limit} (Chapter~7), and Chapter~1 answers
+his anti-psychologism: derivation from structural finitude is not
+psychologism.
+
+\chapter{The Twentieth Century to Now}
+
+\textbf{G\"odel/Tarski} --- Chapter~9 gives the identifiability reading with
+declared limits; Tarski's hierarchy reads as the prohibition of residual
+loops without a world anchor (the liar, Chapter~8).
+\textbf{Brouwer/intuitionism} --- we agree excluded middle is not universal
+law, but obtain this from the ontology of finite access, not from mentalism;
+consequence: constructive logic is the native logic of the regime
+$S_A\subsetneq\Delta$. \Dr\ \textbf{Quine} --- the web of belief with no
+statement immune matches the revisability of all of $A$; but Quine has no
+engine --- we supply $V$, the flow, and the ISS bound.
+\textbf{AGM belief revision} --- the closest formal neighbour: AGM gives
+static postulates of revision; LTP1-C2 exhibits revision as \emph{dynamics}
+with no added postulates. The trade: AGM has representation theorems this
+programme does not yet match (\OpenT; stance: LTP6, a postulate-by-postulate
+check, is the queued first step). \textbf{Non-monotonic logic}
+(Reiter, McCarthy) --- this book is non-monotonic by birth (the Defeasibility
+Theorem). \textbf{Paraconsistency} (Priest) --- we do not accept true
+contradictions in the world; contradiction lives in the readout (LTP2 is the
+prototype: the contradiction appears at projection, never in $g$). \Dr\
+\textbf{Peirce} --- fallibilism and truth as the limit of inquiry sit close
+to Chapter~6; difference: Peirce puts the limit at the end of infinite
+inquiry; we show even the limit is unreachable ($\bar V>0$ forever,
+LTP1-C3) --- our fallibilism is stronger and quantitatively bounded.
+
+% ============================================================================
+\part{Method and Discipline}
+% ============================================================================
+
+\chapter{The Operator $\Omega_{\mathrm{phil}}$: Three Worked Problems}
+
+The solve loop: (1) \textbf{encode} the problem as a difference-question on
+the stream; (2) \textbf{grammar gate} --- is it well-formed in this ontology?
+(now including the infinity-injection check $\Omega_\infty$); (3)
+\textbf{locate} the step and $\tau_c$; (4) \textbf{bridge audit} --- every
+bridge assumption downgrades \Th\ to \Dr; (5) \textbf{residual form} where
+possible; (6) \textbf{answer with tag}; (7) \textbf{state the falsifier of
+the answer itself}.
+
+\section{Is there free will?}
+Grammar gate: if ``free'' means exempt from causal chains, the question is
+ill-formed (everything lives on the causal graph). If ``free'' means agency
+--- choice under constraint that preserves repair capacity --- it is
+well-formed, located at the agency step. Answer \Dr: libertarian free will,
+ill-formed; structural-compatibilist free will, real as repair-preserving
+agency. Falsifier: exhibit agency functionally identical in every respect
+with no internal model load-bearing in the loop.
+
+\section{Is mathematics discovered or invented?}
+The grammar gate catches a false dilemma: on the stream the answer is
+\emph{both, at different layers}. Difference-structure (e.g.\ spectral truths
+of graphs) is \emph{discovered} (world-side, resistant); symbol systems and
+idealized limits (FOL, the continuum) are \emph{invented} as good projections
+(knower-side). \Dr\ Falsifier: exhibit a mathematical truth with neither
+world-resistance nor projection status.
+
+\section{Why is there something rather than nothing?}
+Grammar gate: identifying ``absolute nothing'' requires distinguishing it
+from ``something'' --- contentful nothing presupposes difference; the very
+form ``why $X$ rather than $Y$'' presupposes a field of alternatives, which
+is modal difference, which is already something. The question is
+\emph{ill-formed in its absolute form}: it eats its own tail. \Dr\ This is
+what the primordial axiom gives for free: difference needs no explanation
+from something deeper, because any explaining already uses difference.
+
+\chapter{The LTP Battery and the Formal Floor}
+
+\begin{center}
+\begin{tabular}{@{}llll@{}}
+\toprule
+Protocol & Checks & Result & Lifts / anchors\\
+\midrule
+LTP1 residual flow & C1--C3 & \fd\ PASS 3/3 & L-04, L-06, L-07/08\\
+LTP2 sorites threshold & C1--C3 & \fd\ PASS 3/3 & L-10 (sorites half)\\
+LTP3 bounded quantification & A--B & \fd\ PASS 2/2 & L-05\\
+LTP4 rank deficiency & C1--C3 & \fd\ PASS 3/3 & L-11 (as identifiability)\\
+\texttt{UPL\_Sorites.v} & T1--T4 & \coq\ (3$\times$ Closed) & Thm.~\ref{th:sorites}\\
+\midrule
+LTP5 liar loop & --- & planned & L-10 (liar half)\\
+LTP6 AGM postulate check & --- & planned & Ch.~21 bridge\\
+LTP7 classical-limit regime map & --- & planned & Ch.~7 quantitative\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+The \emph{three-file binding} release criterion (imported from the successor
+system): a node of the logic stream reaches top grade only when the
+human-readable chapter, the machine-checked script, and the executable
+diagnostic all pass simultaneously. The first node to achieve full binding
+is sorites: Chapter~8 $\leftrightarrow$ \texttt{UPL\_Sorites.v}
+$\leftrightarrow$ LTP2.
+
+\chapter{Claim Discipline and the Falsifier Battery}
+
+\textbf{Forbidden claims (auto-fail):} ``this book derived classical logic
+from physics''; ``this book solved the liar / sorites / G\"odel''
+(relocation is not solution --- even machine-checked relocation); ``the LTPs
+prove that knowers \emph{are} residual-flow systems'' (existence of a
+reading, not uniqueness); ``defeasibility is proven bridge-free''; ``ethical
+content is derived''; ``the aesthetics/politics chapter is established'';
+``this book supersedes the traditions of Part~IV''.
+
+\textbf{Falsifier battery.} Inherited universal: exhibit any knower with
+$\varepsilon_{\mathrm{tot}}=0$. Native: (U1) a finite knower running strictly
+classical revision-free logic against a live world with $r\equiv0$ breaks the
+Defeasibility Theorem; (U2) contentful negation with no distinguishability
+substrate breaks L-02; (U3) causally symmetric implication breaks L-03; (U4)
+$V\equiv0$ under persistent noise in any admissible triple breaks L-08 and
+fires the universal falsifier; (U5) a well-formed philosophical problem that
+$\Omega_{\mathrm{phil}}$ cannot even locate breaks the one-stream principle
+for philosophy; (U6) a sorites-type paradox provably world-side breaks L-10.
+
+Scoring of any output claiming this book's results: PASS / PARTIAL / FAIL /
+AUTO-FAIL; every tag change requires a regression-log entry --- no silent
+lifts.
+
+\chapter{Open Problems, Exercises, and the Road to Version 2}
+
+\textbf{Open problems (each with its stance --- never bare):}
+O-1 uniqueness of B1 (stance: expect negative settlement --- implementation
+is plural); O-2 the G\"odel bridge (stance: expect a mapping through the null
+space of a self-referential grammar; not done); O-3 AGM representation
+theorems for residual flow; O-4 the liar formalization; O-5 a quantitative
+regime map for classical validity; O-6 aesthetics/politics derivation
+chains; O-7 the formal comparison with discourse ethics.
+
+\textbf{The road to Version 2:} an audit-first curriculum closure. Before
+v2.0, a philosophy curriculum audit of $\sim$60--80 canonical problems
+(Gettier, induction, reference, personal identity, modality, meaning,
+\dots) will be tracked row by row as DIRECT / MAPPABLE / NEW CLOSURE / Open
+--- so that the next edition claims its coverage with checkable numbers, not
+impressions.
+
+\textbf{Exercises.}
+\begin{enumerate}
+\item Run LTP1 with a non-identity $W$. Which philosophical conclusions of
+  Part~II depend on the choice of $W$?
+\item Write the grammar $A$ of the syllogism Barbara and show that its
+  validity is a property of the null space.
+\item Choose a paradox this book does not treat (Newcomb; the Ship of
+  Theseus) and run the full seven-step $\Omega_{\mathrm{phil}}$, including
+  the falsifier of your own answer.
+\item Find one claim in this book whose tier tag is too high, and write the
+  argument that lowers it. If you succeed, the book worked as designed.
+\end{enumerate}
+
+\vspace{1em}
+\noindent\emph{Closing.} A world-class textbook is not one that answers every
+question, but one that knows the coordinates of its every answer, the price
+of every bridge it crosses, and bares its own throat to the sharpest knife:
+exhibit a knower with $\varepsilon_{\mathrm{tot}}=0$, and this whole book
+collapses --- honestly.
+
+% ============================================================================
+\appendix
+% ============================================================================
+
+\chapter{Logic Test Protocols (Executable Source)}
+\section{LTP1 --- logic as residual flow}
+\lstinputlisting[language=Python]{code/LTP1_logic_as_residual_flow.py}
+\section{LTP2--LTP4 --- battery}
+\lstinputlisting[language=Python]{code/LTP2_3_4_battery.py}
+
+\chapter{The Formal Floor (Coq)}
+\noindent Compile with \texttt{coqc code/UPL\_Sorites.v} (Coq 8.18); expected:
+exit code 0 and three times \emph{Closed under the global context}.
+\lstinputlisting{code/UPL_Sorites.v}
+
+\chapter{Claims Register}
+One falsifiable statement per row; the check command reproduces the quoted
+result on this bundle.
+
+\begin{center}
+\footnotesize
+\begin{tabular}{@{}p{0.42\textwidth}p{0.3\textwidth}p{0.2\textwidth}@{}}
+\toprule
+Claim & Check & Expected\\
+\midrule
+C1. Inference-as-descent converges monotonically under constant evidence &
+\texttt{python3 code/LTP1\ldots.py} & C1 PASS; $V\!\to\!8.2\mathrm{e}{-26}$, 0 violations\\
+C2. A settled conclusion revises under an evidence flip & same & C2 PASS; $+1.000\to-1.000$\\
+C3. Residual floor never reaches zero under noise & same & C3 PASS; $\bar V=0.00795>0$\\
+C4. Sorites: world-side tolerance holds; readout has exactly one jump; jump
+tracks $\Pi$ & \texttt{python3 code/LTP2\_3\_4\ldots.py} & LTP2 3/3 PASS\\
+C5. Bounded inference diverges iff the discarded difference is load-bearing &
+same & LTP3 2/2 PASS\\
+C6. Distinct worlds with identical records exist; Fisher singular & same &
+LTP4 3/3 PASS\\
+C7. Sorites core is machine-checked axiom-free (monotone scope) &
+\texttt{coqc code/UPL\_Sorites.v} & exit 0; $3\times$ Closed\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\noindent\textbf{We do NOT claim:} that any \fd\ result is a proof; that the
+Coq scope extends beyond monotone $g$; that B1 is unique; that G\"odel, the
+liar, or first-order ethics are solved; machine-independence of any timing.
+
+\chapter{Arrow Ledger, Borrowed-vs-Derived, and Retractions}
+
+\textbf{Arrow ledger} (classes: DEFINITIONAL / FORCED-given-$X$ / CHOSEN /
+REFUTED / STILL-OPEN): L-01 definitional; L-02 definitional-given-P1 (queued
+as the next Coq brick); L-03 forced-given-graph-asymmetry; L-04 chosen
+reading with \fd\ support --- alternatives (argumentation semantics, sequent
+search) not excluded; L-06 forced-given-B1, B1 itself chosen; L-07 chosen
+weld (reclassified down --- see R3); L-09 chosen, well-motivated; L-10
+forced-given-\{monotone $g$, threshold readout\}, machine-checked in scope;
+L-11 chosen analogy with \fd\ witness, G\"odel bridge still open; B1
+uniqueness still open, adjudication campaign queued (a negative settlement is
+also a result).
+
+\textbf{Borrowed} (standard material re-read, not created): Lyapunov and ISS
+theory; the AGM postulates (benchmark only); Fisher identifiability; every
+historical doctrine of Part~IV. \textbf{Derived or forced here:} sorites
+flip-uniqueness under threshold readout (\coq, scoped); divergence-iff-load-
+bearing-discard (\fd); the null-space inaccessibility construction (\fd).
+
+\textbf{Retractions.} R1: the earlier word ``anchor'' was ambiguous between
+proof and numeric; all LTP results are \fd. R2: any statement of the L-11
+lift omitting ``as identifiability reading only'' overclaims. R3: L-07 was
+presented with derivational flavour; it is a chosen weld --- the reading is
+the contribution, the mathematics is borrowed.
+
+\chapter{Glossary}
+\begin{description}
+\item[$\theta(E)$] latent world-truth; never directly accessed.
+\item[$M_A$, record] the knower's model/output; $M_A = K_A\theta + \eta \ne \theta$.
+\item[$\varepsilon_{\mathrm{tot}}>0$] the irreducible error floor; the universal falsifier lives here.
+\item[$\tau_c$] causal memory time; the only thing that changes across scales.
+\item[readout / non-readout] what a finite agency can actually read, versus
+  idealizations (the continuum, actual infinity) injected by I1--I4.
+\item[retained distinguishability] the razor: reality is distinguishability
+  that keeps its effect under admissible transport.
+\item[three-file binding] release criterion: chapter $\leftrightarrow$ Coq
+  $\leftrightarrow$ executable diagnostic must pass together.
+\end{description}
+
+\begin{thebibliography}{9}
+\bibitem{canon} Y.~Lahtee, \emph{Genesis of the Universe, Step by Step ---
+AI Canon, MD edition v1.2}, Open Civil Science Initiative, 2026 (CC BY 4.0).
+\bibitem{cosmo} Y.~Lahtee, \emph{Yaoharee Cosmo v3.x (K-free): Minimal-Viable
+Foundation, Testable Axioms L0--L3}, Zenodo DOI 10.5281/zenodo.17501303, 2025.
+\bibitem{agm} C.~Alchourr\'on, P.~G\"ardenfors, D.~Makinson, ``On the Logic of
+Theory Change,'' \emph{J.\ Symbolic Logic} 50 (1985) 510--530.
+\bibitem{priest} G.~Priest, \emph{In Contradiction}, 2nd ed., Oxford, 2006.
+\bibitem{sep-sorites} D.~Hyde, D.~Raffman, ``Sorites Paradox,''
+\emph{Stanford Encyclopedia of Philosophy}.
+\bibitem{dignaga} R.~Hayes, \emph{Dign\=aga on the Interpretation of Signs},
+Kluwer, 1988.
+\bibitem{mohist} A.~C.~Graham, \emph{Later Mohist Logic, Ethics and Science},
+Chinese University Press, 1978.
+\bibitem{sontag} E.~Sontag, ``Input to State Stability,'' in \emph{Nonlinear
+and Optimal Control Theory}, Springer, 2008.
+\bibitem{coq} The Coq Development Team, \emph{The Coq Proof Assistant,
+v8.18}, 2023.
+\end{thebibliography}
+
+\end{document}
