@@ -13,8 +13,10 @@ Laplacian alone; no continuum, no QFT input.
 
 EXACT-BY-SYMMETRY note: for axis-symmetric mode ensembles the partition is
 exactly 1/d (d identical per-axis terms summing to the total); the sampled
-values approach it with ensemble size -- MC is illustration, symmetry is
-the proof (same epistemic split as AP11's <cos^2> test).
+values deviate (0.486 at d=2) because the hard top-k mode cutoff lands MID
+degenerate-multiplet and eigh's arbitrary basis inside that eigenspace is
+not axis-symmetric (mechanism reviewer-reproduced, PR #22) -- MC is
+illustration, symmetry is the proof (same split as AP11's <cos^2> test).
 
 HONEST SCOPE: this closes the GEOMETRIC content ("the 1/3 is a dimension
 readout, and our graphs compute their own dimension") on REGULAR TORI. It
@@ -85,8 +87,10 @@ def test_partition_reads_one_over_d():
 
 
 def test_graph_reads_its_own_dimension():
-    """Spectral dimension from the heat kernel orders and brackets d
-    (coarse window on small tori -- ballpark tier, declared)."""
+    """Spectral dimension from the heat kernel orders and brackets d.
+    Known bias (reviewer-measured, PR #22): the [0.5,4] window overshoots
+    SYSTEMATICALLY ~11-14% across all d (directional, not noise); other
+    windows undershoot -- ballpark tier, declared."""
     d1, d2, d3 = spectral_dimension(64, 1), spectral_dimension(16, 2), spectral_dimension(8, 3)
     assert 0.8 < d1 < 1.5
     assert 1.8 < d2 < 2.7

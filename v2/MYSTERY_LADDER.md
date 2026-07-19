@@ -34,8 +34,9 @@
 
 - ปรัชญา-นำ สมการ-ตาม; ทุกตัวเลข executed ก่อนเข้าเอกสาร; kinship ประกาศ
   ก่อนพูดคำว่าใหม่; falsifier แขวนกับทุก claim; adversarial review ทุก PR
-  (คืนเดียว review จับ defect จริง >25 จุด รวม overclaim ของผู้เขียนเอง
-  หลายครั้ง — ระบบแข็งเพราะถูกโจมตี ไม่ใช่เพราะไม่พลาด)
+  (ประมาณการนับเองจาก review-fix commits ของ session นี้: defect จริงหลักสิบปลายๆ
+  ต่อคืน รวม overclaim ของผู้เขียนเองหลายครั้ง — ตัวเลขเป็น session-record
+  ไม่ใช่ ledger artifact เดี่ยว; ระบบแข็งเพราะถูกโจมตี ไม่ใช่เพราะไม่พลาด)
 - external critique สองรอบ (Bateman-doubling / 52-decomposition) ถูก verify
   แล้ว**ดูดซับ**เข้า repo ใต้วินัยเดียวกัน — จุดอ่อนที่ประกาศเปิดกลายเป็น
   จุดที่ระบบโตเร็วที่สุด
