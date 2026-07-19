@@ -1,6 +1,6 @@
 ---
 name: readout-lens
-description: "Use when any research/physics/science issue must be analyzed through the Readout Universe information-philosophy (RD/δ_R lens) — solving INSIDE our logic, not the foreign vocabulary. Runs the Ω_all forcing gates G1–G8 via the real lens API (lens/gates.py), produces the 7-piece maximal extraction, computes identifiability/null-space verdicts, and translates via the real lexicon. Triggers: 'วิเคราะห์ด้วยปรัชญาเรา', 'มองผ่านเลนส์', 'translate into our philosophy and solve', 'ปรัชญาบังคับทิศ', 'run the gates', analyzing an arXiv problem, any claim of tension/anomaly/new-class in a paper."
+description: "Use when any research/physics/science issue must be analyzed through the Readout Universe information-philosophy (RD/δ_R lens) — solving INSIDE our logic, not the foreign vocabulary. Runs the Ω_all forcing gates G1–G11 via the real lens API (lens/gates.py), produces the 8-piece maximal extraction, computes identifiability/null-space verdicts, and translates via the real lexicon. Triggers: 'วิเคราะห์ด้วยปรัชญาเรา', 'มองผ่านเลนส์', 'translate into our philosophy and solve', 'ปรัชญาบังคับทิศ', 'run the gates', analyzing an arXiv problem, any claim of tension/anomaly/new-class in a paper."
 metadata:
   author: readout-universe
   version: "1.0.0"

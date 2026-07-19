@@ -89,7 +89,7 @@ solver หาย → PROMPT/SKIPPED ตามจริง ไม่มีวั�
 ISSUE WORKFLOW (ต้นทุนไล่จากถูกไปแพง — หยุดที่ชั้นแรกที่ตัดสินได้)
 
 W1 INTAKE      ดึง record จริงก่อนคิด (WebFetch: arXiv abstract พอเริ่มได้)
-W2 GATES       ไล่ G1→G8 บนกระดาษ — ประตูไหนกัด จดเป็น 7 ชิ้นของ §3
+W2 GATES       ไล่ G1→G11 บนกระดาษ — ประตูไหนกัด จดเป็น 8 ชิ้นของ §3
 W3 MICRO-CHECK เขียนสคริปต์ ≤100 บรรทัด (numpy/scipy) พร้อม
                **grammar sanity gate**: ต้อง reproduce ค่าอ้างอิงที่รู้แล้ว
                ก่อนใช้ตัดสินอะไร (เช่น θ★ ต้องตรง Planck ใน 0.5% ก่อน)

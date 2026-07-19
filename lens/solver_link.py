@@ -51,14 +51,21 @@ def theorem_lookup(name: str) -> dict:
         return {"found": False, "index_hits": [], "v_files": [],
                 "note": "invalid theorem identifier"}
     hits, vfiles = [], []
+    # Match ONLY the index's name field (backtick-quoted, e.g. **Thm** `name`).
+    # A bare-token match is not enough: fragments like 'row'/'Sum' occur as
+    # function tokens inside OTHER theorems' statements (reviewer probe).
+    tok = re.compile(rf"`{re.escape(name)}`")
     idx = root / "docs/root/THEOREM_INDEX.md"
     if idx.is_file():
         for i, line in enumerate(idx.read_text(errors="ignore").splitlines(), 1):
-            if name in line:
+            if tok.search(line):
                 hits.append(f"THEOREM_INDEX.md:{i}")
     formal = root / "formal"
     if formal.is_dir():
-        pat = re.compile(rf"\b(Theorem|Lemma|Corollary)\s+{re.escape(name)}\b")
+        # all Coq proof-introducing keywords this arc actually uses
+        pat = re.compile(
+            rf"\b(Theorem|Lemma|Corollary|Remark|Proposition|Fact|Example)\s+"
+            rf"{re.escape(name)}(?![A-Za-z0-9_'])")
         for v in sorted(formal.glob("*.v")):
             try:
                 if pat.search(v.read_text(errors="ignore")):

@@ -85,12 +85,24 @@ def test_g2_dual_guard_flags_injected_zero():
 
 
 def test_g9_theorem_hook_hits_and_misses():
-    """Real arc lookup: a genuine theorem resolves; a fake name auto-downgrades."""
+    """Real arc lookup: a genuine theorem resolves; a fake name auto-downgrades.
+    Tier is Dr (grep = referenced, NOT re-verified) per review 2026-07-19."""
     from lens.gates import g9_theorem_check
     hit = g9_theorem_check(Issue(statement="s", cited_theorems=["sqrt2_is_not_a_readout"]))
-    assert hit.verdict == "PASS" and "FOUND" in hit.detail
+    assert hit.verdict == "PASS" and "FOUND" in hit.detail and hit.tier == "Dr"
+    assert "grep-level" in hit.detail          # never reads as verification
     miss = g9_theorem_check(Issue(statement="s", cited_theorems=["totally_fake_theorem_xyz"]))
     assert miss.verdict == "FLAG" and "auto-downgrade" in miss.detail
+
+
+def test_g9_no_substring_false_pass_and_keyword_coverage():
+    """Review probes hardened: fragments ('row','Sum') must MISS; results
+    proved via Remark/Example keywords must be FOUND."""
+    from lens.solver_link import theorem_lookup
+    assert theorem_lookup("row")["found"] is False        # fragment of row_u
+    assert theorem_lookup("Sum")["found"] is False        # fragment of Sum_peel_*
+    r = theorem_lookup("period4_and_period5_are_distinct")  # a real Coq Remark
+    assert r["found"] is True and r["v_files"]
 
 
 def test_g10_limit_certifies_decay():
@@ -105,10 +117,21 @@ def test_g10_limit_certifies_decay():
         assert "verdict=" in r.detail
 
 
-def test_g11_equivalence_unregistered_pair_prompts():
-    """An unregistered pair must PROMPT (register the mapping), never guess."""
+def test_g11_semantics_hardened():
+    """Review probes: fabricated closures PROMPT (nothing adjudicated);
+    self-pair trivially equivalent; a real registered pair passes both ways;
+    absence of registration is stated as UNDECIDED, never as inequivalence."""
     from lens.gates import g11_equivalence
-    r = g11_equivalence(Issue(statement="s",
-                              formula_pair=("nonexistent_closure_a", "nonexistent_closure_b")))
-    assert r.verdict in ("PROMPT", "FLAG")     # never a fabricated EQUIVALENT
-    assert "EQUIVALENT under registered mapping" not in r.detail
+    fake = g11_equivalence(Issue(statement="s",
+                                 formula_pair=("nonexistent_closure_a", "nonexistent_closure_b")))
+    assert fake.verdict == "PROMPT" and "unknown closure" in fake.detail
+    real = g11_equivalence(Issue(statement="s",
+                                 formula_pair=("van_t_hoff_equation", "clausius_clapeyron")))
+    if real.verdict != "PROMPT":               # solver present on this machine
+        assert real.verdict == "PASS" and "EQUIVALENT" in real.detail
+        rev = g11_equivalence(Issue(statement="s",
+                                    formula_pair=("clausius_clapeyron", "van_t_hoff_equation")))
+        assert rev.verdict == "PASS"
+        selfp = g11_equivalence(Issue(statement="s",
+                                      formula_pair=("van_t_hoff_equation", "van_t_hoff_equation")))
+        assert selfp.verdict == "PASS" and "trivially equivalent" in selfp.detail

@@ -1,4 +1,5 @@
-"""lens.gates -- Omega_all as a callable API: the G1-G8 forcing gates.
+"""lens.gates -- Omega_all as a callable API: forcing gates G1-G7 + G9-G11
+(G8 = the Extraction assembly in run_gates).
 
 The NEW layer developed in THIS repo (2026-07-19) on top of the vendored
 verified engine (lens/vendor/, snapshot of research_universal_solver/engine).
@@ -67,7 +68,7 @@ class Issue:
 class GateResult:
     gate: str
     verdict: str        # PASS | FLAG | PROMPT
-    tier: str           # Dr | finite_diagnostic | Open
+    tier: str           # Open | Dr | finite_diagnostic | Th_coqc (weakest..strongest)
     detail: str
 
 
@@ -243,11 +244,13 @@ def g9_theorem_check(issue: Issue) -> GateResult:
         else:
             misses.append(name)
             lines.append(f"{name}: MISS -- auto-downgrade Th_coqc -> Dr")
+    note = (" [grep-level check: FOUND = referenced in the arc, not re-verified"
+            " -- for verified status run coq_verify/coqc on the file]")
     if unavailable:
         return GateResult("G9_theorem_check", "PROMPT", "Open", "; ".join(lines))
     if misses:
-        return GateResult("G9_theorem_check", "FLAG", "finite_diagnostic", "; ".join(lines))
-    return GateResult("G9_theorem_check", "PASS", "finite_diagnostic", "; ".join(lines))
+        return GateResult("G9_theorem_check", "FLAG", "Dr", "; ".join(lines) + note)
+    return GateResult("G9_theorem_check", "PASS", "Dr", "; ".join(lines) + note)
 
 
 def g10_limit(issue: Issue) -> GateResult:
@@ -278,24 +281,31 @@ def g11_equivalence(issue: Issue) -> GateResult:
     if issue.formula_pair is None:
         return GateResult("G11_equivalence", "PASS", "Dr", "no formula-pair dispute")
     eq = solver_link.import_engine("equivalence")
-    if eq is None:
+    formulas = solver_link.import_engine("formulas")
+    if eq is None or formulas is None:
         return GateResult("G11_equivalence", "PROMPT", "Open",
                           "SKIPPED: solver unavailable -- equivalence undecided")
     a, b = issue.formula_pair
-    try:
-        eq_of_a = eq.equivalent_closures(a)
-    except Exception as e:
+    unknown = [n for n in (a, b) if n not in getattr(formulas, "REGISTRY", {})]
+    if unknown:
         return GateResult("G11_equivalence", "PROMPT", "Open",
-                          f"'{a}' not in equivalence registry ({e}) -- register the "
-                          "mapping before claiming (in)equivalence")
-    same = b in eq_of_a
-    return GateResult("G11_equivalence", "FLAG" if not same else "PASS",
-                      "finite_diagnostic",
-                      f"'{a}' ~ '{b}': {'EQUIVALENT under registered mapping' if same else 'NOT registered as equivalent -- treat as different quantities by role'}")
+                          f"unknown closure(s) {unknown} -- not in the formulas "
+                          "REGISTRY; nothing was adjudicated")
+    if a == b:
+        return GateResult("G11_equivalence", "PASS", "finite_diagnostic",
+                          f"'{a}' == '{b}': identical closure, trivially equivalent")
+    same = b in eq.equivalent_closures(a)
+    if same:
+        return GateResult("G11_equivalence", "PASS", "finite_diagnostic",
+                          f"'{a}' ~ '{b}': EQUIVALENT under registered mapping")
+    return GateResult("G11_equivalence", "FLAG", "Dr",
+                      f"'{a}' vs '{b}': NO registered equivalence mapping -- "
+                      "UNDECIDED. Absence of registration is NOT proof of "
+                      "inequivalence; register the mapping to adjudicate")
 
 
 def run_gates(issue: Issue) -> Extraction:
-    """Walk G1-G8; assemble the 7-piece extraction. G8 = this assembly."""
+    """Walk G1-G7 + G9-G11; assemble the 8-piece extraction (= G8)."""
     g = [g1_translate(issue), g2_infinity(issue.statement), g3_quantity_role(issue),
          g4_pi_selection(issue), g5_identifiability(issue), g6_load_bearing(issue),
          g7_readout_vs_readout(issue), g9_theorem_check(issue), g10_limit(issue),
