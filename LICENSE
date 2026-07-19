@@ -15,3 +15,13 @@ Under the following terms:
   and indicate if changes were made.
 
 Full license text: https://creativecommons.org/licenses/by/4.0/legalcode
+
+EXCEPTIONS — NOT covered by CC BY 4.0 (proprietary, all rights reserved):
+  lens/          (incl. lens/vendor/ snapshots of research_universal_solver/engine,
+                  and [removed-internal-engine] — see lens/vendor/LICENSE)
+  skill/         (the readout-lens operator skill)
+  ap/            (applied-protocol case studies)
+These paths are PRIVATE to the Open Civil Science Initiative / ANSE and must be
+removed or separately licensed before any public redistribution of this repo.
+The CC BY 4.0 grant covers the v1.0 book (main.tex, main.pdf, CLAIMS.md,
+code/LTP*.py, code/UPL_Sorites.v) and the v2/ doctrine documents only.

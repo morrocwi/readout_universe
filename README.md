@@ -43,6 +43,7 @@ Requirements: Python 3 + numpy; Coq (8.18+; 8.20.1 verified — see
 
 Found a genuine falsification? That is the book working as designed — report it.
 
+
 ## Repository layout
 
 ```
