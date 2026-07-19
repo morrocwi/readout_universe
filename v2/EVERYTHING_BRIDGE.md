@@ -30,8 +30,8 @@ cannot be posed on L_R, or vice versa.
 **Carried-over deflations (binding here too):** the master equation's FORM is
 posited from narrower assumptions, not forced by the root; several cross-domain
 `=` are definitional relabels; no surviving readout-vs-readout falsifiable
-prediction yet. See `BORROWED_VS_DERIVED_LEDGER.md` (canonical, per-element,
-file:line-cited). Any chapter of v2 that quotes a physics result MUST quote its
+prediction yet. See `research_universal_solver/docs/root/BORROWED_VS_DERIVED_LEDGER.md`
+(canonical, per-element, file:line-cited). Any chapter of v2 that quotes a physics result MUST quote its
 ledger verdict class (DERIVED / FORCED / DEFINITIONAL-RELABEL / POSITED /
 BORROWED-SCALE / OPEN) alongside.
 
