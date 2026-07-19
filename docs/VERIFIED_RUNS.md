@@ -106,4 +106,6 @@ Full suite after integration: `python3 -m pytest -q` → **43 passed**.
 
 | Check | Command | Result |
 |-------|---------|--------|
-| Λ-anchor identity: 1/α₃(M_P) = (b₃/2π)·ln(M_P/Λ) ทั้งก้อน ไม่มีเศษ boundary; depth = 47.05 = เลขเดียวกับ proton hierarchy | `python3 -m pytest ap/ap9_coupling_channels.py -q` | 5 passed |
+| Λ-anchor: 1/α₃(M_P) = (b₃/2π)·ln(M_P/Λ) ทั้งก้อน; depth ฝั่ง coupling 47.05 vs ฝั่งมวลอิสระ ln(m_Pl/m_p)=44.04 — ต่างกัน 3.01 = ln(m_p/Λ) **pin ในบ้านทั้งสองฝั่ง** | `python3 -m pytest ap/ap9_coupling_channels.py -q` | 5 passed |
+
+Full suite: `python3 -m pytest -q` → **56 passed**.

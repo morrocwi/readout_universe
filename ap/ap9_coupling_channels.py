@@ -85,14 +85,24 @@ def test_adjoint_dimension_map_killed():
 def test_lambda_anchor_dissolves_boundary_term():
     """Sharpening (external-AI exchange): anchored at Lambda (1/alpha->0),
     the whole 52 is slope x depth with NO boundary residue -- exact at one
-    loop by construction; pinned so the decomposition claim stays executed:
-    ln(M_P/Lambda) = (2pi/b3)*inv_alpha3(M_P) and equals the proton-memory
-    depth ~47 (same number as the hierarchy chain)."""
+    loop BY CONSTRUCTION (the second assert below is an identity check of
+    that construction, NOT independent evidence). The cross-link to the
+    proton hierarchy is pinned IN-REPO here (review PR #19 MUST-FIX):
+    the coupling-side depth ln(M_P/Lambda)=47.05 and the independent
+    mass-side hierarchy ln(m_Planck/m_proton)=44.04 differ by ~3.0 =
+    ln(m_p/Lambda), i.e. proton ~ e^3 ~ 20x Lambda -- "same number" means
+    same-up-to-that-declared-gap, both sides computed in this file."""
     v = inv_alpha_planck()
     ln_depth = (2 * math.pi / 7.0) * v["SU3"]
     assert 46.0 < ln_depth < 48.0, ln_depth          # measured 47.05
-    # and slope x depth reproduces the endpoint exactly (identity check)
+    # identity check of the construction (circular by design, labeled so)
     assert abs((7.0 / (2 * math.pi)) * ln_depth - v["SU3"]) < 1e-9
+    # IN-REPO proton-side pin (independent of any coupling input):
+    m_planck_gev, m_proton_gev = 1.2209e19, 0.9383
+    ln_mass_side = math.log(m_planck_gev / m_proton_gev)
+    assert 43.9 < ln_mass_side < 44.2, ln_mass_side  # measured 44.04
+    gap = ln_depth - ln_mass_side                     # = ln(m_p/Lambda)
+    assert 2.5 < gap < 3.5, gap                       # measured 3.01
 
 
 def test_numerology_exhibit_is_flagged_not_evidence():
