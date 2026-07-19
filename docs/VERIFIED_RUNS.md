@@ -20,3 +20,12 @@ this run used 8.20.1 — compiles clean, axiom-free check intact.
 |-------|---------|--------|
 | RD object stratum | `cd evidence && coqc RD.v` | exit 0; discrete core `Closed under the global context`; some sections report `classic` (see evidence/README.md) |
 | URCF consolidated | `coqc URCF_RD_All.v` | exit 0; bulk axiom-free; ℝ-touching theorems borrow `classic` / `functional_extensionality_dep` / `ClassicalDedekindReals.*` — recorded un-softened |
+
+## 2026-07-19 — AP protocols (blind trials on same-day arXiv, toy tier)
+
+| Check | Command | Result |
+|-------|---------|--------|
+| AP1 Hubble identifiability (4 tests: grammar sanity 0.5%, closure-on pins h, closure-off null direction <1e-3, r_s escape percent-level) | `python3 -m pytest ap/ap1_hubble_identifiability.py -q` | 4 passed |
+| AP2 FXT Amati reachability (3 tests: extended-jet on-locus exact, compact above-locus monotone, below-locus unreachable ∀p∈[2,3]) | `python3 -m pytest ap/ap2_fxt_amati.py -q` | 3 passed |
+
+Both TOY TIER (declared in file headers). Full suite: `python3 -m pytest -q` → 7 passed, 0.37s.
