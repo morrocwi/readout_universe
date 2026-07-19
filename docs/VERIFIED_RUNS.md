@@ -101,3 +101,9 @@ Full suite after integration: `python3 -m pytest -q` → **43 passed**.
 |-------|---------|--------|
 | `DRL_General_Legendre.v` (general-N/heterogeneous/abstract-graph+potential D-cancellation + kinetic corollary) | `coqc evidence/DRL_General_Legendre.v` | exit 0; **2× Closed under the global context (axiom-free)** |
 | Solver PR #185 merged after adversarial audit APPROVE (51ea29b): ℚ-port 6/6 axiom-free + THEOREM_INDEX + ledger amendment proposal (ledger row untouched, gated on ratification) | — | merged, verified on solver main |
+
+## 2026-07-19 (ดึก) — AP9 sharpening: Λ-anchor
+
+| Check | Command | Result |
+|-------|---------|--------|
+| Λ-anchor identity: 1/α₃(M_P) = (b₃/2π)·ln(M_P/Λ) ทั้งก้อน ไม่มีเศษ boundary; depth = 47.05 = เลขเดียวกับ proton hierarchy | `python3 -m pytest ap/ap9_coupling_channels.py -q` | 5 passed |

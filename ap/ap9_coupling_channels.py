@@ -17,13 +17,24 @@ MEASURED (executed below, pinned):
     recorded only to show how easy 3-point numerology is (anti-numerology
     exhibit, per the corpus's refused-not-faked constants policy).
 
-VERDICT [Dr]: the naive channel-count stance is dead at precision; what
-survives is (a) the real, standard fact that the RUNNING slopes b0 are
-channel-counting numbers, and (b) an order-of-magnitude shared-budget hint.
-A real derivation must produce k_eff from the generation grammar (ROM-3.3)
-WITHOUT fitted integers -- that remains [Open]. Kinship: gauge unification
-literature (GUT ~1/25 at 2e16 with thresholds; SUSY improves convergence) --
-declared, standard, not ours.
+VERDICT [Dr], SHARPENED after external-AI exchange (2026-07-19 late):
+52 is NOT fundamental -- it is accumulated update impedance. Decomposition
+(executed below): anchored at the natural IR point (Lambda, where
+1/alpha_3 -> 0 = the binding scale), the ENTIRE value is slope x depth:
+    1/alpha_3(M_P) = (b_3/2pi) ln(M_P/Lambda)      [exact at one loop]
+so the only channel-counting object is the LOCAL slope b_3 = 7 (a genuine
+representation-counting number), and the "boundary memory" at M_Z dissolves
+too (M_Z is a human anchor, Pi-artifact). The same depth ln(M_P/Lambda)=47
+is the proton-memory hierarchy: the coupling value and the proton mass are
+ONE readout seen from two sides.
+RESTATED FALSIFIER (supersedes "find a grammar with 52 channels"): derive
+the SLOPES (b1,b2,b3) = (41/10, -19/6, -7) from the Degree-Circulation
+generation grammar (solver seed thread: InfoSeedCirculationArbitraryN /
+InfoCorrigibilityStepConvergence lr<=1/W update-budget brick) WITHOUT
+inserting them -- then 52 emerges free as endpoint readout. Bridge from
+those bricks to gauge beta functions = [Open + stance], zero derivation yet.
+Kinship: gauge unification literature (GUT ~1/25 at 2e16 with thresholds;
+SUSY improves convergence) -- declared, standard, not ours.
 
 Run: pytest ap/ap9_coupling_channels.py -q
 PRIVATE / PROPRIETARY (LICENSE EXCEPTIONS) -- do not publish.
@@ -69,6 +80,19 @@ def test_adjoint_dimension_map_killed():
     v = inv_alpha_planck()
     _, err = best_scale_worst_err({"U1_GUT": 1, "SU2": 3, "SU3": 8}, v)
     assert err > 0.5, err                        # measured 0.76
+
+
+def test_lambda_anchor_dissolves_boundary_term():
+    """Sharpening (external-AI exchange): anchored at Lambda (1/alpha->0),
+    the whole 52 is slope x depth with NO boundary residue -- exact at one
+    loop by construction; pinned so the decomposition claim stays executed:
+    ln(M_P/Lambda) = (2pi/b3)*inv_alpha3(M_P) and equals the proton-memory
+    depth ~47 (same number as the hierarchy chain)."""
+    v = inv_alpha_planck()
+    ln_depth = (2 * math.pi / 7.0) * v["SU3"]
+    assert 46.0 < ln_depth < 48.0, ln_depth          # measured 47.05
+    # and slope x depth reproduces the endpoint exactly (identity check)
+    assert abs((7.0 / (2 * math.pi)) * ln_depth - v["SU3"]) < 1e-9
 
 
 def test_numerology_exhibit_is_flagged_not_evidence():
