@@ -39,10 +39,18 @@ Order by artifact readiness:
 
 ## Gate 4 — applied protocols (AP*)
 
-- [ ] **AP1** identifiability analysis of a live scientific tension via Ω_all
-      Steps 1–8 with a real Fisher/Jacobian computation (`finite_diagnostic`).
-      Drafted in `TRANSLATION_PROTOCOL.md` §3 at tier **Open**; astronomy target
-      parked by decision 2026-07-19 — any domain may claim this slot with data.
+- [x] **AP1** Hubble-tension identifiability (`ap/ap1_hubble_identifiability.py`,
+      4 pytest PASS 2026-07-19) — toy tier: h_CMB shown to lie in the null space
+      of the θ★ record once one closure posit is freed; tension relocated to
+      closure posits. Upgrade path: full likelihood + error propagation.
+- [x] **AP2** Einstein Probe FXTs (`ap/ap2_fxt_amati.py`, 3 pytest PASS
+      2026-07-19) — toy tier: below-Amati unreachable by viewing angle
+      (confirms paper's refutation); Π-selection + null-space demands recorded
+      in `v2/POSITION.md` §2. Caveat: abstract-only reading — retract the
+      "ยังไม่ปิด" half if the full paper already does selection modeling/Γ-bounds.
+- [ ] **AP3+** further blind trials on problems with unknown frontier answers —
+      the standing test of the "no philosophy does this cheaper" stance
+      (`v2/POSITION.md` §5).
 
 ## Standing rules (inherited, binding)
 
