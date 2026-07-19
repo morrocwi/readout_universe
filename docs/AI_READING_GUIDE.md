@@ -25,14 +25,16 @@ The v2.0-dev layer in `v2/` makes the lens itself explicit and binding:
    with retention metric G (zero diagonal: quantity = reader×record pairing);
    derives the damped spine from an action + conservation of distinction
    (executed in `ap/ap5_drl.py`; novelty layer [Open], Bateman kinship declared).
-8. `v2/APPEND_ONLY_RECORD.md` — the tape layer (AP7): additive conservation,
+8. `v2/MYSTERY_LADDER.md` — the capstone: the full G→10⁻³⁹→52→slopes→atoms→
+   1/d ladder with per-rung artifacts and the three terminal open items.
+9. `v2/APPEND_ONLY_RECORD.md` — the tape layer (AP7): additive conservation,
    RD4-in-dynamics, Π-window vs tape retention, and the γ↔D/M bridge to DRL;
    kinship ledger (collision models / Sz.-Nagy / Landauer–Bennett).
-9. `v2/FORCED_IDENTIFICATION.md` — the standing thesis: today's headline
+10. `v2/FORCED_IDENTIFICATION.md` — the standing thesis: today's headline
    physics crises share one structure (same-named quantities from different
    chains forced equal under a closure; the chains' clash misread as the
    world's voice) — with its case table, reporting standard, and falsifier.
-10. `v2/POSITION.md` — who we are (control layer, not knowledge store), the
+11. `v2/POSITION.md` — who we are (control layer, not knowledge store), the
    G1–G13 forcing gates, the 8-piece maximal-extraction checklist, and the
    ISSUE WORKFLOW W1–W7 with tools — load this before working ANY new issue;
    executed case studies live in `ap/` (pytest, toy tier declared).

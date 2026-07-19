@@ -125,3 +125,11 @@ Full suite: `python3 -m pytest -q` → **59 passed**.
 | AP11 (4 tests: (−1)^{2s}[(2s)²−1/3] คืนอะตอมทั้งสาม exact; reconstruct slopes AP10; ⟨cos²⟩=1/d pinned d=3(0.3342)+d=4(0.2500) [seeded MC ของเทสจริง]; paramagnetic axis = (2s)² ทุก s∈{0..2}) | `python3 -m pytest ap/ap11_spin_atoms.py -q` | 4 passed |
 
 Full suite: `python3 -m pytest -q` → **63 passed**.
+
+## 2026-07-19 (ปิดคืน) — AP12: กราฟคายอะตอม 1/d เอง
+
+| Check | Command | Result |
+|-------|---------|--------|
+| AP12 (3 tests: direction-partition 1.000/0.486/0.342 บน tori d=1,2,3 [target 1, ½, ⅓]; spectral-dim 1.1/2.3/3.3 เรียงถูก; size-control ยืนยันอ่านมิติไม่ใช่ขนาด) | `python3 -m pytest ap/ap12_dimension_readout.py -q` | 3 passed |
+
+Full suite: `python3 -m pytest -q` → **66 passed**.
