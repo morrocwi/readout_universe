@@ -90,8 +90,12 @@ def test_el_derives_damped_spine_from_action():
 
 
 def test_reader_dies_record_retains():
-    """Readout energy decays essentially to zero while the record grows --
-    dissipation = handoff across Pi, not loss (RD4)."""
+    """Readout energy decays essentially to zero while the anti-damped
+    adjoint grows FROM ITS OWN initial conditions. NOTE (external critique,
+    executed 2026-07-19): the linear EL system decouples Phi and Psi --
+    Psi0=0 => Psi stays 0 while Phi still dissipates, so this test shows
+    adjoint growth, NOT an information handoff (that reading is [Open];
+    see v2 doc, append-only direction)."""
     Phi, Psi = el_trajectories()
     e0, e1 = readout_energy(Phi, 1), readout_energy(Phi, T - 2)
     assert e1 / e0 < 1e-4                      # measured ~8e-7
