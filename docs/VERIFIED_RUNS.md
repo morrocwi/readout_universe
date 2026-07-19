@@ -82,3 +82,9 @@ Full suite after integration: `python3 -m pytest -q` → **43 passed**.
 | Check | Command | Result |
 |-------|---------|--------|
 | AP7 (4 tests: additive conservation <1e-12 + decay=(1−γ)ⁿ; RD4 reconstruct <1e-9; Π-window d_readout<1e-6 vs d_tape≈1e-2; bridge γ↔D/M rate mismatch <5%) | `python3 -m pytest ap/ap7_tape_record.py -q` | 4 passed |
+
+## 2026-07-19 — AP8: H_quartic found (ปิดคำถามเปิดจาก ultracode)
+
+| Check | Command | Result |
+|-------|---------|--------|
+| AP8 (4 tests: quartic drift <2e-3 ด้วย H_nl ที่ถูก [เทียบ >1e-2 ของประจุผิด], forced case <5e-3, ยุบกลับประจุเดิม identical เมื่อ k4=0, O(dt²) via dt-halving) | `python3 -m pytest ap/ap8_h_quartic.py -q` | 4 passed |

@@ -78,7 +78,11 @@ Order by artifact readiness:
       and the γ↔D/M bridge matching DRL's spine envelope <5%. Kinship declared
       (collision models / Sz.-Nagy / Landauer-Bennett). Open: composite
       action+injective-tape (v2/APPEND_ONLY_RECORD.md).
-- [ ] **AP8+** further blind trials on problems with unknown frontier answers —
+- [x] **AP8** H_quartic found (`ap/ap8_h_quartic.py`, 4 pytest PASS) — AP6's
+      0.119 drift was a wrong-charge artifact; the Legendre charge of the
+      nonlinear Lagrangian (k2ΦΨ → Ψᵀ∇V(Φ), plus −JᵀΨ) conserves <2e-3 with
+      O(dt²) scaling; reduces identically to the linear charge at k4=0.
+- [ ] **AP9+** further blind trials on problems with unknown frontier answers —
       the standing test of the "no philosophy does this cheaper" stance
       (`v2/POSITION.md` §5).
 
