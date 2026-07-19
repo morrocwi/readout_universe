@@ -75,10 +75,12 @@ def _mean_cos2(d: int, n: int = 200_000, seed: int = 7) -> float:
 
 
 def test_universal_screening_constant_is_one_over_d():
-    """The 1/3 is the d=3 angular average <cos^2> = 1/d -- pinned for d=3
-    AND d=4 (the d-dependence is the content: the diamagnetic atom reads
-    the DIMENSION of the substrate, which in our program is a spectral
-    readout of the graph, ROM-3.7)."""
+    """The 1/3 is the d=3 angular average <cos^2> = 1/d. EXACT by symmetry
+    (sum of d identical E[x_i^2/r^2] terms = 1 => each = 1/d); the seeded MC
+    below is an ILLUSTRATION of that exact fact and of the d-dependence --
+    an analogy to (not a literal reproduction of) Nielsen's loop-integral
+    diamagnetic piece. The d-dependence is the content: the atom reads the
+    substrate's DIMENSION (spectral readout in our program, ROM-3.7)."""
     assert abs(_mean_cos2(3) - 1 / 3) < 3e-3
     assert abs(_mean_cos2(4) - 1 / 4) < 3e-3
     # sanity: they differ (the constant is NOT dimension-blind)
@@ -86,9 +88,12 @@ def test_universal_screening_constant_is_one_over_d():
 
 
 def test_spin_squared_is_the_paramagnetic_axis():
-    """Structure pin: across s in {0, 1/2, 1, 3/2, 2}, atom(s) + 1/3 (after
-    stripping the statistics sign) is EXACTLY (2s)^2 -- the paramagnetic
-    response is purely quadratic in the channel's orientation content."""
+    """ALGEBRA-ONLY structure pin (review PR #21 scope caveat): across s in
+    {0, 1/2, 1, 3/2, 2} the FORMULA's sign-stripped value is exactly (2s)^2
+    - by construction. s=3/2 and s=2 are pattern extensions with NO known
+    physical one-loop counterpart here (higher-spin interacting coefficients
+    do not simply continue this way -- Curtright-era literature); never cite
+    this test as physical verification beyond s=1."""
     for two_s in range(0, 5):
         stripped = atom(two_s) * F((-1) ** two_s)
         assert stripped + F(1, 3) == F(two_s) ** 2

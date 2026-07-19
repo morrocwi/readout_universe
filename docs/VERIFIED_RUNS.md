@@ -122,6 +122,6 @@ Full suite: `python3 -m pytest -q` → **59 passed**.
 
 | Check | Command | Result |
 |-------|---------|--------|
-| AP11 (4 tests: (−1)^{2s}[(2s)²−1/3] คืนอะตอมทั้งสาม exact; reconstruct slopes AP10; ⟨cos²⟩=1/d pinned d=3(0.3326)+d=4(0.2505); paramagnetic axis = (2s)² ทุก s∈{0..2}) | `python3 -m pytest ap/ap11_spin_atoms.py -q` | 4 passed |
+| AP11 (4 tests: (−1)^{2s}[(2s)²−1/3] คืนอะตอมทั้งสาม exact; reconstruct slopes AP10; ⟨cos²⟩=1/d pinned d=3(0.3342)+d=4(0.2500) [seeded MC ของเทสจริง]; paramagnetic axis = (2s)² ทุก s∈{0..2}) | `python3 -m pytest ap/ap11_spin_atoms.py -q` | 4 passed |
 
 Full suite: `python3 -m pytest -q` → **63 passed**.
