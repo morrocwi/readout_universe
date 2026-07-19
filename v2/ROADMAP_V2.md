@@ -91,7 +91,15 @@ Order by artifact readiness:
       impedance (Λ-anchor test pinned: whole value = slope×depth, no
       boundary residue; same depth 47 as the proton hierarchy);
       anti-numerology exhibit pinned.
-- [ ] **AP10+** further blind trials on problems with unknown frontier answers —
+- [x] **AP10** b₁₂₃ decomposed (`ap/ap10_b_decomposition.py`, 3 pytest PASS,
+      exact rationals) — (41/10, 19/6, 7) = SM representation COUNTING × three
+      universal kinematic atoms (11/3 gauge-selfload / 2/3 Weyl / 1/3 scalar);
+      abelian = zero circulation-like selfload (why U(1) grows UV-ward).
+      Falsifier moved one level deeper: derive the THREE ATOMS from the
+      Degree−Circulation grammar (spin/orientation of graph channels) —
+      then b₁₂₃ and 52 all emerge free. [Open + stance; ledger: this file
+      derives NOTHING new — Gross-Wilczek-Politzer kinship declared.]
+- [ ] **AP11+** further blind trials on problems with unknown frontier answers —
       the standing test of the "no philosophy does this cheaper" stance
       (`v2/POSITION.md` §5).
 
