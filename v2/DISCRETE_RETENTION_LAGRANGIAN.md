@@ -32,12 +32,18 @@ Doubled field X = (Φ, Ψ)ᵀ บน node ของกราฟ × step เว�
    `(M/dt²)Δ²Φ + (D/2dt)(Φⁿ⁺¹−Φⁿ⁻¹) + K·L_RΦ + k₂Φ = 0` — ตรวจเชิงตัวเลข:
    |∂S/∂field| บน trajectory = **4.4×10⁻¹⁰** (machine precision) ⇒ **พจน์ D
    ถูก DERIVE จาก action แล้ว** — แผล BORROWED ของ corpus ปิด [finite_diagnostic]
-2. **สมการกระจก:** วาริเอชันต่อ Φ ⇒ Ψ anti-damped — ตัวบันทึกโตขึ้นเท่าที่ตัวอ่านจาง
-   (|Ψ|: 0.167 → 145 ขณะ E_Φ ตาย 100.00%)
-3. **Conservation of distinction:** Legendre transform ⇒ พจน์ D หักล้างกันเอง เหลือ
+2. **สมการกระจก:** วาริเอชันต่อ Φ ⇒ Ψ anti-damped (|Ψ|: 0.167 → 145 ขณะ E_Φ
+   ตาย 100.00%) — **แต่ระบบเชิงเส้นนี้ Φ,Ψ decoupled ใน EL: การโตของ Ψ มาจาก
+   initial condition ของมันเอง ไม่ใช่การรับข้อมูลจาก Φ** (executed: Ψ₀=0 ⇒
+   Ψ≡0 ตลอด) ⇒ "dissipation = handoff เข้า Ψ" มีสถานะ [Open] ในโมเดลนี้ —
+   กลไก handoff จริงต้องการโครงสร้างเพิ่ม (ดู "ทิศ append-only" ล่าง)
+3. **Bilinear invariant H:** Legendre transform ⇒ พจน์ D หักล้างกันเอง เหลือ
    **H = M·vΦᵀvΨ + K·ΦᵀL_RΨ + k₂·ΦᵀΨ** อนุรักษ์ — วัดจริง: rel. drift **1.5×10⁻⁴**
-   ตลอด 4,000 steps ขณะพลังงานฝั่ง readout ตายสนิท ⇒ "การสูญเสีย" ของ Φ คือ
-   bookkeeping ที่ผิดฝั่ง — ไม่มีอะไรหาย มีแต่ถูกเก็บ [finite_diagnostic]
+   ตลอด 4,000 steps [finite_diagnostic] **ขอบเขตความหมาย (แก้ตาม external
+   critique ที่ executed แล้ว 2026-07-19): H เป็น invariant แบบ bilinear ของคู่
+   ไม่ใช่บัญชีการสูญเสียของ Φ** — counterexample ที่รันจริง: Ψ₀=0 ⇒ Ψ≡0 และ
+   H≡0 ตลอด ขณะ Φ dissipate เต็มที่ ⇒ การอ่าน H เป็น "conservation of
+   distinction / ไม่มีอะไรหาย" เป็น interpretation [Dr] ไม่ใช่กลไกที่พิสูจน์
 4. **Reduction:** D=0 ⇒ Φ, Ψ เชื่อฟังสมการอนุรักษ์เดียวกัน (Φ=Ψ ได้) —
    ทฤษฎีเดิมคืนมาครบ
 
@@ -101,6 +107,22 @@ adversarial search + verifier ตรวจ reference ตัว load-bearing เ�
 - **ไม่พบ**งานที่รวม Bateman-doubling + graph-Laplacian tensor form G⊗L_R +
   ontic record ในที่เดียว → ชั้น novelty ทั้งสามยัง SURVIVES [Open → Dr-leaning,
   ยังต้อง peer review ภายนอกก่อนอ้างแข็ง]
+
+## ทิศ append-only record (จาก external critique 2026-07-19 — จัดเป็นผู้สมัคร ไม่ใช่คำตัดสิน)
+
+บทวิจารณ์ภายนอกเสนอว่า record ที่ตรง RD4/RD6–7 กว่า คือ **tape append-only**:
+Ψₙ₊₁ = Ψₙ ⊕ ρₙ โดย ρₙ เกิดจาก orthogonal rotation ของ phase state เข้า cell
+ใหม่ทุก step (pigeonhole: Ψ ขนาดคงที่ resolution จำกัดเก็บประวัติไม่จำกัดแบบ
+injective ไม่ได้) — ข้อโต้แย้งนี้**สอดคล้อง DNA เราจริง** (⊕ คือ RD6–7 ตรงตัว)
+และให้ conservation แบบบวก + ย้อนกลับได้ **แต่ต้องรับเข้าด้วยวินัยเดียวกับของเราเอง:**
+(ก) โมเดล tape เป็น **posited map** (rotation B_γ เลือกมือ) — ไม่มี action/Lagrangian
+⇒ มันเติมเต็ม ontology ของ record แต่*ทิ้ง*สิ่งที่ DRL ทำสำเร็จ (variational status
+ของ D-term) — สองผลนี้เป็นคนละชั้น เสริมกัน ไม่แทนกัน
+(ข) kinship ที่ผู้เสนอไม่ได้ declare: collision models / repeated-interaction open
+systems, Sz.-Nagy unitary dilation, Landauer–Bennett tape — วรรณกรรมใหญ่ ต้องทำ
+novelty ledger ก่อนอ้างสิ่งใด
+(ค) ตัวเลข stress test ของผู้เสนอเป็น [SimulatedData] ภายนอก — ยังไม่ executed ใน
+repo นี้ ⇒ ยังอ้างไม่ได้จนกว่าจะ re-implement เป็น AP7 พร้อม pytest
 
 ## งานต่อ (อัพเดต)
 
