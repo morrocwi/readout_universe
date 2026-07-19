@@ -32,11 +32,15 @@ def import_engine(module: str):
         return None
     if str(root) not in sys.path:
         sys.path.insert(0, str(root))
+    import importlib
     try:
-        import importlib
         return importlib.import_module(f"engine.{module}")
+    except ModuleNotFoundError:
+        return None          # genuinely absent module/solver
     except Exception:
-        return None
+        # solver present but the module failed to import -- surface it,
+        # do NOT misreport as "solver unavailable" (reviewer NIT, PR #6)
+        raise
 
 
 def theorem_lookup(name: str) -> dict:

@@ -1,9 +1,9 @@
-"""lens.gates -- Omega_all as a callable API: forcing gates G1-G7 + G9-G11
+"""lens.gates -- Omega_all as a callable API: forcing gates G1-G7 + G9-G13
 (G8 = the Extraction assembly in run_gates).
 
 The NEW layer developed in THIS repo (2026-07-19) on top of the vendored
 verified engine (lens/vendor/, snapshot of research_universal_solver/engine).
-Doc contract: v2/POSITION.md section 2 (gates) + section 3 (7-piece extraction).
+Doc contract: v2/POSITION.md section 2 (gates) + section 3 (8-piece extraction).
 
 Design rule (readout-not-truth): a gate that can COMPUTE, computes and tags
 `finite_diagnostic`; a gate that requires judgment returns verdict `PROMPT`
@@ -323,7 +323,7 @@ def g12_triage(issue: Issue) -> GateResult:
 
 def g13_timescale(issue: Issue) -> GateResult:
     """G13: a claimed timescale is checked against the solver's tau_c atlas
-    (220 entries / 36 disciplines, ~85 orders of magnitude) -- naming the
+    (220 entries / 37 categories, ~85 orders of magnitude) -- naming the
     regime it lands in and its nearest measured neighbours, so an issue
     cannot silently conflate regimes."""
     if issue.claimed_tau_s is None:

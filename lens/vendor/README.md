@@ -21,7 +21,7 @@ Known gotchas (from the solver's own GLOSSARY audit — read before using):
 Rules:
 - **Never edit these snapshots.** Upstream development continues in
   `research_universal_solver`; refresh = re-copy + update this table.
-- New development in this repo goes in `lens/gates.py` (the G1–G8 layer).
+- New development in this repo goes in `lens/gates.py` (the G1–G13 layer).
 - Local smoke verification: `python3 -m pytest ap/ap0_lens_gates.py -q`
   (exercises lexicon + gates through the vendored chain).
 - PRIVATE / PROPRIETARY — do not publish.

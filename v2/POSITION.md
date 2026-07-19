@@ -44,7 +44,7 @@ AI รันตามได้** ซึ่งของที่ฝังใน�
 | G10 | Limit certificate | claim ลู่เข้า/ระเบิด → fitted-law verdict (ปฏิเสธเมื่อ data บาง) | engine.limits |
 | G11 | Formula equivalence | "สองสูตรอันเดียวกันไหม" ตัดสินด้วย registry + numeric re-proof | engine.equivalence |
 | G12 | Structural triage | issue นี้ทำจาก operator ไหนใน 14 ตัว (Repair/Cost/Boundary/…) — reading aid ไม่ใช่ verdict | engine.murg |
-| G13 | Timescale sanity | timescale ที่อ้าง เทียบ atlas 220 รายการ/36 สาขา; ต่ำกว่า floor = non-readout | engine.tau_c |
+| G13 | Timescale sanity | timescale ที่อ้าง เทียบ atlas 220 รายการ/37 หมวด; ต่ำกว่า floor = non-readout | engine.tau_c |
 
 (G2 คือ **dual Guard เต็มรูป**: ฝั่ง ∞ I1–I4 + ฝั่งศูนย์ Z1–Z4 — ทั้งคู่เป็น non-readout;
 G9–G11 เชื่อม solver แบบ LIVE ผ่าน `lens/solver_link.py` — ไม่ vendor เพิ่ม กัน drift;
@@ -92,8 +92,8 @@ ISSUE WORKFLOW (ต้นทุนไล่จากถูกไปแพง —
 
 W1 INTAKE      ดึง record จริงก่อนคิด (WebFetch: arXiv abstract พอเริ่มได้)
 W2 GATES       ไล่ G1→G13 บนกระดาษ — ประตูไหนกัด จดเป็น 8 ชิ้นของ §3
-W3 MICRO-CHECK **ค้น lens.compute ก่อนเขียนเอง** (closures ~200/196 tests ·
-               systems 9/76 tests · domains 7 โมดูล/~864 tests — บั๊ก r_s ของ AP1
+W3 MICRO-CHECK **ค้น lens.compute ก่อนเขียนเอง** (closures 231/196 tests ·
+               systems 9/76 tests · domains 7 โมดูล/902 tests — บั๊ก r_s ของ AP1
                จะไม่เกิดถ้าเรียกของ audit แล้ว) ที่เหลือค่อยเขียนเอง ≤100 บรรทัด พร้อม
                **grammar sanity gate**: ต้อง reproduce ค่าอ้างอิงที่รู้แล้ว
                ก่อนใช้ตัดสินอะไร (เช่น θ★ ต้องตรง Planck ใน 0.5% ก่อน)

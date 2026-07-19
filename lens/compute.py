@@ -1,9 +1,9 @@
 """lens.compute -- W3 micro-check muscle: the solver's audited calculators.
 
 Rule (from the AP1 r_s-integration-bound bug, 2026-07-19): BEFORE hand-writing
-numpy for a micro-check, search these audited libraries -- ~200 CODATA-cited
-closures (196 tests), 9 system solvers (76 tests), 7 domain modules (~864
-tests). A tested closure beats fresh code. Hand-write only what is not here,
+numpy for a micro-check, search these audited libraries -- 231 CODATA-cited
+closures (196 tests), 9 system solvers (76 tests), 7 domain modules (902
+collected tests). A tested closure beats fresh code. Hand-write only what is not here,
 and say so in the extraction's not-checked ledger.
 
 All calls reach the solver LIVE via lens.solver_link (no vendoring). Solver
@@ -30,7 +30,7 @@ def _need(module: str):
 
 
 def list_closures(level: str | None = None, category: str | None = None) -> list[str]:
-    """Search the audited formula registry (~200 closures, CODATA constants)."""
+    """Search the audited formula registry (231 closures, CODATA constants)."""
     return _need("formulas").list_closures(level=level, category=category)
 
 
