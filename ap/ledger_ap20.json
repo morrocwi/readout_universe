@@ -2,41 +2,52 @@
   "artifacts": [
     "ap/ap20_retention_self_interaction.py",
     "ap/ap20_symbolic_forcing.py",
+    "ap/ap20_stress.py",
     "v2/RETENTION_SELF_INTERACTION.md"
   ],
   "date": "2026-07-20",
   "tier": "finite_diagnostic + symbolic_exact",
-  "claim": "Given A1-A4, unital ordered self-carrier channel composition forces the missing spin-1 self-interaction unit with coefficient one.",
+  "claim": "Given borrowed commutator curvature, self-carrier closure, and one common quadratic load, the quadratic self term is not independently tunable and has equal relative curvature weight to the geometric term in the executed finite representation.",
   "premises": {
-    "A1": "one unital bilinear associative ordered channel product; the no-op identity fixes normalization",
-    "A2": "circulation is the exchange-odd order defect of that product",
+    "A1": "one unital bilinear associative ordered channel product",
+    "A2": "circulation is identified with the exchange-odd commutator/order defect; borrowed, not RD4-derived",
     "A3": "self-carrier closure: fluctuations inhabit the same channel algebra",
-    "A4": "quadratic load induced by the order-defect norm"
+    "A4": "geometric and self terms use one common invariant quadratic load; only ratios are claimed"
   },
   "executed_results": {
-    "no_op_identity_normalization": "pass",
-    "exchange_odd_and_jacobi": "pass",
     "symbolic_epsilon_squared_term_coefficient": 1,
-    "hessian_extra_curvature_unit": 1,
+    "relative_self_to_geometric_curvature_weight": 1,
+    "relative_total_to_geometric_curvature_weight": 2,
+    "quadratic_response_ratio": 4,
+    "common_load_scale_invariance": "pass",
+    "hundred_background_three_scale_stress": "pass",
     "commutative_control": 0,
-    "external_payload_control": 0,
-    "paper_IV_geometry_plus_composition": "1 + 1 = 2; quadratic response = 4"
+    "external_payload_control": 0
   },
   "borrowed": [
+    "noncommutative commutator/Lie-algebra channel structure",
     "finite unital associative matrix algebra",
     "so(3) finite representation",
-    "Paper IV geometric unit = 1"
+    "covariant geometric/background-gauge quadratic term",
+    "self-carrier closure premise",
+    "Paper IV geometric interpretation"
   ],
   "not_claimed": [
+    "absolute inner-product normalization",
+    "removal of the Yang-Mills/Lie-bracket borrow",
     "RD4 uniquely forces A1-A4",
     "full Yang-Mills or +11/3 beta-function derivation",
     "ghost or longitudinal bookkeeping",
     "Standard Model gauge group or representations"
   ],
   "kill_conditions": [
-    "a valid retained-distinction grammar selects commutative channels while retaining the claimed physical sector",
+    "the relative self/geometric coefficient differs from one under a common valid invariant load",
+    "a valid retained-distinction grammar forces commutative channels in the target sector",
     "self-carrier closure cannot be derived and external-payload transport is forced instead",
-    "the unit changes after normalization is fixed by the same no-op identity",
-    "the symbolic coefficient ceases to be one in a valid unital bilinear channel algebra"
+    "the result depends on an independently selected representation normalization rather than a common ratio"
+  ],
+  "review_repair": [
+    "absolute unit claim withdrawn because inner-product normalization is free",
+    "claim that the Lie-bracket borrow was removed withdrawn; AP20 is a conditional re-expression"
   ]
 }
