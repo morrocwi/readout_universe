@@ -20,13 +20,22 @@ from dataclasses import dataclass, field
 import numpy as np
 
 from .vendor.lexicon import translate_to_philosophy
+from . import solver_link
 
-# I1-I4 infinity-injection markers (heuristic screen; Omega_inf doctrine)
+# The FULL Zero-Infinity Dual Guard (ZERO_INFINITY_DUAL_DIAGNOSIS.md):
+# an injected exact ZERO is the same disease as an injected INFINITY --
+# both are non-readouts. Heuristic screens; the operator confirms each hit.
 _INF_MARKERS = {
     "I1_R_completeness": r"\breal number|continuum|\bR-complete|infinitely precise|exact value\b",
     "I2_infinite_divisibility": r"h\s*->\s*0|infinitely divisible|limit of zero step|supertask",
-    "I3_infinite_scale": r"infinite (universe|volume|extent|scale)|unbounded domain",
+    "I3_infinite_scale": r"infinite (universe|volume|extent|scale)|unbounded domain|Re\s*->\s*inf",
     "I4_actual_infinity": r"actual infinity|infinitely many steps completed|\binfinite set\b",
+}
+_ZERO_MARKERS = {
+    "Z1_exact_point": r"\bpoint (particle|mass|charge)\b|exactly zero size|\bsingularity\b",
+    "Z2_zero_step": r"\bh\s*=\s*0\b|zero step size|instantaneous(ly)? exact",
+    "Z3_absolute_rest": r"\babsolute (rest|zero)\b|\bT\s*=\s*0\b|perfectly isolated",
+    "Z4_true_void": r"\btrue void\b|absolute nothing|empty of all difference",
 }
 
 
@@ -48,6 +57,10 @@ class Issue:
     hypothesis_dims: int | None = None         # independent directions among hypotheses
     instrument_change: str = ""                # new readout policy, if any
     refutation_benchmark: str = ""             # what a claimed refutation compares against
+    cited_theorems: list[str] = field(default_factory=list)   # names claimed as machine-checked
+    limit_series: tuple[list[float], list[float]] | None = None  # (samples, limit_vars)
+    limit_side: str = "zero"                   # 'zero' | 'infinity' (which limit is claimed)
+    formula_pair: tuple[str, str] | None = None  # two closure ids claimed (in)equivalent
 
 
 @dataclass
@@ -60,7 +73,10 @@ class GateResult:
 
 @dataclass
 class Extraction:
-    """The 7-piece maximal extraction (v2/POSITION.md section 3)."""
+    """The 8-piece maximal extraction (v2/POSITION.md section 3).
+    Piece 8 (not_checked) imports the PDEBench discipline: every bound of the
+    analysis is declared RUN / SKIPPED-with-reason -- silent omission reads as
+    coverage, which is a lie by layout."""
     translation: str
     posit_ledger: str
     record_inventory: str
@@ -68,6 +84,7 @@ class Extraction:
     pi_statement: str
     decisive_record: str
     falsifier: str
+    not_checked: str = ""
     gates: list[GateResult] = field(default_factory=list)
     tier: str = "Dr"
 
@@ -77,7 +94,7 @@ class Extraction:
         -- the exact failure this class exists to prevent."""
         pieces = [self.translation, self.posit_ledger, self.record_inventory,
                   self.null_space, self.pi_statement, self.decisive_record,
-                  self.falsifier]
+                  self.falsifier, self.not_checked]
         return all(p.strip() and not p.startswith("operator fills") for p in pieces)
 
 
@@ -95,14 +112,18 @@ def g1_translate(issue: Issue) -> GateResult:
 
 
 def g2_infinity(text: str) -> GateResult:
+    """The dual Guard: screen for injected INFINITY (I1-I4) AND injected
+    exact ZERO (Z1-Z4) -- both are non-readouts; a verdict benchmarked on
+    either side is inadmissible (readout-vs-readout only)."""
     hits = [k for k, pat in _INF_MARKERS.items() if re.search(pat, text, re.I)]
+    hits += [k for k, pat in _ZERO_MARKERS.items() if re.search(pat, text, re.I)]
     if hits:
         return GateResult("G2_omega_inf", "FLAG", "Dr",
                           f"injected: {', '.join(hits)} -- dissolve or restate "
                           "as finite readout before answering (heuristic screen; "
                           "false positives possible -- operator confirms)")
-    return GateResult("G2_omega_inf", "PASS", "Dr", "no infinity marker detected "
-                      "(heuristic screen -- operator confirms)")
+    return GateResult("G2_omega_inf", "PASS", "Dr", "no zero/infinity marker "
+                      "detected (heuristic screen -- operator confirms)")
 
 
 def g3_quantity_role(issue: Issue) -> GateResult:
@@ -204,11 +225,81 @@ def g7_readout_vs_readout(issue: Issue) -> GateResult:
                       "benchmark shows no injected-infinity marker (heuristic)")
 
 
+def g9_theorem_check(issue: Issue) -> GateResult:
+    """G9: every claimed machine-checked theorem must resolve against the
+    live solver arc (THEOREM_INDEX.md + formal/*.v). Miss => the claim's
+    Th_coqc tag is UNBACKED: auto-downgrade to Dr. This turns tier discipline
+    from manual habit into mechanism."""
+    if not issue.cited_theorems:
+        return GateResult("G9_theorem_check", "PASS", "Dr", "no Th_coqc citation to verify")
+    lines, misses, unavailable = [], [], False
+    for name in issue.cited_theorems:
+        r = solver_link.theorem_lookup(name)
+        if r["found"] is None:
+            unavailable = True
+            lines.append(f"{name}: UNVERIFIED ({r['note']})")
+        elif r["found"]:
+            lines.append(f"{name}: FOUND ({', '.join(r['v_files'] or r['index_hits'])})")
+        else:
+            misses.append(name)
+            lines.append(f"{name}: MISS -- auto-downgrade Th_coqc -> Dr")
+    if unavailable:
+        return GateResult("G9_theorem_check", "PROMPT", "Open", "; ".join(lines))
+    if misses:
+        return GateResult("G9_theorem_check", "FLAG", "finite_diagnostic", "; ".join(lines))
+    return GateResult("G9_theorem_check", "PASS", "finite_diagnostic", "; ".join(lines))
+
+
+def g10_limit(issue: Issue) -> GateResult:
+    """G10: a convergence/divergence claim gets a fitted-law verdict from the
+    live solver's limits engine (LimitCertificate; refuses on thin data) --
+    never an eyeballed 'it clearly goes to zero'."""
+    if issue.limit_series is None:
+        return GateResult("G10_limit", "PASS", "Dr", "no limit claim to certify")
+    limits = solver_link.import_engine("limits")
+    if limits is None:
+        return GateResult("G10_limit", "PROMPT", "Open",
+                          "SKIPPED: solver unavailable -- limit claim stays uncertified")
+    samples, lvars = issue.limit_series
+    fn = limits.classify_zero_limit if issue.limit_side == "zero" else limits.classify_infinity_limit
+    try:
+        cert = fn(list(samples), list(lvars))
+    except Exception as e:  # thin/invalid data: refuse honestly, never fabricate
+        return GateResult("G10_limit", "PROMPT", "Open", f"BLOCKED_NOT_CLAIMED: {e}")
+    return GateResult("G10_limit", "FLAG" if "BLOCKED" in str(cert.verdict) else "PASS",
+                      "finite_diagnostic", f"verdict={cert.verdict} law={getattr(cert, 'law', '?')} "
+                      f"(LimitCertificate from engine.limits)")
+
+
+def g11_equivalence(issue: Issue) -> GateResult:
+    """G11: 'these two formulas are (not) the same' is adjudicated by the
+    solver's equivalence registry (documented mapping + numeric re-proof),
+    not by argument. Quantity-by-role at the formula level."""
+    if issue.formula_pair is None:
+        return GateResult("G11_equivalence", "PASS", "Dr", "no formula-pair dispute")
+    eq = solver_link.import_engine("equivalence")
+    if eq is None:
+        return GateResult("G11_equivalence", "PROMPT", "Open",
+                          "SKIPPED: solver unavailable -- equivalence undecided")
+    a, b = issue.formula_pair
+    try:
+        eq_of_a = eq.equivalent_closures(a)
+    except Exception as e:
+        return GateResult("G11_equivalence", "PROMPT", "Open",
+                          f"'{a}' not in equivalence registry ({e}) -- register the "
+                          "mapping before claiming (in)equivalence")
+    same = b in eq_of_a
+    return GateResult("G11_equivalence", "FLAG" if not same else "PASS",
+                      "finite_diagnostic",
+                      f"'{a}' ~ '{b}': {'EQUIVALENT under registered mapping' if same else 'NOT registered as equivalent -- treat as different quantities by role'}")
+
+
 def run_gates(issue: Issue) -> Extraction:
     """Walk G1-G8; assemble the 7-piece extraction. G8 = this assembly."""
     g = [g1_translate(issue), g2_infinity(issue.statement), g3_quantity_role(issue),
          g4_pi_selection(issue), g5_identifiability(issue), g6_load_bearing(issue),
-         g7_readout_vs_readout(issue)]
+         g7_readout_vs_readout(issue), g9_theorem_check(issue), g10_limit(issue),
+         g11_equivalence(issue)]
     # weakest-tier-wins over the ordering Open < Dr < finite_diagnostic < Th_coqc
     _ORDER = ["Open", "Dr", "finite_diagnostic", "Th_coqc"]
     tiers = [r.tier for r in g]
@@ -225,5 +316,7 @@ def run_gates(issue: Issue) -> Extraction:
         decisive_record="operator fills: cheapest record that breaks the null "
                         "direction (ranked by cost)",
         falsifier="operator fills: what kills OUR reading of this issue",
+        not_checked="operator fills: every SKIPPED check + why (resource/data/"
+                    "scope) -- silent omission is banned",
         gates=g, tier=overall)
     return ex

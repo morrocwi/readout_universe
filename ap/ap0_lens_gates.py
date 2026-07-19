@@ -22,8 +22,9 @@ A_FULL = [[1., -1., 0., 0.], [0., 1., -1., 0.], [0., 0., 1., -1.]]
 def test_g1_calls_real_lexicon_and_g8_assembles():
     ex = run_gates(Issue(statement="the mass of a particle"))
     assert "τ_c" in ex.translation            # real lexicon output, not paraphrase
-    assert len(ex.gates) == 7                 # G1..G7 recorded; G8 = the assembly
+    assert len(ex.gates) == 10                # G1..G7 + G9..G11; G8 = the assembly
     assert not ex.complete()                  # operator pieces still open -> honest
+    assert "SKIPPED" in ex.not_checked or "operator fills" in ex.not_checked
 
 
 def test_g2_flags_injected_infinity():
@@ -76,3 +77,38 @@ def test_g7_rejects_infinity_benchmarked_refutation():
     iss = Issue(statement="s",
                 refutation_benchmark="compared against the continuum diffusion limit h -> 0")
     assert g7_readout_vs_readout(iss).verdict == "FLAG"
+
+
+def test_g2_dual_guard_flags_injected_zero():
+    """Zero side of the Guard (Z1-Z4): an exact zero is a non-readout too."""
+    assert g2_infinity("model the electron as a point particle at T = 0").verdict == "FLAG"
+
+
+def test_g9_theorem_hook_hits_and_misses():
+    """Real arc lookup: a genuine theorem resolves; a fake name auto-downgrades."""
+    from lens.gates import g9_theorem_check
+    hit = g9_theorem_check(Issue(statement="s", cited_theorems=["sqrt2_is_not_a_readout"]))
+    assert hit.verdict == "PASS" and "FOUND" in hit.detail
+    miss = g9_theorem_check(Issue(statement="s", cited_theorems=["totally_fake_theorem_xyz"]))
+    assert miss.verdict == "FLAG" and "auto-downgrade" in miss.detail
+
+
+def test_g10_limit_certifies_decay():
+    """Fitted-law verdict from the live limits engine on a clean 1/n decay."""
+    from lens.gates import g10_limit
+    n = list(range(1, 40))
+    iss = Issue(statement="s", limit_series=([1.0/k for k in n], [float(k) for k in n]),
+                limit_side="zero")
+    r = g10_limit(iss)
+    assert r.tier in ("finite_diagnostic", "Open")
+    if r.tier == "finite_diagnostic":          # solver present on this machine
+        assert "verdict=" in r.detail
+
+
+def test_g11_equivalence_unregistered_pair_prompts():
+    """An unregistered pair must PROMPT (register the mapping), never guess."""
+    from lens.gates import g11_equivalence
+    r = g11_equivalence(Issue(statement="s",
+                              formula_pair=("nonexistent_closure_a", "nonexistent_closure_b")))
+    assert r.verdict in ("PROMPT", "FLAG")     # never a fabricated EQUIVALENT
+    assert "EQUIVALENT under registered mapping" not in r.detail

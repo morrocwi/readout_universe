@@ -37,7 +37,10 @@ iss = Issue(
     discard_rows=[...],            # what a bounded reading drops -> G6 LTP3 test
     hypothesis_dims=3,             # if grammar unknown
     instrument_change="<new instrument/threshold or ''>",
-    refutation_benchmark="<what a claimed refutation compares against or ''>")
+    refutation_benchmark="<what a claimed refutation compares against or ''>",
+    cited_theorems=["<names the source claims are machine-checked>"],  # G9 live arc check
+    limit_series=([samples...], [limit_vars...]), limit_side="zero",   # G10 LimitCertificate
+    formula_pair=("<closure_a>", "<closure_b>"))                       # G11 equivalence registry
 ex = run_gates(iss)
 for g in ex.gates: print(f"{g.gate:22s} {g.verdict:6s} [{g.tier}] {g.detail}")
 print("COMPLETE:", ex.complete(), "| overall tier:", ex.tier)
@@ -45,8 +48,9 @@ EOF
 ```
 
 3. **FILL the operator pieces** the gates cannot compute (posit ledger with
-   verdict classes, decisive-record ranking, falsifier of OUR reading) — the
-   `Extraction` is done only when `ex.complete()` is True.
+   verdict classes, decisive-record ranking, falsifier of OUR reading, and the
+   piece-8 not-checked ledger: every SKIPPED check + why) — the `Extraction`
+   is done only when `ex.complete()` is True.
 4. **MICRO-CHECK** — any numerical claim gets a ≤100-line assert script with a
    grammar sanity gate (reproduce a known value first), run via pytest, saved
    as `ap/apN_<slug>.py`. No executed run → no claim.
@@ -72,6 +76,19 @@ from lens.vendor.operator_api import Operator
 op = Operator([(0,1,1.0),(1,2,1.0),(2,0,1.0)])
 r = op.info([1.,0.,0.]); print(r.value, r.structure_tier, r.value_tier)"
 ```
+
+## Live solver link (G9–G11 + MCP)
+
+G9–G11 reach the sibling `research_universal_solver` LIVE via
+`lens/solver_link.py` (env `ANSE_SOLVER_PATH` overrides the default sibling
+path). Solver absent → those gates report PROMPT/SKIPPED honestly; record it
+in extraction piece 8 (not-checked ledger), never silently proceed.
+
+Deeper interactive use: the solver ships three MCP servers already registered
+in ITS `.mcp.json` (`operator` = OP1–OP6 compute, `universe` = L0→L3 readouts,
+`arc` = `coq_verify` live Coq compile + `arc_search` over 292 formal files +
+`dec_compute` exact-rational DEC). Open a session at the solver repo (or add
+its `.mcp.json` entries to yours) to call them directly.
 
 ## Hard rules
 

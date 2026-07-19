@@ -29,3 +29,9 @@ this run used 8.20.1 — compiles clean, axiom-free check intact.
 | AP2 FXT Amati reachability (3 tests: extended-jet on-locus exact, compact above-locus monotone, below-locus unreachable ∀p∈[2,3]) | `python3 -m pytest ap/ap2_fxt_amati.py -q` | 3 passed |
 
 Both TOY TIER (declared in file headers). Full suite: `python3 -m pytest -q` → 7 passed, 0.37s.
+
+## 2026-07-19 — lens Phase 1 world-class gates (live solver link)
+
+| Check | Command | Result |
+|-------|---------|--------|
+| Gates suite incl. G2 dual Guard (Z+I), G9 theorem hook (real hit `sqrt2_is_not_a_readout` + fake-name auto-downgrade), G10 LimitCertificate on 1/n decay, G11 unregistered-pair refusal | `python3 -m pytest -q` | **19 passed** |
