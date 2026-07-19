@@ -7,8 +7,9 @@ model under OUR discipline and quantitatively bridges it to DRL.
 KINSHIP LEDGER (mandatory, declared BEFORE any novelty talk):
 - Repeated-interaction / collision models of open systems (fresh ancilla per
   step; review: Ciccarello et al., Phys. Rep. 954 (2022), arXiv:2106.11974)
-- Sz.-Nagy unitary dilation of a contraction (1953): our B_gamma rotation
-  into a fresh cell IS a dilation of the contraction sqrt(1-gamma)*C
+- Isometric/Stinespring dilation of the contraction sqrt(1-gamma)*C, realized
+  SEQUENTIALLY with a fresh ancilla per step as in the collision-model
+  literature (kin of, but not identical to, Sz.-Nagy's fixed-unitary 1953 theorem)
 - Landauer 1961 / Bennett 1982: erasure vs reversible record-keeping tape
 => the MAP is standard-ancestry and POSITED (no action). Candidate-new layer
 is only the RD-reading (tape = RD6-7 concatenation realizing RD4 injectivity)
@@ -84,6 +85,10 @@ def _z0(seed=7):
 
 
 def test_t1_additive_exact_conservation():
+    """DISCLOSURE (review PR #14): additive conservation here is GUARANTEED
+    BY CONSTRUCTION (orthogonal C_step + the trivial split (1-g)+g=1). This
+    test is an implementation-correctness machine-check, NOT a discovered
+    physical result."""
     z0 = _z0()
     zf, tape = tape_run(z0)
     total = Q(zf) + sum(Q(r) for r in tape)
@@ -113,12 +118,26 @@ def test_t2_rd4_injectivity_and_reversibility():
     first_diff = next(i for i, (a, b) in enumerate(zip(ta, tb)) if np.abs(a - b).max() > 0)
     assert first_diff == 0
     assert all(np.abs(a - b).max() > 0 for a, b in zip(ta[0:], tb[0:]))
+    # mid-history divergence (review NIT): perturb at interior step k -> tape
+    # cells identical before k, different from k onward
+    k = 5
+    zk = _z0()
+    za_, ta_ = tape_run(zk, steps=STEPS)
+    z_mid, tape_pre = tape_run(zk, steps=k)
+    zb_mid = z_mid + 1e-4 * np.eye(2 * N)[1]
+    _, tape_post_b = tape_run(zb_mid, steps=STEPS - k)
+    tb_ = tape_pre + tape_post_b
+    assert all(np.abs(a - b).max() == 0 for a, b in zip(ta_[:k], tb_[:k]))
+    assert all(np.abs(a - b).max() > 0 for a, b in zip(ta_[k:], tb_[k:]))
 
 
 def test_t3_pi_window_vs_tape_retention():
     """Two nearby histories: readout difference collapses below a Pi
     resolution while the TAPE retains ~the whole initial distinction.
-    (Re-execution of the external claim under our harness.)"""
+    (Re-execution of the external claim under our harness.)
+    DISCLOSURE (review PR #14): the identity ||dz_N||^2 + sum||drho||^2 =
+    ||dz_0||^2 is the SAME construction-guaranteed tautology as T1 applied to
+    the perturbation vector — implementation check, not discovery."""
     z0a = _z0()
     z0b = z0a + 1e-2 * np.eye(2 * N)[3]
     za, ta = tape_run(z0a)
@@ -134,6 +153,9 @@ def test_t4_bridge_tape_envelope_matches_drl_spine():
     """The two layers meet: choose gamma_dt = 1-exp(-(D/M) dt). Then the tape
     energy envelope reproduces ap5's damped-spine readout-energy decay
     (underdamped uniform-damping case) to a few percent over 4000 steps."""
+    omega_min = float(_OMEGA.min())
+    assert drl.D < 2 * drl.M * omega_min       # underdamped-regime guard (review NIT):
+    # the bridge's real constraint is damping regime, NOT integration stiffness
     gamma_dt = 1 - np.exp(-(drl.D / drl.M) * drl.DT)
     Phi, _ = drl.el_trajectories()
     e_drl_0 = drl.readout_energy(Phi, 1)
