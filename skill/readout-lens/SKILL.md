@@ -1,6 +1,6 @@
 ---
 name: readout-lens
-description: "Use when any research/physics/science issue must be analyzed through the Readout Universe information-philosophy (RD/δ_R lens) — solving INSIDE our logic, not the foreign vocabulary. Runs the Ω_all forcing gates G1–G11 via the real lens API (lens/gates.py), produces the 8-piece maximal extraction, computes identifiability/null-space verdicts, and translates via the real lexicon. Triggers: 'วิเคราะห์ด้วยปรัชญาเรา', 'มองผ่านเลนส์', 'translate into our philosophy and solve', 'ปรัชญาบังคับทิศ', 'run the gates', analyzing an arXiv problem, any claim of tension/anomaly/new-class in a paper."
+description: "Use when any research/physics/science issue must be analyzed through the Readout Universe information-philosophy (RD/δ_R lens) — solving INSIDE our logic, not the foreign vocabulary. Runs the Ω_all forcing gates G1–G13 via the real lens API (lens/gates.py), produces the 8-piece maximal extraction, computes identifiability/null-space verdicts, and translates via the real lexicon. Triggers: 'วิเคราะห์ด้วยปรัชญาเรา', 'มองผ่านเลนส์', 'translate into our philosophy and solve', 'ปรัชญาบังคับทิศ', 'run the gates', analyzing an arXiv problem, any claim of tension/anomaly/new-class in a paper."
 metadata:
   author: readout-universe
   version: "1.0.0"
@@ -40,7 +40,8 @@ iss = Issue(
     refutation_benchmark="<what a claimed refutation compares against or ''>",
     cited_theorems=["<names the source claims are machine-checked>"],  # G9 live arc check
     limit_series=([samples...], [limit_vars...]), limit_side="zero",   # G10 LimitCertificate
-    formula_pair=("<closure_a>", "<closure_b>"))                       # G11 equivalence registry
+    formula_pair=("<closure_a>", "<closure_b>"),                       # G11 equivalence registry
+    claimed_tau_s=1e-9)                                                # G13 timescale atlas
 ex = run_gates(iss)
 for g in ex.gates: print(f"{g.gate:22s} {g.verdict:6s} [{g.tier}] {g.detail}")
 print("COMPLETE:", ex.complete(), "| overall tier:", ex.tier)
@@ -51,9 +52,17 @@ EOF
    verdict classes, decisive-record ranking, falsifier of OUR reading, and the
    piece-8 not-checked ledger: every SKIPPED check + why) — the `Extraction`
    is done only when `ex.complete()` is True.
-4. **MICRO-CHECK** — any numerical claim gets a ≤100-line assert script with a
-   grammar sanity gate (reproduce a known value first), run via pytest, saved
-   as `ap/apN_<slug>.py`. No executed run → no claim.
+4. **MICRO-CHECK** — FIRST search the audited calculators, THEN hand-write:
+   ```python
+   from lens import compute
+   compute.list_closures(category="kinematics")   # ~200 audited closures
+   compute.solve_closure("acceleration", dv=10.0, t=2.0)  # value+units+citation
+   compute.list_systems(); compute.domain("thermodynamics")
+   ```
+   (`SolverUnavailable` → record SKIPPED in piece 8, never improvise.)
+   What the libraries lack gets a ≤100-line assert script with a grammar
+   sanity gate (reproduce a known value first), run via pytest, saved as
+   `ap/apN_<slug>.py`. No executed run → no claim.
 5. **VERDICT** — answer + tier + falsifier + next decisive record. Tier rules:
    computed = `finite_diagnostic`; interpreted = `Dr`; unfilled = `Open`. Never
    upgrade; never quote a bare number (cite operator + chain + role with it).

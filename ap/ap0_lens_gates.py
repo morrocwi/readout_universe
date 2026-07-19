@@ -22,7 +22,7 @@ A_FULL = [[1., -1., 0., 0.], [0., 1., -1., 0.], [0., 0., 1., -1.]]
 def test_g1_calls_real_lexicon_and_g8_assembles():
     ex = run_gates(Issue(statement="the mass of a particle"))
     assert "τ_c" in ex.translation            # real lexicon output, not paraphrase
-    assert len(ex.gates) == 10                # G1..G7 + G9..G11; G8 = the assembly
+    assert len(ex.gates) == 12                # G1..G7 + G9..G13; G8 = the assembly
     assert not ex.complete()                  # operator pieces still open -> honest
     assert "SKIPPED" in ex.not_checked or "operator fills" in ex.not_checked
 
@@ -115,6 +115,65 @@ def test_g10_limit_certifies_decay():
     assert r.tier in ("finite_diagnostic", "Open")
     if r.tier == "finite_diagnostic":          # solver present on this machine
         assert "verdict=" in r.detail
+
+
+def test_g12_triage_names_operators():
+    """murg keyword router names structural operators; explicitly a reading
+    aid (Dr), never a verdict."""
+    from lens.gates import g12_triage
+    r = g12_triage(Issue(statement="this bug is an error-correction and repair problem"))
+    if r.verdict == "PASS":                   # solver present
+        assert r.tier == "Dr" and "Repair" in r.detail and "not a verdict" in r.detail
+    else:
+        assert r.verdict == "PROMPT"
+
+
+def test_g13_timescale_atlas():
+    """A claimed timescale gets named atlas neighbours; below the tau_c floor
+    flags non-readout territory; non-positive PROMPTs."""
+    from lens.gates import g13_timescale
+    r = g13_timescale(Issue(statement="s", claimed_tau_s=6.4e-22))  # electron zone
+    if r.tier == "finite_diagnostic":
+        assert "electron" in r.detail
+    bad = g13_timescale(Issue(statement="s", claimed_tau_s=-1.0))
+    assert bad.verdict == "PROMPT"
+
+
+def test_compute_muscle_solves_audited_closure():
+    """W3 rule: audited closure beats fresh numpy. Solve a real closure and
+    keep the solver's own result object (value + citation)."""
+    from lens import compute
+    try:
+        ids = compute.list_closures()
+    except compute.SolverUnavailable:
+        return                                 # honest skip path exercised
+    assert len(ids) > 150
+    res = compute.solve_closure("acceleration", dv=10.0, t=2.0)  # args per describe_closure
+    assert abs(res.value - 5.0) < 1e-12
+
+
+def test_vendor_snapshot_drift_detector():
+    """The vendored snapshots must still match the md5 table recorded in
+    lens/vendor/README.md -- silent drift of 'never edit' files is an error."""
+    import hashlib, re
+    from pathlib import Path
+    root = Path(__file__).resolve().parents[1] / "lens" / "vendor"
+    table = (root / "README.md").read_text()
+    rows = re.findall(r"`(\w+\.py)` \| ([0-9a-f]{32})", table)
+    assert len(rows) >= 4
+    for fname, md5 in rows:
+        actual = hashlib.md5((root / fname).read_bytes()).hexdigest()
+        assert actual == md5, f"{fname} drifted from recorded snapshot"
+
+
+def test_evidence_recompiles_opt_in():
+    """Full Coq recompile of evidence/ -- slow, so opt-in via RUN_COQ=1."""
+    import os, subprocess
+    if not os.environ.get("RUN_COQ"):
+        return
+    root = Path(__file__).resolve().parents[1] / "evidence"
+    for v in ("RD.v", "URCF_RD_All.v"):
+        assert subprocess.run(["coqc", v], cwd=root).returncode == 0
 
 
 def test_g11_semantics_hardened():
