@@ -15,11 +15,21 @@ Lens verdict (gates executed via lens.run_gates, 2026-07-19):
   forward-model before reading world-change.
 - G5 FLAG: >=4 hypothesis directions (quintessence / phantom-crossing /
   modified gravity / systematics) on a lower-dimensional record.
-- Micro-check below: the preferred CPL direction is NEAR-NULL within BAO
-  observables once (h, omega_m) compensate -- the "evolution" signal lives in
-  the cross-chain combination, not inside BAO.
+- Micro-check below (two points, see next paragraph): at the SN-inclusive
+  best-fit the CPL direction is NEAR-NULL within BAO once (h, omega_m)
+  compensate; at the BAO+CMB-only point it is only PARTIALLY null.
 
-TOY TIER declared: approximate headline best-fit (w0=-0.752, wa=-0.86);
+Two best-fit points tested (reviewer MUST-FIX, PR #7): the SN-inclusive
+combo BAO+CMB+DESY5 (w0=-0.752, wa=-0.86) is NEAR-NULL within BAO (0.50%,
+at/below the 0.7-2.5% per-bin floor) -- consistent with the SN-driven part
+of the preference living outside BAO; the BAO+CMB-only point (w0=-0.42,
+wa=-1.75) leaves a 1.33% residual, ABOVE the best per-bin floor -- so the
+BAO+CMB combination carries some genuine BAO-side pull and the cross-chain
+reading is PARTIAL there, not total. Both numbers are asserted below;
+neither is hidden. Interpretive claims tier: [Dr].
+
+TOY TIER declared: headline best-fit values transcribed from the paper's
+combos as noted above;
 r_s(z_star) used as an r_drag proxy (common scaling); 5 effective z-bins,
 no covariance; full-likelihood behavior is the declared falsifier
 (if BAO-alone with free h, Omega_m prefers CPL at >~2 sigma, the
@@ -39,7 +49,8 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 from ap1_hubble_identifiability import C, E as E_lcdm, r_s, z_star  # verified grammar (AP1)
 
 H0, WM0 = 0.6736, 0.14237
-W0, WA = -0.752, -0.86                      # DESI DR2 approx headline (declared toy)
+W0, WA = -0.752, -0.86        # BAO+CMB+DESY5 combo best-fit (SN-inclusive)
+W0_BC, WA_BC = -0.42, -1.75    # BAO+CMB-only best-fit (the 3.1-sigma point)
 Z_BAO = [0.51, 0.71, 0.93, 1.32, 2.33]      # DESI effective redshifts (approx)
 
 
@@ -94,6 +105,21 @@ def test_near_null_within_bao():
     # and the direction is NOT exactly null -- there is a real sub-percent
     # residual, which is where any genuine BAO-side signal must live
     assert r.fun > 0.001, r.fun
+
+
+def test_bao_cmb_only_point_not_fully_null():
+    """The BAO+CMB-only best-fit leaves ~1.3% max residual after (h, omega_m)
+    compensation -- ABOVE the best per-bin precision (0.7%): at this point the
+    preference is NOT explained as a pure null-direction artifact; the
+    cross-chain reading is partial, and this is stated, not hidden."""
+    ref = bao_observables(E_lcdm, H0, WM0)
+
+    def cost(p):
+        return np.max(np.abs(bao_observables(E_cpl, p[0], p[1], W0_BC, WA_BC) / ref - 1))
+
+    r = minimize(cost, [0.62, 0.144], method="Nelder-Mead",
+                 options={"xatol": 1e-4, "fatol": 1e-5})
+    assert 0.008 < r.fun < 0.03, r.fun     # measured 1.33% (reviewer-reproduced)
 
 
 def test_single_param_compensation_insufficient():

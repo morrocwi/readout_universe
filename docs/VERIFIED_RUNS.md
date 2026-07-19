@@ -47,4 +47,4 @@ Both TOY TIER (declared in file headers). Full suite: `python3 -m pytest -q` →
 
 | Check | Command | Result |
 |-------|---------|--------|
-| AP3 (4 tests: grammar sanity/CPL→ΛCDM reduction exact, pivot crossing z∈[0.3,0.6], near-null <0.7% over 10 BAO observables with (h,ωm) free — measured 0.50%, Ωm-alone insufficient >1%) | `python3 -m pytest ap/ap3_desi_mirage.py -q` | 4 passed |
+| AP3 (5 tests: grammar sanity/CPL→ΛCDM exact, pivot z∈[0.3,0.6], DESY5-combo near-null 0.50% over 10 BAO observables with (h,ωm) free, BAO+CMB-only point residual 1.33% (NOT fully null — asserted honestly), Ωm-alone insufficient >1%) | `python3 -m pytest ap/ap3_desi_mirage.py -q` | 5 passed |

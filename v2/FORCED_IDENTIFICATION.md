@@ -30,7 +30,7 @@ calibration ภายใน chain ผิดปกติ (เพราะมั�
 | เคส | ปริมาณที่ถูกบังคับรวม | chain ทั้งสอง | ลายเซ็น forced-identification ที่วัดได้ | artifact/หลักฐาน |
 |------|----------------------|---------------|----------------------------------------|------------------|
 | Hubble tension | `h` | CMB acoustic + ΛCDM closure vs distance-ladder ตรง | ปลด posit เดียว (w) → h วิ่ง 0.62–0.76 โดย θ★ นิ่ง: h_CMB คือพิกัดหลัง closure | `ap/ap1_hubble_identifiability.py` (4 pytest) |
-| DESI "evolving DE" | `Ω_m` (และคู่ h) | BAO+ΛCDM closure vs CMB+ΛCDM closure | ตัวเปเปอร์เองระบุ driver = 2.3σ BAO↔CMB; ทิศ CPL ที่ชนะ near-null ใน BAO (0.50% เมื่อ h,ω_m ชดเชย); σ แกว่ง 2.8→4.2 ตาม SN sample | `ap/ap3_desi_mirage.py` (4 pytest) + arXiv:2503.14738 |
+| DESI "evolving DE" | `Ω_m` (และคู่ h) | BAO+ΛCDM closure vs CMB+ΛCDM closure | ตัวเปเปอร์ระบุ driver = 2.3σ BAO↔CMB; จุด SN-inclusive near-null ใน BAO (0.50%) แต่จุด BAO+CMB-only เหลือ 1.33% — **การอ่าน cross-chain เป็นบางส่วน ไม่ใช่ทั้งหมด**; σ แกว่ง 2.8→4.2 ตาม SN sample | `ap/ap3_desi_mirage.py` (5 pytest, สองจุดทดสอบ) + arXiv:2503.14738 |
 | Muon g−2 | `a_μ^SM` | data-driven dispersion (e⁺e⁻) vs lattice QCD | "anomaly กับการทดลอง" สลายเมื่อ lattice เห็นด้วยกับ experiment; ตอนนี้ 4.6σ อยู่*ระหว่างทฤษฎีสองสาย* + CMD-3 ชนข้อมูลเก่าภายใน chain เดียว | arXiv:2606.17323 (final 127ppb), 2603.06806 (lattice, 4.6σ) — ประวัติศาสตร์ตัดสินฝั่ง readout ไปแล้วบางส่วน |
 | JWST early galaxies | `M★` vs `M_halo·ε` | photometry→SED (IMF+SFH+dust posits) vs ΛCDM HMF + efficiency posit | posit ชน posit: วรรณกรรมเถียงกันเองว่า IMF ทำให้แย่ลง 3–4× หรือหายไป (posit นั้น load-bearing); Π ใหม่สุดขั้ว + "little red dots"→AGN ปน | arXiv:2601.20864 vs 2507.23742 (ทิศตรงข้ามจาก posit เดียวกัน); gates run 2026-07-19 |
 
