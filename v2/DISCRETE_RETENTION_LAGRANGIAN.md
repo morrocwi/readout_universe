@@ -91,9 +91,15 @@ exit 0, ตรวจซ้ำโดย verifier จาก clean slate):
 - EL residual **2.2×10⁻¹⁰** บนระบบเต็ม: กราฟถ่วงน้ำหนักสุ่ม N=8 + M_i,D_i ต่อ node
   + V quartic + forcing J — DRL derive สมการหน่วง nonlinear+forced ได้จริง
 - H อนุรักษ์ (2.2×10⁻⁴) ในเคส quadratic ต่างชนิด node — ทั่วไปกว่า ap5
-- **FINDING (ซื่อสัตย์ ไม่บังคับผล):** เมื่อ k₄>0 (quartic) ประจุ H รูป quadratic
-  เดิม**ไม่อนุรักษ์** (drift 0.119 ≈ 540×) — คำถามเปิด: มี H_quartic รูปแก้ไขไหม
-  [Open — งานถัดไปที่คมที่สุดของสมการนี้]
+- **FINDING → RESOLVED (AP8, 2026-07-19):** drift 0.119 ของประจุรูป quadratic
+  ในเคส quartic คือ **wrong-charge artifact** — Legendre transform ของ Lagrangian
+  nonlinear ให้ประจุที่ถูก (พจน์ D หักล้างเหมือนเดิม):
+  **H_nl = Σᵢ Mᵢ vΦᵢvΨᵢ + K ΦᵀL_wΨ + Ψᵀ∇V(Φ) − JᵀΨ**
+  วัดจริง (`ap/ap8_h_quartic.py`, 4 pytest): quartic drift **<2×10⁻³** (เทียบ 0.119
+  ของประจุผิด), เคส forced ก็อนุรักษ์, ยุบกลับประจุเดิมเมื่อ k₄=0 แบบ identical,
+  และ O(dt²) ยืนยันด้วย dt-halving ⇒ **conservation-of-pairing ของ DRL ยืนได้ทั้ง
+  ครอบครัว nonlinear+forced** [finite_diagnostic; Coq lift ของ cancellation
+  nonlinear queued กับ general-N]
 - Reduction กลับ ap5 แบบ exact (allclose 1e-9)
 
 **ด่าน 3 — Literature falsifier: novelty รอดทั้งสามชั้น (แบบ narrowed).**
