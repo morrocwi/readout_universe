@@ -56,7 +56,12 @@ code/LTP2_3_4_battery.py              finite_diagnostic protocols 2–4 (C4–C6
 code/UPL_Sorites.v                    Th_coqc formal floor, axiom-free (C7)
 docs/AI_READING_GUIDE.md              how an AI should read this system
 docs/VERIFIED_RUNS.md                 executed verification log (dated, per machine)
+v2/                                   the lens doctrine (DNA, Lens Law, Doctrine of
+                                      Quantity, Position, Forced-Identification thesis)
+ap/                                   executed case studies (pytest; ap0–ap3)
+evidence/                             in-repo Coq evidence (RD.v, URCF_RD_All.v)
 ```
+Note: `lens/`, `skill/`, `ap/` are proprietary (LICENSE EXCEPTIONS), not CC BY.
 
 ## We do NOT claim
 
