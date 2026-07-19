@@ -17,6 +17,32 @@ can read the full philosophy and logic system directly from source** — no PDF
 extraction needed: the complete text lives in [`main.tex`](main.tex) (single file),
 with the compiled book in `main.pdf`.
 
+## หลักการและเหตุผล — Principles & Rationale
+
+1. **Position — control layer, not a knowledge store.** ความรู้เฉพาะทางเป็น
+   commodity แล้ว ทุนที่แท้คือ*ตัวดำเนินการบังคับทิศ*: ประตู G1–G13 บังคับให้ถาม
+   คำถามถูกข้อ ในลำดับที่ถูก และห้ามหลงทางที่ทั้งสนามหลงกัน (`v2/POSITION.md`)
+2. **Lens Law.** ทุกปัญหาถูกแปลเข้าภาษาปรัชญาสารสนเทศ (Information DNA: RD1–9 +
+   RAR A1–8) ก่อนแก้ — ห้ามเถียงในภาษาต่างถิ่นเกินขั้น 1 (`v2/TRANSLATION_PROTOCOL.md`)
+3. **Readout-not-truth + tier discipline.** ทุก claim ติดป้าย
+   `Th_coqc / finite_diagnostic / Dr / Open` และไม่มีตัวเลขใดเข้าเอกสารโดยไม่มี
+   executed run ประกบ (`docs/VERIFIED_RUNS.md`); ทุก PR ผ่าน adversarial review
+4. **ปรัชญา-นำ แล้วสมการตามหลัง — และมันจ่ายจริง:** สมการที่เกิดจากเลนส์ในบ้านนี้
+   - **Φ_FI** = 1 − V*(C∖π)/V*(C) — attribution fraction ของ inter-chain tension
+     ต่อ posit ที่มีชื่อ (`v2/EQUATION_FI.md`, AP4)
+   - **DRL** — Discrete Retention Lagrangian: RD4 บังคับคู่ reader–record →
+     derive พจน์หน่วงจาก action ได้ (Coq axiom-free, general-N Legendre) +
+     conservation of pairing ทั้งครอบครัว nonlinear (`v2/DISCRETE_RETENTION_
+     LAGRANGIAN.md`, AP5/6/8) — และถูกนำเข้า `research_universal_solver` ผ่าน
+     audit จน **ledger row 8 (D-term) เปลี่ยน BORROWED → DERIVED-narrow**
+     (solver PR #185+#186, audit record: cpg DEC-drl-d-term-ratification-2026-0719)
+   - **Tape layer** — append-only record ที่ realize RD4 ใน dynamics + สะพาน
+     γ↔D/M เข้า DRL (`v2/APPEND_ONLY_RECORD.md`, AP7)
+   - **Forced Identification thesis** — โครงสร้างร่วมของวิกฤตฟิสิกส์ยุคนี้
+     (`v2/FORCED_IDENTIFICATION.md`, n=4)
+5. **ความใหม่ทุกชิ้น = [Open] จนกว่าผ่าน peer ภายนอก** — kinship ประกาศเสมอ
+   (Bateman/CTP/collision models/…) และ falsifier ของทุก claim แขวนไว้ในไฟล์
+
 ## For AI readers — start here
 
 1. Read [`docs/AI_READING_GUIDE.md`](docs/AI_READING_GUIDE.md) — entry order, tier
@@ -88,8 +114,9 @@ sibling `research_universal_solver` LIVE (override path with env
 APIs above. Install `bash skill/install.sh [--global]`; details `skill/INSTALL.md`.
 
 **6. Executed case studies — `ap/`:** AP0 (gate anchors), AP1 (Hubble), AP2
-(FXT), AP3 (DESI) — every numerical claim in the docs has its pytest here;
-runs logged in `docs/VERIFIED_RUNS.md`.
+(FXT), AP3 (DESI), AP4 (Φ_FI), AP5 (DRL), AP6 (DRL general), AP7 (tape),
+AP8 (H_quartic), AP9 (channel-count falsifier) — every numerical claim in
+the docs has its pytest here; runs logged in `docs/VERIFIED_RUNS.md`.
 
 ## Repository layout
 
@@ -103,14 +130,16 @@ code/LTP2_3_4_battery.py              finite_diagnostic protocols 2–4 (C4–C6
 code/UPL_Sorites.v                    Th_coqc formal floor, axiom-free (C7)
 docs/AI_READING_GUIDE.md              how an AI should read this system
 docs/VERIFIED_RUNS.md                 executed verification log (dated, per machine)
-v2/                                   the lens doctrine (DNA, Lens Law, Doctrine of
-                                      Quantity, Position, Forced-Identification thesis)
+v2/                                   the lens doctrine + equations (DNA, Lens Law,
+                                      Doctrine of Quantity, Position, Φ_FI, DRL,
+                                      Append-Only Record, Forced-Identification)
 lens/                                 the lens as code: gates.py (G1–G13) ·
                                       compute.py (audited calculators) ·
                                       solver_link.py (live) · vendor/ (snapshots)
 ap/                                   executed case studies (pytest; ap0–ap3)
 skill/readout-lens/                   installable Claude Code skill (W1–W7)
-evidence/                             in-repo Coq evidence (RD.v, URCF_RD_All.v)
+evidence/                             in-repo Coq evidence (RD.v, URCF_RD_All.v,
+                                      DRL_Discrete.v, DRL_General_Legendre.v)
 ```
 Note: `lens/`, `skill/`, `ap/` are proprietary (LICENSE EXCEPTIONS), not CC BY.
 
