@@ -22,8 +22,14 @@ channel polarizes); anti-screening gauge self-coupling = CIRCULATION-like
 oriented load (only non-abelian carriers self-load, sign flips). This is a
 structural reading, not a derivation.
 
-FALSIFIER MOVED ONE LEVEL DEEPER: the mystery is no longer (41/10,-19/6,-7)
-(those are counting, executed below) but the three atoms (11/3, 2/3, 1/3).
+SIGN CONVENTION NOTE (review PR #20): ap9's B dict carries the RGE-slope
+sign (d(1/a)/dlnmu = -B/2pi => B negative for asymptotically-free groups);
+THIS file uses the textbook beta-coefficient b0 (positive for AF), so
+b0 = -B for SU(2)/SU(3) and b0 = +B for U(1). Same physics, two named
+conventions, now reconciled explicitly.
+FALSIFIER MOVED ONE LEVEL DEEPER: the mystery is no longer the slope tuple
+(ap9's (41/10,-19/6,-7) = this file's (41/10, 19/6, 7) up to the convention
+above; the counting is executed below) but the three atoms (11/3, 2/3, 1/3).
 Derive THOSE from the grammar (spin/orientation structure of graph
 channels) and b123 -- and hence 52 -- all emerge free. [Open + stance]
 
@@ -45,9 +51,11 @@ def b3():
 
 
 def b2():
-    """SU(2): C2=2; per gen 4 Weyl doublet-pairs (3 quark colors + 1 lepton)
-    x2 Weyl components... counted as 12 Weyl doublets total, T=1/2; Higgs
-    complex doublet T=1/2."""
+    """SU(2): C2=2; count (review-corrected): per generation Q_L gives 3
+    Weyl doublets (one per color) + L_L gives 1 => 4 Weyl doublets/gen;
+    3 generations => 12 Weyl doublets, each T=1/2 (no extra factor of 2 --
+    each left-handed doublet IS a single Weyl doublet); Higgs = one complex
+    doublet, T=1/2."""
     return W_GAUGE * 2 - W_WEYL * (F(1, 2) * 12) - W_SCAL * F(1, 2)
 
 
