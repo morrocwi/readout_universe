@@ -76,3 +76,9 @@ Full suite after integration: `python3 -m pytest -q` → **43 passed**.
 | Check | Command | Result |
 |-------|---------|--------|
 | Decoupling counterexample: Ψ₀=0 run | inline script (ap5 machinery) | **Ψ≡0 ตลอด, H≡0, ขณะ E_Φ 1.99→1.6e-6** — ยืนยันข้อวิจารณ์: H เป็น bilinear invariant ไม่ใช่บัญชีการสูญเสีย; "handoff" downgrade เป็น [Open] |
+
+## 2026-07-19 — AP7: append-only tape record (re-execution ในบ้าน)
+
+| Check | Command | Result |
+|-------|---------|--------|
+| AP7 (4 tests: additive conservation <1e-12 + decay=(1−γ)ⁿ; RD4 reconstruct <1e-9; Π-window d_readout<1e-6 vs d_tape≈1e-2; bridge γ↔D/M rate mismatch <5%) | `python3 -m pytest ap/ap7_tape_record.py -q` | 4 passed |
