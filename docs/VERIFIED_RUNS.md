@@ -70,3 +70,9 @@ Both TOY TIER (declared in file headers). Full suite: `python3 -m pytest -q` →
 | Literature falsifier | WebSearch/WebFetch adversarial | novelty SURVIVES ×3 (narrowed); verifier full-text-checked Galley/GraphCON/2309.03286, caught 1 fabricated quote (fixed: paraphrase) |
 
 Full suite after integration: `python3 -m pytest -q` → **43 passed**.
+
+## 2026-07-19 — external-critique check (DRL handoff claim)
+
+| Check | Command | Result |
+|-------|---------|--------|
+| Decoupling counterexample: Ψ₀=0 run | inline script (ap5 machinery) | **Ψ≡0 ตลอด, H≡0, ขณะ E_Φ 1.99→1.6e-6** — ยืนยันข้อวิจารณ์: H เป็น bilinear invariant ไม่ใช่บัญชีการสูญเสีย; "handoff" downgrade เป็น [Open] |
