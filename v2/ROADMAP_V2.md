@@ -99,7 +99,14 @@ Order by artifact readiness:
       Degree−Circulation grammar (spin/orientation of graph channels) —
       then b₁₂₃ and 52 all emerge free. [Open + stance; ledger: this file
       derives NOTHING new — Gross-Wilczek-Politzer kinship declared.]
-- [ ] **AP11+** further blind trials on problems with unknown frontier answers —
+- [x] **AP11** atoms → one formula (`ap/ap11_spin_atoms.py`, 4 pytest PASS) —
+      Nielsen–Hughes: atom(s) = (−1)^{2s}[(2s)²−1/3] yields all three exactly
+      and reconstructs AP10's slopes; the 1/3 = ⟨cos²⟩ = **1/d** pinned for
+      d=3,4 (dimension readout — ROM-3.7 hook); FINAL-form falsifier: derive
+      (2s)² + 1/d_s + statistics sign from graph channel structure → atoms →
+      slopes → 52 → hierarchy all emerge. [kinship declared; nothing new
+      derived here]
+- [ ] **AP12+** further blind trials on problems with unknown frontier answers —
       the standing test of the "no philosophy does this cheaper" stance
       (`v2/POSITION.md` §5).
 
