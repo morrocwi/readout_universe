@@ -72,7 +72,13 @@ Order by artifact readiness:
 - [x] **AP6** DRL generalization (`ap/ap6_drl_general.py`, ultracode, 4 pytest
       PASS) — nonlinear+forced+heterogeneous EL derived (2.2e-10); OPEN finding:
       quadratic-H breaks under quartic V (drift 0.119) — hunt H_quartic.
-- [ ] **AP7+** further blind trials on problems with unknown frontier answers —
+- [x] **AP7** append-only tape record (`ap/ap7_tape_record.py`, 4 pytest PASS)
+      — external critique re-executed under our discipline: additive exact
+      conservation, RD4-in-dynamics reversibility, Π-window vs tape retention,
+      and the γ↔D/M bridge matching DRL's spine envelope <5%. Kinship declared
+      (collision models / Sz.-Nagy / Landauer-Bennett). Open: composite
+      action+injective-tape (v2/APPEND_ONLY_RECORD.md).
+- [ ] **AP8+** further blind trials on problems with unknown frontier answers —
       the standing test of the "no philosophy does this cheaper" stance
       (`v2/POSITION.md` §5).
 
