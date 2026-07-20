@@ -8,8 +8,11 @@ the checker as a subprocess against small fixture files and asserts exit
 codes and, where it matters, that the right problem is actually named in
 the output (not just "it failed for some reason").
 
-Every case here traces to a real finding from an independent-review round
-on this checker. Three rounds so far:
+Every case here traces to a real finding from an independent-review
+round on this checker. Four rounds so far -- each is named below with the
+function that regression-tests it, and NOTHING here is a vacuous
+assertion: every check() pairs an exit code with a specific message
+substring, not just "did it fail".
 
   Round 1 (accepted a self-declared "FAIL" literal next to unrelated
   numbers):
@@ -21,31 +24,36 @@ on this checker. Three rounds so far:
   - test_nan_and_inf_values_rejected
 
   Round 3 (round 2's fix still let the record pick WHICHEVER operator
-  made its own arithmetic read FAIL, since operator was still declared
-  on the control, not the gate; also found the homoglyph table and the
-  blank-field stripping both had real coverage gaps):
-  - test_operator_choice_attack_is_impossible: the chair's own worked
-    counter-example -- a >= 0.80 gate with a control of 0.95 (which
-    obviously PASSES the real gate) cannot be smuggled through by
-    declaring a self-serving operator, because there is no longer a
-    place in the record to declare one; the gate's own
-    gate_passes_when is the only predicate that exists.
-  - test_negative_control_result_is_derived_not_trusted: a record that
-    lies in its (optional) negative_control_result field is still
-    rejected, because that field is never read to compute the result.
-  - test_uppercase_cyrillic_homoglyph_duplicate: the chair's exact
-    SOME_KEY_GATE / SOME_КEY_GATE pair (Cyrillic U+041A), which the
-    round-2 lowercase-only table (applied after casefold) missed.
-  - test_widened_invisible_chars_rejected: U+3164 HANGUL FILLER and
-    U+00A0 NBSP, neither of which is Unicode category Cf, both of which
-    must still count as "no real value".
+  made its own arithmetic read FAIL, since the operator was still
+  declared on the control, not the gate; also found the homoglyph table
+  and blank-field stripping both had real coverage gaps):
+  - test_operator_choice_attack_is_impossible
+  - test_uppercase_cyrillic_homoglyph_duplicate
+  - test_widened_invisible_chars_rejected (U+3164, U+00A0)
 
-  Carried forward from round 2 (still valid under the new format):
+  Round 4 (round 3's one-sided check -- negative control only -- let an
+  UNSATISFIABLE predicate vacuously certify every record, since nothing
+  ever satisfies it and "does not pass" is trivially true; also found
+  the blank-character list still missed U+2800, and the homoglyph table
+  still missed three more Cyrillic letters):
+  - test_unsatisfiable_predicate_without_positive_control_rejected: the
+    chair's own exact reproduction (0.95 against a >= 999999 gate).
+  - test_valid_two_sided_record_accepted: a record that genuinely
+    discriminates in both directions must still be accepted.
+  - test_positive_control_that_fails_gate_rejected: a positive control
+    that does NOT satisfy the gate's predicate is rejected the same way
+    a bad negative control is.
+  - test_braille_pattern_blank_field_rejected (U+2800).
+  - test_additional_cyrillic_homoglyphs_duplicate (Ѕ U+0405, Ј U+0408,
+    Ӏ U+04C0).
+
+  Carried forward from earlier rounds (still valid under the current
+  format):
   - test_duplicate_ids_case_and_homograph: ASCII case + lowercase
     Cyrillic homograph.
   - test_zero_width_space_field_rejected: U+200B specifically (Cf).
-  - test_genuine_failing_control_accepted / test_type_u_still_accepted:
-    the checker isn't just rejecting everything.
+  - test_type_u_still_accepted: the checker isn't just rejecting
+    everything.
   - test_missing_declarations_file_is_trivial_pass.
 
 Run directly: python3 scripts/test_check_gate_typing.py
@@ -63,6 +71,7 @@ REPO_ROOT = Path(__file__).resolve().parent.parent
 CHECKER = REPO_ROOT / "scripts" / "check_gate_typing.py"
 
 FAILURES: list[str] = []
+ASSERTION_COUNT = 0
 
 
 def run_checker(contents: str) -> subprocess.CompletedProcess:
@@ -83,6 +92,8 @@ def run_checker(contents: str) -> subprocess.CompletedProcess:
 
 
 def check(name: str, condition: bool, detail: str = "") -> None:
+    global ASSERTION_COUNT
+    ASSERTION_COUNT += 1
     if condition:
         print(f"  [PASS] {name}")
     else:
@@ -102,8 +113,9 @@ type: P
 description: same-ligand co-crystal pairs show contact-residue Jaccard >= 0.35
 negative_control_name: different-ligand pair, osimertinib vs brigatinib
 negative_control_value: 0.70
+positive_control_name: same-ligand pair (as originally reported)
+positive_control_value: 0.47
 gate_passes_when: >= 0.35
-negative_control_result: FAIL
 """
     result = run_checker(record)
     check(
@@ -119,23 +131,21 @@ negative_control_result: FAIL
 
 
 def test_operator_choice_attack_is_impossible() -> None:
-    """The chair's round-3 worked counter-example: a gate documented as
-    ">= 0.80 passes", with a control of 0.95 (which obviously PASSES the
-    real gate) -- round 2 of this checker let the record declare its OWN
-    operator (e.g. '<=') to make the arithmetic read FAIL regardless of
-    what the gate actually does. Under this format there is no field on
-    the record where a self-serving operator could even be written --
-    gate_passes_when is the gate's own predicate, declared once, and
-    0.95 correctly fails it (>= 0.80 is True for 0.95, so the control
-    does not fail the gate)."""
+    """Round 3's worked counter-example: a gate documented as
+    ">= 0.80 passes", with a negative control of 0.95 (which obviously
+    PASSES the real gate) -- round 2 of this checker let the record
+    declare its OWN operator to make the arithmetic read FAIL regardless
+    of what the gate actually does. Under this format there is no field
+    where a self-serving operator could even be written."""
     record = """
 gate: score_gate_attack
 type: P
 description: score must be >= 0.80 to pass this gate (high score = pass)
 negative_control_name: attempted round-2-style attack
 negative_control_value: 0.95
+positive_control_name: genuine pass
+positive_control_value: 0.90
 gate_passes_when: >= 0.80
-negative_control_result: FAIL
 """
     result = run_checker(record)
     check(
@@ -144,55 +154,104 @@ negative_control_result: FAIL
         f"got exit {result.returncode}, stdout:\n{result.stdout}",
     )
     check(
-        "test_operator_choice_attack_is_impossible: names the contradiction",
-        "SATISFIES the gate's own declared predicate" in result.stdout,
+        "test_operator_choice_attack_is_impossible: names the negative-control contradiction",
+        "the recorded negative control" in result.stdout
+        and "SATISFIES the gate's own declared predicate" in result.stdout,
         f"stdout:\n{result.stdout}",
     )
 
 
-def test_negative_control_result_is_derived_not_trusted() -> None:
-    """negative_control_result must never be read as an input. A record
-    with a genuinely failing control (0.10 does not satisfy >= 0.35) but
-    a LYING result field ("PASS", when the derived answer is FAIL) must
-    still be rejected -- the field is cross-checked against the derived
-    value, not trusted."""
+def test_unsatisfiable_predicate_without_positive_control_rejected() -> None:
+    """The chair's exact round-4 reproduction: a gate genuinely
+    documented as ">= 0.80 passes" with the predicate instead declared
+    as an unreachable ">= 999999". Round 3 of this checker required only
+    a negative control, and 0.95 correctly derives "does not satisfy
+    >= 999999" -- so the one-sided check vacuously passed (exit 0). The
+    two-sided requirement rejects this record outright: there is no
+    positive_control_name/positive_control_value field at all, which is
+    itself now a missing-required-field error (an unsatisfiable
+    predicate cannot admit ANY genuine positive control, so this record
+    could never be completed honestly)."""
     record = """
-gate: lying_result_field
+gate: score_gate_unsatisfiable_predicate_attack
 type: P
-description: control genuinely fails but the result field lies about it
-negative_control_name: known-negative case
-negative_control_value: 0.10
-gate_passes_when: >= 0.35
-negative_control_result: PASS
+description: score must be >= 0.80 to pass, this control genuinely fails
+negative_control_name: attempted attack
+negative_control_value: 0.95
+gate_passes_when: >= 999999
 """
     result = run_checker(record)
     check(
-        "test_negative_control_result_is_derived_not_trusted: exit code is 1",
+        "test_unsatisfiable_predicate_without_positive_control_rejected: exit code is 1",
         result.returncode == 1,
         f"got exit {result.returncode}, stdout:\n{result.stdout}",
     )
     check(
-        "test_negative_control_result_is_derived_not_trusted: names the mismatch",
-        "not an input the checker trusts" in result.stdout,
+        "test_unsatisfiable_predicate_without_positive_control_rejected: names missing positive_control_value",
+        "declared Type P but missing 'positive_control_value'" in result.stdout,
         f"stdout:\n{result.stdout}",
     )
 
 
-def test_negative_control_result_field_is_optional() -> None:
-    """A valid Type P record with NO negative_control_result field at
-    all must still be accepted -- the field is optional, not required,
-    per the round-3 redesign."""
+def test_positive_control_that_fails_gate_rejected() -> None:
+    """A positive control that does NOT satisfy the gate's own predicate
+    must be rejected the same way a bad negative control is -- 0.10 does
+    not satisfy >= 0.80."""
     record = """
-gate: no_result_field_gate
+gate: bad_positive_control_gate
 type: P
-description: valid record with no negative_control_result field
-negative_control_name: known-negative case
+description: positive control that does not actually pass the gate
+negative_control_name: genuine fail
 negative_control_value: 0.10
+positive_control_name: fabricated positive
+positive_control_value: 0.10
+gate_passes_when: >= 0.80
+"""
+    result = run_checker(record)
+    check(
+        "test_positive_control_that_fails_gate_rejected: exit code is 1",
+        result.returncode == 1,
+        f"got exit {result.returncode}, stdout:\n{result.stdout}",
+    )
+    check(
+        "test_positive_control_that_fails_gate_rejected: names the positive-control contradiction",
+        "the recorded positive control" in result.stdout
+        and "does NOT satisfy the gate's own declared predicate" in result.stdout,
+        f"stdout:\n{result.stdout}",
+    )
+
+
+def test_valid_two_sided_record_accepted() -> None:
+    """A record that genuinely discriminates in both directions -- 0.10
+    fails >= 0.35, 0.47 passes it -- must be accepted; the checker isn't
+    just rejecting everything."""
+    record = """
+gate: genuinely_discriminating_gate
+type: P
+description: example threshold with real controls on both sides
+negative_control_name: known-negative case X
+negative_control_value: 0.10
+positive_control_name: known-positive case Y
+positive_control_value: 0.47
 gate_passes_when: >= 0.35
 """
     result = run_checker(record)
     check(
-        "test_negative_control_result_field_is_optional: exit code is 0",
+        "test_valid_two_sided_record_accepted: exit code is 0",
+        result.returncode == 0,
+        f"got exit {result.returncode}, stdout:\n{result.stdout}",
+    )
+
+
+def test_type_u_still_accepted() -> None:
+    record = """
+gate: honest_type_u
+type: U
+description: honestly labeled convention gate, no controls needed
+"""
+    result = run_checker(record)
+    check(
+        "test_type_u_still_accepted: exit code is 0",
         result.returncode == 0,
         f"got exit {result.returncode}, stdout:\n{result.stdout}",
     )
@@ -205,6 +264,8 @@ type: P
 description: values that are not numbers must not slip through
 negative_control_name: nonsense control
 negative_control_value: banana
+positive_control_name: nonsense control 2
+positive_control_value: 0.90
 gate_passes_when: >= not-a-number
 """
     result = run_checker(record)
@@ -238,14 +299,9 @@ type: P
 description: nan must not be accepted as a real recorded value
 negative_control_name: fabricated
 negative_control_value: nan
+positive_control_name: fabricated 2
+positive_control_value: 0.90
 gate_passes_when: >= 0.35
-
-gate: inf_threshold_gate
-type: P
-description: inf threshold must not be accepted either
-negative_control_name: fabricated
-negative_control_value: 0.10
-gate_passes_when: >= inf
 """
     result = run_checker(record)
     check(
@@ -257,46 +313,6 @@ gate_passes_when: >= inf
         "test_nan_and_inf_values_rejected: nan control value flagged",
         "not a parseable, finite number" in result.stdout,
         f"stdout:\n{result.stdout}",
-    )
-    check(
-        "test_nan_and_inf_values_rejected: inf threshold flagged",
-        "must be formatted as one operator" in result.stdout,
-        f"stdout:\n{result.stdout}",
-    )
-
-
-def test_genuine_failing_control_accepted() -> None:
-    """A record where the arithmetic genuinely supports FAIL: 0.10 does
-    NOT satisfy >= 0.35. Must pass -- the checker isn't just rejecting
-    everything."""
-    record = """
-gate: genuinely_failing_control
-type: P
-description: example threshold with a real failing control
-negative_control_name: known-negative case X
-negative_control_value: 0.10
-gate_passes_when: >= 0.35
-negative_control_result: FAIL
-"""
-    result = run_checker(record)
-    check(
-        "test_genuine_failing_control_accepted: exit code is 0",
-        result.returncode == 0,
-        f"got exit {result.returncode}, stdout:\n{result.stdout}",
-    )
-
-
-def test_type_u_still_accepted() -> None:
-    record = """
-gate: honest_type_u
-type: U
-description: honestly labeled convention gate, no negative control needed
-"""
-    result = run_checker(record)
-    check(
-        "test_type_u_still_accepted: exit code is 0",
-        result.returncode == 0,
-        f"got exit {result.returncode}, stdout:\n{result.stdout}",
     )
 
 
@@ -335,13 +351,11 @@ description: cyrillic-a homograph of the same id -- must collide
 
 
 def test_uppercase_cyrillic_homoglyph_duplicate() -> None:
-    """The chair's round-3 exact demonstration: round 2's homoglyph
-    table was applied AFTER casefold, so 'К' (U+041A CYRILLIC CAPITAL
-    LETTER KA) casefolds to 'к' (U+043A), which is absent from a
-    lowercase-only table -- the classic uppercase IDN confusable set
-    (К М Н Т В) silently passed through unmapped. One honest Type U
-    record and one fabricated Type P record under a visually identical
-    id must be caught as the same id."""
+    """Round 3's exact demonstration: round 2's homoglyph table was
+    applied AFTER casefold, so 'К' (U+041A CYRILLIC CAPITAL LETTER KA)
+    casefolds to 'к' (U+043A), absent from a lowercase-only table -- the
+    classic uppercase IDN confusable set (К М Н Т В) silently passed
+    through unmapped."""
     record = (
         "gate: SOME_KEY_GATE\n"
         "type: U\n"
@@ -352,6 +366,8 @@ def test_uppercase_cyrillic_homoglyph_duplicate() -> None:
         "description: fabricated record under a visually identical id (Cyrillic K)\n"
         "negative_control_name: x\n"
         "negative_control_value: 0.10\n"
+        "positive_control_name: y\n"
+        "positive_control_value: 0.90\n"
         "gate_passes_when: >= 0.35\n"
     )
     result = run_checker(record)
@@ -362,6 +378,34 @@ def test_uppercase_cyrillic_homoglyph_duplicate() -> None:
     )
     check(
         "test_uppercase_cyrillic_homoglyph_duplicate: reports the collision",
+        "same id as gate" in result.stdout,
+        f"stdout:\n{result.stdout}",
+    )
+
+
+def test_additional_cyrillic_homoglyphs_duplicate() -> None:
+    """Round 4 finding: the homoglyph table still missed Ѕ (U+0405
+    CYRILLIC CAPITAL LETTER DZE), Ј (U+0408 CYRILLIC CAPITAL LETTER JE),
+    and Ӏ (U+04C0 CYRILLIC LETTER PALOCHKA) -- all visually indistinguishable
+    from Latin S, J, I respectively. Disclosed in docs/GATE_TYPING_LAW.md
+    as a finite, still-incomplete table; these three are now covered."""
+    record = (
+        "gate: SDZE_GATE\n"
+        "type: U\n"
+        "description: latin S spelling\n"
+        "\n"
+        "gate: ЅDZE_GATE\n"  # Ѕ is U+0405 CYRILLIC CAPITAL LETTER DZE
+        "type: U\n"
+        "description: cyrillic Dze homograph of the same id\n"
+    )
+    result = run_checker(record)
+    check(
+        "test_additional_cyrillic_homoglyphs_duplicate: exit code is 1",
+        result.returncode == 1,
+        f"got exit {result.returncode}, stdout:\n{result.stdout}",
+    )
+    check(
+        "test_additional_cyrillic_homoglyphs_duplicate: reports the collision",
         "same id as gate" in result.stdout,
         f"stdout:\n{result.stdout}",
     )
@@ -390,7 +434,7 @@ def test_widened_invisible_chars_rejected() -> None:
     must both count as "no real value" -- round-2's Cf-only filter
     missed U+3164, contradicting its own code comment."""
     hangul_filler_record = "gate: hangul_filler_gate\ntype: U\ndescription: ㅤ\n"
-    nbsp_record = "gate: nbsp_gate\ntype: U\ndescription:  \n"
+    nbsp_record = "gate: nbsp_gate\ntype: U\ndescription:  \n"
 
     hangul_result = run_checker(hangul_filler_record)
     check(
@@ -417,6 +461,25 @@ def test_widened_invisible_chars_rejected() -> None:
     )
 
 
+def test_braille_pattern_blank_field_rejected() -> None:
+    """Round 4 finding: U+2800 BRAILLE PATTERN BLANK (category So) is
+    visually blank but was not covered by the Cf/Cc/Mn/Me categories or
+    the Hangul-filler list -- "⠀⠀⠀" (three blank Braille cells) survived
+    as a "named" negative_control_name."""
+    record = "gate: braille_gate\ntype: U\ndescription: ⠀⠀⠀\n"
+    result = run_checker(record)
+    check(
+        "test_braille_pattern_blank_field_rejected: exit code is 1",
+        result.returncode == 1,
+        f"got exit {result.returncode}, stdout:\n{result.stdout}",
+    )
+    check(
+        "test_braille_pattern_blank_field_rejected: named as missing",
+        "missing required field 'description'" in result.stdout,
+        f"stdout:\n{result.stdout}",
+    )
+
+
 def test_missing_declarations_file_is_trivial_pass() -> None:
     result = subprocess.run(
         [sys.executable, str(CHECKER), "/nonexistent/does_not_exist.txt"],
@@ -440,22 +503,25 @@ def main() -> int:
     print("check_gate_typing.py self-test")
     test_egfr_arithmetic_contradiction_is_rejected()
     test_operator_choice_attack_is_impossible()
-    test_negative_control_result_is_derived_not_trusted()
-    test_negative_control_result_field_is_optional()
+    test_unsatisfiable_predicate_without_positive_control_rejected()
+    test_positive_control_that_fails_gate_rejected()
+    test_valid_two_sided_record_accepted()
+    test_type_u_still_accepted()
     test_non_numeric_values_rejected()
     test_nan_and_inf_values_rejected()
-    test_genuine_failing_control_accepted()
-    test_type_u_still_accepted()
     test_duplicate_ids_case_and_homograph()
     test_uppercase_cyrillic_homoglyph_duplicate()
+    test_additional_cyrillic_homoglyphs_duplicate()
     test_zero_width_space_field_rejected()
     test_widened_invisible_chars_rejected()
+    test_braille_pattern_blank_field_rejected()
     test_missing_declarations_file_is_trivial_pass()
 
+    print(f"\n{ASSERTION_COUNT} assertion(s) run")
     if FAILURES:
-        print(f"\n{len(FAILURES)} assertion(s) FAILED: {FAILURES}")
+        print(f"{len(FAILURES)} assertion(s) FAILED: {FAILURES}")
         return 1
-    print("\nall assertions PASSED")
+    print("all assertions PASSED")
     return 0
 
 

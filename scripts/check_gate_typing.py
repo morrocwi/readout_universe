@@ -1,63 +1,90 @@
 #!/usr/bin/env python3
 """check_gate_typing.py -- machine gate for docs/GATE_TYPING_LAW.md.
 
-Law, one line: a gate that cannot fail is not a readout, it is a
-convention. Every declared gate is Type P (physical content -- ships WITH
-a named negative control that DEMONSTRABLY FAILS the gate, real recorded
-value) or Type U (unit/convention -- everything else, never cited as
-evidence, never counted in a headline N/N).
+Law, current (two-sided) form: a Type P gate must ship WITH a named
+NEGATIVE control that the gate's own predicate derives as NOT passing,
+AND a named POSITIVE control that the same predicate derives as
+PASSING. Both are recorded as measured values only; the checker derives
+both verdicts from the single `gate_passes_when` predicate. A gate is
+evidence only if it can be shown to discriminate in BOTH directions --
+that is the actual property being certified, not just "has a control
+that fails".
 
-What this script enforces (machine-checked, exactly this and no more):
-for every record in a declarations file that types itself Type P, the
-gate declares its own pass predicate EXACTLY ONCE (`gate_passes_when`,
-e.g. ">= 0.80") and the negative control declares ONLY its measured
-value (`negative_control_value`); the checker applies the gate's own
-predicate to that value and DERIVES whether the control fails the gate --
-it does not read a self-declared result as input. A record whose control
-value arithmetically satisfies its own gate's predicate is REJECTED
-regardless of any FAIL label the record may still carry.
+WHY TWO-SIDED, NOT ONE-SIDED (history, not decoration -- read this
+before assuming the one-sided law was ever adequate):
 
-This design is round 3 of this checker, not round 1. Two earlier holes,
-both found by adversarial review and both regression-tested below:
+  The law as first ruled required only a negative control that fails.
+  That catches a gate that passes everything (the EGFR disease: a 0.35
+  Jaccard threshold that passed all 10 of 10 available pairs, including
+  every different-ligand pair -- see docs/GATE_TYPING_LAW.md Case 1). It
+  does NOT catch the opposite disease: a gate that fails everything.
+  Demonstrated concretely by the chair's own adversarial round:
 
-  - Round 1 accepted the literal string "FAIL" next to two numbers that
+    description: score must be >= 0.80 to pass, this control genuinely fails
+    negative_control_value: 0.95
+    gate_passes_when: >= 999999
+
+  0.95 plainly satisfies the gate's REAL condition (score >= 0.80), but
+  because the declared predicate is effectively unreachable
+  (>= 999999), the one-sided checker derived FAIL and certified the
+  record -- exit 0, PASS. Pick any implausible threshold and every
+  record self-certifies; a gate that rejects everything is exactly as
+  worthless as evidence as a gate that accepts everything, and the
+  one-sided law rewarded it.
+
+  The two-sided form closes this STRUCTURALLY, not by judging
+  plausibility (a script cannot know whether 999999 is a reasonable
+  threshold, and must not pretend to): an unsatisfiable predicate admits
+  NO valid positive control (nothing satisfies it, so the required
+  positive-control field cannot be filled with anything that actually
+  passes); a trivially-satisfiable predicate makes finding a genuine
+  negative control require reaching for values outside the plausible
+  domain, which is visible in the record rather than hidden by it. The
+  checker requires and independently verifies both directions from one
+  declared predicate.
+
+This design is round 4 of this law, not round 1. Every earlier round
+found a real hole (not cosmetic), each is regression-tested in
+scripts/test_check_gate_typing.py, and none were argued away:
+
+  - Round 1: accepted the literal string "FAIL" next to two numbers that
     did not support it (0.70 marked FAIL against a >= 0.35 gate).
-  - Round 2 fixed that by requiring the record to state BOTH an operator
-    and the arithmetic to be self-consistent -- but the operator was
-    still self-declared by the same record, so the record could pick
-    WHICHEVER operator made its own arithmetic come out FAIL (e.g.
-    declare `gate_operator: <=` for a gate that is actually `>= 0.80`,
-    and a control that plainly passes the real gate reads as FAIL).
-  - Round 3 (this file) removes that degree of freedom entirely: there
-    is exactly one operator per gate (`gate_passes_when`, on the gate,
-    not on the control), so the attack above is no longer expressible.
-    `negative_control_result` is no longer read as an input at all; see
-    "Residual, unfixable risk" below for what remains impossible to
-    check by tooling even after this.
+  - Round 2: fixed round 1 by requiring an operator + arithmetic
+    consistency -- but the operator was still self-declared BY THE SAME
+    RECORD, so a record could pick whichever operator made its own
+    arithmetic read FAIL, independent of the gate's real meaning.
+  - Round 3: removed that degree of freedom -- one predicate
+    (gate_passes_when) per GATE, not per control -- but the predicate
+    could still be unreachable/vacuous, so a one-sided (negative-only)
+    check could be trivially satisfied by an absurd threshold (see the
+    999999 example above).
+  - Round 4 (this file): requires BOTH a negative control (derived NOT
+    passing) and a positive control (derived PASSING) from the one
+    predicate. An unsatisfiable predicate can no longer self-certify,
+    because it admits no valid positive control.
 
 What this script does NOT enforce, and cannot:
-  - Whether the negative control is a reasonable/representative case, or
-    whether a Type U gate declared honestly here is nonetheless being
-    cited as evidence somewhere ELSE (another doc, another repo, a PR
-    description). Human/reviewer obligation.
+  - Whether either control is a reasonable/representative case (only
+    that the arithmetic genuinely discriminates), or whether a Type U
+    gate declared honestly here is nonetheless being cited as evidence
+    somewhere ELSE (another doc, another repo, a PR description).
+    Human/reviewer obligation.
   - RESIDUAL, UNFIXABLE RISK (named explicitly, not folded into the
     bullet above): the checker cannot verify that `gate_passes_when`
     matches the gate's REAL pass condition as stated in its own
-    `description` prose. Someone can still write a `description` that
-    says "score must be >= 0.80 to pass" and a `gate_passes_when: <=
-    0.80` that contradicts it -- the arithmetic would be internally
-    self-consistent (a control of 0.95 correctly evaluates to FAIL under
-    the declared `<= 0.80` predicate) while `gate_passes_when` itself is
-    wrong about what the gate actually does. A script cannot know intent
-    and must not pretend to; catching this is a NAMED human-review
-    obligation: **a reviewer must confirm the declared `gate_passes_when`
-    predicate is the gate's real, actual pass condition**, not merely
-    that the record is internally consistent.
+    `description` prose -- only that the record is internally
+    self-consistent (both controls' derived verdicts match what the
+    declared predicate implies). A script cannot know intent and must
+    not pretend to; catching a description/predicate mismatch is a
+    NAMED human-review obligation: **a reviewer must confirm the
+    declared `gate_passes_when` predicate is the gate's real, actual
+    pass condition**, not merely that the record is internally
+    consistent and two-sided.
 
 docs/GATE_TYPING_LAW.md states which part of the law is machine-enforced
 and which part is not; do not read a PASS from this script as more than
-"the paperwork and arithmetic in this one file are internally
-self-consistent, given the predicate as declared".
+"this one record's own predicate, applied to its own two controls,
+derives one FAIL and one PASS, exactly as declared".
 
 Declaration format (plain text, stdlib-only parser -- no YAML dependency
 so this runs on any interpreter that has numpy/scipy/sympy/pytest and
@@ -71,49 +98,48 @@ nothing else, matching the CI runner's floor):
   - type must be exactly "P" or "U" (case-sensitive, no synonyms --
     this is deliberate: no quiet "mostly passes" tier).
   - A Type P record additionally requires: negative_control_name,
-    negative_control_value, and gate_passes_when.
+    negative_control_value, positive_control_name, positive_control_value,
+    and gate_passes_when. There is no result field of any kind -- neither
+    control carries a caller-supplied verdict; both verdicts are DERIVED.
       * gate_passes_when is the gate's OWN pass predicate, declared once,
         as "<operator> <threshold>", operator one of: >= > <= < == != .
         Example: a gate documented as "same-ligand Jaccard >= 0.35
-        passes" declares gate_passes_when: ">= 0.35". There is no
-        separate operator field on the control -- the control has only a
-        value, and the gate's own predicate is applied to it.
-      * negative_control_value and the threshold inside gate_passes_when
-        must both parse as finite numbers (stdlib float(); non-numeric
-        text like "banana"/"not-a-number", and non-finite values like
+        passes" declares gate_passes_when: ">= 0.35".
+      * negative_control_value, positive_control_value, and the
+        threshold inside gate_passes_when must all parse as finite
+        numbers (stdlib float(); non-numeric text like
+        "banana"/"not-a-number", and non-finite values like
         "nan"/"inf"/"-inf"/"infinity", are all rejected).
-      * The result is DERIVED, not read from the file: the checker
+      * Both verdicts are DERIVED, never read from the file: the checker
         evaluates gate_passes_when's operator on
         (negative_control_value, threshold) and requires that to be
-        False (the control does not satisfy the gate's own pass
-        condition). A record whose control satisfies its own gate's
-        predicate is rejected, full stop -- there is no field that can
-        override this.
-      * negative_control_result is OPTIONAL and, if present, is treated
-        as a human-readable annotation cross-checked against the derived
-        result: it must equal the literal string "FAIL" (the only value
-        a genuinely valid Type P record can ever derive) or the record is
-        rejected for the mismatch. It is never consulted to COMPUTE the
-        result -- only gate_passes_when + negative_control_value do that.
+        False; it separately evaluates it on (positive_control_value,
+        threshold) and requires that to be True. Either direction
+        failing rejects the record, full stop -- there is no field that
+        can override this.
   - A field's value is considered present only after stripping ordinary
     whitespace AND any invisible/blank-rendering characters: Unicode
     category Cf (format, e.g. U+200B ZERO WIDTH SPACE), Cc (control), Mn
     and Me (combining/enclosing marks, which render as zero-width without
     a preceding base character), any character str.isspace() reports as
     whitespace (covers Zs/Zl/Zp separators including U+00A0 NBSP), plus a
-    short explicit list of blank-rendering Letter-category fillers that
-    are none of the above (U+115F, U+1160, U+3164, U+FFA0 -- the Hangul
-    filler family). See _is_blank_char and clean_value below.
+    short explicit list of individually-named blank-rendering characters
+    that are none of the above: the Hangul filler family (U+115F,
+    U+1160, U+3164, U+FFA0) and U+2800 BRAILLE PATTERN BLANK (category
+    So -- visually blank, unlike the rest of the Braille block, which is
+    why it needs its own entry rather than a category-wide exclusion).
+    See _is_blank_char and clean_value below.
   - Gate ids are compared for duplicates after Unicode NFKC
     normalization, a homoglyph substitution pass (see
-    _HOMOGLYPH_TO_ASCII), THEN casefold -- in that order. The homoglyph
-    substitution must run BEFORE casefold: casefold(Cyrillic 'К' U+041A)
-    is Cyrillic 'к' U+043A, a different character with no listed Latin
-    mapping, so substituting only after casefold silently loses the
-    uppercase Cyrillic/Greek confusables (К М Н Т В and their Greek
-    counterparts) that visually match Latin uppercase letters but whose
-    lowercase forms do not. Running the table first, on the original
-    case, catches both directions with one table.
+    _HOMOGLYPH_TO_ASCII), THEN casefold -- in that order (substitution
+    must run BEFORE casefold; see the comment on that table for why).
+    This table is a deliberately FINITE, hand-picked list and is NOT a
+    solved problem: each review round has added entries the previous
+    round missed (round 3 added the uppercase Cyrillic IDN set K/M/H/T/B
+    after finding the lowercase-only table missed it; round 4 added
+    Cyrillic Ѕ/Ј/Ӏ). Treat the list as "known gaps fixed so far", not
+    "homoglyph detection is closed" -- it is not, and more gaps almost
+    certainly exist outside this table.
 
 Full worked format example lives in docs/GATE_TYPING_LAW.md and in the
 comments of gates/GATE_DECLARATIONS.txt.
@@ -125,8 +151,8 @@ Default path: gates/GATE_DECLARATIONS.txt (repo root). Exits 0 if the
 file is absent or contains zero live (non-comment) records -- that is
 the honest trivial-pass case, and the script SAYS SO explicitly rather
 than passing silently. Exits 1 on any malformed, under-evidenced, or
-arithmetically-inconsistent Type P record, with every problem listed
-(not just the first).
+one-sided/arithmetically-inconsistent Type P record, with every problem
+listed (not just the first).
 """
 from __future__ import annotations
 
@@ -141,6 +167,8 @@ REQUIRED_COMMON = ("gate", "type", "description")
 REQUIRED_TYPE_P = (
     "negative_control_name",
     "negative_control_value",
+    "positive_control_name",
+    "positive_control_value",
     "gate_passes_when",
 )
 VALID_TYPES = ("P", "U")
@@ -171,17 +199,23 @@ DEFAULT_PATH = Path("gates/GATE_DECLARATIONS.txt")
 # render as nothing).
 _BLANK_CATEGORIES = {"Cf", "Cc", "Mn", "Me"}
 
-# A field made ONLY of these renders blank but is not covered by the
-# categories above and is not whitespace: the Hangul filler family.
-# Finding (round-3 review): U+3164 HANGUL FILLER (category Lo) and
-# U+00A0 NBSP (whitespace, but confirm it's actually caught) both need to
-# be rejected as "no real value" -- verified with a regression test
-# below rather than assumed.
-_BLANK_LO_CHARS = {
-    "ᅟ",  # HANGUL CHOSEONG FILLER
-    "ᅠ",  # HANGUL JUNGSEONG FILLER
-    "ㅤ",  # HANGUL FILLER
-    "ﾠ",  # HALFWIDTH HANGUL FILLER
+# Individually-named characters that render blank but are NOT covered by
+# the categories above and are NOT whitespace -- each added after a
+# specific finding, not a category-wide sweep (category-wide would catch
+# too much: most of category So, for instance, is visible glyphs; only
+# U+2800 in the Braille block is blank):
+#   - the Hangul filler family (category Lo): U+3164 HANGUL FILLER found
+#     missing a round-3 review; U+115F/U+1160/U+FFA0 added alongside it
+#     as the same family.
+#   - U+2800 BRAILLE PATTERN BLANK (category So): found missing a
+#     round-4 review -- "⠀⠀⠀" (three blank Braille cells) survived as a
+#     "named" control until this was added.
+_EXPLICIT_BLANK_CHARS = {
+    "ᅟ",  # U+115F HANGUL CHOSEONG FILLER
+    "ᅠ",  # U+1160 HANGUL JUNGSEONG FILLER
+    "ㅤ",  # U+3164 HANGUL FILLER
+    "ﾠ",  # U+FFA0 HALFWIDTH HANGUL FILLER
+    "⠀",  # U+2800 BRAILLE PATTERN BLANK
 }
 
 
@@ -190,7 +224,7 @@ def _is_blank_char(ch: str) -> bool:
         return True
     if unicodedata.category(ch) in _BLANK_CATEGORIES:
         return True
-    if ch in _BLANK_LO_CHARS:
+    if ch in _EXPLICIT_BLANK_CHARS:
         return True
     return False
 
@@ -198,18 +232,24 @@ def _is_blank_char(ch: str) -> bool:
 def clean_value(raw: str) -> str:
     """Strip every character that renders blank -- ordinary whitespace
     (including U+00A0 NBSP), Unicode format/control/combining-mark
-    characters, and the Hangul filler family (U+3164 etc., which are
-    Letter-category and so survive a Cf-only filter) -- so a field made
-    only of such characters is correctly treated as empty, not present."""
+    characters, and a short list of individually-named blank-rendering
+    characters (Hangul filler family, U+2800 BRAILLE PATTERN BLANK) --
+    so a field made only of such characters is correctly treated as
+    empty, not present."""
     return "".join(ch for ch in raw if not _is_blank_char(ch)).strip()
 
 
-# Deliberately FINITE, hand-picked table of the common Latin-lookalike
+# Deliberately FINITE, hand-picked table of common Latin-lookalike
 # substitutions from Cyrillic and Greek (the classic IDN homograph-attack
-# set), not a claim of exhaustive Unicode confusable-skeleton detection
+# set), NOT a claim of exhaustive Unicode confusable-skeleton detection
 # per UTS #39 (that needs the full confusables.txt data table, which is
 # not in the stdlib and is out of scope for a repo whose CI floor is
-# numpy/scipy/sympy/pytest only).
+# numpy/scipy/sympy/pytest only). This list has grown by finding, not by
+# design -- round 3 added the uppercase Cyrillic IDN set (К М Н Т В: see
+# the comment below on WHY order matters); round 4 added Ѕ/Ј/Ӏ after a
+# review found them missing. DO NOT read the presence of this table as
+# "the homoglyph problem is solved" -- it enumerates confusables found so
+# far, not confusables that could exist.
 #
 # Both upper- and lower-case forms are listed EXPLICITLY, and the table
 # is applied BEFORE casefold (see normalize_id) -- applying it only after
@@ -225,6 +265,7 @@ _HOMOGLYPH_TO_ASCII = {
     # Cyrillic uppercase -> Latin uppercase (classic IDN confusable set)
     "А": "A", "В": "B", "Е": "E", "К": "K", "М": "M", "Н": "H",
     "О": "O", "Р": "P", "С": "C", "Т": "T", "У": "Y", "Х": "X",
+    "Ѕ": "S", "Ј": "J", "Ӏ": "I",
     # Cyrillic lowercase -> Latin lowercase
     "а": "a", "е": "e", "о": "o", "р": "p", "с": "c", "у": "y",
     "х": "x", "і": "i", "ј": "j", "ѕ": "s", "һ": "h", "ԁ": "d",
@@ -363,8 +404,9 @@ def check_record(fields: dict, record_index: int) -> list[str]:
             errors.append(
                 f"gate {label!r}: declared Type P but missing {key!r} -- "
                 f"a Type P gate must declare its own pass predicate "
-                f"(gate_passes_when) and ship WITH a negative control "
-                f"value that demonstrably fails it (docs/GATE_TYPING_LAW.md)"
+                f"(gate_passes_when) and ship WITH both a negative control "
+                f"value that demonstrably fails it AND a positive control "
+                f"value that demonstrably satisfies it (docs/GATE_TYPING_LAW.md)"
             )
 
     parsed_predicate = None
@@ -377,48 +419,61 @@ def check_record(fields: dict, record_index: int) -> list[str]:
                 f"followed by a finite number, e.g. '>= 0.80'"
             )
 
-    value_num = None
+    negative_value = None
     if field_present(fields, "negative_control_value"):
-        value_num = parse_number(fields["negative_control_value"])
-        if value_num is None:
+        negative_value = parse_number(fields["negative_control_value"])
+        if negative_value is None:
             errors.append(
                 f"gate {label!r}: negative_control_value "
                 f"{fields['negative_control_value']!r} is not a parseable, "
                 f"finite number (non-numeric text and nan/inf are both rejected)"
             )
 
-    # --- Type P: the actual arithmetic check (derive, don't trust) ---
-    # Only run once the predicate parsed AND the control value parsed; a
-    # missing/unparseable input is already flagged above.
-    if parsed_predicate is not None and value_num is not None:
-        op_token, threshold_num = parsed_predicate
-        gate_would_pass = OPERATORS[op_token](value_num, threshold_num)
-        if gate_would_pass:
+    positive_value = None
+    if field_present(fields, "positive_control_value"):
+        positive_value = parse_number(fields["positive_control_value"])
+        if positive_value is None:
             errors.append(
-                f"gate {label!r}: the recorded negative control "
-                f"(negative_control_value={value_num!r}) SATISFIES the "
-                f"gate's own declared predicate (gate_passes_when: "
-                f"{op_token} {threshold_num!r}) -- this is not a genuine "
-                f"failing control, regardless of any negative_control_result "
-                f"label the record carries. See the worked counter-example "
-                f"in gates/GATE_DECLARATIONS.txt "
-                f"(egfr_c797s_contact_jaccard_same_ligand)."
+                f"gate {label!r}: positive_control_value "
+                f"{fields['positive_control_value']!r} is not a parseable, "
+                f"finite number (non-numeric text and nan/inf are both rejected)"
             )
 
-    # negative_control_result is OPTIONAL, never read to COMPUTE the
-    # result -- only cross-checked against the derived value, if present.
-    # (If the control actually passes the gate, that is already reported
-    # above as the primary error regardless of what this field says.)
-    if field_present(fields, "negative_control_result"):
-        result_raw = fields["negative_control_result"]
-        if clean_value(result_raw) != "FAIL":
-            errors.append(
-                f"gate {label!r}: negative_control_result, if present, must "
-                f"be the literal string 'FAIL' (got {result_raw!r}) -- it is "
-                f"an optional human-readable annotation cross-checked "
-                f"against the DERIVED result (gate_passes_when applied to "
-                f"negative_control_value), not an input the checker trusts"
-            )
+    # --- Type P: the actual two-sided arithmetic check (derive both) ---
+    # Only run once the predicate parsed AND the respective control value
+    # parsed; a missing/unparseable input is already flagged above.
+    if parsed_predicate is not None:
+        op_token, threshold_num = parsed_predicate
+
+        if negative_value is not None:
+            negative_would_pass = OPERATORS[op_token](negative_value, threshold_num)
+            if negative_would_pass:
+                errors.append(
+                    f"gate {label!r}: the recorded negative control "
+                    f"(negative_control_value={negative_value!r}) SATISFIES "
+                    f"the gate's own declared predicate (gate_passes_when: "
+                    f"{op_token} {threshold_num!r}) -- this is not a genuine "
+                    f"failing control. See the worked counter-example in "
+                    f"gates/GATE_DECLARATIONS.txt "
+                    f"(egfr_c797s_contact_jaccard_same_ligand)."
+                )
+
+        if positive_value is not None:
+            positive_would_pass = OPERATORS[op_token](positive_value, threshold_num)
+            if not positive_would_pass:
+                errors.append(
+                    f"gate {label!r}: the recorded positive control "
+                    f"(positive_control_value={positive_value!r}) does NOT "
+                    f"satisfy the gate's own declared predicate "
+                    f"(gate_passes_when: {op_token} {threshold_num!r}) -- "
+                    f"this is not a genuine passing control. An "
+                    f"unsatisfiable or implausible predicate (e.g. "
+                    f">= 999999 for a gate whose real range never reaches "
+                    f"that) will fail here because NO value can be a "
+                    f"genuine positive control for it -- see the worked "
+                    f"counter-example in gates/GATE_DECLARATIONS.txt "
+                    f"(score_gate_unsatisfiable_predicate_attack)."
+                )
 
     return errors
 
@@ -503,8 +558,9 @@ def main(argv: list[str]) -> int:
     print(
         "gate-typing check: PASS -- every declared Type P gate's own "
         "predicate (gate_passes_when), applied to its negative control's "
-        "recorded value, derives to 'gate does not pass' -- i.e. every "
-        "control genuinely fails its gate. Residual, unfixable risk: this "
+        "value, derives 'does not pass', AND applied to its positive "
+        "control's value, derives 'passes' -- i.e. every gate demonstrably "
+        "discriminates in both directions. Residual, unfixable risk: this "
         "does not verify gate_passes_when matches the gate's real pass "
         "condition as described in its own prose -- that remains a named "
         "human-review obligation (see module docstring)."

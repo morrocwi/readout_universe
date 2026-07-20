@@ -13,9 +13,9 @@
 #       before it ships.
 #
 # FORMAT (plain text, no YAML/JSON dependency -- see the parser docstring
-# in scripts/check_gate_typing.py for the exact rules; this is round 3 of
-# the format, after two adversarial-review rounds found real holes in
-# rounds 1 and 2):
+# in scripts/check_gate_typing.py for the exact rules; this is round 4 of
+# the format -- rounds 1, 2, and 3 each found a real hole, not a cosmetic
+# one, see docs/GATE_TYPING_LAW.md for the full history):
 #   - '#' lines are comments, stripped before parsing.
 #   - Records are separated by one or more blank lines.
 #   - Each record is a block of "key: value" lines.
@@ -24,55 +24,65 @@
 #     Default assumption for any gate with no record here at all: Type U
 #     (see docs/GATE_TYPING_LAW.md -- the burden is on the claimant).
 #   - Type P additionally requires: negative_control_name,
-#     negative_control_value, gate_passes_when.
+#     negative_control_value, positive_control_name, positive_control_value,
+#     gate_passes_when. There is NO result field of any kind -- neither
+#     control carries a caller-supplied verdict; both verdicts are DERIVED
+#     by the checker.
 #       * gate_passes_when is the GATE's OWN pass predicate, declared
 #         ONCE, as "<operator> <threshold>" -- operator one of
 #         >= > <= < == != . Example: "same-ligand Jaccard >= 0.35 passes"
-#         declares gate_passes_when: ">= 0.35". There is no separate
-#         operator on the control -- the control has only a measured
-#         value, and the gate's own predicate (and only the gate's own
-#         predicate) is applied to it. This is deliberate: an earlier
-#         format let the record declare its OWN operator, which let a
-#         record pick whichever operator made its own arithmetic read
-#         FAIL regardless of what the gate actually does -- see the
-#         worked counter-example below.
-#       * negative_control_value and the threshold inside
-#         gate_passes_when must both be real, parseable, finite numbers
-#         -- not placeholder text, not nan/inf.
-#       * negative_control_result is OPTIONAL. If present it is a
-#         human-readable annotation cross-checked against the DERIVED
-#         result (gate_passes_when applied to negative_control_value) --
-#         it is never read to COMPUTE the result. The checker independently
-#         evaluates gate_passes_when(negative_control_value) and rejects
-#         the record if that evaluates to "the control satisfies the
-#         gate", regardless of what any result field claims.
+#         declares gate_passes_when: ">= 0.35".
+#       * negative_control_value, positive_control_value, and the
+#         threshold inside gate_passes_when must all be real, parseable,
+#         finite numbers -- not placeholder text, not nan/inf.
+#       * The checker evaluates gate_passes_when at negative_control_value
+#         and requires that to be False (the negative control genuinely
+#         does not pass); it separately evaluates gate_passes_when at
+#         positive_control_value and requires that to be True (the
+#         positive control genuinely does pass). BOTH must hold, or the
+#         record is rejected.
+#
+# WHY BOTH CONTROLS (law history, not decoration -- read before assuming
+# "one failing control" was ever the whole law): the law as first ruled
+# required only a negative control. That catches a gate that PASSES
+# EVERYTHING (see Counter-Example #1 below: EGFR, 0.35 Jaccard passing
+# 10/10 pairs). It does NOT catch a gate that FAILS EVERYTHING -- an
+# unsatisfiable predicate (e.g. ">= 999999" for a score that never gets
+# near that) vacuously derives "does not pass" for ANY negative control,
+# so a one-sided check trivially certified it. See Counter-Example #2
+# below for the exact record that exposed this. Requiring a positive
+# control too closes it structurally: an unsatisfiable predicate admits
+# NO genuine positive control, so the record cannot be completed at all.
 #
 # RESIDUAL, UNFIXABLE RISK (named explicitly -- see docs/GATE_TYPING_LAW.md
 # for the full statement): the checker can verify that a record is
 # internally self-consistent -- that its own gate_passes_when, applied to
-# its own negative_control_value, derives to FAIL. It CANNOT verify that
+# its own negative_control_value, derives False, AND applied to its own
+# positive_control_value, derives True. It CANNOT verify that
 # gate_passes_when itself matches the gate's REAL pass condition as stated
-# in the gate's own `description` prose. Someone can still write a
-# description that says one thing and a gate_passes_when that says
-# another; the arithmetic will be self-consistent and the checker will
-# pass it. Catching that mismatch is a human-review obligation: a
+# in the gate's own `description` prose, and it cannot judge whether either
+# control value is a REPRESENTATIVE/plausible case rather than a contrived
+# extreme chosen only to make the arithmetic work (see Counter-Example #2's
+# note on this). Catching either of those is a human-review obligation: a
 # reviewer must confirm the declared gate_passes_when predicate is the
-# gate's actual, real pass condition, not merely that the record parses
-# and is internally consistent.
+# gate's actual pass condition, and that both controls are genuine,
+# plausible cases -- not merely that the record parses and is internally
+# consistent in both directions.
 #
 # WORKED COUNTER-EXAMPLE #1 -- commented out, NOT a live record, and if it
 # WERE live it would be REJECTED by the checker (the historically real
 # EGFR C797S contact-residue-Jaccard gate from docs/GATE_TYPING_LAW.md,
 # which was reported as passing evidence at the time). 0.70 does not fail
-# a ">= 0.35" gate no matter what the (optional) result field claims:
+# a ">= 0.35" gate:
 #
 # gate: egfr_c797s_contact_jaccard_same_ligand
 # type: P
 # description: same-ligand co-crystal pairs show contact-residue Jaccard >= 0.35
 # negative_control_name: different-ligand pair, osimertinib vs brigatinib
 # negative_control_value: 0.70
+# positive_control_name: same-ligand pair (as originally reported)
+# positive_control_value: 0.47
 # gate_passes_when: >= 0.35
-# negative_control_result: FAIL
 #   <- REJECTED: gate_passes_when(0.70) = (0.70 >= 0.35) = True, i.e. this
 #      "negative" control actually SATISFIES the gate. This is exactly the
 #      fabricated-evidence framing the law exists to stop.
@@ -85,40 +95,63 @@
 # type: U
 # description: same-ligand co-crystal pairs show contact-residue Jaccard >= 0.35 (threshold demonstrated non-discriminating: max observed different-ligand pair 0.70 > min same-ligand pair 0.47; all 10/10 pairs pass regardless of ligand identity)
 #
-# (Type U records do not need the negative_control_*/gate_passes_when
-# fields -- there is nothing to demonstrate a failure of, by construction.)
+# (Type U records do not need the negative_control_*/positive_control_*/
+# gate_passes_when fields -- there is nothing to demonstrate, by
+# construction.)
 #
-# WORKED COUNTER-EXAMPLE #2 -- the operator-choice attack that round 3 of
-# this format closes. A gate genuinely documented as ">= 0.80 passes",
-# with a control value that plainly PASSES the real gate (0.95), can no
-# longer be smuggled through by declaring a self-serving operator on the
-# control -- there is nowhere left in the record to declare one:
+# WORKED COUNTER-EXAMPLE #2 -- the unsatisfiable-predicate attack that
+# forced the two-sided law. Under the ROUND-3 (one-sided) format, this
+# record passed (exit 0):
 #
-# gate: score_gate_attack
+# gate: score_gate_unsatisfiable_predicate_attack
 # type: P
-# description: score must be >= 0.80 to pass this gate (high score = pass)
+# description: score must be >= 0.80 to pass, this control genuinely fails
 # negative_control_name: attempted attack
 # negative_control_value: 0.95
-# gate_passes_when: >= 0.80
-# negative_control_result: FAIL
-#   <- REJECTED: gate_passes_when(0.95) = (0.95 >= 0.80) = True, i.e. the
-#      control SATISFIES the gate's own declared predicate. Under the
-#      round-2 format (a separately-declared gate_operator on the
-#      control) this record could instead have written
-#      "gate_operator: <=" and passed, which is the exact hole this
-#      redesign removes.
+# gate_passes_when: >= 999999
+#   <- Round 3: ACCEPTED. gate_passes_when(0.95) = (0.95 >= 999999) = False,
+#      i.e. the negative control "genuinely fails" the DECLARED predicate --
+#      but 0.95 plainly satisfies the gate's REAL condition (score >= 0.80).
+#      An unreachable threshold makes every negative control vacuously
+#      "fail". This is the one-sided law's blind spot.
 #
-# WORKED VALID EXAMPLE -- a hypothetical gate whose control genuinely
-# fails, shown only so a reader can see what a checker-ACCEPTED Type P
-# record looks like (also commented out -- still not a live record for
-# this repo, since no such gate currently exists here):
+# Under the CURRENT (two-sided) format, the same record is REJECTED
+# outright for missing positive_control_name/positive_control_value --
+# there is no value that could honestly be recorded as a positive control
+# for an unsatisfiable predicate, so the record can never be completed:
+#
+# gate: score_gate_unsatisfiable_predicate_attack
+# type: P
+# description: score must be >= 0.80 to pass, this control genuinely fails
+# negative_control_name: attempted attack
+# negative_control_value: 0.95
+# gate_passes_when: >= 999999
+#   <- REJECTED: missing required fields positive_control_name,
+#      positive_control_value.
+#
+# Note the acknowledged residual gap: nothing stops someone from writing
+# an IMPLAUSIBLE positive control (e.g. positive_control_value: 1000000)
+# to force this specific record through -- that is numerically valid
+# (1000000 >= 999999 is True) and the checker cannot judge whether a
+# "score" of 1000000 is a real, plausible measurement. The two-sided
+# requirement closes the STRUCTURAL hole (no controls at all); it does not
+# and cannot close the PLAUSIBILITY hole (a reviewer must still judge
+# whether a recorded value is a genuine case, not an invented extreme).
+#
+# WORKED VALID EXAMPLE -- a hypothetical gate whose controls genuinely
+# discriminate in both directions, shown only so a reader can see what a
+# checker-ACCEPTED Type P record looks like (also commented out -- still
+# not a live record for this repo, since no such gate currently exists
+# here):
 #
 # gate: hypothetical_example_gate
 # type: P
 # description: hypothetical property X measured >= 0.35 in the target case
 # negative_control_name: known case with no property X
 # negative_control_value: 0.10
+# positive_control_name: known case with property X
+# positive_control_value: 0.47
 # gate_passes_when: >= 0.35
-# negative_control_result: FAIL
-#   <- ACCEPTED: gate_passes_when(0.10) = (0.10 >= 0.35) = False, i.e. the
-#      control genuinely does not satisfy the gate, consistent with FAIL.
+#   <- ACCEPTED: gate_passes_when(0.10) = False (genuinely does not pass);
+#      gate_passes_when(0.47) = True (genuinely does pass). The gate is
+#      shown to discriminate in both directions.
