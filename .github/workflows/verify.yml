@@ -1,0 +1,42 @@
+name: verify
+
+on: [push, pull_request]
+
+# Coq is PINNED to 8.20.1. On a self-hosted runner the toolchain is installed
+# once on the machine instead of rebuilt every run, so the pin is enforced by
+# CHECKING the version and failing loudly on drift, rather than by reinstalling.
+# That is strictly stronger than `apt-get install -y coq` (unpinned, drifts with
+# the image) and cheaper than an opam rebuild per run. This machine already
+# demonstrates the drift risk: it carries an opam switch named `coq818` that
+# actually contains Rocq Prover 9.1.1, because unpinned `coq` now pulls
+# rocq-core. Single pinned version, no build matrix.
+jobs:
+  verify:
+    runs-on: [self-hosted, linux]
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Enforce the Coq pin (fail loudly on drift)
+        run: |
+          set -euo pipefail
+          coqc --version
+          coqc --version | grep -q "version 8\.20\.1" || {
+            echo "::error::Coq version drift: this repo's claims are certified against 8.20.1"
+            exit 1
+          }
+
+      # The runner's PATH points at the same miniforge python the repo's runs were
+      # recorded with (docs/VERIFIED_RUNS.md), not /usr/bin/python3 -- which on this
+      # machine has no pip at all. Verify that before trusting anything downstream.
+      - name: Show and check the interpreter
+        run: |
+          set -euo pipefail
+          which python3
+          python3 -c "import sys; print(sys.executable, sys.version.split()[0])"
+          python3 -c "import numpy, scipy, sympy, pytest" || {
+            echo "::error::declared dependencies missing from the runner interpreter"
+            exit 1
+          }
+
+      - name: Run CI gate (LTP battery + UPL_Sorites.v + evidence/*.v + pytest)
+        run: bash scripts/ci_verify.sh
