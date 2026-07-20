@@ -145,7 +145,7 @@ DRL philosophy/definition
     -> v2/urr/smoke_test.py
        - executable finite diagnostic
     -> AP13
-       - external nonlinear many-body oracle
+       - independent-solver cross-check, nonlinear many-body (self-generated ICs)
     -> AP14
        - current correlated inverse-problem adapter
     -> URR-C + AP15
@@ -166,7 +166,7 @@ solver.
 
 Files:
 
-- `ap/AP13_URR_FPUT_EXTERNAL_BENCHMARK.md`
+- `ap/AP13_URR_FPUT_SOLVER_CROSSCHECK.md`
 - `ap/ap13_urr_fput.py`
 - `ap/results/AP13_FPUT_RESULTS.json`
 - `ap/results/AP13_FPUT_RESULTS.csv`

@@ -245,13 +245,17 @@ not_individually_novel:
 experiments:
   AP13:
     tier: finite_diagnostic
-    adapter: "nonlinear FPUT benchmark"
+    adapter: "nonlinear FPUT independent-solver cross-check (in-script, self-generated initial conditions; no external dataset)"
     result: PASS
   AP14:
     tier: finite_diagnostic
     adapter_tier: Dr
     adapter: "DESI DR2 BAO cosmology"
     result: PASS
+    data_provenance:
+      distance_vector: "DESI Collaboration, arXiv:2503.14738, Table IV; all 13 values verified to quoted precision"
+      covariance: "reconstructed from Table IV sigmas + r_M,H at full precision, not an independently-sourced covariance table"
+      lcdm_comparison_row: "Omega_m=0.2975+/-0.0086, h*r_d=101.54+/-0.73 corroborated as DESI-BAO-alone flat-LCDM (same paper, Section VI); exact table row unconfirmed -- TODO founder to supply precise citation"
   AP15:
     tier: finite_diagnostic
     architecture_tier: Dr

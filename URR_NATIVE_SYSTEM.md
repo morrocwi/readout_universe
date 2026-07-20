@@ -92,7 +92,7 @@ I+\Sigma_x^{1/2}\mathcal G_L^T\Sigma_N^{-1}
 
 ## Benchmarks and structural adapters
 
-- [AP13 — nonlinear FPUT external benchmark](ap/AP13_URR_FPUT_EXTERNAL_BENCHMARK.md)
+- [AP13 — nonlinear FPUT independent-solver cross-check](ap/AP13_URR_FPUT_SOLVER_CROSSCHECK.md)
 - [AP14 — DESI DR2 correlated BAO inverse benchmark](ap/AP14_URR_DESI_DR2_COSMOLOGY_BENCHMARK.md)
 - [AP15 — Universal Retention–Cut smoke test](ap/AP15_READ_WRITE_CUT.md)
 - [AP17 — Return Transformation and Physical Readability](ap/AP17_RETURN_TRANSFORMATION_READABILITY.md)

@@ -1,9 +1,14 @@
 #!/usr/bin/env python3
-"""AP13 — URR/FPUT external benchmark.
+"""AP13 — URR/FPUT independent-solver cross-check.
+
+This is a cross-check against an independently-implemented ODE solver
+(SciPy DOP853) run inside this same script, on initial conditions this
+same script generates (`initial_mode()`). It is NOT a comparison against
+any external dataset or published/experimental result.
 
 Reproduces two finite diagnostics:
 1. conservative FPUT-beta chain versus SciPy DOP853;
-2. nonlinear reader-record DRL extension versus the same independent oracle.
+2. nonlinear reader-record DRL extension versus the same cross-check solver.
 
 Runtime claims are machine-specific. Numerical agreement is finite_diagnostic,
 not proof and not a claim that the open FPUT thermalisation problem is solved.
@@ -274,7 +279,7 @@ def run(full: bool) -> dict[str, Any]:
     return {
         "meta": {
             "experiment": "AP13",
-            "name": "URR FPUT external benchmark",
+            "name": "URR FPUT independent-solver cross-check",
             "tier": "finite_diagnostic",
             "mode": "full" if full else "quick",
         },
@@ -284,10 +289,11 @@ def run(full: bool) -> dict[str, Any]:
             "initial_total_energy": E0,
             "initial_amplitude": AMPLITUDE,
         },
-        "external_reference": {
+        "cross_check_solver": {
             "solver": "SciPy DOP853",
             "rtol": 1e-12,
             "atol": 1e-14,
+            "note": "independently implemented, run in-script on self-generated initial conditions; not an external dataset",
         },
         "standard_fput_convergence": standard_rows,
         "standard_fput_long_horizon": {

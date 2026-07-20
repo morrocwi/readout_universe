@@ -1,5 +1,45 @@
 # AP14 — URR–DESI DR2 Hard Cosmology Benchmark
 
+## 0. Data provenance
+
+The 13-component compressed BAO distance vector (`DATA` in `ap14_urr_desi_dr2.py`,
+also duplicated in `ap/data/DESI_DR2_BAO_COVARIANCE.txt`) is transcribed from:
+
+> DESI Collaboration, "DESI DR2 Results II: Measurements of Baryon Acoustic
+> Oscillations and Cosmological Constraints," arXiv:2503.14738 (2025),
+> Table IV ("Constraints on the BAO scaling parameters and distance ratios"),
+> Section III.1.
+
+Verification performed for this note: every one of the 13 `D_V/r_d`,
+`D_M/r_d`, `D_H/r_d` values in the script (e.g. `7.94167639` for BGS
+`z=0.295`, `38.988973961958784` for Lyα `D_M/r_d` at `z=2.33`) matches the
+paper's Table IV central values to the precision quoted there (3 decimal
+places). The per-bin `D_M`/`D_H` correlation coefficients `r_M,H` quoted in
+Table IV (e.g. `-0.459` for LRG1) are consistent with the off-diagonal
+covariance blocks used here once reconstructed at full precision
+(`corr = cov_offdiag / sqrt(var_DM * var_DH)`), so the covariance matrix in
+this script is a full-precision reconstruction of Table IV's quoted
+sigmas and correlation coefficients, not an independently-sourced
+covariance table.
+
+The `official` flat-ΛCDM comparison values in `fit_lcdm()`
+(`Omega_m = 0.2975 +/- 0.0086`, `h*r_d = 101.54 +/- 0.73` Mpc) match the
+DESI-BAO-alone flat-ΛCDM constraint reported in the same paper's Section VI
+cosmology-constraints discussion (external secondary sources corroborate
+these exact central values and a `chi2/dof = 10.2/(13-2)` for the BAO-only
+fit, consistent with this script's own `chi2=10.271`, `dof=11`). The precise
+table number inside Section VI for that specific BAO-alone row was not
+independently pinned down in this pass — flag this as a **TODO for the
+founder**: confirm the exact table/row (likely one of the ΛCDM parameter
+tables in Section VI) and record it here.
+
+Because the raw distance-vector match (Table IV) is exact to quoted
+precision while the flat-ΛCDM comparison numbers are strongly corroborated
+but not yet pinned to an exact table row, the harness gate below is worded
+as "data vector: cited (Table IV)" rather than an unqualified "official ...
+PASS", and the comparison-fit gate is worded as "corroborated, table row
+unconfirmed."
+
 ## 1. Problem
 
 This benchmark treats cosmology as an **external readout adapter** of the native
@@ -108,7 +148,9 @@ Difference between our implementation and the quoted central values:
 - Omega_m: -3.81809324e-05 = -0.004440 quoted sigma
 - h r_d: -2.26777498e-04 Mpc = -0.000311 quoted sigma
 
-This is a successful external reproduction test.
+This is a successful reproduction of the DESI DR2 BAO-alone flat-LCDM
+constraint quoted in the source paper (see §0 for the citation and the
+table-number caveat on this specific comparison row).
 
 ## 3. CPL dynamical-dark-energy stress test
 
@@ -194,10 +236,10 @@ This run combines:
 
 | Gate | Result |
 |---|---|
-| Official public data vector | PASS |
-| Official covariance | PASS |
+| Public data vector cited (arXiv:2503.14738, Table IV; numbers verified to quoted precision) | PASS |
+| Covariance reconstructed from Table IV sigmas + r_M,H at full precision (not an independently-sourced covariance table) | PASS |
 | Independent implementation | PASS |
-| Reproduces published Lambda-CDM parameters | PASS |
+| Reproduces DESI-BAO-alone flat-LCDM parameters (values corroborated; exact Section VI table row unconfirmed — TODO founder) | CORROBORATED, TABLE ROW TODO |
 | Multi-start global CPL fit | PASS |
 | Residual covariance handled | PASS |
 | Identifiability reported | PASS |
@@ -227,7 +269,12 @@ tier: finite_diagnostic
 external_adapter: Dr
 core_modified: false
 verdict: PASS
+data_provenance:
+  distance_vector: "arXiv:2503.14738 Table IV, verified to quoted precision"
+  covariance: "reconstructed from Table IV sigmas + r_M,H, not independently sourced"
+  lcdm_comparison_row: "corroborated, exact Section VI table number TODO (founder)"
 ```
 
-This is a serious external benchmark, not evidence that the complete
-cosmological model has been derived from retained distinction alone.
+This is a serious benchmark against a cited public data vector (see §0), not
+evidence that the complete cosmological model has been derived from retained
+distinction alone.

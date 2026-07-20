@@ -1,7 +1,21 @@
 #!/usr/bin/env python3
 """AP14 — URR/DESI DR2 correlated cosmology inverse benchmark.
 
-Uses the official 13-component DESI DR2 compressed BAO vector and covariance.
+Data provenance: the 13-component compressed BAO distance vector below is
+transcribed from DESI Collaboration, "DESI DR2 Results II: Measurements of
+Baryon Acoustic Oscillations and Cosmological Constraints," arXiv:2503.14738
+(2025), Table IV. All 13 values were checked against that table's quoted
+central values (matches to the printed precision, 3 decimal places). The
+covariance below is a full-precision reconstruction from Table IV's quoted
+per-bin sigmas and D_M/D_H correlation coefficients r_M,H, not an
+independently-sourced covariance table. The `official`/`official_sigma`
+Lambda-CDM comparison values (Omega_m=0.2975+/-0.0086, h*r_d=101.54+/-0.73)
+match the DESI-BAO-alone flat-LCDM constraint from the same paper's Section
+VI discussion; the exact table row for that specific comparison was not
+pinned down in this pass (TODO: founder to confirm and cite the precise
+table/row). See ap/AP14_URR_DESI_DR2_COSMOLOGY_BENCHMARK.md section 0 for
+the full provenance note.
+
 Cosmology is an external readout adapter (Dr), not part of the native URR core.
 The numerical fit is finite_diagnostic and does not reproduce the full CMB/SN
 analysis or constitute a dark-energy discovery claim.
@@ -22,6 +36,8 @@ from scipy.optimize._numdiff import approx_derivative
 from scipy.stats import chi2 as chi2_distribution
 
 C_LIGHT = 299792.458
+# Source: DESI Collaboration, arXiv:2503.14738, Table IV. Values verified
+# against that table's quoted precision; see module docstring.
 Z = np.array([0.295, 0.510, 0.510, 0.706, 0.706, 0.934, 0.934,
               1.321, 1.321, 1.484, 1.484, 2.33, 2.33], dtype=float)
 DATA = np.array([7.94167639, 13.58758434, 21.86294686, 17.35069094,
@@ -35,6 +51,9 @@ QUANTITY = np.array(["DV_over_rs", "DM_over_rs", "DH_over_rs", "DM_over_rs",
 
 
 def covariance() -> np.ndarray:
+    # Reconstructed at full precision from arXiv:2503.14738 Table IV's
+    # quoted per-bin sigmas and D_M/D_H correlation coefficients r_M,H;
+    # not an independently-sourced covariance table. See module docstring.
     cov = np.zeros((13, 13), dtype=float)
     cov[0, 0] = 5.78998687e-03
     blocks = [
@@ -114,6 +133,10 @@ def fit_lcdm() -> dict[str, Any]:
     cov = np.linalg.inv(fisher)
     sigma = np.sqrt(np.diag(cov))
     corr = cov / np.outer(sigma, sigma)
+    # DESI-BAO-alone flat-LCDM constraint, same paper (arXiv:2503.14738),
+    # Section VI. Central values corroborated by independent secondary
+    # sources; the exact table row was not pinned down in this pass
+    # (TODO: founder to confirm table/row). See module docstring.
     official = np.array([0.2975, 101.54])
     official_sigma = np.array([0.0086, 0.73])
     return {
@@ -198,10 +221,15 @@ def run(full: bool) -> dict[str, Any]:
         "benchmark": {
             "observations": 13,
             "redshift_range": [float(Z.min()), float(Z.max())],
-            "record_delta": "official DESI DR2 compressed BAO vector",
+            "record_delta": "DESI DR2 compressed BAO vector (arXiv:2503.14738, Table IV)",
             "readout_operator_A": "external nonlinear cosmology adapter",
-            "weight_W": "inverse official covariance",
+            "weight_W": "inverse covariance reconstructed from Table IV sigmas + r_M,H",
             "objective": "chi2 = residual^T W residual",
+        },
+        "data_provenance": {
+            "distance_vector": "arXiv:2503.14738 Table IV, verified to quoted precision",
+            "covariance": "reconstructed from Table IV sigmas + r_M,H, not independently sourced",
+            "lcdm_comparison_row": "corroborated, exact Section VI table number unconfirmed (TODO: founder)",
         },
         "lcdm": {**lcdm, "AIC": lcdm_aic, "BIC": lcdm_bic},
         "cpl_w0wa": {**cpl, "AIC": cpl_aic, "BIC": cpl_bic},

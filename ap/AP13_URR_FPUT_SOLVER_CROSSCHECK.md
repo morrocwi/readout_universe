@@ -1,6 +1,15 @@
-# AP13 — URR External FPUT Benchmark
+# AP13 — URR FPUT Independent-Solver Cross-Check
 
 ## Benchmark identity
+
+This is an independent-solver cross-check, not a comparison against any
+external dataset or published result. Both the URR integrator and the
+reference trajectory are computed inside this same script, from the same
+self-generated initial condition (`initial_mode()`); the reference trajectory
+uses a different, independently-implemented integration algorithm (SciPy's
+DOP853, an eighth-order Runge-Kutta) at very tight tolerance so that it can
+serve as a high-precision numerical cross-check on the URR recurrence. There
+is no external dataset and no literature/experimental comparison here.
 
 This run uses the 32-particle fixed-boundary Fermi–Pasta–Ulam–Tsingou
 beta chain. It is a historically important nonlinear many-body benchmark.
@@ -20,7 +29,9 @@ Configuration:
 - nonlinear coefficient: beta = 1.0
 - initial total energy: 0.25
 - initial excitation: first fixed-boundary normal mode
-- external oracle: SciPy DOP853, order 8, rtol `1e-12`, atol `1e-14`
+- cross-check solver: SciPy DOP853, order 8, rtol `1e-12`, atol `1e-14`
+  (independently implemented from the URR recurrence; run on the same
+  self-generated initial condition, not an external dataset)
 
 This is a solved initial-value benchmark, not a claimed solution of the open
 thermodynamic-limit FPUT problem.
@@ -64,8 +75,8 @@ The same FPUT graph was extended to the reader-record system
 \nabla^2V_4(\Phi)\Psi=0.
 \]
 
-Damping is heterogeneous across the 32 nodes. The external reference
-integrates the full 128-dimensional first-order system.
+Damping is heterogeneous across the 32 nodes. The independently-implemented
+cross-check solver integrates the full 128-dimensional first-order system.
 
 | dt | final relative state error | trajectory RMS error | pairing-charge relative drift | observed order |
 |---:|---:|---:|---:|---:|
@@ -74,7 +85,7 @@ integrates the full 128-dimensional first-order system.
 | 0.01 | 2.989584e-07 | 3.360280e-08 | 3.292722e-10 | 2.00002 |
 | 0.005 | 7.473684e-08 | 8.400025e-09 | 8.234912e-11 | 2.00005 |
 
-External DOP853 pairing-charge relative drift:
+Cross-check DOP853 pairing-charge relative drift:
 `2.743031e-17`.
 
 At dt = 0.01:
@@ -83,7 +94,7 @@ At dt = 0.01:
 - trajectory RMS error: 3.360280e-08
 - pairing-charge relative drift: 3.292722e-10
 - URR local runtime: 0.1674 s
-- external local runtime: 1.6699 s
+- cross-check solver local runtime: 1.6699 s
 
 Runtime values are machine-specific finite diagnostics, not universal
 performance claims.
@@ -92,7 +103,7 @@ performance claims.
 
 | Gate | Result |
 |---|---|
-| independent high-precision oracle | PASS |
+| independent high-precision cross-check solver (in-script, self-generated ICs) | PASS |
 | deterministic initial condition | PASS |
 | step-halving convergence | PASS, approximately second order |
 | conservative energy diagnostic | PASS |
@@ -120,6 +131,7 @@ settle the open questions surrounding FPUT thermalization.
 
 ```yaml
 tier: finite_diagnostic
-external_oracle: SciPy DOP853
+cross_check_solver: SciPy DOP853 (in-script, independently implemented, self-generated initial conditions)
+external_dataset: none
 novelty_promotion: forbidden
 ```
