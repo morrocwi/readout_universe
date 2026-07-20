@@ -22,7 +22,7 @@ jobs:
         run: |
           set -euo pipefail
           cat .closeout-upload/chunk_*.b64 | base64 --decode > /tmp/readout_universe_closeout_20260720.tar.gz
-          echo '9642a9a4510d7d51e984356ad124b77ab01926164c6c0bf50e838f9eccf6aecb  /tmp/readout_universe_closeout_20260720.tar.gz' | sha256sum -c -
+          echo '516b6dc62f57907f2ad4e75fae49dd80082e02116be5b006d15b8e8d661d17b2  /tmp/readout_universe_closeout_20260720.tar.gz' | sha256sum -c -
           mkdir -p /tmp/closeout
           tar -xzf /tmp/readout_universe_closeout_20260720.tar.gz -C /tmp/closeout
           test -d /tmp/closeout/readout_universe_closeout
@@ -34,7 +34,7 @@ jobs:
 
           `readout_universe_closeout_20260720.tar.gz` contains the complete 56-file closeout payload used for this commit.
 
-          SHA-256: `9642a9a4510d7d51e984356ad124b77ab01926164c6c0bf50e838f9eccf6aecb`
+          SHA-256: `516b6dc62f57907f2ad4e75fae49dd80082e02116be5b006d15b8e8d661d17b2`
 
           The same files are also materialized in the repository for direct inspection.
           EOF
