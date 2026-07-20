@@ -239,6 +239,29 @@ experiments:
       - "all transformed returns preserve information"
       - "all retained states eventually return"
       - "the Gaussian readability equation is universal"
+  AP18:
+    tier: finite_diagnostic
+    adapter_tier: exact_algebra_in_declared_ideal_circuit_plus_runtime
+    adapter: "ideal two-capacitor RC memory cell"
+    result: PASS
+    recorded_values:
+      numerical_vs_matrix_exponential_V: 5.062616992290714e-13
+      matrix_exponential_vs_closed_form_V: 3.108624468950438e-14
+      charge_retention_relative_error: 1.0842021724855044e-15
+      energy_accounting_relative_error: 1.6666663917030977e-07
+      hidden_elimination_residual_V_per_s: 5.2081678081350447e-08
+      observability_rank: 2
+      maximum_hidden_to_visible_signal_V: 0.49997730003511887
+    exact_within_model:
+      - "C1 V1 + C2 V2 is constant"
+      - "equal-capacitance voltage solution is exponential"
+      - "hidden elimination gives K_mem(tau)=(1/(R C1))(1/(R C2)) exp(-tau/(R C2))"
+      - "the visible-only two-row observation matrix has rank 2"
+    nonclaims:
+      - "hardware validation has been executed"
+      - "the DRL inertial term is tested"
+      - "Psi is established as an ontic physical record"
+      - "the unified DRL-cut-tape action is closed"
 
 peer_review_0_4:
   recommendation: major_revision
