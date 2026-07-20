@@ -1,0 +1,164 @@
+system:
+  id: URR-C
+  name: Universal Retention-Cut-Return-Readout System
+  version: 0.4.0-return
+  date: 2026-07-20
+  status:
+    native_drl: derived_narrow
+    forced_cut_extension: Dr
+    linear_hidden_elimination: exact_algebra_in_declared_scope
+    linear_return_kernel: exact_algebra_in_declared_scope
+    linear_Gaussian_readability: exact_under_declared_distribution
+    ap17_runtime: finite_diagnostic
+    unified_drl_cut_tape_action: Open
+
+binding_rules:
+  - "A readout is not truth."
+  - "Unreadable does not imply destroyed."
+  - "Unreadable now does not imply unreadable forever."
+  - "Returned form is not identical to returned information."
+  - "A native one-way cut is not a gravitational horizon certificate."
+  - "Never promote a numerical result above finite_diagnostic."
+
+spaces:
+  retained_space: H_T
+  doubled_space: X_T = H_T direct_sum H_T
+  state: X_n = (Phi_n, Psi_n)^T
+  selectors:
+    P_Phi: [I, 0]
+    P_Psi: [0, I]
+  readout_projectors:
+    O_alpha: "O_alpha^2 = O_alpha"
+    H_alpha: "I - O_alpha"
+    lifted_O_alpha: "I_2 tensor O_alpha"
+    lifted_H_alpha: "I_X - lifted_O_alpha"
+
+native_grammar:
+  symbol: G_T
+  equation: "L_R tensor I_F + I_R tensor C_F + C_int"
+
+native_action:
+  symbol: S_DRL
+  reference: v2/urr/URR_NATIVE_TECHNICAL_SPEC.md
+  reader_equation: >-
+    M(Phi[n+1]-2Phi[n]+Phi[n-1])/dt^2
+    + D(Phi[n+1]-Phi[n-1])/(2dt)
+    + K G_T Phi[n] + grad V(Phi[n]) - J[n]
+    = P_Phi J_C[n](X[n])
+  mirror_equation: >-
+    M(Psi[n+1]-2Psi[n]+Psi[n-1])/dt^2
+    - D(Psi[n+1]-Psi[n-1])/(2dt)
+    + K G_T Psi[n] + Hess V(Phi[n]) Psi[n]
+    = P_Psi J_C[n](X[n])
+  continuum_reader: >-
+    M d2Phi/dt2 + D dPhi/dt + K G_T Phi + grad V(Phi)
+    = J + P_Phi J_C
+  interpretation: forced_discrete_variational_system
+  limitation: cut_not_derived_from_one_unified_action
+
+cut:
+  write_operator:
+    symbol: W_beta
+    type: "im(lifted_O_beta) -> im(lifted_H_beta)"
+  return_operator:
+    symbol: R_alpha
+    type: "im(lifted_H_alpha) -> im(lifted_O_alpha)"
+  balanced_force: >-
+    J_C[X] = Hbar W Obar X - Obar Lambda_W Obar X
+    + Obar R Hbar X - Hbar (Lambda_R + Lambda_T) Hbar X
+  balance_certificate:
+    equation: "rho^T J_C[X] = 0"
+    requirement: declared_retention_covector
+    AP15_covector: "rho = 1"
+
+record_backends:
+  injective_growing_tape:
+    equation: "T[n+1] = T[n] direct_sum E_T[n](Hbar X[n])"
+    requirement: E_T_injective
+    state_dimension: growing
+  fixed_accumulator:
+    equation: "q_T[n+1] = q_T[n] + L_T[n] Hbar X[n]"
+    append_only_gate: "positive cone and L_T[n] Hbar X[n] >= 0"
+    warning: accumulator_is_not_automatically_injective
+
+linear_adapter:
+  state_equations:
+    visible: "dx_O/dt = F_OO x_O + R x_H + B_O u"
+    hidden: "dx_H/dt = W x_O + F_H x_H + B_H u"
+    output: "y = C x_O + eta"
+  hidden_solution: >-
+    x_H(t) = exp(F_H(t-t0)) x_H(t0)
+    + integral_t0^t exp(F_H(t-s)) [W x_O(s) + B_H u(s)] ds
+  memory_kernel:
+    equation: "K_mem(tau) = R exp(F_H tau) W"
+    causal_domain: "tau >= 0"
+  stability:
+    spectral_abscissa: "alpha_H = max Re eig(F_H)"
+    transient_growth: "g_H(T) = sup_{0<=tau<=T} ||exp(F_H tau)||"
+
+return_transformation:
+  encoded_state: z
+  encoder: E_beta
+  kernel: >-
+    K_return[alpha<-beta](tau) = A_alpha Obar_alpha R_alpha
+    U_H(tau) Hbar_beta W_beta Obar_beta E_beta
+  linear_hidden_propagator: "U_H(tau) = exp(F_H tau)"
+  causality: "K_return(tau) = 0 for tau < 0"
+  measurement: "y_return(tau) = K_return(tau) z + eta_alpha"
+
+reconstruction:
+  full_rank_decoder: >-
+    D_star = (K^T Sigma_eta^-1 K)^-1 K^T Sigma_eta^-1
+  covariance: "Sigma_rec = (K^T Sigma_eta^-1 K)^-1"
+  exact_form_gate: "typed K approximately I"
+  transformed_reconstructable_gate: "rank(K)=dim(z) and acceptable Sigma_rec"
+  partial_return_gate: "0 < rank(K) < dim(z)"
+  no_direct_return_gate: "K = 0 under the declared channel"
+
+finite_window_readability:
+  sampled_dynamics:
+    state: "x[k+1] = F x[k]"
+    output: "y[k] = C x[k] + eta[k]"
+  stacked_operator: "G_L = stack(C, C F, ..., C F^L)"
+  structural_dimension: "rank(G_L)"
+  whitened_operator: "G_tilde = Sigma_N^-1/2 G_L Sigma_x^1/2"
+  readable_dimension: "count_i singular_value_i(G_tilde) > kappa"
+  Gaussian_information_rbit: >-
+    I_read(L) = 1/2 log2 det(I + Sigma_x^1/2 G_L^T
+    Sigma_N^-1 G_L Sigma_x^1/2)
+  memory_lifetime: "sup{tau: I_read(tau) >= I_star}"
+  echo_time: "argmax_{tau>0} I_read(tau)"
+
+physical_horizon_adapter:
+  native_condition: one_way_causal_cut
+  additional_required_certificate:
+    - declared_metric
+    - causal_structure
+    - geometric_horizon_test
+  forbidden_inference: "R = 0 implies physical black hole"
+
+nonlinear_extension:
+  hidden_dynamics: "dx_H/dt = f_H(x_H,x_O,u)"
+  tangent_propagator: >-
+    dU_H(t,s)/dt = [partial f_H / partial x_H] along trajectory times U_H(t,s)
+  tangent_kernel: "K_tangent(t,s) = A(t) R(t) U_H(t,s) W(s) E(s)"
+  limitation: local_linearization_only
+
+canonical_evidence:
+  - v2/urr/URR_C_MASTER_0_4.md
+  - v2/urr/URR_C_PEER_REVIEW_0_4.md
+  - ap/AP17_RETURN_TRANSFORMATION_READABILITY.md
+  - ap/ap17_return_transformation.py
+  - ap/results/AP17_RETURN_TRANSFORMATION_RESULTS.json
+
+claim_boundary:
+  native_DRL: derived_narrow
+  forced_DRL_cut_equations: Dr
+  cut_balance: requires_declared_certificate
+  linear_hidden_elimination: exact_algebra_in_declared_scope
+  linear_return_kernel: exact_algebra_in_declared_scope
+  linear_Gaussian_readability: exact_under_declared_distribution
+  runtime: finite_diagnostic
+  nonlinear_return: Open
+  all_retained_states_eventually_return: not_claimed
+  physical_black_hole_from_native_cut_alone: not_claimed
