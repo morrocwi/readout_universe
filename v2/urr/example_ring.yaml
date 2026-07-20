@@ -1,0 +1,127 @@
+meta:
+  system_id: URR
+  version: 0.1.0-native
+  native_only: true
+  run_label: four-node-ring-smoke-test
+ontology:
+  primitive: delta_R
+  state_pair:
+  - Phi
+  - Psi
+units:
+  native_information_unit: rbit
+  time_unit: native_step_time
+  state_unit: native_readout_amplitude
+graph:
+  nodes: 4
+  edges:
+  - - 0
+    - 1
+    - 1.0
+  - - 1
+    - 2
+    - 1.0
+  - - 2
+    - 3
+    - 1.0
+  - - 3
+    - 0
+    - 1.0
+fiber:
+  dimension: 1
+  internal_operator:
+  - - 0.0
+grammar:
+  interaction_operator: null
+dynamics:
+  dt: 0.01
+  steps: 1000
+  M: 1.0
+  D: 0.1
+  K: 1.0
+potential:
+  type: polynomial_even
+  k2: 0.5
+  k4: 0.02
+source:
+  type: constant
+  value:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 0.0
+initial_state:
+  Phi:
+  - 1.0
+  - 0.0
+  - -0.5
+  - 0.25
+  Phi_velocity:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 0.0
+  Psi:
+  - 0.05
+  - -0.02
+  - 0.01
+  - 0.0
+  Psi_velocity:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 0.0
+record_backend:
+  mode: hybrid
+  tape:
+    gamma_policy: from_D_over_M
+    gamma: null
+    transport: identity
+    steps: 1000
+readouts:
+- id: reader_node_0
+  state: Phi
+  selector: 0
+  observed:
+  - 0.0
+  policy: identity
+- id: reader_mean
+  state: Phi
+  matrix:
+  - - 0.25
+    - 0.25
+    - 0.25
+    - 0.25
+  observed:
+  - 0.0
+  policy: mean
+- id: combined_energy_proxy
+  state: combined
+  policy: norm
+information:
+  probabilities:
+  - 0.5
+  - 0.25
+  - 0.125
+  - 0.125
+  event_index: 2
+  requested_conversions:
+  - bit
+  - byte
+  - nat
+  - hartley
+  - landauer_J
+  temperature_K: 300.0
+diagnostics:
+  symmetry_tolerance: 1.0e-10
+  row_sum_tolerance: 1.0e-10
+  reader_el_residual_tolerance: 1.0e-08
+  mirror_el_residual_tolerance: 1.0e-08
+  pairing_drift_warning: 0.02
+  tape_conservation_tolerance: 1.0e-12
+  rank_tolerance: 1.0e-10
+claim_policy:
+  runtime_maximum_tier: finite_diagnostic
+  require_all_requested_gates: true
+dag:
+  use_canonical_dag_from_spec: true

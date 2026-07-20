@@ -1,0 +1,84 @@
+system: URR
+version: 0.1.0-native
+binding_rule: "Never promote a claim above its evidence tier."
+
+tiers:
+  Th_coqc: "machine-checked in explicitly declared scope"
+  finite_diagnostic: "executed numerical evidence; not proof"
+  Dr: "declared bridge or interpretation"
+  Open: "candidate claim with stance and falsifier"
+
+native_core:
+  retained_distinction:
+    tier: doctrine
+    claim: "delta_R is the primitive retained distinction"
+  finite_relation_operator:
+    tier: definition
+    claim: "G_T is constructed from L_R, a finite fiber operator, and declared interaction"
+  drl_reader_recurrence:
+    tier: Th_coqc
+    scope: "as declared in evidence/DRL_Discrete.v; do not generalize silently"
+  drl_general_pairing_structure:
+    tier: Th_coqc
+    scope: "general-N Legendre/D-cancellation structure in evidence/DRL_General_Legendre.v"
+  native_runner:
+    tier: finite_diagnostic
+    artifact: "v2/urr/urr_reference_runner.py"
+  rbit:
+    tier: definition
+    claim: "binary distinguishable retained alternative under explicit policy"
+
+candidate_novelty:
+  - id: N1
+    tier: Open
+    stance: positive
+    claim: "discrete graph-tensor DRL form coupling reader and record through G tensor L_R"
+    falsifier: "find prior equivalent construction with the same graph-tensor and scope"
+  - id: N2
+    tier: Open
+    stance: positive
+    claim: "Psi is an ontic record required by retention rather than a disposable auxiliary variable"
+    falsifier: "find prior equivalent ontic-record interpretation or show contradiction with RD4"
+  - id: N3
+    tier: Open
+    stance: positive
+    claim: "zero-diagonal retention metric realizes the Doctrine of Quantity dynamically"
+    falsifier: "show that the interpretation is redundant or inconsistent across supported systems"
+  - id: N4
+    tier: Open
+    stance: positive
+    claim: "native AI contract unifies DRL, readout, identifiability, tier control, and rbit bridges"
+    falsifier: "find a prior equivalent end-to-end native contract"
+
+not_individually_novel:
+  - graph Laplacian
+  - doubled-variable variational method
+  - discrete variational integration
+  - Shannon information
+  - Landauer erasure bound
+  - covariance-weighted least squares
+  - matrix rank and null-space analysis
+
+experiments:
+  AP13:
+    tier: finite_diagnostic
+    adapter: "nonlinear FPUT benchmark"
+    result: PASS
+    nonclaims:
+      - "not a proof"
+      - "not a solution of the open FPUT thermalisation problem"
+      - "not a state-of-the-art efficiency claim"
+  AP14:
+    tier: finite_diagnostic
+    adapter_tier: Dr
+    adapter: "DESI DR2 BAO cosmology"
+    result: PASS
+    nonclaims:
+      - "cosmology is not derived from URR"
+      - "full DESI CMB+SN likelihood is not reproduced"
+      - "dynamical dark energy is not claimed as discovered"
+
+open:
+  - "mechanistic reader-to-record handoff in the linear DRL"
+  - "unified action for DRL and append-only tape"
+  - "external peer review of the novelty conjunction"
