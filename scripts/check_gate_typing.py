@@ -58,10 +58,19 @@ scripts/test_check_gate_typing.py, and none were argued away:
     could still be unreachable/vacuous, so a one-sided (negative-only)
     check could be trivially satisfied by an absurd threshold (see the
     999999 example above).
-  - Round 4 (this file): requires BOTH a negative control (derived NOT
-    passing) and a positive control (derived PASSING) from the one
-    predicate. An unsatisfiable predicate can no longer self-certify,
-    because it admits no valid positive control.
+  - Round 4: requires BOTH a negative control (derived NOT passing) and
+    a positive control (derived PASSING) from the one predicate. An
+    unsatisfiable predicate can no longer self-certify, because it
+    admits no valid positive control.
+  - Round 5 (this file): fixes a genuine documentation regression --
+    docs/AI_READING_GUIDE.md, the one file whose whole purpose is to
+    tell an AI reader how to read this repo, had never been updated
+    since round 1 and still stated the disproven one-sided rule while
+    this file said otherwise (regression-tested by grep below, so it
+    cannot silently drift again). Also closes a dressing-up attack: a
+    Type U record could carry a full, cleanly-derivable set of Type-P
+    control/predicate fields with no per-record complaint, reading as
+    evidence to a human skimming the file even though it was typed U.
 
 What this script does NOT enforce, and cannot:
   - Whether either control is a reasonable/representative case (only
@@ -69,17 +78,39 @@ What this script does NOT enforce, and cannot:
     gate declared honestly here is nonetheless being cited as evidence
     somewhere ELSE (another doc, another repo, a PR description).
     Human/reviewer obligation.
-  - RESIDUAL, UNFIXABLE RISK (named explicitly, not folded into the
-    bullet above): the checker cannot verify that `gate_passes_when`
-    matches the gate's REAL pass condition as stated in its own
-    `description` prose -- only that the record is internally
-    self-consistent (both controls' derived verdicts match what the
-    declared predicate implies). A script cannot know intent and must
-    not pretend to; catching a description/predicate mismatch is a
-    NAMED human-review obligation: **a reviewer must confirm the
-    declared `gate_passes_when` predicate is the gate's real, actual
-    pass condition**, not merely that the record is internally
-    consistent and two-sided.
+  - RESIDUAL RISKS (named explicitly, not folded into the bullet above --
+    each numbered to match the chair's own finding numbers, so the
+    numbering is traceable across review rounds; #1, #2, #5 above are
+    fixed, these remain open):
+    3. The implausible-value gap is TWO-SIDED, not just on the positive
+       control: a `negative_control_value: -1000000` against a gate
+       whose real domain is `[0, 1]` would satisfy "does not pass
+       `>= 0.35`" just as trivially as an absurd positive control
+       satisfies an absurd predicate. Neither direction's plausibility
+       is checked.
+    4. Nothing ties the two controls to the SAME MEASURED QUANTITY. A
+       negative control described as "a thermometer reading in degrees
+       C" and a positive control described as "a genuine Jaccard
+       measurement" would both parse, both derive correctly against a
+       shared `gate_passes_when`, and pass -- the checker has no notion
+       that they are supposed to be readings of the same thing.
+    5. `gate_passes_when` matching the gate's REAL pass condition as
+       stated in its own `description` prose is not checked -- only that
+       the record is internally self-consistent (both controls' derived
+       verdicts match what the declared predicate implies). A script
+       cannot know intent and must not pretend to: **a reviewer must
+       confirm the declared `gate_passes_when` predicate is the gate's
+       real, actual pass condition**, not merely that the record is
+       internally consistent and two-sided.
+    6. Unknown/extra keys on a record are silently IGNORED, not rejected
+       or validated -- e.g. a smuggled `positive_control_result` field
+       sitting beside a correctly-spelled, correctly-required set of
+       fields parses fine and is never read by anything. A typo'd
+       REQUIRED field is still caught (it shows up as "missing"), so this
+       is not structural; but given the law's central point is that no
+       caller-supplied result is ever trusted, be explicit: an unknown
+       key being present in a record is not evidence that anything about
+       it was checked.
 
 docs/GATE_TYPING_LAW.md states which part of the law is machine-enforced
 and which part is not; do not read a PASS from this script as more than
@@ -97,6 +128,14 @@ nothing else, matching the CI runner's floor):
   - Required keys on every record: gate, type, description.
   - type must be exactly "P" or "U" (case-sensitive, no synonyms --
     this is deliberate: no quiet "mostly passes" tier).
+  - A Type U record must NOT carry any control or predicate field
+    (negative_control_name, negative_control_value,
+    positive_control_name, positive_control_value, gate_passes_when) --
+    REJECTED if it does, even if those fields would derive a clean
+    two-sided pass. There is no legitimate reason for a declared
+    convention to carry the same apparatus a Type P record uses to prove
+    it can fail; a record with that apparatus reads as evidence to a
+    human skimming the file regardless of its declared type.
   - A Type P record additionally requires: negative_control_name,
     negative_control_value, positive_control_name, positive_control_value,
     and gate_passes_when. There is no result field of any kind -- neither
@@ -117,6 +156,14 @@ nothing else, matching the CI runner's floor):
         threshold) and requires that to be True. Either direction
         failing rejects the record, full stop -- there is no field that
         can override this.
+  - Unknown/extra keys on a record (misspellings, or a smuggled field
+    like `positive_control_result` that is not part of this format at
+    all) are IGNORED, not rejected and not validated. A required field's
+    correct name is still checked for presence, so a typo'd REQUIRED key
+    is caught (it reads as "missing"); an extra key with no defined
+    meaning simply parses into the fields dict and is never read by
+    anything. Do not infer from a record parsing cleanly that every key
+    in it was checked.
   - A field's value is considered present only after stripping ordinary
     whitespace AND any invisible/blank-rendering characters: Unicode
     category Cf (format, e.g. U+200B ZERO WIDTH SPACE), Cc (control), Mn
@@ -394,6 +441,29 @@ def check_record(fields: dict, record_index: int) -> list[str]:
         errors.append(
             f"gate {label!r}: type must be exactly 'P' or 'U', got {gate_type!r}"
         )
+
+    if gate_type == "U":
+        # A Type U record must not carry a falsification apparatus at all --
+        # no legitimate convention gate has a negative control, a positive
+        # control, or a pass predicate. Without this check, a record could
+        # dress itself up with a full, cleanly-derivable two-sided pass
+        # (both controls genuinely discriminating) while still being typed
+        # U, which reads as evidence to any human skimming the file even
+        # though the aggregate Type-U reminder at the end is easy to miss.
+        # Reject rather than warn: there is no legitimate reason for a
+        # declared convention to carry the same fields a Type P record
+        # uses to prove it can fail.
+        smuggled = [key for key in REQUIRED_TYPE_P if field_present(fields, key)]
+        if smuggled:
+            errors.append(
+                f"gate {label!r}: declared Type U but carries Type-P-only "
+                f"field(s) {smuggled} -- a Type U record must not carry "
+                f"control or predicate fields at all, regardless of whether "
+                f"they would derive a clean two-sided pass if the gate were "
+                f"typed P (docs/GATE_TYPING_LAW.md). Either declare "
+                f"type: P (and meet every Type P requirement) or remove "
+                f"these fields."
+            )
 
     if gate_type != "P":
         return errors

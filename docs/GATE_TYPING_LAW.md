@@ -83,7 +83,18 @@ cited as evidence:
   files, and silent crashes -- but they carry **zero discriminating power**
   about the claim under test. They must be labelled `Type U` wherever they
   are reported and must **not** be counted in any "N/N checks passed"
-  evidence claim and must **not** appear in a headline verdict.
+  evidence claim and must **not** appear in a headline verdict. **A Type U
+  record must not carry control or predicate fields at all** --
+  `negative_control_name`, `negative_control_value`,
+  `positive_control_name`, `positive_control_value`, `gate_passes_when` --
+  even if those fields would derive a clean two-sided pass if the gate were
+  typed P. There is no legitimate reason for a declared convention to carry
+  the same falsification apparatus a Type P record uses to prove it can
+  fail; a record that carries it reads as evidence to any human skimming
+  the file, regardless of its declared type, and the aggregate "Type U
+  gates found" reminder at the end of a checker run is easy to miss against
+  a record that individually looks like real evidence. The checker
+  rejects, rather than warns.
 
 **Why two-sided, not one-sided (this is a correction to the law itself, not
 just to the script -- record it honestly, because that is the point of this
@@ -125,6 +136,16 @@ it), so the record cannot be completed at all -- see
 `gates/GATE_DECLARATIONS.txt` Counter-Example #2 for exactly how this record
 is now rejected, and its own honestly-recorded note on the plausibility gap
 that remains even after this fix.
+
+The round after this one found the failure mode had moved sideways rather
+than deeper: `docs/AI_READING_GUIDE.md`, the file whose entire purpose is
+to tell an AI reader how to certify a gate, had been added when this law
+was one-sided and never updated -- it kept telling readers the disproven
+rule while this document and the checker had already moved on. A law that
+only exists in one correctly-maintained file and one silently-stale
+summary is not actually enforced; see `docs/AI_READING_GUIDE.md`'s own
+citation rules and the note there that it is a summary, not the binding
+text.
 
 **Burden of proof.** A gate with no attached, demonstrably-discriminating
 pair of controls is Type U *by default*. The burden is on whoever wants to
@@ -264,33 +285,63 @@ vs `>= 999999` unsatisfiable-predicate attack (round-4 finding, the reason
 the law itself now requires two controls) -- all three rejected by the
 current checker, all regression-tested in `scripts/test_check_gate_typing.py`.
 
-**Residual, unfixable risks (named explicitly, not folded into "what it does
-not do" below -- this is the chair's own required framing, extended for the
-round-4 finding).** The two-sided requirement does not make the checker
-omniscient. Two separate things remain genuinely unfixable by tooling:
+**Residual risks (named explicitly, not folded into "what it does not do"
+below -- this is the chair's own required framing; numbered to match the
+chair's own finding numbers across review rounds, so the numbering is
+traceable, not restarted each round). None of these are gaps this tool
+closes or claims to; all are named human-review obligations:**
 
-1. The checker verifies that a record is *internally self-consistent* --
-   that its own `gate_passes_when`, applied to its own
-   `negative_control_value`, derives "does not pass", and applied to its own
-   `positive_control_value`, derives "passes". It **cannot** verify that
-   `gate_passes_when` itself is the gate's *real* pass condition as stated
-   in the gate's own `description` prose. Someone can still write a
-   `description` that says one thing and a `gate_passes_when` that says
-   another, self-consistently, and the checker will accept it. **A reviewer
-   must confirm the declared `gate_passes_when` predicate is the gate's
-   actual pass condition.**
-2. The checker cannot judge whether either recorded control value is a
-   REPRESENTATIVE, plausible measurement rather than a contrived extreme
-   chosen only to make the arithmetic pass. `gates/GATE_DECLARATIONS.txt`
-   Counter-Example #2 shows this concretely: even after the two-sided fix,
-   a `positive_control_value: 1000000` would satisfy an unreachable `>=
-   999999` predicate and pass the checker, even though "a score of
-   1000000" is not a plausible measurement for anything real. **A reviewer
-   must confirm both recorded control values are genuine, plausible cases**
-   -- the checker only confirms the arithmetic, never the plausibility.
-
-Neither of these is a gap this tool closes or claims to; both are named
-human-review obligations.
+- **#5.** The checker verifies that a record is *internally
+  self-consistent* -- that its own `gate_passes_when`, applied to its own
+  `negative_control_value`, derives "does not pass", and applied to its own
+  `positive_control_value`, derives "passes". It **cannot** verify that
+  `gate_passes_when` itself is the gate's *real* pass condition as stated
+  in the gate's own `description` prose. Someone can still write a
+  `description` that says one thing and a `gate_passes_when` that says
+  another, self-consistently, and the checker will accept it. **A reviewer
+  must confirm the declared `gate_passes_when` predicate is the gate's
+  actual pass condition.**
+- **#3.** The checker cannot judge whether *either* recorded control value
+  is a REPRESENTATIVE, plausible measurement rather than a contrived
+  extreme chosen only to make the arithmetic pass -- and this cuts both
+  ways, not just on the positive side. `gates/GATE_DECLARATIONS.txt`
+  Counter-Example #2 shows the positive-side version: a
+  `positive_control_value: 1000000` would satisfy an unreachable `>=
+  999999` predicate and pass the checker, even though "a score of
+  1000000" is not plausible. The mirror is just as real on the negative
+  side: for a gate whose genuine domain is `[0, 1]`, a
+  `negative_control_value: -1000000` against `gate_passes_when: >= 0.35`
+  passes the checker just as cleanly -- `-1000000 >= 0.35` is `False`,
+  a mechanically valid "does not pass", and just as implausible a
+  measurement as `1000000` was on the other side. `gates/GATE_DECLARATIONS.txt`
+  now shows both directions as worked counter-examples so neither reads as
+  "the closed one". **A reviewer must confirm both recorded control values
+  are genuine, plausible cases** -- the checker only confirms the
+  arithmetic, never the plausibility, in either direction.
+- **#4.** Nothing ties the two controls to the SAME MEASURED QUANTITY. The
+  checker only ever sees two numbers and one predicate; it has no concept
+  that `negative_control_name` and `positive_control_name` are supposed to
+  be two readings of the same thing. A record could legally pair a
+  negative control described as "a thermometer reading in degrees C" with
+  a positive control described as "a genuine Jaccard measurement" -- both
+  would parse, both would derive correctly against a shared
+  `gate_passes_when`, and the record would pass, even though the two
+  controls have nothing to do with each other. This is a DIFFERENT
+  obligation from #5 (predicate-vs-prose) and is named separately rather
+  than folded into it: **a reviewer must confirm both controls are
+  measurements of the same quantity the gate's predicate is actually
+  about**, not merely that each one individually parses and derives
+  correctly.
+- **#6.** Unknown or extra keys on a record -- a misspelling, or a
+  smuggled field like `positive_control_result` that has no defined
+  meaning in this format -- are IGNORED, not rejected and not validated.
+  A REQUIRED field's correct name is still checked (a typo there reads as
+  "missing", so this is not structural), but an extra key with no defined
+  meaning parses into the record and is never read by anything. Given that
+  the entire point of this law is that no caller-supplied result is ever
+  trusted, this is worth stating plainly rather than leaving implicit:
+  **a record parsing without error is not evidence that every key in it
+  was checked** -- only the fields this document defines are.
 
 ## Machine checker
 
@@ -341,12 +392,20 @@ human-review obligations.
   U+04C0 -- **this table is a running list of gaps found so far, not a
   closed problem**; the finite-table disclaimer covers this, but do not
   read the table's growth as convergence), so `G1`/`g1` and the homoglyph
-  pairs the table lists, in either case, both count as the same id;
+  pairs the table lists, in either case, both count as the same id; or if
+  a record declared `type: U` carries any Type-P control/predicate field
+  (`negative_control_name`, `negative_control_value`,
+  `positive_control_name`, `positive_control_value`, `gate_passes_when`),
+  even one that would derive a clean two-sided pass -- rejection, not a
+  warning, naming the specific gate id and the smuggled field(s) (round-5
+  fix: without this, a Type U record could dress itself up with a
+  falsification apparatus and no per-record complaint);
 - exits **0** and prints a `Type P: N / Type U: M` summary, with a reminder
   that Type U gates must not be counted as evidence, if every declared
   Type P record's own predicate, applied to its own negative control,
   derives "does not pass", AND applied to its own positive control,
-  derives "passes".
+  derives "passes", AND no Type U record carries any control/predicate
+  field.
 
 What it does **not** do, by design: it does not evaluate whether either
 control is representative, whether the threshold itself is well-chosen, or
@@ -357,29 +416,21 @@ a dated executed run without re-deriving the physics inside it. Nor does it
 detect a Type U gate being cited as evidence somewhere the checker never
 looks -- a PR description, a paper, a different file.
 
-**Named separately, because these are the sharpest remaining gaps and
-folding them into the paragraph above would read as hiding them:**
+**The full, numbered list of named residual risks (#3, #4, #5, #6) lives in
+one place -- "The typing rule" section above -- and is deliberately not
+restated here with its own numbering: two independently-maintained copies
+of the same list is exactly how docs/AI_READING_GUIDE.md drifted out of
+sync with this document in the first place (see the git history of this
+branch). Read it there.**
 
-1. The checker cannot verify that `gate_passes_when` matches the gate's
-   *real* pass condition as described in the gate's own `description`
-   prose. It only verifies that the record is internally self-consistent.
-   A reviewer must independently confirm the declared `gate_passes_when` is
-   actually what the gate does; the checker has no way to read intent out
-   of prose and does not attempt to.
-2. The checker cannot judge whether either control's recorded value is a
-   *plausible, genuine* measurement rather than an extreme value chosen
-   only to satisfy the arithmetic (see `gates/GATE_DECLARATIONS.txt`
-   Counter-Example #2's own worked note on this). A reviewer must confirm
-   both control values are real, representative cases.
-
-The checker enforces exactly two things, both mechanical: the paperwork (a
+The checker enforces exactly three things, all mechanical: the paperwork (a
 Type P record has every required field, non-empty, and declares its
-predicate in exactly one place) and the two-sided arithmetic (the gate's own
-predicate, applied to its own negative control, derives "does not pass";
-applied to its own positive control, derives "passes"). Everything else the
-law requires -- including both residual risks named above -- remains a
-human obligation stated in this document, not a property the exit code
-certifies.
+predicate in exactly one place; a Type U record has none of those fields at
+all), and the two-sided arithmetic (the gate's own predicate, applied to its
+own negative control, derives "does not pass"; applied to its own positive
+control, derives "passes"). Everything else the law requires -- including
+every residual risk named above -- remains a human obligation stated in
+this document, not a property the exit code certifies.
 
 ## CI wiring
 
@@ -388,24 +439,30 @@ certifies.
 - `scripts/test_check_gate_typing.py` (`5/6`) -- the checker's own
   self-test, driving `scripts/check_gate_typing.py` as a subprocess against
   small fixture records and asserting the exit code (and, where it matters,
-  that the right problem is named). **31 assertions**, one per named
-  finding across four independent-review rounds, printed and counted at
-  runtime (the script prints its own total; do not restate a count here
-  without re-running it -- an earlier draft of this document claimed 26,
-  then 27, before the actual count was checked against the file). Covers:
-  the EGFR-style arithmetic contradiction, the round-3 operator-choice
-  attack, the round-4 unsatisfiable-predicate attack (rejected for a
-  missing positive control), a positive control that fails its own gate
-  (rejected symmetrically), a genuinely two-sided valid record and a bare
-  Type U record (both accepted -- the checker isn't just rejecting
-  everything), non-numeric and non-finite (`nan`/`inf`) values, duplicate
-  ids under ASCII-case, lowercase-homograph, uppercase-Cyrillic-IDN
-  (`SOME_KEY_GATE` / `SOME_КEY_GATE`), and round-4's additional Cyrillic
-  homoglyphs (Ѕ/Ј/Ӏ) normalization, the widened invisible-character set
-  (U+200B, U+3164, U+00A0, and round-4's U+2800 BRAILLE PATTERN BLANK),
-  and a missing declarations file. This runs on every CI invocation, not
-  just once at authoring time, so a future edit to the checker that
-  reintroduces one of these holes fails CI immediately.
+  that the right problem is named). The script prints its own assertion
+  total at runtime -- **do not hard-code a count in prose without
+  re-running it first**: this document has already stated 26, then 27,
+  then 31 across successive drafts, each superseded by the next round's
+  additions; treat "run the script and read the number" as the only
+  trustworthy source, the same discipline `docs/VERIFIED_RUNS.md` already
+  applies to every other executed number in this repo. Covers one test per
+  named finding across every independent-review round to date: the
+  EGFR-style arithmetic contradiction, the round-3 operator-choice attack,
+  the round-4 unsatisfiable-predicate attack (rejected for a missing
+  positive control), a positive control that fails its own gate (rejected
+  symmetrically), a genuinely two-sided valid record and a bare Type U
+  record (both accepted -- the checker isn't just rejecting everything), a
+  Type U record dressed up with control/predicate fields (round-5,
+  rejected), the round-5 grep-based check that `docs/AI_READING_GUIDE.md`
+  itself states the two-sided rule, non-numeric and non-finite (`nan`/`inf`)
+  values, duplicate ids under ASCII-case, lowercase-homograph,
+  uppercase-Cyrillic-IDN (`SOME_KEY_GATE` / `SOME_КEY_GATE`), and round-4's
+  additional Cyrillic homoglyphs (Ѕ/Ј/Ӏ) normalization, the widened
+  invisible-character set (U+200B, U+3164, U+00A0, and round-4's U+2800
+  BRAILLE PATTERN BLANK), and a missing declarations file. This runs on
+  every CI invocation, not just once at authoring time, so a future edit to
+  the checker (or to the guide) that reintroduces one of these holes fails
+  CI immediately.
 - `scripts/check_gate_typing.py gates/GATE_DECLARATIONS.txt` (`6/6`) -- the
   real check against this repo's own declarations file. On the current repo
   state this passes trivially (0 live gates declared) and says so in the CI

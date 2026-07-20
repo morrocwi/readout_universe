@@ -47,6 +47,23 @@ substring, not just "did it fail".
   - test_additional_cyrillic_homoglyphs_duplicate (Ѕ U+0405, Ј U+0408,
     Ӏ U+04C0).
 
+  Round 5 (docs/AI_READING_GUIDE.md -- the one file whose whole purpose
+  is to tell an AI reader how to read this repo -- was added in round 1
+  and never updated since; it still stated the disproven one-sided rule
+  while this checker and docs/GATE_TYPING_LAW.md had already moved to
+  two-sided. Also found a Type U record could carry a full,
+  cleanly-derivable set of Type-P control/predicate fields with no
+  per-record complaint):
+  - test_ai_reading_guide_states_two_sided_law: greps the guide itself
+    for the two-sided requirement, so this specific drift cannot recur
+    silently -- if someone edits the guide back to a one-sided
+    description without updating this test, the test (not just a human
+    re-reading both files side by side) is what catches it.
+  - test_type_u_with_control_fields_rejected: a Type U record carrying
+    negative_control_name/value, positive_control_name/value, and
+    gate_passes_when -- fields that would derive a clean two-sided pass
+    if the gate were typed P -- must still be rejected as Type U.
+
   Carried forward from earlier rounds (still valid under the current
   format):
   - test_duplicate_ids_case_and_homograph: ASCII case + lowercase
@@ -254,6 +271,77 @@ description: honestly labeled convention gate, no controls needed
         "test_type_u_still_accepted: exit code is 0",
         result.returncode == 0,
         f"got exit {result.returncode}, stdout:\n{result.stdout}",
+    )
+
+
+def test_type_u_with_control_fields_rejected() -> None:
+    """Round 5 finding: a Type U record could carry a full,
+    cleanly-derivable set of Type-P control/predicate fields -- 0.10
+    genuinely fails >= 0.35 and 0.90 genuinely passes it -- with no
+    per-record complaint, dressing itself up as evidence to anyone
+    skimming the file while the aggregate Type-U reminder at the end is
+    easy to miss. Must be rejected outright (the chair's stated
+    preference over a warning)."""
+    record = """
+gate: dressed_up_type_u
+type: U
+description: looks like it discriminates but is declared a mere convention
+negative_control_name: known-negative case
+negative_control_value: 0.10
+positive_control_name: known-positive case
+positive_control_value: 0.90
+gate_passes_when: >= 0.35
+"""
+    result = run_checker(record)
+    check(
+        "test_type_u_with_control_fields_rejected: exit code is 1",
+        result.returncode == 1,
+        f"got exit {result.returncode}, stdout:\n{result.stdout}",
+    )
+    check(
+        "test_type_u_with_control_fields_rejected: names the gate and the smuggled fields",
+        "dressed_up_type_u" in result.stdout
+        and "carries Type-P-only field" in result.stdout
+        and "gate_passes_when" in result.stdout,
+        f"stdout:\n{result.stdout}",
+    )
+
+
+def test_ai_reading_guide_states_two_sided_law() -> None:
+    """Round 5 finding: docs/AI_READING_GUIDE.md was added in round 1 and
+    never updated since -- it still stated the disproven one-sided rule
+    ("ships with a negative control that demonstrably fails it") while
+    this checker and docs/GATE_TYPING_LAW.md had already moved to
+    two-sided, so an AI following the guide would have certified a
+    negative-control-only record as evidence. This test greps the guide
+    directly (not docs/GATE_TYPING_LAW.md, which is not the file that
+    regressed) so this specific drift cannot recur silently."""
+    guide_path = REPO_ROOT / "docs" / "AI_READING_GUIDE.md"
+    guide_text = guide_path.read_text(encoding="utf-8")
+
+    check(
+        "test_ai_reading_guide_states_two_sided_law: file exists",
+        guide_path.exists(),
+        f"expected {guide_path} to exist",
+    )
+    check(
+        "test_ai_reading_guide_states_two_sided_law: states BOTH controls required",
+        "BOTH" in guide_text and "positive control" in guide_text.lower(),
+        "guide does not mention requiring both a negative AND a positive "
+        "control -- this is the exact one-sided-rule regression found in "
+        "round 5",
+    )
+    check(
+        "test_ai_reading_guide_states_two_sided_law: does not restate the old one-sided phrasing",
+        "ships with a negative control that\n  demonstrably fails it" not in guide_text
+        and "ships with a negative control that demonstrably fails it" not in guide_text,
+        "guide still contains the literal round-1 one-sided phrasing",
+    )
+    check(
+        "test_ai_reading_guide_states_two_sided_law: points to GATE_TYPING_LAW.md as the binding text",
+        "not the law itself" in guide_text or "binding text" in guide_text,
+        "guide does not tell the reader that GATE_TYPING_LAW.md, not this "
+        "summary, is authoritative if the two ever disagree",
     )
 
 
@@ -507,6 +595,8 @@ def main() -> int:
     test_positive_control_that_fails_gate_rejected()
     test_valid_two_sided_record_accepted()
     test_type_u_still_accepted()
+    test_type_u_with_control_fields_rejected()
+    test_ai_reading_guide_states_two_sided_law()
     test_non_numeric_values_rejected()
     test_nan_and_inf_values_rejected()
     test_duplicate_ids_case_and_homograph()

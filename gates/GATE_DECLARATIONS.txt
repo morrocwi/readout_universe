@@ -13,8 +13,8 @@
 #       before it ships.
 #
 # FORMAT (plain text, no YAML/JSON dependency -- see the parser docstring
-# in scripts/check_gate_typing.py for the exact rules; this is round 4 of
-# the format -- rounds 1, 2, and 3 each found a real hole, not a cosmetic
+# in scripts/check_gate_typing.py for the exact rules; this is round 5 of
+# the format -- rounds 1 through 4 each found a real hole, not a cosmetic
 # one, see docs/GATE_TYPING_LAW.md for the full history):
 #   - '#' lines are comments, stripped before parsing.
 #   - Records are separated by one or more blank lines.
@@ -23,6 +23,13 @@
 #   - type is exactly "P" (physical content) or "U" (unit/convention).
 #     Default assumption for any gate with no record here at all: Type U
 #     (see docs/GATE_TYPING_LAW.md -- the burden is on the claimant).
+#   - A Type U record must NOT carry any control or predicate field
+#     (negative_control_name, negative_control_value,
+#     positive_control_name, positive_control_value, gate_passes_when) --
+#     REJECTED if it does, even if those fields would derive a clean
+#     two-sided pass (round-5 fix: there is no legitimate reason for a
+#     declared convention to carry the same apparatus a Type P record
+#     uses to prove it can fail).
 #   - Type P additionally requires: negative_control_name,
 #     negative_control_value, positive_control_name, positive_control_value,
 #     gate_passes_when. There is NO result field of any kind -- neither
@@ -54,20 +61,21 @@
 # control too closes it structurally: an unsatisfiable predicate admits
 # NO genuine positive control, so the record cannot be completed at all.
 #
-# RESIDUAL, UNFIXABLE RISK (named explicitly -- see docs/GATE_TYPING_LAW.md
-# for the full statement): the checker can verify that a record is
-# internally self-consistent -- that its own gate_passes_when, applied to
-# its own negative_control_value, derives False, AND applied to its own
-# positive_control_value, derives True. It CANNOT verify that
-# gate_passes_when itself matches the gate's REAL pass condition as stated
-# in the gate's own `description` prose, and it cannot judge whether either
-# control value is a REPRESENTATIVE/plausible case rather than a contrived
-# extreme chosen only to make the arithmetic work (see Counter-Example #2's
-# note on this). Catching either of those is a human-review obligation: a
-# reviewer must confirm the declared gate_passes_when predicate is the
-# gate's actual pass condition, and that both controls are genuine,
-# plausible cases -- not merely that the record parses and is internally
-# consistent in both directions.
+# RESIDUAL RISKS (named explicitly, numbered to match the chair's own
+# finding numbers across review rounds -- see docs/GATE_TYPING_LAW.md "The
+# typing rule" section for the canonical, single copy of this list; not
+# restated in full here to avoid the exact two-copies-drift that let
+# docs/AI_READING_GUIDE.md go stale in round 5):
+#   #3 implausible control values, EITHER direction (see Counter-Example
+#      #3 below for the negative-side mirror of #2's positive-side gap)
+#   #4 nothing ties the two controls to the SAME MEASURED QUANTITY
+#   #5 gate_passes_when vs. the gate's real pass condition in `description`
+#   #6 unknown/extra keys (e.g. a smuggled positive_control_result) are
+#      IGNORED, not validated -- a record parsing cleanly is not evidence
+#      every key in it was checked
+# All are human-review obligations; the checker only confirms the
+# paperwork and the two-sided arithmetic, never intent, plausibility,
+# quantity-matching, or unlisted keys.
 #
 # WORKED COUNTER-EXAMPLE #1 -- commented out, NOT a live record, and if it
 # WERE live it would be REJECTED by the checker (the historically real
@@ -137,6 +145,27 @@
 # requirement closes the STRUCTURAL hole (no controls at all); it does not
 # and cannot close the PLAUSIBILITY hole (a reviewer must still judge
 # whether a recorded value is a genuine case, not an invented extreme).
+#
+# WORKED COUNTER-EXAMPLE #3 -- the MIRROR of #2's residual gap, on the
+# NEGATIVE side, so nobody reading only #2 assumes the plausibility gap is
+# a positive-control-only problem. For a gate whose genuine domain is
+# [0, 1] (e.g. a Jaccard similarity, a normalized score), an absurd
+# negative control still passes the checker cleanly:
+#
+# gate: implausible_negative_control_example
+# type: P
+# description: property X measured >= 0.35 in the target case (domain [0,1])
+# negative_control_name: fabricated out-of-domain "control"
+# negative_control_value: -1000000
+# positive_control_name: known case with property X
+# positive_control_value: 0.47
+# gate_passes_when: >= 0.35
+#   <- ACCEPTED by the checker: gate_passes_when(-1000000) =
+#      (-1000000 >= 0.35) = False, a mechanically valid "does not pass" --
+#      but -1000000 is not a plausible measurement of anything in a [0,1]
+#      domain, exactly as implausible as positive_control_value: 1000000
+#      was in Counter-Example #2. Neither direction's plausibility is
+#      checked; see docs/GATE_TYPING_LAW.md's residual risk #3.
 #
 # WORKED VALID EXAMPLE -- a hypothetical gate whose controls genuinely
 # discriminate in both directions, shown only so a reader can see what a
