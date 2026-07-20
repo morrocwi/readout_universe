@@ -1,10 +1,13 @@
-# URR Executed Runs
+# URR-C Executed Runs
 
-All results in this file are `finite_diagnostic`. Timings are intentionally
-omitted because they are machine-specific unless a timing study is separately
-registered.
+All numerical results in this file are `finite_diagnostic`. Timings are
+intentionally omitted because they are machine-specific unless a timing study
+is separately registered.
 
-## Native smoke test
+Exact algebraic identities are recorded in the technical documents and claim
+ledger; they are not created by a numerical run.
+
+## Native DRL smoke test
 
 Command:
 
@@ -89,27 +92,46 @@ verdict: PASS
 one-way horizon index: 0.9999999999999973
 reciprocal horizon index: 0.4999999999999993
 leaky horizon index: 0.9523809523809499
-one-way observability nullity: 4
-reciprocal observability nullity: 1
+one-way observability rank/nullity: 3 / 4
+reciprocal observability rank/nullity: 6 / 1
+leaky observability rank/nullity: 6 / 1
 one-way final visible quantity: 0.010762744228616037
 one-way final hidden quantity: 0.9892372557713833
+one-way-with-tape final hidden quantity: 0.6978201445561787
 tape final quantity: 0.29141711121520486
 max total-retention error: 5.10702591327572e-15
 ```
 
-Interpretation:
+Runtime interpretation:
 
 - the finite generator conserves total retained quantity to floating-point
   precision;
-- a return channel reduces the dynamical readout null space;
-- a one-way cut produces exact visible-sector damping in the finite linear
-  model;
+- a return channel reduces the recorded dynamical readout null space;
+- a one-way cut follows the exact visible-sector damping equation of the
+  declared finite linear model;
 - a tape with nonnegative write rates is append-only;
-- these are not a derivation of black-hole dynamics or of the cut term from the
-  DRL action.
+- the hidden working sector need not be monotone when it writes onward into the
+  tape;
+- these results do not derive black-hole dynamics or the balanced cut operator
+  from the DRL action.
 
-Canonical record:
-`ap/results/AP15_READ_WRITE_CUT_RESULTS.json`.
+Canonical records and equations:
+
+- `ap/results/AP15_READ_WRITE_CUT_RESULTS.json`
+- `v2/urr/URR_CUT_EXTENSION.md`
+- `v2/urr/URR_C_MASTER.yaml`
+- `v2/urr/URR_C_DISCOVERIES.md`
+
+## Evidence-tier rule
+
+The following distinction is binding:
+
+```text
+exact_algebra in a declared model
+    != finite_diagnostic execution
+    != Dr interpretation
+    != unrestricted theorem about nature
+```
 
 ## Reproduction rule
 
