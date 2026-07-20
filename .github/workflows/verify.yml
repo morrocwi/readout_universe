@@ -1,0 +1,47 @@
+name: verify
+
+on: [push, pull_request]
+
+# Coq is PINNED to 8.20.1 via opam's official coq-released archive (chair
+# ruling R2: causal-quantum-gravity's `apt-get install -y coq` is unpinned
+# and that is a defect we are explicitly NOT copying here). opam's archive
+# keeps every released version available indefinitely, so `coq.8.20.1` will
+# resolve identically on this runner today and years from now -- unlike
+# `apt-get install coq`, whose resolved version silently drifts with
+# whatever Ubuntu release/point-in-time the hosted image happens to carry.
+# Single pinned version, no build matrix (chair ruling: no matrix for a
+# 3-person team) -- reproduced identically everywhere.
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Cache opam (Coq 8.20.1 toolchain build is the slow step)
+        uses: actions/cache@v4
+        with:
+          path: ~/.opam
+          key: opam-coq-8.20.1-${{ runner.os }}
+
+      - name: Install opam
+        run: sudo apt-get update && sudo apt-get install -y opam
+
+      - name: Init opam + pin Coq 8.20.1 (coq-released archive)
+        run: |
+          opam init --bare --auto-setup --disable-sandboxing -y
+          opam repo add coq-released https://coq.inria.fr/opam/released || true
+          opam switch create ci 4.14.1 || opam switch set ci
+          eval $(opam env --switch=ci --set-switch)
+          opam install -y coq.8.20.1
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install Python dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run CI gate (LTP battery + UPL_Sorites.v + evidence/*.v + pytest)
+        run: |
+          eval $(opam env --switch=ci --set-switch)
+          bash scripts/ci_verify.sh

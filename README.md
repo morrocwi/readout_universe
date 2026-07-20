@@ -66,8 +66,11 @@ make pdf           # builds main.pdf from main.tex (pdflatex x2)
 make all           # verify + pdf
 ```
 
-Requirements: Python 3 + numpy; Coq (8.18+; 8.20.1 verified — see
-[`docs/VERIFIED_RUNS.md`](docs/VERIFIED_RUNS.md)); TeX Live (pdflatex).
+Requirements: `make verify` needs Python 3 + numpy, and Coq (8.18+; 8.20.1
+verified — see [`docs/VERIFIED_RUNS.md`](docs/VERIFIED_RUNS.md)); `make pdf`
+needs TeX Live (pdflatex). The pytest suite (`ap/`, exercised via `lens/`)
+additionally needs scipy and sympy — see [`requirements.txt`](requirements.txt)
+for the exact floor pins and `python3 -m pytest -q` to run it.
 
 Found a genuine falsification? That is the book working as designed — report it.
 
