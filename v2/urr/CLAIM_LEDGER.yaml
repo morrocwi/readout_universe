@@ -60,9 +60,12 @@ native_core:
     F6_append_only_tape:
       tier: Th_coqc
       scope: "F6_append_cell_injective in evidence/URR_C_Foundational_Chain.v; Print Assumptions Closed under the global context"
-    F7_return_transformation:
+    F7_declared_left_decoder_recovers_message:
       tier: Th_coqc
-      scope: "F7_declared_left_decoder_recovers_message in evidence/URR_C_Foundational_Chain.v; Print Assumptions Closed under the global context (F7_return_kernel_is_declared_composition itself not individually Print-Assumptions-checked)"
+      scope: "evidence/URR_C_Foundational_Chain.v; Print Assumptions Closed under the global context"
+    F7_return_kernel_is_declared_composition:
+      tier: definition
+      scope: "evidence/URR_C_Foundational_Chain.v; compiles inside the same axiom-free file but is NOT itself a Print Assumptions target -- deliberately NOT promoted to Th_coqc. Split out from a former combined F7_return_transformation row, whose group-level tier: Th_coqc could be read as covering this un-checked sub-theorem."
     F8_native_DRL_anchors:
       tier: Th_coqc_in_existing_scope
       scope: "aliases into evidence/DRL_Discrete.v and evidence/DRL_General_Legendre.v, unchanged by this run"

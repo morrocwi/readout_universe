@@ -289,7 +289,7 @@ core_modified: false
 verdict: PASS
 data_provenance:
   distance_vector: "arXiv:2503.14738 Table IV, verified to quoted precision"
-  covariance: "reconstructed from Table IV sigmas + r_M,H, not independently sourced"
+  covariance: "PROVENANCE UNRESOLVED -- NOT reconstructible from arXiv:2503.14738 Table IV (LRG1 off-diagonal differs by 0.088% from what the printed sigmas/r imply); true source uncited in this repo. See section 0."
   lcdm_comparison_row: "corroborated, exact Section VI table number TODO (founder)"
 ```
 
