@@ -1,0 +1,74 @@
+{
+  "meta": {
+    "artifact": "AP17",
+    "title": "Return Transformation and Physical Readability Smoke Test",
+    "version": "0.4.0-return",
+    "tier": "finite_diagnostic"
+  },
+  "equations": {
+    "return_kernel": "K_{alpha<-beta}(tau)=A_alpha O_alpha R_alpha U_H(tau) H_beta W_beta O_beta E_beta",
+    "linear_hidden_propagator": "U_H(tau)=exp(F_H tau)",
+    "gaussian_readability": "I=1/2 log2 det(I+Sigma_x^(1/2) K^T Sigma_eta^(-1) K Sigma_x^(1/2))",
+    "finite_window_operator": "G_L=stack(C,CF,...,CF^L)",
+    "hidden_elimination_kernel": "K_mem(t)=R exp(F_H t) W"
+  },
+  "transformed_return": {
+    "tau": 0.8,
+    "kernel": [
+      [-0.04906233376026689, -0.603314997353445],
+      [0.6073305035408277, 0.10515827312693968]
+    ],
+    "rank": 2,
+    "singular_values_noise_whitened": [
+      17.07771621552496,
+      13.220894347182512
+    ],
+    "distance_from_identity_operator_norm": 1.222171974564525,
+    "noiseless_decode_identity_error": 2.289691319182597e-16,
+    "gaussian_readable_information_bits": 7.825375266365017
+  },
+  "partial_return": {
+    "rank": 1,
+    "nullity": 1,
+    "gaussian_readable_information_bits": 4.238791544603438,
+    "full_decoder_exists": false
+  },
+  "no_direct_return": {
+    "rank": 0,
+    "gaussian_readable_information_bits": 0.0
+  },
+  "echo": {
+    "tau_echo": 0.885,
+    "amplitude": 0.8972693231816911,
+    "kernel_at_zero": 0.0
+  },
+  "hidden_elimination": {
+    "max_absolute_residual": 6.189493362285248e-15
+  },
+  "finite_window_readability": [
+    {"samples": 1, "rank": 1, "nullity": 2, "information_bits": 4.323729213227461},
+    {"samples": 2, "rank": 2, "nullity": 1, "information_bits": 5.924855756971821},
+    {"samples": 3, "rank": 3, "nullity": 0, "information_bits": 7.1362318179643776},
+    {"samples": 5, "rank": 3, "nullity": 0, "information_bits": 9.382578718174253},
+    {"samples": 9, "rank": 3, "nullity": 0, "information_bits": 12.126088783427495},
+    {"samples": 17, "rank": 3, "nullity": 0, "information_bits": 13.45256526624057}
+  ],
+  "gates": {
+    "transformed_return_is_not_identity": true,
+    "transformed_return_is_full_rank": true,
+    "known_decoder_recovers_noiseless_input": true,
+    "partial_return_is_rank_deficient": true,
+    "zero_return_has_zero_information": true,
+    "echo_is_delayed": true,
+    "hidden_elimination_identity_matches_full_system": true,
+    "longer_window_improves_rank": true
+  },
+  "verdict": "PASS",
+  "claim_boundary": {
+    "linear_return_kernel": "exact_algebra_in_declared_scope",
+    "gaussian_mutual_information": "exact_for_declared_linear_Gaussian_channel",
+    "runtime": "finite_diagnostic",
+    "nonlinear_universal_return": "Open",
+    "all_retained_states_eventually_return": "not_claimed"
+  }
+}

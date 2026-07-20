@@ -1,0 +1,86 @@
+{
+  "meta": {
+    "artifact": "AP18",
+    "title": "Two-Capacitor RC Memory Cell",
+    "version": "0.1.1",
+    "tier": "finite_diagnostic",
+    "verdict": "PASS",
+    "runtime": {
+      "python": "3.13.5",
+      "numpy": "2.3.5",
+      "scipy": "1.17.0"
+    }
+  },
+  "parameters": {
+    "R_ohm": 10000.0,
+    "C1_F": 0.0001,
+    "C2_F": 0.0001,
+    "V1_initial_V": 5.0,
+    "V2_initial_V": 0.0,
+    "simulation_end_s": 5.0,
+    "samples": 10001
+  },
+  "equations": {
+    "state_matrix": [[-1.0, 1.0], [1.0, -1.0]],
+    "full_system": [
+      "C1 dV1/dt = -(V1-V2)/R",
+      "C2 dV2/dt = +(V1-V2)/R"
+    ],
+    "equal_C_closed_form": [
+      "V1(t)=Vavg+(DeltaV0/2) exp(-2t/(RC))",
+      "V2(t)=Vavg-(DeltaV0/2) exp(-2t/(RC))"
+    ],
+    "memory_kernel": "K_mem(tau)=(1/(R C1))(1/(R C2)) exp(-tau/(R C2))",
+    "charge_retention": "C1 V1 + C2 V2 = constant",
+    "energy_balance": "E_caps(t)+integral_0^t ((V1-V2)^2/R) ds = E_caps(0)"
+  },
+  "derived": {
+    "difference_time_constant_s": 0.5,
+    "initial_charge_C": 0.0005,
+    "initial_capacitor_energy_J": 0.00125,
+    "final_capacitor_energy_exact_J": 0.000625,
+    "resistor_loss_exact_J": 0.000625
+  },
+  "errors": {
+    "max_numerical_vs_matrix_V": 5.062616992290714e-13,
+    "max_matrix_vs_closed_form_V": 3.108624468950438e-14,
+    "max_charge_absolute_C": 5.421010862427522e-19,
+    "max_charge_relative": 1.0842021724855044e-15,
+    "max_energy_balance_absolute_J": 2.0833329896288721e-10,
+    "max_energy_balance_relative": 1.6666663917030977e-07,
+    "max_hidden_elimination_residual_V_per_s": 5.2081678081350447e-08
+  },
+  "readability": {
+    "observation_matrix": [[1.0, 0.0], [-1.0, 1.0]],
+    "observability_rank": 2,
+    "observability_determinant": 1.0,
+    "hidden_initial_difference_visible_at_t0_V": 0.0,
+    "max_hidden_to_visible_signal_V": 0.49997730003511887,
+    "hidden_to_visible_signal_at_end_V": 0.49997730003511887
+  },
+  "samples": [
+    {"t_s": 0.0, "V1_V": 5.0, "V2_V": 0.0, "charge_C": 0.0005, "capacitor_energy_J": 0.00125, "resistor_energy_J": 0.0, "hidden_history_signal_V": 0.0},
+    {"t_s": 0.25, "V1_V": 4.016326649281625, "V2_V": 0.9836733507183713, "charge_C": 0.0004999999999999997, "capacitor_energy_J": 0.0008549246507321638, "resistor_energy_J": 0.00039507548095960016, "hidden_history_signal_V": 0.1967346701436833},
+    {"t_s": 0.5, "V1_V": 3.419698602928447, "V2_V": 1.5803013970715485, "charge_C": 0.0004999999999999996, "capacitor_energy_J": 0.0007095845520228531, "resistor_energy_J": 0.0005404156281155475, "hidden_history_signal_V": 0.3160602794142788},
+    {"t_s": 1.0, "V1_V": 2.83833820809135, "V2_V": 2.1616617919086445, "charge_C": 0.0004999999999999995, "capacitor_energy_J": 0.0006364472743054454, "resistor_energy_J": 0.0006135529302120649, "hidden_history_signal_V": 0.43233235838169365},
+    {"t_s": 2.0, "V1_V": 2.54578909722175, "V2_V": 2.454210902778245, "charge_C": 0.0004999999999999996, "capacitor_energy_J": 0.0006252096641424371, "resistor_energy_J": 0.0006247905441209714, "hidden_history_signal_V": 0.4908421805556282},
+    {"t_s": 5.0, "V1_V": 2.5001134998249026, "V2_V": 2.499886500175092, "charge_C": 0.0004999999999999995, "capacitor_energy_J": 0.0006250000012882197, "resistor_energy_J": 0.000625000207045079, "hidden_history_signal_V": 0.49997730003511887}
+  ],
+  "gates": {
+    "numerical_matches_matrix_exponential": true,
+    "matrix_exponential_matches_closed_form": true,
+    "total_charge_conserved": true,
+    "capacitor_plus_resistor_energy_balanced": true,
+    "hidden_elimination_matches_full_system": true,
+    "hidden_initial_state_becomes_visible": true,
+    "two_sample_observability_full_rank": true
+  },
+  "claim_boundary": {
+    "linear_circuit_solution": "exact_algebra_in_declared_ideal_model",
+    "runtime": "finite_diagnostic",
+    "hardware_validation": "not_yet_executed",
+    "drl_inertial_term": "not_tested",
+    "ontic_Psi_record": "not_tested",
+    "unified_DRL_cut_tape_action": "Open"
+  }
+}

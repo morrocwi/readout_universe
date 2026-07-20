@@ -1,0 +1,200 @@
+system:
+  id: URR-C
+  name: Universal Retention-Cut-Readout System
+  version: 0.3.0-cut
+  date: 2026-07-20
+  native_only: true
+  status:
+    native_drl: derived_narrow
+    cut_architecture: Dr
+    ap15_runtime: finite_diagnostic
+    unified_drl_cut_tape_action: Open
+
+binding_rules:
+  - "A readout is not truth."
+  - "Unreadable does not imply destroyed."
+  - "An exact result in the finite positive-flow realization is not a theorem about every real system."
+  - "External domain adapters do not modify the native kernel or inherit its evidence tier."
+  - "No numerical result may be promoted above finite_diagnostic without independent formal evidence."
+
+ontology:
+  primitive:
+    symbol: delta_R
+    meaning: "a difference exists and is kept"
+  retained_space:
+    symbol: H_T
+    construction: "C[Mor(H_T)] tensor F in the finite implementation"
+  reader_record_state:
+    symbol: X_n
+    equation: "X_n = (Phi_n, Psi_n)^T"
+  accessible_projector:
+    symbol: O_alpha
+    constraints:
+      - "O_alpha^2 = O_alpha"
+  hidden_projector:
+    symbol: H_alpha
+    equation: "H_alpha = I - O_alpha"
+    constraints:
+      - "H_alpha^2 = H_alpha"
+      - "O_alpha H_alpha = 0"
+
+universal_grammar:
+  symbol: G_T
+  equation: "G_T = L_R tensor I_F + I_R tensor C_F + C_int"
+  note: "operator construction, not a derivation of every external domain"
+
+native_action:
+  symbol: S_DRL
+  state: X
+  structural_tensors:
+    G: [[0, 1], [1, 0]]
+    Omega: [[0, 1], [-1, 0]]
+  equation_reference: "v2/urr/URR_NATIVE_TECHNICAL_SPEC.md"
+  binding_limitation: "linear DRL does not prove mechanistic handoff from Phi to Psi"
+
+cut:
+  write_operator:
+    symbol: W_alpha_n
+    type: "O_alpha H_T -> H_alpha H_T"
+  return_operator:
+    symbol: R_alpha_n
+    type: "H_alpha H_T -> O_alpha H_T"
+  tape_operator:
+    symbol: Lambda_T_alpha_n
+    type: "hidden sector -> append-only tape"
+  outflow_balancers:
+    Lambda_W: "declared operator balancing readable-to-hidden write flux"
+    Lambda_R: "declared operator balancing hidden-to-readable return flux"
+  directed_flux_operator:
+    symbol: J_C_alpha_n
+    equation: >-
+      J_C[X] = H_alpha W_alpha O_alpha X
+      - O_alpha Lambda_W O_alpha X
+      + O_alpha R_alpha H_alpha X
+      - H_alpha (Lambda_R + Lambda_T) H_alpha X
+    status: Dr
+    note: "not yet derived from S_DRL"
+
+master_equation:
+  title: "URR-C canonical master architecture"
+  equations:
+    root: "delta_R -> H_T -> G_T -> X_n"
+    dynamics: "E_DRL[X]_n := delta S_DRL / delta X_n = J_C_alpha_n[X_n]"
+    tape: "T_{n+1} = T_n direct_sum Lambda_T_alpha_n H_alpha X_n"
+    residual: "r_alpha_n = A_alpha O_alpha X_n - delta_alpha_n"
+    readout: "P_alpha_n = Pi_alpha(r_alpha_n, A_alpha O_alpha X_n, delta_alpha_n)"
+    information: "I_R(P_alpha_n | Pi_alpha) = -log_2 p_Pi(P_alpha_n) rbit"
+  claim_boundary:
+    architecture: Dr
+    unified_variational_derivation: Open
+
+positive_flow_realization:
+  state:
+    q: "(q_O, q_H, q_T)^T"
+    constraints:
+      - "q_O >= 0"
+      - "q_H >= 0"
+      - "q_T >= 0"
+  equations:
+    visible: "dq_O/dt = -diag(1^T W) q_O + R q_H"
+    hidden: "dq_H/dt = W q_O - diag(1^T R + ell) q_H"
+    tape: "dq_T/dt = ell^T q_H"
+  exact_balance:
+    equation: "d/dt (1^T q_O + 1^T q_H + q_T) = 0"
+    reason: "generator columns sum to zero"
+    scope: "finite nonnegative AP15 realization"
+
+hidden_elimination:
+  assumptions:
+    - "finite linear no-tape hidden sector"
+    - "Lambda_H = diag(1^T R)"
+  hidden_solution: >-
+    q_H(t) = exp(-Lambda_H t) q_H(0)
+    + integral_0^t exp(-Lambda_H (t-s)) W q_O(s) ds
+  visible_equation: >-
+    dq_O/dt = -Lambda_O q_O
+    + R exp(-Lambda_H t) q_H(0)
+    + integral_0^t K_mem(t-s) q_O(s) ds
+  memory_kernel:
+    equation: "K_mem(u) = R exp(-Lambda_H u) W"
+  limits:
+    one_way: "R = 0 gives exact visible damping in the finite model"
+    return_memory: "R > 0 gives delayed return"
+  tier: exact_algebra_in_declared_scope
+
+readout:
+  question_operator: A_alpha
+  policy: Pi_alpha
+  horizon_index:
+    symbol: chi_alpha
+    equation: "||W_alpha|| / (||W_alpha|| + ||R_alpha|| + epsilon)"
+    tier: definition
+    warning: "depends on decomposition, norm, and policy"
+  identifiability:
+    observability_matrix: "stack(C, C A, ..., C A^(d-1))"
+    failure_code: STRUCTURALLY_UNIDENTIFIABLE
+
+channel_classes:
+  closed:
+    condition: "W = 0 and R = 0"
+  reciprocal:
+    condition: "W != 0 and R != 0; common special case R = W^T"
+  one_way_horizon:
+    condition: "W != 0 and R = 0"
+  leaky_horizon:
+    condition: "W != 0 and 0 < ||R|| << ||W||"
+  source_like_reverse:
+    condition: "W = 0 and R != 0"
+  append_only:
+    condition: "Lambda_T != 0 with no tape return operator"
+
+canonical_discoveries:
+  - id: D0
+    claim: "existence, retention, accessibility, and readability must be separated"
+    tier: doctrine_and_definition
+  - id: D1
+    claim: "readable loss can coexist with exact total retention"
+    tier: exact_in_positive_flow_model_plus_Dr_interpretation
+  - id: D2
+    claim: "R=0 produces exact visible damping in the finite flow realization"
+    tier: exact_algebra
+  - id: D3
+    claim: "R>0 generates a return-memory kernel after hidden-sector elimination"
+    tier: exact_algebra
+  - id: D4
+    claim: "return channels alter dynamical observability and nullity"
+    tier: finite_matrix_result_and_conditional_linear_algebra
+  - id: D5
+    claim: "append-only tape can retain quantity after the hidden working state changes"
+    tier: exact_construction_plus_finite_diagnostic
+  - id: D6
+    claim: "horizon-ness is a channel-asymmetry readout"
+    tier: definition_plus_Dr
+  - id: D7
+    claim: "black-hole language is one special one-way channel interpretation"
+    tier: Dr
+  - id: D8
+    claim: "the sharpened open problem is a unified DRL-cut-tape action"
+    tier: Open
+
+novelty_boundary:
+  candidate_conjunction:
+    tier: Open
+    claim: >-
+      retained accessibility, separate directed write and return channels,
+      reader-record DRL, dynamical null spaces, append-only retention,
+      explicit readout policy, and claim-tier control in one native architecture
+  not_individually_novel:
+    - projectors and state-space decomposition
+    - linear compartment or Markov flow
+    - observability matrices
+    - hidden-variable memory kernels
+    - graph Laplacians
+    - doubled-variable variational methods
+
+canonical_evidence:
+  - v2/urr/URR_CUT_EXTENSION.md
+  - v2/urr/URR_C_DISCOVERIES.md
+  - ap/AP15_READ_WRITE_CUT.md
+  - ap/ap15_read_write_cut.py
+  - ap/results/AP15_READ_WRITE_CUT_RESULTS.json

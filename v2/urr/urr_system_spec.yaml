@@ -1,0 +1,248 @@
+meta:
+  system_id: "URR"
+  title: "Universal Retention–Readout System"
+  version: "0.1.0-native"
+  date_local: "2026-07-20"
+  timezone: "Asia/Bangkok"
+  language: "Thai-English technical"
+  native_only: true
+  core_excludes:
+    - "quantum postulates"
+    - "relativity postulates"
+    - "external physical theory as a fundamental axiom"
+  default_output_tier: "finite_diagnostic"
+
+ontology:
+  primitive:
+    symbol: "delta_R"
+    meaning: "a difference exists and is kept"
+    numeric_by_default: false
+  state:
+    symbol: "X"
+    decomposition: ["Phi", "Psi"]
+    Phi_role: "reader"
+    Psi_role: "record counterpart"
+  binding_boundary:
+    linear_drl_handoff_proven: false
+    tape_handoff_is_separate_module: true
+
+units:
+  native_information:
+    name: "retained bit"
+    symbol: "rbit"
+    definition: "one binary distinguishable retained alternative under an explicit policy"
+    root_equivalence_requires:
+      - "binary alternatives"
+      - "equiprobability or explicit probability model"
+      - "lossless distinguishability under Pi"
+  conversions:
+    bit_to_rbit: 1.0
+    byte_to_rbit: 8.0
+    nat_to_rbit: 1.4426950408889634
+    hartley_to_rbit: 3.321928094887362
+  physical_bridges:
+    landauer_erasure:
+      formula: "Q_min = I_rbit * k_B * T * ln(2)"
+      k_B_J_per_K: 1.380649e-23
+      interpretation: "minimum heat for logically irreversible erasure under bridge assumptions"
+      intrinsic_information_energy_claim: false
+
+schema:
+  required_top_level:
+    - meta
+    - ontology
+    - units
+    - graph
+    - fiber
+    - grammar
+    - dynamics
+    - potential
+    - source
+    - initial_state
+    - record_backend
+    - readouts
+    - information
+    - diagnostics
+    - claim_policy
+    - dag
+
+graph:
+  description: "finite undirected weighted retained-relation graph"
+  required:
+    nodes: "positive integer"
+    edges: "list of [i, j, weight]"
+  constraints:
+    - "0 <= i,j < nodes"
+    - "weight >= 0"
+    - "self edges ignored or rejected by implementation policy"
+  operator:
+    adjacency: "W"
+    degree: "D_W"
+    laplacian: "L_R = D_W - W"
+
+fiber:
+  description: "finite internal readout fiber with no required external interpretation"
+  required:
+    dimension: "positive integer"
+    internal_operator: "dimension x dimension symmetric matrix"
+
+grammar:
+  equation: "G_T = kron(L_R, I_F) + kron(I_nodes, C_F) + C_int"
+  interaction_operator:
+    allowed:
+      - "null, interpreted as zero"
+      - "full square matrix of size nodes*fiber.dimension"
+
+dynamics:
+  required:
+    dt: "positive float"
+    steps: "positive integer"
+    M: "positive scalar or vector of state dimension"
+    D: "nonnegative scalar or vector of state dimension"
+    K: "float"
+  update_conditions:
+    reader_denominator: "M/dt^2 + D/(2dt) != 0"
+    mirror_denominator: "M/dt^2 - D/(2dt) != 0"
+
+potential:
+  supported_types:
+    polynomial_even:
+      equation: "V_i(phi_i) = 0.5*k2_i*phi_i^2 + 0.25*k4_i*phi_i^4"
+      parameters:
+        k2: "scalar or vector of state dimension"
+        k4: "scalar or vector of state dimension"
+
+source:
+  supported_types:
+    constant:
+      value: "scalar or vector of state dimension"
+
+initial_state:
+  required:
+    Phi: "scalar or vector of state dimension"
+    Phi_velocity: "scalar or vector of state dimension"
+    Psi: "scalar or vector of state dimension"
+    Psi_velocity: "scalar or vector of state dimension"
+
+record_backend:
+  allowed_modes:
+    mirror:
+      meaning: "DRL reader-record pair only"
+      variational: true
+      mechanistic_handoff_claim: false
+    tape:
+      meaning: "append-only tape diagnostic only"
+      variational: false
+    hybrid:
+      meaning: "DRL plus independent tape diagnostic connected by a declared gamma bridge"
+      unified_action_claim: false
+  tape:
+    gamma_policy:
+      allowed:
+        explicit: "user supplies 0 <= gamma < 1"
+        from_D_over_M: "gamma_i = 1-exp(-(D_i/M_i)*dt)"
+    transport:
+      supported: "identity"
+    conservation_quantity: "squared Euclidean norm"
+
+readouts:
+  item_schema:
+    id: "unique string"
+    state:
+      allowed: ["Phi", "Psi", "combined"]
+    matrix: "optional explicit 2D list"
+    selector:
+      description: "optional convenience index when matrix is omitted"
+    observed: "scalar or vector matching output dimension"
+    policy:
+      allowed: ["identity", "threshold", "norm", "mean", "argmax"]
+    threshold: "required only for threshold policy"
+    weight_matrix: "optional positive semidefinite residual weight"
+
+information:
+  probability_model:
+    required_for_information_numbers: true
+    probabilities: "optional list of nonnegative values summing to one"
+  requested_conversions:
+    allowed:
+      - "bit"
+      - "byte"
+      - "nat"
+      - "hartley"
+      - "landauer_J"
+  temperature_K:
+    required_for: ["landauer_J"]
+
+diagnostics:
+  defaults:
+    symmetry_tolerance: 1.0e-10
+    row_sum_tolerance: 1.0e-10
+    finite_tolerance: 0.0
+    reader_el_residual_tolerance: 1.0e-8
+    mirror_el_residual_tolerance: 1.0e-8
+    pairing_drift_warning: 1.0e-2
+    tape_conservation_tolerance: 1.0e-12
+    rank_tolerance: 1.0e-10
+
+claim_policy:
+  allowed_tiers: ["Th_coqc", "finite_diagnostic", "Dr", "Open"]
+  runtime_maximum_tier: "finite_diagnostic"
+  rules:
+    - "No run, no numerical claim"
+    - "A readout is not truth"
+    - "A declared bridge does not inherit a theorem tier"
+    - "Null-space quantities are structurally unidentifiable"
+    - "External adapters are optional and outside the core"
+
+novelty_ledger:
+  derived_narrow:
+    - "damped reader recurrence from discrete DRL action under reader-record doubling"
+    - "D-term cancellation in the general-N pairing structure within formal scope"
+  candidate_open:
+    - "discrete graph-tensor form using G tensor L_R"
+    - "ontic record reading of Psi"
+    - "zero-diagonal retention metric as Doctrine of Quantity"
+    - "native AI contract joining DRL, readout, identifiability, tiers, and rbit bridges"
+  not_individually_novel:
+    - "graph Laplacian"
+    - "doubled-variable variational method"
+    - "finite differences"
+    - "Shannon information"
+    - "Landauer bridge"
+    - "matrix null-space analysis"
+
+dag:
+  nodes:
+    - {id: translate, function: "translate problem to retained-difference vocabulary"}
+    - {id: validate, function: "validate YAML schema, units, clock, dimensions"}
+    - {id: graph, function: "build W, D_W, L_R"}
+    - {id: grammar, function: "build G_T"}
+    - {id: initialize, function: "build Phi, Psi and second-order starts"}
+    - {id: evolve, function: "advance reader and mirror DRL recurrences"}
+    - {id: residuals, function: "evaluate Euler-Lagrange residuals"}
+    - {id: charge, function: "evaluate pairing charge and drift"}
+    - {id: tape, function: "optional append-only tape diagnostic"}
+    - {id: readout, function: "apply A_alpha and Pi_alpha"}
+    - {id: identifiability, function: "rank and null-space gate"}
+    - {id: information, function: "compute rbit quantities from explicit probabilities"}
+    - {id: bridge, function: "apply requested conventional unit bridge"}
+    - {id: claim, function: "assign runtime tier and verdict"}
+    - {id: output, function: "write JSON and NPZ artifacts"}
+  edges:
+    - [translate, validate]
+    - [validate, graph]
+    - [graph, grammar]
+    - [grammar, initialize]
+    - [initialize, evolve]
+    - [evolve, residuals]
+    - [evolve, charge]
+    - [evolve, tape]
+    - [evolve, readout]
+    - [readout, identifiability]
+    - [identifiability, information]
+    - [information, bridge]
+    - [residuals, claim]
+    - [charge, claim]
+    - [tape, claim]
+    - [bridge, claim]
+    - [claim, output]

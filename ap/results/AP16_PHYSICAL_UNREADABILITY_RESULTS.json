@@ -1,0 +1,49 @@
+{
+  "meta": {
+    "artifact": "AP16",
+    "tier": "finite_diagnostic",
+    "gr_adapter": "Dr"
+  },
+  "cases": {
+    "sensor_blind": {
+      "rank": 1,
+      "rank_alt_sensor": 2,
+      "max_output_separation": 0.0,
+      "physical_black_hole": false
+    },
+    "thermal_memory": {
+      "rank": 2,
+      "max_output_separation": 0.49999958423564045,
+      "final_output_separation": 0.49999958423564045,
+      "physical_black_hole": false
+    },
+    "one_way_sink": {
+      "rank": 1,
+      "max_output_separation_from_hidden": 0.0,
+      "retention_error": 1.3322676295501878e-15,
+      "final_visible": 0.0009118819655545162,
+      "final_hidden": 0.9990881180344455,
+      "physical_black_hole": false
+    },
+    "schwarzschild_pg_toy": {
+      "outside_initial_r": 1.2,
+      "outside_initial_dr_dt": 0.0871290708247231,
+      "outside_final_r": 1.8943159504214315,
+      "inside_initial_r": 0.8,
+      "inside_initial_dr_dt": -0.1180339887498949,
+      "inside_final_r": 0.049999999999999864,
+      "hit_cutoff": true,
+      "physical_black_hole": true
+    }
+  },
+  "gates": {
+    "blind_sensor_counterexample": true,
+    "thermal_hidden_returns": true,
+    "one_way_sink_counterexample": true,
+    "schwarzschild_inside_outgoing_inward": true
+  },
+  "verdict": "PASS",
+  "tested_statement": "unreadable implies physical black hole",
+  "result": "FALSIFIED_BY_COUNTEREXAMPLE",
+  "replacement": "physical black hole = one-way causal cut AND geometric horizon certificate"
+}
