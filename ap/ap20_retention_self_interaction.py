@@ -238,9 +238,18 @@ def test_commutative_and_external_payload_controls_kill_self_term():
     ) / h**2
     assert np.linalg.norm(second) < TOL
 
-
-def test_relative_coupling_two_has_quadratic_response_ratio_four():
-    bg_x, bg_y = background()
-    _, _, ratio, total_ratio, _, _ = relative_units(bg_x, bg_y)
-    assert abs(ratio - 1.0) < TOL
-    assert abs(total_ratio**2 - 4.0) < TOL
+# NOTE (review round 2, withdrawn): an earlier test here asserted
+# `total_ratio ** 2 == 4` and called it a "quadratic response ratio". That is
+# a tautology, not independent evidence: `total_ratio == 2` is already
+# asserted above (test_self_and_geometric_terms_have_equal_relative_curvature_weight,
+# test_common_load_rescaling_cancels_from_the_claimed_ratios), and no response
+# observable (e.g. an actual perturbative response function of a physical
+# quantity to a source) is defined or evaluated anywhere in this file. Squaring
+# an already-asserted 2 and re-labeling it "quadratic response" does not
+# establish a response law. The claim "quadratic_response_ratio: 4" has been
+# withdrawn from the ledger and the doc; see v2/RETENTION_SELF_INTERACTION.md
+# "Honest status" and ap/ledger_ap20.json "withdrawn". If a genuine response
+# law is ever defined (an observable that responds to a source term, with the
+# ratio measured from that response, not derived by squaring a coupling
+# ratio), it belongs here as a new, separately-labeled test -- not as a
+# relabeling of this one.

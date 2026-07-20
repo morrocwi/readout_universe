@@ -58,7 +58,17 @@ Multiplying the common inner product by any positive constant rescales both coef
 \left(\frac{c_{\rm total}}{c_{\rm geo}}\right)^2=4.
 \]
 
-The number four is therefore a relative response ratio, not an absolute normalization derived by AP20.
+**Withdrawn (review round 2):** an earlier version of this file, and the
+corresponding `ap/ledger_ap20.json` entry, called \((c_{\rm total}/c_{\rm
+geo})^2=4\) a "quadratic response ratio". That characterization is withdrawn.
+No response observable was ever defined — the number 4 is only the square of
+the already-stated total-coupling ratio 2, which is itself just \(1+1\) from
+the two equal-weight terms above. Squaring an asserted number and calling it
+a "response ratio" does not establish a response law; a real response ratio
+would require defining some physical quantity's response to a source and
+evaluating it. AP20 does not do that. If a genuine response law is ever
+defined, it belongs here as **Open / future work**, not as an established
+result.
 
 ## Executed artifacts
 
@@ -75,6 +85,21 @@ They verify:
 - the ratio survives 100 noncommuting backgrounds at three load scales;
 - commutative and external-payload controls remove the self term.
 
+**What is symbolic-exact vs. numeric-only — do not conflate the two.** Only
+the bilinearity fact that the \(\varepsilon^2\) coefficient of
+\(K(A_x+\varepsilon a_x,A_y+\varepsilon a_y)\) equals \(K(a_x,a_y)\) is
+proved symbolically and seed-free (`ap20_symbolic_forcing.py`, generic SymPy
+matrix entries, no numbers substituted). The headline ratio
+\(c_{\rm self}/c_{\rm geo}=1\) is **not** proved symbolically anywhere in
+this file: it is checked numerically, at `TOL=1e-11`, over sampled random
+backgrounds (`ap20_retention_self_interaction.py`, `ap20_stress.py`, 100
+seeds × 3 load scales). That ratio is forced to come out exactly 1 by premise
+A4 above (geometric and self terms share one common invariant quadratic
+load) — A4 is **declared**, not derived from RD4 or from anything else in
+this repo. A reader who takes the PR's "seed-free" language as covering the
+ratio itself, rather than only the \(\varepsilon^2\) coefficient, is
+misreading it.
+
 ## What AP20 does and does not change
 
 Before AP20, the second contribution was introduced through the standard non-Abelian fluctuation operator.
@@ -89,17 +114,19 @@ AP20 therefore **re-expresses and conditionally constrains** the standard self-i
 
 Closed conditionally:
 
-- the polynomial coefficient of the self term;
-- the normalization-safe relative equality \(c_{\rm self}/c_{\rm geo}=1\) in the executed finite representation;
-- the relative total coupling \(2\) and response ratio \(4\).
+- the polynomial coefficient of the self term (symbolic-exact, seed-free);
+- the normalization-safe relative equality \(c_{\rm self}/c_{\rm geo}=1\) in the executed finite representation (numeric-only, TOL=1e-11, forced by the DECLARED premise A4, not derived);
+- the relative total coupling \(2\), as an arithmetic consequence of the ratio above.
 
 Still open:
 
 - why retained distinction forces a noncommutative channel algebra;
 - why curvature must be its commutator/order defect;
 - why self-carrier closure is selected;
+- why premise A4 (one common invariant quadratic load) should hold rather than being an independent choice;
 - why the physical representation and gauge group are those required by nature;
 - ghost, longitudinal and heat-kernel bookkeeping toward \(+11/3\);
-- any Standard Model or RD4-alone derivation.
+- any Standard Model or RD4-alone derivation;
+- whether a genuine response law/observable can be defined at all (the earlier "quadratic response ratio 4" claim is withdrawn, not replaced).
 
 The first foundational gate is therefore **not fully passed**. AP20 moves its frontier from “where does the second term come from?” to “why must the retention grammar choose commutator curvature and self-carrier closure?”
