@@ -1,0 +1,146 @@
+{
+  "meta": {
+    "run_id": "925c3d03-221d-4a1c-a13e-b2fda5473957",
+    "timestamp_utc": "2026-07-20T11:46:30.187930+00:00",
+    "runner_version": "0.1.0-native",
+    "spec_version": "0.1.0-native",
+    "run_label": "four-node-ring-smoke-test",
+    "input_sha256": "2877f84020c1f6fc0bc2583ec1abcb05c3eae8804d99839a332be796ae29f34a",
+    "native_only": true
+  },
+  "operator": {
+    "graph_nodes": 4,
+    "state_dimension": 4,
+    "laplacian_eigenvalues": [-8.586881206085195e-16, 2.0, 2.0000000000000004, 3.9999999999999996],
+    "grammar_eigenvalues": [-8.586881206085195e-16, 2.0, 2.0000000000000004, 3.9999999999999996],
+    "symmetry_error": 0.0,
+    "laplacian_row_sum_error": 0.0
+  },
+  "dynamics": {
+    "dt": 0.01,
+    "steps": 1000,
+    "action": -0.0030801591747044825,
+    "reader_el_residual_max": 2.76489942052649e-12,
+    "mirror_el_residual_max": 2.1074461620251839e-13,
+    "pairing_charge_initial": 0.10847500000000002,
+    "pairing_charge_final": 0.10847357383593428,
+    "pairing_charge_relative_drift": 7.4358593633583325e-06,
+    "potential_value_final": 0.11414381906579132
+  },
+  "tape": {
+    "status": "EXECUTED",
+    "mode": "hybrid",
+    "gamma": 0.000999500166624978,
+    "gamma_policy": "from_D_over_M",
+    "bridge_status": "Dr",
+    "initial_quantity": 1.3126919027368165,
+    "remaining_quantity": 0.4829123636091161,
+    "tape_quantity": 0.8297795391277079,
+    "max_step_conservation_error": 6.661338147750939e-16,
+    "total_conservation_error": 7.549516567451064e-15,
+    "unified_action_claim": false
+  },
+  "readouts": [
+    {
+      "id": "reader_node_0",
+      "state": "Phi",
+      "prediction": [-0.3969596110463334],
+      "observed": [0.0],
+      "residual": [-0.3969596110463334],
+      "residual_norm": 0.3969596110463334,
+      "policy": "identity",
+      "policy_output": {"prediction": [-0.3969596110463334], "residual": [-0.3969596110463334]},
+      "matrix_shape": [1, 4],
+      "rank": 1,
+      "nullity": 3,
+      "identifiability_status": "PARTIAL_READOUT_NULL_SPACE_PRESENT"
+    },
+    {
+      "id": "reader_mean",
+      "state": "Phi",
+      "prediction": [0.08375827681511869],
+      "observed": [0.0],
+      "residual": [0.08375827681511869],
+      "residual_norm": 0.08375827681511869,
+      "policy": "mean",
+      "policy_output": 0.08375827681511869,
+      "matrix_shape": [1, 4],
+      "rank": 1,
+      "nullity": 3,
+      "identifiability_status": "PARTIAL_READOUT_NULL_SPACE_PRESENT"
+    },
+    {
+      "id": "combined_energy_proxy",
+      "state": "combined",
+      "prediction": [-0.3969596110463334, 0.18607778463660418, 0.5111547497947387, 0.03476018387546528, -0.04764060679499333, 0.05019650618296583, 0.01801274297688446, 0.017581305597184006],
+      "observed": [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
+      "residual": [-0.3969596110463334, 0.18607778463660418, 0.5111547497947387, 0.03476018387546528, -0.04764060679499333, 0.05019650618296583, 0.01801274297688446, 0.017581305597184006],
+      "residual_norm": 0.6783157091081743,
+      "policy": "norm",
+      "policy_output": 0.6783157091081743,
+      "matrix_shape": [8, 8],
+      "rank": 8,
+      "nullity": 0,
+      "identifiability_status": "FULL_COLUMN_IDENTIFIABILITY"
+    }
+  ],
+  "information": {
+    "status": "COMPUTED",
+    "probabilities": [0.5, 0.25, 0.125, 0.125],
+    "entropy_rbit": 1.75,
+    "event_index": 2,
+    "self_information_rbit": 3.0,
+    "conversions": {
+      "bit": {"value": 1.75, "unit": "bit"},
+      "byte": {"value": 0.21875, "unit": "byte"},
+      "nat": {"value": 1.2130075659799042, "unit": "nat"},
+      "hartley": {"value": 0.5268024924119671, "unit": "hartley"},
+      "landauer_J": {
+        "value": 5.024213048887767e-21,
+        "unit": "J",
+        "temperature_K": 300.0,
+        "interpretation": "minimum erasure heat under declared assumptions",
+        "intrinsic_information_energy": false,
+        "claim_status": "conditional_bridge"
+      }
+    }
+  },
+  "claim": {
+    "tier": "finite_diagnostic",
+    "verdict": "PASS",
+    "passed_gates": ["reader_el_residual", "mirror_el_residual", "pairing_drift_diagnostic", "tape_conservation"],
+    "failed_gates": [],
+    "warnings": [],
+    "promotion_forbidden": true,
+    "readout_is_truth_claim": false
+  },
+  "limitations": [
+    "linear DRL does not prove mechanistic handoff from Phi to Psi",
+    "tape is a separate posited map and has no unified DRL action",
+    "runtime output is finite_diagnostic, never theorem",
+    "rbit physical conversions require an explicit bridge",
+    "quantum and relativity postulates are outside the native core"
+  ],
+  "novelty": {
+    "candidate_open": [
+      "discrete graph-tensor DRL form using G tensor L_R",
+      "ontic record reading of Psi",
+      "zero-diagonal retention metric as Doctrine of Quantity",
+      "native calculation contract joining DRL, readout, identifiability, tiers, and rbit bridges"
+    ],
+    "not_individually_novel": [
+      "graph Laplacian",
+      "doubled-variable variational method",
+      "finite differences",
+      "Shannon information",
+      "Landauer bridge",
+      "matrix rank and null-space analysis"
+    ]
+  },
+  "provenance": {
+    "system": "Universal Retention–Readout System",
+    "canonical_repository_snapshot": "morrocwi/readout_universe@3cd940c33bba73803312ffe8254cd2224181b47f",
+    "paper": "URR_NATIVE_TECHNICAL_SPEC.md",
+    "spec": "urr_system_spec.yaml"
+  }
+}
