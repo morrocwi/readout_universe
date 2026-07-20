@@ -147,6 +147,11 @@ status; this run supplies the missing executed evidence.
 | `evidence/URR_C_Foundational_Chain.v` Admitted/Axiom/admit./Parameter scan | `grep -nE "Admitted\|^ *Axiom\|admit\.\|Parameter " evidence/URR_C_Foundational_Chain.v` | no matches (grep exit 1 = clean; file is fully axiom-free) |
 | Full suite | `python3 -m pytest -q` | **66 passed** (unchanged from the row above — no test count regression) |
 
+Re-verified after rebasing this work onto the AP18 commits (upstream `95260e6`, pushed to the
+same branch concurrently): `make verify-urr-coq` exit 0 and `python3 -m pytest -q` 66 passed
+again. The `daa2f36…` rev above is the provenance of the original run, not the current head —
+this branch is being rebased as it moves, so re-run the two commands rather than trusting a rev.
+
 See `v2/urr/URR_C_COQ_FORMAL_CHAIN.yaml` and `v2/urr/URR_C_COQ_FORMAL_CHAIN.md` for the
 per-theorem tier update this run authorizes (only theorems named in a `Print Assumptions`
 "Closed under the global context" line move to `Th_coqc`; `Dr`/`Open` rows are untouched).
