@@ -19,6 +19,12 @@ def matrix_rank(a: np.ndarray, tol: float = 1e-10) -> int:
     return int(np.linalg.matrix_rank(a, tol=tol))
 
 
+def json_default(obj):
+    if isinstance(obj, np.generic):
+        return obj.item()
+    raise TypeError(f"Object of type {type(obj).__name__} is not JSON serializable")
+
+
 def gaussian_mutual_information(
     K: np.ndarray, Sigma_x: np.ndarray, Sigma_eta: np.ndarray
 ) -> float:
@@ -228,7 +234,7 @@ def main() -> None:
     result = run()
     output = Path(args.output)
     output.parent.mkdir(parents=True, exist_ok=True)
-    output.write_text(json.dumps(result, indent=2), encoding="utf-8")
+    output.write_text(json.dumps(result, indent=2, default=json_default), encoding="utf-8")
     print(json.dumps({
         "verdict": result["verdict"],
         "decode_error": result["transformed_return"][
