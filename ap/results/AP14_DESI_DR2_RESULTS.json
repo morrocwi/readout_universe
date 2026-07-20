@@ -4,11 +4,11 @@
     "observations": 13,
     "redshift_min": 0.295,
     "redshift_max": 2.33,
-    "data_source": "Official DESI DR2 Gaussian BAO likelihood",
+    "data_source": "DESI DR2 BAO distance vector matched to arXiv:2503.14738 Table IV; the covariance used here is NOT reproducible from Table IV's rounded sigmas/correlations (LRG1 off-diagonal differs by 0.088%) and its exact source is unidentified in this repo",
     "native_urr_reading": {
       "record_delta": "13-dimensional DESI BAO vector",
       "readout_operator_A": "nonlinear distance adapter theta -> {DV/rs, DM/rs, DH/rs}",
-      "weight_W": "inverse published covariance",
+      "weight_W": "inverse of the covariance hardcoded in ap14_urr_desi_dr2.py (provenance unresolved -- see data_source)",
       "residual": "A(theta)-delta",
       "objective": "chi2 = residual^T W residual"
     }

@@ -6,9 +6,10 @@ transcribed from DESI Collaboration, "DESI DR2 Results II: Measurements of
 Baryon Acoustic Oscillations and Cosmological Constraints," arXiv:2503.14738
 (2025), Table IV. All 13 values were checked against that table's quoted
 central values (matches to the printed precision, 3 decimal places). The
-covariance below is a full-precision reconstruction from Table IV's quoted
-per-bin sigmas and D_M/D_H correlation coefficients r_M,H, not an
-independently-sourced covariance table. The `official`/`official_sigma`
+covariance below has UNRESOLVED provenance: it is close to, but not equal to,
+what Table IV's printed sigmas and r_M,H imply (LRG1 off by 0.088%), so it is
+neither a reconstruction of that table nor a cited published covariance. Its
+true source is uncited in this repo -- see the AP14 report for the open TODO. The `official`/`official_sigma`
 Lambda-CDM comparison values (Omega_m=0.2975+/-0.0086, h*r_d=101.54+/-0.73)
 match the DESI-BAO-alone flat-LCDM constraint from the same paper's Section
 VI discussion; the exact table row for that specific comparison was not
@@ -51,9 +52,13 @@ QUANTITY = np.array(["DV_over_rs", "DM_over_rs", "DH_over_rs", "DM_over_rs",
 
 
 def covariance() -> np.ndarray:
-    # Reconstructed at full precision from arXiv:2503.14738 Table IV's
-    # quoted per-bin sigmas and D_M/D_H correlation coefficients r_M,H;
-    # not an independently-sourced covariance table. See module docstring.
+    # PROVENANCE UNRESOLVED -- do not describe these blocks as reconstructed
+    # from arXiv:2503.14738 Table IV. They are close to, but not equal to, what
+    # the printed table implies: LRG1's sigma_DM=0.167, sigma_DH=0.425,
+    # r_MH=-0.459 give -3.2577525e-02, while the value below is -3.26062007e-02
+    # (0.088% off, well outside print rounding). The likely source is a
+    # higher-precision release file that is not cited in this repo.
+    # See ap/AP14_URR_DESI_DR2_COSMOLOGY_BENCHMARK.md for the open TODO.
     cov = np.zeros((13, 13), dtype=float)
     cov[0, 0] = 5.78998687e-03
     blocks = [

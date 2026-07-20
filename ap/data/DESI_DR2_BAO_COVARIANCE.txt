@@ -1,7 +1,9 @@
 # DESI DR2 compressed BAO covariance matrix (13x13).
-# Reconstructed at full precision from DESI Collaboration, arXiv:2503.14738,
-# Table IV per-bin sigmas and D_M/D_H correlation coefficients r_M,H; not an
-# independently-sourced covariance table. See
+# PROVENANCE UNRESOLVED. These values are NOT reconstructible from DESI
+# Collaboration arXiv:2503.14738 Table IV: LRG1's printed sigma_DM=0.167,
+# sigma_DH=0.425, r_MH=-0.459 imply -3.2577525e-02 but the matrix uses
+# -3.26062007e-02 (0.088% off, outside print rounding). The true source is
+# uncited in this repo. Do not call this published, official, or reconstructed. See
 # ap/AP14_URR_DESI_DR2_COSMOLOGY_BENCHMARK.md section 0 for the full
 # provenance note. This file is not currently loaded by ap14_urr_desi_dr2.py
 # (which recomputes the same matrix in covariance()); kept as a reference

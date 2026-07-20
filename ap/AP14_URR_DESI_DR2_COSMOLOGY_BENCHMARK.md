@@ -15,12 +15,26 @@ Verification performed for this note: every one of the 13 `D_V/r_d`,
 `z=0.295`, `38.988973961958784` for Lyα `D_M/r_d` at `z=2.33`) matches the
 paper's Table IV central values to the precision quoted there (3 decimal
 places). The per-bin `D_M`/`D_H` correlation coefficients `r_M,H` quoted in
-Table IV (e.g. `-0.459` for LRG1) are consistent with the off-diagonal
-covariance blocks used here once reconstructed at full precision
-(`corr = cov_offdiag / sqrt(var_DM * var_DH)`), so the covariance matrix in
-this script is a full-precision reconstruction of Table IV's quoted
-sigmas and correlation coefficients, not an independently-sourced
-covariance table.
+Table IV (e.g. `-0.459` for LRG1) are *close to*, but do **not** reproduce, the
+off-diagonal covariance blocks used here. Worked example, LRG1: the printed
+`sigma_DM = 0.167`, `sigma_DH = 0.425`, `r_MH = -0.459` imply an off-diagonal of
+`-3.2577525e-02`, while this script hardcodes `-3.26062007e-02` — a 0.088%
+discrepancy, far outside rounding of the printed digits.
+
+**Therefore the covariance provenance is UNRESOLVED and is not claimed.** The
+values are plausibly taken from a higher-precision source (a released covariance
+file rather than the printed table), but that source is not identified anywhere
+in this repo, so a reader cannot verify it. Do not describe this covariance as a
+reconstruction of Table IV, and do not describe it as published or official.
+
+**TODO (founder):** supply the actual covariance source — a data-release file
+reference, not a table row — or regenerate the matrix from Table IV's printed
+values and accept the resulting change in chi2.
+
+This was caught by an independent cross-vendor review (Codex, 2026-07-20) after
+an earlier pass in the same session asserted the reconstruction claim. The data
+*vector* itself (13 components) does match Table IV to quoted precision; only the
+covariance is affected.
 
 The `official` flat-ΛCDM comparison values in `fit_lcdm()`
 (`Omega_m = 0.2975 +/- 0.0086`, `h*r_d = 101.54 +/- 0.73` Mpc) match the
@@ -53,8 +67,9 @@ The retained record is the 13-component DESI DR2 BAO vector
 \left(D_V/r_d, D_M/r_d, D_H/r_d, \ldots\right),
 \]
 
-covering redshifts from 0.295 to 2.33 with the published non-diagonal
-covariance matrix \(C\).
+covering redshifts from 0.295 to 2.33, together with a non-diagonal covariance
+matrix \(C\) whose provenance is unresolved (see §0) — it is not cited as
+published here.
 
 For parameters \(\theta\), the external readout operator produces
 
@@ -230,14 +245,17 @@ This run combines:
 - local identifiability analysis;
 - covariance whitening;
 - nested-model and information-criterion comparisons;
-- direct reproduction of an official collaboration result.
+- reproduction of the collaboration's quoted flat-ΛCDM central values (the
+  distance vector is cited to Table IV; the covariance used to weight it has
+  unresolved provenance — see §0, so this is not a clean end-to-end
+  reproduction of the official likelihood).
 
 ## 5. Harness result
 
 | Gate | Result |
 |---|---|
 | Public data vector cited (arXiv:2503.14738, Table IV; numbers verified to quoted precision) | PASS |
-| Covariance reconstructed from Table IV sigmas + r_M,H at full precision (not an independently-sourced covariance table) | PASS |
+| Covariance provenance identified | **NOT ESTABLISHED** — values are 0.088% off what Table IV's printed sigmas/r imply (LRG1); true source uncited. TODO founder |
 | Independent implementation | PASS |
 | Reproduces DESI-BAO-alone flat-LCDM parameters (values corroborated; exact Section VI table row unconfirmed — TODO founder) | CORROBORATED, TABLE ROW TODO |
 | Multi-start global CPL fit | PASS |
