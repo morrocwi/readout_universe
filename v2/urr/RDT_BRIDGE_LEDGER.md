@@ -10,9 +10,9 @@
 >
 > Rule: a row may only be marked THEOREM with a named, compiled artifact. Prose is not a proof.
 
-## The chain
+## The chain (v0.7: discovery layer inserted before DRL)
 
-    δ_R → Adm_δR → F_DRL → S_DRL → (𝔗⁺,𝔗⁻) → J_C → T → K → Y → I_read → P
+    δ_R → 𝓟_n (Discover) → Adm_δR → F_DRL → S_DRL → (𝔗⁺,𝔗⁻) → J_C → T → K → Y → I_read → P
 
 ## The ledger
 
@@ -37,8 +37,20 @@
 | B17 | discrete → continuum telegraph | **REPORT, not a bridge** | house infinity diagnosis (I2) | Passing to `∂_t²` injects infinite divisibility. Coarse-grained description; must not be read as the root. |
 | B18 | `I_read` → one fixed formula | **REJECTED** | — | Must be a domain-dependent functional `𝔦_dom`, not the Gaussian expression pinned universally. |
 | B19 | regime selection (which side of `disc = 0`) | **NOT DETERMINED** | `InfoRegimeUnderdeterminedByCausalBound_attempt.v` (`Th_coqc`) | For **every** forced `D≠0`, `λ>0`, both regimes are reachable under the causal bound `K<M`. Universal, not example-based. |
+| B20 | `δ_R` → the **discovery** of a normal form from the rules alone | **FINITE_DIAGNOSTIC** | auto-discovery benchmark, reproduced by the orchestrator 2026-07-21 | Hidden exchangeability blocks, randomly relabelled, recovered at N=12/15/18/21; exactness deviation exactly 0.0; amplitude error ~1e-15. First URS result where the abstraction was NOT handed to the solver. |
+| B21 | exact-quotient gate `q∘F = F♯∘q` and `O = O♯∘q` | **KINSHIP: lumpability / bisimulation** | Kemeny–Snell (Markov lumpability); bisimulation in process algebra | NOT new mathematics. What is ours is its use as a **mandatory gate before compression** rather than a property checked afterwards. Coq payoff theorem in progress. |
+| B22 | `Refine` (the discovery algorithm itself) | **KINSHIP: 1-WL colour refinement** | Weisfeiler & Lehman 1968; equitable partitions of weighted graphs | Standard algorithm. Ours is the composition: refinement as an *admissibility* test, audit gating compression, cells splitting on any real distinction, refusal-to-compress as a first-class outcome. |
+| B23 | `D_syn = ∏_c (|C_c|+1)` | **FINITE_DIAGNOSTIC (exact match)** | benchmark, checked by the orchestrator | Predicts 125/216/343/512 for cells 4×4×4 / 5×5×5 / 6×6×6 / 7×7×7 — matches the measured quotient dimension exactly at all four sizes. |
+| B24 | discovery works on **generic** systems | **REFUTED** | orchestrator noise sweep, N=15, 2026-07-21 | Adding noise to θ and couplings: 0 and 1e-14 → 3 cells, 151.7× compression; **1e-10 → 15 singleton cells, zero compression**; same at 1e-8, 1e-6, 1e-3. The cliff sits at the refinement's own rounding tolerance, far below any physical precision. The method works on **exactly**-symmetric models, and exact symmetry is measure-zero in parameter space. |
+| B25 | refusal to compress when there is nothing to find | **FINITE_DIAGNOSTIC** | random-coupling control (10 singleton cells) + defect control (splits 1×4×5×5) | Both controls could have failed and did not. Note this control is *also* the statement of B24's limitation. |
+| B26 | discovery algorithm covering **all** normal-form types | **OPEN** | — | Current method finds structure encoded directly in a weighted interaction graph with exactly equal parameters. Nothing is claimed beyond that. |
+| B27 | tolerance-aware refinement with a bounded observable error | **NOT ATTEMPTED** | — | The well-posed next experiment: merge cells agreeing within ε and bound the induced readout error. Falsifiable — if no ε buys useful compression inside the error budget, approximate URS is dead. |
 
 ## What the ledger shows at a glance
+
+**Discovery layer (v0.7, added 2026-07-21):** the exact-quotient gate is real and now has a
+row of its own, but two of its three rows are kinship rows, and B24 records the cliff that the
+architecture document does not: the method collapses at one part in 10^10.
 
 **Forced from the root:** the form of `L_R`, the sign of `D`, and — inside the DRL
 realization and its declared scope — the telegraph pair. That is a short list, and it is
