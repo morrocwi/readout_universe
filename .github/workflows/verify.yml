@@ -2,46 +2,43 @@ name: verify
 
 on: [push, pull_request]
 
-# Coq is PINNED to 8.20.1 via opam's official coq-released archive (chair
-# ruling R2: causal-quantum-gravity's `apt-get install -y coq` is unpinned
-# and that is a defect we are explicitly NOT copying here). opam's archive
-# keeps every released version available indefinitely, so `coq.8.20.1` will
-# resolve identically on this runner today and years from now -- unlike
-# `apt-get install coq`, whose resolved version silently drifts with
-# whatever Ubuntu release/point-in-time the hosted image happens to carry.
-# Single pinned version, no build matrix (chair ruling: no matrix for a
-# 3-person team) -- reproduced identically everywhere.
+# Runs on the ANSE self-hosted runner (anse-legion-ru), not a GitHub-hosted one.
+# Reason, from evidence rather than preference: this repository is PRIVATE, so
+# GitHub-hosted minutes are billed, and on this account they are currently
+# unavailable -- the first two runs of this very workflow were never started at
+# all, with the annotation "The job was not started because recent account
+# payments have failed or your spending limit needs to be increased". A red CI
+# for that reason says nothing about the code, which is worse than no CI: it
+# teaches the team to ignore red. The sibling repo research_universal_solver
+# already hit this and already solved it the same way.
+#
+# Coq is PINNED to 8.20.1. On a self-hosted runner the toolchain is installed
+# once on the machine instead of rebuilt every run, so the pin is enforced by
+# CHECKING the version and failing loudly on drift, rather than by reinstalling.
+# That is strictly stronger than `apt-get install -y coq` (unpinned, drifts with
+# the image) and cheaper than an opam rebuild per run. This machine already
+# demonstrates the drift risk: it carries an opam switch named `coq818` that
+# actually contains Rocq Prover 9.1.1, because unpinned `coq` now pulls
+# rocq-core. Single pinned version, no build matrix.
 jobs:
   verify:
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, linux]
     steps:
       - uses: actions/checkout@v4
 
-      - name: Cache opam (Coq 8.20.1 toolchain build is the slow step)
-        uses: actions/cache@v4
-        with:
-          path: ~/.opam
-          key: opam-coq-8.20.1-${{ runner.os }}
-
-      - name: Install opam
-        run: sudo apt-get update && sudo apt-get install -y opam
-
-      - name: Init opam + pin Coq 8.20.1 (coq-released archive)
+      - name: Enforce the Coq pin (fail loudly on drift)
         run: |
-          opam init --bare --auto-setup --disable-sandboxing -y
-          opam repo add coq-released https://coq.inria.fr/opam/released || true
-          opam switch create ci 4.14.1 || opam switch set ci
-          eval $(opam env --switch=ci --set-switch)
-          opam install -y coq.8.20.1
-
-      - uses: actions/setup-python@v5
-        with:
-          python-version: "3.12"
+          set -euo pipefail
+          coqc --version
+          coqc --version | grep -q "version 8\.20\.1" || {
+            echo "::error::Coq version drift: this repo's claims are certified against 8.20.1"
+            exit 1
+          }
 
       - name: Install Python dependencies
-        run: pip install -r requirements.txt
+        run: |
+          set -euo pipefail
+          python3 -m pip install --user -r requirements.txt
 
       - name: Run CI gate (LTP battery + UPL_Sorites.v + evidence/*.v + pytest)
-        run: |
-          eval $(opam env --switch=ci --set-switch)
-          bash scripts/ci_verify.sh
+        run: bash scripts/ci_verify.sh
