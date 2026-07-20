@@ -1,0 +1,96 @@
+{
+  "meta": {
+    "experiment": "AP13",
+    "name": "URR FPUT independent-solver cross-check",
+    "tier": "finite_diagnostic",
+    "mode": "full"
+  },
+  "benchmark": {
+    "moving_particles": 32,
+    "beta": 1.0,
+    "initial_total_energy": 0.25,
+    "initial_amplitude": 1.8190496679716026
+  },
+  "cross_check_solver": {
+    "solver": "SciPy DOP853",
+    "rtol": 1e-12,
+    "atol": 1e-14,
+    "note": "independently implemented, run in-script on self-generated initial conditions; not an external dataset"
+  },
+  "standard_fput_convergence": [
+    {
+      "dt": 0.04,
+      "final_relative_state_error": 1.476917571810801e-06,
+      "trajectory_rms_error": 2.173489133038152e-06,
+      "max_relative_energy_drift": 3.6652873326437074e-06,
+      "observed_order_from_previous": null
+    },
+    {
+      "dt": 0.02,
+      "final_relative_state_error": 3.692236591159902e-07,
+      "trajectory_rms_error": 5.434155723966709e-07,
+      "max_relative_energy_drift": 9.163215816121451e-07,
+      "observed_order_from_previous": 2.0000224040723076
+    },
+    {
+      "dt": 0.01,
+      "final_relative_state_error": 9.230488983027812e-08,
+      "trajectory_rms_error": 1.3585969254062944e-07,
+      "max_relative_energy_drift": 2.290795599879658e-07,
+      "observed_order_from_previous": 2.0000160195221275
+    },
+    {
+      "dt": 0.005,
+      "final_relative_state_error": 2.3076794367711984e-08,
+      "trajectory_rms_error": 3.396598365114716e-08,
+      "max_relative_energy_drift": 5.727039897873709e-08,
+      "observed_order_from_previous": 1.9999642453740558
+    }
+  ],
+  "standard_fput_long_horizon": {
+    "T": 1000.0,
+    "dt_urr": 0.02,
+    "mode1_fraction_rmse": 1.253223377760337e-06,
+    "mode1_fraction_max_error": 3.1450675376243353e-06,
+    "urr_max_relative_energy_drift": 1.1729909227264912e-06
+  },
+  "drl_specific_convergence": [
+    {
+      "dt": 0.04,
+      "final_relative_state_error": 4.7834140719302596e-06,
+      "trajectory_rms_error": 5.377586456057185e-07,
+      "pairing_charge_relative_drift": 5.268092021968283e-09,
+      "observed_order_from_previous": null
+    },
+    {
+      "dt": 0.02,
+      "final_relative_state_error": 1.1958544729684402e-06,
+      "trajectory_rms_error": 1.3442250800433128e-07,
+      "pairing_charge_relative_drift": 1.3170581534427015e-09,
+      "observed_order_from_previous": 1.9999988478916395
+    },
+    {
+      "dt": 0.01,
+      "final_relative_state_error": 2.9895843820460835e-07,
+      "trajectory_rms_error": 3.360280070816367e-08,
+      "pairing_charge_relative_drift": 3.292722445071873e-10,
+      "observed_order_from_previous": 2.000024997286302
+    },
+    {
+      "dt": 0.005,
+      "final_relative_state_error": 7.473683556832308e-08,
+      "trajectory_rms_error": 8.400024610280117e-09,
+      "pairing_charge_relative_drift": 8.234911704093056e-11,
+      "observed_order_from_previous": 2.0000535470490775
+    }
+  ],
+  "claim": {
+    "verdict": "PASS",
+    "tier": "finite_diagnostic",
+    "nonclaims": [
+      "not a proof",
+      "not a solution of the open FPUT thermalisation problem",
+      "not a state-of-the-art efficiency claim"
+    ]
+  }
+}

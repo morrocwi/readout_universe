@@ -1,0 +1,330 @@
+system: URR-C
+version: 0.4.0-return
+binding_rule: "Never promote a claim above its evidence tier."
+
+canonical_master:
+  human_readable: "v2/urr/URR_C_MASTER_0_4.md"
+  machine_readable: "v2/urr/URR_C_MASTER_0_4.yaml"
+  peer_review: "v2/urr/URR_C_PEER_REVIEW_0_4.md"
+  earlier_cut_background: "v2/urr/URR_CUT_EXTENSION.md"
+  discoveries_0_3: "v2/urr/URR_C_DISCOVERIES.md"
+
+tiers:
+  Th_coqc: "machine-checked in explicitly declared scope"
+  exact_algebra: "identity proved within an explicitly declared mathematical model"
+  finite_diagnostic: "executed numerical evidence; not proof"
+  definition: "declared mathematical object or gate"
+  Dr: "declared bridge or interpretation"
+  Open: "candidate claim with stance and falsifier"
+
+native_core:
+  retained_distinction:
+    tier: doctrine
+    claim: "delta_R is the primitive retained distinction"
+  finite_relation_operator:
+    tier: definition
+    claim: "G_T is constructed from L_R, a finite fiber operator, and declared interaction"
+  drl_reader_recurrence:
+    tier: Th_coqc
+    scope: "as declared in evidence/DRL_Discrete.v"
+  drl_general_pairing_structure:
+    tier: Th_coqc
+    scope: "general-N Legendre/D-cancellation structure in evidence/DRL_General_Legendre.v"
+  foundational_chain_verified_2026_07_20:
+    coqc_version: "The Coq Proof Assistant, version 8.20.1 compiled with OCaml 5.4.0"
+    machine: "development workstation"
+    git_rev: daa2f36274bd2afb466de46c5e6f11220beeba9a
+    note: >-
+      Tier correction backed by `make verify-urr-coq` (exit 0); no new
+      theorem or physics added. See docs/VERIFIED_RUNS.md and
+      v2/urr/URR_C_COQ_FORMAL_CHAIN.md for the dated executed run and
+      per-row rationale.
+    F0_retained_difference_injective:
+      tier: Th_coqc
+      scope: "evidence/URR_C_Foundational_Chain.v; Print Assumptions Closed under the global context"
+    F1_dimension_reflects_retained_distinction:
+      tier: definition
+      scope: "evidence/URR_C_Foundational_Chain.v; compiles as part of the axiom-free file but was not itself an individual Print Assumptions target -- not promoted to Th_coqc"
+    F2_reader_record_typing:
+      tier: definition
+      scope: "evidence/URR_C_Foundational_Chain.v; same caveat as F1 -- not promoted to Th_coqc"
+    F3_lifted_readout_split:
+      tier: Th_coqc
+      scope: "F3_lifted_recompose in evidence/URR_C_Foundational_Chain.v; Print Assumptions Closed under the global context"
+    F4_master_projection:
+      tier: Th_coqc
+      scope: "F4_master_implies_component_equations in evidence/URR_C_Foundational_Chain.v; Print Assumptions Closed under the global context"
+    F5_cut_balance:
+      tier: Th_coqc
+      scope: "F5_balanced_cut_conserves_declared_total in evidence/URR_C_Foundational_Chain.v; Print Assumptions Closed under the global context"
+    F6_append_only_tape:
+      tier: Th_coqc
+      scope: "F6_append_cell_injective in evidence/URR_C_Foundational_Chain.v; Print Assumptions Closed under the global context"
+    F7_declared_left_decoder_recovers_message:
+      tier: Th_coqc
+      scope: "evidence/URR_C_Foundational_Chain.v; Print Assumptions Closed under the global context"
+    F7_return_kernel_is_declared_composition:
+      tier: definition
+      scope: "evidence/URR_C_Foundational_Chain.v; compiles inside the same axiom-free file but is NOT itself a Print Assumptions target -- deliberately NOT promoted to Th_coqc. Split out from a former combined F7_return_transformation row, whose group-level tier: Th_coqc could be read as covering this un-checked sub-theorem."
+    F8_native_DRL_anchors:
+      tier: Th_coqc_in_existing_scope
+      scope: "aliases into evidence/DRL_Discrete.v and evidence/DRL_General_Legendre.v, unchanged by this run"
+    foundational_master_chain_core:
+      tier: Th_coqc
+      scope: "evidence/URR_C_Foundational_Chain.v; Print Assumptions Closed under the global context"
+  native_runner:
+    tier: finite_diagnostic
+    artifact: "v2/urr/urr_reference_runner.py"
+  rbit:
+    tier: definition
+    claim: "binary distinguishable retained alternative under explicit policy"
+
+forced_cut_extension:
+  lifted_projectors:
+    tier: definition
+    claim: "O_bar = I_2 tensor O and H_bar = I - O_bar act on the doubled reader-record space"
+  write_operator:
+    tier: definition
+    claim: "W maps the declared accessible subspace into the hidden subspace"
+  return_operator:
+    tier: definition
+    claim: "R maps the declared hidden subspace toward the accessible subspace"
+  balanced_cut_force:
+    tier: Dr
+    claim: >-
+      J_C contains directed write and return influx together with explicit
+      source-sector outflow balancers
+    limitation: "not derived from S_DRL"
+  forced_component_equations:
+    tier: Dr
+    claim: >-
+      the reader and mirror DRL Euler-Lagrange equations receive P_Phi J_C and
+      P_Psi J_C as declared nonconservative forces
+    interpretation: "discrete Lagrange-d'Alembert-type architecture"
+  cut_balance_certificate:
+    tier: definition
+    claim: "a claimed cut conservation law requires a declared covector rho with rho^T J_C = 0"
+    AP15_scope: "rho = 1 for the positive finite-flow generator"
+  unified_drl_cut_tape_action:
+    tier: Open
+    stance: positive
+    falsifier: "prove incompatibility under the declared action, typing, and retention assumptions"
+
+record_backends:
+  injective_growing_tape:
+    tier: definition
+    claim: "T[n+1] = T[n] direct_sum E_T(H_bar X[n]) with injective E_T"
+  fixed_accumulator:
+    tier: definition
+    claim: "q_T[n+1] = q_T[n] + L_T H_bar X[n]"
+    append_only_requirement: "declared positive cone and nonnegative increments"
+  noncollapse_rule: "a fixed accumulator is not automatically an injective record"
+
+linear_return_extension:
+  hidden_elimination:
+    tier: exact_algebra
+    claim: "K_mem(tau) = R exp(F_H tau) W after finite linear hidden-state elimination"
+    scope: "finite-dimensional linear block system"
+  return_transformation_kernel:
+    tier: exact_algebra
+    claim: >-
+      K_return[alpha<-beta](tau) = A_alpha O_bar_alpha R_alpha U_H(tau)
+      H_bar_beta W_beta O_bar_beta E_beta
+    linear_scope: "U_H(tau) = exp(F_H tau)"
+  generalized_least_squares_decoder:
+    tier: exact_algebra
+    claim: "D_star = (K^T Sigma_eta^-1 K)^-1 K^T Sigma_eta^-1 when K has full column rank"
+  finite_window_operator:
+    tier: definition
+    claim: "G_L = stack(C, C F, ..., C F^L)"
+  structural_readability:
+    tier: exact_matrix_result
+    claim: "rank(G_L) gives the number of structurally observable state directions in the declared finite linear model"
+  Gaussian_readability:
+    tier: exact_algebra
+    claim: >-
+      I_read = 1/2 log2 det(I + Sigma_x^1/2 G_L^T Sigma_N^-1
+      G_L Sigma_x^1/2)
+    scope: "declared linear channel with independent Gaussian state and noise"
+  nonlinear_return:
+    tier: Open
+    claim: "the tangent kernel is only a local linearization along a declared trajectory"
+
+canonical_discoveries:
+  D0:
+    tier: doctrine_and_definition
+    claim: "existence, retention, accessibility, and readability are distinct"
+  D1:
+    tier:
+      finite_model: exact_algebra
+      runtime: finite_diagnostic
+      interpretation: Dr
+    claim: "readable loss can coexist with exact total retention"
+    scope: "AP15 positive finite-flow model"
+  D2:
+    tier: exact_algebra
+    claim: "R=0 yields exact visible damping in the AP15 finite-flow realization"
+  D3:
+    tier: exact_algebra
+    claim: "R>0 yields a return-memory kernel after linear hidden elimination"
+  D4:
+    tier:
+      matrices: exact_matrix_result
+      execution: finite_diagnostic
+    claim: "return edges change dynamical observability and nullity"
+  D5:
+    tier:
+      construction: exact_algebra
+      execution: finite_diagnostic
+    claim: "positive append-only accumulation can outlive the hidden working state"
+  D6:
+    tier:
+      index: definition
+      interpretation: Dr
+    claim: "horizon-ness is a channel-asymmetry readout"
+  D7:
+    tier: Dr
+    claim: "black-hole language is an optional one-way-cut adapter"
+    black_hole_physics_derived: false
+  D8:
+    tier: Open
+    claim: "derive a unified DRL-cut-tape action or a no-go result"
+  D9:
+    tier:
+      statement: definition_plus_Dr
+      examples: finite_diagnostic
+    claim: "unreadable now does not imply unreadable forever"
+  D10:
+    tier:
+      linear_statement: exact_algebra
+      AP17_execution: finite_diagnostic
+    claim: "a transformed return can remain fully reconstructable"
+    safe_wording: "returned form and returned information are different tests"
+  D11:
+    tier:
+      structural_part: exact_matrix_result
+      Gaussian_information: exact_algebra
+    claim: "physical readability depends on time window, readout, noise, encoder, and decoder"
+    scope: "declared finite linear or linear-Gaussian model"
+  D12:
+    tier: binding_nonclaim
+    claim: "zero return in one finite observation protocol does not prove permanent destruction or inaccessibility"
+  D13:
+    tier: Dr
+    claim: "a physical black-hole classification requires a causal/geometric horizon certificate in addition to a one-way cut"
+
+candidate_novelty:
+  - id: N1
+    tier: Open
+    claim: "discrete graph-tensor DRL coupling reader and record through the declared retention tensors"
+  - id: N2
+    tier: Open
+    claim: "Psi is interpreted as an ontic record rather than a disposable auxiliary variable"
+  - id: N3
+    tier: Open
+    claim: "zero-diagonal retention metric realizes the Doctrine of Quantity dynamically"
+  - id: N4
+    tier: Open
+    claim: "one native calculation contract joins dynamics, readout, identifiability, tiers, and rbit bridges"
+  - id: N5
+    tier: Open
+    claim: >-
+      URR-C joins typed reader-record DRL, directed cut balance, separate tape
+      semantics, return transformation, finite-window readability, and claim control
+    falsifier: "find a prior equivalent conjunction or show no predictive content beyond standard state-space reformulation"
+
+not_individually_novel:
+  - graph Laplacians
+  - projectors and state-space decomposition
+  - Bateman-type doubled damped systems
+  - forced Lagrangian and Lagrange-d'Alembert systems
+  - discrete variational integration
+  - Shannon and Gaussian-channel information
+  - matrix rank, observability matrices, and Gramians
+  - hidden-variable memory kernels and generalized Langevin equations
+  - linear compartment or Markov flow models
+  - telegraph and Maxwell-Cattaneo equations
+
+experiments:
+  AP13:
+    tier: finite_diagnostic
+    adapter: "nonlinear FPUT independent-solver cross-check (in-script, self-generated initial conditions; no external dataset)"
+    result: PASS
+  AP14:
+    tier: finite_diagnostic
+    adapter_tier: Dr
+    adapter: "DESI DR2 BAO cosmology"
+    result: PASS
+    data_provenance:
+      distance_vector: "DESI Collaboration, arXiv:2503.14738, Table IV; all 13 values verified to quoted precision"
+      covariance: "PROVENANCE UNRESOLVED - not reconstructible from arXiv:2503.14738 Table IV (LRG1 off-diagonal differs 0.088% from what the printed sigmas/r imply); true source uncited in repo. Caught by independent cross-vendor review (Codex) 2026-07-20. TODO founder."
+      lcdm_comparison_row: "Omega_m=0.2975+/-0.0086, h*r_d=101.54+/-0.73 corroborated as DESI-BAO-alone flat-LCDM (same paper, Section VI); exact table row unconfirmed -- TODO founder to supply precise citation"
+  AP15:
+    tier: finite_diagnostic
+    architecture_tier: Dr
+    result: PASS
+    exact_within_model:
+      - "total retention from zero generator column sums"
+      - "hidden-sector elimination identity"
+      - "R=0 visible damping identity"
+      - "positive append-only accumulator monotonicity"
+  AP17:
+    tier: finite_diagnostic
+    result: PASS
+    recorded_values:
+      transformed_return_rank: 2
+      distance_from_identity: 1.222171974564525
+      noiseless_decoder_error: 2.289691319182597e-16
+      Gaussian_readable_information_rbit: 7.825375266365017
+      partial_return_rank_nullity: [1, 1]
+      zero_return_information_rbit: 0.0
+      echo_time: 0.885
+      hidden_elimination_error: 6.189493362285248e-15
+      finite_window_rank_progression: [1, 2, 3]
+    nonclaims:
+      - "all transformed returns preserve information"
+      - "all retained states eventually return"
+      - "the Gaussian readability equation is universal"
+  AP18:
+    tier: finite_diagnostic
+    adapter_tier: exact_algebra_in_declared_ideal_circuit_plus_runtime
+    adapter: "ideal two-capacitor RC memory cell"
+    result: PASS
+    recorded_values:
+      numerical_vs_matrix_exponential_V: 5.062616992290714e-13
+      matrix_exponential_vs_closed_form_V: 3.108624468950438e-14
+      charge_retention_relative_error: 1.0842021724855044e-15
+      energy_accounting_relative_error: 1.6666663917030977e-07
+      hidden_elimination_residual_V_per_s: 5.2081678081350447e-08
+      observability_rank: 2
+      maximum_hidden_to_visible_signal_V: 0.49997730003511887
+    exact_within_model:
+      - "C1 V1 + C2 V2 is constant"
+      - "equal-capacitance voltage solution is exponential"
+      - "hidden elimination gives K_mem(tau)=(1/(R C1))(1/(R C2)) exp(-tau/(R C2))"
+      - "the visible-only two-row observation matrix has rank 2"
+    nonclaims:
+      - "hardware validation has been executed"
+      - "the DRL inertial term is tested"
+      - "Psi is established as an ontic physical record"
+      - "the unified DRL-cut-tape action is closed"
+
+peer_review_0_4:
+  recommendation: major_revision
+  framework_value: promising
+  fundamental_physics_claim: unsupported_at_present
+  individual_mathematical_novelty: not_established
+  conjunction_novelty: Open
+  required_next_evidence:
+    - "formal verification of forced typing and AP17 identities"
+    - "calibrated RC, thermal, and oscillator datasets"
+    - "comparison with independent system-identification baselines"
+    - "nonlinear out-of-sample return predictions"
+    - "external human review before novelty promotion"
+
+open:
+  - "mechanistic reader-to-record handoff in the linear DRL"
+  - "unified action for DRL, directed cuts, and injective tape"
+  - "nonlinear return beyond local tangent kernels"
+  - "domain-specific predictions not reducible to standard reparameterization"
+  - "external literature falsification and human peer review"

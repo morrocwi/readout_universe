@@ -1,0 +1,139 @@
+{
+  "meta": {
+    "artifact": "AP15",
+    "title": "Universal Retention–Cut smoke test",
+    "tier": "finite_diagnostic",
+    "cut_interpretation": "Dr",
+    "unified_mechanism": "Open"
+  },
+  "model": {
+    "visible_dimension": 3,
+    "hidden_dimension": 3,
+    "tape_dimension": 1,
+    "write_matrix_W": [[0.3, 0.0, 0.0], [0.0, 0.2, 0.0], [0.0, 0.0, 0.1]],
+    "reciprocal_return_R": [[0.3, 0.0, 0.0], [0.0, 0.2, 0.0], [0.0, 0.0, 0.1]],
+    "leaky_return_R": [[0.015, 0.0, 0.0], [0.0, 0.010000000000000002, 0.0], [0.0, 0.0, 0.005000000000000001]],
+    "one_way_return_R": [[0.0, 0.0, 0.0], [0.0, 0.0, 0.0], [0.0, 0.0, 0.0]],
+    "tape_leak": [0.02, 0.01, 0.005],
+    "equations": {
+      "visible": "dq_O/dt = -diag(1^T W) q_O + R q_H",
+      "hidden": "dq_H/dt = W q_O - diag(1^T R + ell) q_H",
+      "tape": "dq_T/dt = ell^T q_H"
+    }
+  },
+  "gates": {
+    "all_total_retention": true,
+    "all_generator_column_sums": true,
+    "closed_control_static": true,
+    "one_way_horizon_index": true,
+    "reciprocal_index_half": true,
+    "leaky_index_between": true,
+    "one_way_visible_decays": true,
+    "one_way_hidden_accumulates": true,
+    "tape_append_only": true,
+    "one_way_has_larger_nullity_than_reciprocal": true,
+    "return_channel_restores_observability": true,
+    "stable_generators": true
+  },
+  "claim": {
+    "verdict": "PASS",
+    "derived_in_this_finite_model": [
+      "total retained quantity is conserved because generator columns sum to zero",
+      "R=0 gives exact visible-sector damping with no return term",
+      "R>0 creates delayed return and improves dynamical observability",
+      "append-only tape is monotone when ell>=0"
+    ],
+    "not_claimed": [
+      "all real systems are linear retained-flow systems",
+      "black-hole dynamics are derived",
+      "the cut term is derived from the DRL action",
+      "the read-write interpretation is externally peer reviewed"
+    ]
+  },
+  "cases": [
+    {
+      "name": "closed_control",
+      "horizon_index": 0.0,
+      "observability_rank": 3,
+      "observability_nullity": 4,
+      "total_retention_error": 0.0,
+      "initial": {"visible": 1.0, "hidden": 0.0, "tape": 0.0},
+      "final": {"visible": 1.0, "hidden": 0.0, "tape": 0.0},
+      "visible_monotone_nonincreasing": true,
+      "hidden_monotone_nondecreasing": true,
+      "tape_monotone_nondecreasing": true,
+      "generator_column_sum_error": 0.0,
+      "max_generator_eigenvalue_real_part": 0.0
+    },
+    {
+      "name": "reciprocal_cut",
+      "horizon_index": 0.49999999999999933,
+      "observability_rank": 6,
+      "observability_nullity": 1,
+      "total_retention_error": 6.661338147750939e-16,
+      "initial": {"visible": 1.0, "hidden": 0.0, "tape": 0.0},
+      "final": {"visible": 0.5002488006570146, "hidden": 0.49975119934298545, "tape": 0.0},
+      "visible_monotone_nonincreasing": true,
+      "hidden_monotone_nondecreasing": true,
+      "tape_monotone_nondecreasing": true,
+      "generator_column_sum_error": 0.0,
+      "max_generator_eigenvalue_real_part": 0.0
+    },
+    {
+      "name": "one_way_horizon",
+      "horizon_index": 0.9999999999999973,
+      "observability_rank": 3,
+      "observability_nullity": 4,
+      "total_retention_error": 4.9960036108132044e-15,
+      "initial": {"visible": 1.0, "hidden": 0.0, "tape": 0.0},
+      "final": {"visible": 0.010762744228616037, "hidden": 0.9892372557713833, "tape": 0.0},
+      "visible_monotone_nonincreasing": true,
+      "hidden_monotone_nondecreasing": true,
+      "tape_monotone_nondecreasing": true,
+      "generator_column_sum_error": 0.0,
+      "max_generator_eigenvalue_real_part": 0.0
+    },
+    {
+      "name": "leaky_horizon",
+      "horizon_index": 0.9523809523809499,
+      "observability_rank": 6,
+      "observability_nullity": 1,
+      "total_retention_error": 8.881784197001252e-16,
+      "initial": {"visible": 1.0, "hidden": 0.0, "tape": 0.0},
+      "final": {"visible": 0.056343487227764416, "hidden": 0.9436565127722361, "tape": 0.0},
+      "visible_monotone_nonincreasing": true,
+      "hidden_monotone_nondecreasing": true,
+      "tape_monotone_nondecreasing": true,
+      "generator_column_sum_error": 0.0,
+      "max_generator_eigenvalue_real_part": 3.469446951953614e-18
+    },
+    {
+      "name": "one_way_with_tape",
+      "horizon_index": 0.9999999999999973,
+      "observability_rank": 3,
+      "observability_nullity": 4,
+      "total_retention_error": 4.884981308350689e-15,
+      "initial": {"visible": 1.0, "hidden": 0.0, "tape": 0.0},
+      "final": {"visible": 0.010762744228616037, "hidden": 0.6978201445561787, "tape": 0.29141711121520486},
+      "visible_monotone_nonincreasing": true,
+      "hidden_monotone_nondecreasing": false,
+      "tape_monotone_nondecreasing": true,
+      "generator_column_sum_error": 0.0,
+      "max_generator_eigenvalue_real_part": 0.0
+    },
+    {
+      "name": "source_like_reverse",
+      "horizon_index": 0.0,
+      "observability_rank": 6,
+      "observability_nullity": 1,
+      "total_retention_error": 5.10702591327572e-15,
+      "initial": {"visible": 0.0, "hidden": 1.0, "tape": 0.0},
+      "final": {"visible": 0.9892372557713833, "hidden": 0.010762744228616037, "tape": 0.0},
+      "visible_monotone_nonincreasing": false,
+      "hidden_monotone_nondecreasing": false,
+      "tape_monotone_nondecreasing": true,
+      "generator_column_sum_error": 0.0,
+      "max_generator_eigenvalue_real_part": 0.0
+    }
+  ]
+}
