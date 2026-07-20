@@ -13,12 +13,13 @@ models are optional external adapters and do not modify the kernel.
 
 1. [`KNOWLEDGE_MAP.md`](KNOWLEDGE_MAP.md) — scope, dependency graph and claim boundaries.
 2. [`URR_NATIVE_TECHNICAL_SPEC.md`](URR_NATIVE_TECHNICAL_SPEC.md) — equations and normative pseudocode.
-3. [`urr_system_spec.yaml`](urr_system_spec.yaml) — machine-readable contract.
-4. [`urr_reference_runner.py`](urr_reference_runner.py) — executable reference implementation.
-5. [`example_ring.yaml`](example_ring.yaml) — smallest complete runnable example.
-6. [`CLAIM_LEDGER.yaml`](CLAIM_LEDGER.yaml) — novelty, evidence and non-claims.
-7. [`EXECUTED_RUNS.md`](EXECUTED_RUNS.md) — recorded commands and numerical outputs.
-8. AP13 and AP14 in [`../../ap/`](../../ap/) — external benchmark adapters.
+3. [`URR_CUT_EXTENSION.md`](URR_CUT_EXTENSION.md) — general read–write cut, memory kernel and observability extension.
+4. [`urr_system_spec.yaml`](urr_system_spec.yaml) — machine-readable native contract.
+5. [`urr_reference_runner.py`](urr_reference_runner.py) — executable reference implementation.
+6. [`example_ring.yaml`](example_ring.yaml) — smallest complete runnable example.
+7. [`CLAIM_LEDGER.yaml`](CLAIM_LEDGER.yaml) — novelty, evidence and non-claims.
+8. [`EXECUTED_RUNS.md`](EXECUTED_RUNS.md) — recorded commands and numerical outputs.
+9. AP13–AP15 in [`../../ap/`](../../ap/) — external and structural benchmark adapters.
 
 ## Native equation
 
@@ -31,6 +32,30 @@ X_n=(\Phi_n,\Psi_n)^\top\to S_{\rm DRL}\to
 The state equation is generated from the discrete action in the technical
 specification. A reported value is always a readout and never silently
 promoted to truth.
+
+## URR-C extension
+
+The read–write cut adds observer-relative accessible and hidden sectors:
+
+\[
+\mathsf H_\alpha=I-\mathsf O_\alpha,
+\qquad
+\mathcal C_\alpha
+=
+\mathsf H_\alpha W_\alpha\mathsf O_\alpha
++
+\mathsf O_\alpha R_\alpha\mathsf H_\alpha.
+\]
+
+The candidate extended equation is
+
+\[
+\frac{\delta S_{\rm DRL}}{\delta X}=\mathcal C_\alpha X.
+\]
+
+This is a `Dr` architecture. The cut term is not yet derived from the DRL
+action. AP15 tests a finite retained-flow realization in which one-way write,
+leaky return, memory, append-only tape and readout null spaces are all explicit.
 
 ## Install and run
 
@@ -47,6 +72,8 @@ Benchmark dependencies and quick reruns:
 python -m pip install -r v2/urr/requirements-benchmarks.txt
 python ap/ap13_urr_fput.py
 python ap/ap14_urr_desi_dr2.py
+python ap/ap15_read_write_cut.py \
+  --output ap/results/AP15_READ_WRITE_CUT_RESULTS.json
 ```
 
 Recorded full runs:
@@ -64,7 +91,11 @@ python ap/ap14_urr_desi_dr2.py --full
   record.
 - The append-only tape is a separate construction; no unified DRL+tape action
   is claimed.
+- URR-C supplies a general cut grammar, but no unified DRL+cut action is
+  claimed.
 - AP13 is an external numerical benchmark.
 - AP14 uses cosmology as a `Dr` readout adapter; cosmology is not derived from
   URR.
+- AP15 is a finite structural smoke test; it does not derive black holes or
+  prove that every real system is a linear retained-flow system.
 - All runtime outputs remain `finite_diagnostic`.
