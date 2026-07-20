@@ -133,3 +133,20 @@ Full suite: `python3 -m pytest -q` → **63 passed**.
 | AP12 (3 tests: direction-partition 1.000/0.486/0.342 บน tori d=1,2,3 [target 1, ½, ⅓]; spectral-dim 1.1/2.3/3.3 เรียงถูก; size-control ยืนยันอ่านมิติไม่ใช่ขนาด) | `python3 -m pytest ap/ap12_dimension_readout.py -q` | 3 passed |
 
 Full suite: `python3 -m pytest -q` → **66 passed**.
+
+## 2026-07-20 — Lenovo Legion (ANSE.ASIA workstation, Coq 8.20.1) — URR-C foundational chain compiles
+
+Tier CORRECTION, not a new proof: no new theorem or physics was added in this run.
+The prior manifest status (`formal_draft_pending_coqc`, `machine_checked_now: false`)
+was drafted on a machine with no coqc available and understated the chain's real
+status; this run supplies the missing executed evidence.
+
+| Check | Command | Result |
+|-------|---------|--------|
+| `evidence/RD.v` → `evidence/DRL_Discrete.v` → `evidence/DRL_General_Legendre.v` → `evidence/URR_C_Foundational_Chain.v` | `make verify-urr-coq` (git rev `daa2f36274bd2afb466de46c5e6f11220beeba9a`) | exit 0; 132× `Closed under the global context` across the run (123/124 `Print Assumptions` calls in RD.v — the sole exception `Con_PA_classical` reports the expected `classic` axiom — plus 2/2 in `DRL_General_Legendre.v` plus all 7/7 in `URR_C_Foundational_Chain.v`: `F0_RD4_retained_difference_injective`, `F3_lifted_recompose`, `F4_master_implies_component_equations`, `F5_balanced_cut_conserves_declared_total`, `F6_append_cell_injective`, `F7_declared_left_decoder_recovers_message`, `foundational_master_chain_core`) |
+| `evidence/URR_C_Foundational_Chain.v` Admitted/Axiom/admit./Parameter scan | `grep -nE "Admitted\|^ *Axiom\|admit\.\|Parameter " evidence/URR_C_Foundational_Chain.v` | no matches (grep exit 1 = clean; file is fully axiom-free) |
+| Full suite | `python3 -m pytest -q` | **66 passed** (unchanged from the row above — no test count regression) |
+
+See `v2/urr/URR_C_COQ_FORMAL_CHAIN.yaml` and `v2/urr/URR_C_COQ_FORMAL_CHAIN.md` for the
+per-theorem tier update this run authorizes (only theorems named in a `Print Assumptions`
+"Closed under the global context" line move to `Th_coqc`; `Dr`/`Open` rows are untouched).

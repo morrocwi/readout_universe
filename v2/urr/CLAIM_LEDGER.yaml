@@ -30,6 +30,45 @@ native_core:
   drl_general_pairing_structure:
     tier: Th_coqc
     scope: "general-N Legendre/D-cancellation structure in evidence/DRL_General_Legendre.v"
+  foundational_chain_verified_2026_07_20:
+    coqc_version: "The Coq Proof Assistant, version 8.20.1 compiled with OCaml 5.4.0"
+    machine: "Legion (ANSE.ASIA workstation)"
+    git_rev: daa2f36274bd2afb466de46c5e6f11220beeba9a
+    note: >-
+      Tier correction backed by `make verify-urr-coq` (exit 0); no new
+      theorem or physics added. See docs/VERIFIED_RUNS.md and
+      v2/urr/URR_C_COQ_FORMAL_CHAIN.md for the dated executed run and
+      per-row rationale.
+    F0_retained_difference_injective:
+      tier: Th_coqc
+      scope: "evidence/URR_C_Foundational_Chain.v; Print Assumptions Closed under the global context"
+    F1_dimension_reflects_retained_distinction:
+      tier: definition
+      scope: "evidence/URR_C_Foundational_Chain.v; compiles as part of the axiom-free file but was not itself an individual Print Assumptions target -- not promoted to Th_coqc"
+    F2_reader_record_typing:
+      tier: definition
+      scope: "evidence/URR_C_Foundational_Chain.v; same caveat as F1 -- not promoted to Th_coqc"
+    F3_lifted_readout_split:
+      tier: Th_coqc
+      scope: "F3_lifted_recompose in evidence/URR_C_Foundational_Chain.v; Print Assumptions Closed under the global context"
+    F4_master_projection:
+      tier: Th_coqc
+      scope: "F4_master_implies_component_equations in evidence/URR_C_Foundational_Chain.v; Print Assumptions Closed under the global context"
+    F5_cut_balance:
+      tier: Th_coqc
+      scope: "F5_balanced_cut_conserves_declared_total in evidence/URR_C_Foundational_Chain.v; Print Assumptions Closed under the global context"
+    F6_append_only_tape:
+      tier: Th_coqc
+      scope: "F6_append_cell_injective in evidence/URR_C_Foundational_Chain.v; Print Assumptions Closed under the global context"
+    F7_return_transformation:
+      tier: Th_coqc
+      scope: "F7_declared_left_decoder_recovers_message in evidence/URR_C_Foundational_Chain.v; Print Assumptions Closed under the global context (F7_return_kernel_is_declared_composition itself not individually Print-Assumptions-checked)"
+    F8_native_DRL_anchors:
+      tier: Th_coqc_in_existing_scope
+      scope: "aliases into evidence/DRL_Discrete.v and evidence/DRL_General_Legendre.v, unchanged by this run"
+    foundational_master_chain_core:
+      tier: Th_coqc
+      scope: "evidence/URR_C_Foundational_Chain.v; Print Assumptions Closed under the global context"
   native_runner:
     tier: finite_diagnostic
     artifact: "v2/urr/urr_reference_runner.py"

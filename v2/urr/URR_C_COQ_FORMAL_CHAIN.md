@@ -2,8 +2,16 @@
 
 ## Status
 
-This document specifies the first conditional machine-checked chain joining the
-formal retained-difference root to the URR-C 0.4 master architecture.
+This document specifies the first machine-checked chain joining the
+formal retained-difference root to the URR-C 0.4 master architecture. As of
+2026-07-20, `evidence/URR_C_Foundational_Chain.v` compiles cleanly (coqc
+8.20.1, Legion / ANSE.ASIA workstation, git rev
+daa2f36274bd2afb466de46c5e6f11220beeba9a; `make verify-urr-coq` exit 0) and
+its 7 `Print Assumptions` calls all report "Closed under the global
+context" — see the Evidence boundary below for which named theorems that
+covers. The interpretive bridges (`Dr`) and open items (`Open`) remain
+exactly as conditional as before; only the compiled-mathematics side of the
+chain moved from draft to machine-checked.
 
 The corresponding Coq source is:
 
@@ -201,17 +209,32 @@ merely repeating their names in documentation.
 ## Evidence boundary
 
 ```yaml
+# Evidence-boundary update, 2026-07-20 (tier CORRECTION, not a new proof):
+#   coqc: The Coq Proof Assistant, version 8.20.1 compiled with OCaml 5.4.0
+#   machine: Legion (ANSE.ASIA workstation)
+#   git_rev: daa2f36274bd2afb466de46c5e6f11220beeba9a
+#   `make verify-urr-coq` exit 0; evidence/URR_C_Foundational_Chain.v has no
+#   Admitted/Axiom/admit./Parameter tokens. Rows below are promoted to
+#   Th_coqc ONLY where the named theorem itself appears in a `Print
+#   Assumptions` call reporting "Closed under the global context"
+#   (F0, F3_lifted_recompose, F4, F5, F6, F7_declared_left_decoder_recovers_message,
+#   foundational_master_chain_core). Rows whose named sub-lemma was not
+#   individually the target of a `Print Assumptions` call keep a
+#   non-Th_coqc label even though they compile as part of the same
+#   axiom-free file -- no claim exceeds what was actually printed. The
+#   earlier "pending_new_compile" wording was stale: it described a machine
+#   that had no coqc, not a property of the proof.
 philosophical_interpretation: Dr
 RD4_injectivity: Th_coqc
-RD_dimension_reflection: pending_new_compile
-reader_record_product_typing: pending_new_compile
-lifted_readout_split_given_declared_split_laws: pending_new_compile
+RD_dimension_reflection: compiled_2026-07-20_no_individual_print_assumptions_call  # F1; part of the axiom-free file but not itself a Print Assumptions target
+reader_record_product_typing: compiled_2026-07-20_no_individual_print_assumptions_call  # F2; same caveat as above
+lifted_readout_split_given_declared_split_laws: Th_coqc  # F3_lifted_recompose: Closed under the global context, coqc 8.20.1, 2026-07-20, rev daa2f36
 native_DRL_EL_anchors: Th_coqc_in_existing_scope
 native_general_N_D_cancellation: Th_coqc
-balanced_cut_total_identity: pending_new_compile
-append_only_tape_injectivity: pending_new_compile
-return_composition: pending_new_compile
-left_decoder_recovery_given_left_inverse: pending_new_compile
+balanced_cut_total_identity: Th_coqc  # F5_balanced_cut_conserves_declared_total: Closed under the global context, coqc 8.20.1, 2026-07-20, rev daa2f36
+append_only_tape_injectivity: Th_coqc  # F6_append_cell_injective: Closed under the global context, coqc 8.20.1, 2026-07-20, rev daa2f36
+return_composition: compiled_2026-07-20_no_individual_print_assumptions_call  # F7_return_kernel_is_declared_composition; part of the axiom-free file but not itself a Print Assumptions target
+left_decoder_recovery_given_left_inverse: Th_coqc  # F7_declared_left_decoder_recovers_message: Closed under the global context, coqc 8.20.1, 2026-07-20, rev daa2f36
 forced_DRL_cut_physical_bridge: Dr
 unified_DRL_cut_tape_action: Open
 nonlinear_universal_return: Open

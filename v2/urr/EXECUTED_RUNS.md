@@ -191,6 +191,46 @@ Canonical records:
 - `ap/AP18_RC_MEMORY_CELL.md`
 - `ap/ap18_rc_memory_cell.py`
 - `ap/results/AP18_RC_MEMORY_CELL_RESULTS.json`
+## URR-C foundational chain — Coq compile, 2026-07-20
+
+Note on scope: this file's header restricts it to `finite_diagnostic` numerical
+runs; a `coqc` compile is a `Th_coqc`-tier machine check, not a numerical
+result. This entry is a pointer only — the canonical dated executed-run row
+lives in `docs/VERIFIED_RUNS.md` ("2026-07-20 — Lenovo Legion (ANSE.ASIA
+workstation, Coq 8.20.1) — URR-C foundational chain compiles"), per that
+file's own rule that a `Th_coqc` claim must have a dated run recorded there.
+
+```bash
+make verify-urr-coq
+```
+
+Recorded result (Legion / ANSE.ASIA workstation, coqc 8.20.1, git rev
+`daa2f36274bd2afb466de46c5e6f11220beeba9a`):
+
+```text
+exit code: 0
+Print Assumptions (URR_C_Foundational_Chain.v, 7/7 Closed under the global context):
+  F0_RD4_retained_difference_injective
+  F3_lifted_recompose
+  F4_master_implies_component_equations
+  F5_balanced_cut_conserves_declared_total
+  F6_append_cell_injective
+  F7_declared_left_decoder_recovers_message
+  foundational_master_chain_core
+Admitted/Axiom/admit./Parameter scan of URR_C_Foundational_Chain.v: no matches
+```
+
+This is a tier CORRECTION of the manifest in `v2/urr/URR_C_COQ_FORMAL_CHAIN.yaml`
+and `v2/urr/URR_C_COQ_FORMAL_CHAIN.md`, not a new proof — no new theorem or
+physics was added. The manifest previously read `machine_checked_now: false`
+because the machine that drafted it had no coqc available, not because the
+proof failed.
+
+Canonical records:
+
+- `docs/VERIFIED_RUNS.md`
+- `v2/urr/URR_C_COQ_FORMAL_CHAIN.yaml`
+- `v2/urr/URR_C_COQ_FORMAL_CHAIN.md`
 
 ## Evidence-tier rule
 

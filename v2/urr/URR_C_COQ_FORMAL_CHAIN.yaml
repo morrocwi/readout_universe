@@ -3,18 +3,40 @@ formal_chain:
   version: 0.1.0-draft
   date: 2026-07-20
   language: English
-  status: formal_draft_pending_coqc
+  status: machine_checked_coqc
+  status_verified:
+    date: 2026-07-20
+    coqc_version: "The Coq Proof Assistant, version 8.20.1 compiled with OCaml 5.4.0"
+    machine: Legion (ANSE.ASIA workstation)
+    git_rev: daa2f36274bd2afb466de46c5e6f11220beeba9a
+    note: >-
+      Tier correction backed by an executed run (make verify-urr-coq, exit 0;
+      all 7 Print Assumptions calls in evidence/URR_C_Foundational_Chain.v
+      report "Closed under the global context"). No new mathematics was
+      added; the prior status_pending value understated the actual state
+      because the machine that drafted this manifest had no coqc available.
   source: evidence/URR_C_Foundational_Chain.v
   explanation: v2/urr/URR_C_COQ_FORMAL_CHAIN.md
   build_target: make verify-urr-coq
   coq_requirement: "Coq 8.18 or newer; repository previously verified with 8.20.1"
 
 honesty_boundary:
-  machine_checked_now: false
-  reason: coqc_is_not_available_in_the_current_execution_environment
+  machine_checked_now: true
+  reason: >-
+    coqc 8.20.1 executed on Legion (ANSE.ASIA workstation) on 2026-07-20
+    against git rev daa2f36274bd2afb466de46c5e6f11220beeba9a: make
+    verify-urr-coq exited 0 and all 7 Print Assumptions calls in
+    evidence/URR_C_Foundational_Chain.v (F0, F3, F4, F5, F6, F7,
+    foundational_master_chain_core) report "Closed under the global
+    context". Superseded prior reason
+    (coqc_is_not_available_in_the_current_execution_environment), which was
+    an environment limitation of the drafting machine, not a property of
+    the proof.
   promotion_rule: >-
     No new theorem in this chain may be labeled Th_coqc until the source
     compiles successfully and Print Assumptions has been reviewed.
+    [Satisfied 2026-07-20 for F0, F3, F4, F5, F6, F7,
+    foundational_master_chain_core -- see status_verified above.]
   philosophical_semantics: Dr
   unified_action: Open
 
@@ -142,6 +164,13 @@ not_formalized_in_this_pass:
 next_formal_targets:
   - id: C1
     target: compile_current_chain_and_review_Print_Assumptions
+    status: done
+    completed:
+      date: 2026-07-20
+      coqc_version: "The Coq Proof Assistant, version 8.20.1 compiled with OCaml 5.4.0"
+      machine: Legion (ANSE.ASIA workstation)
+      git_rev: daa2f36274bd2afb466de46c5e6f11220beeba9a
+      result: make verify-urr-coq exit 0; all 7 Print Assumptions calls Closed under the global context.
   - id: C2
     target: general_N_Euler_Lagrange_theorem
   - id: C3
