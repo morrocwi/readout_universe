@@ -1,0 +1,154 @@
+formal_chain:
+  id: URR-C-Coq-Foundational-Chain
+  version: 0.1.0-draft
+  date: 2026-07-20
+  language: English
+  status: formal_draft_pending_coqc
+  source: evidence/URR_C_Foundational_Chain.v
+  explanation: v2/urr/URR_C_COQ_FORMAL_CHAIN.md
+  build_target: make verify-urr-coq
+  coq_requirement: "Coq 8.18 or newer; repository previously verified with 8.20.1"
+
+honesty_boundary:
+  machine_checked_now: false
+  reason: coqc_is_not_available_in_the_current_execution_environment
+  promotion_rule: >-
+    No new theorem in this chain may be labeled Th_coqc until the source
+    compiles successfully and Print Assumptions has been reviewed.
+  philosophical_semantics: Dr
+  unified_action: Open
+
+root_dependencies:
+  retained_difference_object_system:
+    source: evidence/RD.v
+    theorem: RD4_succ_inj
+    existing_tier: Th_coqc
+  retained_distinction_logic:
+    source: evidence/URCF_RD_All.v
+    role: formal_logic_background
+    existing_tier: Th_coqc_in_declared_modules
+  discrete_drl:
+    source: evidence/DRL_Discrete.v
+    theorems:
+      - T1_el_psi_node1
+      - T1_el_psi_node2
+      - T1_el_phi_node1
+      - T2_D_cancellation
+    existing_scope: three_ring_and_declared_real_axiom_profile
+  general_drl_legendre:
+    source: evidence/DRL_General_Legendre.v
+    theorem: general_legendre_D_cancellation
+    existing_scope: general_N_heterogeneous_abstract_graph_and_non_D_coupling
+
+chain:
+  F0_retained_difference:
+    theorem: F0_RD4_retained_difference_injective
+    statement: "succ x = succ y implies x = y"
+    derives_from: RD4_succ_inj
+  F1_dimension_bridge:
+    theorem: F1_dimension_reflects_retained_distinction
+    statement: "toNat x = toNat y implies x = y"
+    purpose: finite_state_dimension_index_root
+  F2_reader_record_typing:
+    definitions:
+      - RRState
+      - P_Phi
+      - P_Psi
+    theorems:
+      - F2_reader_selector_exact
+      - F2_mirror_selector_exact
+      - F2_reader_record_eta
+    master_equation_link: "X_n = (Phi_n, Psi_n)^T"
+  F3_lifted_readout_split:
+    adapter_obligation: ReadoutSplit
+    theorems:
+      - F3_lifted_O_idempotent
+      - F3_lifted_H_idempotent
+      - F3_lifted_O_after_H_zero
+      - F3_lifted_H_after_O_zero
+      - F3_lifted_recompose
+    master_equation_link:
+      - "Obar = I_2 tensor O"
+      - "Hbar = I - Obar"
+    limitation: split_laws_are_declared_adapter_obligations
+  F4_master_projection:
+    theorem: F4_master_implies_component_equations
+    premise: "forall X, E_DRL X = J_C X"
+    conclusions:
+      - "P_Phi(E_DRL X) = P_Phi(J_C X)"
+      - "P_Psi(E_DRL X) = P_Psi(J_C X)"
+    master_equation_link: forced_reader_and_mirror_component_equations
+  F5_cut_balance:
+    theorem: F5_balanced_cut_conserves_declared_total
+    state_sectors:
+      - visible
+      - hidden
+      - tape
+    exact_identity: "visible' + hidden' + tape' = visible + hidden + tape"
+    limitation: positivity_and_physical_units_are_separate_adapter_obligations
+  F6_append_only_tape:
+    definition: append_record
+    theorems:
+      - F6_append_preserves_old_history_as_prefix
+      - F6_append_cell_injective
+      - F6_distinct_cells_make_distinct_histories
+    master_equation_link: injective_growing_tape_backend
+  F7_return_transformation:
+    definition: K_return
+    composition: >-
+      A_alpha o O_read o R_alpha o U_H o H_hidden o W_beta o O_write o E_beta
+    theorems:
+      - F7_return_kernel_is_declared_composition
+      - F7_declared_left_decoder_recovers_message
+      - F7_zero_return_readout_forces_zero_direct_kernel
+    limitation: decoder_and_zero_return_laws_are_explicit_premises
+  F8_native_DRL_anchors:
+    aliases:
+      F8_native_reader_EL_anchor: T1_el_psi_node1
+      F8_native_reader_EL_second_node_anchor: T1_el_psi_node2
+      F8_native_mirror_EL_anchor: T1_el_phi_node1
+      F8_native_three_ring_D_cancellation_anchor: T2_D_cancellation
+      F8_native_general_N_D_cancellation_anchor: general_legendre_D_cancellation
+  core_bundle:
+    theorem: foundational_master_chain_core
+    contains:
+      - RD4_injectivity
+      - general_N_DRL_D_cancellation
+      - exact_balanced_cut_total
+
+master_contract_mapping:
+  retained_distinction: F0_retained_difference
+  finite_retained_space_index: F1_dimension_bridge
+  doubled_state: F2_reader_record_typing
+  lifted_accessible_hidden_projectors: F3_lifted_readout_split
+  compact_master_to_components: F4_master_projection
+  cut_balance_certificate: F5_cut_balance
+  injective_tape: F6_append_only_tape
+  return_kernel_and_decoder: F7_return_transformation
+  native_DRL_action_and_recurrence: F8_native_DRL_anchors
+
+not_formalized_in_this_pass:
+  - philosophy_uniquely_forces_reader_record_ontology
+  - general_N_Euler_Lagrange_recurrence
+  - cut_derived_from_native_DRL_action
+  - unified_DRL_cut_tape_action
+  - general_matrix_retention_covector_theorem
+  - matrix_exponential_hidden_elimination
+  - rank_and_singular_value_algorithms
+  - Gaussian_log_determinant_information
+  - universal_nonlinear_return
+  - gravitational_horizon_certificate
+
+next_formal_targets:
+  - id: C1
+    target: compile_current_chain_and_review_Print_Assumptions
+  - id: C2
+    target: general_N_Euler_Lagrange_theorem
+  - id: C3
+    target: finite_matrix_cut_balance_with_declared_retention_covector
+  - id: C4
+    target: discrete_Lagrange_d_Alembert_forced_master_theorem
+  - id: C5
+    target: finite_rational_hidden_elimination_and_convolution_identity
+  - id: C6
+    target: unified_action_or_formal_no_go_theorem
