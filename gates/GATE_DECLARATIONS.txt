@@ -22,30 +22,63 @@
 #     Default assumption for any gate with no record here at all: Type U
 #     (see docs/GATE_TYPING_LAW.md -- the burden is on the claimant).
 #   - Type P additionally requires: negative_control_name,
-#     negative_control_value, negative_control_threshold,
-#     negative_control_result (must be the literal string "FAIL").
+#     negative_control_value, gate_operator, negative_control_threshold,
+#     negative_control_result.
+#       * gate_operator is one of  >=  >  <=  <  ==  !=  -- the comparison
+#         that DEFINES A PASS of the gate itself (e.g. a gate documented
+#         as "Jaccard >= 0.35 passes" declares gate_operator: >= and
+#         negative_control_threshold: 0.35).
+#       * negative_control_value and negative_control_threshold must both
+#         be real, parseable numbers -- not placeholder text.
+#       * negative_control_result must be the literal string "FAIL", AND
+#         the checker independently VERIFIES that arithmetically:
+#         gate_operator(negative_control_value, negative_control_threshold)
+#         must evaluate to False. Writing "FAIL" next to numbers that do
+#         not support it is rejected, not accepted -- see the counter-
+#         example below, which is the exact record scripts/check_gate_typing.py
+#         rejects (regression-tested in scripts/test_check_gate_typing.py).
 #
-# WORKED EXAMPLE -- commented out, illustrative only, not a live record.
-# This is how the EGFR C797S contact-residue-Jaccard gate from
-# docs/GATE_TYPING_LAW.md would have to be declared to legitimately claim
-# Type P. It could NOT actually be declared this way, because no pair in
-# the real 10-pair matrix failed 0.35 -- which is exactly the finding
-# that forces it to Type U instead. Shown here only as a format sample:
+# WORKED COUNTER-EXAMPLE -- commented out, NOT a live record, and if it
+# WERE live it would be REJECTED by the checker (this is deliberate: it
+# is the historically real EGFR C797S contact-residue-Jaccard gate from
+# docs/GATE_TYPING_LAW.md, which was reported as passing evidence at the
+# time). 0.70 does not fail a ">= 0.35" gate no matter what the result
+# field claims -- the arithmetic contradicts the FAIL label:
 #
 # gate: egfr_c797s_contact_jaccard_same_ligand
 # type: P
 # description: same-ligand co-crystal pairs show contact-residue Jaccard >= 0.35
 # negative_control_name: different-ligand pair, osimertinib vs brigatinib
 # negative_control_value: 0.70
+# gate_operator: >=
 # negative_control_threshold: 0.35
 # negative_control_result: FAIL
+#   <- REJECTED: 0.70 >= 0.35 evaluates True, i.e. this "negative" control
+#      actually PASSES the gate. This is exactly the fabricated-evidence
+#      framing the law exists to stop.
 #
-# -- the real record would instead read (and SHOULD be filed this way if
-# this gate is ever reused, per docs/GATE_TYPING_LAW.md Worked Example 1):
+# -- the honest record for this same gate is Type U instead (per
+# docs/GATE_TYPING_LAW.md Case 1: no pair in the real 10-pair matrix
+# failed 0.35, so no valid Type P record can be written for it at all):
 #
 # gate: egfr_c797s_contact_jaccard_same_ligand
 # type: U
 # description: same-ligand co-crystal pairs show contact-residue Jaccard >= 0.35 (threshold demonstrated non-discriminating: max observed different-ligand pair 0.70 > min same-ligand pair 0.47; all 10/10 pairs pass regardless of ligand identity)
 #
-# (Type U records do not need the negative_control_* fields -- there is
-# nothing to demonstrate a failure of, by construction.)
+# (Type U records do not need the negative_control_*/gate_operator fields
+# -- there is nothing to demonstrate a failure of, by construction.)
+#
+# WORKED VALID EXAMPLE -- a hypothetical gate whose control genuinely
+# fails, shown only so a reader can see what a checker-ACCEPTED Type P
+# record looks like (also commented out -- still not a live record for
+# this repo, since no such gate currently exists here):
+#
+# gate: hypothetical_example_gate
+# type: P
+# description: hypothetical property X measured >= 0.35 in the target case
+# negative_control_name: known case with no property X
+# negative_control_value: 0.10
+# gate_operator: >=
+# negative_control_threshold: 0.35
+# negative_control_result: FAIL
+#   <- ACCEPTED: 0.10 >= 0.35 evaluates False, consistent with FAIL.

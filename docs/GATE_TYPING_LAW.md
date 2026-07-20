@@ -4,10 +4,24 @@ Status: process rule (governance), ratified by the chair 2026-07-20/21. This
 is **not** a theorem and is not claimed as one. It does not prove anything
 about physics, biology, or this repo's own equations; it is a discipline for
 how *any* pass/fail threshold in *any* piece of work (in this repo or any
-sibling repo) is allowed to be reported. Treat it the way `docs/AI_READING_GUIDE.md`
-and `docs/VERIFIED_RUNS.md` are treated: binding on anyone citing a gate as
-evidence, re-checkable by running the script in this repo, silent about
-anything it wasn't built to check.
+sibling repo) is allowed to be reported.
+
+**What is human-enforced vs. machine-enforced -- do not conflate the two.**
+The *law itself* (the typing rule below, the burden-of-proof rule, "Type U
+must never appear in a headline verdict") binds every gate anywhere in this
+project's line of work, and enforcing that is a human/reviewer obligation --
+the same standing obligation that already makes `docs/AI_READING_GUIDE.md`'s
+"no numbers without an executed run" and `docs/VERIFIED_RUNS.md`'s dated-log
+requirement binding without a script that scans arbitrary prose for
+violations. The *script*, `scripts/check_gate_typing.py`, enforces a single,
+narrow, fully mechanical thing: that within one given declarations file,
+every record that types itself `P` carries a negative control whose recorded
+numbers actually, arithmetically, fail the gate's own stated threshold. It
+cannot detect a Type U gate being cited as evidence in a PR description, a
+paper, a different repo, or even a different file in this repo; it cannot
+judge whether a chosen negative control is representative or whether a
+threshold is well-chosen. Re-checkable by running the script; everything the
+script does not check is still binding, just not machine-checked yet.
 
 ## The law
 
@@ -149,12 +163,27 @@ gate: <short stable id, snake_case, used to detect duplicates>
 type: P            # or U -- no other value accepted
 description: <one line: what the gate checks and its threshold>
 negative_control_name: <required for Type P only>
-negative_control_value: <required for Type P only -- the actual recorded value>
-negative_control_threshold: <required for Type P only -- the gate's own threshold>
+negative_control_value: <required for Type P only -- the actual recorded value, a real number>
+gate_operator: >=  # required for Type P only -- one of >= > <= < == != ; the
+                   # comparison that DEFINES A PASS of the gate itself
+negative_control_threshold: <required for Type P only -- the gate's own threshold, a real number>
 negative_control_result: FAIL   # required for Type P only -- literally "FAIL", nothing else accepted
 ```
 
 Type U records need only `gate`, `type`, `description`.
+
+`gate_operator` + `negative_control_threshold` together state the gate's own
+pass condition precisely enough to compute with (e.g. a gate documented as
+"Jaccard >= 0.35 passes" declares `gate_operator: >=` and
+`negative_control_threshold: 0.35`). The checker does not take
+`negative_control_result: FAIL` on faith: it evaluates
+`gate_operator(negative_control_value, negative_control_threshold)` and
+rejects the record if that evaluates `True` -- i.e. if the "negative"
+control would actually pass the gate. See the worked counter-example in
+`gates/GATE_DECLARATIONS.txt`, which is the literal `0.70 >= 0.35`
+EGFR record from Case 1 below, marked `FAIL` and rejected by the checker
+for exactly that contradiction (an earlier version of this checker did not
+catch this; `scripts/test_check_gate_typing.py` now regression-tests it).
 
 ## Machine checker
 
@@ -166,29 +195,70 @@ Type U records need only `gate`, `type`, `description`.
   gates verified";
 - exits **1**, listing every problem found (not just the first), if any
   record declared `type: P` is missing `negative_control_name`,
-  `negative_control_value`, `negative_control_threshold`, or
-  `negative_control_result`, or if `negative_control_result` is anything
-  other than the literal string `FAIL`, or if `gate`/`type`/`description`
-  is missing, `type` is not exactly `P` or `U`, or a `gate` id repeats;
+  `negative_control_value`, `gate_operator`, `negative_control_threshold`, or
+  `negative_control_result`; if `negative_control_result` is anything other
+  than the literal string `FAIL`; if `gate_operator` is not one of
+  `>= > <= < == !=`; if `negative_control_value` or
+  `negative_control_threshold` does not parse as a finite number
+  (`"banana"`, `"not-a-number"` are rejected as non-numeric; `"nan"` and
+  `"inf"`/`"-inf"`/`"infinity"` are separately rejected even though
+  Python's `float()` parses them without raising -- a NaN or infinite
+  "recorded value" is not a real measurement, and NaN in particular
+  trivially satisfies "fails the gate" against almost any operator,
+  which would let a fabricated non-value pass as genuine -- found while
+  adversarially testing this checker against itself); if
+  **evaluating `gate_operator(negative_control_value,
+  negative_control_threshold)` is `True`** -- i.e. the recorded control
+  arithmetically passes the gate despite being labelled `FAIL`; if
+  `gate`/`type`/`description` is missing (including a field whose only
+  content is a Unicode format character such as U+200B ZERO WIDTH SPACE,
+  which is stripped before the presence check); if `type` is not exactly
+  `P` or `U`; or if a `gate` id repeats after Unicode NFKC-normalization +
+  casefold + a small documented table of common Cyrillic/Greek
+  Latin-lookalike substitutions (`_HOMOGLYPH_TO_ASCII` in the script --
+  NFKC + casefold alone do NOT catch cross-script homographs, since e.g.
+  Cyrillic 'а' has no NFKC decomposition to Latin 'a'; this is a finite
+  hand-picked table, not exhaustive UTS #39 confusable detection), so
+  `G1`/`g1` and the common homograph pairs it lists both count as the
+  same id;
 - exits **0** and prints a `Type P: N / Type U: M` summary, with a reminder
   that Type U gates must not be counted as evidence, if every declared
-  Type P record is fully evidenced.
+  Type P record is fully evidenced and arithmetically consistent.
 
-What it does **not** do, by design: it does not evaluate whether the
-negative control's recorded value is scientifically correct, whether the
-threshold itself is well-chosen, or whether the control genuinely lacks the
-property under test. That judgment is human (or reviewer-AI) work, the same
-way `docs/VERIFIED_RUNS.md` records a dated executed run without re-deriving
-the physics inside it. The checker only enforces the paperwork: a gate
-cannot claim Type P and simultaneously omit the evidence Type P requires.
+What it does **not** do, by design: it does not evaluate whether the chosen
+negative control is representative, whether the threshold itself is
+well-chosen, or whether the control genuinely lacks the property under test
+for reasons the numbers alone cannot show (e.g. a mislabeled structure).
+That judgment is human (or reviewer-AI) work, the same way
+`docs/VERIFIED_RUNS.md` records a dated executed run without re-deriving the
+physics inside it. Nor does it detect a Type U gate being cited as evidence
+somewhere the checker never looks -- a PR description, a paper, a different
+file. The checker enforces exactly two things, both mechanical: the
+paperwork (a Type P record has every required field, non-empty) and the
+arithmetic (the field values it *does* have are numeric and self-consistent
+with the FAIL label). Everything else the law requires remains a human
+obligation stated in this document, not a property the exit code certifies.
 
 ## CI wiring
 
-`scripts/ci_verify.sh` runs `scripts/check_gate_typing.py` as its final
-step (`5/5`), against the repo's own `gates/GATE_DECLARATIONS.txt`. On the
-current repo state this passes trivially (0 live gates declared) and says
-so in the CI log rather than passing silently -- see `docs/VERIFIED_RUNS.md`
-for the dated executed output.
+`scripts/ci_verify.sh` runs, as its last two steps:
+
+- `scripts/test_check_gate_typing.py` (`5/6`) -- the checker's own
+  self-test, driving `scripts/check_gate_typing.py` as a subprocess against
+  small fixture records and asserting the exit code (and, where it matters,
+  that the right problem is named) for: the EGFR-style arithmetic
+  contradiction (must be rejected), non-numeric values (must be rejected), a
+  genuinely failing control (must be accepted), duplicate ids under
+  case/homograph normalization (must be caught), a zero-width-space-only
+  field (must count as missing), and a missing declarations file (must be
+  the trivial pass). This runs on every CI invocation, not just once at
+  authoring time, so a future edit to the checker that reintroduces one of
+  these holes fails CI immediately.
+- `scripts/check_gate_typing.py gates/GATE_DECLARATIONS.txt` (`6/6`) -- the
+  real check against this repo's own declarations file. On the current repo
+  state this passes trivially (0 live gates declared) and says so in the CI
+  log rather than passing silently -- see `docs/VERIFIED_RUNS.md` for the
+  dated executed output.
 
 ## What this law does not do
 
