@@ -6,6 +6,14 @@ about physics, biology, or this repo's own equations; it is a discipline for
 how *any* pass/fail threshold in *any* piece of work (in this repo or any
 sibling repo) is allowed to be reported.
 
+This document and its checker have been through three rounds of independent
+adversarial review; each round found a real hole, not a cosmetic one, and
+each fix (and the finding that forced it) is recorded in the git history of
+this branch and in `scripts/test_check_gate_typing.py`'s docstring. Treat
+that as a feature, not an embarrassment to hide: a law about gates that must
+be able to fail should itself be able to fail review, and it did, three
+times, and was fixed each time rather than argued with.
+
 **What is human-enforced vs. machine-enforced -- do not conflate the two.**
 The *law itself* (the typing rule below, the burden-of-proof rule, "Type U
 must never appear in a headline verdict") binds every gate anywhere in this
@@ -15,13 +23,17 @@ the same standing obligation that already makes `docs/AI_READING_GUIDE.md`'s
 requirement binding without a script that scans arbitrary prose for
 violations. The *script*, `scripts/check_gate_typing.py`, enforces a single,
 narrow, fully mechanical thing: that within one given declarations file,
-every record that types itself `P` carries a negative control whose recorded
-numbers actually, arithmetically, fail the gate's own stated threshold. It
-cannot detect a Type U gate being cited as evidence in a PR description, a
-paper, a different repo, or even a different file in this repo; it cannot
-judge whether a chosen negative control is representative or whether a
-threshold is well-chosen. Re-checkable by running the script; everything the
-script does not check is still binding, just not machine-checked yet.
+every record that types itself `P` declares its gate's own pass predicate
+exactly once and that predicate, applied to the recorded control value,
+actually derives to "the gate does not pass". It cannot detect a Type U gate
+being cited as evidence in a PR description, a paper, a different repo, or
+even a different file in this repo; it cannot judge whether a chosen
+negative control is representative or whether a threshold is well-chosen;
+and -- named explicitly here, not just in the Format section below -- it
+cannot verify that the declared predicate is the gate's *real* pass
+condition as opposed to merely self-consistent with itself. Re-checkable by
+running the script; everything the script does not check is still binding,
+just not machine-checked yet.
 
 ## The law
 
@@ -160,30 +172,56 @@ Each record is a block of `key: value` lines:
 
 ```
 gate: <short stable id, snake_case, used to detect duplicates>
-type: P            # or U -- no other value accepted
-description: <one line: what the gate checks and its threshold>
+type: P                  # or U -- no other value accepted
+description: <one line: what the gate checks and its real pass condition>
 negative_control_name: <required for Type P only>
-negative_control_value: <required for Type P only -- the actual recorded value, a real number>
-gate_operator: >=  # required for Type P only -- one of >= > <= < == != ; the
-                   # comparison that DEFINES A PASS of the gate itself
-negative_control_threshold: <required for Type P only -- the gate's own threshold, a real number>
-negative_control_result: FAIL   # required for Type P only -- literally "FAIL", nothing else accepted
+negative_control_value: <required for Type P only -- the actual measured value, a real finite number>
+gate_passes_when: >= 0.35  # required for Type P only -- the GATE's OWN pass predicate,
+                            # declared ONCE, as "<operator> <threshold>";
+                            # operator one of >= > <= < == !=
+negative_control_result: FAIL   # OPTIONAL -- see "the control declares only its value" below
 ```
 
 Type U records need only `gate`, `type`, `description`.
 
-`gate_operator` + `negative_control_threshold` together state the gate's own
-pass condition precisely enough to compute with (e.g. a gate documented as
-"Jaccard >= 0.35 passes" declares `gate_operator: >=` and
-`negative_control_threshold: 0.35`). The checker does not take
-`negative_control_result: FAIL` on faith: it evaluates
-`gate_operator(negative_control_value, negative_control_threshold)` and
-rejects the record if that evaluates `True` -- i.e. if the "negative"
-control would actually pass the gate. See the worked counter-example in
-`gates/GATE_DECLARATIONS.txt`, which is the literal `0.70 >= 0.35`
-EGFR record from Case 1 below, marked `FAIL` and rejected by the checker
-for exactly that contradiction (an earlier version of this checker did not
-catch this; `scripts/test_check_gate_typing.py` now regression-tests it).
+**The control declares only its value; the gate declares its own predicate,
+once.** This is a deliberate design change (round 3 of this format) forced by
+a finding from the second independent-reviewer round. An earlier version of
+this format had the negative control declare its OWN `gate_operator`
+alongside a separately-declared `negative_control_threshold` -- which meant
+the control could pick *whichever* operator made its own arithmetic read
+`FAIL`, independent of what the gate's real pass condition actually is.
+Demonstrated concretely: a gate genuinely documented as "score `>= 0.80`
+passes", with a control value of `0.95` -- which plainly *passes* the real
+gate -- could still be declared `gate_operator: <=` against the same `0.80`
+threshold, arithmetically self-consistent, and pass the checker. Under the
+current format that attack is **not expressible**: there is exactly one
+operator per gate (`gate_passes_when`, attached to the gate, not the
+control), so a record cannot declare a different one for its own control.
+The checker evaluates `gate_passes_when` at `negative_control_value` and
+**derives** whether the control fails the gate -- it does not read a
+self-declared result as input. `negative_control_result`, if present at all,
+is only cross-checked against that derived value, never consulted to compute
+it; a record with no `negative_control_result` field is equally valid.
+
+See the worked counter-examples in `gates/GATE_DECLARATIONS.txt`: the
+literal `0.70` vs `>= 0.35` EGFR record from Case 1 (round-1 finding), and
+the `0.95` vs `>= 0.80` operator-choice attack (round-3 finding) -- both
+rejected by the current checker, both regression-tested in
+`scripts/test_check_gate_typing.py`.
+
+**Residual, unfixable risk (named explicitly, not folded into "what it does
+not do" below -- this is the chair's own required framing).** Removing the
+operator-choice degree of freedom does not make the checker omniscient: it
+verifies that a record is *internally self-consistent* -- that its own
+`gate_passes_when`, applied to its own `negative_control_value`, derives to
+"the gate does not pass". It **cannot** verify that `gate_passes_when`
+itself is the gate's *real* pass condition as stated in the gate's own
+`description` prose. Someone can still write a `description` that says one
+thing and a `gate_passes_when` that says another, self-consistently, and the
+checker will accept it. **A reviewer must confirm the declared
+`gate_passes_when` predicate is the gate's actual pass condition** -- that
+is a named human-review obligation, not a gap this tool closes or claims to.
 
 ## Machine checker
 
@@ -195,35 +233,42 @@ catch this; `scripts/test_check_gate_typing.py` now regression-tests it).
   gates verified";
 - exits **1**, listing every problem found (not just the first), if any
   record declared `type: P` is missing `negative_control_name`,
-  `negative_control_value`, `gate_operator`, `negative_control_threshold`, or
-  `negative_control_result`; if `negative_control_result` is anything other
-  than the literal string `FAIL`; if `gate_operator` is not one of
-  `>= > <= < == !=`; if `negative_control_value` or
-  `negative_control_threshold` does not parse as a finite number
-  (`"banana"`, `"not-a-number"` are rejected as non-numeric; `"nan"` and
-  `"inf"`/`"-inf"`/`"infinity"` are separately rejected even though
-  Python's `float()` parses them without raising -- a NaN or infinite
-  "recorded value" is not a real measurement, and NaN in particular
-  trivially satisfies "fails the gate" against almost any operator,
-  which would let a fabricated non-value pass as genuine -- found while
-  adversarially testing this checker against itself); if
-  **evaluating `gate_operator(negative_control_value,
-  negative_control_threshold)` is `True`** -- i.e. the recorded control
-  arithmetically passes the gate despite being labelled `FAIL`; if
-  `gate`/`type`/`description` is missing (including a field whose only
-  content is a Unicode format character such as U+200B ZERO WIDTH SPACE,
-  which is stripped before the presence check); if `type` is not exactly
-  `P` or `U`; or if a `gate` id repeats after Unicode NFKC-normalization +
-  casefold + a small documented table of common Cyrillic/Greek
-  Latin-lookalike substitutions (`_HOMOGLYPH_TO_ASCII` in the script --
-  NFKC + casefold alone do NOT catch cross-script homographs, since e.g.
-  Cyrillic 'а' has no NFKC decomposition to Latin 'a'; this is a finite
-  hand-picked table, not exhaustive UTS #39 confusable detection), so
-  `G1`/`g1` and the common homograph pairs it lists both count as the
-  same id;
+  `negative_control_value`, or `gate_passes_when`; if `gate_passes_when` is
+  not formatted as one operator (`>= > <= < == !=`) followed by a finite
+  number; if `negative_control_value` or the threshold inside
+  `gate_passes_when` does not parse as a finite number (`"banana"`,
+  `"not-a-number"` are rejected as non-numeric; `"nan"` and
+  `"inf"`/`"-inf"`/`"infinity"` are separately rejected even though Python's
+  `float()` parses them without raising -- a NaN or infinite "recorded
+  value" is not a real measurement, and NaN in particular trivially
+  satisfies "fails the gate" against almost any operator, which would let a
+  fabricated non-value pass as genuine -- found while adversarially testing
+  this checker against itself); if **evaluating `gate_passes_when` at
+  `negative_control_value` is `True`** -- i.e. the recorded control
+  arithmetically SATISFIES the gate's own declared predicate, regardless of
+  any `negative_control_result` label; if `negative_control_result` is
+  present but is not the literal string `FAIL` (the field is optional and
+  never read to compute the result -- only cross-checked against the
+  derived value, if present at all); if `gate`/`type`/`description` is
+  missing (including a field whose only content renders blank: ordinary
+  whitespace, Unicode format/control/combining-mark characters (categories
+  Cf, Cc, Mn, Me -- e.g. U+200B ZERO WIDTH SPACE), or the Hangul filler
+  family (U+115F, U+1160, U+3164, U+FFA0), all of which are stripped before
+  the presence check); if `type` is not exactly `P` or `U`; or if a `gate`
+  id repeats after Unicode NFKC-normalization, a homoglyph substitution pass
+  applied BEFORE casefold, then casefold (`_HOMOGLYPH_TO_ASCII` in the
+  script, listing both upper- and lower-case Cyrillic/Greek Latin-lookalike
+  forms explicitly -- applying the table only after casefold was a round-2
+  bug: `casefold('К' U+041A) == 'к' U+043A`, a different character absent
+  from a lowercase-only table, so the classic uppercase confusable set К М
+  Н Т В silently passed through unmapped; verified directly before fixing
+  it, and regression-tested with the exact `SOME_KEY_GATE` /
+  `SOME_КEY_GATE` pair), so `G1`/`g1` and the homoglyph pairs the table
+  lists, in either case, both count as the same id;
 - exits **0** and prints a `Type P: N / Type U: M` summary, with a reminder
   that Type U gates must not be counted as evidence, if every declared
-  Type P record is fully evidenced and arithmetically consistent.
+  Type P record's own predicate, applied to its own control, derives to
+  "gate does not pass".
 
 What it does **not** do, by design: it does not evaluate whether the chosen
 negative control is representative, whether the threshold itself is
@@ -233,10 +278,23 @@ That judgment is human (or reviewer-AI) work, the same way
 `docs/VERIFIED_RUNS.md` records a dated executed run without re-deriving the
 physics inside it. Nor does it detect a Type U gate being cited as evidence
 somewhere the checker never looks -- a PR description, a paper, a different
-file. The checker enforces exactly two things, both mechanical: the
-paperwork (a Type P record has every required field, non-empty) and the
-arithmetic (the field values it *does* have are numeric and self-consistent
-with the FAIL label). Everything else the law requires remains a human
+file.
+
+**Named separately, because it is the sharpest remaining gap and folding it
+into the paragraph above would read as hiding it:** the checker cannot
+verify that `gate_passes_when` matches the gate's *real* pass condition as
+described in the gate's own `description` prose. It only verifies that the
+record is internally self-consistent -- that the declared predicate, applied
+to the declared control value, derives to a fail. A reviewer must
+independently confirm the declared `gate_passes_when` is actually what the
+gate does; the checker has no way to read intent out of prose and does not
+attempt to.
+
+The checker enforces exactly two things, both mechanical: the paperwork (a
+Type P record has every required field, non-empty, and declares its
+predicate in exactly one place) and the arithmetic (the gate's own predicate,
+applied to its own control's value, derives to a fail). Everything else the
+law requires -- including the residual risk named above -- remains a human
 obligation stated in this document, not a property the exit code certifies.
 
 ## CI wiring
@@ -246,14 +304,20 @@ obligation stated in this document, not a property the exit code certifies.
 - `scripts/test_check_gate_typing.py` (`5/6`) -- the checker's own
   self-test, driving `scripts/check_gate_typing.py` as a subprocess against
   small fixture records and asserting the exit code (and, where it matters,
-  that the right problem is named) for: the EGFR-style arithmetic
-  contradiction (must be rejected), non-numeric values (must be rejected), a
-  genuinely failing control (must be accepted), duplicate ids under
-  case/homograph normalization (must be caught), a zero-width-space-only
-  field (must count as missing), and a missing declarations file (must be
-  the trivial pass). This runs on every CI invocation, not just once at
-  authoring time, so a future edit to the checker that reintroduces one of
-  these holes fails CI immediately.
+  that the right problem is named). 26 assertions across every finding from
+  three independent-review rounds: the EGFR-style arithmetic contradiction,
+  the round-3 operator-choice attack (rejected -- no longer expressible),
+  `negative_control_result` being derived rather than trusted (a lying
+  result field is still rejected; the field being absent entirely is still
+  accepted), non-numeric and non-finite (`nan`/`inf`) values, a genuinely
+  failing control and a bare Type U record (both accepted -- the checker
+  isn't just rejecting everything), duplicate ids under ASCII-case and
+  lowercase-homograph normalization, the round-3 uppercase-Cyrillic
+  homograph pair (`SOME_KEY_GATE` / `SOME_КEY_GATE`), the round-3 widened
+  invisible-character set (U+3164 HANGUL FILLER and U+00A0 NBSP, neither of
+  which is category Cf), and a missing declarations file. This runs on
+  every CI invocation, not just once at authoring time, so a future edit to
+  the checker that reintroduces one of these holes fails CI immediately.
 - `scripts/check_gate_typing.py gates/GATE_DECLARATIONS.txt` (`6/6`) -- the
   real check against this repo's own declarations file. On the current repo
   state this passes trivially (0 live gates declared) and says so in the CI
