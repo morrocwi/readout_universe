@@ -1,0 +1,51 @@
+# Gate declarations for this repo -- checked by scripts/check_gate_typing.py
+# and documented in docs/GATE_TYPING_LAW.md. Read that file first; this one
+# is data, not prose.
+#
+# There are currently NO live gates declared in readout_universe itself
+# (the tier discipline in CLAIMS.md / docs/AI_READING_GUIDE.md already
+# does the equivalent job for this repo's own claims via executed-run
+# citation, not a pass/fail threshold gate). This file exists so that:
+#   (a) the format is documented in one real, parseable place, not just
+#       prose in the law doc, and
+#   (b) any future threshold-style gate added to this repo (or copied
+#       into a sibling repo) has a place to declare its type honestly
+#       before it ships.
+#
+# FORMAT (plain text, no YAML/JSON dependency -- see the parser docstring
+# in scripts/check_gate_typing.py for the exact rules):
+#   - '#' lines are comments, stripped before parsing.
+#   - Records are separated by one or more blank lines.
+#   - Each record is a block of "key: value" lines.
+#   - Required on every record: gate, type, description.
+#   - type is exactly "P" (physical content) or "U" (unit/convention).
+#     Default assumption for any gate with no record here at all: Type U
+#     (see docs/GATE_TYPING_LAW.md -- the burden is on the claimant).
+#   - Type P additionally requires: negative_control_name,
+#     negative_control_value, negative_control_threshold,
+#     negative_control_result (must be the literal string "FAIL").
+#
+# WORKED EXAMPLE -- commented out, illustrative only, not a live record.
+# This is how the EGFR C797S contact-residue-Jaccard gate from
+# docs/GATE_TYPING_LAW.md would have to be declared to legitimately claim
+# Type P. It could NOT actually be declared this way, because no pair in
+# the real 10-pair matrix failed 0.35 -- which is exactly the finding
+# that forces it to Type U instead. Shown here only as a format sample:
+#
+# gate: egfr_c797s_contact_jaccard_same_ligand
+# type: P
+# description: same-ligand co-crystal pairs show contact-residue Jaccard >= 0.35
+# negative_control_name: different-ligand pair, osimertinib vs brigatinib
+# negative_control_value: 0.70
+# negative_control_threshold: 0.35
+# negative_control_result: FAIL
+#
+# -- the real record would instead read (and SHOULD be filed this way if
+# this gate is ever reused, per docs/GATE_TYPING_LAW.md Worked Example 1):
+#
+# gate: egfr_c797s_contact_jaccard_same_ligand
+# type: U
+# description: same-ligand co-crystal pairs show contact-residue Jaccard >= 0.35 (threshold demonstrated non-discriminating: max observed different-ligand pair 0.70 > min same-ligand pair 0.47; all 10/10 pairs pass regardless of ligand identity)
+#
+# (Type U records do not need the negative_control_* fields -- there is
+# nothing to demonstrate a failure of, by construction.)
