@@ -2,7 +2,8 @@
 
 **Status:** `finite_diagnostic`  
 **Read–Write Cut interpretation:** `Dr`  
-**Unified DRL + cut mechanism:** `Open`
+**Exact algebra:** finite positive-flow balance and finite linear elimination  
+**Unified DRL + cut + tape mechanism:** `Open`
 
 ## 1. Purpose
 
@@ -15,6 +16,12 @@ behind it:
 The cut is not assumed to be gravitational. It can represent memory,
 forgetting, secrecy, a sensor boundary, an absorbing subsystem, a failed
 return channel, a horizon, or any other asymmetric retained relation.
+
+Canonical architecture and discovery ledgers:
+
+- `v2/urr/URR_CUT_EXTENSION.md`
+- `v2/urr/URR_C_MASTER.yaml`
+- `v2/urr/URR_C_DISCOVERIES.md`
 
 ## 2. Finite retained-flow realization
 
@@ -61,7 +68,9 @@ The smoke-test equations are
 }
 \]
 
-The generator has zero column sums, hence
+The negative diagonal terms are not optional decoration. They balance the
+quantity written out of the source sector. The generator therefore has zero
+column sums, hence
 
 \[
 \boxed{
@@ -70,37 +79,58 @@ The generator has zero column sums, hence
 }
 \]
 
-This conservation statement is exact for this finite model.
+This conservation statement is exact for this finite positive-flow model.
 
-## 3. Relation to URR-C
+## 3. Relation to the canonical URR-C master equation
 
-The candidate native extension is
+Let \(\mathsf O_\alpha\) project onto the directly readable sector and
+\(\mathsf H_\alpha=I-\mathsf O_\alpha\) onto the retained hidden sector.
+The balanced candidate cut flux is
+
+\[
+\boxed{
+\begin{aligned}
+\mathcal J_{C,\alpha}[X]
+={}&
+\mathsf H_\alpha W_\alpha\mathsf O_\alpha X
+-
+\mathsf O_\alpha\Lambda_{W,\alpha}\mathsf O_\alpha X
+\\
+&+
+\mathsf O_\alpha R_\alpha\mathsf H_\alpha X
+-
+\mathsf H_\alpha
+(\Lambda_{R,\alpha}+\Lambda_{T,\alpha})
+\mathsf H_\alpha X.
+\end{aligned}
+}
+\]
+
+The canonical master architecture is
 
 \[
 \boxed{
 \begin{gathered}
 \delta_R\Longrightarrow\mathscr H_T,
-\qquad X=(\Phi,\Psi)^\top,
+\qquad
+X=(\Phi,\Psi)^\top,
 \\
 \frac{\delta S_{\rm DRL}}{\delta X}
-=
-\mathcal C_\alpha X,
+=\mathcal J_{C,\alpha}[X],
 \\
-\mathcal C_\alpha
-=
-\mathsf H_\alpha W_\alpha\mathsf O_\alpha
-+
-\mathsf O_\alpha R_\alpha\mathsf H_\alpha,
+\mathcal T_{n+1}
+=\mathcal T_n\oplus\Lambda_{T,\alpha}\mathsf H_\alpha X_n,
 \\
-P_\alpha
-=
-\Pi_\alpha(A_\alpha\mathsf O_\alpha X-\delta_\alpha).
+r_\alpha=A_\alpha\mathsf O_\alpha X-\delta_\alpha,
+\qquad
+P_\alpha=\Pi_\alpha(r_\alpha).
 \end{gathered}
 }
 \]
 
-AP15 does **not** claim that the retained-flow generator has been derived from
-\(S_{\rm DRL}\). It is a finite smoke-test realization of the cut layer.
+AP15 does **not** claim that the retained-flow generator or the balanced cut
+operator has been derived from \(S_{\rm DRL}\). It is a finite smoke-test
+realization of the new cut layer.
 
 ## 4. Exact elimination and memory
 
@@ -126,27 +156,31 @@ Substitution gives
 \dot q_O(t)
 =-\Lambda_Oq_O(t)
 +Re^{-\Lambda_Ht}q_H(0)
-+\int_0^t Re^{-\Lambda_H(t-s)}Wq_O(s)\,ds
++\int_0^t K_{\rm mem}(t-s)q_O(s)\,ds
 }
 \]
 
 with
 
 \[
+\boxed{
+K_{\rm mem}(u)=Re^{-\Lambda_Hu}W,
+\qquad
 \Lambda_O=\operatorname{diag}(\mathbf1^\top W).
+}
 \]
 
 Therefore:
 
-- \(R=0\) gives exact visible damping with no return;
+- \(R=0\) gives exact visible damping with no return in this finite model;
 - \(R>0\) gives a return-memory kernel;
-- weak \(R\) gives a leaky horizon;
+- weak \(R\) gives a leaky cut;
 - \(R=W^\top\) gives a reciprocal cut.
 
 This is an algebraic result for the finite linear realization, not a universal
 physics theorem.
 
-## 5. Horizon index
+## 5. Horizon/asymmetry index
 
 \[
 \boxed{
@@ -181,10 +215,18 @@ The finite observability matrix is
 \mathcal O_C=(C^\top,(CA)^\top,\ldots,(CA^{d-1})^\top)^\top.
 \]
 
-The test checks that reciprocal return makes hidden states dynamically
-observable, while a one-way cut leaves the hidden sector structurally
-unobservable. The append-only tape remains unobservable because it has no
-return channel.
+For the recorded AP15 matrices:
+
+| Case | Rank | Nullity |
+|---|---:|---:|
+| reciprocal | 6 | 1 |
+| leaky | 6 | 1 |
+| one-way | 3 | 4 |
+
+Reciprocal and leaky return expose the three hidden working directions through
+their future influence on the readable sector. The append-only tape remains
+unobservable because it has no return edge. The one-way cut leaves the hidden
+working directions and tape in the dynamical readout null space.
 
 Thus
 
@@ -192,16 +234,37 @@ Thus
 \boxed{\text{directly unreadable}\neq\text{destroyed}.}
 \]
 
-## 7. Tested cases
+## 7. Append-only tape result
+
+For nonnegative hidden quantity and \(\ell\ge0\),
+
+\[
+\dot q_T=\ell^\top q_H\ge0.
+\]
+
+The hidden working sector itself need not grow monotonically because it can
+write onward into the tape. In the recorded case,
+
+\[
+q_O=0.0107627442,
+\qquad
+q_H=0.6978201446,
+\qquad
+q_T=0.2914171112
+\]
+
+at the final time.
+
+## 8. Tested cases
 
 1. closed control: \(W=R=0\);
 2. reciprocal cut: \(W\neq0, R=W^\top\);
-3. one-way horizon: \(W\neq0, R=0\);
-4. leaky horizon: \(W\neq0, 0<R\ll W\);
-5. one-way horizon with append-only tape;
+3. one-way cut: \(W\neq0, R=0\);
+4. leaky cut: \(W\neq0, 0<R\ll W\);
+5. one-way cut with append-only tape;
 6. source-like reverse channel: \(W=0, R\neq0\).
 
-## 8. Recorded result
+## 9. Recorded result
 
 ```text
 verdict: PASS
@@ -216,19 +279,34 @@ tape final quantity: 0.29141711121520486
 max total-retention error: 5.10702591327572e-15
 ```
 
-## 9. Binding claim boundary
+## 10. Discoveries supported by this artifact
+
+AP15 supports the following only at the tiers recorded in
+`v2/urr/URR_C_DISCOVERIES.md`:
+
+1. readable loss can coexist with exact total retention;
+2. a one-way cut gives visible damping in the finite flow realization;
+3. a return channel gives a memory kernel;
+4. return changes observability and nullity;
+5. append-only tape can remain retained outside direct readout;
+6. horizon-ness can be represented as channel asymmetry;
+7. black-hole language is only one optional special-case interpretation.
+
+## 11. Binding claim boundary
 
 ```yaml
 finite_model_conservation: exact_algebra
 hidden_elimination_identity: exact_algebra
+R_zero_visible_damping: exact_algebra_in_AP15_scope
 runtime_checks: finite_diagnostic
 read_write_cut_interpretation: Dr
-unified_DRL_cut_action: Open
+balanced_cut_flux_from_DRL_action: Open
+unified_DRL_cut_tape_action: Open
 black_hole_derivation: not_claimed
 universal_linearity: not_claimed
 ```
 
-## 10. Run
+## 12. Run
 
 ```bash
 python ap/ap15_read_write_cut.py \
