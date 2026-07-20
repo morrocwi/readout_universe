@@ -1,5 +1,5 @@
 system: URR
-version: 0.1.0-native
+version: 0.2.0-cut-candidate
 binding_rule: "Never promote a claim above its evidence tier."
 
 tiers:
@@ -28,6 +28,31 @@ native_core:
     tier: definition
     claim: "binary distinguishable retained alternative under explicit policy"
 
+cut_extension:
+  accessible_projector:
+    tier: definition
+    claim: "O_alpha selects the sector directly accessible to readout alpha"
+  hidden_projector:
+    tier: definition
+    claim: "H_alpha = I - O_alpha selects retained but directly inaccessible directions"
+  read_write_cut:
+    tier: Dr
+    claim: "C_alpha = H_alpha W_alpha O_alpha + O_alpha R_alpha H_alpha separates write and return channels"
+  horizon_index:
+    tier: definition
+    claim: "chi_alpha = ||W||/(||W||+||R||+epsilon) is a policy-dependent channel-asymmetry readout"
+  finite_flow_conservation:
+    tier: exact_algebra
+    scope: "AP15 linear nonnegative retained-flow generator with zero column sums"
+  hidden_elimination_memory_identity:
+    tier: exact_algebra
+    scope: "AP15 finite linear no-tape realization"
+  unified_drl_cut_action:
+    tier: Open
+    stance: positive
+    claim: "derive or reject the cut operator from one variational native action"
+    falsifier: "show inconsistency with DRL variation or prove that any required directed cut cannot arise in the declared action class"
+
 candidate_novelty:
   - id: N1
     tier: Open
@@ -49,6 +74,11 @@ candidate_novelty:
     stance: positive
     claim: "native AI contract unifies DRL, readout, identifiability, tier control, and rbit bridges"
     falsifier: "find a prior equivalent end-to-end native contract"
+  - id: N5
+    tier: Open
+    stance: positive
+    claim: "URR-C joins retained accessibility, directed write/return cuts, dynamical null spaces, and append-only retention in one native readout architecture"
+    falsifier: "find a prior equivalent conjunction or show that the cut adds no content beyond standard state-space decomposition"
 
 not_individually_novel:
   - graph Laplacian
@@ -58,6 +88,9 @@ not_individually_novel:
   - Landauer erasure bound
   - covariance-weighted least squares
   - matrix rank and null-space analysis
+  - linear compartment or Markov flow models
+  - observability matrices
+  - memory kernels obtained by eliminating hidden variables
 
 experiments:
   AP13:
@@ -77,8 +110,21 @@ experiments:
       - "cosmology is not derived from URR"
       - "full DESI CMB+SN likelihood is not reproduced"
       - "dynamical dark energy is not claimed as discovered"
+  AP15:
+    tier: finite_diagnostic
+    architecture_tier: Dr
+    adapter: "general read-write cut retained-flow smoke test"
+    result: PASS
+    exact_within_model:
+      - "total retention from zero generator column sums"
+      - "hidden-sector elimination identity"
+    nonclaims:
+      - "the cut is not derived from the DRL action"
+      - "black-hole dynamics are not derived"
+      - "all real systems are not claimed to be linear retained-flow systems"
 
 open:
   - "mechanistic reader-to-record handoff in the linear DRL"
   - "unified action for DRL and append-only tape"
+  - "unified action for DRL and directed read-write cuts"
   - "external peer review of the novelty conjunction"
