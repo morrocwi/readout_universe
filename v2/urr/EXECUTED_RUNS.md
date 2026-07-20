@@ -25,12 +25,9 @@ pairing-charge relative drift: 7.4358593633583325e-06
 tape conservation total error: 7.549516567451064e-15
 ```
 
-Machine-readable record:
-`v2/urr/results/smoke_report.json`.
+Machine-readable record: `v2/urr/results/smoke_report.json`.
 
 ## AP13 full FPUT run
-
-Command:
 
 ```bash
 python ap/ap13_urr_fput.py --full \
@@ -49,12 +46,9 @@ DRL observed order: 2.000024997286302
 DRL pairing-charge relative drift: 3.292722445071873e-10
 ```
 
-Canonical record:
-`ap/results/AP13_FPUT_RESULTS.json`.
+Canonical record: `ap/results/AP13_FPUT_RESULTS.json`.
 
 ## AP14 full DESI DR2 run
-
-Command:
 
 ```bash
 python ap/ap14_urr_desi_dr2.py --full \
@@ -73,12 +67,9 @@ CPL best fit: [0.3866058050, 91.24965832, -0.17883402, -2.71667347]
 CPL Fisher condition number: 1.1986937389955192e6
 ```
 
-Canonical record:
-`ap/results/AP14_DESI_DR2_RESULTS.json`.
+Canonical record: `ap/results/AP14_DESI_DR2_RESULTS.json`.
 
 ## AP15 Read–Write Cut smoke test
-
-Command:
 
 ```bash
 python ap/ap15_read_write_cut.py \
@@ -107,24 +98,61 @@ Runtime interpretation:
 - the finite generator conserves total retained quantity to floating-point
   precision;
 - a return channel reduces the recorded dynamical readout null space;
-- a one-way cut follows the exact visible-sector damping equation of the
-  declared finite linear model;
-- a tape with nonnegative write rates is append-only;
-- the hidden working sector need not be monotone when it writes onward into the
-  tape;
-- these results do not derive black-hole dynamics or the balanced cut operator
-  from the DRL action.
+- a one-way cut follows exact visible damping in the declared finite model;
+- positive tape writes are append-only;
+- these results do not derive black-hole dynamics or the cut from DRL.
 
-Canonical records and equations:
+Canonical records:
 
 - `ap/results/AP15_READ_WRITE_CUT_RESULTS.json`
 - `v2/urr/URR_CUT_EXTENSION.md`
-- `v2/urr/URR_C_MASTER.yaml`
 - `v2/urr/URR_C_DISCOVERIES.md`
 
-## Evidence-tier rule
+## AP17 Return Transformation and Physical Readability
 
-The following distinction is binding:
+```bash
+python ap/ap17_return_transformation.py \
+  --output ap/results/AP17_RETURN_TRANSFORMATION_RESULTS.json
+```
+
+Recorded result:
+
+```text
+verdict: PASS
+transformed-return rank: 2
+distance from identity: 1.222171974564525
+noiseless decoder error: 2.289691319182597e-16
+Gaussian readable information: 7.825375266365017 rbit
+partial-return rank/nullity: 1 / 1
+no-return readable information: 0 rbit
+echo time: 0.885
+echo amplitude: 0.8972693231816911
+hidden-elimination max residual: 6.189493362285248e-15
+finite-window rank: 1 -> 2 -> 3
+```
+
+Runtime interpretation:
+
+- a return map can differ strongly from the identity while a declared decoder
+  reconstructs the noiseless encoded input;
+- a rank-deficient return preserves only a subspace;
+- a zero return kernel gives zero readable information under the declared
+  linear-Gaussian channel;
+- a hidden cross-coordinate response can produce a delayed echo;
+- a longer observation window can turn an instantaneous null direction into a
+  dynamically observable direction;
+- the full block dynamics and exact hidden-elimination memory identity agree to
+  floating-point precision.
+
+Canonical records:
+
+- `ap/AP17_RETURN_TRANSFORMATION_READABILITY.md`
+- `ap/ap17_return_transformation.py`
+- `ap/results/AP17_RETURN_TRANSFORMATION_RESULTS.json`
+- `v2/urr/URR_C_MASTER_0_4.md`
+- `v2/urr/URR_C_MASTER_0_4.yaml`
+
+## Evidence-tier rule
 
 ```text
 exact_algebra in a declared model
@@ -135,11 +163,10 @@ exact_algebra in a declared model
 
 ## Reproduction rule
 
-A rerun may differ in the final few digits because of library, platform, and
-optimizer differences. A material change requires:
+A material rerun change requires:
 
-1. saving the new JSON and CSV where relevant;
-2. recording package versions and command;
+1. saving the new machine-readable artifacts;
+2. recording package versions and the command;
 3. comparing against the canonical result;
-4. explaining whether the difference is numerical, implementation-related,
-   or a genuine falsification.
+4. explaining whether the change is numerical, implementation-related, or a
+   genuine falsification.
