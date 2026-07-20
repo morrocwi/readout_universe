@@ -73,12 +73,50 @@ CPL Fisher condition number: 1.1986937389955192e6
 Canonical record:
 `ap/results/AP14_DESI_DR2_RESULTS.json`.
 
+## AP15 Read–Write Cut smoke test
+
+Command:
+
+```bash
+python ap/ap15_read_write_cut.py \
+  --output ap/results/AP15_READ_WRITE_CUT_RESULTS.json
+```
+
+Recorded result:
+
+```text
+verdict: PASS
+one-way horizon index: 0.9999999999999973
+reciprocal horizon index: 0.4999999999999993
+leaky horizon index: 0.9523809523809499
+one-way observability nullity: 4
+reciprocal observability nullity: 1
+one-way final visible quantity: 0.010762744228616037
+one-way final hidden quantity: 0.9892372557713833
+tape final quantity: 0.29141711121520486
+max total-retention error: 5.10702591327572e-15
+```
+
+Interpretation:
+
+- the finite generator conserves total retained quantity to floating-point
+  precision;
+- a return channel reduces the dynamical readout null space;
+- a one-way cut produces exact visible-sector damping in the finite linear
+  model;
+- a tape with nonnegative write rates is append-only;
+- these are not a derivation of black-hole dynamics or of the cut term from the
+  DRL action.
+
+Canonical record:
+`ap/results/AP15_READ_WRITE_CUT_RESULTS.json`.
+
 ## Reproduction rule
 
 A rerun may differ in the final few digits because of library, platform, and
 optimizer differences. A material change requires:
 
-1. saving the new JSON and CSV;
+1. saving the new JSON and CSV where relevant;
 2. recording package versions and command;
 3. comparing against the canonical result;
 4. explaining whether the difference is numerical, implementation-related,
