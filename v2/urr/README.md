@@ -23,8 +23,9 @@ relativity, and every other domain model remain external adapters.
 7. [`URR_C_DISCOVERIES.md`](URR_C_DISCOVERIES.md) — version 0.3 D0–D8 discovery development.
 8. [`URR_CUT_EXTENSION.md`](URR_CUT_EXTENSION.md) — version 0.3 cut and AP15 background.
 9. [`KNOWLEDGE_MAP.md`](KNOWLEDGE_MAP.md) — dependency and evidence map.
-10. [`urr_system_spec.yaml`](urr_system_spec.yaml) and [`urr_reference_runner.py`](urr_reference_runner.py) — original DRL runner contract.
-11. AP13–AP17 in [`../../ap/`](../../ap/) — external and structural benchmarks.
+10. [`URR_C_COQ_FORMAL_CHAIN.md`](URR_C_COQ_FORMAL_CHAIN.md) and [`URR_C_COQ_FORMAL_CHAIN.yaml`](URR_C_COQ_FORMAL_CHAIN.yaml) — formal bridge draft from retained difference to the typed master architecture.
+11. [`urr_system_spec.yaml`](urr_system_spec.yaml) and [`urr_reference_runner.py`](urr_reference_runner.py) — original DRL runner contract.
+12. AP13–AP18 in [`../../ap/`](../../ap/) — external, structural, and physical-adapter benchmarks.
 
 ## Master structure
 
@@ -102,7 +103,8 @@ The binding ledger now records:
 5. a transformed return can remain reconstructable;
 6. physical readability depends on time window, readout, noise, encoder, and decoder;
 7. zero return in one finite protocol does not prove permanent destruction;
-8. a gravitational black-hole classification requires an external causal and geometric horizon certificate.
+8. a gravitational black-hole classification requires an external causal and geometric horizon certificate;
+9. AP18 maps the cut–return–readability layer to an ideal two-capacitor RC circuit while keeping charge retention distinct from electrical-energy dissipation.
 
 ## Install and run
 
@@ -115,22 +117,25 @@ python ap/ap15_read_write_cut.py \
   --output ap/results/AP15_READ_WRITE_CUT_RESULTS.json
 python ap/ap17_return_transformation.py \
   --output ap/results/AP17_RETURN_TRANSFORMATION_RESULTS.json
+python ap/ap18_rc_memory_cell.py \
+  --output ap/results/AP18_RC_MEMORY_CELL_RESULTS.json
 ```
 
-## AP17 recorded result
+## AP18 recorded result
 
 ```text
 verdict: PASS
-transformed-return rank: 2
-distance from identity: 1.222171974564525
-noiseless decoder error: 2.289691319182597e-16
-Gaussian readable information: 7.825375266365017 rbit
-partial-return rank/nullity: 1 / 1
-zero-return readable information: 0 rbit
-echo time: 0.885
-hidden-elimination residual: 6.189493362285248e-15
-finite-window rank: 1 -> 2 -> 3
+numerical vs matrix exponential: 5.062616992290714e-13 V
+relative charge-retention error: 1.0842021724855044e-15
+relative energy-accounting error: 1.6666663917030977e-07
+hidden-elimination residual: 5.2081678081350447e-08 V/s
+observability rank: 2
+maximum hidden-to-visible signal: 0.49997730003511887 V
 ```
+
+AP18 is an executed ideal-circuit calculation, not yet a physical bench
+measurement. It tests the linear cut–return–memory/readability adapter, not the
+inertial DRL term or an ontic interpretation of `Psi`.
 
 ## Binding boundary
 
@@ -140,4 +145,5 @@ finite-window rank: 1 -> 2 -> 3
 - Linear-Gaussian readability is exact only under its declared distribution and noise assumptions.
 - A finite window cannot prove that return is impossible forever.
 - A native one-way cut does not derive a gravitational black hole.
+- AP18 is an ideal-circuit execution; hardware validation remains open.
 - All runtime outputs remain `finite_diagnostic`.
