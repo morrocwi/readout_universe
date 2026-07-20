@@ -1,0 +1,51 @@
+name: Materialize closeout archive
+
+on:
+  push:
+    branches:
+      - closeout/universal-readout-3of3-20260720
+    paths:
+      - '.closeout-upload/READY'
+
+permissions:
+  contents: write
+
+jobs:
+  materialize:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Reconstruct verified archive
+        shell: bash
+        run: |
+          set -euo pipefail
+          cat .closeout-upload/chunk_*.b64 | base64 --decode > /tmp/readout_universe_closeout_20260720.tar.gz
+          echo '9642a9a4510d7d51e984356ad124b77ab01926164c6c0bf50e838f9eccf6aecb  /tmp/readout_universe_closeout_20260720.tar.gz' | sha256sum -c -
+          mkdir -p /tmp/closeout
+          tar -xzf /tmp/readout_universe_closeout_20260720.tar.gz -C /tmp/closeout
+          test -d /tmp/closeout/readout_universe_closeout
+          cp -a /tmp/closeout/readout_universe_closeout/. ./
+          mkdir -p archive
+          cp /tmp/readout_universe_closeout_20260720.tar.gz archive/
+          cat > archive/README.md <<'EOF'
+          # Project closeout archive
+
+          `readout_universe_closeout_20260720.tar.gz` contains the complete 56-file closeout payload used for this commit.
+
+          SHA-256: `9642a9a4510d7d51e984356ad124b77ab01926164c6c0bf50e838f9eccf6aecb`
+
+          The same files are also materialized in the repository for direct inspection.
+          EOF
+          rm -rf .closeout-upload
+          rm -f .github/workflows/materialize-closeout.yml
+      - name: Commit materialized closeout
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'Open Science Closeout Bot'
+          git config user.email 'actions@users.noreply.github.com'
+          git add -A
+          git commit -m 'Close three-gate project: papers I-IV, AP23-AP30, and Paper VI'
+          git push origin HEAD:closeout/universal-readout-3of3-20260720
