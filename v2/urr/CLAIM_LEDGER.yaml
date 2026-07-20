@@ -1,16 +1,19 @@
 system: URR-C
-version: 0.3.0-cut
+version: 0.4.0-return
 binding_rule: "Never promote a claim above its evidence tier."
 
 canonical_master:
-  human_readable: "v2/urr/URR_CUT_EXTENSION.md"
-  machine_readable: "v2/urr/URR_C_MASTER.yaml"
-  discoveries: "v2/urr/URR_C_DISCOVERIES.md"
+  human_readable: "v2/urr/URR_C_MASTER_0_4.md"
+  machine_readable: "v2/urr/URR_C_MASTER_0_4.yaml"
+  peer_review: "v2/urr/URR_C_PEER_REVIEW_0_4.md"
+  earlier_cut_background: "v2/urr/URR_CUT_EXTENSION.md"
+  discoveries_0_3: "v2/urr/URR_C_DISCOVERIES.md"
 
 tiers:
   Th_coqc: "machine-checked in explicitly declared scope"
-  exact_algebra: "identity proved within explicitly declared mathematical model"
+  exact_algebra: "identity proved within an explicitly declared mathematical model"
   finite_diagnostic: "executed numerical evidence; not proof"
+  definition: "declared mathematical object or gate"
   Dr: "declared bridge or interpretation"
   Open: "candidate claim with stance and falsifier"
 
@@ -23,7 +26,7 @@ native_core:
     claim: "G_T is constructed from L_R, a finite fiber operator, and declared interaction"
   drl_reader_recurrence:
     tier: Th_coqc
-    scope: "as declared in evidence/DRL_Discrete.v; do not generalize silently"
+    scope: "as declared in evidence/DRL_Discrete.v"
   drl_general_pairing_structure:
     tier: Th_coqc
     scope: "general-N Legendre/D-cancellation structure in evidence/DRL_General_Legendre.v"
@@ -34,36 +37,78 @@ native_core:
     tier: definition
     claim: "binary distinguishable retained alternative under explicit policy"
 
-cut_extension:
-  accessible_projector:
+forced_cut_extension:
+  lifted_projectors:
     tier: definition
-    claim: "O_alpha selects the sector directly accessible to readout alpha"
-  hidden_projector:
-    tier: definition
-    claim: "H_alpha = I - O_alpha selects retained but directly inaccessible directions"
+    claim: "O_bar = I_2 tensor O and H_bar = I - O_bar act on the doubled reader-record space"
   write_operator:
     tier: definition
-    claim: "W_alpha maps accessible retained state toward the hidden sector"
+    claim: "W maps the declared accessible subspace into the hidden subspace"
   return_operator:
     tier: definition
-    claim: "R_alpha maps hidden retained state toward the accessible sector"
-  balanced_cut_flux:
+    claim: "R maps the declared hidden subspace toward the accessible subspace"
+  balanced_cut_force:
     tier: Dr
     claim: >-
       J_C contains directed write and return influx together with explicit
-      source-sector outflow balancers Lambda_W, Lambda_R and Lambda_T
-    artifact: "v2/urr/URR_CUT_EXTENSION.md"
+      source-sector outflow balancers
     limitation: "not derived from S_DRL"
-  horizon_index:
+  forced_component_equations:
+    tier: Dr
+    claim: >-
+      the reader and mirror DRL Euler-Lagrange equations receive P_Phi J_C and
+      P_Psi J_C as declared nonconservative forces
+    interpretation: "discrete Lagrange-d'Alembert-type architecture"
+  cut_balance_certificate:
     tier: definition
-    claim: "chi_alpha = ||W||/(||W||+||R||+epsilon) is a policy-dependent channel-asymmetry readout"
+    claim: "a claimed cut conservation law requires a declared covector rho with rho^T J_C = 0"
+    AP15_scope: "rho = 1 for the positive finite-flow generator"
   unified_drl_cut_tape_action:
     tier: Open
     stance: positive
-    claim: "derive or reject reader-record DRL, directed cut, and injective tape from one native finite action"
-    falsifier: "prove incompatibility under the declared action and retention assumptions"
+    falsifier: "prove incompatibility under the declared action, typing, and retention assumptions"
 
-discoveries:
+record_backends:
+  injective_growing_tape:
+    tier: definition
+    claim: "T[n+1] = T[n] direct_sum E_T(H_bar X[n]) with injective E_T"
+  fixed_accumulator:
+    tier: definition
+    claim: "q_T[n+1] = q_T[n] + L_T H_bar X[n]"
+    append_only_requirement: "declared positive cone and nonnegative increments"
+  noncollapse_rule: "a fixed accumulator is not automatically an injective record"
+
+linear_return_extension:
+  hidden_elimination:
+    tier: exact_algebra
+    claim: "K_mem(tau) = R exp(F_H tau) W after finite linear hidden-state elimination"
+    scope: "finite-dimensional linear block system"
+  return_transformation_kernel:
+    tier: exact_algebra
+    claim: >-
+      K_return[alpha<-beta](tau) = A_alpha O_bar_alpha R_alpha U_H(tau)
+      H_bar_beta W_beta O_bar_beta E_beta
+    linear_scope: "U_H(tau) = exp(F_H tau)"
+  generalized_least_squares_decoder:
+    tier: exact_algebra
+    claim: "D_star = (K^T Sigma_eta^-1 K)^-1 K^T Sigma_eta^-1 when K has full column rank"
+  finite_window_operator:
+    tier: definition
+    claim: "G_L = stack(C, C F, ..., C F^L)"
+  structural_readability:
+    tier: exact_matrix_result
+    claim: "rank(G_L) gives the number of structurally observable state directions in the declared finite linear model"
+  Gaussian_readability:
+    tier: exact_algebra
+    claim: >-
+      I_read = 1/2 log2 det(I + Sigma_x^1/2 G_L^T Sigma_N^-1
+      G_L Sigma_x^1/2)
+    scope: "declared linear channel with independent Gaussian state and noise"
+  nonlinear_return:
+    tier: Open
+    claim: "the tangent kernel is only a local linearization along a declared trajectory"
+
+canonical_discoveries:
   D0:
     tier: doctrine_and_definition
     claim: "existence, retention, accessibility, and readability are distinct"
@@ -71,137 +116,146 @@ discoveries:
     tier:
       finite_model: exact_algebra
       runtime: finite_diagnostic
-      general_interpretation: Dr
+      interpretation: Dr
     claim: "readable loss can coexist with exact total retention"
-    exact_scope: "AP15 finite nonnegative retained-flow generator with zero column sums"
-    forbidden_promotion: "not a proof that all apparent loss in nature is hidden retention"
+    scope: "AP15 positive finite-flow model"
   D2:
     tier: exact_algebra
-    claim: "R=0 yields exact visible-sector damping in the AP15 finite-flow realization"
-    scope: "positive finite linear cut model"
+    claim: "R=0 yields exact visible damping in the AP15 finite-flow realization"
   D3:
     tier: exact_algebra
-    claim: "R>0 yields K_mem(u)=R exp(-Lambda_H u) W after finite linear hidden-sector elimination"
-    scope: "finite linear no-tape realization"
-    nonlinear_extension: Open
+    claim: "R>0 yields a return-memory kernel after linear hidden elimination"
   D4:
     tier:
-      recorded_matrices: exact_matrix_result
+      matrices: exact_matrix_result
       execution: finite_diagnostic
     claim: "return edges change dynamical observability and nullity"
-    AP15_values:
-      reciprocal_rank_nullity: [6, 1]
-      leaky_rank_nullity: [6, 1]
-      one_way_rank_nullity: [3, 4]
   D5:
     tier:
       construction: exact_algebra
       execution: finite_diagnostic
-    claim: "append-only tape can retain quantity after the hidden working state changes"
-    limitation: "no unified DRL-tape action"
+    claim: "positive append-only accumulation can outlive the hidden working state"
   D6:
     tier:
       index: definition
       interpretation: Dr
-    claim: "horizon-ness is a channel-asymmetry readout, not a new substance"
+    claim: "horizon-ness is a channel-asymmetry readout"
   D7:
     tier: Dr
-    claim: "black-hole language is one optional W!=0,R=0 interpretation of the general cut"
+    claim: "black-hole language is an optional one-way-cut adapter"
     black_hole_physics_derived: false
   D8:
     tier: Open
-    stance: positive
-    claim: "the sharpened frontier is a unified DRL-cut-tape action or a no-go result"
+    claim: "derive a unified DRL-cut-tape action or a no-go result"
+  D9:
+    tier:
+      statement: definition_plus_Dr
+      examples: finite_diagnostic
+    claim: "unreadable now does not imply unreadable forever"
+  D10:
+    tier:
+      linear_statement: exact_algebra
+      AP17_execution: finite_diagnostic
+    claim: "a transformed return can remain fully reconstructable"
+    safe_wording: "returned form and returned information are different tests"
+  D11:
+    tier:
+      structural_part: exact_matrix_result
+      Gaussian_information: exact_algebra
+    claim: "physical readability depends on time window, readout, noise, encoder, and decoder"
+    scope: "declared finite linear or linear-Gaussian model"
+  D12:
+    tier: binding_nonclaim
+    claim: "zero return in one finite observation protocol does not prove permanent destruction or inaccessibility"
+  D13:
+    tier: Dr
+    claim: "a physical black-hole classification requires a causal/geometric horizon certificate in addition to a one-way cut"
 
 candidate_novelty:
   - id: N1
     tier: Open
-    stance: positive
-    claim: "discrete graph-tensor DRL form coupling reader and record through G tensor L_R"
-    falsifier: "find prior equivalent construction with the same graph-tensor and scope"
+    claim: "discrete graph-tensor DRL coupling reader and record through the declared retention tensors"
   - id: N2
     tier: Open
-    stance: positive
-    claim: "Psi is an ontic record required by retention rather than a disposable auxiliary variable"
-    falsifier: "find prior equivalent ontic-record interpretation or show contradiction with RD4"
+    claim: "Psi is interpreted as an ontic record rather than a disposable auxiliary variable"
   - id: N3
     tier: Open
-    stance: positive
     claim: "zero-diagonal retention metric realizes the Doctrine of Quantity dynamically"
-    falsifier: "show that the interpretation is redundant or inconsistent across supported systems"
   - id: N4
     tier: Open
-    stance: positive
-    claim: "native AI contract unifies DRL, readout, identifiability, tier control, and rbit bridges"
-    falsifier: "find a prior equivalent end-to-end native contract"
+    claim: "one native calculation contract joins dynamics, readout, identifiability, tiers, and rbit bridges"
   - id: N5
     tier: Open
-    stance: positive
     claim: >-
-      URR-C joins retained accessibility, balanced directed write/return cuts,
-      reader-record DRL, dynamical null spaces, append-only retention,
-      explicit readout policy, and claim-tier control in one native architecture
-    falsifier: "find a prior equivalent conjunction or show that the cut adds no content beyond standard decomposition"
+      URR-C joins typed reader-record DRL, directed cut balance, separate tape
+      semantics, return transformation, finite-window readability, and claim control
+    falsifier: "find a prior equivalent conjunction or show no predictive content beyond standard state-space reformulation"
 
 not_individually_novel:
-  - graph Laplacian
+  - graph Laplacians
   - projectors and state-space decomposition
-  - doubled-variable variational method
+  - Bateman-type doubled damped systems
+  - forced Lagrangian and Lagrange-d'Alembert systems
   - discrete variational integration
-  - Shannon information
-  - Landauer erasure bound
-  - covariance-weighted least squares
-  - matrix rank and null-space analysis
+  - Shannon and Gaussian-channel information
+  - matrix rank, observability matrices, and Gramians
+  - hidden-variable memory kernels and generalized Langevin equations
   - linear compartment or Markov flow models
-  - observability matrices
-  - memory kernels obtained by eliminating hidden variables
+  - telegraph and Maxwell-Cattaneo equations
 
 experiments:
   AP13:
     tier: finite_diagnostic
     adapter: "nonlinear FPUT benchmark"
     result: PASS
-    nonclaims:
-      - "not a proof"
-      - "not a solution of the open FPUT thermalisation problem"
-      - "not a state-of-the-art efficiency claim"
   AP14:
     tier: finite_diagnostic
     adapter_tier: Dr
     adapter: "DESI DR2 BAO cosmology"
     result: PASS
-    nonclaims:
-      - "cosmology is not derived from URR-C"
-      - "full DESI CMB+SN likelihood is not reproduced"
-      - "dynamical dark energy is not claimed as discovered"
   AP15:
     tier: finite_diagnostic
     architecture_tier: Dr
-    adapter: "general read-write cut retained-flow smoke test"
     result: PASS
     exact_within_model:
       - "total retention from zero generator column sums"
       - "hidden-sector elimination identity"
       - "R=0 visible damping identity"
-      - "positive append-only tape monotonicity"
+      - "positive append-only accumulator monotonicity"
+  AP17:
+    tier: finite_diagnostic
+    result: PASS
     recorded_values:
-      one_way_horizon_index: 0.9999999999999973
-      reciprocal_horizon_index: 0.4999999999999993
-      leaky_horizon_index: 0.9523809523809499
-      one_way_observability_nullity: 4
-      reciprocal_observability_nullity: 1
-      one_way_final_visible: 0.010762744228616037
-      one_way_final_hidden: 0.9892372557713833
-      tape_final: 0.29141711121520486
-      max_retention_error: 5.10702591327572e-15
+      transformed_return_rank: 2
+      distance_from_identity: 1.222171974564525
+      noiseless_decoder_error: 2.289691319182597e-16
+      Gaussian_readable_information_rbit: 7.825375266365017
+      partial_return_rank_nullity: [1, 1]
+      zero_return_information_rbit: 0.0
+      echo_time: 0.885
+      hidden_elimination_error: 6.189493362285248e-15
+      finite_window_rank_progression: [1, 2, 3]
     nonclaims:
-      - "the cut is not derived from the DRL action"
-      - "black-hole dynamics are not derived"
-      - "all real systems are not claimed to be linear retained-flow systems"
+      - "all transformed returns preserve information"
+      - "all retained states eventually return"
+      - "the Gaussian readability equation is universal"
+
+peer_review_0_4:
+  recommendation: major_revision
+  framework_value: promising
+  fundamental_physics_claim: unsupported_at_present
+  individual_mathematical_novelty: not_established
+  conjunction_novelty: Open
+  required_next_evidence:
+    - "formal verification of forced typing and AP17 identities"
+    - "calibrated RC, thermal, and oscillator datasets"
+    - "comparison with independent system-identification baselines"
+    - "nonlinear out-of-sample return predictions"
+    - "external human review before novelty promotion"
 
 open:
   - "mechanistic reader-to-record handoff in the linear DRL"
-  - "unified action for DRL, directed cuts, and append-only tape"
-  - "external literature falsification of the novelty conjunction"
-  - "nonlinear hidden-sector elimination with positivity and stability guarantees"
-  - "external peer review before novelty promotion"
+  - "unified action for DRL, directed cuts, and injective tape"
+  - "nonlinear return beyond local tangent kernels"
+  - "domain-specific predictions not reducible to standard reparameterization"
+  - "external literature falsification and human peer review"
