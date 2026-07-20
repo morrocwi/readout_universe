@@ -35,10 +35,18 @@ jobs:
             exit 1
           }
 
-      - name: Install Python dependencies
+      # The runner's PATH points at the same miniforge python the repo's runs were
+      # recorded with (docs/VERIFIED_RUNS.md), not /usr/bin/python3 -- which on this
+      # machine has no pip at all. Verify that before trusting anything downstream.
+      - name: Show and check the interpreter
         run: |
           set -euo pipefail
-          python3 -m pip install --user -r requirements.txt
+          which python3
+          python3 -c "import sys; print(sys.executable, sys.version.split()[0])"
+          python3 -c "import numpy, scipy, sympy, pytest" || {
+            echo "::error::declared dependencies missing from the runner interpreter"
+            exit 1
+          }
 
       - name: Run CI gate (LTP battery + UPL_Sorites.v + evidence/*.v + pytest)
         run: bash scripts/ci_verify.sh
