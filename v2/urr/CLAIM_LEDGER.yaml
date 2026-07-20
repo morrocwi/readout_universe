@@ -1,9 +1,15 @@
-system: URR
-version: 0.2.0-cut-candidate
+system: URR-C
+version: 0.3.0-cut
 binding_rule: "Never promote a claim above its evidence tier."
+
+canonical_master:
+  human_readable: "v2/urr/URR_CUT_EXTENSION.md"
+  machine_readable: "v2/urr/URR_C_MASTER.yaml"
+  discoveries: "v2/urr/URR_C_DISCOVERIES.md"
 
 tiers:
   Th_coqc: "machine-checked in explicitly declared scope"
+  exact_algebra: "identity proved within explicitly declared mathematical model"
   finite_diagnostic: "executed numerical evidence; not proof"
   Dr: "declared bridge or interpretation"
   Open: "candidate claim with stance and falsifier"
@@ -35,23 +41,77 @@ cut_extension:
   hidden_projector:
     tier: definition
     claim: "H_alpha = I - O_alpha selects retained but directly inaccessible directions"
-  read_write_cut:
+  write_operator:
+    tier: definition
+    claim: "W_alpha maps accessible retained state toward the hidden sector"
+  return_operator:
+    tier: definition
+    claim: "R_alpha maps hidden retained state toward the accessible sector"
+  balanced_cut_flux:
     tier: Dr
-    claim: "C_alpha = H_alpha W_alpha O_alpha + O_alpha R_alpha H_alpha separates write and return channels"
+    claim: >-
+      J_C contains directed write and return influx together with explicit
+      source-sector outflow balancers Lambda_W, Lambda_R and Lambda_T
+    artifact: "v2/urr/URR_CUT_EXTENSION.md"
+    limitation: "not derived from S_DRL"
   horizon_index:
     tier: definition
     claim: "chi_alpha = ||W||/(||W||+||R||+epsilon) is a policy-dependent channel-asymmetry readout"
-  finite_flow_conservation:
-    tier: exact_algebra
-    scope: "AP15 linear nonnegative retained-flow generator with zero column sums"
-  hidden_elimination_memory_identity:
-    tier: exact_algebra
-    scope: "AP15 finite linear no-tape realization"
-  unified_drl_cut_action:
+  unified_drl_cut_tape_action:
     tier: Open
     stance: positive
-    claim: "derive or reject the cut operator from one variational native action"
-    falsifier: "show inconsistency with DRL variation or prove that any required directed cut cannot arise in the declared action class"
+    claim: "derive or reject reader-record DRL, directed cut, and injective tape from one native finite action"
+    falsifier: "prove incompatibility under the declared action and retention assumptions"
+
+discoveries:
+  D0:
+    tier: doctrine_and_definition
+    claim: "existence, retention, accessibility, and readability are distinct"
+  D1:
+    tier:
+      finite_model: exact_algebra
+      runtime: finite_diagnostic
+      general_interpretation: Dr
+    claim: "readable loss can coexist with exact total retention"
+    exact_scope: "AP15 finite nonnegative retained-flow generator with zero column sums"
+    forbidden_promotion: "not a proof that all apparent loss in nature is hidden retention"
+  D2:
+    tier: exact_algebra
+    claim: "R=0 yields exact visible-sector damping in the AP15 finite-flow realization"
+    scope: "positive finite linear cut model"
+  D3:
+    tier: exact_algebra
+    claim: "R>0 yields K_mem(u)=R exp(-Lambda_H u) W after finite linear hidden-sector elimination"
+    scope: "finite linear no-tape realization"
+    nonlinear_extension: Open
+  D4:
+    tier:
+      recorded_matrices: exact_matrix_result
+      execution: finite_diagnostic
+    claim: "return edges change dynamical observability and nullity"
+    AP15_values:
+      reciprocal_rank_nullity: [6, 1]
+      leaky_rank_nullity: [6, 1]
+      one_way_rank_nullity: [3, 4]
+  D5:
+    tier:
+      construction: exact_algebra
+      execution: finite_diagnostic
+    claim: "append-only tape can retain quantity after the hidden working state changes"
+    limitation: "no unified DRL-tape action"
+  D6:
+    tier:
+      index: definition
+      interpretation: Dr
+    claim: "horizon-ness is a channel-asymmetry readout, not a new substance"
+  D7:
+    tier: Dr
+    claim: "black-hole language is one optional W!=0,R=0 interpretation of the general cut"
+    black_hole_physics_derived: false
+  D8:
+    tier: Open
+    stance: positive
+    claim: "the sharpened frontier is a unified DRL-cut-tape action or a no-go result"
 
 candidate_novelty:
   - id: N1
@@ -77,11 +137,15 @@ candidate_novelty:
   - id: N5
     tier: Open
     stance: positive
-    claim: "URR-C joins retained accessibility, directed write/return cuts, dynamical null spaces, and append-only retention in one native readout architecture"
-    falsifier: "find a prior equivalent conjunction or show that the cut adds no content beyond standard state-space decomposition"
+    claim: >-
+      URR-C joins retained accessibility, balanced directed write/return cuts,
+      reader-record DRL, dynamical null spaces, append-only retention,
+      explicit readout policy, and claim-tier control in one native architecture
+    falsifier: "find a prior equivalent conjunction or show that the cut adds no content beyond standard decomposition"
 
 not_individually_novel:
   - graph Laplacian
+  - projectors and state-space decomposition
   - doubled-variable variational method
   - discrete variational integration
   - Shannon information
@@ -107,7 +171,7 @@ experiments:
     adapter: "DESI DR2 BAO cosmology"
     result: PASS
     nonclaims:
-      - "cosmology is not derived from URR"
+      - "cosmology is not derived from URR-C"
       - "full DESI CMB+SN likelihood is not reproduced"
       - "dynamical dark energy is not claimed as discovered"
   AP15:
@@ -118,6 +182,18 @@ experiments:
     exact_within_model:
       - "total retention from zero generator column sums"
       - "hidden-sector elimination identity"
+      - "R=0 visible damping identity"
+      - "positive append-only tape monotonicity"
+    recorded_values:
+      one_way_horizon_index: 0.9999999999999973
+      reciprocal_horizon_index: 0.4999999999999993
+      leaky_horizon_index: 0.9523809523809499
+      one_way_observability_nullity: 4
+      reciprocal_observability_nullity: 1
+      one_way_final_visible: 0.010762744228616037
+      one_way_final_hidden: 0.9892372557713833
+      tape_final: 0.29141711121520486
+      max_retention_error: 5.10702591327572e-15
     nonclaims:
       - "the cut is not derived from the DRL action"
       - "black-hole dynamics are not derived"
@@ -125,6 +201,7 @@ experiments:
 
 open:
   - "mechanistic reader-to-record handoff in the linear DRL"
-  - "unified action for DRL and append-only tape"
-  - "unified action for DRL and directed read-write cuts"
-  - "external peer review of the novelty conjunction"
+  - "unified action for DRL, directed cuts, and append-only tape"
+  - "external literature falsification of the novelty conjunction"
+  - "nonlinear hidden-sector elimination with positivity and stability guarantees"
+  - "external peer review before novelty promotion"
