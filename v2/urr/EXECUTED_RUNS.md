@@ -152,6 +152,46 @@ Canonical records:
 - `v2/urr/URR_C_MASTER_0_4.md`
 - `v2/urr/URR_C_MASTER_0_4.yaml`
 
+## AP18 Two-Capacitor RC Memory Cell
+
+```bash
+python ap/ap18_rc_memory_cell.py \
+  --output ap/results/AP18_RC_MEMORY_CELL_RESULTS.json
+```
+
+Recorded result:
+
+```text
+verdict: PASS
+numerical vs matrix exponential: 5.062616992290714e-13 V
+matrix exponential vs closed form: 3.108624468950438e-14 V
+relative charge-retention error: 1.0842021724855044e-15
+relative energy-accounting error: 1.6666663917030977e-07
+hidden-elimination residual: 5.2081678081350447e-08 V/s
+visible-only observability rank: 2
+maximum hidden-to-visible signal: 0.49997730003511887 V
+```
+
+Runtime interpretation:
+
+- the ideal two-capacitor circuit maps directly to the declared linear
+  visible-hidden adapter;
+- total charge is the retained functional in this model;
+- capacitor-stored electrical energy decreases while resistor heat accounts for
+  the loss;
+- eliminating the second capacitor produces the declared exponential memory
+  kernel;
+- two histories that are identical in the visible snapshot can become
+  distinguishable through the later visible voltage trace;
+- this is a numerical ideal-circuit execution, not a hardware measurement and
+  not a test of the inertial DRL term.
+
+Canonical records:
+
+- `ap/AP18_RC_MEMORY_CELL.md`
+- `ap/ap18_rc_memory_cell.py`
+- `ap/results/AP18_RC_MEMORY_CELL_RESULTS.json`
+
 ## Evidence-tier rule
 
 ```text
