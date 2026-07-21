@@ -1,0 +1,186 @@
+# Gate declarations for this repo -- checked by scripts/check_gate_typing.py
+# and documented in docs/GATE_TYPING_LAW.md. Read that file first; this one
+# is data, not prose.
+#
+# There are currently NO live gates declared in readout_universe itself
+# (the tier discipline in CLAIMS.md / docs/AI_READING_GUIDE.md already
+# does the equivalent job for this repo's own claims via executed-run
+# citation, not a pass/fail threshold gate). This file exists so that:
+#   (a) the format is documented in one real, parseable place, not just
+#       prose in the law doc, and
+#   (b) any future threshold-style gate added to this repo (or copied
+#       into a sibling repo) has a place to declare its type honestly
+#       before it ships.
+#
+# FORMAT (plain text, no YAML/JSON dependency -- see the parser docstring
+# in scripts/check_gate_typing.py for the exact rules; this is round 5 of
+# the format -- rounds 1 through 4 each found a real hole, not a cosmetic
+# one, see docs/GATE_TYPING_LAW.md for the full history):
+#   - '#' lines are comments, stripped before parsing.
+#   - Records are separated by one or more blank lines.
+#   - Each record is a block of "key: value" lines.
+#   - Required on every record: gate, type, description.
+#   - type is exactly "P" (physical content) or "U" (unit/convention).
+#     Default assumption for any gate with no record here at all: Type U
+#     (see docs/GATE_TYPING_LAW.md -- the burden is on the claimant).
+#   - A Type U record must NOT carry any control or predicate field
+#     (negative_control_name, negative_control_value,
+#     positive_control_name, positive_control_value, gate_passes_when) --
+#     REJECTED if it does, even if those fields would derive a clean
+#     two-sided pass (round-5 fix: there is no legitimate reason for a
+#     declared convention to carry the same apparatus a Type P record
+#     uses to prove it can fail).
+#   - Type P additionally requires: negative_control_name,
+#     negative_control_value, positive_control_name, positive_control_value,
+#     gate_passes_when. There is NO result field of any kind -- neither
+#     control carries a caller-supplied verdict; both verdicts are DERIVED
+#     by the checker.
+#       * gate_passes_when is the GATE's OWN pass predicate, declared
+#         ONCE, as "<operator> <threshold>" -- operator one of
+#         >= > <= < == != . Example: "same-ligand Jaccard >= 0.35 passes"
+#         declares gate_passes_when: ">= 0.35".
+#       * negative_control_value, positive_control_value, and the
+#         threshold inside gate_passes_when must all be real, parseable,
+#         finite numbers -- not placeholder text, not nan/inf.
+#       * The checker evaluates gate_passes_when at negative_control_value
+#         and requires that to be False (the negative control genuinely
+#         does not pass); it separately evaluates gate_passes_when at
+#         positive_control_value and requires that to be True (the
+#         positive control genuinely does pass). BOTH must hold, or the
+#         record is rejected.
+#
+# WHY BOTH CONTROLS (law history, not decoration -- read before assuming
+# "one failing control" was ever the whole law): the law as first ruled
+# required only a negative control. That catches a gate that PASSES
+# EVERYTHING (see Counter-Example #1 below: EGFR, 0.35 Jaccard passing
+# 10/10 pairs). It does NOT catch a gate that FAILS EVERYTHING -- an
+# unsatisfiable predicate (e.g. ">= 999999" for a score that never gets
+# near that) vacuously derives "does not pass" for ANY negative control,
+# so a one-sided check trivially certified it. See Counter-Example #2
+# below for the exact record that exposed this. Requiring a positive
+# control too closes it structurally: an unsatisfiable predicate admits
+# NO genuine positive control, so the record cannot be completed at all.
+#
+# RESIDUAL RISKS (named explicitly, numbered to match the chair's own
+# finding numbers across review rounds -- see docs/GATE_TYPING_LAW.md "The
+# typing rule" section for the canonical, single copy of this list; not
+# restated in full here to avoid the exact two-copies-drift that let
+# docs/AI_READING_GUIDE.md go stale in round 5):
+#   #3 implausible control values, EITHER direction (see Counter-Example
+#      #3 below for the negative-side mirror of #2's positive-side gap)
+#   #4 nothing ties the two controls to the SAME MEASURED QUANTITY
+#   #5 gate_passes_when vs. the gate's real pass condition in `description`
+#   #6 unknown/extra keys (e.g. a smuggled positive_control_result) are
+#      IGNORED, not validated -- a record parsing cleanly is not evidence
+#      every key in it was checked
+# All are human-review obligations; the checker only confirms the
+# paperwork and the two-sided arithmetic, never intent, plausibility,
+# quantity-matching, or unlisted keys.
+#
+# WORKED COUNTER-EXAMPLE #1 -- commented out, NOT a live record, and if it
+# WERE live it would be REJECTED by the checker (the historically real
+# EGFR C797S contact-residue-Jaccard gate from docs/GATE_TYPING_LAW.md,
+# which was reported as passing evidence at the time). 0.70 does not fail
+# a ">= 0.35" gate:
+#
+# gate: egfr_c797s_contact_jaccard_same_ligand
+# type: P
+# description: same-ligand co-crystal pairs show contact-residue Jaccard >= 0.35
+# negative_control_name: different-ligand pair, osimertinib vs brigatinib
+# negative_control_value: 0.70
+# positive_control_name: same-ligand pair (as originally reported)
+# positive_control_value: 0.47
+# gate_passes_when: >= 0.35
+#   <- REJECTED: gate_passes_when(0.70) = (0.70 >= 0.35) = True, i.e. this
+#      "negative" control actually SATISFIES the gate. This is exactly the
+#      fabricated-evidence framing the law exists to stop.
+#
+# -- the honest record for this same gate is Type U instead (per
+# docs/GATE_TYPING_LAW.md Case 1: no pair in the real 10-pair matrix
+# failed 0.35, so no valid Type P record can be written for it at all):
+#
+# gate: egfr_c797s_contact_jaccard_same_ligand
+# type: U
+# description: same-ligand co-crystal pairs show contact-residue Jaccard >= 0.35 (threshold demonstrated non-discriminating: max observed different-ligand pair 0.70 > min same-ligand pair 0.47; all 10/10 pairs pass regardless of ligand identity)
+#
+# (Type U records do not need the negative_control_*/positive_control_*/
+# gate_passes_when fields -- there is nothing to demonstrate, by
+# construction.)
+#
+# WORKED COUNTER-EXAMPLE #2 -- the unsatisfiable-predicate attack that
+# forced the two-sided law. Under the ROUND-3 (one-sided) format, this
+# record passed (exit 0):
+#
+# gate: score_gate_unsatisfiable_predicate_attack
+# type: P
+# description: score must be >= 0.80 to pass, this control genuinely fails
+# negative_control_name: attempted attack
+# negative_control_value: 0.95
+# gate_passes_when: >= 999999
+#   <- Round 3: ACCEPTED. gate_passes_when(0.95) = (0.95 >= 999999) = False,
+#      i.e. the negative control "genuinely fails" the DECLARED predicate --
+#      but 0.95 plainly satisfies the gate's REAL condition (score >= 0.80).
+#      An unreachable threshold makes every negative control vacuously
+#      "fail". This is the one-sided law's blind spot.
+#
+# Under the CURRENT (two-sided) format, the same record is REJECTED
+# outright for missing positive_control_name/positive_control_value --
+# there is no value that could honestly be recorded as a positive control
+# for an unsatisfiable predicate, so the record can never be completed:
+#
+# gate: score_gate_unsatisfiable_predicate_attack
+# type: P
+# description: score must be >= 0.80 to pass, this control genuinely fails
+# negative_control_name: attempted attack
+# negative_control_value: 0.95
+# gate_passes_when: >= 999999
+#   <- REJECTED: missing required fields positive_control_name,
+#      positive_control_value.
+#
+# Note the acknowledged residual gap: nothing stops someone from writing
+# an IMPLAUSIBLE positive control (e.g. positive_control_value: 1000000)
+# to force this specific record through -- that is numerically valid
+# (1000000 >= 999999 is True) and the checker cannot judge whether a
+# "score" of 1000000 is a real, plausible measurement. The two-sided
+# requirement closes the STRUCTURAL hole (no controls at all); it does not
+# and cannot close the PLAUSIBILITY hole (a reviewer must still judge
+# whether a recorded value is a genuine case, not an invented extreme).
+#
+# WORKED COUNTER-EXAMPLE #3 -- the MIRROR of #2's residual gap, on the
+# NEGATIVE side, so nobody reading only #2 assumes the plausibility gap is
+# a positive-control-only problem. For a gate whose genuine domain is
+# [0, 1] (e.g. a Jaccard similarity, a normalized score), an absurd
+# negative control still passes the checker cleanly:
+#
+# gate: implausible_negative_control_example
+# type: P
+# description: property X measured >= 0.35 in the target case (domain [0,1])
+# negative_control_name: fabricated out-of-domain "control"
+# negative_control_value: -1000000
+# positive_control_name: known case with property X
+# positive_control_value: 0.47
+# gate_passes_when: >= 0.35
+#   <- ACCEPTED by the checker: gate_passes_when(-1000000) =
+#      (-1000000 >= 0.35) = False, a mechanically valid "does not pass" --
+#      but -1000000 is not a plausible measurement of anything in a [0,1]
+#      domain, exactly as implausible as positive_control_value: 1000000
+#      was in Counter-Example #2. Neither direction's plausibility is
+#      checked; see docs/GATE_TYPING_LAW.md's residual risk #3.
+#
+# WORKED VALID EXAMPLE -- a hypothetical gate whose controls genuinely
+# discriminate in both directions, shown only so a reader can see what a
+# checker-ACCEPTED Type P record looks like (also commented out -- still
+# not a live record for this repo, since no such gate currently exists
+# here):
+#
+# gate: hypothetical_example_gate
+# type: P
+# description: hypothetical property X measured >= 0.35 in the target case
+# negative_control_name: known case with no property X
+# negative_control_value: 0.10
+# positive_control_name: known case with property X
+# positive_control_value: 0.47
+# gate_passes_when: >= 0.35
+#   <- ACCEPTED: gate_passes_when(0.10) = False (genuinely does not pass);
+#      gate_passes_when(0.47) = True (genuinely does pass). The gate is
+#      shown to discriminate in both directions.

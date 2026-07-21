@@ -48,5 +48,5 @@ jobs:
             exit 1
           }
 
-      - name: Run CI gate (LTP battery + UPL_Sorites.v + evidence/*.v + pytest)
+      - name: Run CI gate (LTP battery + UPL_Sorites.v + evidence/*.v + pytest + gate-typing self-test + gate-typing law)
         run: bash scripts/ci_verify.sh
