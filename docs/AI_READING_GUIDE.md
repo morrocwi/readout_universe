@@ -77,6 +77,18 @@ Rules for an AI citing this book:
 - The "We do NOT claim" list in `README.md` binds you too: no Gödel/liar/ethics
   "solved", no B1 uniqueness, no supersession of any tradition.
 - Output = retained readout, not truth. A correct readout is not a true theory.
+- A pass/fail gate is itself subject to `docs/GATE_TYPING_LAW.md`: cite a
+  gate's PASS as evidence only if it is Type P -- which requires ships-with
+  BOTH a named negative control that the gate's own predicate demonstrably
+  does NOT pass AND a named positive control that the same predicate
+  demonstrably DOES pass (one failing control alone is not enough -- an
+  unsatisfiable predicate makes a negative-only check pass vacuously). A
+  gate missing either control is Type U by default and must not be counted
+  in any "N/N checks passed" claim or headline verdict. **This summary is
+  not the law itself and can drift; `docs/GATE_TYPING_LAW.md` is the
+  binding text -- if this bullet and that document ever disagree, the
+  document wins, and the disagreement is a bug in this file to fix, not a
+  second reading to reconcile.**
 
 ## Verifying before citing
 
