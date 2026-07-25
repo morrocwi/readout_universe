@@ -135,6 +135,22 @@ novelty ledger ก่อนอ้างสิ่งใด
 (ค) ตัวเลข stress test ของผู้เสนอเป็น [SimulatedData] ภายนอก — ยังไม่ executed ใน
 repo นี้ ⇒ ยังอ้างไม่ได้จนกว่าจะ re-implement เป็น AP7 พร้อม pytest
 
+**Cross-repo note (2026-07-25, sibling `research_universal_solver`) — the pigeonhole point in (ก)
+now has an exact, general, axiom-free Coq proof, in a DIFFERENT formal system than DRL's own
+Coq chain.** `formal/InfoTrueRecordUnreadable_attempt.v` in `research_universal_solver` proves,
+Type-polymorphically and unconditionally (no DNA/RD axioms, no DRL-specific structure): whenever a
+readout `O` maps two distinct true states `x1≠x2` to the same recorded value, no decoder function
+can recover both correctly from the record alone (`no_decoder_recovers_state`, `Print Assumptions`
+⇒ Closed). This is exactly the abstract shape of "`Ψ` ขนาดคงที่ resolution จำกัดเก็บประวัติไม่จำกัด
+แบบ injective ไม่ได้" stated above — but it is a GENERAL mathematical fact about non-injective maps,
+not a DRL-specific result, not itself an action/Lagrangian, and not evidence for or against the
+append-only tape model's own posited `B_γ` rotation. Read as: (ก)'s critique is correct that *some*
+formal grounding for record-lossiness exists somewhere — this file is one such grounding, arrived
+at independently, in the sibling repo, for a different (unrelated to DRL) motivating question
+(a founder hypothesis about matter/antimatter). Not proposed for import here; recorded only as an
+honest cross-reference so this document's own open item is not silently re-derived from scratch
+later without noticing it already exists, in general form, elsewhere.
+
 ## งานต่อ (อัพเดต)
 
 - ~~หา H_quartic~~ ✅ RESOLVED (AP8): H_nl = MΦ̇Ψ̇+KΦL_wΨ+Ψᵀ∇V(Φ)−JᵀΨ — เหลือ Coq lift ของ nonlinear cancellation (รวมกับ general-N)
