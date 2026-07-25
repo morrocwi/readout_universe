@@ -199,6 +199,46 @@ EQ-062  `finite_diagnostic` (NEGATIVE finding — refutes its own opening hypoth
 
 ---
 
+---
+
+EQ-063  `Dr` (bridge/definitional, founder-locked; related check `finite_diagnostic`, D/M vs
+        QuTiP residual 7.6×10⁻⁴) — self-caught omission during the founder's bottleneck review:
+        EQ-015's M has no equation anywhere in this library connecting it to τ_c, despite the
+        mother-equation table's own note that "mass is a readout of τ_c." Numbered at the end to
+        avoid renumbering EQ-030 onward; conceptually belongs beside EQ-005/EQ-015.
+                      τ_c = ℏ/(2mc²)   [N4 SCALE BUS]
+                      m = ħ/(2c²τ_c)   [readout direction — mass is what τ_c looks like]
+                      NOTE: this is a unit/calibration bridge, NOT a derivation of EQ-015's `M`
+                      coefficient's role or value in the mother equation — that remains posited
+                      (8 forcing attempts failed, EQ-015's own tier note). Do not read EQ-063 as
+                      closing EQ-015's gap.
+
+---
+
+## Bottleneck survey (2026-07-25)
+
+Reading the whole stream in numeric order surfaces one recurring pattern, not a set of unrelated
+gaps: the ABSTRACT/GENERAL layer (ROOT-0, Face 10, gauge redundancy, SU(3) closure) is increasingly
+`Th_coqc`-backed; the CONCRETE-INSTANTIATION layer — which specific object out of the admissible
+space is the real one — is `Dr`/`Open`/`fit_calibrated` every single time it appears:
+
+- EQ-021: `𝔾_n^(±)` split is `Th_coqc` only in the ABSTRACT case; the concrete instance is `Open`.
+- EQ-015/EQ-063: `M`'s VALUE/role is posited, not derived (8 failed forcing attempts); the τ_c
+  bridge (EQ-063) is a unit calibration, not a derivation of EQ-015's coefficient.
+- EQ-042–048: gauge/representation assignment is almost entirely `Dr` — no `Th_coqc` backing for
+  automorphism-as-gauge (SM-G0.1–G0.5, `domains/standard_model/README.md`'s own "🟥 open" list, in
+  the sibling repo).
+- EQ-057–059: item 1's `r` — every root-native candidate closed/rejected; terminal state is
+  `fit_calibrated`.
+- EQ-060–062: matter/antimatter — every concrete field-role instantiation tested (Attempts 1-2) was
+  refuted; only the fully general, field-agnostic theorem (EQ-032–034, Attempt 3) survives.
+
+**Convergent conclusion (sibling repo's own analysis, imported here unmodified):** SM-G0.1–G0.5
+(the automorphism-as-gauge kernel, full Coq witness) is the single node that gates essentially
+every `Dr`/`Open` entry above.
+
+---
+
 Independently peer-reviewed 2026-07-25 against live source (coqc compiles, script reruns, direct
 file reads) — 5 corrections applied vs. the first-draft compiled list, see the header note above
 for the canonical source. This copy is a reference import; readout_universe's own DRL equations
