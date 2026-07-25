@@ -215,7 +215,7 @@ EQ-063  `Dr` (bridge/definitional, founder-locked; related check `finite_diagnos
 
 ---
 
-## Bottleneck survey (2026-07-25)
+## Bottleneck survey (2026-07-25, CORRECTED same day)
 
 Reading the whole stream in numeric order surfaces one recurring pattern, not a set of unrelated
 gaps: the ABSTRACT/GENERAL layer (ROOT-0, Face 10, gauge redundancy, SU(3) closure) is increasingly
@@ -225,17 +225,21 @@ space is the real one — is `Dr`/`Open`/`fit_calibrated` every single time it a
 - EQ-021: `𝔾_n^(±)` split is `Th_coqc` only in the ABSTRACT case; the concrete instance is `Open`.
 - EQ-015/EQ-063: `M`'s VALUE/role is posited, not derived (8 failed forcing attempts); the τ_c
   bridge (EQ-063) is a unit calibration, not a derivation of EQ-015's coefficient.
-- EQ-042–048: gauge/representation assignment is almost entirely `Dr` — no `Th_coqc` backing for
-  automorphism-as-gauge (SM-G0.1–G0.5, `domains/standard_model/README.md`'s own "🟥 open" list, in
-  the sibling repo).
+- EQ-042–048: gauge/representation assignment is almost entirely `Dr`.
 - EQ-057–059: item 1's `r` — every root-native candidate closed/rejected; terminal state is
   `fit_calibrated`.
 - EQ-060–062: matter/antimatter — every concrete field-role instantiation tested (Attempts 1-2) was
   refuted; only the fully general, field-agnostic theorem (EQ-032–034, Attempt 3) survives.
 
-**Convergent conclusion (sibling repo's own analysis, imported here unmodified):** SM-G0.1–G0.5
-(the automorphism-as-gauge kernel, full Coq witness) is the single node that gates essentially
-every `Dr`/`Open` entry above.
+**Correction (sibling repo's own analysis, imported here unmodified):** the first-draft version
+named SM-G0.1–G0.5 as the gating node, citing a stale line in the sibling repo's own
+`domains/standard_model/README.md`. SM-G0.1–G0.6 (automorphism-as-gauge) was independently
+re-verified `coqc -q`-closed, axiom-free, since 2026-07-24. **Honest revised conclusion:** the
+closure is STRUCTURAL only (any group) — non-triviality for the actual root dynamics stays `Open`,
+which is why EQ-042–048 stay `Dr`. The sibling domain's own currently-tracked highest-leverage P0
+item is **generation multiplicity — completely untouched** (Kobayashi-Maskawa CP violation
+requires ≥3 generations). Item 1 (Δ_j/κ_j/`r`, EQ-057–059) was already exhaustively tried and
+closed only via `fit_calibrated`.
 
 ---
 
