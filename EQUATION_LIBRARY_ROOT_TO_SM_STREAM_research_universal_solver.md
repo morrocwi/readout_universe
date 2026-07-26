@@ -251,6 +251,88 @@ EQ-063  `Dr` (bridge/definitional, founder-locked; related check `finite_diagnos
                       (8 forcing attempts failed, EQ-015's own tier note). Do not read EQ-063 as
                       closing EQ-015's gap.
 
+EQ-064  `fit_calibrated` (M_joint) / `finite_diagnostic` (accuracy check) — 2026-07-25 RTM
+        operational-closure arc. EQ-015's posited `M` is CALIBRATED (not derived) from a declared
+        Reader/Record transition tape via method-of-moments EIV correction + independent-
+        replicate IV, with a fail-closed Reader/Record 5% agreement gate.
+                      M_hat = (a1ᵀy2 + a2ᵀy1) / (2 a1ᵀa2)     [replicate-IV, preferred]
+                      M_joint = 1.0004294772248     (0.042948% error vs the disclosed fixture's
+                      known M_true=1; 500-seed sweep mean error 0.335552% at σ=1e-5)
+                      Merged to main, both repos. Does NOT close EQ-015's `M` the way EQ-063 does
+                      not — calibration on a declared synthetic tape, not a root-native derivation.
+
+EQ-065  `declared_finite_architecture` — primitive U/D/E branch tapes for v1.13's Π₀ (EQ-053's
+        neighbor). Branch initial conditions EXPLICITLY DISCLOSED AS ARBITRARY/uncalibrated
+        (checked directly against every candidate PR in both repos — none derive them).
+                      Π₀ = 3λ_U + 3λ_D + λ_E = 6.328453553357985
+                      (0.0037% error vs the fixture's known-M reconstruction)
+                      REQUIRED CAVEAT: architecturally declared, NOT the same (independently-
+                      derived, real-PDG-mass) Π₀≈6.9888 already carried elsewhere in this domain
+                      (`item1_fit_calibrated_v1.py`) — must never be conflated (Cross-Role Readout
+                      Contamination, this library's own EQ-021 warning pattern repeated here).
+
+EQ-066  `declared_finite_architecture`/`exact_bridge` — order-vacuum threshold closure. α_ord=a/2,
+        β_ord=b/4 INHERITED from EQ-023's own mother potential (not new dials).
+                      Π₀ > α_ord  ⇒  ORDERED_READY,  r* = 3.823356105009073
+                      REQUIRED CAVEAT (independent scientific-methodology review, 2026-07-25):
+                      ORDERED_READY on THIS stepper is STRUCTURALLY GUARANTEED regardless of the
+                      branch-tape data — λ_j∈(0,1] forces Π₀∈(0,7], and α_ord=−0.5 sits below that
+                      unconditional lower bound. Do not cite ORDERED_READY as evidence the branch
+                      construction is predictive.
+
+EQ-067  `declared_finite_architecture` — native vacuum amplitude, r=v²/2 convention applied to
+        EQ-066's r*.
+                      v_native = √(2 r*) = 2.7652689218262565     (no physical unit attached)
+
+EQ-068  `finite_diagnostic` (THREE NEGATIVE FINDINGS, all disclosed, none hidden) — 2026-07-25
+        attempts to bridge EQ-067's v_native to real GeV-scale physics, DRAFT/UNMERGED in both
+        repos pending resolution of the open discrete-vs-continuum question named below:
+        (a) fit Λ_RD→GeV = 246/v_native = 88.96060634765863 (`fit_calibrated`, Attempt-17-style),
+            independently predict Higgs mass from EQ-066's radial-curvature proxy (never used in
+            the Λ fit): 218.005 GeV predicted vs real PDG 125.20 GeV — 74.13% error, FAILS a 5%
+            band.
+        (b) SAME test with ZERO fitted parameters via the ratio m_higgs_native/v_native vs real
+            m_H/v — identical 74.13% error (Λ cancels algebraically; confirms (a) is real).
+        (c) zero-external-input internal consistency: m_from_τc_native := 1/(2·(M_joint/D)) (M/D
+            used only as a declared `Dr`-tier ANALOGY to τ_c, not claimed identical to EQ-063's
+            τ_c object) vs EQ-067's curvature-mass route — ratio 0.0612, NOT CONSISTENT, 94%
+            deviation.
+        OPEN QUESTION, explicitly not resolved: whether comparing EQ-064–067's native-unit outputs
+        against real GeV values is a valid readout-vs-readout comparison, or a category error
+        against a non-readout (dimensional constants ℏ,c,G — see `ZERO_INFINITY_DUAL_DIAGNOSIS.md`'s
+        STANDING GUARD) — conflicts with this domain's own routine use of PDG masses as
+        `fit_calibrated` inputs elsewhere (e.g. EQ-058); found, not settled, 2026-07-25. A real,
+        pre-existing, `Th_coqc` discrete-to-apparent-continuum bridge
+        (`PERSISTENT_WALK_TELEGRAPH_DERIVATION.md`, τ_c-parametrized, "partially discharged") was
+        located and is structural only — supplies no numeric GeV conversion. An `ultracode`
+        multi-agent survey for further candidate bridge mechanisms was launched the same day;
+        check `research_universal_solver/domains/standard_model/item1_exploration/
+        ITEM1_EXPLORATION_LOG.md` for the outcome before citing this as final.
+
+EQ-069  RETRACTED 2026-07-26 (continuum contamination — founder ruling; number kept so the
+        stream stays stable). The continuous-Θ graph-accumulation approach was a continuum detour:
+        cond#(G[Θ]) is a smooth bijection Θ↔R — a coordinate, not an observable — so a single
+        continuous knob cannot force generations. Original content + the transferable lessons + the
+        discrete grounding are in the error note: domains/standard_model/item1_exploration/
+        CONTINUUM_ARC_ERROR_NOTE.md. Root goal = the DISCRETE graph-Laplacian / transfer-operator
+        spectrum per representation sector (MASS_GAP §25).
+
+EQ-070  RETRACTED 2026-07-26 (continuum contamination — founder ruling; number kept so the
+        stream stays stable). The continuous-Θ graph-accumulation approach was a continuum detour:
+        cond#(G[Θ]) is a smooth bijection Θ↔R — a coordinate, not an observable — so a single
+        continuous knob cannot force generations. Original content + the transferable lessons + the
+        discrete grounding are in the error note: domains/standard_model/item1_exploration/
+        CONTINUUM_ARC_ERROR_NOTE.md. Root goal = the DISCRETE graph-Laplacian / transfer-operator
+        spectrum per representation sector (MASS_GAP §25).
+
+EQ-071  RETRACTED 2026-07-26 (continuum contamination — founder ruling; number kept so the
+        stream stays stable). The continuous-Θ graph-accumulation approach was a continuum detour:
+        cond#(G[Θ]) is a smooth bijection Θ↔R — a coordinate, not an observable — so a single
+        continuous knob cannot force generations. Original content + the transferable lessons + the
+        discrete grounding are in the error note: domains/standard_model/item1_exploration/
+        CONTINUUM_ARC_ERROR_NOTE.md. Root goal = the DISCRETE graph-Laplacian / transfer-operator
+        spectrum per representation sector (MASS_GAP §25).
+
 ---
 
 ## Bottleneck survey (2026-07-25, CORRECTED same day)
