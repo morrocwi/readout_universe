@@ -10,7 +10,9 @@
 > Tier legend used throughout (never collapse): `Th_coqc` (machine-checked,
 > axiom-free) ≠ `finite_diagnostic` (executed numeric run — evidence, not
 > proof) ≠ `Dr` (declared-bridge / human narrative reading) ≠ `Open` (not
-> established, but never bare — always carries a stance and a falsifier).
+> established, but never bare — always carries a stance and a falsifier) ≠
+> `fit_calibrated` (fit to data, not derived — matches `logic.md`'s own
+> legend).
 
 ---
 
@@ -114,7 +116,7 @@ becomes readable" §, lines 136–160]
 
 ## 2. The tier discipline — ทำไมต้องมี (why it exists)
 
-Every claim in this corpus must carry one of four tags, and the tags are
+Every claim in this corpus must carry one of five tags, and the tags are
 **never allowed to collapse into each other**:
 
 | Tier | Meaning | What it is NOT |
@@ -123,6 +125,7 @@ Every claim in this corpus must carry one of four tags, and the tags are
 | `finite_diagnostic` | measured / executed numeric run (pytest, assert) | not proof; a single executed instance |
 | `Dr` | declared-bridge / human narrative reading | not established fact; an interpretation with a named bridge |
 | `Open` | not established | never bare — always paired with a stance and a falsifier |
+| `fit_calibrated` | fit to data, not derived (e.g. §1's mass-ratio geometric-mean fit against measured PDG masses) | not `Th_coqc`; a calibration, not a first-principles derivation |
 
 Why bother: this is the corpus's answer to how a small team (stated cost:
 "หนึ่งคน + AI + สคริปต์สั้น" — one person + AI + short scripts,
@@ -244,10 +247,13 @@ is the same discipline read forward, as a decision an agent makes before
 spending compute.** The nuclear core (`readout_genesis/READOUT_GENESIS_CORE.md`
 PART VI §VI.3) names three CPU-computable scalars as the minimal sufficient
 statistic of any reasoning step — not new primitives, but the epistemic
-reading of the spine's own N2/N3 machinery run on a candidate answer:
-`Re_ep` (epistemic Reynolds — how contested/spread the candidate readouts
-are), `F_ep` (obstruction depth — how far the best-supported readout sits
-from `O → 0`, N3's own distance-to-resolved read epistemically), and
+reading of the spine's own N2/N3 machinery (defined below at §5.7) run on a
+candidate answer: `Re_ep` (epistemic Reynolds — how contested/spread the
+candidate readouts are), `F_ep` (obstruction depth — how far the
+best-supported readout sits from `O → 0`, N3's own distance-to-resolved read
+epistemically; `O` here is informal shorthand for the obstruction functional
+`E` that §5.7's N3 equation `dE/dt ≤ 0` actually names — not a separately
+defined symbol), and
 `k_ep` (consistency coupling — how coherently the supporting set of
 readouts agrees, N2's lossiness read through a multimode `L_R`, which must
 be evaluated against the full operator or it can silently misreport
@@ -290,7 +296,7 @@ that number and its coupling companion both read low.
 source cites the gate as implemented (`core/nuclear_core.py`,
 `solvers/reasoning_min_cost.py`) — a code citation, `finite_diagnostic` in
 the weak sense that it runs, not in the stronger sense of a logged PASS with
-numbers this file's own §8-style entries carry. Its own cost-savings claim
+numbers this file's own §7.6-style entries carry (e.g. the EQ-066 case). Its own cost-savings claim
 — "only contested steps pay the large model" — is stated qualitatively and
 flagged by the source itself as workload-dependent and **not
 perturbation-certified**; no percentage is asserted here, and none should
@@ -380,8 +386,14 @@ The dictionary (`v2/TRANSLATION_PROTOCOL.md` §1) maps foreign terms — thing,
 law, error/tension, explanation, time, measurement, vague boundary, infinity,
 hidden variable, cause, mass/inertia, horizon/collapse, life/agency, truth,
 ethics — into information-philosophy terms (δ_R-entity, a row of grammar A,
-residual r = Aε−δ, descent of V, τ_c, readout at policy Π, forced binary
-jump, non-readout, null-space of A, load-bearing relation, memory, the
+residual r = Aε−δ [`A` the grammar matrix a moment ago; `ε` the retained
+evidence/input vector being read; `δ` the target or threshold the readout is
+compared against — so `r` is the leftover mismatch a policy must still
+account for], descent of V [`V`, the residual energy this file already names
+at §1's "tracking... keeps residual energy V low" — no further defining
+equation is given in this file beyond that prose statement; treat its formal
+shape as `Dr`], τ_c, readout at policy Π, forced binary jump, non-readout,
+null-space of A, load-bearing relation, memory, the
 τ_c\* knife-edge, the τ_c > τ_c\* regime, tracking, preservation of repair
 capacity). A term with no row yet must be given one — plus its verdict class
 — *before* it can be used; extending the dictionary is itself part of
@@ -675,10 +687,24 @@ discipline into a pre-write checklist against contaminated concepts.
 
 Called "the trunk"; SI units enter only as an adapter, never as ontology.
 Its status is explicitly **mixed**, term by term — see `logic.md` EQ-015 for
-the per-term tier breakdown. The book's own position is unambiguous: *"the
-master equation's FORM is posited from narrower assumptions, not forced by
-the root"* (`v2/EVERYTHING_BRIDGE.md` §0) — this equation is a candidate
-trunk shape, not a theorem derived line-by-line from δ_R.
+the per-term tier breakdown. `Φ` is the retained field being tracked (the
+reader's own state, read at each discrete step — see §7.18's fuller gloss,
+"how much the retained value at this node changed by the last admissible
+step," for `∂Φ` specifically); `V` is the potential functional whose
+gradient `∇V(Φ)` supplies the trunk's restoring force (distinct from the
+"residual energy V" of §1/§3, which is a different, informally-named
+functional — no defining equation for either is given in this file, so both
+stay `Dr`/`[Open]` as written); `J` is the external driving/source term on
+the right-hand side. **Note on `D`:** this is a different, unrelated `D`
+from §5.2a's `D` (the naturals rung of the δ_R→D→ℤ→ℚ→ℝ ladder) — from here
+through §6 and §7, bare `D` names the trunk's dissipation coefficient (a
+scalar constant), not the type of natural numbers; the two are
+disambiguated only by context, never by a subscript, so a reader should
+track which section is speaking. The book's own position on the trunk's
+form is unambiguous: *"the master equation's FORM is posited from narrower
+assumptions, not forced by the root"* (`v2/EVERYTHING_BRIDGE.md` §0) — this
+equation is a candidate trunk shape, not a theorem derived line-by-line from
+δ_R.
 
 ### 5.4 What v2 adds — closing one declared wound honestly
 
@@ -997,7 +1023,12 @@ forcing failed, so `M` stands as **posited**, and what *is* derived
 reverse, even though the formula connecting them is algebraically
 reversible.
 
-**N2** states knowing itself as a lossy linear read, `M_A = K_A·θ + η`,
+**N2** states knowing itself as a lossy linear read, `M_A = K_A·θ + η`
+(`M_A` the measured/recorded readout; `K_A` the linear read/gain operator
+doing the measuring; `θ` the latent true state being read — the only other
+place this file names θ's role is §7.7's "readout operator A(θ)", ~450
+lines later, a hint rather than a full definition, so treat θ's precise
+formal shape as `Dr`),
 with strictly positive total error — a plain `definition`, not a theorem.
 Its subtlety this cycle is a *reduction error*, not a defect in the
 equation: `L_R` is in general a full operator acting on many coupled modes
@@ -1184,7 +1215,10 @@ The corpus's own answer (EQ-033, `Th_coqc`, `gauge_redundancy_forces_undecodabil
 names it directly: a gauge transformation. Not "a gauge symmetry resembles
 this structure" — under this lens gauge redundancy *is* this structure,
 instantiated. The set of admissible `h` (EQ-042, `Dr`: `𝒜 = {h : Oh=O, hF=Fh,
-h†Gh=G}`) is exactly the class the abstract theorem quantifies over — every
+h†Gh=G}` — `G` here is §5.4's retention metric, carried over unchanged; `F`
+has no defining statement anywhere in this file or its cited source and is
+used here without an available source definition — treat as `[Open]`) is
+exactly the class the abstract theorem quantifies over — every
 `h` in it changes the configuration while leaving every possible readout
 identical.
 
@@ -1210,13 +1244,17 @@ itself machine-checked.
 
 ### 7.3 SU(3) confinement/triality — a worked physics instance of Q3 (identity by role, not number)
 
-*Tier: `Th_coqc`-adjacent (physics-side §21 closure), read here at `Dr`
+*Tier: `Th_coqc`-adjacent (physics-side "§21 closure" — this is
+`EQUATION_LIBRARY_ROOT_TO_SM_STREAM_research_universal_solver.md`'s own tier
+notation for EQ-036–053, referring to a Part 21 of the equation stream's
+upstream source, not a section of this file), read here at `Dr`
 bridge-level — per §5.5's own rule that a domain bridge is always `Dr` even
 where the artifact it bridges to is stronger*
 
 **A worked instance, not just an abstraction (color confinement).** Q3 is
 usually stated as a caution — *don't* substitute on equal digits. The
-physics stream's own §21 closure chain shows a domain where the readout
+physics stream's own "§21 closure" chain (same upstream source, EQ-036–053)
+shows a domain where the readout
 graph enforces it as a hard rule, not a warning: a color representation's
 *triality* τ (a ℤ₃-valued readout, τ(3)=1, τ(3̄)=2, τ(8)=0, additive under
 tensor product) is exactly the "role" EQ-031's mechanism talks about —
@@ -1240,8 +1278,9 @@ One hedge carried forward, not smoothed: the source states ℋ_physical **⊆**
 ℋ_{τ=0}, a subset claim, not an iff — τ=0 is necessary, and the source does
 not claim it is sufficient. Don't over-read this as "τ=0 ⟺ physical."
 
-Tier discipline: the physics-side closure (EQ-049, the τ map and its §21
-derivation) is `Th_coqc`-adjacent; EQ-050 itself and this whole
+Tier discipline: the physics-side closure (EQ-049, the τ map and its "§21"
+derivation in the upstream equation-stream source) is `Th_coqc`-adjacent;
+EQ-050 itself and this whole
 philosophical reading are `Dr` — a worked example of Q3, not a proof of it.
 
 [domain card: SM gauge — EQUATION_LIBRARY_ROOT_TO_SM_STREAM_research_universal_solver.md#EQ-031; #EQ-049; #EQ-050]
@@ -1600,8 +1639,10 @@ Ontologically this sharpens Q1–Q2 rather than merely repeating them:
 write/return asymmetry — the same non-injective-map fact the Coq theorem
 proves for a static encoding now shows up as a continuum of dynamically
 distinguishable cases (reciprocal → recoverable-in-trajectory, one-way →
-permanently null-space), each with its own operator, its own χ index (§5),
-its own honest tier. Two independent registers — a machine-checked map
+permanently null-space), each with its own operator, its own χ index (an
+AP15-internal bookkeeping quantity, distinct from the χ² residual of §7.7 —
+not further defined in this file; the domain card below cites only AP15
+§§6/11, not a §5), its own honest tier. Two independent registers — a machine-checked map
 theorem and an executed finite diagnostic — converge on one epistemic claim
 without upgrading either: the map theorem stays `Th_coqc` about maps, AP15
 stays `finite_diagnostic`/`Dr` about this one recorded linear model, and the

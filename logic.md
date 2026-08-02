@@ -117,7 +117,7 @@ shadow, never the primary reading:
 
 | Op | Discrete/retained-information meaning | Tier | Source |
 |---|---|---|---|
-| `=` | mutual indistinguishability to every reader (`O(x)=O(y)`); grounded non-circularly in coarse-grain fibers `G_λ`, not defined using `=` itself | `Th_coqc` | §0.5.3; Part VII §7.2 |
+| `=` | mutual indistinguishability to every reader (`O(x)=O(y)`); grounded non-circularly in coarse-grain fibers `G_λ`, not defined using `=` itself | `Th_coqc` | Part 0.5 §0.5.3; Part VII §7.2 |
 | `≺`/`<` | retained precedence — accumulated-record order; total + well-ordered on `D` (Th 2.3); on `ℝ`, only **cotransitive**, not trichotomous (Pr 3.1) | `Th_coqc` (`D,ℤ,ℚ`) / `Dr` non-constructive residue on `ℝ` | Part VII §7.2 |
 | `⊕` (`+`) | accumulation — merge two retained records into one longer record | `Th_coqc` | Part VII §7.3 (Th 7.1) |
 | `⊖` (`−`) | cancellation/debt of retained distinction; **partial** on `D` (defined only `b⪯a`) — that refusal is exactly where `ℤ` is born; total signed on `ℤ` | `Th_coqc` | Part VII §7.3 |
@@ -203,6 +203,8 @@ Mixed tier, per-term ([`EQUATION_LIBRARY_ROOT_TO_SM_STREAM...`]):
 | M ∂²Φ | `Dr` |
 | D ∂Φ | `finite_diagnostic` |
 | K·L_R Φ | `Th_coqc` (admissibility skeleton only) |
+| ∇V(Φ) | untagged in source (the source bracket at `EQUATION_LIBRARY_ROOT_TO_SM_STREAM...`#EQ-015 tiers only the four terms above; §9.8's N1-L3 audits this term's nonlinear paraproduct behavior at `finite_diagnostic`, but that is a checker result on the term, not a per-term tier of EQ-015 itself) |
+| J | untagged in source (same bracket omission as ∇V(Φ); no tier is assigned to the forcing term `J` anywhere in the source ledger) |
 | η | `finite_diagnostic`/`Open` |
 
 `λ_c = D²/(4MK)` — `Dr` (EQ-016). Continuum reader form:
@@ -315,6 +317,12 @@ where ΔXⁿ = Xⁿ⁺¹ − Xⁿ, and:
   own norm; magnitude exists only paired reader×record).
 - **Ω = [[0,1],[−1,0]]** — retention symplectic (carries the D-damping term
   through structure, not by hand).
+- **`v`-prefix (`vΦ`, `vΨ`, `vqᵢ`, `vrᵢ`, `vΦᵢ`, `vΨᵢ`)** — discrete velocity:
+  the field's own finite-difference rate between adjacent time steps
+  (confirmed at source, `evidence/DRL_Discrete.v`: "state and velocity
+  (Phi,Psi,vPhi,vPsi)"), treated as an independent variable in the discrete
+  Legendre transform that produces the bilinear charge `H` — not a
+  continuum time-derivative.
 
 | ID | Result | Tier | Source |
 |---|---|---|---|
@@ -346,6 +354,17 @@ pending external peer review.
 Source: `v2/APPEND_ONLY_RECORD.md`. Posited map (no action — declared cost
 vs. DRL): phase state z=(u,w), orthogonal step-conserving C:
 `z̃ = Cz → z' = √(1−γ)z̃, ρ = −√γ z̃ → Ψₙ₊₁ = Ψₙ ⊕ ρₙ`.
+
+`u,w` — the field/velocity pair `(Φ,∂Φ)` rewritten into normal-mode scaled
+coordinates (confirmed at source, `ap/ap7_tape_record.py`: `(phi, vel) ->
+z=(u,w)`); `C` — the per-step normal-mode rotation, an orthogonal (norm-
+preserving) map on that scaled pair, not a generic matrix; `Q(z)` — the
+conserved quadratic invariant `Q(z)=|z|²/2`, i.e. the retained-state energy
+in the scaled coordinates (`ap/ap7_tape_record.py: def Q`), a finite sum of
+squares under `δ_R`, not a continuum norm; `ω_min` — the smallest
+normal-mode frequency `min(√(λᵢ/M))` over the graph's `L_R` eigenmodes
+(`ap/ap7_tape_record.py`: `omega_min = _OMEGA.min()`, `_OMEGA =
+√(_LAM/M)`), used only as the underdamped-regime guard `D < 2Mω_min`.
 
 | ID | Claim | Measured | Tier |
 |---|---|---|---|
@@ -379,15 +398,20 @@ Source: `v2/EQUATION_FI.md`.
 
 q = a same-named quantity two chains A₁,A₂ read · C = closure forcing q₁=q₂
 · π = one posit of C released · V = residual energy ½rᵀWr (same functional
-as LTP1) · V\* = minimum over parameters.
+as LTP1) — `r` is the per-record residual vector (model prediction minus
+observed record, e.g. `y − Y_OBS` in `ap/ap4_phi_fi.py`) and `W` is the
+diagonal inverse-variance (precision) weight matrix on those records
+(`W = diag(1/σ²)`, confirmed at source: `V_hubble` sums `((y−Y_OBS)/SIG)²`,
+which is exactly `rᵀWr` with `W=diag(1/SIG²)`) · V\* = minimum over
+parameters.
 
-| ID | Property | Tier |
-|---|---|---|
+| ID | Property | Note | Tier |
+|---|---|---|---|
 | FI-1 | 0 ≤ Φ_FI ≤ 1 (nested-family inclusion V\*(C∖π) ≤ V\*(C)) | provable by set-inclusion (Coq lift: `Open`/roadmap); asserted numerically | `finite_diagnostic` |
 | FI-2 | Φ_FI is always named to its π — no bare Φ | untagged in source (informal statement; no `Dr`/tier bracket assigned) | |
-| FI-3 | Decision rule: high Φ_FI ⇒ decisive record identifies π directly | `Dr` | |
+| FI-3 | Decision rule: high Φ_FI ⇒ decisive record identifies π directly | | `Dr` |
 | FI-4 | Requires a non-tautological negative control | untagged in source (implemented in `ap4`; no `Dr`/tier bracket assigned) | |
-| FI-5 | dof-saturation limitation: an unconstrained free parameter gives a false Φ=1 unless it carries a real prior | `finite_diagnostic` (adversarial-review finding) | |
+| FI-5 | dof-saturation limitation: an unconstrained free parameter gives a false Φ=1 unless it carries a real prior | adversarial-review finding | `finite_diagnostic` |
 
 First runs (`ap/ap4_phi_fi.py`, `finite_diagnostic`, toy tier): Hubble toy
 (π=w released) Φ_FI = 1.0000; world-side control (non-absorption) Φ_FI =
@@ -417,7 +441,7 @@ background/geometric pairing, `c_self` weights the fluctuation/self pairing
 
 | ID | Result | Tier |
 |---|---|---|
-| AP20-1 | ε² coefficient of `K(A_x+εa_x,A_y+εa_y)` equals `K(a_x,a_y)` exactly (bilinearity) | symbolic-exact, seed-free (`ap20_symbolic_forcing.py`) |
+| AP20-1 | ε² coefficient of `K(A_x+εa_x,A_y+εa_y)` equals `K(a_x,a_y)` exactly (bilinearity) | `exact_algebra` (symbolic-exact, seed-free — proved on generic SymPy matrix entries with no numbers substituted, `ap20_symbolic_forcing.py`; per source `v2/RETENTION_SELF_INTERACTION.md`, this is distinct from AP20-2's numeric-only check below — reconciled here to the nearest legend tier rather than left as an undocumented tag) |
 | AP20-2 | c_self/c_geo = 1; (c_geo+c_self)/c_geo = 2; (c_total/c_geo)² = 4 | `finite_diagnostic`, TOL=1e-11, 100 seeds × 3 load scales — ratio forced to exactly 1 by DECLARED premise (4), not derived |
 
 **Withdrawn (review round 2):** calling `(c_total/c_geo)²=4` a "response
@@ -468,7 +492,12 @@ underlying general theorem, cited once per relevant section).
 
 Source: `v2/urr/URR_C_MASTER_0_4.md` / `URR_NATIVE_SYSTEM.md`. Doubled
 reader–record space 𝒳_T = 𝓗_T ⊕ 𝓗_T, X_n=(Φ_n,Ψ_n)ᵀ; lifted projector
-Ō_α = I₂⊗O_α, H̄_α = I−Ō_α.
+Ō_α = I₂⊗O_α, H̄_α = I−Ō_α. `𝔾_T` (URR-2 below) — the lifted graph coupling
+operator, the same construction as EQ-020's `𝔾_n` (§6): `L_R` Kronecker-
+lifted onto the field/reader-record space plus the internal-coupling term
+(`G_T = KRON(L_R,I_ℱ) + KRON(I_nodes,C_ℱ) + C_int`, confirmed at source,
+`v2/urr/URR_NATIVE_TECHNICAL_SPEC.md` line 696) — not a separate primitive
+from `L_R`, only its lifted/coupled form at this level of the stack.
 
 | ID | Equation | Tier |
 |---|---|---|
@@ -488,7 +517,22 @@ hidden-sector image of H̄_α back into the observed-sector image of Ō_α
 readout/measurement map applied to that returned content, the final step
 that turns the returned distinction into a reader-side record. Source:
 `v2/urr/URR_C_MASTER_0_4.md` §§2,4,8.
+
+| ID | Equation | Tier |
+|---|---|---|
 | URR-4 | Readable information (linear-Gaussian): I_read(L) = ½log₂det[I + Σ_x^½ 𝒢_L^T Σ_N^{-1} 𝒢_L Σ_x^½] rbit, where 𝒢_L = (C; CF; …; CF^L) | `exact_algebra` under declared distribution |
+
+Symbol gloss for URR-4 (finite linear-Gaussian model, confirmed at source,
+`ap/ap17_return_transformation.py`): `C` — the observation/output matrix
+(maps a hidden state to what a channel can read of it); `F` — the
+state-transition (dynamics) matrix advancing that hidden state one step;
+`Σ_x` — the declared prior covariance on the state being read; `Σ_N` — the
+declared readout-noise covariance. `𝒢_L = (C; CF; …; CF^L)` stacks the
+observation matrix against `L` further steps of the dynamics — the
+finite-window observability matrix over an `L`-step horizon.
+
+| ID | Equation | Tier |
+|---|---|---|
 | URR-5 | Cut-balance gate: ρᵀ𝓙_{C,n}[X]=0 for declared retention covector ρ (AP15: ρ=𝟙) | `definition`/gate |
 | F0 | retained-difference injective | `Th_coqc` (`evidence/URR_C_Foundational_Chain.v`) |
 | F3 | lifted readout split (`F3_lifted_recompose`) | `Th_coqc` |
@@ -643,7 +687,13 @@ hidden part and the hidden part is eliminated algebraically: the past does
 not vanish and does not silently blend into the present — it reappears as
 an exact convolution term, `K_mem(t−s) = R e^{-Λ_H(t-s)} W`, sitting inside
 the visible sector's own equation of motion (`ap/AP15_READ_WRITE_CUT.md`
-§4). "Never merge" therefore has an operational reading: a hidden history
+§4). Here `W` and `R` are §9.5's own write/return operators below
+(`W:H_O→H_H` write, `R:H_H→H_O` return), used earlier than their own
+introduction because this kernel is their first payoff; `Λ_H` is the hidden
+sector's own decay generator, `Λ_H = diag(𝟙ᵀR)` (confirmed at source,
+`ap/AP15_READ_WRITE_CUT.md`: `\Lambda_H=\operatorname{diag}(\mathbf1^\top
+R)`) — a diagonal matrix built directly from `R`'s own column sums, not an
+independent primitive. "Never merge" therefore has an operational reading: a hidden history
 is not overwritten by the present; it is *folded* into a kernel that any
 future readout of the visible sector must convolve against to recover what
 passed through the cut — retention as a literal integral term, not a
@@ -783,19 +833,28 @@ lost information (q_α discarded what b needs) · insufficient resolution ·
 target lacks the variables · no closure. A failing square is diagnosable,
 not a dead end.
 
-**Applied instance (§ bR ledger; `finite_diagnostic` architecture, not a
+**Applied instance (the bR cross-domain lineage ledger — its own name at
+source, PART V.13/VI.6; `finite_diagnostic` architecture, not a
 first-principles derivation):** quantum→chemical→protein→biological-
-transport chained readout `r_B = E · A_C · A_P · A_B`. A single
+transport chained readout `r_B = E · A_C · A_P · A_B`, where `E` is the
+external SI-decode factor (explicitly external — not itself derived by
+this ledger) and `A_C`, `A_P`, `A_B` are the retention-preserving
+admissibility amplitudes attached to the chemical, protein, and
+biological-transport translation steps respectively (confirmed at source,
+`readout_genesis/READOUT_GENESIS_CORE.md` PART VI §VI.6 / V.13). A single
 quantum-only quotient `q_Q` alone does **not** commute for a biological
 question (confirms §10's N2-err Scalar-Eigenmode Reduction Error one level
 up: collapsing a translation chain to one quotient throws away needed
 structure, same as collapsing `L_R` to a scalar). Where the chain fails to
 commute cleanly, the ledger produces obstruction certificates that
-conserve the retained lineage exactly: `I_Q = I_B + O_C + O_P + O_B` (a
-discrete accounting identity — "+" here is retained-information addition
-under δ_R, combining disjoint obstruction terms, not real-number
-summation). Needs event-resolved empirical data, pre-registered future
-work, not a completed validation.
+conserve the retained lineage exactly: `I_Q = I_B + O_C + O_P + O_B` — `I_Q`
+is the quantum-level retained information, `I_B` is what survives to the
+biological level, and `O_C`, `O_P`, `O_B` are the obstruction (information
+lost) at the chemical, protein, and biological-transport translation steps
+respectively (a discrete accounting identity — "+" here is
+retained-information addition under δ_R, combining disjoint obstruction
+terms, not real-number summation). Needs event-resolved empirical data,
+pre-registered future work, not a completed validation.
 
 [domain card: `readout_genesis/READOUT_GENESIS_CORE.md` PART VI §VI.6
 (~lines 4482–4529); also stated at §IV.5 (~lines 2183–2205); Appendix
@@ -827,7 +886,9 @@ pending T1, cf. §10 N2-repair) · Face 2 Decay/Impermanence
 (`|a_k[n]|≤|a_k[0]|e^{−γ_kn Δθ}`) · Face 3 Dispersion Split — Classical/
 Quantum (`λ_c=D²/4MK`) `Th_coqc` · Face 4 Stability/Energy (`dE/dt=−D‖v‖²≤0`)
 `Th_coqc` · Face 5 Finite-Speed/Relativity (cf. §9.10 below) · Face 6 Mass/
-Memory (`m=ℏ/2c²τ_c`) · Face 7 Force/Energy/RDU Readback Gate · Face 8
+Memory (`m=ℏ/2c²τ_c`) · Face 7 Force/Energy/RDU (Readout Dimension Units —
+the τ_c-derived unit grammar, `readout_genesis/READOUT_GENESIS_CORE.md`
+§VII.2) Readback Gate · Face 8
 Operator-to-Metric Geometry (`g^{ij}≈½Hess(principal symbol of L_R)`)
 `Th_coqc` · Face 9 CPTP/Quantum-Channel (`Σ_jK_j†K_j=I`) `Th_coqc` · Face
 10 Record/Readout/Epistemic (`M_A=K_Aθ(E)+η_sel+η_map+η_self`) · Face 11
