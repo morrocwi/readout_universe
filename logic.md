@@ -21,6 +21,26 @@
 | R-δ | **δ_R = (a ♯ b)** — one retained distinction, the primitive | `Ax`/`Dr` | `readout_genesis/README.md`; `v2/INFORMATION_DNA.md` |
 | R-L | **L_R := D_W − W** — the graph Laplacian (D_W = weighted degree, W = weighted adjacency); named "the ONE genuinely derived link" from root to trunk | `Th_coqc` | `readout_genesis/README.md` |
 
+### R-L-uniq — why L_R is forced, not chosen (closes audit gap `InfoRetainedDistinctionForcesLaplacian`)
+
+| ID | Statement | Tier | Source |
+|---|---|---|---|
+| R-L-uniq | Three properties on a weighted vertex operator L — **symmetric**, **zero-row-sum**, **off-diagonal ≤ 0** — read as δ_R's own meaning (symmetric: "A differs from B" is one fact, not two; zero-row-sum: a uniform state retains no distinction; off-diag≤0: reads *difference*, not *connection*) FORCE any L satisfying them into exactly `D_W − W` form — `forced_into_DW_minus_W`, general 3-vertex case, `Q`, proved by `ring`/`lra` | `Th_coqc` | `research_universal_solver/formal/InfoRetainedDistinctionForcesLaplacian_attempt.v` Part 1 |
+
+Witness enumeration (concrete weighted path graph 0–a–1–b–2; a=2, b=3, all `Q`; Part 2 of the same file):
+
+| Candidate operator | symmetric | zero-row-sum | off-diag ≤ 0 | Verdict |
+|---|---|---|---|---|
+| `L_R = D_W − W` | ✓ | ✓ | ✓ | passes all three |
+| adjacency (raw `W`) | ✓ | ✗ (row 1 sums to a+b=5≠0) | ✗ (entries +a, +b>0) | ruled out — `ADJ_fails_rowsum0`, `ADJ_fails_offdiag_le0` |
+| signless Laplacian `D_W+W` | ✓ | ✗ (row 1 sums to 2(a+b)=10≠0) | ✗ | ruled out — `QSL_fails_rowsum0`, `QSL_fails_offdiag_le0` |
+| random-walk Laplacian `I−D⁻¹W` | ✗ — `RW(0,1)=−1 ≠ RW(1,0)=−2/5` | ✓ | ✓ | ruled out — `RW_fails_symmetric` (concrete numeral witness) |
+| normalized (symmetric) Laplacian `D⁻¹ᐟ²(D−W)D⁻¹ᐟ²` | — | — | — | **[Refused]** before the 3-property test can run: entries need `1/√(dᵢdⱼ)`, an I1 (√ / ℝ-completeness) injection, not constructible on the `Q` carrier at all |
+
+Tier: `Th_coqc` — axiom-free, `Print Assumptions` closed, Coq 8.20.1, ground over `Q`, 3-vertex numeral case (the general characterization theorem `forced_into_DW_minus_W` is stated for arbitrary `L : nat → nat → Q` on 3 vertices, not merely the one numeral instance). **Relocates, does not close, the "chosen operator" gap**: the theorem proves `L_R` forced GIVEN the three axioms; it does NOT derive those three axioms from anything weaker than δ_R's own meaning (symmetric retained difference) — that meaning remains the irreducible `Dr` root the forcing argument starts from, per the source file's own stated caveat.
+
+[domain card: `research_universal_solver/docs/root/BORROWED_VS_DERIVED_LEDGER.md` row 4; `research_universal_solver/formal/InfoRetainedDistinctionForcesLaplacian_attempt.v`]
+
 ### RD1–RD9 — the arithmetic genome
 
 | ID | Statement | Tier | Source |
@@ -44,9 +64,9 @@
 | A2 | transport | no inference without an admissible grammar (units/types match) |
 | A3 | retention | only distinctions kept above a threshold count as structure |
 | A4 | accessibility | derivability ≠ existence (direct/composite/inaccessible) |
-| A5 | admissibility | the comparison metric is positive |
+| A5 | admissibility | the comparison metric is positive — any measure used to compare two retained records (e.g. the obstruction norm ‖O‖² of A8) must be non-negative, so "closer"/"farther" is always a meaningful, orderable comparison, never a signed or unconstrained score |
 | A6 | identity-locking | the same entity tracked through every inference |
-| A7 | obstruction | target of inference is consistency O=0, not annihilation |
+| A7 | obstruction | target of inference is consistency O=0, not annihilation — O(Γ,φ) is a measured residual, not a truth value; O=0 is mutual consistency of retaining Γ while reading φ, and a contradiction registers as O>0 (evidence to revise), never as license to derive an arbitrary ψ (no ex-falso explosion) |
 | A8 | lens | validate through a lens that does not distort |
 
 Source: `v2/INFORMATION_DNA.md` §Stratum 2 (`docs/root/math/Retained_Distinction_Logic.tex` §sec:rar).
@@ -54,6 +74,121 @@ Builds: truth = retention-under-transport; validity = zero-section consistency;
 negation = access-reversal; contradiction = obstruction-not-explosion; gated
 sequent calculus w/ soundness+normalization; modal difference — all `Dr`
 relative to this book, formal source not re-verified here.
+
+---
+
+## 0.5 The number ladder and the operator-grounding floor (information-discrete-math)
+
+Placed here, right after §0's root (`R-δ`, `R-L`, `R-L-uniq`) and before §1's
+trunk equation, because every `+ − × ÷ ∂ ∇ = <` written from §1 onward is to
+be read against this table, not as bare continuum notation. Source
+throughout: `information-discrete-math/textbook/INFORMATION_DISCRETE_MATHEMATICS.md`
+Parts 0, II–V, VII, VIII (public repo `information-discrete-math`; skill
+`information-discrete-math` not locally installed in this session — textbook
+read directly per the mandatory-load rule).
+
+| ID | Statement | Tier | Source |
+|---|---|---|---|
+| LAD-COM | One commitment: everything an agency ever reads is a finite, discrete, rational readout; ℝ, infinite divisibility, `+∞` are non-readouts — real as boundaries, never as appearances | `Dr` | Part 0 §0.1 (Pr 0.1) |
+| LAD-INF | Injected-infinity/zero taxonomy: **I1** ℝ-completeness (LUB/Dedekind) · **I2** `h→0` · **I3** `Re,Λ→∞` · **I4** actual `+∞` · **Z1** the point `r=0` · **Z2** reached continuum `h=0` · **Z3** absolute rest `v=0,T=0` · **Z4** the true void; reciprocity `1/0=∞` names zero and infinity as one non-readout seen from two sides | `Dr` | Part 0 §0.2 (Def 0.2, Pr 0.2) |
+| LAD-D | `D` (naturals): generated by RD1–RD9 (`0`, `succ`, injectivity, induction); commutative semiring; total well-order; `D≅ℕ`; discrete floor `¬∃z, 0≺z≺succ 0` — density/continuum provably absent at the root | `Th_coqc` | Part II §2.2–2.3 (`RD.v`, ≈183 decls) |
+| LAD-Z | `ℤ := (D×D)/∼` (Grothendieck completion); commutative ring | `Th_coqc` | Part III §3.1 |
+| LAD-Q | `ℚ := (ℤ×ℤ≠0)/∼` (field of fractions); field incl. multiplicative inverse `qmul_inv` — ladder `D→ℤ→ℚ` verified end-to-end, 69 constructive theorems, axiom-free | `Th_coqc` | Part III §3.3 |
+| LAD-R | `ℝ :=` Bishop **regular Cauchy sequences of `ℚ`** (`\|f n − f m\| ≤ 1/n+1/m`); ordered field up to `Req`; **Cauchy-completeness proved by an explicit constructed limit** `L n := X(2n)(6n)` — the continuum point read off discrete rational approximants; this is the book's own stated thesis, machine-checked | `Th_coqc` (axiom-free unless noted) | Part III §3.4 (Th 3.5–3.6) |
+| LAD-R-open | Full trichotomy, a total `≤`, and the classical LUB property are **NOT constructively valid** (each implies LPO/WLPO); cotransitivity + Cauchy-completeness + the finite lattice are their correct constructive replacements — asserting trichotomy/LUB injects I1 | `Dr` (named non-constructivity, Pr 3.1) | Part III §3.4 |
+| LAD-KEY | Keystone: `B(Φ,Φ) = I(Φ)` — the operator's Dirichlet energy IS the retained-information functional; edge form `ΦᵀL_RΦ = Σ_edges w·(Φ_i−Φ_j)²`; `L_R = D_W − W` is symmetric PSD | `Th_coqc` | Part V §5.1 (`IDM_Keystone.v: keystone_B_eq_I`, `keystone_nonneg`) |
+
+**Contaminated-concept → discrete-replacement table** (subset load-bearing
+for this ledger's own operator usage — see §0.6 below for the full
+pre-write-gate version):
+
+| Contaminated (continuum) concept | Discrete replacement | Tier | Source |
+|---|---|---|---|
+| angle `θ` (`acos`/`atan2`, degrees) | **overlap fraction** `\|⟨v,e⟩_G\|²/(⟨v,v⟩_G·⟨e,e⟩_G)` — Born-rule ratio; `+,·,÷` only, no trig/π/ℝ | `Th_coqc` (Def 4.2a) | Part IV §4.2 |
+| derivative `f'(x)=lim_{h→0}Δf/h` | forward/backward difference `Δf(n)=f(n+1)⊖f(n)`; `∇f(n)=f(n)⊖f(n−1)`; discrete Jacobian `J_F[i,l]=∂F_i/∂x_l`; exact-algebra, no limit | `Th_coqc` | Part VIII §8.1, §8.8 |
+| integral `∫` | antidifference `Σ_a^b f`; discrete FTC `Σ_a^bΔf=f(b)⊖f(a)` | `Th_coqc` | Part VIII §8.1–8.2 |
+| limit / `ε–δ` continuity | finite-`ε` rung (A8 discipline): work at finite `ε` first, take `ε→0` only after a declared stability proof | `Th_coqc` rung / `+ℝ-axioms` tower for the full continuum form | Part 0.5 §0.5.5 (A8); Part X §10.5 |
+| `∞` / a point `r=0` | refused endpoints (Th 6.1; the endpoint boundary) — a finite reader lives strictly between them, touching neither | `Dr` (Pr 0.2 reciprocity) | Part VII §7.5 |
+
+**Operator-grounding clause (Pr 7.0).** Every operator below is, first, a
+mode of retained distinction on *readouts* — its ordinary textbook meaning
+("add magnitudes", "the angle between two vectors") is only the machine
+shadow, never the primary reading:
+
+| Op | Discrete/retained-information meaning | Tier | Source |
+|---|---|---|---|
+| `=` | mutual indistinguishability to every reader (`O(x)=O(y)`); grounded non-circularly in coarse-grain fibers `G_λ`, not defined using `=` itself | `Th_coqc` | §0.5.3; Part VII §7.2 |
+| `≺`/`<` | retained precedence — accumulated-record order; total + well-ordered on `D` (Th 2.3); on `ℝ`, only **cotransitive**, not trichotomous (Pr 3.1) | `Th_coqc` (`D,ℤ,ℚ`) / `Dr` non-constructive residue on `ℝ` | Part VII §7.2 |
+| `⊕` (`+`) | accumulation — merge two retained records into one longer record | `Th_coqc` | Part VII §7.3 (Th 7.1) |
+| `⊖` (`−`) | cancellation/debt of retained distinction; **partial** on `D` (defined only `b⪯a`) — that refusal is exactly where `ℤ` is born; total signed on `ℤ` | `Th_coqc` | Part VII §7.3 |
+| `⊗` (`×`) | replication/composition of distinction-structure — lay `b` copies of `a`'s pattern end to end | `Th_coqc` | Part VII §7.3 (Th 7.2) |
+| `÷` | equal partition, the inverse of replication; `÷0` **REFUSED** — the operator loses invertibility at the endpoint (Th 6.1), never a value | `Th_coqc` (defined `b≠0`) / refused at `0` | Part VII §7.3 |
+| `Δ`/`∂` (finite-difference form) | local change of retained distinction between adjacent ticks; multivariate form is the discrete Jacobian; exact algebra, no limit | `Th_coqc` | Part VIII §8.1, §8.8 |
+| `∇` (backward difference / graph gradient) | `∇f(n)=f(n)⊖f(n−1)`; on the relation graph, gradient/divergence/curl of the discrete exterior calculus over `L_R` | `Th_coqc` | Part VIII §8.1, §8.6 |
+| continuum `f'(x)=lim_{h→0}`, `∫` | recovered **last**, as a readout of `Δ/Σ` under `h→0` sampling — flagged `+ℝ`, never primitive | `+ℝ-axioms` (`Dr`) | Part VIII §8.7 |
+
+**Binding note for the rest of this ledger.** §1's trunk equation
+(`M ∂²Φ + D ∂Φ + K·L_R Φ + ∇V(Φ) = J − η`) and every downstream EQ- entry
+that writes `∂` or `∇` is to be read through this table: the `∂²Φ`/`∇V(Φ)`
+there are the Part VIII §8.7 `+ℝ`-readout rung (continuum calculus as the
+last readout), not primitive operators smuggled in from ordinary math —
+consistent with, and now giving content to, §1's own per-term tier split
+(`M ∂²Φ = Dr`; `D ∂Φ = finite_diagnostic`; `K·L_R Φ = Th_coqc`).
+
+---
+
+## 0.6 Operator grounding — the contaminated-concept checklist (pre-write gate)
+
+Every operator used anywhere in this ledger (`+`, `−`, `∂`, `∇`, `=`, `<`,
+"derivative", "limit", "adding two retained states") is itself a claim, not
+neutral borrowed continuum notation. Complements §0.5's table with the full
+pre-write-gate version. Source: `information-discrete-math` SKILL.md,
+contaminated-concept table + Pre-write CHECKLIST section
+(`plugins/information-discrete-math/skills/information-discrete-math/SKILL.md`).
+
+| Contaminated concept | Discrete-correct replacement | Tier |
+|---|---|---|
+| ℝ / completeness (LUB/Dedekind) | readout of Bishop regular Cauchy sequences over ℚ; only finite ℚ-approximants appear | `Th_coqc` (D→ℤ→ℚ→ℝ ladder, axiom-free, per source) |
+| the point (`r=0`) | node / retained distinction (graph vertex, has neighbours) | `Dr` |
+| `0` as an occupied state | refused non-readout (approached, never reached); or the `L_R` kernel = indistinguishability | `Dr` |
+| `+∞` / `N→∞` / a limit that "lands" | finite approach only; ℚ has no `+∞` | `Dr` |
+| infinite divisibility `h→0` | finite step / `τ_c` floor | `Dr` |
+| angle/degree (`acos`/`atan2`) | overlap fraction `‖⟨v,e⟩_G‖²/(⟨v,v⟩_G·⟨e,e⟩_G)` (rational `+,·,÷` only) or rational turning number | `Dr` |
+| continuity/"smooth" (ε–δ over ℝ) | discrete Lipschitz / non-expansive map | `Dr` |
+| distance `= √Σ(Δxᵢ)²` (coordinate difference) | accumulated retained resistance along the optimal path (graph geodesic) | `Dr` |
+| π, e, φ as "numbers" | readout-invariants; only finite ℚ-approximants appear | `Dr` |
+| derivative/integral = continuum limit | discrete `Δ` + `Σ` + discrete FTC + Leibniz rule | `Th_coqc` (discrete FTC, per source, not re-verified in this repo) |
+| operator on a continuum (`∂²`, d'Alembertian) | graph Laplacian `L_R` (symmetric, PSD, kernel ⊇ constants) — `∂²` is a declared `+ℝ-axioms` readout of it | `Th_coqc` (axiom-free, matches R-L §0) |
+
+**Pre-write CHECKLIST** (run before committing any equation, proof, or
+number to this ledger):
+1. Left-column concept present (angle in degrees, real coordinate, landing
+   limit, zero-size point, singular `1/0`, `N→∞`, inverse trig)? → replace
+   with right column first.
+2. Is the quantity about to be called physical actually a smooth bijection
+   of a free knob? → it is a coordinate, not an observable.
+3. About to tag something `Open`/hard/paradoxical? → diagnose which
+   I1–I4/Z1–Z4 was injected before deferring.
+4. A refused endpoint (`Θ=1`, `T=0`, `r=0`, `Λ→∞`) being treated as a wall?
+   → it is correctly-refused; approach, never reach.
+5. Tier every resulting claim (`Th_coqc`/`finite_diagnostic`/`Dr`/`Open`+reals)
+   — never collapse.
+
+Tier of this entry as a whole: `Dr` (table + checklist framing, per source)
+— the two `Th_coqc` cells above are witnesses *named at source*, not
+re-derived or re-verified in this repo.
+
+**Retroactive honesty note (gap disclosed, not fixed here):** this
+checklist has not yet been run against this ledger's own existing entries.
+EQ-015 (§1) writes `∂²Φ`, `∂Φ`, `∇V(Φ)` as bare continuum operators with no
+`+ℝ-axioms` tag, even though its own `K·L_R Φ` term is the one piece
+already `Th_coqc`-axiom-free. EQ-007 (§6) `v = √(D/τ_c) < ∞` carries an
+unflagged square root and an unflagged `<∞` comparison. Neither is
+rewritten here — retagging/replacing them per this table is a separate
+repair task.
+
+[domain card: information-discrete-math SKILL.md; contaminated-concept
+table + Pre-write CHECKLIST section]
 
 ---
 
@@ -96,6 +231,74 @@ claim (v2 additions)").
 
 Composite reading "logic = the S3-regime specialization of the one step":
 `Dr`.
+
+**Scale gauge non-readout (the constants M, D, K themselves):**
+
+| ID | Statement | Tier | Source |
+|---|---|---|---|
+| EQ-016b | `InfoScaleGaugeNonReadout`: ∀s>0, rescaling (M,D,K)→(s·M,s·D,s·K) leaves τ_c=M/D, the dispersion relation, and the discriminant sign invariant ⇒ absolute M,D,K are non-readouts (asking for their absolute value is `[Refused]` as a dimensional/non-readout question, not an open gap); only dimensionless ratios (τ_c, α, mass ratios) are genuine readouts | `Th_coqc` | `research_universal_solver/README.md` §Adversarial self-audit, 'Constants' bullet |
+
+Operator note on `s·(_)` here: this is not the continuum group ℝ_{>0} acting
+on a real-valued triple by ordinary multiplication, injected as a bare
+non-readout. The only certified content is the finite comparison the Coq
+brick actually runs — the same three checks (τ_c, dispersion, discriminant
+sign) return the identical value before and after relabeling the triple by
+one common factor `s`. `s` itself has no readout status; it indexes the
+orbit, it is not a measured quantity, and "invariant" here means decidable
+equality of a finite-diagnostic triple, not an ℝ-limit statement. The
+genuinely open readouts stay the dimensionless ratios (`α`, particle-mass
+ratios) — those are readouts but are not forced by the graph; they remain
+`[Open]`, not resolved by this brick.
+
+---
+
+## 1.5 Stream of Necessity — root→graph→L_R→2nd-order→D>0 (four-arrow necessity chain)
+
+Source: `research_universal_solver/docs/root/STREAM_OF_NECESSITY.md` +
+`research_universal_solver/README.md` §Adversarial self-audit findings
+(2026-07-07). Chain (`=` here means *definitional identity of the readout*,
+a decidable finite check, never an ℝ-equality asserted by fiat):
+
+**root δ_R (retained distinction) → weighted graph (nodes/edges/weights) →
+L_R = D_W − W (vertex operator) → M∂²Φ+D∂Φ+K·L_RΦ=0 (spine PDE)**
+
+Operator grounding (per §0.5/§0.6's discrete floor — every symbol below is
+a finite retained-state operation, not borrowed continuum notation):
+`D_W − W` is a finite entrywise subtraction of two finite-dimensional
+weight readouts (retained-degree minus retained-adjacency), not a
+continuum difference; `∂²Φ`/`∂Φ` in the spine PDE are finite-difference
+(discrete forward-Euler / leapfrog) recurrence steps,
+`(Φⁿ⁺¹−2Φⁿ+Φⁿ⁻¹)`-type, never an `h→0` limit; `τ_c = M/D` is a finite
+ratio of two retained scalars, and `D>0` below is a decidable finite
+sign-comparison on that ratio, not an ℝ-order relation smuggling in `+∞`.
+
+| Arrow | Step | Tier (honest, per-arrow) | Necessity, one line | Brick (`formal/`) |
+|---|---|---|---|---|
+| 1 | root → weighted graph | `DEFINITIONAL` (forced-by-definition) | δ_R = (a♯b) already *is* a symmetric (a≠b), positive (w>0) edge by its own meaning — not derived from anything weaker | `InfoDistinctionIsEdge_attempt.v` (`Th_coqc`, 14/14 `Closed`, re-verified `coqc` exit 0) |
+| 2 | graph → L_R | `Th_coqc`-forced-**given**-δ_R's-meaning | `L_R = D_W − W` is the *unique* operator on {symmetric, zero-row-sum, off-diagonal≤0}; adjacency/signless/random-walk each fail ≥1 property by explicit witness; normalized Laplacian `[Refused]` outright (needs `1/√(d_id_j)`, an I1 sqrt-injection). The three axioms = "retained distinction read pointwise" is asserted in `Dr`-tier prose, not proved — the choice is *relocated* onto δ_R's meaning, not eliminated | `InfoRetainedDistinctionForcesLaplacian_attempt.v` (`Th_coqc`, 8/8 `Closed`, self-certifying `forall`-style, re-verified) |
+| 3 | L_R → 2nd-order-in-time (M∂²Φ) | `Th_coqc`-forced-**given**-Open-posit (re-readability) — **settled NEGATIVE as a root-derivation** | `M>0` follows *iff* "retention" is strengthened to re-readability/oscillation (complex-conjugate mode root) — an extra `[Open]` posit, not analytic in δ_R alone. Six forcing readings tested (persist·held·re-readable·own-clock·decay·finite-cone); five refuted as root-derivations by the *same* fact — 1st-order dynamics already satisfies them. `M` is an independent structural ingredient (retention *of the rate*, not of the state) | `InfoRetentionForcesSecondOrder_attempt.v` (`Th_coqc`, 9/9; proves forcing given the posit); refuting bricks `InfoRetainedIsHeldNotFading_attempt.v`, `InfoStrictConeBothOrders_attempt.v` (`Th_coqc`) |
+| 4 | spine → D>0 dissipation | `Th_coqc`-forced-**given**-τ_c=M/D-is-the-memory-law | Given `τ_c=M/D` (itself independently `Th_coqc`, `InfoMemoryBeforeMass_attempt.v`), the `D→0` limit sends `τ_c` past every finite bound — an actual `+∞` (I4) smuggled in as "no damping." Refusing I4 forces the **sign** `D>0` only; the value of `D` stays `Open`/`OPEN_CONSTANTS` | `InfoFiniteMemoryForcesDissipation_attempt.v` (`Th_coqc`, 3/3 `Closed`) |
+
+**Independent re-verification** (not taken on the build reports' word, per
+this file's own discipline): all four bricks re-`coqc`'d in the source
+pass, exit 0; `Print Assumptions` on the live theorem = `Closed under the
+global context` for every one (14/14, 8/8, 9/9, 3/3).
+
+**Bottom line (matches philosophy.md §5.3's stated position exactly, now
+graded per-arrow instead of collapsed to one sentence):** the chain does
+**not** derive the whole spine FORM from the bare root by necessity. It
+derives a narrower, honest result: Arrows 1–2 (graph carrier + the specific
+`L_R = D_W − W` operator) are forced **given** retained-difference meaning;
+Arrow 4 (`D>0`) is forced **given** finite `τ_c=M/D` plus refusal of actual
+infinity (I4); Arrow 3 (`M∂²`, 2nd-order-in-time) is **not** forced — it is
+an independent structural ingredient, layered on when a system retains
+rate/momentum as its own degree of freedom, not derivable from "the state
+is retained" alone. Constants `M, D, K` remain entirely `[Open]`/
+`OPEN_CONSTANTS` throughout; only the qualitative graph/Laplacian/
+dissipation-sign structure is forced, never a numerical value.
+
+See §1 above for the trunk equation's own per-term tier table (EQ-015),
+which this chain feeds.
 
 ---
 
@@ -201,10 +404,16 @@ Q_DMAP) that measure magnitude, not attribution.
 ## 5. AP20 — Retention Self-Interaction Ratio (conditional, narrow)
 
 Source: `v2/RETENTION_SELF_INTERACTION.md`. Premises: (1) one unital ordered
-bilinear composition m(x,y); (2) borrowed commutator curvature
+bilinear composition m(x,y) — the one declared way two channels compose
+(unital, associative, bilinear; not derived from RD4, taken as given); (2)
+borrowed commutator curvature
 `K(x,y)=m(x,y)−m(y,x)` (noncommutative input is borrowed, not derived from
 RD4); (3) self-carrier closure; (4) one common quadratic load (declared,
-free overall normalization).
+free overall normalization). `c_geo` and `c_self` are the two Hessian
+(curvature) coefficients read off the ε² term of `K(A_x+εa_x, A_y+εa_y)`
+under premise (4)'s one shared quadratic load: `c_geo` weights the
+background/geometric pairing, `c_self` weights the fluctuation/self pairing
+— both measured, not independently defined observables.
 
 | ID | Result | Tier |
 |---|---|---|
@@ -247,7 +456,7 @@ generation counting, mass fits) is intentionally NOT absorbed; see §7.
 | EQ-032 | ∀X,R,O,x1,x2: x1≠x2 → O(x1)=O(x2) → ∀D: D(O(x1))=x1 → D(O(x2))=x2 → False (`no_decoder_recovers_state`) | `Th_coqc` |
 | EQ-033 | gauge-redundancy analogue: h(x)≠x → O(h(x))=O(x) → no total decoder (`gauge_redundancy_forces_undecodability`) | `Th_coqc` |
 | EQ-034 | both true states exist, no total decoder recovers both (`true_state_exists_but_no_total_decoder`) | `Th_coqc` |
-| EQ-063 | τ_c = ℏ/(2mc²); m = ħ/(2c²τ_c) — unit/calibration bridge ONLY, does NOT derive EQ-015's M coefficient (8 forcing attempts failed) | `Dr` (bridge) |
+| EQ-063 | τ_c = ℏ/(2mc²); m = ħ/(2c²τ_c) — unit/calibration bridge ONLY, does NOT derive EQ-015's M coefficient (8 forcing attempts failed; campaign logged at EQ-063's own entry in `EQUATION_LIBRARY_ROOT_TO_SM_STREAM_research_universal_solver.md`, self-caught during founder's bottleneck review) | `Dr` (bridge) |
 
 Source file for EQ-032–034: `research_universal_solver/formal/InfoTrueRecordUnreadable_attempt.v`
 (cross-referenced in `philosophy.md` §1 and `logic.md` §3 above — same
@@ -266,6 +475,19 @@ reader–record space 𝒳_T = 𝓗_T ⊕ 𝓗_T, X_n=(Φ_n,Ψ_n)ᵀ; lifted pro
 | URR-1 | 𝓔_DRL[X]_n = 𝓙_{C,n}[X_n] (native DRL forced by balanced cut, not replaced by it) | `Dr`/`definition` |
 | URR-2 | Reader spine: M(Φ_{n+1}−2Φ_n+Φ_{n-1})/Δt² + D(Φ_{n+1}−Φ_{n-1})/2Δt + K𝔾_TΦ_n + ∇V(Φ_n) − J_n = P_Φ𝓙_{C,n}[X_n] | `Dr` (forced discrete variational system, not derived from one unified action) |
 | URR-3 | Return-transformation kernel: 𝒦_{α←β}(τ) = A_α Ō_α R_α 𝒰_H(τ) H̄_β W_β Ō_β E_β | `exact_algebra` in declared linear model |
+
+Symbol gloss (finite discrete operators on 𝒳_T, not continuum notation):
+`E_β` — encoder embedding an external message/perturbation z into channel
+β's write-input; `W_β` — write operator, maps the observed-sector image of
+Ō_β into the hidden-sector image of H̄_β (carries an observed distinction
+into the hidden record); `𝒰_H(τ) = e^{F_Hτ}` — the hidden sector's own
+finite propagator over lag τ, generated by F_H (how a written distinction
+evolves while hidden, before any return); `R_α` — return operator, maps the
+hidden-sector image of H̄_α back into the observed-sector image of Ō_α
+(carries the evolved hidden content back out); `A_α` — channel-α's own
+readout/measurement map applied to that returned content, the final step
+that turns the returned distinction into a reader-side record. Source:
+`v2/urr/URR_C_MASTER_0_4.md` §§2,4,8.
 | URR-4 | Readable information (linear-Gaussian): I_read(L) = ½log₂det[I + Σ_x^½ 𝒢_L^T Σ_N^{-1} 𝒢_L Σ_x^½] rbit, where 𝒢_L = (C; CF; …; CF^L) | `exact_algebra` under declared distribution |
 | URR-5 | Cut-balance gate: ρᵀ𝓙_{C,n}[X]=0 for declared retention covector ρ (AP15: ρ=𝟙) | `definition`/gate |
 | F0 | retained-difference injective | `Th_coqc` (`evidence/URR_C_Foundational_Chain.v`) |
@@ -352,6 +574,50 @@ EQ-065–067 (feeds EQ-068's still-`Open` GeV-bridge question — not resolved
 here).
 
 [domain card: `EQUATION_LIBRARY_ROOT_TO_SM_STREAM_research_universal_solver.md`#EQ-065;EQ-066;EQ-067]
+
+### 9.2b The Fail-Able Gate Law — Type-P vs Type-U evidence gates (`Dr`; governs every gate above)
+
+| ID | Statement | Tier |
+|---|---|---|
+| FAIL-ABLE-LAW | A gate `G` is **Type-P** (evidence-bearing) iff `G` carries BOTH a machine-derived passing control `P_pass` AND a machine-derived failing control `P_fail`: `Type-P(G) ⇔ (P_pass(G) ∧ P_fail(G))`, both produced and both machine-derived. `∧` here is a decidable finite conjunction over two already-produced discrete readouts — a retained-state AND, not a continuum Boolean-algebra operator borrowed without grounding. A `G` exhibiting `P_pass` alone (`¬∃ P_fail`, no matter how many passing instances accumulate) is **Type-U** (convention/definition dressed as evidence) — labeled as such, not discarded. Worked instance already in this ledger: EQ-066 (§9.2 above) — the stepper's own bound `λ_j ∈ (0,1]` forces `Π₀ ∈ (0,7]` (`⇒` here a decidable finite range-membership entailment over the stepper's own declared variable domain, not a continuum implication), and `α_ord = −0.5` sits below that entire forced range, so `Π₀ ≤ α_ord` cannot be produced by any input the model's own variables can generate — `P_fail` is not merely absent; it is *unproducible on this stepper* — so the EQ-066 "PASS" is Type-U until a genuine failing control exists. Applies retroactively/prospectively to every gate this book names as evidence (VI.3 verdict gate, VI.6 admissibility square, any L3-adapter gate): absent a stated `P_fail`, silence must not be read as a passed test. | `Dr` |
+
+Governs, does not replace: §9.2's EQ-066 row keeps its own tier
+(`declared_finite_architecture`/`exact_bridge` for the algebra, `Dr` for the
+caveat) — this entry is the *named, general* rule the EQ-066 caveat is one
+instance of, stated once so future gates cite the law instead of
+re-deriving it per case.
+
+[domain card: readout_genesis/READOUT_GENESIS_CORE.md PART VI §VI.7 (~lines 4531-4550)]
+
+### 9.2c The L0–L5 Layered Architecture — and the label-inflation incident it exists to prevent
+
+*Tier: `Dr`/definition (the six-rung architecture itself is a declared
+organizing structure, not a derived theorem); `Th_coqc` (L0's own floor —
+the N3 monotonicity + admissibility-square theorem; `RDL_*.v`, axiom-free
+where stated); `Dr` (L5's governance rule as stated: "only Coq+lib-verified
+is core"). Do not upgrade any of these three tags.*
+
+| ID | Statement | Tier | Source |
+|---|---|---|---|
+| ARCH-L0 | Nucleus: the 5 nuclear equations + the Coq floor (`RDL_*.v`); minimal, domain-independent, machine-checked where stated; nothing above L0 may introduce new physics | `Th_coqc` (the floor itself) / `Dr` (the layer's role in the stack) | `readout_genesis/READOUT_GENESIS_CORE.md` PART VI §VI.2 |
+| ARCH-L1 | Scale bus: τ_c atlas, 37 disciplines (`tau_c/tau_c_master.py`); τ_c is the primary index; mass is one readout taken off it (τ_c discrete-and-prior-to-mass; N4) | `Dr` | same |
+| ARCH-L2 | Readout: retrieval = readout · confidence = obstruction · ABSTAIN below ε_tot (`[rag_spine]`; implemented not merely theorized) | `finite_diagnostic` (implementation) / `Dr` (the equations) | same |
+| ARCH-L3 | Adapters: per-domain `(M, D, K, K_A, L_R)` tuples; physics/bio/econ/IR/AI instantiate N1–N5 without a bespoke equation each | `Dr` | same |
+| ARCH-L4 | Agency: `argmin O` subject to repairability preserved — a finite selection over already-legal moves N1–N5 leave open, not a continuum optimization | `Dr` | same |
+| ARCH-L5 | Governance: readout-not-truth · bounded-judge · machinic_core. Rule: **only Coq+lib-verified content is core**; everything else, regardless of physics-flavored vocabulary, is diagnostic or open until it clears that bar | `Dr` (declared rule, not derived) | same |
+| ARCH-INC | Label-inflation incident: an audit of physics-interpretation cards this cycle found **6 of 8** carried a "machine-checked" label that was hollow — the checked object was an arithmetic tautology, not the physics-flavored claim beside it | `Dr` (audit finding, narrated) | same |
+| ARCH-L5×EQ-066 | Same failure mode as EQ-066 (§9.2 above): a structurally-guaranteed/tautological result dressed as a substantive one. General name: **label inflation** — a correctly-tagged formal object (`Th_coqc` tautology or `declared_finite_architecture`/`exact_bridge` algebra) sitting next to an untagged physics-sounding claim that borrows its credibility without itself clearing the bar. L5's rule is the standing countermeasure; EQ-066's independent review is one worked instance of applying it | `Dr` | `readout_genesis/READOUT_GENESIS_CORE.md` PART VI §VI.2; cross-ref `logic.md` §9.2 EQ-066 |
+
+Grounding note (per this ledger's own discipline, §0.5/§0.6): "6 of 8"
+above is a finite discrete count, not a continuum estimate — no
+ℝ-completeness is invoked. `argmin` in ARCH-L4 ranges over a finite
+candidate set of legal moves, not a continuum extremum requiring a limit to
+"land." `>` in EQ-066 (`Π₀ > α_ord`, carried from §9.2) is a decidable
+finite comparison between two rational readouts, not an ℝ-order relation.
+`=` throughout (`M/D`, `argmin O`) denotes identity of two already-computed
+discrete readouts, never an equation solved over the reals.
+
+[domain card: readout_genesis/READOUT_GENESIS_CORE.md PART VI §VI.2 (~lines 4304-4372)]
 
 ### 9.3 DRL-7 — independent-solver cross-check (numeric backing for DRL-1; the concrete meaning of `finite_diagnostic ≠ proof`)
 
@@ -471,6 +737,289 @@ of the same open pair on a domain that needed no external adapter to land
 on it. Tier unchanged: `Open` in both places; no upgrade by convergence.
 
 [domain card: `v2/MYSTERY_LADDER.md` lines 19-31 (three-item Open list); `ap/AP19_NATIVE_MEANING_CARDS.yaml` cards.Psi_i.boundary L18; claim_boundary L53-57; `ap/AP19_NATIVE_URRC_CLOSURE.md` closing yaml block L185-193]
+
+### 9.7 InfoQuotientCompressionExactness — the admissibility square
+
+**Statement.** A cross-domain translation `T_{a→b}` (physics→chemistry,
+chemistry→biology, or any pair the τ_c atlas connects) is admissible — i.e.
+the two domains are *actually* bridged, not merely narrated side by side —
+iff it commutes with both domains' generators and preserves readout:
+
+```
+T_{a→b} · F#_a  =  F#_b · T_{a→b}                       (bridge form)
+q_{n+1} · F_n    =  F#_n · q_n                            (admissibility square, one quotient step)
+```
+
+`F_n` = retained-structure evolution operator at the finer level; `q_n` =
+the quotient map to the coarser level; `F#_n` = the induced evolution the
+coarser level sees after quotienting. Reading "·" here as *sequential
+retained-state update* (apply one finite-difference step, not a continuum
+composition) and "=" as *decidable equality of two finite readout
+sequences* (not an ℝ-equality of limits): the square says
+quotient-then-evolve must land on the same finite readout as
+evolve-then-quotient.
+
+**Identity.** This is exactly classical **Kemeny–Snell lumpability**
+(Markov-chain theory: a quotient chain is itself Markov iff this square
+commutes for the chain's generator); re-derived RD-native over `L_R`/`q_α`
+instead of a generic Markov generator; and machine-checked as
+**InfoQuotientCompressionExactness**.
+
+**Tier: `Th_coqc`** — the source text names this, explicitly, as "the one
+place in this entire part where the label `Th_coqc` is earned honestly at
+the level of a named theorem" (source's own emphasis, not this ledger's
+upgrade). **Caveat carried over honestly, not smoothed:** an independent
+verification pass (`readout_genesis/ROOT_INFO_LANGUAGE_INVENTORY.md`,
+round 2, 2026-07-23) lists `InfoQuotientCompressionExactness` as "not
+located this round" — the `.v` file was not found and independently
+`coqchk`'d clean in that audit, unlike sibling theorems in the same round.
+Per that inventory's own rule ("Coq-verified 100% from the root, or it
+doesn't count"), this entry records the source doc's own `Th_coqc` tag
+as-given, flags it here as **not yet independently re-verified**, and does
+not silently launder that gap.
+
+**Failure modes named when the square does not commute:** mistranslation ·
+lost information (q_α discarded what b needs) · insufficient resolution ·
+target lacks the variables · no closure. A failing square is diagnosable,
+not a dead end.
+
+**Applied instance (§ bR ledger; `finite_diagnostic` architecture, not a
+first-principles derivation):** quantum→chemical→protein→biological-
+transport chained readout `r_B = E · A_C · A_P · A_B`. A single
+quantum-only quotient `q_Q` alone does **not** commute for a biological
+question (confirms §10's N2-err Scalar-Eigenmode Reduction Error one level
+up: collapsing a translation chain to one quotient throws away needed
+structure, same as collapsing `L_R` to a scalar). Where the chain fails to
+commute cleanly, the ledger produces obstruction certificates that
+conserve the retained lineage exactly: `I_Q = I_B + O_C + O_P + O_B` (a
+discrete accounting identity — "+" here is retained-information addition
+under δ_R, combining disjoint obstruction terms, not real-number
+summation). Needs event-resolved empirical data, pre-registered future
+work, not a completed validation.
+
+[domain card: `readout_genesis/READOUT_GENESIS_CORE.md` PART VI §VI.6
+(~lines 4482–4529); also stated at §IV.5 (~lines 2183–2205); Appendix
+cross-ref (~lines 6015–6120); caveat source:
+`readout_genesis/ROOT_INFO_LANGUAGE_INVENTORY.md` "Not yet verifiable this
+round"]
+
+### 9.8 The Twelve Faces of the Spine — M-forcing-failure / turbulence-reassignment finding (2026-07-21)
+
+Source: `readout_genesis/READOUT_GENESIS_CORE.md` PART III (~L1441–2030);
+§VI.1/N1 (~L4188–4234). Same L1/L2/L3 three-layer stack already given in
+§10's N1-L1/N1-L2/N1-L3 rows below — not repeated here; this entry adds the
+Twelve-Faces catalogue and the finding attached to it.
+
+**M-forcing-failure / turbulence-reassignment finding** (extends §10's
+terse N1-M row with the per-face reassignment detail):
+
+| ID | Statement | Tier |
+|---|---|---|
+| N1-turb | Turbulence does NOT live in the linear, second-order `M ∂²Φ` term — despite table/row adjacency in EQ-015's per-term breakdown (§1). It lives in the nonlinear `∇V` / `(u·∇)u` paraproduct term (the L3 LP-NS audit's target, cf. §10 N1-L3) | `Dr` (reassignment reading) |
+| N1-τR | The inertia that actually governs turbulent/relaxation-regime behavior is `τ_R`, L2's first-order relaxation-memory time constant — not `M` | `finite_diagnostic` (PASS_WITH_LIMITS, via L2/EQ-017) |
+| N1-mass | `M` is a readout, not primitive: `m = ℏ/(2c²τ_c)`, `τ_c` is discrete and logically prior to mass (founder-locked ordering) | `Dr` |
+| N1-QM | `M` is empirically load-bearing only in the quantum-exercised regime (Face 6, Face 9): `D/M` checked against QuTiP, residual `7.6×10⁻⁴` | `finite_diagnostic` |
+
+**Twelve Faces (PART III) — same L1 skeleton, twelve reductions/
+projections, mixed tier per face, none upgraded here:** Face 1 Eigenmode
+(`L_Rφ_k=λ_kφ_k`; skew decomposition `L_R=L_R^(+)+L_R^(−)` proposal `Dr`,
+pending T1, cf. §10 N2-repair) · Face 2 Decay/Impermanence
+(`|a_k[n]|≤|a_k[0]|e^{−γ_kn Δθ}`) · Face 3 Dispersion Split — Classical/
+Quantum (`λ_c=D²/4MK`) `Th_coqc` · Face 4 Stability/Energy (`dE/dt=−D‖v‖²≤0`)
+`Th_coqc` · Face 5 Finite-Speed/Relativity (cf. §9.10 below) · Face 6 Mass/
+Memory (`m=ℏ/2c²τ_c`) · Face 7 Force/Energy/RDU Readback Gate · Face 8
+Operator-to-Metric Geometry (`g^{ij}≈½Hess(principal symbol of L_R)`)
+`Th_coqc` · Face 9 CPTP/Quantum-Channel (`Σ_jK_j†K_j=I`) `Th_coqc` · Face
+10 Record/Readout/Epistemic (`M_A=K_Aθ(E)+η_sel+η_map+η_self`) · Face 11
+Obstruction/Solve-Target (`O_R(R^◇)=0; S_R=‖O_R‖²`) · Face 12
+Boundary-Data. Untagged faces (1, 2, 5, 6, 7, 10, 11, 12) carry `Dr`/
+`finite_diagnostic` per their own body text, not `Th_coqc` — do not read
+the four `[Th_coqc]`-tagged faces (3, 4, 8, 9) as implying the set is
+closed; each of the other eight states its own tier inline in the source
+and none is upgraded here.
+
+Operator grounding for this row (per §0.5/§0.6): `∂²Φ`, `∂Φ`, `∇V`, `L_R`
+are finite-difference / discrete-graph readout operators on a retained
+state, never continuum-limit derivatives; `M ∂²Φ` is read as a second-order
+discrete-readout term (two retained finite-difference steps composed), not
+a continuum acceleration `d²x/dt²`.
+
+[domain card: readout_genesis/READOUT_GENESIS_CORE.md PART III (~lines
+1441-2030) and §VI.1 (~4188-4234)]
+
+### 9.9 QM=SR weld — `box_quad_is_spine_residual` as a worked `DEFINITIONAL-RELABEL` instance
+
+| ID | Statement | Tier | Source |
+|---|---|---|---|
+| WELD-1 | `box_quad a b := −2a+2b` (posited "SR"-labeled residual) | `POSITED` | `InfoQuantumRelativityUnification_attempt.v` |
+| WELD-2 | `spine_residual := K·λ − M·ω²` (posited "QM"/Schrödinger-labeled residual; the label itself already flagged as overreach elsewhere in the ledger — item 16, `URCF_RD_All.v:9127–9134`: a real quadratic-in-E dispersion, not `iℏ∂ψ/∂t=Hψ`) | `POSITED` | `InfoQuantumRelativityUnification_attempt.v`; cf. `URCF_RD_All.v:9127–9134` |
+| WELD-3 | `box_quad_is_spine_residual`: `box_quad a b = spine_residual` under hand-picked `(1#2)`-fraction factors on `M·ω²`, `K·λ`, chosen so the `−2/+2` terms cancel; proof = `ring` | `DEFINITIONAL-RELABEL` | `InfoQuantumRelativityUnification_attempt.v:57–61` (row 20, `BORROWED_VS_DERIVED_LEDGER.md`) |
+
+WELD-3 is the single citable instance behind philosophy.md's abstract
+naming of `DEFINITIONAL-RELABEL` as an Ω_all bridge-audit auto-fail class.
+Operator grounding: the "=" `ring` proves is a decidable, finite check that
+two ℚ-coefficient polynomial expressions denote the same formal object
+after substitution — not a claim that two physical theories coincide; the
+"+"/"−" inside each residual are ordinary finite combination of rational
+coefficients, not calculus operators. The `(1#2)` factors are fitted, not
+forced: nothing pins them except that they make the cancellation land — two
+independently-posited names proved equal for one degree-1 polynomial. The
+source's own header discloses this plainly ("identical under an exact,
+stated variable identification"); the overreach sits in the theorem name
+and the corpus's "unification" language, not in the `ring` step itself,
+which is correct on its own narrow terms.
+
+[domain card: research_universal_solver/docs/root/BORROWED_VS_DERIVED_LEDGER.md row 20]
+
+### 9.10 `c` — BORROWED-SCALE value, DERIVED graph-native ratio `c^2=K/M`, identification `Open`
+
+Same ledger row as EQ-063's `Dr`-bridge neighbor (§6), one entry over: row
+14 of `research_universal_solver/docs/root/BORROWED_VS_DERIVED_LEDGER.md`
+(`InfoCattaneoFiniteSpeed_attempt.v:19-71`) splits `c` into two verdicts
+that must not be collapsed into one tier tag.
+
+| ID | Statement | Tier |
+|---|---|---|
+| c-VAL | The numeric value of `c` used to fix physical units | `BORROWED-SCALE` — posited, unit-defining, explicitly parallel to `hbar` and `G` ("NOT derivable", `:9089`), not a theorem of the graph |
+| c-RATIO | `c^2 = K/M` — the graph-native characteristic propagation speed of the Cattaneo finite-speed brick; `K`/`M` read off the spine's own `L_R`/inertia coefficients (§1 EQ-015 neighborhood) | `DERIVED` — a real ratio of two graph-native coefficients, not a free parameter |
+| c-ID | `c-RATIO` = `c-VAL` (the graph-derived speed *is* physical light-speed) | `Open` — flagged in-file as "separate, unverified physical identification", no derivation offered for the equality, only the ratio's existence |
+
+Operator grounding for this row (per §0.5/§0.6): `c^2 = K/M` is read here
+as two discrete retained-information operations, not continuum notation
+borrowed unreflectively — `^2` is self-combination of one retained
+scale-coefficient under `delta_R` (a finite repeated pairing, not a
+continuum power); `/` is a decidable rational quotient of two finite
+retained quantities `K` and `M` (not a continuum-limit division); and `=`
+at c-RATIO is a `ring`-checked algebraic identity inside the graph,
+axiom-free — while `=` at c-ID is *not* that: it is an unproved
+identification claim across two different readout domains (graph-native vs.
+physical-SI), and must be read as a decidable-but-undecided finite
+comparison not yet settled, never as a real-number-order/continuum equality
+granted for free.
+
+This is the same abstract/concrete split named in philosophy.md §7.1, on a
+sixth, physics-metric domain (finite propagation speed) distinct from that
+section's original five (EQ-021; EQ-015/063; EQ-042-048; `r` EQ-057-059;
+EQ-060-062): the ABSTRACT/GENERAL layer (a finite characteristic speed
+exists, forced by `K`,`M` and provably ring-equal to their ratio) closes to
+a real graph theorem; the CONCRETE INSTANTIATION (that this graph-native
+number *is* the physical constant `c`) stays `Open`, unresolved, not even
+`Dr`. No tier is upgraded here — `BORROWED-SCALE` on `c-VAL` and `Open` on
+`c-ID` are preserved exactly as the source states them.
+
+[domain card: `research_universal_solver/docs/root/BORROWED_VS_DERIVED_LEDGER.md` row 14; `InfoCattaneoFiniteSpeed_attempt.v:19-71`]
+
+---
+
+## 10. The Epistemic Nuclear Core — N1–N5 (domain-independent)
+
+Source: `readout_genesis/READOUT_GENESIS_CORE.md` PART VI §VI.1
+(~L4144-4303). Five equations the source calls irreducible in the strict
+sense used throughout that book: **none of the five is derivable from the
+other four without smuggling in a sixth assumption; and none names a
+domain.** N1 is dynamics with no commitment to what Φ *is*; N2 is
+epistemology with no commitment to what is measured; N3 is the arrow with
+no commitment to what dissipates; N4 is the bridge with no commitment to
+which two domains are bridged; N5 is the residue with no commitment to
+which experiment produced the ratio.
+
+**Operator grounding (mandatory reading before the table, cf. §0.5/§0.6):**
+every operator below is a discrete/retained-information operation, not
+borrowed continuum notation — `∂Φ`/`∂²Φ` = finite-difference readouts
+across a discrete time step (`ΔXⁿ = Xⁿ⁺¹−Xⁿ`, cf. §2's DRL, not an `h→0`
+continuum limit); `∇V` = discrete gradient across `L_R`'s graph nodes
+(§0's R-L, not an ℝⁿ continuum gradient); `+`/`−` combine or separate
+retained distinctions under `δ_R`; `·` (`K·L_R Φ`) is scalar re-weighting
+of a retained coupling, not a continuum product with unstated units; `=` is
+a decidable finite equality between two retained readouts, never an
+ℝ-continuum identity; `≤`/`<` are decidable finite comparisons of finite
+quantities, never an ℝ-order relation smuggled in from the continuum; `η`
+is an explicitly admitted lossy remainder term, not "the rest of an
+infinite decimal."
+
+| ID | Statement | Tier | Note |
+|---|---|---|---|
+| N1 | `M ∂²Φ + D ∂Φ + K·L_R Φ + ∇V = J − η` — the spine; regime `λ_c = D²/4MK` | `Th_coqc` (structure) / `Dr` (physical reading) | = trunk equation EQ-015 (§1 above); do not duplicate the per-term tier table there |
+| N1-L1 | DRL-Telegraph root: `M ∂²Φ + D ∂Φ + K·L_R Φ + ∇V = J − η` (2nd-order; native N1) | `Th_coqc` (structure) / `Dr` (physical reading) | Layer 1 of the 3-layer stack; identical statement to N1/EQ-015 |
+| N1-L2 | RTPE turbulence relaxation; `M→0, V→0` limit of L1: `τ_R İ_R + L_R I_R = S_R + η_R` | `finite_diagnostic` (PASS_WITH_LIMITS) | = EQ-017 (§1 above); re-tagged here as Layer 2, not a new equation |
+| N1-L3 | LP-NS audit: nonlinear-paraproduct diagnostic over the `∇V`/`(u·∇)u` term — checks for energy-cascade-without-closure; reports PASS/FAIL | `finite_diagnostic` | a **checker**, not a generator; conflating this audit role with L1's generative role is the tier-collapse the source explicitly forbids (cf. §9.8's face-adjacency finding) |
+| N1-M | `M` is **posited**, not derived (8 independent forcing-derivation attempts failed); `m = ℏ/(2c²τ_c)` — mass is a readout of τ_c; τ_c discrete and prior to mass | `Dr` | = S1 (§1 above; `mass_memory_duality`; `Th_coqc`); only the quantum domain exercises `M` with numerical bite (D/M vs QuTiP; 7.6×10⁻⁴; `finite_diagnostic`); cf. §1.5 Arrow 3 for the independent proof that this posit is not root-derivable |
+| N2 | `M_A = K_A · θ + η`; `ε_tot > 0` — knowing is a lossy linear read of a latent state, never the latent state itself | `definition` | new entry; no prior logic.md coverage |
+| N2-err | Scalar-Eigenmode Reduction Error: `L_R` is a full multimode operator; collapsing it to scalar `λφ` before reading N2 through it silently discards off-diagonal/skew coupling — a category error, not a small approximation | `Dr` (naming the error) | new entry |
+| N2-repair | Proposed split under retention metric G (not naive transpose): `L_R = L_R^(+) + L_R^(-)`; `L_R^(+)` = ordinary damped coupling (already in N1); `L_R^(-)` = skew/rotational coupling; absorbs chemostat/Lotka-Volterra/MHD two-field cases into the same linearized N1 | `Open`; pending falsification test **T1** — a live research lever, not a settled result | new entry |
+| N2-open2 | Endogenous, state-dependent `L_R[I_R]` (coupling operator changes as a function of the state it couples) | `Open`; falsification test **T2**; unresolved | new entry |
+| N3 | `dE/dt = ⟨∂Φ, J⟩ − D‖∂Φ‖² ≤ 0`; `O → 0` — the monotone; obstruction can only fall or hold absent net-positive external driving | `Th_coqc` (monotonicity structure only; `RDL_*.v`; axiom-free) | the **only** N carrying a machine-checked tag; buys a checked structural non-increase guarantee; **not** that any domain's obstruction reaches zero in finite time; **not** that the Coq proof extends to a specific empirical dataset (those steps remain `finite_diagnostic`/`Dr` at most) |
+| N4 | `τ_c = ℏ/(2mc²)` — the scale bus; every domain connects via its memory time; τ_c atlas spans 37 disciplines | `Dr` | direction is founder-locked: `τ_c` is discrete and prior to mass; `m = ℏ/(2c²τ_c)` reads mass OFF τ_c, not the reverse, even though the formula is algebraically reversible — same discipline N2 enforces (readout must not usurp the position of the thing read) |
+| N5 | Anomaly ratios; `2/α²`; `π`; `φ` — dimensionless readouts that close without an adapter | `Dr` | singled out because these are the only nuclear-core items that need no per-domain unit adapter to mean something; cross-domain-bridge agreement (§9.7's admissibility square) is judged against these numbers |
+
+**Irreducibility argument, compressed:** read N1→N5 in order and the whole
+book is read in miniature — something moves (N1); something reads it
+imperfectly (N2); the reading has an arrow it cannot reverse for free (N3);
+the reading connects to every other reading through one clock (N4); and
+after every domain-specific unit is stripped, a small set of pure numbers
+survive as the only things all domains agree on (N5). The source states the
+irreducibility claim itself only as prose ("none of them can be derived
+from the other four without smuggling in a sixth assumption") — no formal
+independence proof is offered or claimed here; this ledger does not upgrade
+that to `Th_coqc`/`finite_diagnostic`. Treat the irreducibility claim
+itself as `Dr`.
+
+[domain card: `readout_genesis/READOUT_GENESIS_CORE.md` PART VI §VI.1 (~L4144-4303)]
+
+---
+
+## 11. Three Epistemic Scalars (Re_ep, F_ep, k_ep) — the tier discipline made a runnable gate
+
+Source: `readout_genesis/READOUT_GENESIS_CORE.md` PART VI §VI.3 (~lines
+4373-4417+, `finite_diagnostic`/`definition`). This is the L2-readout rung
+of the L0–L5 nuclear-core stack (§9.2c above; §VI.2 in the source); it does
+not sit inside this file's own §9 SM-Domain Synthesis because it is
+domain-independent machinery, not a physics-tier reading. Reads directly
+off §10's N1–N5 spine (N1-N5 above), not a new axiom.
+
+> Any reasoning step reduces to three CPU-computable scalars (minimal
+> sufficient statistic read off the N1–N5 spine, not a new axiom):
+> `Re_ep` = epistemic Reynolds (spread/contestedness); `F_ep` = obstruction
+> depth (strength of best support, the epistemic reading of N3's `O`);
+> `k_ep` = consistency coupling (coherence of the supporting set, the
+> epistemic reading of N2 through a multimode `L_R`).
+
+Operator note (discrete-readout grounding, not bare continuum notation):
+"`high`/`low`" above are decidable finite comparisons against a stated
+threshold on a finite readout set — not an ℝ-order relation on a continuum;
+"`ε_tot`" is a finite retained-error budget, a sum (combining retained
+distinctions under `δ_R`, not a continuum integral) of finitely many
+obstruction/coupling terms, compared against a fixed cutoff — never a
+limit `ε→0`.
+
+```
+Verdict gate (three-valued, not binary — a two-valued gate cannot separate
+"no evidence" from "evidence is contested"):
+
+  DECIDE    when  F_ep high  AND  Re_ep low   →  strong + uncontested
+  ABSTAIN   when  F_ep low   AND  k_ep low     →  no signal (for free)
+  ESCALATE  when  Re_ep high                   →  contested → pay the LLM
+```
+
+| ID | Statement | Tier | Source |
+|---|---|---|---|
+| ES-1 | `Re_ep`, `F_ep`, `k_ep` are the minimal sufficient CPU-computable statistic of any reasoning step, read off N1–N5, not a new primitive | `definition` | VI.3 |
+| ES-2 | `F_ep` is the epistemic reading of N3: distance of the best supporting readout from `O → 0` | `definition` | VI.3 |
+| ES-3 | `k_ep` must be computed against the full multimode `L_R` operator, never a scalar collapse — a collapsed computation can silently misreport coherence actually carried in a skew coupling `L_R^(-)` (VI.1's Scalar-Eigenmode Reduction Error warning) | `Dr` (named risk, not independently re-verified here) | VI.1, VI.3 |
+| ES-4 | `Re_ep` named "epistemic Reynolds number" is a declared structural analogy to VI.1's turbulence correction (high-spread, under-damped reasoning ≈ high-Re flow: many non-dominant candidate modes, no laminar settle) — a `Dr`-tier naming bridge, not a derived identity | `Dr` | VI.3 |
+| ES-5 | Verdict gate DECIDE/ABSTAIN/ESCALATE is three-valued by construction, deliberately not collapsible to binary answer/no-answer | `definition` | VI.3 |
+| ES-6 | Implemented, not merely theorized: `core/nuclear_core.py`, `solvers/reasoning_min_cost.py` | `finite_diagnostic` (executed, code cited; no run numbers/logs given at this source line) | VI.3 |
+| ES-7 | "Only contested/under-damped steps pay the large model" — qualitative result; source explicitly flags: workload-dependent, **not perturbation-certified**, no percentages asserted | `Open` (qualitative claim, explicitly unquantified by the source itself) | VI.3 |
+| ES-8 | Cost-accounting tie-back: B1 Landauer (CPU floor vs. LLM ~10⁶× above it), B2 Readout (ABSTAIN/DECIDE tried first by gate construction), B3 Regime (`λ_c = D²/4MK`, over-damped ⇒ no retry/oscillation), B4 Repair (L4 repairability ⇒ marginal repair cost, never full restart) | `Dr` (B1's "~10⁶×" and B3's regime reading are narrative ties to N-equations, not independently re-measured here) | VI.4 |
+
+Do not upgrade: ES-6's "implemented" is a code-citation, not a logged
+`finite_diagnostic` run with numbers (cf. this file's own convention in §8
+of pairing a claim with an actual executed check and its printed result —
+that pairing is absent at the cited source lines); ES-7 stays `Open` because
+the source itself declines to assert a percentage or a perturbation
+certificate.
+
+[domain card: readout_genesis/READOUT_GENESIS_CORE.md PART VI §VI.3 (~lines 4373-4417+)]
 
 ---
 
