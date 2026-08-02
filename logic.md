@@ -64,7 +64,7 @@ Tier: `Th_coqc` — axiom-free, `Print Assumptions` closed, Coq 8.20.1, ground o
 | A2 | transport | no inference without an admissible grammar (units/types match) |
 | A3 | retention | only distinctions kept above a threshold count as structure |
 | A4 | accessibility | derivability ≠ existence (direct/composite/inaccessible) |
-| A5 | admissibility | the comparison metric is positive — any measure used to compare two retained records (e.g. the obstruction norm ‖O‖² of A7) must be non-negative, so "closer"/"farther" is always a meaningful, orderable comparison, never a signed or unconstrained score |
+| A5 | admissibility | the comparison metric is positive — any measure used to compare two retained records (e.g. a squared-norm reading of A7's residual `O(Γ,φ)`, written `‖O‖²` elsewhere in this ledger for the related Face-11 quantity `S_R`) must be non-negative, so "closer"/"farther" is always a meaningful, orderable comparison, never a signed or unconstrained score |
 | A6 | identity-locking | the same entity tracked through every inference |
 | A7 | obstruction | target of inference is consistency O=0, not annihilation — O(Γ,φ) is a measured residual, not a truth value; O=0 is mutual consistency of retaining Γ while reading φ, and a contradiction registers as O>0 (evidence to revise), never as license to derive an arbitrary ψ (no ex-falso explosion) |
 | A8 | lens | validate through a lens that does not distort |
@@ -203,7 +203,7 @@ Mixed tier, per-term ([`EQUATION_LIBRARY_ROOT_TO_SM_STREAM_research_universal_so
 | M ∂²Φ | `Dr` |
 | D ∂Φ | `finite_diagnostic` |
 | K·L_R Φ | `Th_coqc` (admissibility skeleton only) |
-| ∇V(Φ) | untagged in source (the source bracket at `EQUATION_LIBRARY_ROOT_TO_SM_STREAM_research_universal_solver.md`#EQ-015 tiers only the four terms above; §9.8's N1-L3 audits this term's nonlinear paraproduct behavior at `finite_diagnostic`, but that is a checker result on the term, not a per-term tier of EQ-015 itself) |
+| ∇V(Φ) | untagged in source (the source bracket at `EQUATION_LIBRARY_ROOT_TO_SM_STREAM_research_universal_solver.md`#EQ-015 tiers only the four terms above; §10's N1-L3 (cf. §9.8) audits this term's nonlinear paraproduct behavior at `finite_diagnostic`, but that is a checker result on the term, not a per-term tier of EQ-015 itself) |
 | J | untagged in source (same bracket omission as ∇V(Φ); no tier is assigned to the forcing term `J` anywhere in the source ledger) |
 | η | `finite_diagnostic`/`Open` |
 
