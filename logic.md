@@ -64,7 +64,7 @@ Tier: `Th_coqc` — axiom-free, `Print Assumptions` closed, Coq 8.20.1, ground o
 | A2 | transport | no inference without an admissible grammar (units/types match) |
 | A3 | retention | only distinctions kept above a threshold count as structure |
 | A4 | accessibility | derivability ≠ existence (direct/composite/inaccessible) |
-| A5 | admissibility | the comparison metric is positive — any measure used to compare two retained records (e.g. the obstruction norm ‖O‖² of A8) must be non-negative, so "closer"/"farther" is always a meaningful, orderable comparison, never a signed or unconstrained score |
+| A5 | admissibility | the comparison metric is positive — any measure used to compare two retained records (e.g. the obstruction norm ‖O‖² of A7) must be non-negative, so "closer"/"farther" is always a meaningful, orderable comparison, never a signed or unconstrained score |
 | A6 | identity-locking | the same entity tracked through every inference |
 | A7 | obstruction | target of inference is consistency O=0, not annihilation — O(Γ,φ) is a measured residual, not a truth value; O=0 is mutual consistency of retaining Γ while reading φ, and a contradiction registers as O>0 (evidence to revise), never as license to derive an arbitrary ψ (no ex-falso explosion) |
 | A8 | lens | validate through a lens that does not distort |
@@ -540,6 +540,8 @@ force, not replaced by it" — the two sides of that equality are `𝓔_DRL`
 (uncut EL) and `𝓙_C` (the cut force); URR-2 is `P_Φ` applied to that same
 equality, written out in the explicit finite-difference form.
 
+| ID | Equation | Tier |
+|---|---|---|
 | URR-3 | Return-transformation kernel: 𝒦_{α←β}(τ) = A_α Ō_α R_α 𝒰_H(τ) H̄_β W_β Ō_β E_β | `exact_algebra` in declared linear model |
 
 Symbol gloss (finite discrete operators on 𝒳_T, not continuum notation):
@@ -781,7 +783,7 @@ q̇_T = ℓᵀq_H ≥ 0   (monotone nondecreasing; tape never returns mass)
 | ID | Claim | Measured | Tier |
 |---|---|---|---|
 | AP15-T1 | Total retention `d/dt(1ᵀq_O+1ᵀq_H+q_T)=0` for this finite positive-flow generator | max error 5.10702591327572×10⁻¹⁵ | `exact_algebra` |
-| AP15-T2 | Observability rank/nullity: reciprocal cut (6,1); leaky cut (6,1); one-way cut (3,4) — reciprocal/leaky expose all 3 hidden working directions via future influence on `q_O`; `q_T` never enters `𝒪_C` in any tested case | recorded run (§9 of source) | `finite_diagnostic` |
+| AP15-T2 | Observability rank/nullity: reciprocal cut (6,1); leaky cut (6,1); one-way cut (3,4) — reciprocal/leaky expose all 3 hidden working directions via future influence on `q_O`; `q_T` never enters `𝒪_C` in any tested case (`𝒪_C` — the observability matrix of the cut: the stacked Kalman-style rows `[C; CA; CA²; …]` built from the read-out map `C` on `q_O` and the system's own dynamics matrix `A`, whose rank/nullity is what "exposes"/"hides" a direction here) | recorded run (§9 of source) | `finite_diagnostic` |
 | AP15-T3 | `q_H` is dynamically observable-though-hidden (reciprocal/leaky); `q_T` is unobservable-in-principle at this cut structure (no return edge exists to expose it, by construction of `q̇_T`) | boundary is structural: absent row in `𝒪_C`, not stipulated | `Dr` (read-write-cut interpretation) |
 
 Boundary: `q_H` recoverable-in-principle vs. `q_T`

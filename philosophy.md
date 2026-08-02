@@ -320,7 +320,7 @@ epistemological commitment, and under the readout-first stance
 (`information-discrete-math`, developed by Yaoharee Lahtee) most operators
 inherited from ordinary continuum mathematics silently smuggle in one of
 four injected infinities (I1 ℝ-completeness, I2 infinite divisibility
-`h→0`, I3 infinite scale separation, I4 actual `+∞`) or one of four
+`h→0`, I3 infinite scale separation `Re,Λ→∞`, I4 actual `+∞`) or one of four
 injected zeros (the point, exact-zero spacing, absolute rest, the true
 void) without ever saying so.
 
@@ -493,8 +493,8 @@ system's substantive ontological bet, held to the same tier honesty.
 
 ### 5.1 The one primitive
 
-> **δ_R = (a ♯ b)** — "there is a difference, and it is kept." (`Dr`/`AX` —
-> declared axiom, like ZFC declares its own axiom list; chosen, not proven;
+> **δ_R = (a ♯ b)** — "there is a difference, and it is kept." (`definition`
+> — a declared axiom, like ZFC declares its own axiom list; chosen, not proven;
 > its fruitfulness and machine-checked categoricity are the offered
 > evidence.)
 
@@ -1152,7 +1152,9 @@ and inline hedges throughout):
   to DRL, not a replacement, and its own composite (one construction giving
   both an action and injective retention) remains `[Open]`.
 - **URR-C's own binding boundary is stated in the negative just as much as
-  the positive**: `all_retained_states_eventually_return: not_claimed`;
+  the positive** (URR-C — Universal Retention–Cut–Return–Readout system,
+  logic.md §7's typed accessible/hidden-channel calculation contract; see
+  "See also" below for the fuller pointer): `all_retained_states_eventually_return: not_claimed`;
   `physical_black_hole_from_native_cut_alone: not_claimed`.
 - **A finite observation of zero return never proves permanent
   inaccessibility**, and a native model parameter of zero return never by
@@ -1367,9 +1369,14 @@ rather than quietly deleted.
 
 ### 7.6 EQ-066 — the Bounded-Judge Law catching a structurally-vacuous PASS
 
-*Tier: `declared_finite_architecture`/`exact_bridge` (EQ-066 itself, the
-algebra); `Dr` (the caveat — an independent scientific-methodology review
-finding)*
+*Tier: `declared_finite_architecture`/`exact_bridge` — two source-specific
+tags from `EQUATION_LIBRARY_ROOT_TO_SM_STREAM_research_universal_solver.md`'s
+own vocabulary, not this book's six-tag legend; they mean "an exactly-true
+identity once the finite architecture (a specific counting scheme) is
+declared" — closer in strength to `Th_coqc` than to `Dr`, but conditioned on
+a stipulated setup rather than proven axiom-free, so kept as its own label
+rather than folded into either (EQ-066 itself, the algebra); `Dr` (the
+caveat — an independent scientific-methodology review finding)*
 
 **Case note — the Bounded-Judge Law catching a vacuous PASS.** A stepper
 declared "ORDERED_READY" whenever a computed threshold Π₀ exceeded a fixed
@@ -1403,7 +1410,13 @@ have carried without the review that forced it into the record.
 ### 7.6a The L0–L5 Layered Architecture — the general shape the EQ-066 incident instantiates
 
 *Tier: mixed per-rung — `Dr`/`definition`; L0's Coq floor `Th_coqc`; L5 is a
-governance rule ("only Coq+lib-verified is core"), not a physics claim*
+governance rule ("only Coq+lib-verified is core"), not a physics claim.
+Disambiguation: this section's L0–L5 names a six-rung whole-architecture
+stack (nucleus → scale bus → readout → adapters → agency → governance).
+§7.18 below reuses the labels "L1/L2/L3" for an unrelated three-rung
+correction specific to the trunk equation (DRL-Telegraph root / RTPE
+relaxation limit / LP-NS audit) — the two numbering schemes do not align;
+treat "L1" etc. as scoped to whichever section names it.*
 
 §7.6 told the EQ-066 story as one worked case: a stepper's ORDERED_READY
 PASS was not evidence of anything, because the bound variable `λ_j∈(0,1]`
@@ -1911,7 +1924,10 @@ genuine, still-`[Open]` readouts live; the absolute scale never was one.
 ### 7.18 The Twelve Faces of the Spine — one skeleton read from twelve windows, and the M-forcing-failure finding that relocated turbulence
 
 *Tier: mixed per-face (several `Th_coqc`: Faces 3, 4, 8, 9; others
-`finite_diagnostic`/`Dr`/`Open`); layer-stack: L1 `Th_coqc`(structure)/
+`finite_diagnostic`/`Dr`/`Open`); layer-stack (this section's own three-rung
+stack for the trunk equation's correction — NOT §7.6a's L0–L5 architecture
+tiers; the two schemes both use "L1/L2/L3" but label unrelated things, see
+the disambiguation there): L1 `Th_coqc`(structure)/
 `Dr`(reading); L2 `finite_diagnostic`; L3 `finite_diagnostic`(checker only)*
 
 `logic.md` already carries the trunk equation, `λ_c`, and the RTPE reader
