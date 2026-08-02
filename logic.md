@@ -308,6 +308,172 @@ Source: `README.md`, `CLAIMS.md`, `code/`.
 
 ---
 
+## 9. SM-Domain Synthesis — physics-tier evidence narrated as ontology/epistemology/logic
+
+Six drafted passages, cross-checked against the live sections above and
+merged where two drafts covered the same ground (the MYSTERY_LADDER/AP19
+pair, §9.6). No tier was upgraded from its source file in any subsection
+below.
+
+### 9.1 A9 — quotient-by-readout-kernel (closes §6's declared non-absorption of the SM gauge stream: the one piece of it that is logic-native, not physics-native)
+
+| ID | Statement | Tier | Source |
+|---|---|---|---|
+| A9 | Given any readout map `O : X → R`, define `~_O` by `x ~_O y :⇔ O(x)=O(y)` — always an equivalence relation on `X` (kernel of `O`). The only logic-accessible object is the quotient `[X]/~_O`; a raw pre-image element `x ∈ O⁻¹(r)` is not itself retrievable (cf. EQ-032/033/034 in §6; `Th_coqc`) | `definition` (elementary set theory; untiered in source) | this entry — general construction; no physics-domain source line |
+| A9-phys | Physics-domain instance of A9: `X ∼ X' ⟺ O(X)=O(X')`; physical state `:= [X]` (EQ-031); the readout-preserving automorphism group `𝒜 = {h : Oh=O; hF=Fh; h†Gh=G}` (EQ-042) is `~_O`'s automorphism group specialized to a Lie-group action | `Dr` | EQ-031; EQ-042 [`EQUATION_LIBRARY_ROOT_TO_SM_STREAM_research_universal_solver.md`] |
+
+A9 is the same kind of entry as RAR A1–A8 (§0) — a standing logical
+construction, not a physics claim. A9-phys is the *only* SM-stream item this
+ledger absorbs; EQ-018 onward (SU(3) uniqueness, generation counting, mass
+fits) remains intentionally out of scope per §6 — unchanged.
+
+[domain card: SM gauge — `EQUATION_LIBRARY_ROOT_TO_SM_STREAM_research_universal_solver.md`#EQ-031;EQ-042]
+
+### 9.2 Tier legend addendum — `declared_finite_architecture` / `exact_bridge` (mass-fit stream, root→SM §6/§7)
+
+> Two tags are load-bearing across the mass-fit stream but absent from both
+> source files' own tier legends: **`declared_finite_architecture`**
+> (branch/initial-condition inputs explicitly disclosed as arbitrary/
+> uncalibrated — not derived, not fit to external data, distinct from both
+> `Dr` and `fit_calibrated`) and **`exact_bridge`** (an algebraically exact
+> identity/step applied to an already-declared, uncalibrated quantity —
+> exactness of the *step*, not of the *input*). Neither collapses into `Dr`
+> (no narrative bridge claimed) nor `fit_calibrated` (no external data used
+> to set the value).
+
+| EQ | Statement | Tier |
+|---|---|---|
+| EQ-065 | Π₀ = 3λ_U + 3λ_D + λ_E = 6.328453553357985 (primitive U/D/E branch tapes; arbitrary/uncalibrated by construction) — NOT the independently-derived, PDG-mass Π₀≈6.9888 carried elsewhere in this domain; never conflate | `declared_finite_architecture` |
+| EQ-066 | α_ord=a/2; β_ord=b/4 (inherited, not new dials); Π₀ > α_ord ⇒ ORDERED_READY; r*=3.823356105009073. Caveat: ORDERED_READY is structurally guaranteed on this stepper (λ_j∈(0,1] ⇒ Π₀∈(0,7]; α_ord=−0.5 below that bound) — not evidence the branch construction is predictive | `declared_finite_architecture`/`exact_bridge` |
+| EQ-067 | v_native = √(2 r*) = 2.7652689218262565 (r=v²/2 convention; exact step on EQ-066's declared r*; no physical unit attached) | `declared_finite_architecture` |
+
+Source: `EQUATION_LIBRARY_ROOT_TO_SM_STREAM_research_universal_solver.md`
+EQ-065–067 (feeds EQ-068's still-`Open` GeV-bridge question — not resolved
+here).
+
+[domain card: `EQUATION_LIBRARY_ROOT_TO_SM_STREAM_research_universal_solver.md`#EQ-065;EQ-066;EQ-067]
+
+### 9.3 DRL-7 — independent-solver cross-check (numeric backing for DRL-1; the concrete meaning of `finite_diagnostic ≠ proof`)
+
+| ID | Claim | Tier | Source |
+|---|---|---|---|
+| DRL-7 | Independent-solver cross-check of the DRL reader-record system (not a self-check): DRL-1's damped Φ-recurrence and DRL-3's bilinear charge H (§2), extended onto a 32-node FPUT graph, integrated by an independently-implemented 8th-order solver (SciPy DOP853; rtol 1e-12/atol 1e-14) on the same self-generated IC. Step-halving observed order ≈2.00000–2.00005 (matches native 2nd-order reduction); pairing-charge relative drift 3.29×10⁻¹⁰ (URR, dt=0.01) vs 2.74×10⁻¹⁷ (cross-check) — both consistent with the predicted near-cancellation. State-of-the-art efficiency: not claimed; proof or external peer validation: not provided | `finite_diagnostic` | `ap/AP13_URR_FPUT_SOLVER_CROSSCHECK.md` §B |
+
+DRL-7 is the numeric weight behind DRL-1's own `finite_diagnostic` tag
+(§2): a second, independently-implemented integrator reproducing the same
+order and near-conservation is what `finite_diagnostic ≠ proof` cashes out
+to in practice — agreement across two solvers, not a machine-checked
+derivation.
+
+[domain card: DRL — independent-solver cross-check — `ap/AP13_URR_FPUT_SOLVER_CROSSCHECK.md` §B]
+
+### 9.4 The memory kernel K_mem — an operational, exact-algebra reading of the RD4 retention axiom
+
+RD4 (§0, "distinct histories stay distinct") is an axiom whose downstream
+consequences (well-ordering, categoricity, §0's `RD-der`) are abstract. A
+finite worked instance shows what "never merge" concretely *does* to a
+trajectory when a retained sector is split into a readable part and a
+hidden part and the hidden part is eliminated algebraically: the past does
+not vanish and does not silently blend into the present — it reappears as
+an exact convolution term, `K_mem(t−s) = R e^{-Λ_H(t-s)} W`, sitting inside
+the visible sector's own equation of motion (`ap/AP15_READ_WRITE_CUT.md`
+§4). "Never merge" therefore has an operational reading: a hidden history
+is not overwritten by the present; it is *folded* into a kernel that any
+future readout of the visible sector must convolve against to recover what
+passed through the cut — retention as a literal integral term, not a
+metaphor for persistence.
+
+This reading is checked twice, independently, at the same tier: once as a
+finite linear realization (`exact_algebra`, AP15 §4) and once as a physical
+two-capacitor RC circuit with a closed-form
+`K_mem(τ) = e^{-τ/(RC_2)}/(R²C_1C_2)` whose hidden-elimination residual
+against the full system is ≈5.2×10⁻⁸ V/s and whose numerical-vs-matrix-
+exponential agreement is ≈5×10⁻¹³ V (`ap/AP18_RC_MEMORY_CELL.md`) — an
+`exact_algebra_in_declared_ideal_model` result, `finite_diagnostic`-
+verified, not a physical-universe claim.
+
+Neither AP15 nor AP18 is permitted to lend RD4 (`Ax`, `Th_coqc` downstream)
+any of its own strength. The kernel is exact *within its declared finite/
+ideal model*; whether the balanced cut flux it lives inside is itself
+forced by the DRL action is stated plainly as `Open` in both source files
+(cf. §7's `unified_DRL_cut_tape_action: Open`). So the honest claim is
+narrow and two-layered: RD4 says histories are never destroyed by merging;
+K_mem is one concrete, independently-verified *shape* that non-merging can
+take once a hidden sector is cut and eliminated — a second, lower-tier
+operational meaning standing beside the axiom's own higher tier, not
+replacing or upgrading it.
+
+Tier: `exact_algebra` (AP15 §4, finite linear realization);
+`exact_algebra_in_declared_ideal_model` + `finite_diagnostic` (AP18, RC
+circuit, numerically verified). `balanced_cut_flux_from_DRL_action` and
+`unified_DRL_cut_tape_action` remain `Open` in both sources — not resolved
+here.
+
+[domain card: `ap/AP15_READ_WRITE_CUT.md` §4 (K_mem boxed derivation); `ap/AP18_RC_MEMORY_CELL.md` (closed-form K_mem(τ); circuit verification; hidden-elimination residual 5.2e-8 V/s)]
+
+### 9.5 AP15 — three-sector contrast on the AP7 tape (q_O, q_H, q_T)
+
+Same append-only-tape ontology as AP7 (§3), now co-realized in one finite
+flow model alongside a partially returnable hidden sector — giving AP7's
+posited tape layer a concrete observability contrast it did not have alone.
+
+`q=(q_O,q_H,q_T)ᵀ`; write `W:H_O→H_H`; return `R:H_H→H_O`; tape rate `ℓ≥0`:
+
+```
+q̇_O = −diag(1ᵀW)q_O + Rq_H
+q̇_H = Wq_O − diag(1ᵀR+ℓ)q_H
+q̇_T = ℓᵀq_H ≥ 0   (monotone nondecreasing; tape never returns mass)
+```
+
+| ID | Claim | Measured | Tier |
+|---|---|---|---|
+| AP15-T1 | Total retention `d/dt(1ᵀq_O+1ᵀq_H+q_T)=0` for this finite positive-flow generator | max error 5.10702591327572×10⁻¹⁵ | `exact_algebra` |
+| AP15-T2 | Observability rank/nullity: reciprocal cut (6,1); leaky cut (6,1); one-way cut (3,4) — reciprocal/leaky expose all 3 hidden working directions via future influence on `q_O`; `q_T` never enters `𝒪_C` in any tested case | recorded run (§9 of source) | `finite_diagnostic` |
+| AP15-T3 | `q_H` is dynamically observable-though-hidden (reciprocal/leaky); `q_T` is unobservable-in-principle at this cut structure (no return edge exists to expose it, by construction of `q̇_T`) | boundary is structural: absent row in `𝒪_C`, not stipulated | `Dr` (read-write-cut interpretation) |
+
+Boundary: `q_H` recoverable-in-principle vs. `q_T`
+unobservable-in-every-tested-case is a within-model observability-matrix
+fact, not a claim that any physical process reads the tape. A unified DRL +
+cut + tape action deriving this generator from `S_DRL` remains `Open`
+(`ap/AP15_READ_WRITE_CUT.md` §11: `unified_DRL_cut_tape_action: Open`) —
+same open item as §7's binding-boundary block and §9.4 above.
+
+[domain card: read-write cut — `ap/AP15_READ_WRITE_CUT.md` §2; §6-7]
+
+### 9.6 MYSTERY_LADDER's three Open items, and AP19 as a second, independent sighting of the same pair
+
+The three-item Open list of `v2/MYSTERY_LADDER.md` §"สิ่งที่เหลือ" — (2s)²
+paramagnetic law, (−1)^{2s} spin–statistics sign, why d_s settles at 3 — is
+already cross-referenced under "See also" below; that note stands as
+written: AP19 (`ap/AP19_NATIVE_MEANING_CARDS.yaml`) is a disjoint,
+dimensionless two-node native domain (`external_adapter_used: false`) and
+neither derives nor closes any of the three. Tier unchanged: `Open`.
+
+A separate, narrower coincidence sits inside AP19 itself and is recorded
+here rather than duplicated below: the same two `Open` items named in this
+ledger — Ψ read as an *ontic* record (§2 novelty-ledger item (b)) and
+`unified_DRL_cut_tape_action: Open` (§7's binding-boundary block, §9.4/§9.5
+above) — reproduce verbatim in AP19's own closure, a domain that uses no
+physical adapter at all:
+
+```yaml
+# ap/AP19_NATIVE_MEANING_CARDS.yaml (claim_boundary; L53-57)
+unified_DRL_cut_tape_action: Open
+# ap/AP19_NATIVE_MEANING_CARDS.yaml (cards.Psi_i.boundary; L18)
+# "universal ontic record status remains Open"
+# ap/AP19_NATIVE_URRC_CLOSURE.md (closing yaml; L185-193)
+ontic_Psi_record: Open
+unified_DRL_cut_tape_action: Open
+```
+
+Not a new question and not a resolved one — a second, independent sighting
+of the same open pair on a domain that needed no external adapter to land
+on it. Tier unchanged: `Open` in both places; no upgrade by convergence.
+
+[domain card: `v2/MYSTERY_LADDER.md` lines 19-31 (three-item Open list); `ap/AP19_NATIVE_MEANING_CARDS.yaml` cards.Psi_i.boundary L18; claim_boundary L53-57; `ap/AP19_NATIVE_URRC_CLOSURE.md` closing yaml block L185-193]
+
+---
+
 ## See also
 
 Not fully absorbed here — go to source for full depth:
@@ -316,6 +482,12 @@ Not fully absorbed here — go to source for full depth:
   the 10⁻³⁹→52→atoms→1/d "mystery ladder", channel-coupling slopes) —
   `v2/MYSTERY_LADDER.md`, `v2/FORCED_IDENTIFICATION.md`, individual
   `ap/apN_*.py` files, `docs/VERIFIED_RUNS.md`.
+  - `v2/MYSTERY_LADDER.md` §"สิ่งที่เหลือ" — three items still `[Open]`:
+    (2s)² paramagnetic law, (−1)^{2s} spin–statistics sign, why d_s settles
+    at 3. AP19 (`ap/AP19_NATIVE_MEANING_CARDS.yaml`) is a disjoint,
+    dimensionless two-node native domain (`external_adapter_used: false`;
+    `unified_DRL_cut_tape_action: Open`) — it neither derives nor closes any
+    of the three. Tier unchanged: `Open`.
 - **The URR-C sector apparatus in full** (typed hidden/accessible channel
   algebra, tape-type taxonomy, nonlinear return kernels, stability gates) —
   `v2/urr/` (`URR_C_MASTER_0_4.md`, `.yaml`, `URR_C_COQ_FORMAL_CHAIN.md`,
