@@ -196,14 +196,14 @@ table + Pre-write CHECKLIST section]
 
 **M ∂²Φ + D ∂Φ + K·L_R Φ + ∇V(Φ) = J − η**  (EQ-015)
 
-Mixed tier, per-term ([`EQUATION_LIBRARY_ROOT_TO_SM_STREAM...`]):
+Mixed tier, per-term ([`EQUATION_LIBRARY_ROOT_TO_SM_STREAM_research_universal_solver.md`]):
 
 | Term | Tier |
 |---|---|
 | M ∂²Φ | `Dr` |
 | D ∂Φ | `finite_diagnostic` |
 | K·L_R Φ | `Th_coqc` (admissibility skeleton only) |
-| ∇V(Φ) | untagged in source (the source bracket at `EQUATION_LIBRARY_ROOT_TO_SM_STREAM...`#EQ-015 tiers only the four terms above; §9.8's N1-L3 audits this term's nonlinear paraproduct behavior at `finite_diagnostic`, but that is a checker result on the term, not a per-term tier of EQ-015 itself) |
+| ∇V(Φ) | untagged in source (the source bracket at `EQUATION_LIBRARY_ROOT_TO_SM_STREAM_research_universal_solver.md`#EQ-015 tiers only the four terms above; §9.8's N1-L3 audits this term's nonlinear paraproduct behavior at `finite_diagnostic`, but that is a checker result on the term, not a per-term tier of EQ-015 itself) |
 | J | untagged in source (same bracket omission as ∇V(Φ); no tier is assigned to the forcing term `J` anywhere in the source ledger) |
 | η | `finite_diagnostic`/`Open` |
 
@@ -337,6 +337,21 @@ where ΔXⁿ = Xⁿ⁺¹ − Xⁿ, and:
 | DRL-5 | Generalization: random weighted graph N=8, per-node M_i/D_i, quartic V, forcing J — EL residual 2.2×10⁻¹⁰ | `finite_diagnostic` | `ap/ap6_drl_general.py` |
 | DRL-6 | **H_nl = Σᵢ Mᵢ vΦᵢvΨᵢ + K ΦᵀL_wΨ + Ψᵀ∇V(Φ) − JᵀΨ** — corrected nonlinear charge; quartic drift <2×10⁻³ (vs 0.119 for the wrong quadratic charge); reduces to linear charge at k₄=0; O(Δt²) confirmed | `finite_diagnostic` | `ap/ap8_h_quartic.py` |
 
+Symbol gloss (DRL-Coq-genN, DRL-5/6; confirmed at source): `k₂` — the
+quadratic-potential coefficient in `∇V(Φ)=k₂Φ+k₄Φ³` (paired with `K`, the
+`L_R`/`L_w` coupling strength; both declared constants, not derived);
+`k₄` — the quartic-potential coefficient of that same `∇V(Φ)`, the
+correction DRL-6 exists to handle (`ap/ap8_h_quartic.py`: `gradV = k2*Phi +
+k4*Phi**3`); `GB` — DRL-Coq-genN's general-N bilinear graph-coupling term,
+an arbitrary declared coupling in the abstract Legendre identity
+(`evidence/DRL_General_Legendre.v`: "ANY graph coupling GB"; specializes to
+`K·ΦᵀL_RΨ` in the concrete DRL-1/DRL-3 case above); `L_w` — **not** a typo
+for `L_R`: DRL-5/DRL-6's own weighted-graph Laplacian for the N=8 random
+test graph used in that generalization run, same `D_W−W` construction as
+`L_R` but instantiated on a different (randomly generated) weighted graph
+(`ap/ap6_drl_general.py`: `build_weighted_graph` returns `L_w =
+diag(rowsum) − w`).
+
 **Novelty ledger (declared, `[Open]`):** doubling-for-action has known
 ancestors (Bateman 1931, Caldirola–Kanai, CTP/Keldysh, Galley 2013 general
 nonconservative variational doubling, Marsden–West discrete variational
@@ -408,9 +423,9 @@ parameters.
 | ID | Property | Note | Tier |
 |---|---|---|---|
 | FI-1 | 0 ≤ Φ_FI ≤ 1 (nested-family inclusion V\*(C∖π) ≤ V\*(C)) | provable by set-inclusion (Coq lift: `Open`/roadmap); asserted numerically | `finite_diagnostic` |
-| FI-2 | Φ_FI is always named to its π — no bare Φ | untagged in source (informal statement; no `Dr`/tier bracket assigned) | |
+| FI-2 | Φ_FI is always named to its π — no bare Φ | | untagged in source (informal statement; no `Dr`/tier bracket assigned) |
 | FI-3 | Decision rule: high Φ_FI ⇒ decisive record identifies π directly | | `Dr` |
-| FI-4 | Requires a non-tautological negative control | untagged in source (implemented in `ap4`; no `Dr`/tier bracket assigned) | |
+| FI-4 | Requires a non-tautological negative control | | untagged in source (implemented in `ap4`; no `Dr`/tier bracket assigned) |
 | FI-5 | dof-saturation limitation: an unconstrained free parameter gives a false Φ=1 unless it carries a real prior | adversarial-review finding | `finite_diagnostic` |
 
 First runs (`ap/ap4_phi_fi.py`, `finite_diagnostic`, toy tier): Hubble toy
@@ -460,7 +475,8 @@ Full stream: EQ-001 through EQ-071 in
 (imported reference; SoT numbering = `readout_genesis/READOUT_GENESIS_CORE.md`
 Appendix C). Only the root→trunk-adjacent entries are reproduced here —
 the Standard-Model gauge/representation stream (EQ-018 onward into SU(3),
-generation counting, mass fits) is intentionally NOT absorbed; see §7.
+generation counting, mass fits) is intentionally NOT absorbed; see §9.1,
+which names this non-absorption explicitly and closes part of the gap.
 
 | EQ | Statement | Tier |
 |---|---|---|
@@ -480,7 +496,7 @@ generation counting, mass fits) is intentionally NOT absorbed; see §7.
 | EQ-032 | ∀X,R,O,x1,x2: x1≠x2 → O(x1)=O(x2) → ∀D: D(O(x1))=x1 → D(O(x2))=x2 → False (`no_decoder_recovers_state`) | `Th_coqc` |
 | EQ-033 | gauge-redundancy analogue: h(x)≠x → O(h(x))=O(x) → no total decoder (`gauge_redundancy_forces_undecodability`) | `Th_coqc` |
 | EQ-034 | both true states exist, no total decoder recovers both (`true_state_exists_but_no_total_decoder`) | `Th_coqc` |
-| EQ-063 | τ_c = ℏ/(2mc²); m = ħ/(2c²τ_c) — unit/calibration bridge ONLY, does NOT derive EQ-015's M coefficient (8 forcing attempts failed; campaign logged at EQ-063's own entry in `EQUATION_LIBRARY_ROOT_TO_SM_STREAM_research_universal_solver.md`, self-caught during founder's bottleneck review) | `Dr` (bridge) |
+| EQ-063 | τ_c = ℏ/(2mc²); m = ℏ/(2c²τ_c) — unit/calibration bridge ONLY, does NOT derive EQ-015's M coefficient (8 forcing attempts failed; campaign logged at EQ-063's own entry in `EQUATION_LIBRARY_ROOT_TO_SM_STREAM_research_universal_solver.md`, self-caught during founder's bottleneck review) | `Dr` (bridge) |
 
 Source file for EQ-032–034: `research_universal_solver/formal/InfoTrueRecordUnreadable_attempt.v`
 (cross-referenced in `philosophy.md` §1 and `logic.md` §3 above — same
@@ -493,8 +509,12 @@ underlying general theorem, cited once per relevant section).
 Source: `v2/urr/URR_C_MASTER_0_4.md` / `URR_NATIVE_SYSTEM.md`. Doubled
 reader–record space 𝒳_T = 𝓗_T ⊕ 𝓗_T, X_n=(Φ_n,Ψ_n)ᵀ; lifted projector
 Ō_α = I₂⊗O_α, H̄_α = I−Ō_α. `𝔾_T` (URR-2 below) — the lifted graph coupling
-operator, the same construction as EQ-020's `𝔾_n` (§6): `L_R` Kronecker-
-lifted onto the field/reader-record space plus the internal-coupling term
+operator, the same construction as EQ-020's `𝔾_n`
+(`EQUATION_LIBRARY_ROOT_TO_SM_STREAM_research_universal_solver.md`#EQ-020 —
+SM-stream entry, `Dr` tier at source; not reproduced in §6's core subset,
+which stops at EQ-017/EQ-032-034/EQ-063 per §6's own stated non-absorption
+of EQ-018 onward): `L_R` Kronecker-lifted onto the field/reader-record
+space plus the internal-coupling term
 (`G_T = KRON(L_R,I_ℱ) + KRON(I_nodes,C_ℱ) + C_int`, confirmed at source,
 `v2/urr/URR_NATIVE_TECHNICAL_SPEC.md` line 696) — not a separate primitive
 from `L_R`, only its lifted/coupled form at this level of the stack.
@@ -503,6 +523,23 @@ from `L_R`, only its lifted/coupled form at this level of the stack.
 |---|---|---|
 | URR-1 | 𝓔_DRL[X]_n = 𝓙_{C,n}[X_n] (native DRL forced by balanced cut, not replaced by it) | `Dr`/`definition` |
 | URR-2 | Reader spine: M(Φ_{n+1}−2Φ_n+Φ_{n-1})/Δt² + D(Φ_{n+1}−Φ_{n-1})/2Δt + K𝔾_TΦ_n + ∇V(Φ_n) − J_n = P_Φ𝓙_{C,n}[X_n] | `Dr` (forced discrete variational system, not derived from one unified action) |
+
+Symbol gloss for URR-1/URR-2 (confirmed at source, `v2/urr/URR_CUT_EXTENSION.md`
+§(candidate master system); `v2/urr/URR_C_MASTER_0_4.md` §§3–5): `𝓔_DRL[X]_n
+:= δS_DRL[X;𝔾_T,V,J]/δX_n` — the native DRL system's own Euler–Lagrange
+variation (the doubled-field action's stationarity condition), i.e. what the
+uncut DRL dynamics alone would demand at step `n`; `𝓙_{C,n}[X_n]` — the
+balanced-cut force (`URR_C_MASTER_0_4.md` §4, boxed definition), a difference
+of write-outflow and return-inflow terms across the observed/hidden split
+(`H̄W_nŌX − ŌΛ_{W,n}ŌX + ŌR_nH̄X − H̄(Λ_{R,n}+Λ_{T,n})H̄X`), reused unchanged
+at URR-5's cut-balance gate (this same §7, below); `P_Φ = (I,0)` — the component
+selector projecting the doubled reader–record state `X_n=(Φ_n,Ψ_n)ᵀ` onto
+its `Φ`-component only (paired with `P_Ψ=(0,I)` for the mirror equation).
+URR-1's content is exactly "native DRL is forced equal to the balanced-cut
+force, not replaced by it" — the two sides of that equality are `𝓔_DRL`
+(uncut EL) and `𝓙_C` (the cut force); URR-2 is `P_Φ` applied to that same
+equality, written out in the explicit finite-difference form.
+
 | URR-3 | Return-transformation kernel: 𝒦_{α←β}(τ) = A_α Ō_α R_α 𝒰_H(τ) H̄_β W_β Ō_β E_β | `exact_algebra` in declared linear model |
 
 Symbol gloss (finite discrete operators on 𝒳_T, not continuum notation):

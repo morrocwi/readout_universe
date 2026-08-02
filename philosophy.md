@@ -11,8 +11,10 @@
 > axiom-free) ≠ `finite_diagnostic` (executed numeric run — evidence, not
 > proof) ≠ `Dr` (declared-bridge / human narrative reading) ≠ `Open` (not
 > established, but never bare — always carries a stance and a falsifier) ≠
-> `fit_calibrated` (fit to data, not derived — matches `logic.md`'s own
-> legend).
+> `fit_calibrated` (fit to data, not derived) ≠ `definition` (declared
+> object/gate — a stipulated/definitional statement, not derived or
+> measured; a naming/setup move, distinct from `Dr`'s narrative-bridge
+> reading) — matches `logic.md`'s own legend.
 
 ---
 
@@ -126,6 +128,7 @@ Every claim in this corpus must carry one of five tags, and the tags are
 | `Dr` | declared-bridge / human narrative reading | not established fact; an interpretation with a named bridge |
 | `Open` | not established | never bare — always paired with a stance and a falsifier |
 | `fit_calibrated` | fit to data, not derived (e.g. §1's mass-ratio geometric-mean fit against measured PDG masses) | not `Th_coqc`; a calibration, not a first-principles derivation |
+| `definition` | declared object/gate — a stipulated/definitional statement, not derived or measured | not `Dr`; a naming/setup move, not a narrative-bridge reading |
 
 Why bother: this is the corpus's answer to how a small team (stated cost:
 "หนึ่งคน + AI + สคริปต์สั้น" — one person + AI + short scripts,
@@ -307,7 +310,7 @@ benchmark number.
 
 ---
 
-## 2.5 Operator grounding — the contaminated-concept checklist (ทำไม operator เองก็ต้องมี tier)
+### 2.5 Operator grounding — the contaminated-concept checklist (ทำไม operator เองก็ต้องมี tier)
 
 §2 above disciplines *claims* — every sentence that asserts a fact must
 carry a tier tag. This section extends the same discipline one level down,
@@ -630,10 +633,14 @@ by digit. This is the source's own stated thesis, and it is
 machine-checked. The one honest crack the ladder itself names, not hidden:
 full trichotomy, a total `≤`, and the classical least-upper-bound property
 are *not* constructively valid on this `ℝ` — each smuggles back an
-omniscience principle (LPO/WLPO), which is precisely **I1** in the source's
+omniscience principle (LPO, the Limited Principle of Omniscience, or its
+weaker cousin WLPO, the Weak Limited Principle of Omniscience), which is
+precisely **I1** in the source's
 own taxonomy of injected non-readouts (I1 ℝ-completeness, I2 `h→0`, I3
-`Re,Λ→∞`, I4 actual `+∞`, and on the zero side, Z1 the point `r=0` through
-Z4 the true void — reciprocity `1/0=∞` names zero and infinity as *one*
+`Re,Λ→∞`, I4 actual `+∞`, and on the zero side, Z1 the point `r=0` (zero
+extent), Z2 exact-zero spacing (a reached continuum), Z3 absolute rest /
+exact vacuum (`v=0`, `T=0`), through Z4 the true void — reciprocity
+`1/0=∞` names zero and infinity as *one*
 non-readout seen from two sides, never two separate facts). Any place in
 this corpus that reaches for LUB, a continuum angle, or a value *at*
 infinity has, by that act, injected one of these eight — nameable, not a
@@ -829,7 +836,11 @@ never something to quietly drop.
 The concrete instance under current test is the bR cross-domain lineage
 ledger — quantum → chemical → protein → biological-transport, chained as
 `r_B = E · A_C · A_P · A_B` (a discrete product of admissible per-step
-translations, not a continuum composition). It is `finite_diagnostic`
+translations, not a continuum composition), where `E` is the external
+SI-decode factor (explicitly external — the ledger does not claim the
+decode itself is derived) and `A_C`, `A_P`, `A_B` are the retention-
+preserving amplitudes attached to the chemical, protein, and
+biological-transport translation steps respectively. It is `finite_diagnostic`
 bookkeeping, not a first-principles derivation: it tracks how much retained
 information survives each translation step, not a proof that physics forces
 the chain. Two results matter here. First, a single quantum-only quotient
@@ -843,7 +854,11 @@ failure — it produces an obstruction certificate that conserves the
 retained lineage exactly: `I_Q = I_B + O_C + O_P + O_B`, where "+" is
 retained-information combination under δ_R (summing disjoint, non-negative
 obstruction terms recorded at each translation step), not real-number
-addition of continuum quantities — the information present at the quantum
+addition of continuum quantities — `I_Q` the quantum-level retained
+information (the chain's starting point), `I_B` what survives to the
+biological level (the chain's endpoint), and `O_C`/`O_P`/`O_B` the
+obstruction accumulated at the chemical, protein, and biological-transport
+steps respectively: the information present at the quantum
 end equals what survives at the biological end plus what was obstructed at
 each intermediate step. A real test of this ledger needs event-resolved
 empirical data and remains, like the theorem's own re-verification,
@@ -1259,7 +1274,10 @@ graph enforces it as a hard rule, not a warning: a color representation's
 *triality* τ (a ℤ₃-valued readout, τ(3)=1, τ(3̄)=2, τ(8)=0, additive under
 tensor product) is exactly the "role" EQ-031's mechanism talks about —
 physical state = [X], the equivalence class under the readout O, not the raw
-label X. Confinement, read this way, is the statement ℋ_physical ⊆
+label X. (EQ-031 is the source's own `Dr`-tier declaration of this
+equivalence-class framing — distinct from, and prior to, EQ-032–034's
+`Th_coqc` formal proofs of the no-decoder consequence §7.2 covers.)
+Confinement, read this way, is the statement ℋ_physical ⊆
 ℋ_{τ=0}: only the τ=0 class is admitted as a physical state, regardless of
 which constituent labels sum to it.
 
@@ -1705,7 +1723,11 @@ AP17 supplies the return-side counterpart, with an executed witness rather
 than assertion alone. A recorded kernel that looks almost nothing like the
 identity (‖K−I‖ ≈ 1.22, rank 2 — the return channel visibly *transformed*
 the state) is nevertheless decoded back to the original with residual
-2.3×10⁻¹⁶ and carries I_read ≈ 7.83 rbit under the declared linear-Gaussian
+2.3×10⁻¹⁶ and carries I_read ≈ 7.83 rbit (a retained-information bit — the
+source's own unit for its `I_read = ½ log₂ det[…]` readability formula,
+same log₂ base as a Shannon bit but keeping this book's readout/retained
+framing rather than borrowing the substrate-neutral name outright) under
+the declared linear-Gaussian
 policy: role/reconstructability survived total surface transformation. The
 converse closes the loop rather than repeating it: a kernel that returns
 *nothing* (K = 0) carries I_read = 0 regardless of how clean or
