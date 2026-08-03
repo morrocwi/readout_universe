@@ -347,7 +347,7 @@ where ΔXⁿ = Xⁿ⁺¹ − Xⁿ, and:
 | DRL-Coq-T1 | EL-identity (iff both directions): dS/dΨ=0 ⟺ damped recurrence; dS/dΦ=0 ⟺ anti-damped — 3-ring, 3-slice scope; 2 classical Reals axioms declared (`sig_forall_dec`, `functional_extensionality`) | `Th` (declared-axiom; NOT `Th_coqc` — `Print Assumptions` shows 2 non-constructive classical Reals axioms, so this does not meet the axiom-free bar the `Th_coqc` legend requires) | `evidence/DRL_Discrete.v` (Coq 8.20.1, exit 0, independently reverified) |
 | DRL-Coq-T2 | D-cancellation: Legendre charge H contains no D — pure `ring` identity | `Th_coqc` | `evidence/DRL_Discrete.v` |
 | DRL-Coq-T3 | Leapfrog shadow energy exactly conserved at D=0 | `Th_coqc` | `evidence/DRL_Discrete.v` |
-| DRL-Coq-genN | General-N Legendre/D-cancellation, axiom-free, list induction: any node count, per-node M_i/D_i, any graph, any potential (abstract w_i — covers k₂qr, quartic Ψᵀ∇V, forcing −JᵀΨ). `H = Σ Mᵢvqᵢvrᵢ + GB + Σ wᵢ` | `Th_coqc` (axiom-free) | `evidence/DRL_General_Legendre.v` |
+| DRL-Coq-genN | General-N per-node Legendre/D-cancellation, axiom-free, list induction: any node count, per-node M_i/D_i. `GB` is now a genuine weighted-graph bilinear pairing (`graph_bilinear`/`graph_legendre_D_cancellation`, added 2026-08-03) over arbitrary list positions and an arbitrary weight function — the standard x^T·L_w·y edge-sum identity at general N — cross-checked non-vacuous against `DRL_Discrete.v`'s own concrete N=3 ring `LR1` bilinear form, matched term-for-term (`ring_bilinear_matches_LR1`). `w_i` remains an opaque, velocity-independent Q-value covering any non-D per-node term honestly, not specifically checked against a quadratic/quartic potential's own structure. `H = Σ Mᵢvqᵢvrᵢ + GB + Σ wᵢ` | `Th_coqc` (axiom-free) | `evidence/DRL_General_Legendre.v` |
 | DRL-5 | Generalization: random weighted graph N=8, per-node M_i/D_i, quartic V, forcing J — EL residual 2.2×10⁻¹⁰ | `finite_diagnostic` | `ap/ap6_drl_general.py` |
 | DRL-6 | **H_nl = Σᵢ Mᵢ vΦᵢvΨᵢ + K ΦᵀL_wΨ + Ψᵀ∇V(Φ) − JᵀΨ** — corrected nonlinear charge; quartic drift <2×10⁻³ (vs 0.119 for the wrong quadratic charge); reduces to linear charge at k₄=0; O(Δt²) confirmed | `finite_diagnostic` | `ap/ap8_h_quartic.py` |
 
@@ -356,10 +356,17 @@ quadratic-potential coefficient in `∇V(Φ)=k₂Φ+k₄Φ³` (paired with `K`, 
 `L_R`/`L_w` coupling strength; both declared constants, not derived);
 `k₄` — the quartic-potential coefficient of that same `∇V(Φ)`, the
 correction DRL-6 exists to handle (`ap/ap8_h_quartic.py`: `gradV = k2*Phi +
-k4*Phi**3`); `GB` — DRL-Coq-genN's general-N bilinear graph-coupling term,
-an arbitrary declared coupling in the abstract Legendre identity
-(`evidence/DRL_General_Legendre.v`: "ANY graph coupling GB"; specializes to
-`K·ΦᵀL_RΨ` in the concrete DRL-1/DRL-3 case above); `L_w` — **not** a typo
+k4*Phi**3`); `GB` — DRL-Coq-genN's general-N graph-coupling term, now a
+genuine weighted-graph bilinear pairing (`graph_bilinear`, added
+2026-08-03) over arbitrary list positions and an arbitrary weight
+function, cross-checked non-vacuous against DRL-Coq-T2's own concrete
+N=3 ring `LR1` bilinear form, matched term-for-term
+(`ring_bilinear_matches_LR1`) — a matching, independently-built
+construction, not a Coq-checked specialization of one theorem to the
+other: `evidence/DRL_Discrete.v`'s own `T2_D_cancellation` is stated over
+R at fixed N=3, `evidence/DRL_General_Legendre.v` works over Q at general
+N, so no embedding/reduction lemma connects the two theorems as such,
+only this cross-checked matching construction; `L_w` — **not** a typo
 for `L_R`: DRL-5/DRL-6's own weighted-graph Laplacian for the N=8 random
 test graph used in that generalization run, same `D_W−W` construction as
 `L_R` but instantiated on a different (randomly generated) weighted graph

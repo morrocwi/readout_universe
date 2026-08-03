@@ -2572,11 +2572,16 @@ formalization of this entry's specific standing, multi-pass claim
 anywhere in the workspace, so two fresh, self-contained artifacts were
 built (neither copies or adapts any proprietary source): (1)
 `evidence/RetentionLoopClosureMonotone.v` proves, for any abstract
-discrete contraction map (`Th_coqc`, axiom-free over ℚ), that its
-convergence bound is monotone in the contraction ratio — a formal
-scaffold for "a weaker/degraded coupling gives a provably worse
-worst-case convergence guarantee at every step," explicitly *not* a
-proof about any real `Ω_H` update rule, τ_c^H, or human cognition; (2)
+discrete update map and any nonnegative coupling ratio (`Th_coqc`,
+axiom-free over ℚ, over the fully general `0≤c` case — no `c<1` bound is
+assumed anywhere in the file, corrected after an independent review
+caught an earlier draft of this note implying otherwise), that its
+distance-to-fixed-point bound at every fixed step is monotone in that
+ratio — a formal scaffold for "a weaker/degraded coupling never gives a
+provably tighter worst-case bound at any step than a stronger one,"
+explicitly *not* a proof of convergence (that requires `c<1`, supplied
+by a caller, never asserted here) and *not* a proof about any real `Ω_H`
+update rule, τ_c^H, or human cognition; (2)
 `ap/ap22_self_closure_diagnostic.py` (`finite_diagnostic`) runs a fresh
 scalar toy model of a closure loop, injects a perturbation, and measures
 — empirically, via finite difference, not by reading off a parameter
