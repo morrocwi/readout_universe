@@ -1,0 +1,86 @@
+{
+  "claim_id": "ipo2026-q1-deliberate-001",
+  "question": "Under what conditions does a transition count as originating in an agent's policy, and under what conditions is it morally assessable? (narrow/deliberate-action reading)",
+  "scope": "one retained deliberative decision step, IPO 2026 Q1 narrow target",
+
+  "translation": [
+    {"foreign_term": "ผู้กระทำ", "native_term": "retained entity", "tier": "Dr", "bridge_class": "POSITED"},
+    {"foreign_term": "การกระทำ", "native_term": "transition", "tier": "definition", "bridge_class": "DERIVED"},
+    {"foreign_term": "ทางเลือก", "native_term": "distinguishable transitions", "tier": "definition", "bridge_class": "DERIVED"},
+    {"foreign_term": "การเลือก", "native_term": "policy selection of one transition", "tier": "definition", "bridge_class": "DERIVED"},
+    {"foreign_term": "ความปรารถนา", "native_term": "target weight W", "tier": "Dr", "bridge_class": "POSITED"},
+    {"foreign_term": "การใช้เหตุผล", "native_term": "grammar A", "tier": "Dr", "bridge_class": "POSITED"},
+    {"foreign_term": "สภาวะทางศีลธรรม", "native_term": "moral constraint M", "tier": "Dr", "bridge_class": "POSITED"}
+  ],
+
+  "ontology_generable": true,
+
+  "premises": [
+    {"atom": {"predicate": "alternatives", "arguments": ["agent", "t1"]}, "tier": "Dr", "source": "translation row: ทางเลือก"},
+    {"atom": {"predicate": "accessible", "arguments": ["agent", "t1"]}, "tier": "Dr", "source": "translation row: ทางเลือก (accessibility half)"},
+    {"atom": {"predicate": "policy_selects", "arguments": ["agent", "t1"]}, "tier": "definition", "source": "translation row: การเลือก"},
+    {"atom": {"predicate": "target_weight", "arguments": ["agent", "t1"]}, "tier": "Dr", "source": "translation row: ความปรารถนา"},
+    {"atom": {"predicate": "reason_grammar", "arguments": ["agent", "t1"]}, "tier": "Dr", "source": "translation row: การใช้เหตุผล"},
+    {"atom": {"predicate": "moral_constraint", "arguments": ["agent", "t1"]}, "tier": "Dr", "source": "translation row: สภาวะทางศีลธรรม"}
+  ],
+
+  "rules": [
+    {
+      "id": "R1-CHOICE",
+      "antecedents": [
+        {"predicate": "alternatives", "arguments": ["?a", "?t"]},
+        {"predicate": "accessible", "arguments": ["?a", "?t"]},
+        {"predicate": "policy_selects", "arguments": ["?a", "?t"]}
+      ],
+      "consequent": {"predicate": "choice", "arguments": ["?a", "?t"]},
+      "tier": "Dr",
+      "source": "user demo rule R1"
+    },
+    {
+      "id": "R2-DELIBERATE",
+      "antecedents": [
+        {"predicate": "choice", "arguments": ["?a", "?t"]},
+        {"predicate": "target_weight", "arguments": ["?a", "?t"]},
+        {"predicate": "reason_grammar", "arguments": ["?a", "?t"]}
+      ],
+      "consequent": {"predicate": "deliberate_origin", "arguments": ["?a", "?t"]},
+      "tier": "Dr",
+      "source": "user demo rule R2"
+    },
+    {
+      "id": "R3-MORAL",
+      "antecedents": [
+        {"predicate": "choice", "arguments": ["?a", "?t"]},
+        {"predicate": "reason_grammar", "arguments": ["?a", "?t"]},
+        {"predicate": "moral_constraint", "arguments": ["?a", "?t"]}
+      ],
+      "consequent": {"predicate": "morally_assessable", "arguments": ["?a", "?t"]},
+      "tier": "Dr",
+      "source": "user demo rule R3"
+    }
+  ],
+
+  "target": {"predicate": "deliberate_origin", "arguments": ["agent", "t1"]},
+
+  "context": {
+    "candidate_distinctions": ["action-a", "action-b"],
+    "grammar_compatible": true,
+    "required_retained": ["action-a", "action-b", "policy"],
+    "retained": ["action-a", "action-b", "policy"],
+    "required_accessible": ["action-a", "action-b"],
+    "accessible": ["action-a", "action-b"],
+    "metric_nonnegative": true,
+    "identity_lock_ok": true,
+    "declared_obstruction": false,
+    "lens_ok": true,
+    "lens_distortion": 0.1,
+    "lens_tolerance": 0.2
+  },
+
+  "falsifier": "A deliberate, attributable action occurs with no distinguishable accessible alternative, no policy selection, or with target_weight/reason_grammar removed without changing the outcome (i.e. not load-bearing).",
+  "not_checked": [
+    "Whether every human decision satisfies these premises",
+    "Whether the natural-language translation is uniquely faithful",
+    "Whether target_weight and reason_grammar are jointly necessary or merely each sufficient"
+  ]
+}
