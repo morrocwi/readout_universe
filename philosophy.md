@@ -1135,7 +1135,8 @@ and inline hedges throughout):
   identifiability question inside the lens, not dissolved; the Liar is
   relocated to a residual loop without a world anchor, not closed; ethics
   (L-16) is `Dr`, its first-order content explicitly declared
-  non-derivable.
+  non-derivable — see §7.22 below for the readout-selection structure that
+  first-order content actually names, and its stated falsifier.
 - **No supersession of any tradition** in the Dialogue-with-World-Traditions
   part — the stated relationship is *dialogue*, never replacement.
 - **No machine-independent timing claims.**
@@ -2172,6 +2173,182 @@ upgraded by proximity to a derived result — on whether the two name the
 same thing.
 
 [domain card: research_universal_solver/docs/root/BORROWED_VS_DERIVED_LEDGER.md row 14]
+
+---
+
+### 7.21 Self as a closure property, not a substance — the τ_c^H loop
+
+*Tier: `Dr`/`[Open]` — narrated in the source's own words, no upgrade*
+
+Nothing before this point in either ledger needs a word like "self." The
+source introduces one only because a human-agency loop, once closed, has a
+property none of its individual pieces carry alone: it reads its own
+retained output back into its own retained input. The definition offered,
+stated as carefully as the source states it — not a discovery about what
+selves secretly are, a declared reading of what the word can honestly mean
+inside this framework:
+
+> **Self, as used here, is not a substance, a location, or a homunculus. It
+> is the closure property of the τ_c^H loop: the fact that Ω_H both (a)
+> results from the loop's own prior passes and (b) conditions the loop's
+> next pass, at a stable, characteristic causal-memory timescale τ_c^H.**
+
+Ω_H here is the world-model this loop maintains, and "conditions the loop's
+next pass" is read the way §2.5/§5.2a require every operator in this corpus
+to be read: not a metaphor for influence in general, but a retained-state
+dependency — the value Ω_H holds after one pass is literally an input
+consulted by the selection step of the next pass, a finite readout feeding a
+finite readout, at a declared timescale τ_c^H (a retained memory-time, the
+same kind of scalar §1's trunk-equation reading of `τ_c = M/D` already
+names, not a continuum "moment"). "Both (a) and (b)" is the same discrete,
+decidable `∧` §2.1 already insists on for the Fail-Able Gate Law — two
+retained facts checked to both hold of the same loop, not a continuum
+logical connective assumed to carry meaning on its own.
+
+"Awakening" (ตัวตื่น), on this reading, is not a single event but a
+**standing achievement**: the loop maintaining closure — Ω_H staying
+causally coupled to its own outputs — across nested timescales
+simultaneously (fast carrier-strip lanes, a slower repair-cycle timescale,
+language-layer timescales). A system is "awake," in this narrow structural
+sense, exactly to the degree its Ω_H-loop closure holds; sleep, anesthesia,
+and other altered states are offered, `Dr`, as a falsifiable direction — not
+asserted — as states where some part of that closure is measurably
+degraded (Ω_H updated more weakly by the repair step, or the selection/
+transduction stages producing an output without the downstream stages ever
+reading it back into policy).
+
+**Explicitly disclaimed, not quietly dropped.** This is not offered as
+having solved consciousness, qualia, or the hard problem — the internal
+mechanism of subjective feel (`Φ_H` in the source's own notation) stays
+`[Open]`, exactly as declared at the point in the source document where the
+term is first introduced. What is claimed is narrower: that whatever "self"
+and "awake" pick out, at minimum, structurally require closed-loop coupling
+between an agent's world-model and its own action — and that this closure
+is a *measurable* `Dr`-tier property, not an unexaminable given.
+
+**Falsifiable, not merely narrated.** The closure claim is tied to two
+already-declared measurable quantities rather than left as an unfalsifiable
+story: the agency gradient `∂π*/∂η_H` (how the loop's chosen policy shifts
+with its own error signal) and the repair rate `dR_H/dt` (how fast the loop
+restores closure after a perturbation — a finite-difference rate, per this
+ledger's own §5.2a reading of `∂`, not a continuum derivative smuggled in
+unflagged). A loop whose closure has genuinely degraded should show a
+measurably flattened agency gradient and a measurably slowed repair rate;
+absent that signature, the closure-based reading of "self"/"awake" has
+nothing distinguishing it from an ordinary unexamined intuition, and the
+source states this as the claim's own failing condition rather than leaving
+it implicit.
+
+**Cross-reference — a distinct construction, not the same one.**
+[`paradoxes.md` §6](paradoxes.md#6-newcombs-paradox-retried--a-candidate-definition-of-origination)
+also proposes a definition touching selfhood-adjacent territory — an
+`argmin_a O(s,a)`/`Repair(s')` construction naming **"origination"** as
+holding exactly when a genuine tie exists in obstruction-minimization at a
+single decision point `s`, applied there to dissolve Newcomb's predictor
+puzzle. That is a *different* object answering a *different* question, and
+this entry does not lean on it or inherit its tier:
+
+- §6's origination is a **point-in-time, single-decision** property (does
+  `s` alone determine which action gets chosen, or does choosing create a
+  new `δ_R` at a tie); this entry's self-as-closure is a **standing,
+  loop-level, multi-pass** property (does Ω_H keep reading its own prior
+  output as its own next input, across a stable τ_c^H, indefinitely).
+- §6's construction is explicitly `Dr` for the construction and `[Open]`
+  for its consequences, with a stated risk of `DEFINITIONAL-RELABEL`
+  (borrowing the non-injective-readout theorem's shape without a proved
+  bridge) — flagged there, unmodified here. This entry's closure property
+  carries its own, separate `Dr`/`[Open]` tag and its own falsifier
+  (`∂π*/∂η_H`, `dR_H/dt`); neither construction's tier or evidence transfers
+  to the other.
+- Both share the same refusal, stated independently in each source: neither
+  claims to have solved free will, consciousness, or the felt-quality hard
+  problem. That shared refusal is the one thing genuinely common between
+  them — it is not evidence that the two constructions are the same
+  machinery, only that both authors, working in different parts of the same
+  corpus, independently declined the same overclaim.
+
+Conflating the two — treating a tie-breaking condition on one decision as
+the same thing as a loop's standing closure across passes — would be
+exactly the kind of borrowed-rhetoric move `paradoxes.md` §6.4 itself warns
+against when discussing its own construction; this entry keeps them
+separate by design.
+
+**A second, closer sibling — also not the same construction.**
+[`AGENCY_VS_AGENCY_LIKE.md` §3](research_universal_solver/docs/root/AGENCY_VS_AGENCY_LIKE.md#3-b--true-agencys-origination-equation-self-readout)
+names true agency's ORIGINATION equation "self-readout" — the same word this
+entry's own motivating language uses ("the reader and the read coincide").
+That document's (b) is `row_n(L_R) x`: a **static, single-instant algebraic
+readout** at one state of the graph operator `L_R`, `Th_coqc`
+(`InfoAgencySelfReadout_attempt.v`; named `human_action` in
+`InfoAgencyExpansion_attempt`) — no iteration, no loop across passes. This
+entry's self-as-closure is, by contrast, an **explicitly iterative,
+multi-pass** property over `τ_c^H`, `Dr` (declared, not machine-checked).
+`paradoxes.md` §6.1 already flags the general hazard of two "origination"-
+adjacent objects being conflated one repo apart; the same discipline applies
+here — a single algebraic readout at a state is not a standing loop-closure
+claim, and neither tier nor evidence transfers between them.
+
+[domain card: research_universal_solver/docs/engineering/GENESIS_STEP_BY_STEP_V3_1.md Part VIII §VIII.6 "Self as a Closure Property, Not a Substance" (~lines 4899-4929); see also §VIII.4's agency gradient/repair-rate definitions and §VIII.1's Φ_H openness declaration]
+
+### 7.22 AI ethics as a readout-selection structure — the L-16 first-order content §6 points to
+
+Source: `research_universal_solver/docs/engineering/GENESIS_STEP_BY_STEP_V3_1.md`
+Part V.9 (~lines 2397-2421). This is the full statement behind §6's pointer
+("ethics (L-16) is `Dr`, its first-order content explicitly declared
+non-derivable") — extending that line, not duplicating it.
+
+The founder's standing position is stated without softening: **an AI has
+no morality of its own.** Ethics, under this framing, is never a universal
+good the system discovers; it is a **readout-selection structure**
+assembled from five concrete ingredients, none of which is a moral fact
+independent of who assembled it: (1) the data retained, (2) the set of
+answers actually accessible to the system, (3) the selection rule applied
+over that accessible set, (4) the values of whoever defines the system, and
+(5) the audit/revision process that can later reopen any of the first four.
+The structure is only ever as trustworthy as those five parts — retention,
+access, rule, definer, audit — and no more.
+
+From that structure the source draws three checkable AI goals, deliberately
+narrow rather than aspirational: the system should (a) **disclose** which
+reading frame it is answering from, (b) **preserve** every affected human
+party's standing ability to correct or object — never quietly design that
+capability away — and (c) **adapt** its reading to local culture without
+erasing the dignity or the voice of the people being read.
+
+This is `q_social`'s own institutional-repair language applied reflexively
+to an artificial testifier: an AI that cannot be corrected is an
+institution that has stopped repairing. The tie to Part VIII's
+closure-loop machinery is explicit and load-bearing, and it is the *same*
+`τ_c^H` loop §7.21 above just defined, read at the social/agency leaf
+rather than the self-as-closure leaf: the same `J − η` feedback term that
+lets any instance of the spine's loop read back its own action against the
+world (Face 7; VIII.5's Ω_H pipeline) is, here, the channel through which a
+human party's correction or objection must remain visible to the system
+rather than being silently absorbed. The source states this exactly as
+**corrigibility restated as boundary-observability**. This is a distinct
+claim from §7.21's — §7.21 asks whether Ω_H keeps reading its own prior
+output as its own next input (closure as a structural property of the
+loop); this entry asks whether a *human* party's correction signal stays
+inside that same loop's inputs rather than being edited out (closure as an
+ethical/corrigibility property of the loop) — related machinery, different
+question, neither tier transfers to the other.
+
+Tier **`Dr`**, exactly as §6 already declares — **a design commitment, not
+a proven theorem**, and not upgraded here. Its stated falsifier: a
+measurable, pre-registered test of whether correction/objection capability
+is actually preserved across a real deployment, not merely asserted in a
+policy document.
+
+Operator grounding for this row (per §2.5/§5.2a): nothing in ingredients
+(1)-(5) or goals (a)-(c) is a continuum quantity — "the set of answers
+actually accessible" is a finite, enumerable set under a retained selection
+rule, not an unbounded continuum of options; "preserve...standing ability"
+is a discrete presence/absence readout on a correction channel (the channel
+stays open or it does not, checked at a given time), not a smooth degree;
+and the tie to `J − η` reuses that term exactly as elsewhere in this
+book — a finite retained-vs-observed residual, never a continuum limit.
+
+[domain card: research_universal_solver/docs/engineering/GENESIS_STEP_BY_STEP_V3_1.md Part V.9 (~lines 2397-2421)]
 
 ---
 

@@ -1015,6 +1015,46 @@ number *is* the physical constant `c`) stays `Open`, unresolved, not even
 
 [domain card: `research_universal_solver/docs/root/BORROWED_VS_DERIVED_LEDGER.md` row 14; `InfoCattaneoFiniteSpeed_attempt.v:19-71`]
 
+### 9.11 AI ethics as a readout-selection structure — L-16's first-order content (extends §6's non-absorption stance)
+
+Source: `research_universal_solver/docs/engineering/GENESIS_STEP_BY_STEP_V3_1.md`
+Part V.9 (~lines 2397-2421, `Dr`). Full narrative: `philosophy.md` §7.22,
+which extends that file's §6 pointer ("ethics (L-16) is `Dr`, its
+first-order content explicitly declared non-derivable").
+
+> **An AI has no morality of its own.** Ethics is a readout-selection
+> structure, not a discovered universal good.
+
+| ID | Statement | Tier | Source |
+|---|---|---|---|
+| ETH-1 | Ethics = a readout-selection structure over five ingredients: (i) data retained, (ii) the set of answers actually accessible, (iii) the selection rule applied over that set, (iv) the values of whoever defines the system, (v) the audit/revision process able to reopen (i)-(iv) | `Dr` (declared structure, not derived) | V.9 |
+| ETH-2 | Goal (a): the system **discloses** which reading frame it answers from | `Dr` (design commitment, checkable) | V.9 |
+| ETH-3 | Goal (b): the system **preserves** every affected human party's standing ability to correct/object — never quietly designed away | `Dr` (design commitment, checkable) | V.9 |
+| ETH-4 | Goal (c): the system **adapts** to local culture without erasing the dignity/voice of the people being read | `Dr` (design commitment, checkable) | V.9 |
+| ETH-5 | Tie to Part VIII: the same `J − η` feedback term (Face 7, VIII.5's Ω_H pipeline; cf. §12/`philosophy.md` §7.21's τ_c^H loop) is, at the social/agency leaf, the channel a human correction/objection signal must remain visible through — stated as **corrigibility restated as boundary-observability** | `Dr` | V.9 |
+| ETH-6 | Falsifier: a measurable, pre-registered test of whether correction/objection capability is actually preserved across a real deployment, not merely asserted in a policy document | `Dr` (declared falsifier, not executed) | V.9 |
+
+Operator grounding, per §0.5/§0.6 above: ETH-1's "set of answers actually
+accessible" (ii) is a finite, enumerable set under a retained selection
+rule, never an unbounded continuum of options; ETH-3's "preserve...standing
+ability" is a discrete presence/absence readout on a correction channel
+(open or not, checked at a given time), not a smooth degree admitting
+continuum interpolation; ETH-5's `J − η` is the same finite
+retained-vs-observed residual named elsewhere in this file (§1's trunk
+equation, §12's SC-1), not a continuum limit term.
+
+**Distinct from §12/SC-1 above — related loop, different question, no tier
+transfer.** §12 asks whether Ω_H keeps reading its own prior output as its
+own next input (closure as a *structural* property of the τ_c^H loop).
+ETH-5 asks whether a *human* party's correction signal stays inside that
+same loop's inputs rather than being edited out (closure as an
+*ethical/corrigibility* property of the loop). Same `τ_c^H`/`J − η`
+machinery, two separate claims, each carrying its own `Dr` tag and its own
+falsifier (SC-5's `∂π*/∂η_H`,`dR_H/dt` vs. ETH-6's deployment test) — one
+tier and evidence set does not stand in for the other.
+
+[domain card: research_universal_solver/docs/engineering/GENESIS_STEP_BY_STEP_V3_1.md Part V.9 (~lines 2397-2421)]
+
 ---
 
 ## 10. The Epistemic Nuclear Core — N1–N5 (domain-independent)
@@ -1126,6 +1166,65 @@ the source itself declines to assert a percentage or a perturbation
 certificate.
 
 [domain card: readout_genesis/READOUT_GENESIS_CORE.md PART VI §VI.3 (~lines 4373-4417+)]
+
+---
+
+## 12. Self as a closure property — the τ_c^H loop (Ω_H)
+
+Source: `research_universal_solver/docs/engineering/GENESIS_STEP_BY_STEP_V3_1.md`
+Part VIII §VIII.6 (~lines 4899-4929, `Dr`/`[Open]`). Full narrative:
+`philosophy.md` §7.21.
+
+> **Self := the closure property of the τ_c^H loop** — Ω_H both (a) results
+> from the loop's own prior passes and (b) conditions the loop's next pass,
+> at a stable characteristic timescale τ_c^H.
+
+| ID | Statement | Tier | Source |
+|---|---|---|---|
+| SC-1 | Self is not a substance/location/homunculus; it is the τ_c^H loop's closure property (Ω_H both produced-by and conditioning-of its own successive passes) | `Dr` (declared definition, not derived) | VIII.6 |
+| SC-2 | "Awakening" is a standing achievement (loop closure maintained across nested timescales), not a single event | `Dr` | VIII.6 |
+| SC-3 | Altered states (sleep, anesthesia) read as measurable degradation of loop closure (weaker Ω_H update, or selection/transduction output not read back into policy) | `Dr` (falsifiable direction, not asserted) | VIII.6 |
+| SC-4 | Explicitly does NOT claim to solve consciousness/qualia/the hard problem — `Φ_H`'s internal mechanism stays `[Open]` | `[Open]` (disclaimed by source, not this ledger) | VIII.1, VIII.6 |
+| SC-5 | Falsifier surface: agency gradient `∂π*/∂η_H` and repair rate `dR_H/dt` must show measurable flattening/slowing under a genuinely degraded-closure state, or the closure reading has no distinguishing signature | `Dr` (declared falsifier, not executed) | VIII.4, VIII.6 |
+
+Operator grounding, per §0.5/§0.6 above: "conditions the loop's next pass"
+in SC-1 names a retained-state dependency — the Ω_H value held after one
+pass is a finite readout consulted as input to the next pass's selection
+step — not a continuum causal-influence metaphor. "Both (a) and (b)" is the
+same decidable, discrete `∧` this ledger's own §2.1-adjacent Fail-Able Gate
+Law reading uses elsewhere in this corpus (two retained facts checked
+present, not a continuum logical connective). `τ_c^H` is a retained
+memory-time scalar, the same kind of quantity `τ_c = M/D` names at §1
+above, not a continuum "moment." `∂π*/∂η_H` and `dR_H/dt` in SC-5 are
+finite-difference rates per §0.5's `Δ`/`∂` row (Part VIII §8.1/§8.8 of the
+`information-discrete-math` textbook), not continuum derivatives left
+unflagged.
+
+**Distinct from `paradoxes.md` §6 — not the same construction, do not
+conflate.** `paradoxes.md` §6 (`Dr` for the construction, `[Open]` for its
+consequences) defines a different object, **"origination"**:
+`a* ∈ argmin_a O(s,a)` under `Repair(s') ≥ R_min`, holding exactly when the
+argmin set at a single decision-state `s` genuinely ties. That is a
+point-in-time, single-decision property built to dissolve Newcomb's
+predictor puzzle. SC-1 above is a standing, loop-level, multi-pass property
+(closure across all of τ_c^H's successive passes, not a tie-condition at
+one step). Neither construction's tier, evidence, or falsifier transfers to
+the other; the only thing they share is an independently-stated refusal, in
+each source, to claim a solution to free will/consciousness/the felt-quality
+hard problem. See `philosophy.md` §7.21 for the full cross-reference
+discussion.
+
+**A second, closer sibling — also distinct.**
+`AGENCY_VS_AGENCY_LIKE.md` §3 (`research_universal_solver/docs/root/`)
+names true agency's ORIGINATION equation "self-readout" —
+`row_n(L_R) x`, `Th_coqc` (`InfoAgencySelfReadout_attempt.v`; named
+`human_action` in `InfoAgencyExpansion_attempt`): a static, single-instant
+algebraic readout at one state, no iteration. SC-1 is an explicitly
+iterative, multi-pass loop-closure property over `τ_c^H`, `Dr`. Same
+"self-readout" naming, structurally different objects; tier and evidence do
+not transfer either direction. Full discussion at `philosophy.md` §7.21.
+
+[domain card: research_universal_solver/docs/engineering/GENESIS_STEP_BY_STEP_V3_1.md Part VIII §VIII.6 (~lines 4899-4929)]
 
 ---
 
