@@ -23,7 +23,7 @@ stronger one than its evidence supports.
 |---|---|
 | **Author** | Yaoharee Lahtee ([ORCID 0009-0005-3861-0626](https://orcid.org/0009-0005-3861-0626)) |
 | **Publisher** | Open Civil Science Initiative |
-| **License** | [MIT](LICENSE), the whole repository, no exceptions |
+| **License** | [MIT](LICENSE), with 12 named `ap/` files excepted — see LICENSE |
 | **Status** | v1.0 book frozen (`main.tex`) · v2.0-dev in active development |
 
 **Contents:** [What this repository is](#what-this-repository-is) ·
@@ -218,11 +218,16 @@ tests/                           pytest suite for native_logic/ and omega/
                                 test_claim_ir.py, test_omega_all.py)
 ```
 
-The whole repository is [MIT](LICENSE), no exceptions. A proprietary
-internal-engine file (`ap/ap0_lens_gates.py`) and the `lens/`/`skill/`
-directories it depended on were permanently removed ahead of publication
-(see LICENSE for the historical note) and are confirmed absent from both
-the filesystem and git history at HEAD.
+The repository is [MIT](LICENSE), with two named exceptions (see LICENSE
+for the exact list and terms). A proprietary internal-engine file
+(`ap/ap0_lens_gates.py`) and the `lens/`/`skill/` directories it depended
+on were permanently removed ahead of publication (see LICENSE for the
+historical note) and are confirmed absent from both the filesystem and
+git history at HEAD. Twelve other files under `ap/` (each carrying its
+own in-file "PRIVATE / PROPRIETARY -- do not publish" header) remain in
+the repository for provenance/context but are excluded from the MIT
+grant and remain all-rights-reserved — see LICENSE's "PROPRIETARY
+EXCEPTIONS" section for the exact file list and terms.
 
 **Naming convention:** root-level primary documentation is lowercase
 (`philosophy.md`, `logic.md`, `paradoxes.md`, `claims.md`,

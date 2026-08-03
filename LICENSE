@@ -30,14 +30,44 @@ license. All three were permanently removed from this repository ahead of
 publication, in 2026. They are confirmed absent from both the filesystem
 and git history at HEAD; this removal is final.
 
+PROPRIETARY EXCEPTIONS (added 2026-08-03, correcting a pre-existing
+inconsistency found by an internal adversarial review): the following
+twelve files under ap/ each carry, and have always carried, their own
+in-file header declaring them "PRIVATE / PROPRIETARY (LICENSE
+EXCEPTIONS) -- do not publish." That in-file declaration was the author's
+actual, standing intent for these specific files; the Coverage rule
+below previously and incorrectly stated no such exception existed, which
+was a drafting error in this LICENSE file, not a change in intent. These
+files remain visible in this public repository for provenance/context
+only and are NOT licensed under the MIT terms above: all rights to them
+are reserved by the copyright holder, and no permission to use, copy,
+modify, merge, publish, distribute, sublicense, or sell them, or works
+derived from them, is granted by this repository's presence on a public
+host. Reuse of any of these twelve files requires separate, explicit
+permission from the copyright holder.
+
+  ap/ap3_desi_mirage.py
+  ap/ap4_phi_fi.py
+  ap/ap5_drl.py
+  ap/ap6_drl_general.py
+  ap/ap7_tape_record.py
+  ap/ap8_h_quartic.py
+  ap/ap9_coupling_channels.py
+  ap/ap10_b_decomposition.py
+  ap/ap11_spin_atoms.py
+  ap/ap12_dimension_readout.py
+  ap/ap20_retention_self_interaction.py
+  ap/ap21_spin1_weizenbock.py
+
 Coverage rule: the entire repository, as it exists today, is licensed under
 the MIT License above — this includes, without limitation, the v1.0 book
 (main.tex, main.pdf, claims.md), philosophy.md, logic.md, paradoxes.md, the
 code/ directory (all file types), the entire v2/ directory (all file types,
 including non-.md code/data files such as v2/urr/*.py and v2/urr/*.yaml),
-the ap/ directory, the docs/ directory, the evidence/ directory, the gates/
+the ap/ directory except the twelve files named above under PROPRIETARY
+EXCEPTIONS, the docs/ directory, the evidence/ directory, the gates/
 directory, the scripts/ directory, and root-level documents such as
 scope_correction.md, urr_native_system.md, and
-EQUATION_LIBRARY_ROOT_TO_SM_STREAM_research_universal_solver.md. There is no
-carved-out exception; no file in this repository is excluded from the MIT
-License.
+EQUATION_LIBRARY_ROOT_TO_SM_STREAM_research_universal_solver.md. Other than
+the twelve named exceptions, there is no further carved-out exception; no
+other file in this repository is excluded from the MIT License.
