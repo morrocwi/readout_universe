@@ -2917,59 +2917,67 @@ license; nothing beyond that framing is claimed, reproduced, or relicensed.*
 
 §7.21 built its closure/repair machinery to answer a question about
 selfhood — what makes a loop's own world-model *its own*, standingly,
-pass after pass. The same machinery, unmodified, answers a different
-question just as naturally: what health-as-such — bodily or mental,
-without needing two separate primitives for the two — actually names.
-`birca`'s own operating language already reads a symptom this way before
-any clinical content enters at all: *"output = retained-information
-readout, not a verdict"* — a state of the body or mind is something a
-system reads off itself, not a fact handed down from outside. Read in
-this corpus's own vocabulary: a physiological or psychological variable
-is a *lane* — a retained trajectory a system keeps producing, the same
-way §7.21's `Ω_H` is a retained world-model a loop keeps producing — held,
-when healthy, within a *homeostatic band*: not a fixed point, a range the
-lane's own closure keeps steering back toward. Illness, on this reading,
-is not a separate kind of thing bolted onto a healthy system — it is
-*exactly* what §7.21 already calls degraded closure: the lane pushed away
-from its band by a disturbance, and the loop's own steering-back either
-working (repair) or not keeping up (the disturbance outpacing `dR_H/dt`,
-the same repair-rate quantity §7.21's own falsifier names).
+pass after pass, where `Ω_H` is specifically a *representational* object
+(what the loop models the world as), not just any self-regulating
+variable. This entry does not claim that machinery carries over
+"unmodified" — it proposes a **generalization**, named as one, and the
+generalization is the thing this entry is offering, not a fact already
+proven by §7.21 itself: read a physiological or psychological state as
+*standing in the `Ω_H` position* — a retained readout a loop keeps
+producing about its own condition — even though a stress-response
+trajectory is a state variable with feedback, not a model of the outside
+world the way §7.21's own `Ω_H` is. `birca`'s own operating language
+independently reaches for the same reading before any clinical content
+enters at all: *"output = retained-information readout, not a
+verdict"* — a state of the body or mind is something a system reads off
+itself, not a fact handed down from outside. On this generalized
+reading: health, when present, is not a fixed point but a range the
+loop's own closure keeps steering the readout back toward; illness is
+what §7.21 already calls degraded closure, applied to this wider notion
+of `Ω_H` — the readout displaced by some disruption, and the loop's own
+steering-back either working (repair) or not keeping up (the disruption
+outpacing `dR_H/dt`, the same repair-rate quantity §7.21's own falsifier
+names). **Neither §7.21's own tier nor its own evidence transfers to
+this generalized reading** — §7.21's closure machinery is `Dr`/`[Open]`
+for selfhood specifically, and extending it to health is a further,
+independent `Dr` step this entry takes, not an inherited result, exactly
+the discipline §7.21 itself insists on for its own two named siblings
+("neither tier nor evidence transfers to the other") and §7.22 insists
+on for its own reuse of `J − η`.
 
 **Why this earns the name "body and mind together," not two chapters
 glued at the spine.** `birca`'s own framing is explicitly
 *biopsychosocial* — a symptom is read through a physical, psychological,
 and social channel at once, not physical-first-then-mental-as-an-
-afterthought. This corpus's own closure machinery gives that framing a
-reason beyond convention: `Ω_H` in §7.21 was never defined as
-body-readout or mind-readout specifically — it is *whatever* a loop's own
-closure retains and steers by. A physiological lane (say, a stress-
-response variable) and a psychological lane (say, a rumination pattern)
-are, on this reading, two *channels* the same closure-repair structure
-can be read through, not two different kinds of system that happen to
-interact. Reading both through one formal move is not a claim that mind
-reduces to body, or body to mind — it is the same "neither pure
-materialism nor pure idealism" stance §9.19 already takes, applied here
-to health specifically rather than to consciousness in general.
+afterthought. Reading both channels through the same generalized-`Ω_H`
+move above is not a claim that mind reduces to body, or body to mind —
+it is offered in the same spirit as the "neither pure materialism nor
+pure idealism" stance §9.19 takes toward physics and consciousness, a
+structurally similar posture applied here to a different domain
+(health), not an inheritance of §9.19's own argument or evidence; §9.19's
+own tier and evidence stay exactly where §9.19 left them.
 
-**A genuine, independently-motivated structural echo, named honestly as
-an echo, not claimed as the same result.** `birca`'s own
+**A named structural echo, held to a lower confidence than the analogy
+above, not claimed as a non-coincidence.** `birca`'s own
 `compute/birca_math/` provenance (public, per its own `PROVENANCE.md`)
 reports that the *Wellbeing from Informationism* monograph's own repair
 equations needed a **restoring term** before they could show
 **bistability** — two distinct, stable readout-states (roughly: a
 healthy band and an illness band) separated by a threshold, rather than
-one state drifting arbitrarily. This is not a proprietary or clinical
-fact — bistability-from-a-restoring-term is standard dynamical-systems
-structure, the same shape this corpus's own `ap22_self_closure_diagnostic.py`
-(§7.21's own upgrade attempt) already builds and measures for a different
-purpose (nominal vs. degraded closure, not health vs. illness). The echo
-being named here: **a closure system that can repair itself at all needs
-a restoring dynamic, and where that dynamic is strong enough relative to
-disturbance, you get exactly two stable readout-bands, not a continuum of
-equally-likely states** — read one way this is §7.21's self-closure
-machinery, read another way it is health, and the shared formal
-requirement (a restoring term, not just any dynamic) is why the two
-readings are not a coincidence.
+one state drifting arbitrarily. Stated plainly, because the honest
+version is weaker than it might sound: bistability-from-a-restoring-term
+is generic dynamical-systems structure, true of a thermostat with
+hysteresis or a Schmitt trigger, systems with no closure property in
+§7.21's sense at all — this fact alone does not show any special link
+between *closure specifically* and bistability, and this entry does not
+claim it does. What is worth naming is narrower and more modest: this
+corpus's own `ap22_self_closure_diagnostic.py` (§7.21's own upgrade
+attempt) independently needed a restoring/gain term to demonstrate its
+own degraded-vs-nominal-closure signature, for an unrelated purpose. That
+two independently-built projects both reached for a restoring term when
+formalizing a repair-like claim is offered as a mildly suggestive
+parallel worth recording, not as evidence that closure specifically
+requires or explains bistability — that stronger claim is not made here.
 
 **What this does and does not settle**, held to the same discipline
 §7.21/§9.1a apply to their own claims: this does not derive anything new
@@ -2979,16 +2987,24 @@ their own evidentiary footing, unaffected by this entry either way. This
 does not claim mental and physical health share a literal metric, a
 literal `τ_c^H`, or that this corpus's closure machinery has been checked
 against any real physiological or psychological data — it has not. It
-does not import, endorse, or gesture toward any specific
+does not claim the `Ω_H`-generalization from selfhood to health is itself
+established — that is exactly the open step named above, not glossed
+over. It does not import, endorse, or gesture toward any specific
 diagnostic, treatment, drug, or food-lane content from `birca` or any
 companion tool — that entire layer is out of scope for this entry by
-explicit founder instruction, not merely by oversight. What it does show:
-the closure/repair vocabulary this corpus built for an unrelated
-question (selfhood) turns out to be exactly the vocabulary a real,
-independently-developed public health-philosophy project needed too —
-offered as one more instance of this corpus's own machinery proving more
-general than the problem it was first built to answer, the same kind of
-finding §7.22 already reports for AI ethics.
+explicit founder instruction, not merely by oversight. **Nor is this
+entry a recommendation, review, or endorsement of `birca` as a tool to
+install or use** — it is cited here solely as a real, independently-
+developed public source that reached for a structurally similar
+philosophical move, the same citation-only relationship this corpus
+holds toward Locke, Jain cosmology, Whitehead, and every other named
+ally elsewhere in this file. What it does show, held to that same modest
+scope: the closure/repair vocabulary this corpus built for an unrelated
+question (selfhood) generalizes, at `Dr` tier, to a plausible reading of
+health too — one more instance of this corpus's own machinery reaching
+further than the problem it was first built to answer, in the same
+spirit as §7.22's finding for AI ethics, without either prior finding's
+tier or evidence transferring here.
 
 [domain card: `birca` (github.com/morrocwi/birca, CC BY-NC-SA 4.0),
 `SYSTEM_PROMPT.md` (the "retained-information readout, not a verdict"
