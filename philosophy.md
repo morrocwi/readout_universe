@@ -4250,14 +4250,15 @@ constraint; it is the world made partially readable to one of its own
 modes.
 
 **This is not a new claim for this corpus — it is §7.21, argued in the
-same vocabulary this whole section uses.** §7.21 already states, `Dr`/
-`[Open]`, that self is "the closure property of the `τ_c^H` loop" — a
-world-model that both results from a loop's own prior passes and
-conditions the loop's next pass — and explicitly disclaims having solved
-consciousness or the hard problem, exactly as §9.18 disclaims it again
-here. Nothing in §9.18 upgrades §7.21's tier or its falsifier
-(`∂π*/∂η_H`, `dR_H/dt`); §9.18 is that same argument, told as part of
-the cosmological case rather than as an isolated definition.
+same vocabulary this whole section uses.** §7.21 already makes this same
+point, `Dr`/`[Open]`: a self is what shows up once a loop's own
+world-model stays shaped by that loop's own past while also steering
+what the loop does next — a two-way dependency, not a spectator. §7.21
+explicitly disclaims having solved consciousness or the hard problem,
+exactly as §9.18 disclaims it again here. Nothing in §9.18 upgrades
+§7.21's tier or its falsifier (`∂π*/∂η_H`, `dR_H/dt`); §9.18 is that same
+argument, told as part of the cosmological case rather than as an
+isolated definition.
 
 ### 9.19 Neither pure materialism nor pure idealism
 
