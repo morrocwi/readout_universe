@@ -113,6 +113,12 @@ summarize:
 
 ## For AI readers — start here
 
+Prefer to load this as a Claude Code Skill instead of reading files by hand?
+See **[`docs/INSTALL_SKILL.md`](docs/INSTALL_SKILL.md)** for the plugin
+marketplace install/uninstall commands — it packages the tier discipline
+below as a loadable checklist, and still points back here and to
+`philosophy.md` / `logic.md` for the full argument once loaded.
+
 1. **[`docs/AI_READING_GUIDE.md`](docs/AI_READING_GUIDE.md)** — entry order,
    tier discipline, and what this book does not claim.
 2. **[`philosophy.md`](philosophy.md)** and **[`logic.md`](logic.md)** — the

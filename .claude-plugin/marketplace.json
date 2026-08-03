@@ -1,0 +1,20 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "yaoharee-lahtee-readout",
+  "description": "Readout Universe — a Philosophy and Logic for Grounding Claims. Gives a small, machine-checkable tier vocabulary (Th_coqc, finite_diagnostic, Dr, Open, fit_calibrated, definition) so a claim's evidentiary support is stated honestly instead of rounded up to \"proven,\" plus the readout-not-truth stance the tiers enforce. Developed by Yaoharee Lahtee.",
+  "owner": { "name": "Yaoharee Lahtee" },
+  "plugins": [
+    {
+      "name": "readout-universe",
+      "description": "Load before stating any claim's evidentiary status — a physics result, a software metric, a benchmark number, a philosophical argument, or your own prior output — as 'proven,' 'verified,' or 'true' without qualification. Carries the readout-not-truth stance and the tier vocabulary (Th_coqc / finite_diagnostic / Dr / Open / fit_calibrated / definition) for tagging exactly how well-supported a claim is, plus pointers into the full Readout Universe textbook and corpus (philosophy.md, logic.md, paradoxes.md) for depth.",
+      "author": { "name": "Yaoharee Lahtee" },
+      "category": "productivity",
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/morrocwi/readout_universe.git",
+        "path": "plugins/readout-universe",
+        "ref": "main"
+      }
+    }
+  ]
+}
