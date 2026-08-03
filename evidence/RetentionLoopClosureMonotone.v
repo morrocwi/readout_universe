@@ -18,31 +18,42 @@
 (*  reduction) -- credited here as a design/vocabulary precedent, no code *)
 (*  is Required or copied from it.                                        *)
 (*                                                                        *)
-(*  WHAT THIS FILE PROVES: for ANY discrete update map U : Q -> Q that is *)
-(*  a contraction toward a fixed point xstar (|U(x)-xstar| <= c*|x-xstar|,*)
-(*  0<=c<1), the orbit x0, U(x0), U(U(x0)), ... converges toward xstar at *)
-(*  a rate bounded by c^n (orbit_contracts) -- and, separately, that this *)
-(*  bound is MONOTONE in the contraction ratio c: a weaker contraction    *)
-(*  (larger c, closer to 1) never gives a tighter guaranteed bound at any *)
-(*  fixed step count than a stronger one (degraded_closure_bound_monotone)*)
-(*  -- i.e. more degraded closure implies a provably worse worst-case     *)
-(*  convergence guarantee at every step, axiom-free, over Q.              *)
+(*  WHAT THIS FILE ACTUALLY PROVES -- corrected after an independent       *)
+(*  adversarial review (2026-08-03) caught the header previously stating   *)
+(*  a hypothesis the Coq code does not enforce, which this paragraph now   *)
+(*  fixes rather than hides: for ANY discrete update map U : Q -> Q and    *)
+(*  ANY nonnegative ratio c (0<=c -- there is NO c<1 upper bound anywhere  *)
+(*  in this file's Hypothesis list, deliberately; the theorem is proved    *)
+(*  for the fully general nonnegative case) satisfying                    *)
+(*  |U(x)-xstar| <= c*|x-xstar|, the orbit x0, U(x0), U(U(x0)), ... has    *)
+(*  its distance to xstar bounded above by c^n * (initial distance)        *)
+(*  (orbit_contracts) -- and, separately, this bound is MONOTONE in c: a   *)
+(*  larger ratio never gives a tighter guaranteed bound at any fixed step  *)
+(*  count than a smaller one (degraded_closure_bound_monotone), axiom-free *)
+(*  over Q. IMPORTANT, since the bound alone does not: this file does NOT  *)
+(*  itself prove convergence (that c^n * d0 -> 0) -- that additional fact  *)
+(*  requires c<1, is a trivial downstream arithmetic consequence for any   *)
+(*  caller who separately supplies c<1, and is not asserted, named, or     *)
+(*  relied on by any theorem in this file. Read "orbit_contracts" as a     *)
+(*  bound on the orbit, not as a proof that the orbit converges.           *)
 (*                                                                        *)
 (*  WHAT THIS FILE DOES NOT PROVE, stated as plainly as Section 7.21's    *)
-(*  own honesty-boundary discipline requires: (1) that any real update    *)
-(*  rule for a world-model Omega_H (Section 7.21's own notation) actually *)
-(*  IS a contraction map of this shape -- that identification is not     *)
-(*  attempted here and remains exactly as open as Section 7.21 already   *)
-(*  states; (2) anything about human agency, consciousness, the felt-     *)
-(*  quality hard problem, or tau_c^H specifically -- this file never uses *)
-(*  those words in a definition, only in this header, to state the        *)
-(*  motivating connection; (3) that degraded closure in the real-world    *)
-(*  sense Section 7.21 gestures at (sleep, anesthesia) corresponds to     *)
-(*  "a larger c" in any measured, cited sense -- that mapping, if ever    *)
-(*  attempted, would need its own finite_diagnostic or empirical work,    *)
-(*  not this abstract result. This file supplies formal vocabulary and a  *)
-(*  monotonicity proof pattern only -- a scaffold, not a closure of       *)
-(*  Section 7.21's Dr/[Open] tier.                                        *)
+(*  own honesty-boundary discipline requires: (0) that c<1 holds for any  *)
+(*  particular U, or that the bound above therefore shrinks to 0 -- see   *)
+(*  the paragraph above, this is the corrected finding itself; (1) that   *)
+(*  any real update rule for a world-model Omega_H (Section 7.21's own    *)
+(*  notation) actually IS a contraction map of this shape -- that         *)
+(*  identification is not attempted here and remains exactly as open as  *)
+(*  Section 7.21 already states; (2) anything about human agency,         *)
+(*  consciousness, the felt-quality hard problem, or tau_c^H specifically *)
+(*  -- this file never uses those words in a definition, only in this     *)
+(*  header, to state the motivating connection; (3) that degraded closure *)
+(*  in the real-world sense Section 7.21 gestures at (sleep, anesthesia)  *)
+(*  corresponds to "a larger c" in any measured, cited sense -- that       *)
+(*  mapping, if ever attempted, would need its own finite_diagnostic or   *)
+(*  empirical work, not this abstract result. This file supplies formal   *)
+(*  vocabulary and a monotonicity proof pattern only -- a scaffold, not a *)
+(*  closure of Section 7.21's Dr/[Open] tier.                             *)
 (*                                                                        *)
 (*  Over Q, axiom-free (check Print Assumptions).                        *)
 (* ===================================================================== *)
@@ -103,10 +114,13 @@ Fixpoint orbit (x0 : Q) (n : nat) : Q :=
   | S k => U (orbit x0 k)
   end.
 
-(* THE MAIN CONVERGENCE BOUND: the orbit's distance to the fixed point
-   after n passes is bounded by c^n times the initial distance -- a
-   standard iterated-contraction estimate, proved here from first
-   principles over Q, not assumed. *)
+(* THE MAIN DISTANCE BOUND (not itself a convergence proof -- see the file
+   header's corrected note): the orbit's distance to the fixed point
+   after n passes is bounded by c^n times the initial distance, for any
+   c>=0 -- a standard iterated-contraction estimate, proved here from
+   first principles over Q, not assumed. Only becomes a convergence
+   statement if a caller separately supplies c<1, which nothing here
+   requires or asserts. *)
 Theorem orbit_contracts : forall x0 n,
   Qabs (orbit x0 n - xstar) <= Qpow_nat c n * Qabs (x0 - xstar).
 Proof.
@@ -125,10 +139,11 @@ Qed.
 End ClosureOrbit.
 
 (* ================ Degraded-closure monotonicity theorem ============= *)
-(* THE NO-GO-SHAPED POSITIVE RESULT: for ANY two contraction ratios
-   0<=c1<=c2 and ANY nonnegative initial distance d0, the guaranteed
-   convergence bound at every fixed step count n is monotone in the
-   ratio -- a weaker/more-degraded contraction (larger c) never produces
+(* THE NO-GO-SHAPED POSITIVE RESULT: for ANY two ratios 0<=c1<=c2 and ANY
+   nonnegative initial distance d0, the guaranteed distance bound at
+   every fixed step count n (not itself a convergence guarantee -- see
+   the file header) is monotone in the ratio -- a weaker/more-degraded
+   coupling (larger c) never produces
    a tighter guaranteed bound than a stronger one, at any step. This is
    the formal shape of Section 7.21's own falsifiable prediction ("a
    genuinely degraded closure should show a measurably slowed repair
