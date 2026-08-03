@@ -515,19 +515,20 @@ which names this non-absorption explicitly and closes part of the gap.
 | EQ-034 | both true states exist, no total decoder recovers both (`true_state_exists_but_no_total_decoder`) | `Th_coqc` |
 | EQ-063 | τ_c = ℏ/(2mc²); m = ℏ/(2c²τ_c) — unit/calibration bridge ONLY, does NOT derive EQ-015's M coefficient (8 forcing attempts failed; campaign logged at EQ-063's own entry in `EQUATION_LIBRARY_ROOT_TO_SM_STREAM_research_universal_solver.md`, self-caught during founder's bottleneck review; cross-repo summary footnote¹ below) | `Dr` (bridge) |
 
-¹ **EQ-063 cross-repo summary (external citation — a conclusion summary, NOT an
-itemized log of the 8 attempts; no such itemized list is known to exist in this
-repo or the source repo).** Sourced verbatim from the `M ∂²_t Φ` row of the
-mother-equation table in `research_universal_solver/domains/standard_model/
-source_root/READOUT_GENESIS_CORE_SNAPSHOT.md` (identical text also present in
-`research_universal_solver/docs/engineering/GENESIS_STEP_BY_STEP_V3_1.md`),
-tier-tagged there `[Dr]` (posit) and forcing attempts `[finite_diagnostic]`
-(failed): "M is POSITED, not derived. Direct forcing of M from more primitive
-structure was attempted and failed 8×. What *is* established: mass is a
-readout of τ_c, via m = ħ/(2c²τ_c), and τ_c is discrete and logically prior to
-mass (founder-locked)... the D/M ratio checked against QuTiP gave a residual of
-7.6×10⁻⁴ `[finite_diagnostic]`." Tier tags preserved exactly as the source
-states them — not upgraded here.
+¹ **EQ-063 cross-repo summary (external citation, paraphrased — a conclusion
+summary, NOT an itemized log of the 8 attempts; no such itemized list is known
+to exist in this repo or the source repo).** Per the `M ∂²_t Φ` row of the
+mother-equation table in the sibling (proprietary, not publicly readable)
+`research_universal_solver` repo's `domains/standard_model/source_root/
+READOUT_GENESIS_CORE_SNAPSHOT.md` (same content also present in that repo's
+`docs/engineering/GENESIS_STEP_BY_STEP_V3_1.md`): `M` is a posit, not a
+derivation (`Dr`); a direct attempt to force `M` out of more primitive
+structure was tried and failed 8 separate times (`finite_diagnostic`). What
+that source states IS established, by contrast, is the mass-as-readout-of-τ_c
+relation `m = ħ/(2c²τ_c)` — with τ_c discrete and logically prior to mass — and
+a `D/M` ratio checked against QuTiP giving a residual of 7.6×10⁻⁴
+(`finite_diagnostic`). Tiers reported here match what the source itself
+assigns to each piece — not upgraded.
 
 Source file for EQ-032–034: `research_universal_solver/formal/InfoTrueRecordUnreadable_attempt.v`
 (cross-referenced in `philosophy.md` §1 and `logic.md` §3 above — same

@@ -3,11 +3,15 @@ from copy import deepcopy
 import pytest
 
 from native_logic.kernel import (
+    Atom,
     ClaimIR,
     ClaimValidationError,
     Tier,
     Verdict,
+    atom_unifies,
+    is_variable,
     solve_claim,
+    unescape_literal,
 )
 
 
@@ -328,3 +332,44 @@ def test_rar_bridge_ceiling_caps_a_formally_closed_chain_at_dr():
     assert result.tier == Tier.DR
     assert result.verdict == Verdict.SUPPORTED_AS_DR
     assert "ceiled" in result.explanation.lower()
+
+
+def test_is_variable_distinguishes_plain_from_escaped_leading_question_mark():
+    assert is_variable("?a") is True
+    assert is_variable("??a") is False
+    assert is_variable("plain") is False
+    assert is_variable("??") is False
+
+
+def test_unescape_literal_undoes_the_double_prefix_only():
+    assert unescape_literal("??foo") == "?foo"
+    assert unescape_literal("plain") == "plain"
+    assert unescape_literal("?a") == "?a"
+
+
+def test_atom_unifies_treats_escaped_literal_as_ground_not_variable():
+    pattern = Atom("p", ("??foo",))
+    matching_fact = Atom("p", ("??foo",))
+    different_fact = Atom("p", ("?foo",))
+
+    assert atom_unifies(pattern, matching_fact, {}) == {}
+    assert atom_unifies(pattern, different_fact, {}) is None
+
+
+def test_atom_unifies_binds_a_variable_to_an_escaped_literal_value_unchanged():
+    pattern = Atom("p", ("?x",))
+    fact = Atom("p", ("??foo",))
+
+    substitution = atom_unifies(pattern, fact, {})
+
+    assert substitution == {"?x": "??foo"}
+    # The bound value stays in canonical escaped form -- round-tripping it
+    # through instantiate() into a new atom must not re-decode it, so a
+    # later re-match of that derived atom against another pattern still
+    # sees the escaped form consistently, not a variable-looking "?foo".
+    derived = Atom("q", ("?x",)).instantiate(substitution)
+    assert derived.arguments == ("??foo",)
+    assert is_variable(derived.arguments[0]) is False
+    # unescape_literal is the display-only inverse, applied once at the
+    # boundary when a human-readable value is actually wanted.
+    assert unescape_literal(substitution["?x"]) == "?foo"

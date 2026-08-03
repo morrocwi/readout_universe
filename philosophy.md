@@ -1237,7 +1237,7 @@ forcing attempts `[finite_diagnostic]` failed 8× — and separately establishes
 mass as a readout of `τ_c` (founder-locked) with a QuTiP-checked `D/M`
 residual of `7.6×10⁻⁴`. This is a summary of that campaign's conclusion, not
 an itemized list of the 8 attempts; see `logic.md`'s EQ-063 row footnote for
-the full quoted passage and tier tags.
+the fuller paraphrase and tier tags.
 
 ### 7.2 Gauge redundancy — the physics-native worked instance of the non-injective-readout theorem
 

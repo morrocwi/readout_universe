@@ -474,16 +474,35 @@ def is_variable(arg: str) -> bool:
     or pattern argument whose literal value must itself begin with
     '?' cannot be written as-is -- it would be indistinguishable from
     a variable -- so it is escaped by doubling the leading character
-    at construction time ("??foo" means the literal "?foo"). See
-    ``unescape_literal`` for the inverse, used at comparison/display
-    time.
+    at construction time ("??foo" means the literal "?foo").
+
+    The escaped form ("??foo") is the canonical representation used
+    throughout this module -- in facts, in pattern arguments, and in
+    bound substitution values alike -- so that comparison, storage,
+    and re-instantiation (``Atom.instantiate``) never need to decode
+    it: two atoms that were built with the same escaping convention
+    compare equal by plain string equality. See ``unescape_literal``
+    for recovering the original, human-readable value; it is a
+    display-only utility and is never called internally by
+    ``atom_unifies`` or ``Atom.instantiate``.
     """
     return arg.startswith("?") and not arg.startswith("??")
 
 
 def unescape_literal(arg: str) -> str:
     """
-    Undo the '??' -> literal-leading-'?' escape from ``is_variable``.
+    Recover the original literal value from its '??'-escaped form.
+
+    This is a DISPLAY utility only -- for a caller that wants to show
+    a matched or bound literal's real value to a human. It is not, and
+    must not be, used internally for matching or substitution: the
+    escaped form is the canonical representation everywhere data flows
+    through this module (facts, patterns, bound substitutions,
+    instantiated atoms), so two correctly-escaped values already
+    compare equal without decoding. Decoding only at the boundary
+    keeps that round-trip symmetric -- decoding mid-pipeline (e.g. at
+    bind time) would produce a value that no longer round-trips back
+    through ``is_variable``/``Atom.instantiate`` consistently.
 
     Only meaningful on an argument that is not a variable. A literal
     with no leading '?' at all is returned unchanged.
@@ -569,7 +588,7 @@ def atom_unifies(
             result[expected] = actual
             continue
 
-        if unescape_literal(expected) != unescape_literal(actual):
+        if expected != actual:
             return None
 
     return result
