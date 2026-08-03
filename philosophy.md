@@ -992,46 +992,80 @@ that that particular reader can no longer keep distinguishing.* Every
 discrete substrate this book ever posits —
 `D`, `ℚ`, a retained-difference graph — stays genuinely discrete, tick by
 tick, with no density smuggled in (§5.2a's own "density is provably
-absent at the root" stands unchanged). What looks continuous is not the
+absent at the root" stands unchanged — `Th_coqc` given CIC, per §5.2b's
+own caveat, carried forward here rather than silently dropped one
+section later). What looks continuous is not the
 substrate; it is what a *specific, resolution-bounded* reader gets once
 their own capacity to keep distinguishing individual ticks runs out. The
-founder's own illustration, kept in full because it is exactly right:
-*like a human watching a television screen* — the picture is discrete
-pixels at a discrete frame rate the whole way down, and a viewer whose own
-visual resolution has an edge below that discretization sees smooth,
-continuous motion regardless. The smoothness is not in the screen. It is
+founder's own illustration, kept in full because it makes the point
+vividly: *like a human watching a television screen* — the picture is
+discrete pixels at a discrete frame rate the whole way down, and a
+viewer whose own visual resolution has an edge below that discretization
+sees smooth, continuous motion regardless. (One honest caveat this
+subsection should not paper over: human motion perception past that edge
+is not pure failure-to-resolve — persistence of vision and beta-movement
+involve the visual system actively integrating/interpolating across
+frames, a real mechanism doing work, not merely gaps too fine to see.
+The illustration is kept for its vividness about *reader-relativity*,
+not as a claim that every case of R-apparent reduces to passive
+under-resolution; an integrating, constructing `K_A` is still consistent
+with `M_A = K_A·θ+η`, but it is a different mechanism than "just can't
+see the gaps," and this subsection does not adjudicate which mechanism
+applies to any given reader.) The smoothness is not in the screen. It is
 what discreteness looks like from *inside* a bounded reader's own edge.
 
 **Why this is not a new primitive, only a naming of something already
-implicit in this corpus's own vocabulary.** R-apparent is exactly the
-shape §5.1/§9.2a's own `M_A = K_A·θ + η` (Face 10/N2, `definition` tier)
-already commits to: every agency's readout is a *lossy* linear read of a
-latent structure, `η` an admitted, non-zero remainder. Read `η` at the
-point a reader's own resolution — this book's own `τ_c`, the memory/scale
-timescale already used throughout the trunk equation and its adapters —
-can no longer separate one retained tick from the next, and what remains
-un-resolved is exactly R-apparent: not a further fact about the world, a
-fact about where *this* reader's own accounting saturates. Two readers
-with two different `τ_c` would have two different edges, hence two
-different R-apparents of the same discrete substrate — agency-relative,
-never a single fact about `ℚ`.
+implicit in this corpus's own vocabulary — stated as a resemblance, not
+a proved identity.** R-apparent *resembles the shape* of §5.1/§9.2a's own
+`M_A = K_A·θ + η` (Face 10/N2, `definition` tier): every agency's readout
+is a *lossy* linear read of a latent structure, `η` an admitted, non-zero
+remainder, and it is natural to read R-apparent as what that remainder
+looks like once it accumulates past a reader's own resolving power. But
+this is a structural analogy offered here, not a demonstrated identity —
+`η` elsewhere in this corpus is a generic lossy remainder attached to
+*any* bounded readout, not specifically tied to a counting/resolution
+edge, and this subsection's own `τ_c(A)` is a **reused symbol, not the
+same referent** as N4's `τ_c = ℏ/(2mc²)` (a domain's physical
+relaxation/memory timescale, §1's trunk-equation reading) — a reader's
+own counting-resolution edge is a different kind of quantity wearing the
+same letter, and that reuse is named here rather than left to look like
+one already-established scalar. What can be said plainly: a reader's own
+resolution failing to separate one retained tick from the next produces
+*something with the shape of* an unresolved `η`-remainder, and that is
+what this subsection calls R-apparent — not a further fact about the
+world, a fact about where *this* reader's own accounting saturates. Two
+readers with two different resolution edges would have two different
+R-apparents of the same discrete substrate — agency-relative, never a
+single fact about `ℚ`.
 
-**The full picture, three layers, not two:**
+**The full picture, three layers, not two — drawn deliberately
+asymmetric, since the two things below `ℚ` are not peers:**
 
 ```
-δ_R → D → ℤ → ℚ         (genuinely discrete throughout, Th_coqc,
-                          density provably absent — §5.2a unchanged)
+δ_R → D → ℤ → ℚ         (genuinely discrete throughout, Th_coqc given
+                          CIC per §5.2b, density provably absent per
+                          §5.2a — unchanged, not re-asserted stronger)
         │
-        ├── a specific reader A's counting edge (τ_c(A), n_max(A))
+        ├── LIVE, happening now, to every bounded reader:
+        │   a specific reader A's counting edge (τ_c(A), n_max(A) —
+        │   A's own resolution, not the domain memory-timescale N4's
+        │   τ_c names elsewhere; the symbol is reused, not the referent)
         │       → beyond it, discreteness is unresolved by A
-        │       → R-apparent(A): agency-relative, a readout (M_A's own η)
+        │       → R-apparent(A): agency-relative, resembling the shape
+        │         of M_A's own η, not shown identical to it
         │
-        └── the direction every such reader's own process is thrown
-            toward, never reached by any of them
+        └── NEVER reached, by anyone, at all:
+            the direction every such reader's own process is thrown
+            toward
                 → R-ideal: not an object, I1, potential-vs-actual
                   infinity's actual-infinity horn, refused as a starting
                   point and only ever approached
 ```
+
+The branching shown here is a layout convenience, not a claim that
+R-apparent and R-ideal are symmetric outputs of the same kind — one is a
+live readout every bounded reader actually has; the other is a refused
+limit no reader ever reaches.
 
 **What this does and does not settle**, held to the same discipline
 §9.1a/§9.1b/§5.2b apply to their own additions: this does not derive a
@@ -1103,8 +1137,8 @@ addition, not theirs.
 [domain card: `information-discrete-math` textbook Parts II–V (§5.2a's
 own citation); `evidence/RD.v` lines 966–990 (the actual Bishop
 regular-Cauchy-sequence `ℝ` construction this subsection reads against);
-§5.1/§9.2a's `M_A = K_A·θ+η` (Face 10/N2); §1's `τ_c = M/D` trunk-equation
-reading; §9.1a/§9.9a (the citation-of-a-real-ally, no-supersession
+§5.1/§9.2a's `M_A = K_A·θ+η` (Face 10/N2); §5.6a's `τ_c = M/D`
+trunk-equation reading; §9.1a/§9.9a (the citation-of-a-real-ally, no-supersession
 pattern this subsection follows); Locke, *An Essay Concerning Human
 Understanding*, Book II Ch. XVII (1690); Jain canonical number
 classification (*saṃkhyāta*/*asaṃkhyāta*/*ananta*), reported via
