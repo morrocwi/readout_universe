@@ -29,7 +29,7 @@
 |---|---|---|
 | Sorites | `Th_coqc` (scope: monotone only) | **Resolved**, in the narrow sense the source Coq floor actually covers |
 | Zeno | `Th_coqc` (floor) + `DERIVED` (finite speed) | **Dissolved** — the ontology has no dense continuum to exploit |
-| Ship of Theseus | `Dr` (emergent fit, no direct citation) | Reframed with real machinery (RD4 + Q3), not proved |
+| Ship of Theseus | `Dr` (emergent fit; RD4 leg now has a direct `Th_coqc` citation, Q3/eigenmode still uncited) | Reframed with real machinery (RD4 + Q3), not proved |
 | Liar | `Dr` — the corpus states this itself | Located, not closed; the framework says so plainly |
 | Newcomb (base case) | `[Open]` | No dedicated machinery; assembled from unrelated gates |
 | Newcomb (with "origination" defined) | `Dr`, partly `[Open]` | New traction, but a fresh unproved construction, not a fix |
@@ -70,6 +70,21 @@ explicit that extending the claim beyond monotone would itself be the kind
 of overclaim its own discipline forbids.
 
 [domain card: logic.md §8 (C4, C7); philosophy.md §5.5]
+
+**Upgrade attempt (2026-08-03):** an independent maker/checker round found a
+genuine one-reversal extension (`UPL_Sorites_OneReversal.v`,
+`flip_bound_three`) — hypotheses relaxed to `g_mono_left`/`g_mono_right`
+with the single straddling pair left unconstrained, strictly weaker than
+the committed file's global `g_mono`. Independently recompiled twice from
+clean (`coqc -q`, `Print Assumptions flip_bound_three` →
+`Closed under the global context`, no `Admitted`/`admit`/`Axiom`):
+`Th_coqc`, axiom-free — same tier this row already carries. What is new is
+narrower: this specific extension is **not yet integrated into the
+committed corpus** — it lives only in a scratchpad `.v` file, not
+cross-referenced from this document, `philosophy.md`, or `logic.md`, and
+not yet run through this corpus's own adversarial-review process. The
+Scoreboard tier is unchanged because it already read `Th_coqc`; the
+"monotone only" scope note stands until this extension is committed.
 
 ---
 
@@ -116,6 +131,16 @@ refusal is this corpus's founding move.
 
 [domain card: philosophy.md §2.5, §5.2a, §5.6a; logic.md §9.10]
 
+**Upgrade attempt (2026-08-03): no progress** — the two named untried
+readings from `philosophy.md` §5.6a's Stream of Necessity ("recoverable
+via a different channel while fading," "bounded away from zero infinitely
+often without exact return") remain unformalized; no new `.v` file targets
+either. The checker also found the maker's grep-hit citation list for
+"own-clock"/"impermanence" mentions undercounted real matches elsewhere in
+the corpus — a genuine overclaim in the evidence, though it does not change
+the underlying conclusion (still zero Coq formalizations of either
+reading). Tier stays `Th_coqc` (floor) + `DERIVED`, unchanged.
+
 ---
 
 ## 3. Ship of Theseus
@@ -152,6 +177,23 @@ itself derived or reviewed. No falsifier has been proposed for it yet.
 
 [domain card: philosophy.md §1 (Q3), §5.1 (RD4), §5.2 (eigenmode)]
 
+**Upgrade attempt (2026-08-03):** an independent maker/checker round
+formalized the retention-sense half of this reframe.
+`formal/Scratch_ShipOfTheseus_RD4.v` derives
+`distinct_histories_never_merge : forall x y : D, x <> y -> succ x <> succ
+y` as a one-line contrapositive of `RD.v`'s pre-existing `RD4_succ_inj`;
+independently recompiled fresh (deleted `.vo`/`.vok`/`.vos`/`.glob`, reran),
+`Print Assumptions` → `Closed under the global context`: `Th_coqc`,
+axiom-free. This resolves — with a real, verified citation trail
+(`formal/RD.v:42`, cross-referenced verbatim in `logic.md:51` and
+`v2/INFORMATION_DNA.md:20`) — a concern that "RD4, the retention axiom"
+cited above might point at an unrelated or undefined axiom; it does not.
+**This does not lift the row's overall tier**: Q3 and the eigenmode framing
+remain untouched, prose-only, and the combined argument stays `Dr` exactly
+as before. What changed is narrower and factual: the Scoreboard's former
+"no direct citation" note is no longer accurate for the RD4 leg alone (see
+Scoreboard, updated above).
+
 ---
 
 ## 4. Liar Paradox ("this sentence is false")
@@ -178,6 +220,20 @@ has no anchor) but explicitly not a closure, and the corpus does not
 pretend otherwise.
 
 [domain card: philosophy.md §3 (L-10), §6]
+
+**Upgrade attempt (2026-08-03):** an independent maker/checker round
+produced a new, genuinely axiom-free lemma in the corpus's own
+Evidence/Policy vocabulary — `no_policy_can_anchor_its_own_negation`
+(`research_universal_solver/formal/InfoLiarNoAnchoredResolution_attempt.v`),
+formalizing that no policy can be anchored to its own negation.
+Independently recompiled: both `Print Assumptions` calls report
+`Closed under the global context` — `Th_coqc`. This is a genuine new
+building block toward the still-unchecked `LTP5 liar loop` item in
+`v2/ROADMAP_V2.md`, but it is a negative/impossibility result only —
+**no actual self-reference/quining term for the Liar sentence itself was
+built or found**, so this row's verdict stays `Dr` exactly as the corpus
+states it above. The file is uncommitted (`git status` shows `??`) and not
+yet cross-referenced from this document.
 
 ---
 
@@ -207,6 +263,24 @@ from parts, not a framework result — and the term that looks like the
 actual key ("origination") has no formal content anywhere in the corpus.
 
 [domain card: logic.md §1 (S3); philosophy.md §4 (G5), §2.1 (Fail-Able Gate Law)]
+
+**Upgrade attempt (2026-08-03):** an independent maker/checker round
+formalized a **Predictor-Premise-Rejection Law** (`Dr`) combining G2 (Ω_∞
+dual guard / unbounded-∀ injected infinity), G5 (identifiability /
+null-space), and the Fail-Able Gate Law into one mechanically-applicable
+three-conjunct rule for rejecting an "always-right predictor" premise as
+`Type-U` (stipulated convention) rather than `Type-P` (evidence-bearing).
+Independently re-verified against the source text and the existing
+`Th_coqc` bricks it leans on
+(`InfoAgencySelfReadout_attempt.v`). This is `Dr` — a stated combination of
+existing gates, not machine-checked, not an executed diagnostic — and it
+does **not** upgrade the underlying Newcomb verdict past `[Open]`: the
+checker confirmed the maker's own honest admission that conjunct (ii)
+(identifiability) is currently undecidable from this corpus's own stated
+limits (the §6.3(c) regime-undecidability gap below), so only conjuncts
+(i)/(iii) actually resolve — and those turn out to be the same fact
+(the unbounded "always") counted twice, not two independent lines of
+evidence. `[Open]` remains the correct, honest ceiling for this row.
 
 ---
 
@@ -314,6 +388,22 @@ result. It should not be cited as more than that until a formal bridge
 research_universal_solver/docs/root/AGENCY_VS_AGENCY_LIKE.md;
 philosophy.md §4 (G5), §5.1 (non-injective readout), §6]
 
+**Upgrade attempt (2026-08-03):** an independent maker/checker round built
+an honest toy model of `O(s,a)` from this repo's own `ap6_drl_general.py`
+obstruction machinery and computationally tested the §6.2 falsifier.
+Result (`finite_diagnostic`: 0/7 genuine ties across both a convex regime
+and a non-convex double-well regime, on generically-forced states): the
+falsifier's predicted outcome holds — the origination construction is
+empty for every generically-forced state tested — though by a different
+mechanism than the falsifier itself named (symmetry-breaking by any
+nonzero forcing, not strict convexity a.e.). An exact tie
+(`|O1-O2|=2.22e-16`) does appear, but only in the idealized symmetric
+special case `s=0, J=0` exactly, and is already destroyed by forcing as
+small as `eps=1e-8`. This is one executed numeric run on a chosen toy `O`,
+not a proof about §6.2's actual undefined `O`/`Repair` — it does not change
+this row's tier, which stays `Dr` for the construction and `[Open]` for its
+consequences, exactly as before.
+
 ---
 
 ## See also
@@ -327,3 +417,66 @@ philosophy.md §4 (G5), §5.1 (non-injective readout), §6]
 - This file's own status: every `Dr`/`[Open]` item above is a candidate for
   future adversarial review, not a settled addition to the corpus's
   Th_coqc floor. Treat accordingly.
+
+---
+
+## Upgrade attempts log (2026-08-03)
+
+A maker-checker upgrade round ran independently against all six items above.
+Every checker verdict below was produced by a re-verification pass separate
+from the maker (recompiling Coq files from clean, re-running numeric scripts,
+re-reading and re-grepping cited sources directly) — not a rubber stamp of
+the maker's self-report. Recorded here in full, including the four items
+where nothing moved, per this corpus's own culture of keeping negative
+results on the record rather than silent.
+
+1. **Sorites (non-monotone extension).** Outcome: **upgraded** (new result,
+   scratchpad-only). Checker: **CONFIRMED**, `Th_coqc` — independently
+   recompiled `UPL_Sorites_OneReversal.v` twice from clean, axiom-free,
+   confirmed the relaxed hypotheses are strictly weaker than the committed
+   file's global monotonicity. Correctly scoped: not yet integrated into the
+   committed corpus, does not replace the existing monotone-only result.
+
+2. **Zeno (untried 7th forcing reading for `M`).** Outcome: **no_progress**.
+   Checker: **PARTIALLY_CONFIRMED**, tier unchanged — the two named
+   unformalized readings are still unformalized (verified by direct file
+   read and corpus-wide grep); flagged one genuine flaw in the maker's own
+   evidence (an undercount of real citation hits for "own-clock"/
+   "impermanence" elsewhere in the corpus) that does not change the
+   underlying conclusion.
+
+3. **Ship of Theseus (Coq formalization of RD4 half).** Outcome:
+   **upgraded** (narrow, real). Checker: **CONFIRMED**, `Th_coqc` — recompiled
+   `Scratch_ShipOfTheseus_RD4.v` fresh, axiom-free; verified the RD4 citation
+   trail (`RD.v:42`, `logic.md:51`, `v2/INFORMATION_DNA.md:20`) resolves a
+   previously live concern about an unrelated/undefined axiom. Correctly
+   scoped: does not touch Q3 or the eigenmode framing, so the row's overall
+   `Dr` tier stands.
+
+4. **Newcomb base case (G2+G5+Fail-Able Gate Law combination).** Outcome:
+   **upgraded** (new named law, `Dr`). Checker: **CONFIRMED**, `Dr` — verified
+   every cited source quote and the two `Th_coqc` bricks it leans on; caught
+   one minor wording inconsistency (a biconditional stated in prose but the
+   formal rule is one-directional) that does not affect the tier claim. The
+   underlying Newcomb verdict stays `[Open]`, exactly as the maker claimed —
+   the checker independently confirmed the identifiability conjunct is
+   genuinely undecidable from this corpus's own stated limits.
+
+5. **Liar Paradox (impossibility lemma).** Outcome: **upgraded** (new
+   negative result). Checker: **CONFIRMED**, `Th_coqc` — recompiled
+   `InfoLiarNoAnchoredResolution_attempt.v`, both theorems axiom-free;
+   verified by direct proof-term reading that both lemmas are correct and
+   match the claimed Evidence/Policy vocabulary. Correctly scoped: no
+   self-reference/quining term for the Liar sentence was built, so the row's
+   `Dr` verdict stands unchanged.
+
+6. **Newcomb origination falsifier (§6.2 computational test).** Outcome:
+   **unchanged** (falsifier holds; refuted the maker's own initial
+   hypothesis that ties might be common). Checker: **CONFIRMED**,
+   `finite_diagnostic` — independently reproduced the maker's numeric
+   results near bit-for-bit (0/7 ties in both regimes tested; the one exact
+   tie at the idealized `s=0, J=0` point; the same forcing-sweep magnitudes)
+   and independently re-ran an equivalent forcing-sweep script from scratch.
+   One evidence-only run on a chosen toy `O`; does not touch §6.2's actual
+   undefined `O`/`Repair`, so this row's `Dr`/`[Open]` verdict stands
+   unchanged.
