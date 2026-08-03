@@ -24,4 +24,5 @@ EXCEPTIONS — NOT covered by CC BY 4.0 (proprietary, all rights reserved):
 These paths are PRIVATE to the Open Civil Science Initiative / ANSE and must be
 removed or separately licensed before any public redistribution of this repo.
 The CC BY 4.0 grant covers the v1.0 book (main.tex, main.pdf, CLAIMS.md,
-code/LTP*.py, code/UPL_Sorites.v) and the v2/ doctrine documents only.
+code/LTP*.py, code/UPL_Sorites.v, code/UPL_Sorites_OneReversal.v) and the
+v2/ doctrine documents only.

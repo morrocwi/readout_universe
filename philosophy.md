@@ -1,24 +1,27 @@
 # Philosophy — Readout Universe (v1.0 → v2.0-dev)
 
 > **What this file is.** A distilled, faithful narrative of the epistemology
-> (ญาณวิทยา) and ontology (ภววิทยา) of this repository — the *why*, *what is*,
+> and ontology of this repository — the *why*, *what is*,
 > and *how do we know*. It carries forward every hedge the source docs state;
 > it does not smooth them out or upgrade a tier. For the pure equation/logic
 > ledger see [`logic.md`](logic.md). Both files are distillations — the full
 > depth lives in the linked source `.md` files, which win on any conflict.
 >
-> Tier legend used throughout (never collapse): `Th_coqc` (machine-checked,
-> axiom-free) ≠ `finite_diagnostic` (executed numeric run — evidence, not
-> proof) ≠ `Dr` (declared-bridge / human narrative reading) ≠ `Open` (not
-> established, but never bare — always carries a stance and a falsifier) ≠
-> `fit_calibrated` (fit to data, not derived) ≠ `definition` (declared
-> object/gate — a stipulated/definitional statement, not derived or
-> measured; a naming/setup move, distinct from `Dr`'s narrative-bridge
-> reading) — matches `logic.md`'s own legend.
+> Tier legend used throughout (never collapse), the six tags this file
+> needs: `Th_coqc` (machine-checked, axiom-free) ≠ `finite_diagnostic`
+> (executed numeric run — evidence, not proof) ≠ `Dr` (declared-bridge /
+> human narrative reading) ≠ `Open` (not established, but never bare —
+> always carries a stance and a falsifier) ≠ `fit_calibrated` (fit to data,
+> not derived) ≠ `definition` (declared object/gate — a
+> stipulated/definitional statement, not derived or measured; a
+> naming/setup move, distinct from `Dr`'s narrative-bridge reading). This
+> is a subset of [`logic.md`'s legend](logic.md#0-the-root), which is
+> canonical and also defines `Ax`, `Th`, and `exact_algebra`; on any
+> disagreement `logic.md` wins.
 
 ---
 
-## 1. Readout-not-truth — ทำไม (why)
+## 1. Readout-not-truth — why
 
 The book's founding move is a refusal: **there is no ℝ-value hiding behind
 the dial.** What exists, ever, is the finite, bounded, discrete *readout* an
