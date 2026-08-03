@@ -34,7 +34,7 @@ PROPRIETARY EXCEPTIONS (added 2026-08-03, correcting a pre-existing
 inconsistency found by an internal adversarial review): the following
 twelve files under ap/ each carry, and have always carried, their own
 in-file header declaring them "PRIVATE / PROPRIETARY (LICENSE
-EXCEPTIONS) — do not publish." That in-file declaration was the author's
+EXCEPTIONS) -- do not publish." That in-file declaration was the author's
 actual, standing intent for these specific files; the Coverage rule
 below previously and incorrectly stated no such exception existed, which
 was a drafting error in this LICENSE file, not a change in intent. These
