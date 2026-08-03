@@ -1,0 +1,6 @@
+{
+  "name": "readout-universe",
+  "description": "Readout Universe — a Philosophy and Logic for Grounding Claims. Loads before stating any claim's evidentiary status as settled/proven. Carries the readout-not-truth stance and the tier vocabulary (Th_coqc, finite_diagnostic, Dr, Open, fit_calibrated, definition) that tags exactly how well-supported a claim is, so it never gets silently rounded up to a stronger tier than its evidence supports. Points into the full textbook and corpus (philosophy.md, logic.md, paradoxes.md, worked theorems and code) for depth rather than duplicating it.",
+  "version": "1.0.0",
+  "author": { "name": "Yaoharee Lahtee" }
+}
