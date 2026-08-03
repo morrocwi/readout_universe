@@ -3020,6 +3020,228 @@ to)]
 
 ---
 
+### 7.24 Mental health as translation-coherence between two readout channels — a founder proposal, stated self-falsifiable
+
+*Tier: `Dr` — a fresh philosophical proposal, offered by the founder in
+first person and translated here faithfully (full verbatim Thai source:
+`v2/MENTAL_HEALTH_TRANSLATION_CRISIS_PROPOSAL.md`, 2026-08-04). The
+founder states the proposal's own falsifiability conditions explicitly,
+reproduced in full below rather than summarized away — see "Explicitly
+stated as refutable" near the end of this entry. Binding scope note,
+stated by the founder and carried forward unchanged: this is a
+philosophical proposal about how to understand human experience — **not
+a medical proposal, not a diagnosis, not treatment guidance.** Named
+clinical conditions appear only to point at a resemblance of
+experience-pattern and language, never to conclude anything about any
+individual. **Mental health is a matter directly bound up with
+psychiatric knowledge, psychology, and specialized professionals — the
+founder's own words, carried forward unedited, not softened into a
+generic caveat.** If any of the patterns named below resonate with real,
+present suffering — yours or someone else's — this entry is not where
+that gets addressed: please reach a qualified mental-health professional
+or, in a crisis, local emergency services. Nothing below is a substitute
+for that.*
+
+The founder's own opening move is this corpus's own oldest commitment,
+independently re-derived and pointed at mental health specifically: a
+human being does not access the world directly — not the inner world of
+one's own mind, not the outer world shared with others. What a human
+actually has is a **translation process**. Nothing is grasped raw; a
+signal is selected, received through one's own limits, given a
+representation, and interpreted into a working model. What gets called
+"understanding," on this reading, is never possession of the raw truth —
+it is the standing output of translation happening continuously. This is
+§1's own "everything an agency ever reads is a finite retained
+difference — a readout, not the truth-behind-the-claim" (the readout-
+not-truth commitment this whole book opens with), reached again here
+from a different direction and put to a new use.
+
+**The proposal's own structure, translated in full, not summarized.**
+Human life, on this reading, runs through three layers that always work
+together: **inner experience** (thought, feeling, memory, fear, hope,
+desire, and the meaning one holds toward things), **outer experience**
+(body, time, events, society, relationships, duties, economy, language,
+and the constraints of reality), and the **translation** connecting the
+two. A human being does not simply have two worlds — they live through
+the constant effort of keeping those two worlds in correspondence.
+
+From this the founder states the central thesis plainly: **psychological
+suffering always appears through translation** — whatever its
+contributing causes (biological, psychological, social, or personal
+history) — because for suffering to be perceived and lived by a human at
+all, it must appear through the relationship between the inner world,
+the outer world, and the translation joining them. Much of what gets
+called a mental-health problem is, on this reading, not merely a matter
+of symptoms but a **crisis of translation**: the further apart the inner
+and outer worlds sit, the harder translation becomes, and the more
+suffering, confusion, and fracture tend to follow.
+
+This crisis can appear in two broad shapes — named here as *patterns of
+appearance*, not as a causal account of what produces them. The
+conditions named alongside each shape below have their own real,
+studied, and often substantially biological or multifactorial causes,
+which this philosophical proposal neither addresses nor claims to
+replace; nothing below should be read as "translation difficulty is what
+causes X," only as "X, when it occurs, is one place this proposal's own
+two-world language can be recognized in the pattern of how it appears."
+In the first, the **inner world grows too dense for translation to keep
+it aligned with the outer**: thought, feeling, memory, imagination, or
+inner drive intensifies until it gradually overtakes how the outer world
+is perceived. Early on this can appear as feeling misunderstood,
+alienation from others, or instability in what feels like shared
+reality; as the gap widens further, the inner frame can become the
+primary lens for interpreting everything outer, until what others hold
+as shared reality becomes difficult to reach at all — patterns
+resembling dissociation, derealization, delusional interpretation,
+paranoia, psychosis, manic episodes, or presentations in the
+schizophrenia spectrum. In the second,
+the **outer world grows too heavy**: duties, expectations, economic
+pressure, relationships, work, time, and social pressure arrive
+continuously, faster than the mind can translate them into meaning for
+the inner world; translation from outer into inner begins to fail, the
+outer world keeps running, but the inner world gradually empties, dries
+out, or loses the strength to respond — patterns resembling emotional
+numbness, burnout, anxiety disorder, adjustment disorder, depressive
+disorder, or existential emptiness.
+
+The founder is explicit that translation-disturbance is not only these
+two simple poles. In some cases translation distorts through *excess*:
+in paranoia, everything outer is pulled into self-reference until
+translation stops being flexible and becomes compulsive instead. In
+other cases the fracture is *within* the inner world itself: in OCD, the
+outer world may still be perceived accurately, while a separate
+component within the mind generates repeated worry, doubt, or compulsion
+— suffering arising from conflict inside the inner world, not only from
+the relationship between inner and outer.
+
+Nor is this a claim about pure mind. The founder is explicit that a
+human translates the world through a living body, through language and
+meaning built together with others, and through the rhythm of time —
+not through mind alone. When the body tires, translation changes; when
+trust in others breaks, translation breaks with it; when the inner
+world's own pace runs too fast or too slow against the outer, suffering
+forms more easily. Mental health, on this reading, is not only a matter
+of thought — it is a matter of keeping body, time, and relationship
+coordinated enough that the two worlds can still hold a conversation.
+
+**A named exception, kept rather than smoothed over — the proposal's own
+falsifiability discipline in action before the explicit falsifier is
+even stated.** Some people sit at a wide distance from mainstream
+society yet do not suffer as much as this proposal might predict. The
+founder's own reading: this does not mean they stand apart from the
+outer world as such — it means an outer world exists, for them, that
+their inner world corresponds with. That outer world need not match the
+mainstream social norm; it can be a specific world that admits their way
+of being — the world of a singer, a monastic, or some other specific
+world that gives the inner life somewhere to stand. Suffering, on this
+reading, does not come from difference alone — it comes when the inner
+world finds *no* outer world anywhere to stand in. **Read carefully, not
+as a verdict on effort or skill:** this paragraph names a structural
+condition — whether a fitting outer world exists and is reachable, which
+depends on chance, circumstance, and social structure at least as much
+as on anything a person does — not a personal failing or a shortfall of
+trying. A person suffering under similar distance from the mainstream
+has not "failed to translate" in any sense this proposal holds them
+responsible for; the proposal's own claim is only that the relevant
+outer world may not yet exist for them, be reachable by them, or be
+visible to them, which is a very different claim from a failure of
+effort.
+
+**The proposal's own definition of mental health**, stated directly:
+not the narrow absence of symptoms or the absence of suffering (since
+suffering is part of being alive at all), but **the human capacity to
+keep translation between the inner and outer worlds reasonably
+coordinated and flexible, through body, time, and others** — not
+required to be perfect, not required to be free of suffering, only
+enough that the two worlds can still hold a conversation without
+breaking apart completely. Mental-health wisdom, on this reading, is not
+having ready-made answers about one's own mind, but the capacity to
+recognize that one always accesses both worlds through translation, and
+because that access always runs through translation, to keep checking
+whether one's own translation is drifting from shared reality, letting
+the inner world dominate the outer, letting the outer world crush the
+inner into meaninglessness, or letting the inner world itself fracture
+into mutually conflicting forces.
+
+Compressed to one line, in the founder's own words: **a human being has
+no mental health outside translation, and no psychological suffering
+that does not appear through the failure, distortion, rigidity, or
+oscillation of translation.** Mental health is the state in which the
+inner and outer worlds still find each other in translation; much
+psychological suffering arises when that translation falls out of
+balance — and the further apart the two worlds sit, the harder
+translation becomes, the more mental-health difficulty tends to follow.
+The founder's own stated purpose in offering this, kept as its own
+sentence rather than folded into the compression above: to open space
+for taking seriously that a person may be suffering not because they
+lack an inner world or lack an outer world, but because the two worlds
+— including forces fractured within the person themselves — simply have
+not found each other in translation.
+
+**Explicitly stated as refutable, by the founder's own words, reproduced
+here rather than paraphrased away:** *"if someone points out that human
+psychological suffering can be perceived and fully exist without going
+through the relationship among the inner world, the outer world, and
+translation at all — or if there is a case where the distance between
+the two worlds is very wide, yet unrelated to suffering, loss of shared
+reality, fracturing of the self, or loss of life function — this
+proposal must accordingly be limited, revised, or overturned."* This is the same
+discipline this book names elsewhere as the Fail-Able Gate Law (§2.1) —
+a stance is not treated as strong because it has not yet been tested,
+but because a real, stated condition exists under which it would be
+shown wrong.
+
+**Where this connects to, and where it goes beyond, this corpus's own
+existing machinery.** "Translation" here is not a new primitive for this
+book — it is `§9.2a`/N2's own `M_A = K_A·θ + η` (Face 10, every agency's
+readout of a latent structure is lossy) applied to a human specifically.
+What this proposal adds, genuinely past what N2 already states on its
+own, is a second-order structural point: N2 describes *one* channel's
+lossiness (an agency reading θ). This proposal is about **two channels
+at once** — an inner-world readout and an outer-world readout, each its
+own lossy `M_A`-shaped process — and locates mental health not in either
+channel's individual accuracy but in whether the *two readouts stay
+mutually translatable*, a claim about the relationship between two
+readout processes, not about either process alone. Read against §7.21/
+§7.23's closure vocabulary: a "translation crisis," on this reading, is
+what degraded closure looks like when the loop being asked to hold
+together spans *two* readout channels rather than one channel and the
+world — a further, independent generalization from those two entries,
+carrying neither of their tiers or evidence, exactly as §7.23 already
+insists for its own generalization from §7.21.
+
+**What this does and does not settle.** This is a philosophical proposal
+about how to understand human experience, offered by the founder in
+first person, not a result this corpus has machine-checked, measured, or
+validated against any data. It does not diagnose, does not recommend
+treatment, and does not claim the named clinical conditions above are
+correctly or exhaustively described by this framing — they are named,
+by the founder's own words, only to point at a resemblance of pattern
+and language, never as a causal account competing with, replacing, or
+simplifying the real biological, genetic, and multifactorial causes
+those conditions are actually understood to have. It does not claim the
+"two-channel translation-coherence" reading of N2/§7.21/§7.23 has been
+formalized — that connection is offered here as an interpretive bridge,
+`Dr`, not a new theorem. The founder's own stated falsifier stands as
+the entry's own honest exit condition, not softened or hedged away by
+this integration. And, restated because it is the one instruction that
+matters most if this entry is ever actually relevant to a reader: if any
+of this resonates with real suffering, this entry is not the place that
+gets addressed — a qualified mental-health professional, or emergency
+services in a crisis, is.
+
+[domain card: `v2/MENTAL_HEALTH_TRANSLATION_CRISIS_PROPOSAL.md` (full
+Thai source, founder, 2026-08-04); §1 (readout-not-truth, the opening
+commitment this proposal re-derives); §9.2a/N2 (`M_A = K_A·θ+η`, the
+single-channel readout this proposal extends to two channels); §2.1
+(the Fail-Able Gate Law, the same discipline the founder's own stated
+falsifier already follows); §7.21/§7.23 (the closure/degraded-closure
+vocabulary this entry's "translation crisis" reading is a further,
+independent generalization of, carrying neither section's own tier or
+evidence)]
+
+---
+
 ## 8. The full arc as one story — δ_R through 42 steps, 11 layers, to society and morality
 
 *Tier: mixed, step-by-step, exactly as the source tags each one — no
