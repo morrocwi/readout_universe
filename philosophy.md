@@ -2440,20 +2440,24 @@ same thing.
 
 ### 7.21 Self as a closure property, not a substance — the τ_c^H loop
 
-*Tier: `Dr`/`[Open]` — narrated in the source's own words, no upgrade*
+*Tier: `Dr`/`[Open]` — this entry's own paraphrase of a cited source, not
+an upgrade of that source's tier*
 
 Nothing before this point in either ledger needs a word like "self." The
 source introduces one only because a human-agency loop, once closed, has a
 property none of its individual pieces carry alone: it reads its own
-retained output back into its own retained input. The definition offered,
-stated as carefully as the source states it — not a discovery about what
-selves secretly are, a declared reading of what the word can honestly mean
-inside this framework:
+retained output back into its own retained input. What follows is this
+entry's own restatement of that reading, in this corpus's own words and
+notation, not a verbatim quotation of the source — the source remains the
+authority on its own precise wording, this is a paraphrase offered to fit
+this document's voice:
 
-> **Self, as used here, is not a substance, a location, or a homunculus. It
-> is the closure property of the τ_c^H loop: the fact that Ω_H both (a)
-> results from the loop's own prior passes and (b) conditions the loop's
-> next pass, at a stable, characteristic causal-memory timescale τ_c^H.**
+**Self, as used here, is not a substance, a location, or a homunculus.
+Instead, read it as a *closure property* of the τ_c^H loop — a way of
+naming the plain fact that the loop's world-model Ω_H is both (a) the
+product of the loop's own earlier passes and (b) an input the loop's next
+pass depends on, holding stable at a characteristic causal-memory
+timescale τ_c^H.**
 
 Ω_H here is the world-model this loop maintains, and "conditions the loop's
 next pass" is read the way §2.5/§5.2a require every operator in this corpus
@@ -2551,6 +2555,37 @@ here — a single algebraic readout at a state is not a standing loop-closure
 claim, and neither tier nor evidence transfers between them.
 
 [domain card: research_universal_solver/docs/engineering/GENESIS_STEP_BY_STEP_V3_1.md Part VIII §VIII.6 "Self as a Closure Property, Not a Substance" (~lines 4899-4929); see also §VIII.4's agency gradient/repair-rate definitions and §VIII.1's Φ_H openness declaration]
+
+**Upgrade attempt (2026-08-03), in the same spirit as `paradoxes.md`
+§6.2's own upgrade attempt.** A cross-repo survey found no existing
+formalization of this entry's specific standing, multi-pass claim
+anywhere in the workspace, so two fresh, self-contained artifacts were
+built (neither copies or adapts any proprietary source): (1)
+`evidence/RetentionLoopClosureMonotone.v` proves, for any abstract
+discrete contraction map (`Th_coqc`, axiom-free over ℚ), that its
+convergence bound is monotone in the contraction ratio — a formal
+scaffold for "a weaker/degraded coupling gives a provably worse
+worst-case convergence guarantee at every step," explicitly *not* a
+proof about any real `Ω_H` update rule, τ_c^H, or human cognition; (2)
+`ap/ap22_self_closure_diagnostic.py` (`finite_diagnostic`) runs a fresh
+scalar toy model of a closure loop, injects a perturbation, and measures
+— empirically, via finite difference, not by reading off a parameter
+analytically — both halves of this entry's own falsifier: this run's
+degraded-closure arm showed a measurably flatter agency-gradient
+(≈0.011 vs ≈0.239) and a measurably slower repair rate (≈−0.074 vs
+≈−0.143 per step) than the nominal arm, confirming the falsifier's
+predicted *direction* in this toy setting. Held to the same discipline
+as `paradoxes.md`'s own upgrade attempt: this is one executed numeric
+run on a toy model with one shared gain parameter driving both measured
+quantities by construction — it confirms the measurement methodology
+correctly detects a built-in coupling, not an independent discovery that
+real closure works this way. It does **not** change this entry's own
+tier, which stays `Dr` for the construction and `[Open]` for its
+consequences, exactly as before — the falsifier is now demonstrated to
+be *measurable and internally coherent* in a toy setting, not confirmed
+about anything beyond that toy setting.
+
+[domain card: evidence/RetentionLoopClosureMonotone.v; ap/ap22_self_closure_diagnostic.py]
 
 ### 7.22 AI ethics as a readout-selection structure — the L-16 first-order content §6 points to
 

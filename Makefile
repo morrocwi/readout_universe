@@ -15,6 +15,7 @@ verify-urr-coq:
 	coqc $(COQPATH) evidence/DRL_Forced_Master.v
 	coqc $(COQPATH) evidence/DRL_Hidden_Elimination_Convolution.v
 	coqc $(COQPATH) evidence/DRL_NoGo_Single_Field.v
+	coqc $(COQPATH) evidence/RetentionLoopClosureMonotone.v
 
 verify-native:
 	python3 -m pytest -q tests/test_omega_all.py tests/test_claim_ir.py tests/test_native_logic.py tests/test_from_omega.py
