@@ -22,27 +22,22 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
 FROM, OUT OF OR IN CONNECTION WITH THE WORK OR THE USE OR OTHER DEALINGS IN
 THE WORK.
 
-EXCEPTIONS — NOT covered by the MIT License above (proprietary, all rights reserved):
-  ap/ap0_lens_gates.py    (the only file in ap/ that exercises the removed
-                           lens/ engine directly; all other ap/ case studies,
-                           AP1 through AP21, are covered by the MIT License
-                           above like the rest of this repository)
-This file is PRIVATE to the Open Civil Science Initiative / ANSE and must be
-removed or separately licensed before any public redistribution of this repo.
+HISTORICAL NOTE: ap/ap0_lens_gates.py, lens/, and skill/ (a vendored snapshot
+of a sibling private repository's engine source, plus the operator skill
+built on top of it) were proprietary, all-rights-reserved third-party
+material that was never eligible for public redistribution under this
+license. All three were permanently removed from this repository ahead of
+publication, in 2026. They are confirmed absent from both the filesystem
+and git history at HEAD; this removal is final.
 
-NOTE: lens/ and skill/ (a vendored snapshot of a sibling private repository's
-engine source, and the operator skill built on top of it) have been removed
-from this repository ahead of publication — they were proprietary,
-all-rights-reserved third-party source and were never eligible for public
-redistribution under any license in this repo.
-
-Coverage rule: everything in this repository EXCEPT ap/ap0_lens_gates.py is
-licensed under the MIT License above — this includes, without limitation,
-the v1.0 book (main.tex, main.pdf, claims.md), philosophy.md, logic.md,
-paradoxes.md, the code/ directory (all file types), the entire v2/
-directory (all file types, including non-.md code/data files such as
-v2/urr/*.py and v2/urr/*.yaml), the ap/ directory except the one file
-named above, the docs/ directory, the evidence/ directory, the gates/
+Coverage rule: the entire repository, as it exists today, is licensed under
+the MIT License above — this includes, without limitation, the v1.0 book
+(main.tex, main.pdf, claims.md), philosophy.md, logic.md, paradoxes.md, the
+code/ directory (all file types), the entire v2/ directory (all file types,
+including non-.md code/data files such as v2/urr/*.py and v2/urr/*.yaml),
+the ap/ directory, the docs/ directory, the evidence/ directory, the gates/
 directory, the scripts/ directory, and root-level documents such as
 scope_correction.md, urr_native_system.md, and
-EQUATION_LIBRARY_ROOT_TO_SM_STREAM_research_universal_solver.md.
+EQUATION_LIBRARY_ROOT_TO_SM_STREAM_research_universal_solver.md. There is no
+carved-out exception; no file in this repository is excluded from the MIT
+License.

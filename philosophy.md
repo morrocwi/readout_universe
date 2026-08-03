@@ -125,7 +125,7 @@ becomes readable" §, lines 136–160]
 
 ## 2. The tier discipline — why it exists
 
-Every claim in this corpus must carry one of five tags, and the tags are
+Every claim in this corpus must carry one of six tags, and the tags are
 **never allowed to collapse into each other**:
 
 | Tier | Meaning | What it is NOT |
@@ -2205,7 +2205,7 @@ decidable `∧` §2.1 already insists on for the Fail-Able Gate Law — two
 retained facts checked to both hold of the same loop, not a continuum
 logical connective assumed to carry meaning on its own.
 
-"Awakening" (ตัวตื่น), on this reading, is not a single event but a
+"Awakening" (the waking self), on this reading, is not a single event but a
 **standing achievement**: the loop maintaining closure — Ω_H staying
 causally coupled to its own outputs — across nested timescales
 simultaneously (fast carrier-strip lanes, a slower repair-cycle timescale,

@@ -23,13 +23,13 @@ stronger one than its evidence supports.
 |---|---|
 | **Author** | Yaoharee Lahtee ([ORCID 0009-0005-3861-0626](https://orcid.org/0009-0005-3861-0626)) |
 | **Publisher** | Open Civil Science Initiative |
-| **License** | [MIT](LICENSE), whole repository — with one named exception, `ap/ap0_lens_gates.py`, which is proprietary and excluded (see LICENSE) |
+| **License** | [MIT](LICENSE), the whole repository, no exceptions |
 | **Status** | v1.0 book frozen (`main.tex`) · v2.0-dev in active development |
 
 **Contents:** [What this repository is](#what-this-repository-is) ·
 [Principles](#principles) · [For AI readers](#for-ai-readers--start-here) ·
 [Reproduce every claim](#reproduce-every-claim-5-minutes) ·
-[For AI operators — the APIs](#for-ai-operators--the-apis-v2) ·
+[Executed case studies](#executed-case-studies--ap) ·
 [Repository layout](#repository-layout) ·
 [We do NOT claim](#we-do-not-claim) · [Citation](#citation)
 
@@ -162,9 +162,7 @@ please report it.
 
 AP0 (gate anchors) through AP21 (spin-1 Weitzenböck rung) — every
 numerical claim in the documentation has a corresponding pytest here; runs
-are logged in [`docs/VERIFIED_RUNS.md`](docs/VERIFIED_RUNS.md). One file,
-`ap/ap0_lens_gates.py`, exercises an internal engine that is not part of
-this public repository (see LICENSE) and is excluded; every other file in
+are logged in [`docs/VERIFIED_RUNS.md`](docs/VERIFIED_RUNS.md). Every file in
 `ap/` runs standalone with `python3 -m pytest -q`.
 
 ## Repository layout
@@ -197,8 +195,7 @@ v2/                            the lens doctrine + equations: Information DNA,
                               DRL, Append-Only Record, Forced-Identification,
                               Domain Ledger, Roadmap, urr/ (URR-C 0.4)
 
-ap/                             executed case studies (pytest; AP0-AP21;
-                                ap0_lens_gates.py excluded, see LICENSE)
+ap/                             executed case studies (pytest; AP0-AP21)
 evidence/                       in-repo Coq evidence (RD.v, URCF_RD_All.v,
                                 DRL_Discrete.v, DRL_General_Legendre.v)
 gates/                          gate-typing support files
@@ -215,9 +212,11 @@ tests/                           pytest suite for native_logic/ and omega/
                                 test_claim_ir.py, test_omega_all.py)
 ```
 
-The whole repository is [MIT](LICENSE), with one named exception:
-`ap/ap0_lens_gates.py`, which exercised a proprietary internal engine and
-has been removed ahead of publication (see LICENSE for the full note).
+The whole repository is [MIT](LICENSE), no exceptions. A proprietary
+internal-engine file (`ap/ap0_lens_gates.py`) and the `lens/`/`skill/`
+directories it depended on were permanently removed ahead of publication
+(see LICENSE for the historical note) and are confirmed absent from both
+the filesystem and git history at HEAD.
 
 **Naming convention:** root-level primary documentation is lowercase
 (`philosophy.md`, `logic.md`, `paradoxes.md`, `claims.md`,
