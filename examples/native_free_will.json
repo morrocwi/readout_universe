@@ -1,0 +1,147 @@
+{
+  "claim_id": "native-free-will-001",
+  "question": "มนุษย์มีเสรีภาพจริงหรือไม่?",
+  "scope": "one retained deliberative decision step",
+
+  "translation": [
+    {
+      "foreign_term": "มนุษย์",
+      "native_term": "retained agent",
+      "tier": "Dr",
+      "bridge_class": "declared_bridge"
+    },
+    {
+      "foreign_term": "เสรีภาพ",
+      "native_term": "bounded policy freedom",
+      "tier": "definition",
+      "bridge_class": "native_definition"
+    },
+    {
+      "foreign_term": "ทางเลือก",
+      "native_term": "distinguishable accessible transitions",
+      "tier": "Dr",
+      "bridge_class": "declared_bridge"
+    }
+  ],
+
+  "ontology_generable": true,
+
+  "premises": [
+    {
+      "atom": {
+        "predicate": "alternatives",
+        "arguments": ["agent", "t1"]
+      },
+      "tier": "Dr",
+      "source": "Omega_all translation",
+      "formal_closed": false
+    },
+    {
+      "atom": {
+        "predicate": "accessible",
+        "arguments": ["agent", "t1"]
+      },
+      "tier": "Dr",
+      "source": "RAR-A4 reading",
+      "formal_closed": false
+    },
+    {
+      "atom": {
+        "predicate": "policy_selects",
+        "arguments": ["agent", "t1"]
+      },
+      "tier": "definition",
+      "source": "native definition of selection",
+      "formal_closed": false
+    },
+    {
+      "atom": {
+        "predicate": "policy_updateable",
+        "arguments": ["agent"]
+      },
+      "tier": "Dr",
+      "source": "retained-feedback bridge",
+      "formal_closed": false
+    }
+  ],
+
+  "rules": [
+    {
+      "id": "NATIVE-FREEDOM-R1",
+      "antecedents": [
+        {
+          "predicate": "alternatives",
+          "arguments": ["?agent", "?time"]
+        },
+        {
+          "predicate": "accessible",
+          "arguments": ["?agent", "?time"]
+        },
+        {
+          "predicate": "policy_selects",
+          "arguments": ["?agent", "?time"]
+        },
+        {
+          "predicate": "policy_updateable",
+          "arguments": ["?agent"]
+        }
+      ],
+      "consequent": {
+        "predicate": "bounded_freedom",
+        "arguments": ["?agent", "?time"]
+      },
+      "tier": "Dr",
+      "source": "native freedom definition and RAR bridge",
+      "formal_closed": false
+    }
+  ],
+
+  "target": {
+    "predicate": "bounded_freedom",
+    "arguments": ["agent", "t1"]
+  },
+
+  "context": {
+    "candidate_distinctions": [
+      "action-a",
+      "action-b"
+    ],
+
+    "grammar_compatible": true,
+
+    "required_retained": [
+      "action-a",
+      "action-b",
+      "policy"
+    ],
+    "retained": [
+      "action-a",
+      "action-b",
+      "policy"
+    ],
+
+    "required_accessible": [
+      "action-a",
+      "action-b"
+    ],
+    "accessible": [
+      "action-a",
+      "action-b"
+    ],
+
+    "metric_nonnegative": true,
+    "identity_lock_ok": true,
+    "declared_obstruction": false,
+
+    "lens_ok": true,
+    "lens_distortion": 0.1,
+    "lens_tolerance": 0.2
+  },
+
+  "falsifier": "Show that bounded policy freedom occurs without distinguishable accessible alternatives, selection, or policy updateability.",
+
+  "not_checked": [
+    "Whether every human decision satisfies these premises",
+    "Whether the natural-language translation is uniquely faithful"
+  ]
+}

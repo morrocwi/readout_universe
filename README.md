@@ -203,6 +203,16 @@ evidence/                       in-repo Coq evidence (RD.v, URCF_RD_All.v,
                                 DRL_Discrete.v, DRL_General_Legendre.v)
 gates/                          gate-typing support files
 scripts/                        maintenance and build scripts
+
+native_logic/                   the native-logic kernel + the Omega-bridge
+                                translator (kernel.py, from_omega.py)
+omega/                           the Omega claim-IR layer (claim_ir.py,
+                                dictionary.py, gates.py, run.py, schemas.py)
+examples/                       worked example claim files (e.g.
+                                native_free_will.json)
+tests/                           pytest suite for native_logic/ and omega/
+                                (test_native_logic.py, test_from_omega.py,
+                                test_claim_ir.py, test_omega_all.py)
 ```
 
 The whole repository is [MIT](LICENSE), with one named exception:

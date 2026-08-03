@@ -14,15 +14,15 @@ echo "######## versions ########"
 coqc --version | head -1
 python3 --version
 
-echo "######## 1/6  LTP battery (code/LTP1, code/LTP2_3_4) ########"
+echo "######## 1/7  LTP battery (code/LTP1, code/LTP2_3_4) ########"
 python3 code/LTP1_logic_as_residual_flow.py
 python3 code/LTP2_3_4_battery.py
 
-echo "######## 2/6  UPL_Sorites.v (the book's own formal floor) ########"
+echo "######## 2/7  UPL_Sorites.v (the book's own formal floor) ########"
 coqc code/UPL_Sorites.v
 rm -f code/*.vo code/*.vok code/*.vos code/*.glob code/.*.aux 2>/dev/null || true
 
-echo "######## 3/6  evidence/*.v chain (in-repo Coq evidence, re-verified) ########"
+echo "######## 3/7  evidence/*.v chain (in-repo Coq evidence, re-verified) ########"
 # No `make` target exists for this on this branch (see evidence/README.md,
 # which documents the exact re-verification commands run here). Each file
 # is Require-independent of the others -- no fixed compile order needed.
@@ -35,13 +35,16 @@ echo "######## 3/6  evidence/*.v chain (in-repo Coq evidence, re-verified) #####
   rm -f *.vo *.vok *.vos *.glob .*.aux 2>/dev/null || true
 )
 
-echo "######## 4/6  pytest suite (ap/, via lens/) ########"
+echo "######## 4/7  pytest suite (ap/) ########"
 python3 -m pytest -q
 
-echo "######## 5/6  gate-typing checker self-test (scripts/test_check_gate_typing.py) ########"
+echo "######## 5/7  gate-typing checker self-test (scripts/test_check_gate_typing.py) ########"
 python3 scripts/test_check_gate_typing.py
 
-echo "######## 6/6  gate-typing law (docs/GATE_TYPING_LAW.md) ########"
+echo "######## 6/7  gate-typing law (docs/GATE_TYPING_LAW.md) ########"
 python3 scripts/check_gate_typing.py gates/GATE_DECLARATIONS.txt
 
-echo "✅ ALL CI CHECKS PASSED — LTP battery, UPL_Sorites, evidence/*.v chain, pytest, gate-typing self-test, gate-typing law all green."
+echo "######## 7/7  omega + native_logic (tests/test_omega_all.py, test_claim_ir.py, test_native_logic.py, test_from_omega.py) ########"
+python3 -m pytest -q tests/test_omega_all.py tests/test_claim_ir.py tests/test_native_logic.py tests/test_from_omega.py
+
+echo "✅ ALL CI CHECKS PASSED — LTP battery, UPL_Sorites, evidence/*.v chain, pytest, gate-typing self-test, gate-typing law, omega/native_logic all green."
