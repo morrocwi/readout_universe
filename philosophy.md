@@ -873,15 +873,19 @@ They are the scaffolding the grounding clause's own proofs run *inside*,
 never an object the grounding clause takes as its target.
 
 The answer starts with machinery this book has already committed to, in
-§2's tier table, before this objection was ever raised: `Th_coqc` is
-defined there as "machine-checked, axiom-free," with the explicit "What it
-is NOT" column reading **"not 'true'; a formal system closing under stated
-axioms/scope."** That clause was written to guard against reading any
-`Th_coqc` badge as certifying truth-simpliciter, and it already, on its own
-terms, refuses exactly the reading a metatheory-Platonist would need this
-corpus to be making — that CIC-checked closure delivers a
+§2's tier table, stated before this objection was ever raised even though
+the table's own wording does not name CIC or the metatheory explicitly:
+`Th_coqc` is defined there as "machine-checked, axiom-free," with the
+explicit "What it is NOT" column reading **"not 'true'; a formal system
+closing under stated axioms/scope."** That clause was written to guard
+against reading any `Th_coqc` badge as certifying truth-simpliciter, and
+this section reads it — an extension of the clause's own logic to the
+verifying apparatus, not a fact the clause already stated outright — as
+refusing exactly the reading a metatheory-Platonist would need this
+corpus to be making: that CIC-checked closure delivers a
 medium-independent, view-from-nowhere guarantee that mathematics was
-generated rather than presupposed. It does not deliver that. What
+generated rather than presupposed. On this reading it does not deliver
+that. What
 `Th_coqc` licenses, read at the letter of its own §2 definition, is
 narrower and fully honest about its own scope: *given* CIC's rules of
 inference, RD1–RD9 generate ℕ without an axiom asserting ℕ in advance. The
@@ -3365,9 +3369,12 @@ a sharper seam than either of the two objections this file already
 answers in this cluster: it is not §9.1a's individuation-of-relata worry
 (which concerns `a`/`b`, not the operator applied to them), and it is not
 §9.9a's Madhyamaka comparison, which — unlike the objection here —
-proposes no positive rival mechanism for retention; śūnyatā is a
-negative, deconstructive result, not a candidate function that does the
-retaining. Yogācāra is built to press exactly this seam, and does
+does not propose a positive retaining *mechanism* the way the objection
+below needs one: śūnyatā itself is primarily a negative, deconstructive
+result (the emptiness of svabhāva), and even §9.9a's own further reading
+of it as "relational eigenmodes" names a structural residue, not a
+functional account of what does the retaining. Yogācāra is built to
+press exactly this seam, and does
 propose a positive candidate: Vasubandhu's *ālayavijñāna* ("storehouse
 consciousness"), argued at length in the *Triṃśikā-vijñaptimātratā* and
 Asaṅga's *Mahāyānasaṃgraha*, is a retaining function that stores and
