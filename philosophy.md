@@ -947,6 +947,203 @@ as answered by §2's own tier definition plus the Gödel/Feferman
 relative-foundations parallel); the `Th_coqc` results this section
 defends the *scope* of remain exactly `Th_coqc`, unchanged, per §5.1/§5.2a.
 
+### 5.2c Two things §5.2a's `ℝ` rung was calling by one name — R-ideal and R-apparent
+
+§5.2a states, correctly, that `ℝ` is defined as Bishop regular Cauchy
+sequences of `ℚ` — but leaves one thing unsaid that a live exchange with
+the founder (2026-08-03) sharpened into a real distinction this section
+now names: "`ℝ`" as used casually across this book is doing **two
+different jobs at once**, and collapsing them under one symbol hides more
+than it clarifies.
+
+**R-ideal — not an object, a direction.** A Bishop regular Cauchy sequence
+is itself an infinite object (`f : positive → ℚ` satisfying a regularity
+bound for *every* `n, m`, not for finitely many). Specifying one exact
+real number this way still requires the whole sequence — an unreachable
+amount of information for any finite reader. The founder's own framing,
+stated directly and worth keeping exactly as put: *there is no "R-complete"
+as a thing that exists un-reached — a finite process is projected onto
+that direction, but never arrives; the projecting is real, the arrival is
+not.* This is not a new claim; it is the same discipline §5.2a's own I1
+citation already states ("`ℝ`-completeness... makes limits always land" —
+refused for exactly this reason) and the source skill's own line, quoted
+there in full: **"real as boundaries, never as appearances."** What this
+subsection adds is only the sharper way of saying it the founder gave in
+that exchange: don't even grant it the grammar of an object waiting to be
+reached. It is a direction a process is thrown in, not a place. The
+classical distinction this recovers, named plainly rather than left
+implicit — **potential infinity, usable at every finite stage, versus
+actual/completed infinity, which this book's whole ladder refuses as a
+starting object and only ever approaches** — is Aristotle's own, cited
+here as a philosophical ally the way §9.1a cites Ladyman & French, not
+claimed as this corpus's invention.
+
+**R-apparent — not a property of `ℚ`, a property of a reader's edge.** The
+founder's second move corrects a wrong first guess of this book's own (an
+earlier draft of this subsection wrongly proposed that `ℚ`'s own internal
+density — between any two rationals, another — is what manufactures the
+appearance of a continuum, a fact about `ℚ` itself, reader-independent).
+The founder's correction, stated directly (translated from the
+founder's own Thai in the same 2026-08-03 exchange; the exact original
+wording belongs in a dedicated source-dictum file per this corpus's own
+convention, not inline here): *R-apparent arises at the edge of the
+counting a given reader can no longer carry out — the boundary of `n`
+that that particular reader can no longer keep distinguishing.* Every
+discrete substrate this book ever posits —
+`D`, `ℚ`, a retained-difference graph — stays genuinely discrete, tick by
+tick, with no density smuggled in (§5.2a's own "density is provably
+absent at the root" stands unchanged — `Th_coqc` given CIC, per §5.2b's
+own caveat, carried forward here rather than silently dropped one
+section later). What looks continuous is not the
+substrate; it is what a *specific, resolution-bounded* reader gets once
+their own capacity to keep distinguishing individual ticks runs out. The
+founder's own illustration, kept in full because it makes the point
+vividly: *like a human watching a television screen* — the picture is
+discrete pixels at a discrete frame rate the whole way down, and a
+viewer whose own visual resolution has an edge below that discretization
+sees smooth, continuous motion regardless. (One honest caveat this
+subsection should not paper over: human motion perception past that edge
+is not pure failure-to-resolve — persistence of vision and beta-movement
+involve the visual system actively integrating/interpolating across
+frames, a real mechanism doing work, not merely gaps too fine to see.
+The illustration is kept for its vividness about *reader-relativity*,
+not as a claim that every case of R-apparent reduces to passive
+under-resolution; an integrating, constructing `K_A` is still consistent
+with `M_A = K_A·θ+η`, but it is a different mechanism than "just can't
+see the gaps," and this subsection does not adjudicate which mechanism
+applies to any given reader.) The smoothness is not in the screen. It is
+what discreteness looks like from *inside* a bounded reader's own edge.
+
+**Why this is not a new primitive, only a naming of something already
+implicit in this corpus's own vocabulary — stated as a resemblance, not
+a proved identity.** R-apparent *resembles the shape* of §5.1/§9.2a's own
+`M_A = K_A·θ + η` (Face 10/N2, `definition` tier): every agency's readout
+is a *lossy* linear read of a latent structure, `η` an admitted, non-zero
+remainder, and it is natural to read R-apparent as what that remainder
+looks like once it accumulates past a reader's own resolving power. But
+this is a structural analogy offered here, not a demonstrated identity —
+`η` elsewhere in this corpus is a generic lossy remainder attached to
+*any* bounded readout, not specifically tied to a counting/resolution
+edge, and this subsection's own `τ_c(A)` is a **reused symbol, not the
+same referent** as N4's `τ_c = ℏ/(2mc²)` (a domain's physical
+relaxation/memory timescale, §1's trunk-equation reading) — a reader's
+own counting-resolution edge is a different kind of quantity wearing the
+same letter, and that reuse is named here rather than left to look like
+one already-established scalar. What can be said plainly: a reader's own
+resolution failing to separate one retained tick from the next produces
+*something with the shape of* an unresolved `η`-remainder, and that is
+what this subsection calls R-apparent — not a further fact about the
+world, a fact about where *this* reader's own accounting saturates. Two
+readers with two different resolution edges would have two different
+R-apparents of the same discrete substrate — agency-relative, never a
+single fact about `ℚ`.
+
+**The full picture, three layers, not two — drawn deliberately
+asymmetric, since the two things below `ℚ` are not peers:**
+
+```
+δ_R → D → ℤ → ℚ         (genuinely discrete throughout, Th_coqc given
+                          CIC per §5.2b, density provably absent per
+                          §5.2a — unchanged, not re-asserted stronger)
+        │
+        ├── LIVE, happening now, to every bounded reader:
+        │   a specific reader A's counting edge (τ_c(A), n_max(A) —
+        │   A's own resolution, not the domain memory-timescale N4's
+        │   τ_c names elsewhere; the symbol is reused, not the referent)
+        │       → beyond it, discreteness is unresolved by A
+        │       → R-apparent(A): agency-relative, resembling the shape
+        │         of M_A's own η, not shown identical to it
+        │
+        └── NEVER reached, by anyone, at all:
+            the direction every such reader's own process is thrown
+            toward
+                → R-ideal: not an object, I1, potential-vs-actual
+                  infinity's actual-infinity horn, refused as a starting
+                  point and only ever approached
+```
+
+The branching shown here is a layout convenience, not a claim that
+R-apparent and R-ideal are symmetric outputs of the same kind — one is a
+live readout every bounded reader actually has; the other is a refused
+limit no reader ever reaches.
+
+**What this does and does not settle**, held to the same discipline
+§9.1a/§9.1b/§5.2b apply to their own additions: this does not derive a
+new theorem, and does not claim R-apparent's agency-relativity has been
+machine-checked — `ℚ`'s own density (a standard, provable fact:
+`∀x y : ℚ, x<y → ∃z, x<z<y`) is not itself what is being renamed here; the
+claim is about what a *bounded* reader's own finite operations can and
+cannot resolve at a declared `τ_c`, which is a genuinely different,
+so-far-unformalized statement. This is offered at `Dr` — a naming and
+integration of an idea reached in dialogue, sharpened twice by direct
+correction from the founder against this book's own first (wrong) guess,
+not yet a proof. A concrete, buildable next step, in the same spirit as
+§7.21's own "Upgrade attempt": a `finite_diagnostic` toy model with a
+declared, finite `τ_c(A)` and a measured signature for when a bounded
+reader's own residual (`η`) starts looking indistinguishable from
+continuum noise, would be the honest way to move this past `Dr` — not
+attempted in this subsection.
+
+**Naming the allies directly, the way §9.1a/§9.9a already do for this
+book's other claims — two independent traditions converged on pieces of
+this same distinction, centuries and civilizations apart, which is
+offered as evidence the distinction is not ad hoc, not as proof either
+tradition anticipated this book.**
+
+Locke's *An Essay Concerning Human Understanding* (Book II, Chapter
+XVII, "Of Infinity," 1690) already presses exactly the R-ideal point:
+infinity is generated only by an endless, repeatable act — "an endless
+growing idea," never a magnitude the mind actually holds — and Locke
+names the confusion this subsection is built to avoid, in his own
+words: *"the idea of the infinity of space, and the idea of a space
+infinite. The first is nothing but a supposed endless progression of
+the mind... but to have actually in the mind the idea of a space
+infinite, is to suppose the mind already passed over... which carries
+in it a plain contradiction."* Read in this book's vocabulary: the
+*progression* is real (a reader's process, genuinely thrown in a
+direction); *actually possessing* the completed endpoint is the
+contradiction — R-ideal is the first, never the second, exactly the
+"direction, not an object" framing above. (Tier: `Dr`, an interpretive
+parallel between a 1690 epistemological argument and this book's own
+readout-first ontology, not a claim Locke's own project is this one.)
+
+Jain philosophy's classical number theory — reported here via secondary
+academic sourcing (the primary canonical text, the *Dhavalā*
+commentary, was not read directly for this subsection; tier accordingly
+`Dr`, not `Th_coqc`-adjacent citation precision) — already names a
+**three-tier** structure strikingly close to R-apparent/R-ideal, and
+older than either Aristotle's or Locke's: numbers are classed as
+*saṃkhyāta* (enumerable), *asaṃkhyāta* (innumerable — itself
+subdivided into further orders), and *ananta* (infinite), where the
+innumerable/infinite boundary is drawn *operationally*, not by
+magnitude alone: a quantity is innumerable, not infinite, if a process
+that removes one unit at a time from it eventually exhausts it, however
+long that takes; only a quantity no such removal process ever exhausts
+counts as *ananta*. This is a genuinely different cut than R-ideal/
+R-apparent (Jain "innumerable" stays finite by definition, however
+large; this book's R-apparent is explicitly the *appearance* a bounded
+reader gets, not a claim about the true finite size of anything) — but
+the shared move is exact: both refuse to grant "too large for this
+process to finish counting" the same status as "genuinely without end,"
+and both locate that refusal in what a *specific counting procedure*
+can or cannot exhaust, not in the counted quantity's own intrinsic
+nature. Jain cosmology is credited, per this book's own no-supersession
+discipline (§9.9a), with an early, independently-reached instance of
+distinguishing "a process's own limits" from "actual infinity" by
+process-relative exhaustibility — not with having stated R-apparent's
+agency-relative-readout framing itself, which is this book's own
+addition, not theirs.
+
+[domain card: `information-discrete-math` textbook Parts II–V (§5.2a's
+own citation); `evidence/RD.v` lines 966–990 (the actual Bishop
+regular-Cauchy-sequence `ℝ` construction this subsection reads against);
+§5.1/§9.2a's `M_A = K_A·θ+η` (Face 10/N2); §5.6a's `τ_c = M/D`
+trunk-equation reading; §9.1a/§9.9a (the citation-of-a-real-ally, no-supersession
+pattern this subsection follows); Locke, *An Essay Concerning Human
+Understanding*, Book II Ch. XVII (1690); Jain canonical number
+classification (*saṃkhyāta*/*asaṃkhyāta*/*ananta*), reported via
+secondary academic sourcing, not a primary-text read]
+
 ### 5.3 The trunk equation
 
 > **M ∂²Φ + D ∂Φ + K·L_R Φ + ∇V(Φ) = J − η**
