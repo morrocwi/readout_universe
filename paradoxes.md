@@ -6,12 +6,21 @@
 > [`logic.md`](logic.md), plus one exploratory attempt to formally define
 > "origination" (the undefined term S3 uses to distinguish true agency from
 > a self-sensing loop) and apply it to Newcomb's Paradox. Everything new in
-> this file is freshly-produced reasoning from this session — **none of it
-> has been through this corpus's own adversarial-review process**, and most
-> of it is tiered `Dr` or `[Open]` precisely because of that. Where a
-> paradox test lands on `Th_coqc`, that machine-checked result already
-> existed in the cited source file; this document did not add new proof,
-> only pointed the existing machinery at a new question.
+> this file was originally freshly-produced reasoning, most of it tiered
+> `Dr` or `[Open]` because it had not yet been reviewed. **That has since
+> changed for the six items in the "Upgrade attempts log (2026-08-03)"
+> section below**: an independent maker-checker pass has now run against
+> all six, re-verifying each one directly (recompiling Coq files from
+> clean, re-running numeric scripts, re-reading and re-grepping cited
+> sources) rather than rubber-stamping the maker's self-report. That
+> pass's scope was narrow — Coq compilation/axiom-freedom, numeric
+> reproduction, and citation accuracy — it is not yet a pass through
+> this corpus's full adversarial-review pipeline, and it left most tier
+> verdicts unchanged (see the log for exactly what moved and what
+> didn't). Where a paradox test lands on `Th_coqc` outside that log,
+> that machine-checked result already existed in the cited source file;
+> this document did not add new proof, only pointed the existing
+> machinery at a new question.
 >
 > Tier legend (same as `philosophy.md`/`logic.md`, never collapse):
 > `Th_coqc` (machine-checked, axiom-free) ≠ `finite_diagnostic` (executed

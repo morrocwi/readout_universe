@@ -1,4 +1,4 @@
-# HANDOFF — ultracode: DRL three gates (2026-07-19, session <session-id>)
+# HANDOFF — ultracode: DRL three gates (2026-07-19)
 
 **User request (verbatim):** "ทำเลย แบ่งทีม sonnet ทำ ultracode" — สั่งหลังคุยกันว่า
 DRL จะเลื่อนขั้นเป็น "สมการแม่" ได้ต้องผ่านสามด่าน: (1) ยกขึ้น Th_coqc,
@@ -16,10 +16,11 @@ DRL จะเลื่อนขั้นเป็น "สมการแม่" 
 - วินัย: tier-honest, toy scope ประกาศ, ห้าม overclaim, ทุกตัวเลข executed,
   workers = sonnet เท่านั้น (Fable = orchestrator อย่างเดียว)
 
-**Run:** workflow "drl-three-gates" — **runId `<run-id>`**, script persisted at
-`<session-transcript-path>`
-— resume: `Workflow({scriptPath: <ไฟล์ข้างบน>, resumeFromRunId: "<run-id>"})`;
-เช็คว่าจบแล้วหรือยัง: journal.jsonl ใน transcript dir `subagents/workflows/<run-id>`
+**Run:** workflow "drl-three-gates" (script + journal persisted under this session's local
+Claude Code transcript directory — internal path, not reproduced here). To resume: locate
+the persisted `drl-three-gates-*.js` script for this workflow and call
+`Workflow({scriptPath: <script path>, resumeFromRunId: <this run's id>})`; check completion
+via that run's `journal.jsonl` under its `subagents/workflows/` transcript dir.
 
 **Workers เขียนไฟล์บน branch `feat/drl-gates`** (สร้างก่อน launch):
 - Gate1 Coq → `evidence/DRL_Discrete.v` (ห้ามแตะไฟล์อื่น)

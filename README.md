@@ -1,7 +1,7 @@
 # Readout Universe
 
 [![verify](https://github.com/morrocwi/readout_universe/actions/workflows/verify.yml/badge.svg)](https://github.com/morrocwi/readout_universe/actions/workflows/verify.yml)
-[![License: CC BY 4.0](https://img.shields.io/badge/text%20license-CC%20BY%204.0-lightgrey.svg)](LICENSE)
+[![License: MIT](https://img.shields.io/badge/license-MIT-lightgrey.svg)](LICENSE)
 
 **A Philosophy and Logic for Grounding Claims** — v1.0 → v2.0-dev
 
@@ -23,7 +23,7 @@ stronger one than its evidence supports.
 |---|---|
 | **Author** | Yaoharee Lahtee ([ORCID 0009-0005-3861-0626](https://orcid.org/0009-0005-3861-0626)) |
 | **Publisher** | Open Civil Science Initiative |
-| **License** | Text (book, `philosophy.md`, `logic.md`, `paradoxes.md`, `v2/`): [CC BY 4.0](LICENSE) · `lens/`, `skill/`, `ap/` are proprietary — see LICENSE exceptions |
+| **License** | [MIT](LICENSE), whole repository — with one named exception, `ap/ap0_lens_gates.py`, which is proprietary and excluded (see LICENSE) |
 | **Status** | v1.0 book frozen (`main.tex`) · v2.0-dev in active development |
 
 **Contents:** [What this repository is](#what-this-repository-is) ·
@@ -69,10 +69,12 @@ summarize:
 
 ## Principles
 
-1. **Position — a control layer, not a knowledge store.** Domain expertise
-   is now a commodity; the real asset is the *operator that forces
-   direction* — Gates G1–G13 force the right question, in the right order,
-   and forbid drifting into a field's own blind spots (`v2/POSITION.md`).
+1. **Position — a control layer, not a knowledge store.** Working premise
+   (`Dr`, not a settled fact): domain expertise is increasingly commoditized
+   by AI and open literature access, so the real asset is the *operator
+   that forces direction* — Gates G1–G13 force the right question, in the
+   right order, and forbid drifting into a field's own blind spots
+   (`v2/POSITION.md`).
 2. **The Lens Law.** Every problem is translated into this book's
    information-philosophy language (Information DNA: `RD1`–`RD9` +
    `RAR A1`–`A8`) before it is solved — arguing in a foreign vocabulary past
@@ -131,7 +133,7 @@ legend](logic.md#0-the-root) is canonical and also defines `Ax`, `Th`, and
 `exact_algebra`, which appear in its ledger tables; if the two ever
 disagree, `logic.md` wins.
 
-## Reproduce every claim (~5 minutes)
+## Reproduce the machine-checked core (~5 minutes)
 
 ```sh
 make verify   # LTP1 (expect PASS 3/3), LTP2-4 (expect PASS 8/8),
@@ -140,16 +142,30 @@ make pdf      # builds main.pdf from main.tex (pdflatex x2)
 make all      # verify + pdf
 ```
 
+This command reproduces only the `Th_coqc` / `finite_diagnostic` slice
+(LTP1-4, the Coq floor, the PDF build). The `Dr` / `Open` / `fit_calibrated`
+claims elsewhere in this repository (most of `philosophy.md`, for example)
+are, by their own tier definition, not mechanically reproducible — they are
+read and audited, not run.
+
 **Requirements:** `make verify` needs Python 3 + NumPy and Coq (8.18+;
 8.20.1 verified — see [`docs/VERIFIED_RUNS.md`](docs/VERIFIED_RUNS.md));
-`make pdf` needs a TeX Live distribution (`pdflatex`). The pytest suite
-(`ap/`, exercised via `lens/`) additionally needs SciPy and SymPy — see
+`make pdf` needs a TeX Live distribution (`pdflatex`). The pytest suite in
+`ap/` additionally needs SciPy and SymPy — see
 [`requirements.txt`](requirements.txt) for exact version pins, and run it
 with `python3 -m pytest -q`.
 
 Found a genuine falsification? That is this system working as designed —
 please report it.
 
+## Executed case studies — `ap/`
+
+AP0 (gate anchors) through AP21 (spin-1 Weitzenböck rung) — every
+numerical claim in the documentation has a corresponding pytest here; runs
+are logged in [`docs/VERIFIED_RUNS.md`](docs/VERIFIED_RUNS.md). One file,
+`ap/ap0_lens_gates.py`, exercises an internal engine that is not part of
+this public repository (see LICENSE) and is excluded; every other file in
+`ap/` runs standalone with `python3 -m pytest -q`.
 
 ## Repository layout
 
@@ -181,14 +197,17 @@ v2/                            the lens doctrine + equations: Information DNA,
                               DRL, Append-Only Record, Forced-Identification,
                               Domain Ledger, Roadmap, urr/ (URR-C 0.4)
 
-
-ap/                             executed case studies (pytest; AP0-AP21)
+ap/                             executed case studies (pytest; AP0-AP21;
+                                ap0_lens_gates.py excluded, see LICENSE)
 evidence/                       in-repo Coq evidence (RD.v, URCF_RD_All.v,
                                 DRL_Discrete.v, DRL_General_Legendre.v)
 gates/                          gate-typing support files
 scripts/                        maintenance and build scripts
 ```
 
+The whole repository is [MIT](LICENSE), with one named exception:
+`ap/ap0_lens_gates.py`, which exercised a proprietary internal engine and
+has been removed ahead of publication (see LICENSE for the full note).
 
 **Naming convention:** root-level primary documentation is lowercase
 (`philosophy.md`, `logic.md`, `paradoxes.md`, `claims.md`,
@@ -215,10 +234,10 @@ and are out of scope for this rule.
 ```bibtex
 @misc{lahtee_readout_universe,
   author       = {Lahtee, Yaoharee},
-  title        = {Readout Universe: The Philosophy and Logic of Everything},
+  title        = {Readout Universe: A Philosophy and Logic for Grounding Claims},
   year         = {2026},
   howpublished = {\url{https://github.com/morrocwi/readout_universe}},
   note         = {ORCID: 0009-0005-3861-0626. Open Civil Science Initiative.
-                   v1.0 text under CC BY 4.0.}
+                   MIT License.}
 }
 ```

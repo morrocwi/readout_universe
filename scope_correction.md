@@ -89,7 +89,7 @@ framing:
 
 ## Tests
 
-7 tests in `ap/ap19_spin1_weizenbock.py`, including two added to pin the
+7 tests in `ap/ap21_spin1_weizenbock.py`, including two added to pin the
 genericity of the multiplier-2 result (multi-seed check) and the
 so(3) Lie-homomorphism identity that is the actual mechanism. Full repo
 suite: 73 passed.

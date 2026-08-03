@@ -196,8 +196,8 @@ Canonical records:
 Note on scope: this file's header restricts it to `finite_diagnostic` numerical
 runs; a `coqc` compile is a `Th_coqc`-tier machine check, not a numerical
 result. This entry is a pointer only — the canonical dated executed-run row
-lives in `docs/VERIFIED_RUNS.md` ("2026-07-20 — development workstation (ANSE.ASIA
-workstation, Coq 8.20.1) — URR-C foundational chain compiles"), per that
+lives in `docs/VERIFIED_RUNS.md` ("2026-07-20 — development workstation
+(ANSE.ASIA workstation, Coq 8.20.1) — URR-C foundational chain compiles"), per that
 file's own rule that a `Th_coqc` claim must have a dated run recorded there.
 
 ```bash

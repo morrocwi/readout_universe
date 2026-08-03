@@ -75,7 +75,7 @@ Doubled field X = (Φ, Ψ)ᵀ บน node ของกราฟ × step เว�
 - (ค) ประจุ H ไม่อนุรักษ์ในกรณีทั่วไปกว่า (กราฟไม่สม่ำเสมอ, M,D,K ต่อ node) —
   ทดสอบแล้วบนกราฟ ring เท่านั้น [toy tier — ประกาศชัด]
 
-## สถานะสามด่าน (ultracode run <run-id>, 2026-07-19 — ทุกด่านมี independent verifier)
+## สถานะสามด่าน (2026-07-19 — ทุกด่านมี independent verifier)
 
 **ด่าน 1 — Coq: ผ่าน (ในขอบเขตประกาศ).** `evidence/DRL_Discrete.v` (Coq 8.20.1
 exit 0, ตรวจซ้ำโดย verifier จาก clean slate):

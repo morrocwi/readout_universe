@@ -2,14 +2,14 @@ name: verify
 
 on: [push, pull_request]
 
-# Coq is PINNED to 8.20.1. On a self-hosted runner the toolchain is installed
-# once on the machine instead of rebuilt every run, so the pin is enforced by
-# CHECKING the version and failing loudly on drift, rather than by reinstalling.
-# That is strictly stronger than `apt-get install -y coq` (unpinned, drifts with
-# the image) and cheaper than an opam rebuild per run. This machine already
-# demonstrates the drift risk: it carries an opam switch named `coq818` that
-# actually contains Rocq Prover 9.1.1, because unpinned `coq` now pulls
-# rocq-core. Single pinned version, no build matrix.
+# Runs on a self-hosted runner rather than a GitHub-hosted one, so the Coq
+# toolchain is installed once instead of rebuilt every run.
+#
+# Coq is PINNED to 8.20.1. The pin is enforced by CHECKING the installed
+# version and failing loudly on drift, rather than by reinstalling on every
+# run -- strictly stronger than an unpinned `apt-get install -y coq` (which
+# drifts silently with the base image) and cheaper than a per-run opam
+# rebuild. Single pinned version, no build matrix.
 jobs:
   verify:
     runs-on: [self-hosted, linux]

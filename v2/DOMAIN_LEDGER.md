@@ -3,7 +3,7 @@
 > Rule: a domain enters this ledger ONLY with a runnable/checked artifact at its
 > canonical path. Tier legend as in `README.md`; verdict classes as in
 > `research_universal_solver/docs/root/BORROWED_VS_DERIVED_LEDGER.md`.
-> Paths are relative to `<workspace-root>` (private repos; git remotes
+> Paths are relative to `<workspace-root>/` (private repos; git remotes
 > in each repo). A bridge row is `Dr` by definition — the artifact's own tier is
 > listed separately.
 

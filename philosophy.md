@@ -75,14 +75,18 @@ correspondence to the infinite" (`TRANSLATION_PROTOCOL.md` dictionary, row
 L-07). This re-reading is a stance the whole system is built on top of, not a
 proof that correspondence-truth is false.
 
-**readout-not-truth is not only a stance.** Its exact combinatorial shape now
-has a machine-checked general theorem in the sibling repo
-(`readout_genesis/formal/InfoTrueRecordUnreadable_attempt.v`, `Th_coqc`,
-axiom-free): whenever a readout operator maps two distinct true states to the
-same recorded value, both states still exist, but no decoder can recover both
-from the record alone. This is a general fact about non-injective maps — it
-grounds the *shape* of the claim, not the DRL-specific machinery below (see
-`logic.md` EQ-032–034).
+**A supporting, not independent, machine-checked illustration.** This is a
+general fact about non-injective maps — an elementary consequence of "a
+non-injective function has no total inverse," not new mathematical content —
+so it grounds the internal *shape* of the readout-not-truth claim, not the
+DRL-specific machinery below (see `logic.md` EQ-032–034), and it is not
+independent evidence that the stance is true of the physical world. With that
+caveat stated up front: the sibling repo has a machine-checked, axiom-free
+statement of this exact shape
+(`readout_genesis/formal/InfoTrueRecordUnreadable_attempt.v`, `Th_coqc`):
+whenever a readout operator maps two distinct true states to the same
+recorded value, both states still exist, but no decoder can recover both from
+the record alone.
 
 **A distinction two readouts must not be collapsed into each other — the
 frozen-map theorem and a time-extended closure result look adjacent but are
@@ -730,8 +734,10 @@ metric/symplectic tensors `G, Ω` take exactly this form) is itself
 relocated, not eliminated, and `D`'s sign is forced while its value remains
 `[Open]`. See `logic.md` §DRL for the
 equation itself and its tiered status (Euler–Lagrange derivation of the
-damped spine: `finite_diagnostic`, extended to Coq: `Th_coqc` in declared
-scope). Philosophically, the retention metric G (zero on its own diagonal)
+damped spine: `finite_diagnostic`, extended to Coq as `DRL-Coq-T1`:
+`Th_coqc` in declared-axiom form — the theorem depends on two declared
+classical Reals axioms, `sig_forall_dec` and `functional_extensionality`,
+per `logic.md`'s own DRL-Coq-T1 row; it is not axiom-free). Philosophically, the retention metric G (zero on its own diagonal)
 is read as the **Doctrine of Quantity in metric form**: no field has a norm
 of its own — magnitude exists only when reader and record are paired, i.e.
 "the reader never measures itself, only itself against a record."

@@ -5,7 +5,10 @@
 > exactly as given in the source file** (never upgraded here) and a one-line
 > pointer to that file. Tier legend:
 >
-> `Ax` axiom · `Th` theorem · `Th_coqc` machine-checked, axiom-free
+> `Ax` axiom · `Th` theorem — includes machine-checked results that declare
+> one or more non-constructive classical axioms (`Print Assumptions` shows
+> them, not `Closed`); such results are never labeled `Th_coqc` · `Th_coqc`
+> machine-checked, axiom-free
 > (`Print Assumptions` ⇒ Closed) · `finite_diagnostic` measured/executed,
 > not proof · `Dr` declared bridge / human narrative · `Open` not
 > established (carries a stance + falsifier at source) · `fit_calibrated`
@@ -330,7 +333,7 @@ where ΔXⁿ = Xⁿ⁺¹ − Xⁿ, and:
 | DRL-2 | Mirror equation (variation w.r.t. Φ) ⇒ Ψ anti-damped; in this linear model Φ,Ψ decouple in EL — Ψ's growth is from its own IC, not handoff from Φ | `Open` (in DRL model) | `ap/ap5_drl.py` |
 | DRL-3 | Bilinear invariant `H = M·vΦᵀvΨ + K·ΦᵀL_RΨ + k₂·ΦᵀΨ`; rel. drift 1.5×10⁻⁴ over 4000 steps. Reading H as "conservation of distinction" is `Dr`, not a proved mechanism — counterexample: Ψ₀=0 ⇒ Ψ≡0, H≡0 while Φ dissipates fully | `finite_diagnostic` (measurement) / `Dr` (interpretation) | `ap/ap5_drl.py` |
 | DRL-4 | D=0 ⇒ Φ,Ψ obey the same conservation law (Φ=Ψ admissible); reduces to the original theory exactly | `finite_diagnostic` | `ap/ap5_drl.py` |
-| DRL-Coq-T1 | EL-identity (iff both directions): dS/dΨ=0 ⟺ damped recurrence; dS/dΦ=0 ⟺ anti-damped — 3-ring, 3-slice scope; 2 classical Reals axioms declared (`sig_forall_dec`, `functional_extensionality`) | `Th_coqc` (declared-axiom form) | `evidence/DRL_Discrete.v` (Coq 8.20.1, exit 0, independently reverified) |
+| DRL-Coq-T1 | EL-identity (iff both directions): dS/dΨ=0 ⟺ damped recurrence; dS/dΦ=0 ⟺ anti-damped — 3-ring, 3-slice scope; 2 classical Reals axioms declared (`sig_forall_dec`, `functional_extensionality`) | `Th` (declared-axiom; NOT `Th_coqc` — `Print Assumptions` shows 2 non-constructive classical Reals axioms, so this does not meet the axiom-free bar the `Th_coqc` legend requires) | `evidence/DRL_Discrete.v` (Coq 8.20.1, exit 0, independently reverified) |
 | DRL-Coq-T2 | D-cancellation: Legendre charge H contains no D — pure `ring` identity | `Th_coqc` | `evidence/DRL_Discrete.v` |
 | DRL-Coq-T3 | Leapfrog shadow energy exactly conserved at D=0 | `Th_coqc` | `evidence/DRL_Discrete.v` |
 | DRL-Coq-genN | General-N Legendre/D-cancellation, axiom-free, list induction: any node count, per-node M_i/D_i, any graph, any potential (abstract w_i — covers k₂qr, quartic Ψᵀ∇V, forcing −JᵀΨ). `H = Σ Mᵢvqᵢvrᵢ + GB + Σ wᵢ` | `Th_coqc` (axiom-free) | `evidence/DRL_General_Legendre.v` |
@@ -359,8 +362,11 @@ integrators) — must never be cited as originated here. Candidate-novelty
 layer only: (a) the discrete-graph tensor form G⊗L_R, (b) Ψ read as *ontic*
 record (not auxiliary/fictitious, per RD4), (c) zero-diagonal G read as the
 Doctrine of Quantity in metric form. Literature falsifier search (2026-07-19)
-found no prior work combining all three — status: `[Open → Dr-leaning]`,
-pending external peer review.
+found no prior work combining all three — status: `[Open]`. Per this
+workspace's own standing rule (philosophy.md §6), an external literature/
+peer check is one further input the corpus would weigh like any other
+adversarial reviewer, never a gate or lever that by itself raises this
+claim's tier.
 
 ---
 

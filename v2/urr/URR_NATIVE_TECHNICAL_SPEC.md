@@ -5,7 +5,7 @@
 **Version:** 0.1.0-native  
 **Date:** 2026-07-20  
 **Timezone:** Asia/Bangkok  
-**Author context:** Yaoharee Lahtee / Open Science–Civil Science Initiative  
+**Author context:** Yaoharee Lahtee / Open Civil Science Initiative  
 **Artifact status:** working technical specification  
 **Core status:** DRL derived-narrow + finite diagnostics; URR composition is a declared candidate architecture  
 **Distribution status:** internal review until human review and external peer review  

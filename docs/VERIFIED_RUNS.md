@@ -3,7 +3,7 @@
 Rule: a claim from `claims.md` may be cited as `finite_diagnostic`/`Th_coqc` only
 if a dated executed run appears here (machine-dependent timings are never claimed).
 
-## 2026-07-19 — development workstation 5 15ARH05 (Ubuntu, Python 3 miniforge, Coq 8.20.1)
+## 2026-07-19 — development workstation (Ubuntu, Python 3 miniforge, Coq 8.20.1)
 
 | Check | Command | Result |
 |-------|---------|--------|
@@ -61,7 +61,7 @@ Both TOY TIER (declared in file headers). Full suite: `python3 -m pytest -q` →
 |-------|---------|--------|
 | AP5 (4 tests: EL residual <1e-8 บน trajectory จริง [วัด 4.4e-10] — D-term derive จาก action สำเร็จ; reader ตาย/record โต; ประจุ distinction H drift <1e-3 [วัด 1.5e-4]; reduction D=0 อนุรักษ์) | `python3 -m pytest ap/ap5_drl.py -q` | 4 passed |
 
-## 2026-07-19 — ultracode <run-id>: DRL three gates (6 sonnet agents, ทุกด่านมี verifier)
+## 2026-07-19 — DRL three gates (multi-agent run, ทุกด่านมี verifier)
 
 | Check | Command | Result |
 |-------|---------|--------|

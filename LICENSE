@@ -2,27 +2,47 @@ Readout Universe — Philosophy and Logic (v1.0)
 Copyright (c) 2026 Yaoharee Lahtee (ORCID 0009-0005-3861-0626),
 Open Civil Science Initiative.
 
-This work is licensed under the Creative Commons Attribution 4.0 International
-License (CC BY 4.0).
+MIT License
 
-You are free to:
-  Share — copy and redistribute the material in any medium or format
-  Adapt — remix, transform, and build upon the material for any purpose,
-          even commercially.
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this repository and associated documentation files (the "Work"), to deal
+in the Work without restriction, including without limitation the rights to
+use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Work, and to permit persons to whom the Work is furnished to
+do so, subject to the following conditions:
 
-Under the following terms:
-  Attribution — You must give appropriate credit, provide a link to the license,
-  and indicate if changes were made.
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Work.
 
-Full license text: https://creativecommons.org/licenses/by/4.0/legalcode
+THE WORK IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+FROM, OUT OF OR IN CONNECTION WITH THE WORK OR THE USE OR OTHER DEALINGS IN
+THE WORK.
 
-EXCEPTIONS — NOT covered by CC BY 4.0 (proprietary, all rights reserved):
-  lens/          (incl. lens/vendor/ snapshots of research_universal_solver/engine,
-                  and [removed-internal-engine] — see lens/vendor/LICENSE)
-  skill/         (the readout-lens operator skill)
-  ap/            (applied-protocol case studies)
-These paths are PRIVATE to the Open Civil Science Initiative / ANSE and must be
+EXCEPTIONS — NOT covered by the MIT License above (proprietary, all rights reserved):
+  ap/ap0_lens_gates.py    (the only file in ap/ that exercises the removed
+                           lens/ engine directly; all other ap/ case studies,
+                           AP1 through AP21, are covered by the MIT License
+                           above like the rest of this repository)
+This file is PRIVATE to the Open Civil Science Initiative / ANSE and must be
 removed or separately licensed before any public redistribution of this repo.
-The CC BY 4.0 grant covers the v1.0 book (main.tex, main.pdf, CLAIMS.md,
-code/LTP*.py, code/UPL_Sorites.v, code/UPL_Sorites_OneReversal.v) and the
-v2/ doctrine documents only.
+
+NOTE: lens/ and skill/ (a vendored snapshot of a sibling private repository's
+engine source, and the operator skill built on top of it) have been removed
+from this repository ahead of publication — they were proprietary,
+all-rights-reserved third-party source and were never eligible for public
+redistribution under any license in this repo.
+
+Coverage rule: everything in this repository EXCEPT ap/ap0_lens_gates.py is
+licensed under the MIT License above — this includes, without limitation,
+the v1.0 book (main.tex, main.pdf, claims.md), philosophy.md, logic.md,
+paradoxes.md, the code/ directory (all file types), the entire v2/
+directory (all file types, including non-.md code/data files such as
+v2/urr/*.py and v2/urr/*.yaml), the ap/ directory except the one file
+named above, the docs/ directory, the evidence/ directory, the gates/
+directory, the scripts/ directory, and root-level documents such as
+scope_correction.md, urr_native_system.md, and
+EQUATION_LIBRARY_ROOT_TO_SM_STREAM_research_universal_solver.md.
