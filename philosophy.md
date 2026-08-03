@@ -3033,7 +3033,14 @@ philosophical proposal about how to understand human experience — **not
 a medical proposal, not a diagnosis, not treatment guidance.** Named
 clinical conditions appear only to point at a resemblance of
 experience-pattern and language, never to conclude anything about any
-individual.*
+individual. **Mental health is a matter directly bound up with
+psychiatric knowledge, psychology, and specialized professionals — the
+founder's own words, carried forward unedited, not softened into a
+generic caveat.** If any of the patterns named below resonate with real,
+present suffering — yours or someone else's — this entry is not where
+that gets addressed: please reach a qualified mental-health professional
+or, in a crisis, local emergency services. Nothing below is a substitute
+for that.*
 
 The founder's own opening move is this corpus's own oldest commitment,
 independently re-derived and pointed at mental health specifically: a
@@ -3069,17 +3076,25 @@ of symptoms but a **crisis of translation**: the further apart the inner
 and outer worlds sit, the harder translation becomes, and the more
 suffering, confusion, and fracture tend to follow.
 
-This crisis can appear in two broad shapes. In the first, the **inner
-world grows too dense for translation to keep it aligned with the
-outer**: thought, feeling, memory, imagination, or inner drive
-intensifies until it gradually overtakes how the outer world is
-perceived. Early on this can appear as feeling misunderstood, alienation
-from others, or instability in what feels like shared reality; as the
-gap widens further, the inner frame can become the primary lens for
-interpreting everything outer, until what others hold as shared reality
-becomes difficult to reach at all — patterns resembling dissociation,
-derealization, delusional interpretation, paranoia, psychosis, manic
-episodes, or presentations in the schizophrenia spectrum. In the second,
+This crisis can appear in two broad shapes — named here as *patterns of
+appearance*, not as a causal account of what produces them. The
+conditions named alongside each shape below have their own real,
+studied, and often substantially biological or multifactorial causes,
+which this philosophical proposal neither addresses nor claims to
+replace; nothing below should be read as "translation difficulty is what
+causes X," only as "X, when it occurs, is one place this proposal's own
+two-world language can be recognized in the pattern of how it appears."
+In the first, the **inner world grows too dense for translation to keep
+it aligned with the outer**: thought, feeling, memory, imagination, or
+inner drive intensifies until it gradually overtakes how the outer world
+is perceived. Early on this can appear as feeling misunderstood,
+alienation from others, or instability in what feels like shared
+reality; as the gap widens further, the inner frame can become the
+primary lens for interpreting everything outer, until what others hold
+as shared reality becomes difficult to reach at all — patterns
+resembling dissociation, derealization, delusional interpretation,
+paranoia, psychosis, manic episodes, or presentations in the
+schizophrenia spectrum. In the second,
 the **outer world grows too heavy**: duties, expectations, economic
 pressure, relationships, work, time, and social pressure arrive
 continuously, faster than the mind can translate them into meaning for
@@ -3114,14 +3129,23 @@ falsifiability discipline in action before the explicit falsifier is
 even stated.** Some people sit at a wide distance from mainstream
 society yet do not suffer as much as this proposal might predict. The
 founder's own reading: this does not mean they stand apart from the
-outer world as such — it means they have successfully translated a
-*different* outer world into correspondence with their inner one. That
-outer world need not match the mainstream social norm; it can be a
-specific world that admits their way of being — the world of a musician,
-a monastic, or some other specific world that gives the inner life
-somewhere to stand. Suffering, on this reading, does not come from
-difference alone — it comes when the inner world finds *no* outer world
-anywhere to stand in.
+outer world as such — it means an outer world exists, for them, that
+their inner world corresponds with. That outer world need not match the
+mainstream social norm; it can be a specific world that admits their way
+of being — the world of a singer, a monastic, or some other specific
+world that gives the inner life somewhere to stand. Suffering, on this
+reading, does not come from difference alone — it comes when the inner
+world finds *no* outer world anywhere to stand in. **Read carefully, not
+as a verdict on effort or skill:** this paragraph names a structural
+condition — whether a fitting outer world exists and is reachable, which
+depends on chance, circumstance, and social structure at least as much
+as on anything a person does — not a personal failing or a shortfall of
+trying. A person suffering under similar distance from the mainstream
+has not "failed to translate" in any sense this proposal holds them
+responsible for; the proposal's own claim is only that the relevant
+outer world may not yet exist for them, be reachable by them, or be
+visible to them, which is a very different claim from a failure of
+effort.
 
 **The proposal's own definition of mental health**, stated directly:
 not the narrow absence of symptoms or the absence of suffering (since
@@ -3147,15 +3171,21 @@ inner and outer worlds still find each other in translation; much
 psychological suffering arises when that translation falls out of
 balance — and the further apart the two worlds sit, the harder
 translation becomes, the more mental-health difficulty tends to follow.
+The founder's own stated purpose in offering this, kept as its own
+sentence rather than folded into the compression above: to open space
+for taking seriously that a person may be suffering not because they
+lack an inner world or lack an outer world, but because the two worlds
+— including forces fractured within the person themselves — simply have
+not found each other in translation.
 
 **Explicitly stated as refutable, by the founder's own words, reproduced
-here rather than paraphrased away:** *"if it can be shown that human
-psychological suffering can be perceived and fully exist without any
-relation to the inner world, the outer world, or translation between
-them at all — or if there is a case where the distance between the two
-worlds is very wide, yet unrelated to suffering, loss of shared reality,
-fracturing of the self, or loss of life function — this proposal must be
-limited, revised, or abandoned as appropriate."* This is the same
+here rather than paraphrased away:** *"if someone points out that human
+psychological suffering can be perceived and fully exist without going
+through the relationship among the inner world, the outer world, and
+translation at all — or if there is a case where the distance between
+the two worlds is very wide, yet unrelated to suffering, loss of shared
+reality, fracturing of the self, or loss of life function — this
+proposal must accordingly be limited, revised, or overturned."* This is the same
 discipline this book names elsewhere as the Fail-Able Gate Law (§2.1) —
 a stance is not treated as strong because it has not yet been tested,
 but because a real, stated condition exists under which it would be
@@ -3187,11 +3217,18 @@ validated against any data. It does not diagnose, does not recommend
 treatment, and does not claim the named clinical conditions above are
 correctly or exhaustively described by this framing — they are named,
 by the founder's own words, only to point at a resemblance of pattern
-and language. It does not claim the "two-channel translation-coherence"
-reading of N2/§7.21/§7.23 has been formalized — that connection is
-offered here as an interpretive bridge, `Dr`, not a new theorem. The
-founder's own stated falsifier stands as the entry's own honest exit
-condition, not softened or hedged away by this integration.
+and language, never as a causal account competing with, replacing, or
+simplifying the real biological, genetic, and multifactorial causes
+those conditions are actually understood to have. It does not claim the
+"two-channel translation-coherence" reading of N2/§7.21/§7.23 has been
+formalized — that connection is offered here as an interpretive bridge,
+`Dr`, not a new theorem. The founder's own stated falsifier stands as
+the entry's own honest exit condition, not softened or hedged away by
+this integration. And, restated because it is the one instruction that
+matters most if this entry is ever actually relevant to a reader: if any
+of this resonates with real suffering, this entry is not the place that
+gets addressed — a qualified mental-health professional, or emergency
+services in a crisis, is.
 
 [domain card: `v2/MENTAL_HEALTH_TRANSLATION_CRISIS_PROPOSAL.md` (full
 Thai source, founder, 2026-08-04); §1 (readout-not-truth, the opening
