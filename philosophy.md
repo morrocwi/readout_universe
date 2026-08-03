@@ -54,8 +54,8 @@ equality." That flag *is* Q3 — stated in physics register, but read here it
 is the equal-number fallacy refused in the wild: the formula's structural
 identity (same √, same operation) does not license swapping `r_U` for `r_D`
 or `r_E`, because each number's role — *which* mass sector it closes — is
-fixed by its inputs, not by the shape it was computed with. Same เครื่องมือ
-(instrument/formula), different ตำแหน่ง (role) in the readout graph; the
+fixed by its inputs, not by the shape it was computed with. Same
+instrument/formula, different role in the readout graph; the
 book's ban on "equal digits ⇒ same quantity" would apply here too if any two
 of the three ever coincided numerically — they happen not to, but the ban is
 on the *inference*, not on the coincidence. Tier discipline still binds even
@@ -119,7 +119,7 @@ becomes readable" §, lines 136–160]
 
 ---
 
-## 2. The tier discipline — ทำไมต้องมี (why it exists)
+## 2. The tier discipline — why it exists
 
 Every claim in this corpus must carry one of five tags, and the tags are
 **never allowed to collapse into each other**:
@@ -134,8 +134,8 @@ Every claim in this corpus must carry one of five tags, and the tags are
 | `definition` | declared object/gate — a stipulated/definitional statement, not derived or measured | not `Dr`; a naming/setup move, not a narrative-bridge reading |
 
 Why bother: this is the corpus's answer to how a small team (stated cost:
-"หนึ่งคน + AI + สคริปต์สั้น" — one person + AI + short scripts,
-[`v2/POSITION.md`] §1) avoids the two failure modes of ambitious synthesis —
+"one person + AI + short scripts," [`v2/POSITION.md`] §1) avoids the two
+failure modes of ambitious synthesis —
 *quiet overclaiming* (dressing a narrative reading as a theorem) and *quiet
 underclaiming* (hiding a real machine-checked result behind hand-wavy prose).
 The discipline is enforced, not merely declared: no numeric claim may enter a
@@ -313,7 +313,7 @@ benchmark number.
 
 ---
 
-### 2.5 Operator grounding — the contaminated-concept checklist (ทำไม operator เองก็ต้องมี tier)
+### 2.5 Operator grounding — the contaminated-concept checklist (why the operator itself must carry a tier too)
 
 §2 above disciplines *claims* — every sentence that asserts a fact must
 carry a tier tag. This section extends the same discipline one level down,
@@ -437,9 +437,9 @@ foreign vocabulary past Step 1.
 
 ## 4. Position — the Gate layer G1–G13 as a control layer, not a knowledge store
 
-`v2/POSITION.md` states the self-conception plainly: *"เราไม่ใช่คลังความรู้
-เราคือชั้นควบคุมของการคิด"* — **we are not a knowledge store, we are the
-control layer of thinking.** In an era where domain knowledge is a commodity
+`v2/POSITION.md` states the self-conception plainly: **"we are not a
+knowledge store, we are the control layer of thinking."** In an era where
+domain knowledge is a commodity
 (available near-free from AI + open literature), the scarce capital is not
 more knowledge but *the operator that forces the right questions, in the
 right order, and forbids the wrong turns the whole field tends to take
@@ -1584,30 +1584,35 @@ working exactly as designed — not a flaw the reader should discount.
 
 *Tier: `finite_diagnostic` (`external_adapter: Dr`)*
 
-ในบรรดา domain bridge ที่ยังไม่ผ่าน three-file binding นั้น physics/cosmology
-ไม่ใช่ช่องว่างที่ยังไม่มีของจริงมาแปะ — มันมี *running artifact* อยู่แล้ว:
-AP14 รัน adapter จักรวาลวิทยาสองตัว (flat-ΛCDM และ CPL w₀wₐCDM) ทับเวกเตอร์
-ระยะ BAO 13 ช่องของ DESI DR2 ที่อ้างอิงถึง arXiv:2503.14738 Table IV ได้ตรง
-ทศนิยมที่พิมพ์ไว้จริง — นี่คือ "an executed diagnostic against a cited public
-data vector" ตามความหมายของประโยค "a running artifact" ใน §5.5 เอง ไม่ใช่แค่
-prose ที่ฟังดูเป็นฟิสิกส์ สิ่งที่ยังไม่ครบคือฝั่ง Coq: ไม่มีไฟล์
-machine-checked มาคู่กับ diagnostic นี้ และตัว residual-covariance ที่ใช้
-ถ่วงน้ำหนัก χ² เอง — ไม่ใช่แค่ "ยังไม่ตรวจ" แต่ AP14 §0 ระบุไว้ตรงๆ ว่า
-off-diagonal ของมันต่างจากสิ่งที่ Table IV บอก (σ, r) ให้คำนวณย้อนกลับได้ถึง
-0.088% — provenance unresolved, ยังไม่ปิด เป็น Open item อยู่จริง ไม่ใช่แค่
-ท่าทีระมัดระวังเฉยๆ
+Among the domain bridges that have not yet passed three-file binding,
+physics/cosmology is not a gap with nothing real attached to it — it
+already has a *running artifact*: AP14 runs two cosmology adapters
+(flat-ΛCDM and CPL w₀wₐCDM) against the 13-bin DESI DR2 BAO distance
+vector referenced to arXiv:2503.14738 Table IV, matching the printed
+decimals exactly — this is "an executed diagnostic against a cited public
+data vector" in exactly the sense §5.5's own phrase "a running artifact"
+means, not just prose that sounds like physics. What is still not complete
+is the Coq side: there is no machine-checked file paired with this
+diagnostic, and the residual-covariance used to weight χ² itself — not
+merely "not yet checked," but AP14 §0 states directly that its
+off-diagonal entries differ from what Table IV's own (σ, r) implies,
+computable back to 0.088% — provenance unresolved, not yet closed, a
+genuinely open item, not merely a cautious posture.
 
-ตรงนี้จึงเป็นตัวอย่างว่า "artifact exists" กับ "bridge commutes cleanly with
-the readout structure" เป็นเงื่อนไขคนละชั้น — การมี diagnostic ที่รันจริง
-ผลลัพธ์ตรวจสอบได้ (chi-square, AIC/BIC, Fisher condition number ล้วน
-reproducible) ไม่ได้ทำให้ระดับ tier กระโดดข้าม Dr ไปเอง เพราะข้อมูลนำเข้าเอง
-ยังมีรอยแยกที่ไม่ปิด — เหมือนที่เอกสารต้นทางบอกตัวเองว่านี่คือ "a serious
-benchmark ... not evidence that the complete cosmological model has been
-derived." สรุปคือ physics/cosmology bridge ได้ปิดครึ่งหนึ่งของช่องว่าง §5.5
-— มันมีของให้ชี้ได้แล้ว — แต่ยังคง `Dr` เท่าเดิม เพราะการปิด Dr → Th_coqc
-ไม่ใช่แค่เรื่องมีสคริปต์รันได้ แต่ต้องมีทั้ง Coq companion และ provenance
-chain ที่ปิดสนิท ซึ่ง Sorites ยังคงเป็นกรณีเดียวที่มีครบทั้งสามไฟล์พร้อมกัน
-(§5.5 above).
+This, then, is an example that "artifact exists" and "bridge commutes
+cleanly with the readout structure" are conditions on different levels —
+having a diagnostic that actually runs, with checkable results
+(chi-square, AIC/BIC, Fisher condition number, all reproducible), does not
+by itself make the tier jump past `Dr`, because the input data itself
+still carries an unclosed crack — just as the source document states of
+itself that this is "a serious benchmark ... not evidence that the
+complete cosmological model has been derived." In sum: the
+physics/cosmology bridge has closed half of §5.5's gap — it now has
+something to point to — but it remains `Dr` as before, because closing
+Dr → Th_coqc is not just a matter of having a runnable script, but
+requires both a Coq companion and a provenance chain that is fully
+closed, and Sorites remains the only case with all three files present
+together at once (§5.5 above).
 
 [domain card: physics/cosmology bridge — readout_universe/ap/AP14_URR_DESI_DR2_COSMOLOGY_BENCHMARK.md §5; §7]
 
@@ -2177,18 +2182,20 @@ directly for full depth:
   muon g−2, JWST, the gravity-weakness "mystery ladder", retention
   self-interaction) — `v2/MYSTERY_LADDER.md`, `v2/RETENTION_SELF_INTERACTION.md`,
   and the individual `ap/apN_*.py` files + `docs/VERIFIED_RUNS.md`.
-  - **หมายเหตุกันเข้าใจผิด (2026-08-02):** ladder นี้จบที่สามชิ้นที่ยัง
-    `[Open]` เสมอ — (2s)² paramagnetic law, ป้ายสถิติ (−1)^{2s}, และทำไม
-    generation grammar settle ที่ d_s=3. ตัวเลข AP ที่สูงกว่า (เช่น AP19)
-    ไม่ได้แปลว่ามีการปอกชั้นเพิ่มบน ladder เดียวกัน — AP19 เป็นโดเมนคนละ
-    domain: two-node native ที่ไม่มีมิติ (dimensionless), ไม่ผูกกับ external
-    quantity ใด ๆ, และประกาศ `unified_DRL_cut_tape_action: Open` ของตัวเอง
-    ต่างหาก การที่เลขลำดับ AP เดินต่อกันเป็นข้อเท็จจริงเชิงบรรณาธิการ
-    (ลำดับไฟล์) ไม่ใช่ข้อเท็จจริงเชิงญาณวิทยา (ลำดับการปิดปริศนา) — ห้าม
-    อนุมานว่างานหลังหมายเลขสูงกว่าทำให้สามชิ้นสุดท้ายของ gravity-hierarchy
-    ladder ขยับเข้าใกล้การปิดแม้แต่น้อย จนกว่าจะมี artifact ที่ derive
-    สามชิ้นนั้นจาก channel/grammar โดยตรง ตามเงื่อนไขชัยชนะที่ระบุไว้ใน
-    `v2/MYSTERY_LADDER.md` เอง.
+  - **Note against misreading (2026-08-02):** this ladder ends at three
+    pieces that remain `[Open]`, always — the (2s)² paramagnetic law, the
+    statistics label (−1)^{2s}, and why the generation grammar settles at
+    d_s=3. A higher AP number (e.g. AP19) does not mean an additional
+    layer has been peeled on the same ladder — AP19 is a different
+    domain: two-node native, dimensionless, not tied to any external
+    quantity, and it declares its own separate
+    `unified_DRL_cut_tape_action: Open`. That AP numbers run in sequence
+    is an editorial fact (file ordering), not an epistemic fact (an
+    ordering of puzzle-closing) — it is forbidden to infer that
+    later-numbered work moves the gravity-hierarchy ladder's last three
+    pieces even slightly closer to closure, until there is an artifact
+    that derives those three pieces directly from the channel/grammar,
+    per the victory condition stated in `v2/MYSTERY_LADDER.md` itself.
 - The full Standard-Model root→trunk equation stream (EQ-001 through
   EQ-071, most of which is SM-domain-specific extrapolation beyond the
   philosophy/logic core) —

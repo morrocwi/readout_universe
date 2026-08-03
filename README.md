@@ -1,5 +1,8 @@
 # Readout Universe
 
+[![verify](https://github.com/morrocwi/readout_universe/actions/workflows/verify.yml/badge.svg)](https://github.com/morrocwi/readout_universe/actions/workflows/verify.yml)
+[![License: CC BY 4.0](https://img.shields.io/badge/text%20license-CC%20BY%204.0-lightgrey.svg)](LICENSE)
+
 **A Philosophy and Logic for Grounding Claims** — v1.0 → v2.0-dev
 
 This project is for anyone who has to state a claim — a physics result, a
