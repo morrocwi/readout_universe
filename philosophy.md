@@ -2452,23 +2452,33 @@ notation, not a verbatim quotation of the source — the source remains the
 authority on its own precise wording, this is a paraphrase offered to fit
 this document's voice:
 
-**Self, as used here, is not a substance, a location, or a homunculus.
-Instead, read it as a *closure property* of the τ_c^H loop — a way of
-naming the plain fact that the loop's world-model Ω_H is both (a) the
-product of the loop's own earlier passes and (b) an input the loop's next
-pass depends on, holding stable at a characteristic causal-memory
-timescale τ_c^H.**
+**This entry names "self" for one specific reason: once a loop closes on
+itself — once a system's running model of the world folds back into
+shaping what that same system does next — something appears that no
+isolated piece of the loop carries on its own. Call that folding-back a
+closure property, and give the loop's holding-together time a symbol,
+τ_c^H: how long the loop keeps its shape before its own memory of itself
+fades. Two conditions make up the closure, and neither alone is enough —
+a world-model Ω_H that only records what already happened, without
+steering what comes next, is inert; a policy that steers without ever
+being reshaped by its own history is memoryless. Self, on this reading,
+is neither of those alone. It is the standing fact that both hold at
+once: the loop's own model is still being made by its own past passes,
+and that same model is what actually drives its next one. Not a
+substance, not a location, not a homunculus watching from inside — just
+this two-way dependency, holding stably, pass after pass.**
 
-Ω_H here is the world-model this loop maintains, and "conditions the loop's
-next pass" is read the way §2.5/§5.2a require every operator in this corpus
-to be read: not a metaphor for influence in general, but a retained-state
-dependency — the value Ω_H holds after one pass is literally an input
-consulted by the selection step of the next pass, a finite readout feeding a
-finite readout, at a declared timescale τ_c^H (a retained memory-time, the
-same kind of scalar §1's trunk-equation reading of `τ_c = M/D` already
-names, not a continuum "moment"). "Both (a) and (b)" is the same discrete,
-decidable `∧` §2.1 already insists on for the Fail-Able Gate Law — two
-retained facts checked to both hold of the same loop, not a continuum
+"Drives its next one" is read the way §2.5/§5.2a require every operator in
+this corpus to be read: not a metaphor for influence in general, but a
+retained-state dependency — the value Ω_H holds after one pass is literally
+an input consulted by the selection step of the next pass, a finite readout
+feeding a finite readout, at a declared timescale τ_c^H (a retained
+memory-time, the same kind of scalar §1's trunk-equation reading of
+`τ_c = M/D` already names, not a continuum "moment"). The two
+conditions above — Ω_H still being shaped by the loop's own past, and Ω_H
+actually steering the loop's next step — are checked together, the same
+discrete, decidable `∧` §2.1 already insists on for the Fail-Able Gate Law:
+two retained facts checked to both hold of the same loop, not a continuum
 logical connective assumed to carry meaning on its own.
 
 "Awakening" (the waking self), on this reading, is not a single event but a
