@@ -44,14 +44,21 @@ different w produce measurably different relative roughness on the
 IDENTICAL underlying substrate -- the concrete demonstration of
 agency-relativity section 5.2c's own prose argues for narratively.
 
-WHAT THIS DOES NOT SHOW: this is a toy scalar random walk with a linear
-moving-average reader, not a claim about real human perceptual
-resolution, real tau_c values, or any specific physical system. It does
-not formalize "R-ideal" at all (R-ideal is explicitly not a readout of
-anything, by section 5.2c's own account -- there is nothing here to
-measure). It supplies, at finite_diagnostic tier only, the first
-EXECUTED numeric check that section 5.2c's own claimed signature
-(discreteness collapsing with resolution, not with scale; agency-
+WHAT THIS DOES NOT SHOW: monotonic smoothing under a box-car (moving-
+average) filter is a GENERIC property of low-pass filtering, true for
+essentially any input signal -- this diagnostic could not plausibly
+have failed except through an implementation bug or extreme sampling
+noise. It demonstrates that the R-apparent metaphor is numerically
+self-consistent, not that resolution-bounded agency-relativity captures
+something real about actual readers beyond that self-consistency. This
+is a toy scalar random walk with a linear moving-average reader, not a
+claim about real human perceptual resolution, real tau_c values, or any
+specific physical system. It does not formalize "R-ideal" at all
+(R-ideal is explicitly not a readout of anything, by section 5.2c's own
+account -- there is nothing here to measure). It supplies, at
+finite_diagnostic tier only, the first EXECUTED numeric check that
+section 5.2c's own claimed signature (discreteness collapsing with
+resolution, not with scale; agency-
 relative outcomes on one substrate) is measurable and internally
 coherent in a toy setting -- nothing about real readers or real
 continuum illusions is claimed or tested here. Section 5.2c itself

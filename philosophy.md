@@ -1154,7 +1154,14 @@ seed); (3) two readers at `w=5` and `w=200`, reading the *identical*
 substrate, measure relative roughness `≈0.200` and `≈0.005` respectively
 — the same discrete substrate, two different apparent smoothnesses,
 depending only on the reader's own resolution. All three predictions
-held in this run. Held to the same discipline as the other upgrade
+held in this run. One honest limit, named directly rather than left for
+a reader to discover: monotonic smoothing under a box-car average is a
+**generic property of low-pass filtering**, true for essentially any
+input signal — this diagnostic could not plausibly have failed except
+through an implementation bug, so it demonstrates that the R-apparent
+metaphor is *numerically self-consistent*, not that resolution-bounded
+agency-relativity captures something real about actual readers beyond
+that self-consistency. Held to the same discipline as the other upgrade
 attempts in this corpus: this is one executed toy-model run, not a claim
 about real perceptual resolution or any specific reader's real `τ_c` —
 it confirms the measurement methodology correctly detects a built-in
