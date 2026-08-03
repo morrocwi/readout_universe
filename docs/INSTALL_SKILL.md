@@ -7,16 +7,14 @@ discipline (`Th_coqc` / `finite_diagnostic` / `Dr` / `Open` /
 you to clone the full repo and read files by hand.
 
 **Verification note on the commands below:** the exact `/plugin`
-sub-command syntax was cross-checked against this workstation's own local
-plugin state (`~/.claude/plugins/known_marketplaces.json`,
-`~/.claude/plugins/installed_plugins.json`) and the install instructions
-published by two sibling marketplaces already installed here —
-`yaoharee-lahtee-math` (`morrocwi/information-discrete-math`) and
-`yaoharee-lahtee-skillme` (`morrocwi/skillme`), both of which use the same
-`owner/repo` short form for `marketplace add`. This is a `finite_diagnostic`
-check (local files read directly), not a `Th_coqc` one — no automated way to
-execute the interactive `/plugin` command itself exists in this session, so
-treat the syntax as verified-against-precedent, not verified-by-execution.
+sub-command syntax was cross-checked against published sibling-marketplace
+conventions — `yaoharee-lahtee-math` (`morrocwi/information-discrete-math`)
+and `yaoharee-lahtee-skillme` (`morrocwi/skillme`), both of which use the
+same `owner/repo` short form for `marketplace add`. This is a
+`finite_diagnostic` check (existing precedent read directly), not a
+`Th_coqc` one — no automated way to execute the interactive `/plugin`
+command itself exists in this session, so treat the syntax as
+verified-against-precedent, not verified-by-execution.
 
 ## Install
 

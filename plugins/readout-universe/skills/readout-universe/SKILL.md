@@ -29,14 +29,15 @@ itself is about.
 
 ## The tier legend — six tags, never collapsed into each other
 
-Quoted from the source discipline (`philosophy.md` §2 of the repository).
-`logic.md`'s own tier-legend blockquote near the top of that file is
-canonical and wins on any disagreement — but note it is a *superset* of the
-six tags below (it also defines `Ax`, `Th`, `exact_algebra`,
-`declared_finite_architecture`, `exact_bridge`, and a few more, per
-`philosophy.md`'s own framing of its six-tag table as "a subset" of
-`logic.md`'s legend); the six tags here are the ones this skill actually
-teaches:
+Quoted from the source discipline (`philosophy.md`'s opening front-matter
+blockquote, before its numbered sections). `logic.md`'s own tier-legend
+blockquote near the top of that file is canonical and wins on any
+disagreement — but note it is a *superset* of the six tags below: it also
+defines `Ax`, `Th`, and `exact_algebra` (named explicitly in philosophy.md's
+own "this is a subset" framing), plus `declared_finite_architecture` and
+`exact_bridge` (defined in logic.md itself, not called out by name in
+philosophy.md's shorter framing). The six tags here are the ones this skill
+actually teaches:
 
 | Tier | Meaning | What it is NOT |
 |---|---|---|
