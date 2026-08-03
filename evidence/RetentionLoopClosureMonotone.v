@@ -114,10 +114,13 @@ Fixpoint orbit (x0 : Q) (n : nat) : Q :=
   | S k => U (orbit x0 k)
   end.
 
-(* THE MAIN CONVERGENCE BOUND: the orbit's distance to the fixed point
-   after n passes is bounded by c^n times the initial distance -- a
-   standard iterated-contraction estimate, proved here from first
-   principles over Q, not assumed. *)
+(* THE MAIN DISTANCE BOUND (not itself a convergence proof -- see the file
+   header's corrected note): the orbit's distance to the fixed point
+   after n passes is bounded by c^n times the initial distance, for any
+   c>=0 -- a standard iterated-contraction estimate, proved here from
+   first principles over Q, not assumed. Only becomes a convergence
+   statement if a caller separately supplies c<1, which nothing here
+   requires or asserts. *)
 Theorem orbit_contracts : forall x0 n,
   Qabs (orbit x0 n - xstar) <= Qpow_nat c n * Qabs (x0 - xstar).
 Proof.
@@ -136,10 +139,11 @@ Qed.
 End ClosureOrbit.
 
 (* ================ Degraded-closure monotonicity theorem ============= *)
-(* THE NO-GO-SHAPED POSITIVE RESULT: for ANY two contraction ratios
-   0<=c1<=c2 and ANY nonnegative initial distance d0, the guaranteed
-   convergence bound at every fixed step count n is monotone in the
-   ratio -- a weaker/more-degraded contraction (larger c) never produces
+(* THE NO-GO-SHAPED POSITIVE RESULT: for ANY two ratios 0<=c1<=c2 and ANY
+   nonnegative initial distance d0, the guaranteed distance bound at
+   every fixed step count n (not itself a convergence guarantee -- see
+   the file header) is monotone in the ratio -- a weaker/more-degraded
+   coupling (larger c) never produces
    a tighter guaranteed bound than a stronger one, at any step. This is
    the formal shape of Section 7.21's own falsifiable prediction ("a
    genuinely degraded closure should show a measurably slowed repair

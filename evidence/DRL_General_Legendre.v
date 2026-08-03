@@ -13,10 +13,22 @@
 (*  genuine, non-trivial per-node ring identity, generalized to arbitrary *)
 (*  node lists by list induction (general_legendre_D_cancellation).       *)
 (*  Beyond that abstract result, GB is now ALSO instantiated as a real    *)
-(*  weighted-graph bilinear pairing over arbitrary list positions and an  *)
-(*  arbitrary weight function (graph_bilinear/                            *)
-(*  graph_legendre_D_cancellation) -- the standard edge-sum identity for  *)
-(*  x^T L_w y, at general N, for any weight function, not a placeholder.  *)
+(*  weighted-graph bilinear pairing over arbitrary list positions          *)
+(*  (graph_bilinear/graph_legendre_D_cancellation) -- the standard         *)
+(*  edge-sum identity for x^T L_w y, at general N, not a placeholder.      *)
+(*  ONE DISCLOSED LIMIT, found by an independent adversarial review and    *)
+(*  now MACHINE-CHECKED, not just claimed (graph_bilinear_symmetrizes,     *)
+(*  added 2026-08-03): graph_bilinear's weight argument w TYPECHECKS for   *)
+(*  any w : nat -> nat -> Q, but the VALUE it                              *)
+(*  computes depends only on w's symmetric part (w(i,j)+w(j,i))/2 -- the   *)
+(*  antisymmetric part cancels identically for every input, because the   *)
+(*  (i,j)/(j,i) double-sum pairing multiplies against the same symmetric   *)
+(*  factor (q_i-q_j)(r_i-r_j). So "any weight function" is true only in    *)
+(*  the trivial typechecking sense; as a CONSTRUCTION this cannot          *)
+(*  represent a directed/asymmetric graph coupling distinct from its own   *)
+(*  symmetrization -- it is, in effect, the standard UNDIRECTED weighted-  *)
+(*  graph Laplacian pairing, for any symmetric w, and nothing more general *)
+(*  than that despite w's unconstrained type.                             *)
 (*  Non-vacuousness is checked against an INDEPENDENT prior result in     *)
 (*  this repo, not merely self-consistency: at the concrete N=3 ring with *)
 (*  unit weights, graph_bilinear reproduces DRL_Discrete.v's own LR1      *)
@@ -56,6 +68,7 @@
 
 Require Import QArith.
 Require Import List.
+Require Import Lia.
 Import ListNotations.
 
 Open Scope Q_scope.
@@ -166,15 +179,19 @@ Print Assumptions general_legendre_D_cancellation.
 Print Assumptions kinetic_only_case.
 
 (* ===================================================================== *)
-(*  GENUINE GRAPH-COUPLING INSTANTIATION (added 2026-08-03), realizing    *)
-(*  the any-weighted-graph claim this file's header once asserted in     *)
-(*  prose only. GB was an opaque Q value the D-cancellation theorem       *)
+(*  GENUINE GRAPH-COUPLING INSTANTIATION (added 2026-08-03, disclosure     *)
+(*  tightened same day after a second independent review), realizing the  *)
+(*  undirected-weighted-graph claim this file's header once asserted in   *)
+(*  prose only. GB was an opaque Q value the D-cancellation theorem        *)
 (*  above never inspects -- true of ANY Q value, which is exactly why it  *)
 (*  alone could not support a claim about graphs. Here GB is instantiated *)
-(*  as an actual index-based weighted-graph bilinear pairing, over an     *)
-(*  arbitrary weight function on list positions, and shown non-vacuous by *)
-(*  matching DRL_Discrete.v's own concrete N=3 ring Laplacian (LR1) term  *)
-(*  for term, not merely by analogy.                                      *)
+(*  as an actual index-based weighted-graph bilinear pairing over list    *)
+(*  positions, shown non-vacuous by matching DRL_Discrete.v's own         *)
+(*  concrete N=3 ring Laplacian (LR1) term for term, not merely by        *)
+(*  analogy -- but the construction only depends on the SYMMETRIC part of *)
+(*  its weight argument (proved below in the definition's own comment);   *)
+(*  read this as instantiating the standard UNDIRECTED weighted graph,    *)
+(*  not literally any graph a caller's weight function could encode.      *)
 (* ===================================================================== *)
 
 Fixpoint Sum (n : nat) (f : nat -> Q) : Q :=
@@ -183,19 +200,111 @@ Fixpoint Sum (n : nat) (f : nat -> Q) : Q :=
   | S k => Sum k f + f k
   end.
 
+(* Sum_plus/Sum_scale/Sum_ext/Sum_double_swap: the same generic finite-sum
+   vocabulary and proofs already established in evidence/
+   DRL_Finite_Cut_Balance.v's own Section 1 (copied here rather than
+   Required cross-file, matching this repo's own established convention
+   for evidence/ files -- see that file's own header). *)
+Lemma Sum_plus : forall n f g, Sum n (fun k => f k + g k) == Sum n f + Sum n g.
+Proof. induction n as [|k IH]; intros f g; simpl. - ring. - rewrite IH. ring. Qed.
+
+Lemma Sum_scale : forall n c f, Sum n (fun k => c * f k) == c * Sum n f.
+Proof. induction n as [|k IH]; intros c f; simpl. - ring. - rewrite IH. ring. Qed.
+
+Lemma Sum_ext : forall n f g, (forall k, (k < n)%nat -> f k == g k) -> Sum n f == Sum n g.
+Proof.
+  induction n as [|k IH]; intros f g Hfg; simpl.
+  - reflexivity.
+  - rewrite IH by (intros; apply Hfg; lia). rewrite Hfg by lia. reflexivity.
+Qed.
+
+Lemma Sum_double_swap :
+  forall n (f : nat -> nat -> Q),
+  Sum n (fun i => Sum n (fun j => f i j)) == Sum n (fun j => Sum n (fun i => f i j)).
+Proof.
+  intros n f. induction n as [| m IH]; simpl.
+  - reflexivity.
+  - rewrite (Sum_plus m (fun i => Sum m (fun j => f i j)) (fun i => f i m)).
+    rewrite (Sum_plus m (fun j => Sum m (fun i => f i j)) (fun j => f m j)).
+    rewrite IH. ring.
+Qed.
+
 Definition dflt_node : node := mkNode 0 0 0 0 0 0 0.
 Definition qs (l : list node) (i : nat) : Q := nq (nth i l dflt_node).
 Definition rs (l : list node) (i : nat) : Q := nr (nth i l dflt_node).
 
-(* the standard edge-sum bilinear pairing x^T L_w y over list positions,
-   for ANY weight function w on indices -- this is the actual weighted
-   graph coupling the original header claimed, now a real construction,
-   not an opaque placeholder. w need not be symmetric for this definition
-   to typecheck, but the identity below (matching LR1) uses a symmetric w,
-   which is the standard graph-Laplacian case. *)
+(* the standard edge-sum bilinear pairing x^T L_w y over list positions.
+   w : nat -> nat -> Q typechecks unconstrained, but the VALUE computed
+   depends only on w's symmetric part (w i j + w j i)/2 -- confirmed by
+   direct algebra, the antisymmetric part always cancels in the (i,j)/
+   (j,i) double-sum pairing against the symmetric factor
+   (q_i-q_j)*(r_i-r_j). So this construction is, in effect, the standard
+   UNDIRECTED weighted-graph Laplacian pairing for any symmetric w -- it
+   does not represent a directed/asymmetric graph coupling distinct from
+   its own symmetrization, regardless of what w's type signature permits.
+   The identity below (matching LR1) uses a symmetric w, the case this
+   construction actually models. *)
 Definition graph_bilinear (l : list node) (w : nat -> nat -> Q) : Q :=
   (1#2) * Sum (length l) (fun i => Sum (length l) (fun j =>
       w i j * (qs l i - qs l j) * (rs l i - rs l j))).
+
+(* THE SYMMETRIZATION FACT, proved (not just claimed in a comment): the
+   value graph_bilinear computes depends only on w's symmetric part.
+   Machine-checked, not asserted -- this is the honest scope of the
+   any-weight-function typechecking above. *)
+Lemma inner_symmetrizes :
+  forall n (w : nat -> nat -> Q) (A B : nat -> nat -> Q),
+  (forall i j, A i j * B i j == A j i * B j i) ->
+  Sum n (fun i => Sum n (fun j => (w i j + w j i) * (1#2) * A i j * B i j))
+  == Sum n (fun i => Sum n (fun j => w i j * A i j * B i j)).
+Proof.
+  intros n w A B ABsym.
+  assert (Hswap :
+    Sum n (fun i => Sum n (fun j => w i j * A i j * B i j))
+    == Sum n (fun i => Sum n (fun j => w j i * A i j * B i j))).
+  { transitivity (Sum n (fun j => Sum n (fun i => w i j * A i j * B i j))).
+    - apply Sum_double_swap.
+    - apply Sum_ext. intros i0 _. apply Sum_ext. intros j0 _.
+      transitivity (w j0 i0 * (A j0 i0 * B j0 i0)).
+      + ring.
+      + rewrite (ABsym j0 i0). ring. }
+  transitivity
+    (Sum n (fun i => Sum n (fun j => (1#2) * (w i j * A i j * B i j))) +
+     Sum n (fun i => Sum n (fun j => (1#2) * (w j i * A i j * B i j)))).
+  - transitivity
+      (Sum n (fun i =>
+          Sum n (fun j => (1#2) * (w i j * A i j * B i j))
+          + Sum n (fun j => (1#2) * (w j i * A i j * B i j)))).
+    + apply Sum_ext. intros i0 _.
+      transitivity (Sum n (fun j => (1#2)*(w i0 j*A i0 j*B i0 j) + (1#2)*(w j i0*A i0 j*B i0 j))).
+      * apply Sum_ext. intros j0 _. ring.
+      * apply Sum_plus.
+    + apply Sum_plus.
+  - assert (E1 : Sum n (fun i => Sum n (fun j => (1#2) * (w i j * A i j * B i j)))
+                 == (1#2) * Sum n (fun i => Sum n (fun j => w i j * A i j * B i j))).
+    { transitivity (Sum n (fun i => (1#2) * Sum n (fun j => w i j * A i j * B i j))).
+      - apply Sum_ext. intros i0 _. apply Sum_scale.
+      - apply Sum_scale. }
+    assert (E2 : Sum n (fun i => Sum n (fun j => (1#2) * (w j i * A i j * B i j)))
+                 == (1#2) * Sum n (fun i => Sum n (fun j => w j i * A i j * B i j))).
+    { transitivity (Sum n (fun i => (1#2) * Sum n (fun j => w j i * A i j * B i j))).
+      - apply Sum_ext. intros i0 _. apply Sum_scale.
+      - apply Sum_scale. }
+    rewrite E1, E2, <- Hswap. ring.
+Qed.
+
+Theorem graph_bilinear_symmetrizes :
+  forall (l : list node) (w : nat -> nat -> Q),
+  graph_bilinear l w == graph_bilinear l (fun i j => (w i j + w j i) * (1#2)).
+Proof.
+  intros l w. unfold graph_bilinear.
+  assert (Hsym : forall i j, (qs l i - qs l j) * (rs l i - rs l j)
+                              == (qs l j - qs l i) * (rs l j - rs l i)).
+  { intros i j. ring. }
+  assert (Hinst := inner_symmetrizes (length l) w
+                      (fun i j => qs l i - qs l j) (fun i j => rs l i - rs l j) Hsym).
+  simpl in Hinst. rewrite Hinst. reflexivity.
+Qed.
 
 (* D-cancellation instantiated at a genuine graph-coupling GB: an
    immediate corollary of general_legendre_D_cancellation (GB's internal
@@ -250,3 +359,4 @@ End RingWitness.
 Print Assumptions graph_legendre_D_cancellation.
 Print Assumptions ring_bilinear_matches_LR1.
 Print Assumptions graph_legendre_D_cancellation_ring_is_invocable.
+Print Assumptions graph_bilinear_symmetrizes.
