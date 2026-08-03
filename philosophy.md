@@ -1134,6 +1134,37 @@ process-relative exhaustibility — not with having stated R-apparent's
 agency-relative-readout framing itself, which is this book's own
 addition, not theirs.
 
+**Upgrade attempt (2026-08-04), in the same spirit as `paradoxes.md`
+§6.2's and §7.21's own upgrade attempts.** The concrete next step this
+subsection named but did not attempt — a measured signature for when a
+bounded reader's own residual starts looking indistinguishable from
+continuum noise — was built fresh (`ap/ap23_r_apparent_diagnostic.py`,
+`finite_diagnostic`, no proprietary reuse): a genuinely discrete
+random-walk substrate (fixed `±1` ticks, no continuum limit taken), read
+by a moving-average "reader" at a declared resolution `w` (ticks
+integrated per reading — a real integration mechanism, matching this
+subsection's own corrected TV-pixel caveat, not mere failure-to-resolve).
+Three things were measured, not assumed: (1) the raw substrate's own
+roughness (mean absolute discrete second difference) does **not** shrink
+merely from having more ticks — confirming discreteness is a property of
+resolution, not of scale, across `N`∈{1000, 5000, 20000}; (2) relative
+roughness decreases monotonically as a reader's window `w` grows, and
+crosses a declared 0.05 threshold at a measured critical `w*=21` (fixed
+seed); (3) two readers at `w=5` and `w=200`, reading the *identical*
+substrate, measure relative roughness `≈0.200` and `≈0.005` respectively
+— the same discrete substrate, two different apparent smoothnesses,
+depending only on the reader's own resolution. All three predictions
+held in this run. Held to the same discipline as the other upgrade
+attempts in this corpus: this is one executed toy-model run, not a claim
+about real perceptual resolution or any specific reader's real `τ_c` —
+it confirms the measurement methodology correctly detects a built-in
+resolution-dependence, and demonstrates agency-relativity concretely on
+one substrate, nothing more. It does **not** change this subsection's own
+tier, which stays `Dr` — R-ideal is not touched by this diagnostic at
+all (there is nothing to measure; it is a direction, not a readout), and
+R-apparent's connection to any real reader's real resolution remains
+exactly as open as before.
+
 [domain card: `information-discrete-math` textbook Parts II–V (§5.2a's
 own citation); `evidence/RD.v` lines 966–990 (the actual Bishop
 regular-Cauchy-sequence `ℝ` construction this subsection reads against);
@@ -1142,7 +1173,8 @@ trunk-equation reading; §9.1a/§9.9a (the citation-of-a-real-ally, no-supersess
 pattern this subsection follows); Locke, *An Essay Concerning Human
 Understanding*, Book II Ch. XVII (1690); Jain canonical number
 classification (*saṃkhyāta*/*asaṃkhyāta*/*ananta*), reported via
-secondary academic sourcing, not a primary-text read]
+secondary academic sourcing, not a primary-text read;
+`ap/ap23_r_apparent_diagnostic.py`]
 
 ### 5.3 The trunk equation
 
