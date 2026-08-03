@@ -19,6 +19,28 @@
 > canonical and also defines `Ax`, `Th`, and `exact_algebra`; on any
 > disagreement `logic.md` wins.
 
+> **This is our philosophy, stated once, up front, before anything else:
+> θ(E) — the shared structure every retained difference accumulates
+> into — is the ground of all things.** Not "a thing among things" and
+> not "nothing" — the ground every agency's own reading is a reading *of*.
+> Nothing later in this document should read as though it appeared from
+> nowhere; everything traces back to this one claim. Concretely: δ_R
+> (§5.1) is the primitive act of retaining a difference — "there is a
+> difference, and it is kept." What δ_R retains accumulates into one
+> shared structure, L_R (§5.2), which the founder's separate published
+> line (Genesis/Canon/EHC, cited in full at §9.2a) names **θ(E)**. No
+> agency — including this document — ever reads θ(E)/L_R directly; every
+> claim anywhere in this corpus is one agency's own lossy
+> `M_A = K_A·θ + η` of it (`logic.md` N2), never the ground itself.
+> This is offered as our own ontological bet (`definition`, §5.1's own
+> language for it), not smuggled in as settled fact: δ_R is `definition`
+> (declared, chosen not proven); L_R's *derivation* from δ_R is `Th_coqc`
+> (machine-checked, §5.2); the *identification* of L_R with θ(E) is `Dr`
+> (a declared cross-reference between two of the founder's own works,
+> matched by equation-form, not a machine-checked identity). Stating the
+> claim boldly and stating its tier honestly are not in tension — this
+> document does both, everywhere, on purpose.
+
 ---
 
 ## 1. Readout-not-truth — why
@@ -607,6 +629,30 @@ already declares.
 
 [domain card: research_universal_solver/docs/root/BORROWED_VS_DERIVED_LEDGER.md row 4]
 
+**Naming the full chain, since it is easy to lose across sections: δ_R →
+L_R → per-agency readout.** δ_R (§5.1) is the primitive act of retaining
+one difference. L_R is what that retention *accumulates into* once many
+distinctions are kept and related — the shared structure, not any single
+agency's private view of it. The founder's separate Genesis/Canon/EHC
+line of work (cited in full at §9.2a below) names this same accumulated,
+shared structure **θ(E)**: "the world-side causal-structural
+organisation that finite observers attempt, imperfectly and irreducibly,
+to align with." No agency reads θ(E)/L_R directly — every agency A's actual
+readout is a lossy linear read of it, already named in this corpus's own
+logic half as **N2**: `M_A = K_A · θ + η` (`logic.md`, tier `definition`;
+"knowing is a lossy linear read of a latent state, never the latent state
+itself"). So the one-line chain is: **δ_R is retained → accumulates into
+L_R (identified with θ(E) at `Dr` tier — a declared cross-reference
+between two of the founder's own works, matched by equation-form, not a
+machine-checked identity; see the opening block above and §9.2a) → each
+agency reads only its own lossy M_A of that shared structure, never the
+structure itself.** This is not a new claim bolted
+on here — §5.1's primitive, §5.2's L_R, `logic.md`'s N2, and the
+Genesis/Canon/EHC θ(E) formalism are four names already in this
+workspace for positions on the same one chain; this paragraph is the
+first place that states the chain as one line rather than leaving the
+identification implicit across files.
+
 ### 5.2a The floor beneath every `+ − × ÷ ∂ ∇`: the discrete number ladder and the operator-grounding table
 
 §5.1–5.2 above name the root (`δ_R`) and the one derived link (`L_R`). What
@@ -617,9 +663,9 @@ book is not entitled to write `+`, `−`, `×`, `÷`, `∂`, `∇`, `=`, `<` as
 neutral, borrowed continuum notation while simultaneously claiming `δ_R` as
 the one primitive; if the operators are unexamined, the primitive is
 decoration. The mandatory floor for this — cited by name only until now
-(`~/.claude/CLAUDE.md` §"load the Information Discrete Math skill") — is
-`information-discrete-math`'s textbook (Parts 0, II–V, VII, VIII), and it
-supplies exactly the missing ground.
+— is `information-discrete-math`'s textbook
+(github.com/morrocwi/information-discrete-math, Parts 0, II–V, VII,
+VIII), and it supplies exactly the missing ground.
 
 The move is a **ladder, not a given**: `δ_R → D → ℤ → ℚ → ℝ`, each rung
 *defined from* the one before, `Th_coqc` (machine-checked, axiom-free) at
@@ -2762,6 +2808,1048 @@ not a substitute for reading the source, and not a claim that walking the
 story here adds one atom of evidence the source did not already carry.
 
 [domain card: research_universal_solver/docs/engineering/GENESIS_STEP_BY_STEP_V3_1.md Part IX (~lines 5046–5629), Part V §V.9–V.10 (~lines 2377–2438), Part V §V.19 (~lines 2835–2902); research_universal_solver/docs/engineering/UNIVERSE_STEP_BY_STEP_RDU.md Part IX (~lines 762–953)]
+
+## 9. The Step-by-Step Universe — time, causal structure, and black holes, argued as one philosophical case
+
+*Tier: `Dr` throughout unless a specific paragraph names a stronger anchor —
+this section is a narrative philosophical argument, not a new formal result
+of this file. Full Thai source (verbatim, founder, 2026-08-03):
+[`v2/UNIVERSE_STEP_BY_STEP_PROPOSAL.md`](v2/UNIVERSE_STEP_BY_STEP_PROPOSAL.md).*
+
+§§5.1–5.4, §7.11, and §7.21 above already state, piece by piece, that
+`δ_R` is prior to space, that space is derived from a weighted causal
+graph, that hiddenness is not destruction, and that a self is a closure
+property rather than a substance. What follows is the founder's own
+argued case for why those pieces are *one story*, not four separate
+results — and it is worth naming plainly that this argued case is itself
+the founder's own answer to a question raised earlier in this same
+session: whether this corpus's philosophy is deep in the way a Kant or a
+Nietzsche is deep, i.e. whether it carries its *own* proposition rather
+than only a formal apparatus. This section is that proposition, stated
+in full, not merely gestured at. It is also, by design, a philosophical
+argument that a companion canon document — not written as philosophy at
+all — already backs in formal/executed pieces (named below); the two
+were not written to match each other on purpose, and the match is
+offered here as evidence the reading is not arbitrary, not as proof the
+reading is correct.
+
+### 9.1 The primordial condition is a difference, not a thing
+
+The case opens by refusing every candidate starting point that already
+presupposes structure: not matter (presupposes states to distinguish),
+not a field (presupposes values that can vary), not geometry
+(presupposes distance, boundary, order), not mind (presupposes
+distinguishable inner content). Under all of them sits one condition
+simpler than any: *difference itself* — the bare possibility that one
+state is not another. Without it, nothing is identifiable, nothing is
+memorable, nothing is measurable, nothing changes, and there is no world
+to speak of. One further candidate belongs on this elimination list even
+though it is not a "thing" in the sense the others are: bare possibility
+or chance itself — a bit, in Wheeler's sense, is a binary difference
+without built-in retention, and so is the nearest rival vocabulary to
+`δ_R` on offer. It is not answered here; §9.8a below takes it on
+directly and argues that a chance attribution already presupposes the
+same retained-distinguishable structure this section opens with.
+
+This is not a new primitive for this corpus — it is §5.1's `δ_R = (a ♯
+b)` ("there is a difference, and it is kept") read at the level of
+argument rather than of formal declaration. The founder's own case for
+*why* difference must be the floor (rather than one candidate primitive
+among others) is offered here as the argued form of what §5.1 states as
+a declared axiom (`definition`, chosen and not proven, "like ZFC
+declares its own axiom list"). Tier: `Dr` for the argument that this
+must be the floor; `definition` for `δ_R` itself, unchanged from §5.1.
+
+### 9.1a Answering the individuation objection — the relata are constituted, not presupposed
+
+§5.1's notation already invites a sharper, more classical worry than
+§9.2a's temporal-regress objection below, and this file should name it
+rather than leave it silent. `δ_R = (a ♯ b)` writes two named,
+apparently already-individuated terms, `a` and `b`, on either side of
+the `♯` relation — and asserting that `a` differs from `b` seems to
+presuppose exactly the thing-hood the relation is supposed to *produce*.
+This bites harder once §5.2/§9.9's own downstream claim is read
+alongside it: a "thing" is *derived*, named there as "a persisting
+eigenmode" of `L_R`'s spectrum, not a primitive fed into `δ_R` from
+outside. If `a` and `b` must already be individuated somethings before
+`♯` can hold between them, but "thing" is only defined later as a
+consequence of retained difference, the primitive appears to borrow
+downstream from its own conclusion — a relata/individuation regress,
+distinct in kind from the temporal regress §9.2a answers at length.
+
+The answer this corpus is committed to, once read structurally rather
+than substantively, is that `a` and `b` are not names for pre-given
+individuated substances at all — they are index positions in the
+notation, individuated *by* the act of retention itself, not prior to
+it. Nothing in §5.1's nine RD-axioms requires `a` and `b` to already
+possess independent identity, a boundary, or a nature of their own
+before `♯` is asserted; RD1–RD3 (existence, generation, direction)
+build a well-founded retention order from the *relation* outward, and
+identity-as-persisting-pattern is not reached until §5.2/§9.9's
+eigenmode reading, several derivational steps later. Read this way, the
+notation `(a ♯ b)` does not name two prior somethings and then relate
+them — it names one retained act of distinguishing, which *individuates*
+its own relata as a byproduct of being retained, the same direction
+§5.2's forcing argument already runs in ("the primitive's meaning is the
+irreducible `Dr` root the forcing argument starts from," §5.2). `a` and
+`b` are what the notation calls the two sides of a kept distinction —
+not what the distinction is derived from.
+
+This is the identical bootstrapping move ontic structural realism has
+already had to defend against the same classical objection, and it is
+named here as a philosophical ally rather than reinvented: Ladyman and
+French's "relations without relata" thesis (French & Ladyman, *"Remodelling
+Structural Realism,"* Synthese, 2003; Ladyman & Ross, *Every Thing Must Go:
+Metaphysics Naturalized*, Oxford University Press, 2007) argues, against
+the same standing worry, that fundamental physical structure is
+ontologically prior to the objects usually thought to instantiate it —
+objects are individuated *by* their place in a relational structure, not
+antecedently given individuals that structure then relates. `a` and `b`
+in `δ_R = (a ♯ b)` play exactly the role OSR's relata play: notational
+placeholders for positions a retained relation individuates, not
+smuggled-in substances the relation presupposes.
+
+**What this does and does not settle**, held to the same discipline
+§9.2a applies to its own objection: this does not *prove* the
+individuation worry is dissolved — OSR itself remains a contested
+position in the metaphysics literature, and the parallel offered here is
+a citation of a structurally identical defense, not a formal closure of
+the gap. What it does show is that this corpus is not merely asserting
+immunity to the objection by notational fiat: `a` and `b` are read as
+individuated-by-retention rather than individuated-prior-to-retention
+consistently with §5.1's own derivation order (relation and its
+axioms first, "thing"/persisting-eigenmode identity only as a
+downstream §5.2/§9.9 consequence), and the objection should be pressed
+against *that* ordering specifically — does index notation in a
+declared axiom ever covertly smuggle prior individuation, regardless of
+derivation order? — rather than against the bare symbols `a ♯ b`, where
+it currently has the most surface purchase. Tier: `Dr`.
+
+### 9.1b Naming the rival directly — monism, and why zero-row-sum is the sharper answer
+
+The most direct historical rival to "difference is the floor" is not any
+of the four candidates §9.1 eliminates in turn — it is classical monism
+itself: Parmenides' undifferentiated One, Advaita Vedanta's non-dual
+Brahman, Bradley's Absolute, each holding that undifferentiated unity is
+prior and that multiplicity/distinction is derivative or illusory. §9.1
+does not name this rival by elimination because it is not eliminated by
+the same move as matter/field/geometry/mind — it has to be met directly,
+and this file already has, in hand, the formal object a monist would
+point to.
+
+§5.2's zero-row-sum property glosses the "0" that retained differences
+around one node must land on as exactly this state: "a uniform,
+undifferentiated state retains nothing to distinguish." That is not a
+dismissal of the monist's claim — it *is* the monist's claim, stated as a
+decidable finite condition carried by the same operator `L_R = D_W − W`
+that carries every other case. An undifferentiated state is not excluded
+by this framework; it is the well-defined degenerate case (row sum = 0)
+the framework can state and locate precisely, rather than a rival
+ontology sitting outside it or an option this corpus has to argue away
+by silence.
+
+This is the sharper answer, not a softer one: it does not deny that the
+monist's state is coherent, it locates it as a single point in the space
+`L_R` already ranges over, and it asks the monist's own claim to pay the
+same price every candidate in §9.1 pays — say what varies and does not,
+in the same currency the rest of the framework is stated in. A framework
+that could not state "no difference" as a case would not have refuted
+monism; a framework that states it as row-sum-zero and moves on has done
+something falsifiable in its place, and turns §5.2's own machinery into
+the direct answer rather than leaving the objection unaddressed. Tier:
+`Dr` for the philosophical identification (reading row-sum-zero as the
+formal locus of the monist's undifferentiated state); the row-sum-zero
+property itself remains `Th_coqc` per §5.2, unchanged by this reading.
+
+### 9.2 Difference alone is not enough — retention is what makes a world
+
+A difference that vanishes the instant it appears, leaving no trace,
+cannot build anything: no before/after, no memory, no propagation, no
+interaction. Reality begins when a difference *keeps acting* after it
+occurs — stable enough to affect a later difference, surviving the
+transitions it passes through without being erased outright. This
+retained difference is named, in the founder's own words, the first
+seed of cause and effect.
+
+This is `δ_R`'s own second half, already present in the name (the *R* is
+retention) and already the reason RD4 — the axiom "distinct histories
+never merge" — is named in §5.1 as "the axiom the whole DRL equation
+below is forced by." Nothing here upgrades RD4's tier; the argument
+supplies the *why it must be this way*, not a new proof.
+
+### 9.2a Answering the regress objection — retention is not a temporal predicate
+
+**Naming note, since the opening block and §5.2 both point here for the
+full citation.** This file's shorthand "Genesis/Canon/EHC" names the
+founder's separate published line of work, cited by title and DOI in
+this section and in §9.9a — specifically Lahtee, Y., *"Objective Chance
+and the Priority of Modal Difference"* (`doi:10.5281/zenodo.20537309`,
+cited in full below) and Lahtee, Y., *"Catuṣkoṭi-on-Catuṣkoṭi: What
+Survives the Self-Fold of Nāgārjuna's Method"*
+(`doi:10.5281/zenodo.20035321`, cited in full below and quoted at length
+in §9.9a). "Canon" is the term that second paper itself uses and that
+§9.9a quotes directly; there is no further, separate work literally
+titled "Genesis" or "EHC" beyond these two papers — the three-word label
+is this file's own shorthand for that one line of work, not three
+distinct citations.
+
+§9.3 below argues that time is the *count* of retained causal steps —
+which invites an immediate, sharp objection, and this file should not
+leave it merely implicit: does not "retained" already mean *persisting
+across time*, and "admissible transport" already mean *moving from one
+place/moment to another*? If so, §9.1–9.3 would be smuggling in the very
+temporal/relational structure they claim to derive — exactly the trap
+§9.1 itself accuses matter, field, and geometry of falling into when
+each is proposed as a starting point. An independent philosophical
+review of this section, run in this same session, raised exactly this
+objection and correctly identified it as the argument's single weakest
+joint. It deserves a direct answer, not a wave of the hand.
+
+The answer this corpus already has available, not invented for this
+paragraph: **"retained" is not defined as a temporal predicate here at
+all — it is defined as a *readout* predicate.** The `information-
+discrete-math` skill's own opening commitment, prior to and independent
+of any physics, states this as its single organizing sentence: *"Everything
+an agency ever reads is a finite retained difference — a readout,
+rational and discrete."* Read structurally rather than temporally: a
+retained difference is not "a difference that persists through an
+independently-given time axis" — it is "a difference such that some
+bounded reader's operator, applied to it, returns a non-null result."
+Retention is a fact about what an operator *outputs*, checkable in one
+shot, the same way §5.2's `L_R := D_W − W` is checked to be symmetric /
+zero-row-sum / off-diagonal-≤-0 by finite case-split (§5.2, the
+2026-08 forcing argument) — not a fact about enduring across a
+pre-supposed sequence.
+
+Time, on this reading, is not presupposed by "retained" — time is what
+you get when you take the *ordering* of such reader-operator outputs and
+notice that some orderings are forced (RD4: distinct histories never
+merge) and directional (RD-axiom "direction": a step never returns to
+null). §5.1's own nine RD-axioms already build exactly this way:
+existence and generation are declared first, with no time axis assumed
+to state them, and direction/time's-arrow is *derived* — item four in
+the list, not item one. "Admissible transport" inherits the same
+grounding: an admissible transport is one a reader's operator can carry
+out without losing the distinguishability it is meant to preserve (this
+is `RAR A1–A8`'s own vocabulary, §5.1 — "transport," "accessibility,"
+"admissibility" are logic-of-retention terms, defined over the
+readout structure itself, not borrowed from an independently-given
+physical motion).
+
+**What this does and does not settle.** This does not *prove* the
+regress objection is fully dissolved — that would require a completed
+formal argument that the RD-axioms' own vocabulary (existence,
+generation, "step") is itself free of smuggled temporal content, which
+is a stronger claim than this paragraph makes. What it does show is
+that this corpus is not merely *asserting* immunity to the objection by
+fiat: it already has a structural, non-temporal grounding for
+"retained" and "admissible" on the table (the agency-readout operator),
+independently motivated by `information-discrete-math` for reasons that
+have nothing to do with this essay, and the objection should be pressed
+against *that* grounding specifically — does an operator's output being
+"non-null" secretly presuppose sequence? — rather than against the
+essay's own looser prose, which is where the objection currently lands
+hardest.
+
+**A sharper, published answer to exactly this class of objection
+already exists, in the founder's own separate work.** Lahtee, Y.,
+*"Catuṣkoṭi-on-Catuṣkoṭi: What Survives the Self-Fold of Nāgārjuna's
+Method"* (preprint, not peer reviewed, CC-BY 4.0,
+`doi:10.5281/zenodo.20035321`, v2, 2026-05-01) runs the *identical*
+regress pattern one level up, against Nāgārjuna's own catuṣkoṭi rather
+than against this essay's "retained difference": if the catuṣkoṭi
+itself is asked "how do *you*, the method, exist" — from itself, from
+another, from both, from neither — all four horns fail, exactly as they
+fail for every other candidate entity, and yet the method keeps
+functioning, reproducibly, across independent practitioners, in a way
+that is neither random nor arbitrary. That paper's answer is precisely
+this section's own move, worked out formally rather than asserted: what
+survives is a **functional residue** with four properties — no
+*svabhāva* (not self-existing), not nothing, asymmetric constraint
+(some applications succeed and others fail, not by practitioner
+preference), and specifiable limits (its domain of operation is
+structured, not arbitrary) — and that paper identifies this residue
+with `θ(E)`: "the world-side causal-structural organisation that finite
+observers attempt, imperfectly and irreducibly, to align with,"
+formalised there
+as `M_A[n] = K_A · θ(E[n]) + η`. That equation is not foreign notation
+grafted on for this citation — it is this same corpus's own Face 10
+(`logic.md`'s Record/Readout/Epistemic face, already `M_A = K_A·θ(E) +
+η_sel + η_map + η_self`), confirming the two are genuinely the same
+apparatus, not a coincidental resemblance. §5.2 above now states the
+full chain this identification completes: δ_R is retained → accumulates
+into L_R, which is what θ(E) names — → each agency's own readout is only
+the lossy `M_A`, never θ(E)/L_R itself.
+
+That paper goes further than this section attempts to: it names the
+regress-of-falsification problem explicitly (its own §6.3, "the
+falsification bar is circular" — a system that can disqualify every
+counterexample by applying its own procedure to the counterexample is
+not being tested, it is being insulated from testing) and states, as
+the honest fix, that a non-circular system must specify **conditions
+under which it itself fails, independently of its own method** — that
+paper's own worked example being three explicit conditions (perfect
+access eliminating all residual noise; eternal non-perishable
+structure; perfect translation with zero mapping/selection loss) under
+which its "Canon" framework would simply be wrong. This is the same
+discipline this corpus already applies to itself elsewhere (§7.21's
+`∂π*/∂η_H`/`dR_H/dt` falsifiers for the self-as-closure claim; the
+Fail-Able Gate Law of §2.1) — named here as a general method for
+answering a regress objection: **don't argue the regress away; state
+what would independently show the whole apparatus is wrong.** This
+section's own analogous falsifier is not yet stated as explicitly as
+that paper's F1–F3 — that is a genuine gap this paragraph is naming,
+not closing.
+
+**A second, more directly on-point published source removes even more
+of the hand-waving from this paragraph's own earlier answer.** Lahtee,
+Y., *"Objective Chance and the Priority of Modal Difference"* (preprint,
+not peer reviewed, CC-BY 4.0, `doi:10.5281/zenodo.20537309`, 2026-06-04)
+states the *exact* disambiguation this section needs, in the founder's
+own words, addressed to a different question (why objective chance
+presupposes a field of alternatives rather than grounding it) but using
+the identical term this section leans on: *"The term retained should
+not be misunderstood. It does not necessarily mean temporal persistence
+in ordinary physical time. It means availability within the relevant
+modal or formal structure. A contrast is retained if it remains
+structurally available as a contrast for the purposes of chance
+attribution."* And, generalizing the same point: *"If a difference
+vanishes before it can support comparison, exclusion, or normalization,
+it cannot support a weightable field."* That is not this essay's own gloss on what
+"retained" ought to mean — it is the term's own stated, published
+definition, applied there to chance-attribution and applied throughout
+this whole essay to causal structure, geometry, and time. The two
+uses share one author, one technical term, and one explicit denial that
+the term smuggles in temporal persistence; §9.2a's own answer above
+should be read as this paper's disambiguation, restated in a different
+domain, not as an independent improvisation.
+
+**Tier discipline for both citations, held to the same standard as
+every other one in this file.** Both cited papers are, by their own
+header on every page, "preprint — not peer reviewed" — so citing them
+here does not import a `Th_coqc` or `finite_diagnostic` result into
+this file; it is one `Dr` work citing another, by the same author, in a
+different register. What it licenses is narrower and still real: the
+regress objection §9.2a raises is not merely handled by ad hoc prose in
+*this* essay — the same author has already worked closely related
+versions of the objection through, formally and at length, in two
+independent papers (one against Nāgārjuna's method, one against
+chance-fundamentalism), and reached structurally convergent answers
+(a non-*svabhāva*, non-nothing functional residue tied to explicit
+falsification conditions; a non-temporal, structurally-available
+reading of "retained") using vocabulary this corpus's own Face 10
+already carries. That convergence, reached independently across three
+different papers written for three different purposes, is offered as
+evidence the answer is not ad hoc — not as proof the answer is
+correct. Tier: `Dr` throughout.
+
+### 9.3 Time is the count of causal steps, not a container events sit in
+
+The classical picture treats time as a river events float on. This
+section's case inverts that picture: time is not the river, it is the
+*count* of causally-retained changes. When one retained difference
+propagates into another state, and that propagation has a direction,
+before-and-after come into existence together with it — before/after
+are not positions already sitting inside time; they are what makes time
+exist. Time's first instance is not a number on an axis; it is the
+first causal step by which the world begins ordering itself.
+
+Consequently — and this is the sharper, falsifiable-shaped claim, not
+just restatement — time may not be a continuous line at the root.
+Continuity is an extremely powerful *language*, one that has bought
+physics enormous success, but a language is not automatically the
+deepest grammar of what is true. At the root, time may be countable: a
+sequence of steps, not a smooth line infinitely divisible. What gets
+called "duration" may be the accumulated readout of very many steps
+still legible as a record; what gets called "flow" may be how a bounded
+observer perceives an enormous number of transitions too fine-grained to
+access one step at a time.
+
+This is §5.1's RD-axiom **direction** ("a step never returns to null —
+time's arrow") argued at length, plus a direct restatement of §5.2a's
+already-declared discrete-number-ladder stance: density (a third number
+always between any two) is *provably absent* at the root (§5.2a,
+`Th_coqc` through `ℚ`), and continuity is recovered only as a later,
+flagged `+ℝ` readout of a discrete `Δ`/`Σ` machinery, never handed the
+primitive slot. Section 9.3's claim that continuous time is a coarse
+language for a countable root is the ontological reading of that same,
+already machine-checked, arithmetic fact — not a new derivation, an
+argued *application* of one.
+
+### 9.4 Continuum physics is not discarded — it is relocated
+
+This proposal does not reject smooth spacetime, smooth fields, or
+continuum thermodynamics. Smooth time, smooth space, and smooth fields
+remain a beautiful and enormously successful description at the
+macroscopic scale — the way thermodynamics stays true even though
+temperature is not a property of a single molecule, the way fluid
+equations stay true even though water is made of molecules. Continuum
+spacetime may likewise remain the correct language of the world at
+large scale, without needing to be the final language of the world at
+the root. The continuum is not thrown away; it is *re-read* as the
+coarse language of a deeper, still-persisting causal difference.
+
+This is exactly §5.2's own stated stance — "the continuum is a
+destination, not a starting point... a coarse-graining of the
+underlying graph, recoverable but always a readout" — argued here in
+plainer terms, with the thermodynamics/fluid-mechanics analogy supplying
+the intuition pump §5.2's own drier statement does not spell out.
+
+### 9.5 Einstein's door: time was already shown not to be absolute
+
+Before relativity, time was imagined as a universal clock ticking
+identically everywhere, independent of motion, matter, or gravity.
+Einstein permanently unsettled that picture. In special relativity,
+simultaneity is not absolute — two events simultaneous for one observer
+need not be simultaneous for another. In general relativity, time is
+not separate from space but woven into spacetime, and its rate is bent
+by gravity — a clock near a massive body does not run at the same rate
+as a clock far away. Time is not one single rhythm shared by the whole
+universe.
+
+The case then asks a further, harder question, honestly marked here as
+a question rather than a settled derivation: relativity teaches that
+time is measured along an observer's own path, distributed from no
+central master clock — could those paths themselves be the coarse trace
+of a deeper causal step structure? Einstein showed time is not
+absolute; this proposal asks whether time is foundational at all.
+Einstein turned gravity into geometry; this proposal asks what makes
+geometry possible in the first place.
+
+**Anchor, not decoration.** This is not free-floating physics
+name-dropping — the companion canon document already cited throughout
+this file (`research_universal_solver/docs/engineering/
+UNIVERSE_STEP_BY_STEP_RDU.md`, Part III) carries a **Face 5 — "Finite-
+Speed / Relativity Face"**: `‖x‖ ≤ v t`, `v = √(D / τ_c)`, a
+light-cone/finite-front readout forced once `τ_c > 0` guarantees finite
+propagation. That is a structural/design-tier reading (not itself
+separately marked `Th_coqc` in the source), and it is *not* a
+re-derivation of special or general relativity — it is a formal
+statement, in this corpus's own vocabulary, of exactly the finite-speed
+intuition §9.5's narrative reaches for. The essay's engagement with
+Einstein stays `Dr`; the fact that a finite-propagation-speed structure
+already exists in this corpus's own formal apparatus, independently
+motivated, is offered as resonance, not proof.
+
+### 9.6 Causal structure first, geometry second
+
+In relativity, causal structure lives *inside* spacetime — the
+light-cone tells you which events can influence which. This proposal
+reverses the order: spacetime is read as arising *from* causal
+structure. The ordering of possible influence comes first; geometry
+comes after. A light cone in relativity says which event can affect
+which; a deeper causal graph may be the pre-geometric skeleton that
+makes a light cone possible at all. The world does not begin from
+distance — it begins from the possibility that one thing can affect
+another.
+
+**This is not a new claim in this corpus — it is §5.2, stated as
+argument.** §5.2 already derives, `Dr` over `Th_coqc`/`finite_diagnostic`
+sources: "space itself is derived, not primitive... under bounded
+access + finite memory + finite capacity, an all-to-all relational
+structure of uniform cost is structurally impossible — relations must
+stratify by cost, which is the seed of locality; cost becomes distance
+... `L_R` is the central operator this graph generates (not assumed);
+geometry (dimension, distance, curvature) is read from `L_R`'s
+spectrum." §9.6 is the plain-argument form of that already-stated
+result — a node is a distinguishable retained state, an edge is an
+admissible transition, and a weight is delay, resistance, strength, or
+reachability, exactly as §5.2 already has it. Nothing here is claimed
+as new; the case is made in prose because a formal declaration by
+itself does not persuade the way an argued why does.
+
+The evidence base is, if anything, stronger than when §5.2 was first
+written into this file. §5.2's own forcing argument (`Th_coqc`,
+`forced_into_DW_minus_W`) already shows that any operator respecting
+what a retained distinction structurally means — symmetric,
+zero-row-sum, difference-reading — is forced into exactly the `D_W − W`
+shape, against four named rival operators that each fail a concrete
+test. And this session's own new Coq evidence extends that same
+graph-Laplacian apparatus from a fixed 3-node ring to an *arbitrary*
+finite node set and *arbitrary* symmetric weighting
+(`evidence/DRL_General_EL.v`'s `general_N_Euler_Lagrange_theorem`,
+`evidence/DRL_Finite_Cut_Balance.v`'s `cut_balance_general` +
+`all_ones_annihilates_laplacian`, both `Th_coqc`, axiom-free) — i.e. the
+claim that "the graph, not a pre-given space, carries the dynamics" now
+has a machine-checked backbone at full generality of graph shape, not
+only the earlier 3-node illustration. This still does not prove §9.6's
+ontological reading (that this graph *is* the world's actual
+substrate rather than a useful formal analogy) — that step stays `Dr`,
+exactly as §5.2 already discloses — but the mathematical vocabulary the
+argument leans on is no longer a loose metaphor; it is a construction
+this repo has now checked at general N.
+
+### 9.7 Geometry as echo, not foundation
+
+If causal structure comes first, geometry is not the stage the world is
+built on — it is what a *stable enough* causal structure starts to look
+like from the inside. A sufficiently stable causal structure can begin
+behaving like dimension, curvature, and metric order in certain
+regimes; the spectrum of relations becomes a legible shape; the rhythm
+of reachability becomes a felt distance. This is offered as the reason
+this proposal can speak naturally to contemporary research programs —
+causal set theory, loop quantum gravity, holography, tensor networks,
+quantum information, emergent spacetime — without needing to be
+identical to any one of them: those programs differ sharply in method
+and ambition but share a common suspicion that a smooth manifold may
+not be the world's root. This proposal supplies that suspicion an
+ontological spine: **geometry is retained difference, made legible in
+the language of space.**
+
+**A named, stronger anchor exists for exactly this claim.** The
+companion canon carries a **Face 8 — "Operator-to-Metric Geometry,"
+explicitly tagged `[Th_coqc]`** in that source: "metric = principal
+symbol of the second-difference / Laplacian operator," machine-checked
+as `RDL_MetricReadout.metric_form_readout`, axiom-free. That is the one
+place in this whole section where "geometry is read off an operator, not
+assumed" is not merely argued but formally checked in this corpus's own
+lineage. It does not, on its own, license every sentence of §9.6–9.7's
+narrative reading (a machine-checked *operator-to-metric* map is not the
+same claim as "the physical universe's spacetime literally is this
+graph") — that larger identification stays `Dr`, stated as a stance, not
+smuggled in as proven. What it licenses is narrower and still
+meaningful: the specific mathematical move this section's prose leans
+on — read a metric off a difference-operator's own structure, rather
+than assume a metric a priori — is not invented for this essay; it is
+already checked, elsewhere in this corpus, exactly as described.
+
+### 9.8 Feynman's door: no single path either
+
+If Einstein removed absolute time, Feynman removed the single classical
+path. In the path-integral formulation of quantum mechanics, a particle
+is not described as following one definite trajectory; the amplitude
+for an event receives contributions from a great many possible
+histories, each carrying an amplitude, and their interference
+determines what becomes a record.
+
+This matters for keeping the proposal honest about its own shape: it
+should not be mistaken for a crude digital-clockwork machine. A "step"
+is not a rigid frame of an old mechanical universe; it is a unit of
+causally-retained distinguishability. Many step-histories may overlap,
+interfere, reinforce, or cancel before a stable record appears — so the
+quantum world is not a disordered world, it is a world whose order has
+not yet been compressed into a single classical narrative.
+
+Classical truth, on this reading, is not the opposite of quantum truth
+but quantum possibility that has been stabilized, selected, repeated,
+and made jointly accessible. This is where Feynman's histories and this
+proposal meet: what is real is not only what followed one path, but
+what still retains effect once the possible histories of a difference
+have been filtered into a structure durable enough to persist. The
+classical world is not the world as it is in itself; it is the world as
+retained difference that has become a shared record.
+
+**Tier note.** This subsection is offered at `Dr` and stays there — the
+companion canon's **Face 9, "CPTP / Quantum-Channel Face,"** is
+`[Th_coqc]` for the Kraus-completeness/trace-preservation/complete-
+positivity algebra of a quantum channel, which is standard quantum
+information mathematics, not a proof that path-integral histories are
+literally the same object as this corpus's causal steps. No claim of
+that identification is made here; the resonance is named, the tier gap
+is not papered over.
+
+### 9.8a Why chance is not treated as more fundamental than retained difference
+
+§9.8 leans on Feynman's authority — many histories, interference,
+stabilization into a record — without yet explaining why *quantum
+possibility itself* should not simply be taken as the true bottom
+layer, with "retained difference" demoted to a description of what
+happens to already-random alternatives once they are filtered. An
+independent philosophical review of this section, run in this same
+session, correctly identified this as decorative unless the essay does
+that further work — and named the obvious missing predecessor by name:
+Wheeler's "law without law" and "it from bit," the most direct prior
+statement of the idea that order might bottom out in pure randomness.
+That predecessor deserves to be named here directly, not left implicit.
+
+The founder's own published case against exactly this move is Lahtee,
+Y., *"The Explanatory Insufficiency of Randomness"* (preprint, not peer
+reviewed, CC-BY 4.0, `doi:10.5281/zenodo.20473230`, 2026-05-31), which
+engages Wheeler's slogans by name in its own opening paragraph and
+argues, at length, against treating chance as the terminal explanans.
+Its central move: *"Every contentful ascription of objective chance...
+presupposes a determinate space of possibilities together with a
+measure over it,"* so chance "can explain, at most, *which* possibility
+is actualised; it cannot explain *that* the space of possibilities
+and its measure obtain." The paper tests this against every standard
+escape route — statistical "law without law" (Wheeler's own proposal,
+examined directly and found to import "substantive and far-from-trivial
+mathematical machinery" it disowns rhetorically), self-organization,
+the multiverse, quantum indeterminacy, and Humean best-system
+accounts — and finds each one relocates or reinstates the same modal
+structure rather than eliminating it. A companion paper, Lahtee, Y.,
+*"Objective Chance and the Priority of Modal Difference"* (§9.2a
+above, `doi:10.5281/zenodo.20537309`), names that presupposed structure
+directly: a chance attribution requires alternatives that are
+**retained-distinguishable** — non-identical *and* structurally
+available for comparison, exclusion, and weighting — which is a
+condition stated in terms of difference, prior to and independent of
+any chance assigned over it.
+
+This is the argument this section needed and did not yet make: quantum
+possibility, on this corpus's own vocabulary, is not treated as more
+fundamental than retained difference because a "possibility" that can
+receive an amplitude or a weight already presupposes a field of
+distinguishable alternatives — the same `δ_R`-shaped condition §9.1–9.2
+open with. Feynman's histories are many, but they are many *distinct*
+histories; the distinctness is doing load-bearing work the path-integral
+formalism itself does not explain, and this section's own retained-
+difference primitive is offered as the account of exactly that
+distinctness, not as a rival to the formalism. This does not settle
+whether the world's fundamental dynamics are indeterministic — both
+cited papers explicitly grant indeterminism throughout and take no
+position on it — it settles only the narrower explanatory-priority
+question the reviewer pressed: why isn't chance the bottom layer
+instead of difference? Because a chance-fact is only ever stateable
+relative to a determinate, retained-distinguishable field, and that
+field's own obtaining is exactly what this essay's `δ_R`-based case
+is about.
+
+**Tier discipline.** Both cited papers are, by their own header,
+"preprint — not peer reviewed" — `Dr`, one work citing another by the
+same author, not an import of a stronger tier. Nothing here claims to
+have derived quantum mechanics' interpretation, resolved the
+measurement problem, or shown this corpus's formalism supersedes the
+path-integral formalism; §9.8's own tier note above (Face 9 is
+`[Th_coqc]` only for the Kraus-completeness algebra, not for any claim
+about causal steps) is unchanged and inherited here.
+
+[domain card: Lahtee, Y., "The Explanatory Insufficiency of Randomness," preprint, doi:10.5281/zenodo.20473230, 2026-05-31; Lahtee, Y., "Objective Chance and the Priority of Modal Difference," preprint, doi:10.5281/zenodo.20537309, 2026-06-04]
+
+### 9.9 Matter as a name for persistence
+
+Matter, on this reading, is not a primal substance laid down in time in
+advance; it is *persistence through causal updating*. A particle is a
+pattern that preserves its own distinguishability across steps; an atom
+is a pattern stable enough to survive a wider field of transitions; a
+star is a large mode of order that persists; a living system is a
+pattern that repairs itself against decay; a mind is a pattern that
+records, compares, and reuses difference. Things, in general, are not
+lumps of existence set down in time — they are modes that endure.
+
+Identity's meaning shifts accordingly: existing does not mean staying
+perfectly unchanged, it means retaining enough distinguishable structure
+through transformation that a pattern remains traceable. A mountain
+erodes and remains a mountain for a while; a body metabolizes and
+remains a body for a while; a memory is rewritten and remains a memory
+for a while; a star burns itself out and remains a star for a while.
+Existence is not standing still; it is a form that persists amid change.
+
+This is §5.2's own "a thing is a persisting eigenmode" (the operator
+`L_R`'s spectrum), argued in ordinary language rather than spectral
+vocabulary. Tier: `Dr`, inherited unchanged from §5.2.
+
+### 9.9a Lineage, named plainly — this is not a Western-only conversation
+
+§9.7 above names contemporary research programs this proposal can
+converse with (causal set theory, loop quantum gravity, holography,
+tensor networks, quantum information, emergent spacetime) — all
+twentieth/twenty-first-century, all originating in Western physics
+departments. Named that way and no further, the lineage is incomplete
+and quietly Eurocentric: the specific claim in §9.9 — that a "thing" is
+not a substance but a persisting *pattern*, that existence is not
+standing-still but a form that endures through change, that no
+independent, self-existing core sits underneath the relations a thing
+participates in — is argued at far greater length, and far earlier,
+outside Western philosophy than inside it. European philosophy did not
+originate this question and does not hold first claim on it; other,
+older traditions worked this same ground and were themselves drawing on
+predecessors of their own.
+
+This corpus already has a declared position on exactly this comparison,
+in the frozen v1.0 book, under its own stated discipline for the
+whole exercise (*"every comparison is interpretive [`Df`/`Dr`]... we
+claim no supersession, and we refuse anachronism — ancient traditions
+are not claimed to have 'already known' these results"*,
+`main.tex`, "Dialogue with World Traditions"): Nāgārjuna's **śūnyatā**
+(emptiness) is read there as *isomorphic to "no substance, only
+relational eigenmodes"* — the same reading §9.9 argues in this file's
+own vocabulary, stated first, in that book, under the discipline of
+declared interpretive comparison rather than supersession. The same
+passage also reads the **catuṣkoṭi** (the four-cornered negation) as a
+rejection of bivalence outside its regime — consistent with this
+corpus's own tier discipline (a claim is neither flatly true nor flatly
+false in every regime; its status is regime-relative) — and explicitly
+registers, as a *refuted* analogy rather than a silently dropped one,
+that "`catuṣkoṭi` = Priest's dialetheism" is the wrong reading:
+Nāgārjuna rejects bivalence outside its regime, he does not assert true
+contradictions. `main.tex` further names a declared Kant–Buddhist bridge
+(`ε_tot = ε_universal + ε_conditioned`) already unfolded across that
+book's own "Dialogue with World Traditions" part, and separately reads
+Kant himself as "the closest modern relative" to this corpus's own
+frame — phenomena/noumena mapping to record/world (`M_A/θ`) — while
+naming two deep differences (Kant's categories are fixed a priori,
+this corpus's grammar is revisable; Kant supplies no dynamics of
+revision, this corpus does).
+
+Nāgārjuna's own textual home for this — the *Mūlamadhyamakakārikā*'s
+extended treatment of causation and dependent origination
+(*pratītyasamutpāda*) — predates causal set theory, relational quantum
+mechanics, and "it from bit" by roughly two thousand years, and it
+worked through a version of §9.2a's own regress objection at length: if
+nothing has independent, self-existing nature (*svabhāva*), does
+dependent origination not need *something* self-existing to originate
+*from*? The Madhyamaka answer — the two-truths doctrine, distinguishing
+conventional/relational truth from ultimate emptiness-of-inherent-
+existence without collapsing one into the other — is not imported into
+this corpus's own machinery here (that would be exactly the anachronism
+`main.tex`'s own discipline refuses), but it is named, honestly, as the
+oldest sustained engagement with the specific philosophical difficulty
+§9.2a raises, and the tradition this proposal's core ontological move
+most resembles is older and non-European, not Sorkin (1990s) or Wheeler
+(1990) or Whitehead (1920s). Citing only the recent Western physics
+neighbors, as §9.7 does on its own, understates this proposal's actual
+lineage rather than overstating it.
+
+**The founder's own separate, published treatment states the relationship
+explicitly, and it is worth quoting rather than re-deriving.** §9.2a
+above already cites Lahtee (2026, `doi:10.5281/zenodo.20035321`) for its
+falsifiability answer; that same paper's closing section states the
+Madhyamaka/Canon relationship in exactly the "no supersession"
+vocabulary this file's own discipline requires: *"Madhyamaka operates
+at the paramārtha level: it shows that no framework, including Canon,
+has ultimate standing... Canon operates at the saṃvṛti level: it shows
+that within conventional inquiry, there are better and worse maps...
+These are not competing claims about the same thing... Madhyamaka
+empties the pretensions of any particular framework, including Canon.
+Canon inhabits the emptied space with the most honest available
+description of how knowing works from inside knowing—with instruments,
+with explicit limitations, and with conditions for its own
+revision."* And, more directly still, on the
+question this section must not overstate: *"The paramārtha level — the
+recognition that śūnyatā is prior to any particular framework — is a
+genuine insight that Canon cannot and does not claim to supersede."*
+This is the same author, in a different, formally-argued paper,
+independently reaching and stating outright the exact non-supersession
+stance this section commits to — which is offered here as convergence,
+not as license to treat the two papers as one settled result.
+
+Tier: `Df`/`Dr`, matching both `main.tex`'s and the cited paper's own
+declared tiers for this whole comparative exercise — an interpretive
+mapping, not a claim that Nāgārjuna anticipated `δ_R` or that this
+corpus supersedes Madhyamaka philosophy. No claim is made here beyond
+what `main.tex` and the cited preprint already state, and the cited
+preprint is itself explicit, on every page, that it is "preprint — not
+peer reviewed."
+
+[domain card: main.tex, "Dialogue with World Traditions" part, chapter "India: Nyāya and Buddhist Logic"; Lahtee, Y., "Catuṣkoṭi-on-Catuṣkoṭi: What Survives the Self-Fold of Nāgārjuna's Method," preprint, doi:10.5281/zenodo.20035321, v2, 2026-05-01, §§6, 8]
+
+### 9.10 Mass, force, and energy re-read — without replacing their formal definitions
+
+Mass, force, and energy can be read in a deeper vocabulary without
+displacing their formal physics definitions. In this proposal's
+language: **mass is causal delay** — a pattern that does not adapt
+instantly to change, and that delay shows up as inertia. **Force is
+return from imbalance** — a pattern pulled out of place is drawn back
+toward the relations compatible with the structure that holds it up.
+**Energy is transported difference** — the capacity of one
+distinguishable state to change another. This reading does not replace
+the Hamiltonian, the stress-energy tensor, or conservation laws; it
+helps interpret what those objects are *doing* in the story of a
+persisting, causally-retained difference.
+
+**Anchor and an honest limit, stated together.** The companion canon's
+**Face 6, "Mass / Memory Face,"** gives `m = ℏ / (2 τ_c c²)` and names
+its own tier explicitly: **"[mass-memory formula; Dr/readout tier]...
+Status: structural / design-analogy. Do not treat as a new measured
+mass prediction."** That is the mathematical shape of §9.10's "mass is
+causal delay" claim, and it is honestly `Dr`, not `Th_coqc` — the source
+itself refuses the stronger tier, and this section inherits that refusal
+rather than upgrading it. `logic.md`'s EQ-063 entry (this repo's own,
+already `Dr`-tier, `τ_c = ℏ/(2mc²)`) is the same relation read from the
+mass side; neither entry claims to *derive* `M`'s role or value in the
+trunk equation (§5.3) — EQ-063 is explicit that 8 forcing attempts to do
+so failed (see `logic.md`'s EQ-063 row and its footnote).
+
+**A genuinely new formal result from this session bears on the "force"
+half of this reading.** §5.3's trunk equation carries a damping term
+`D∂Φ` that this corpus's own design notes narrate as *why* the field was
+doubled `(Φ, Ψ)` — a single, standard field could not produce
+dissipation on its own. Until this session, that was asserted
+narratively, never checked. `evidence/DRL_NoGo_Single_Field.v`, built in
+this same session, now proves it: for the entire class of standard
+single-field discrete Lagrangians (any time-reversal-symmetric kinetic
+term, any potential evaluated at the varied slice), the resulting
+stationarity condition is *structurally forced* to be symmetric under
+swapping the two boundary time-slices — and that symmetry algebraically
+forbids a nonzero coefficient on the antisymmetric, damping-shaped term
+(`no_damping_coefficient`, `Th_coqc`, axiom-free, plus a non-vacuous
+concrete witness at the trunk equation's own quadratic-kinetic/linear-
+potential shape). In this section's own vocabulary: a genuinely
+non-conservative "return from imbalance" cannot be squeezed out of a
+single persisting pattern's own self-contained action — it needs either
+a doubled record (this corpus's actual construction) or an explicitly
+external push (`evidence/DRL_Forced_Master.v`'s d'Alembert forcing,
+also this session). That is now a formally certified fact about this
+class of action, not only a design choice defended by narrative.
+
+### 9.11 Information thermodynamics gives the story a cost
+
+Landauer's principle ties information erasure to an energy cost.
+Bekenstein and Hawking showed black holes carry entropy. Holography
+suggests a region's information capacity may scale with its boundary,
+not its volume. None of these results proves this proposal directly —
+what they do is more specific: they make this proposal's vocabulary
+read as a dialect of contemporary physics rather than free-floating
+metaphor. Difference is not merely a logical abstraction; difference has
+a cost, a boundary, a memory, and consequences that persist.
+
+**Tier discipline for this paragraph specifically.** Landauer's bound,
+Bekenstein–Hawking entropy, and the holographic scaling suggestion are
+established physics results, cited here as citations, not as this
+corpus's own findings — this file makes no claim to have derived or
+checked any of them. What is this corpus's own reading is the inference
+drawn from them (that they make the vocabulary of "retained,
+cost-bearing difference" a legitimate dialect of physics) — that
+inference is `Dr`, the founder's own, and stays so.
+
+### 9.12 Black holes as the sharpest instance of the whole argument
+
+No object shows this more clearly than a black hole — not merely a
+collapsed star, but the region where time, geometry, information, and
+access collide most violently. Near the event horizon, a distant
+observer's time and an infalling observer's time cannot be folded into
+one simple shared story: to the distant observer, an infalling object
+appears to slow, redden, and fade; to the infalling observer, the
+horizon may be crossed in their own finite time. The black hole turns
+Einstein's own lesson into an extreme fact: there is no single universal
+time for every path through what is true.
+
+In this proposal's reading, the event horizon is more than a geometric
+surface — it is the **boundary of admissible transport**. It separates
+difference that can still be carried out to an external observer from
+difference that can no longer be reached directly from the outside. The
+interior need not become unreal; what changes is the *status* of its
+reality relative to an external observer — it becomes retained
+difference that persists, but has passed beyond the ordinary channel of
+record.
+
+**This is not a new claim for this corpus — it is §7.11, argued at
+length and given a name.** §7.11 already carries this exact thesis,
+`finite_diagnostic`/`Dr`, from a different register (AP15's dynamical
+observability-rank check on a finite retained-flow model with a
+directly readable sector, a hidden sector, and a write/return pair `W`,
+`R` across the cut): §7.11's own boxed/closing line, quoted verbatim,
+is precisely this section's own claim about black-hole interiors,
+reached independently, in a different register, before this essay was
+written: **"directly unreadable ≠ destroyed."** The finer-grained
+picture behind that line — that "hidden" is not one epistemic state but
+a *family*, indexed by the cut's own write/return asymmetry, where a
+reciprocal or leaky cut leaves a recoverable trace in the visible
+sector's future trajectory while a strictly one-way cut renders those
+directions permanently null-space, with total-retention conservation
+holding throughout regardless — is this section's own paraphrase,
+recombining §7.11's earlier rank/nullity discussion with its closing
+line, not a second verbatim quotation. §9.12's
+black-hole horizon is the read-write cut of §7.11, applied to gravity's
+own most extreme instance — the entry adds physical vividness to an
+already-established thesis, it does not add new evidence for it.
+
+### 9.13 Black-hole entropy read as an accounting device
+
+If black-hole entropy scales with horizon area, the boundary is not
+merely a surface in space — it can be read as a **ledger of accessible
+difference**: what an external observer can still hold about the
+interior. The horizon behaves like an accounting boundary of what
+remains held from outside, compressing internal complexity into an
+external constraint. A black hole does not simply hide matter — it may
+compress a readable world into terms living on its edge, turning
+interior complexity into an exterior boundary condition.
+
+This reading leans on holography's own suggestion (§9.11) applied
+specifically to black holes; it is offered as a natural extension of an
+established idea (the area-scaling of black-hole entropy) into this
+corpus's own vocabulary of accessible/inaccessible retained difference —
+`Dr`, not a re-derivation of the Bekenstein–Hawking result itself.
+
+### 9.14 The black-hole information question, sharpened
+
+The black-hole information puzzle becomes the sharpest question this
+whole proposal can put to itself. This proposal does not resolve it by
+declaration — it sharpens the puzzle's ontological shape. The question
+is not only whether information escapes; the question is whether a
+difference that once had genuine physical effect can be struck from the
+world's causal ledger entirely. Can a real difference vanish leaving no
+consequence whatsoever?
+
+If the answer is yes, reality permits a once-persisting difference to be
+destroyed without remainder. If the answer is no, that difference must
+survive — in correlations, in radiation, in the horizon's own degrees of
+freedom, or in a structure deeper than smooth spacetime. On the second
+answer, a black hole is not information's graveyard but its *translation
+chamber*: it turns directly accessible difference into difference that
+is hidden, distributed, or encoded. The horizon is not merely an edge of
+escape; it is an edge of narration.
+
+**Explicitly left open, not resolved here.** This proposal offers a
+sharper ontological *frame* for the black-hole information question
+(cast it as "can a retained difference be struck from the causal ledger
+with zero remainder"), not an answer. `Th_coqc`/`finite_diagnostic`
+resolution of the actual black-hole information paradox is not
+attempted anywhere in this corpus and is not attempted here; this stays
+`Open`, honestly, with the stance stated above and the falsifier being
+whatever physics eventually settles for real black holes — not
+something this repo's own apparatus can adjudicate.
+
+### 9.15 Singularities re-read as a language failure signal, not an object
+
+The singularity's meaning shifts too. In general relativity's continuum
+language, a singularity is the point where smooth geometric description
+breaks down. But if continuity is already a projection rather than the
+root (§9.4/§9.3), a singularity may not be a genuine infinite object at
+the world's root — it may instead be a warning sign that the continuum
+language is being used past its own domain of validity. Smooth
+geometry's failure may be pointing back toward a deeper, step-by-step
+causal structure.
+
+This is the ontological reading of §5.2a's own already-stated I1–I4/Z1–
+Z4 taxonomy of injected non-readouts (ℝ-completeness, `h→0`, `Re,Λ→∞`,
+actual `+∞`, the point, exact-zero spacing, absolute rest, the true
+void) applied specifically to gravitational singularities: a
+singularity is what I4 (actual `+∞`) or Z1 (the point, `r=0`) looks like
+when either is silently injected into a continuum description that was
+never entitled to them at the root. Tier: `Dr` for the specific reading
+that gravitational singularities are instances of this pattern; the
+underlying I1–I4/Z1–Z4 taxonomy itself is §5.2a's own already-cited,
+machine-checked-through-`ℚ` apparatus.
+
+### 9.16 Black holes complete the proposal rather than threaten it
+
+A black hole does not threaten this proposal; it completes it. A black
+hole shows that time depends on path, that information carries edge
+structure, that access is a physical matter, that smooth geometry can
+fail, and that truth must be defined not by what is immediately visible
+but by causal effect that persists. A black hole is the place where the
+universe asks itself its hardest question: what remains true when direct
+access is lost?
+
+### 9.17 The early universe, re-read in the same language
+
+The early universe can be re-read in the same vocabulary. The beginning
+is not an explosion inside a pre-existing empty space — there is no
+empty container waiting for matter to be poured into it. The beginning
+is the *first ordering* of retained difference — the first causal step
+by which later geometry becomes projectable at all. What cosmology
+describes as an early hot, dense state may be read as a regime of
+causal ordering at very high frequency, very short memory, and extreme
+compression. Expansion is not merely matter flying apart; it is order
+gradually being read out as space.
+
+The Big Bang is not denied by this reading — it is re-read. Standard
+cosmology explains the early continuum universe with immense success;
+this proposal asks what sits beneath that explanation. A smooth equation
+may describe the large-scale projection of a deeper counting process.
+The first instant is not a point on a pre-existing real line — it is
+the first step by which before-and-after come to have meaning at all.
+
+**Tier note.** This subsection is explicitly `Dr`/`[Open]` — it is a
+speculative extension of §9.3's time-as-count argument to cosmology, not
+a claim this corpus has checked anything about the actual early
+universe. No anchor from the companion canon or this corpus's own
+evidence is claimed for this specific paragraph.
+
+### 9.18 The observer arrives late, and knowledge is bounded by structure
+
+The observer appears late in this story, and deliberately so.
+Consciousness is not the foundation of the universe, but it is not an
+accident standing outside physics either — an observer is a complex
+mode that persists, capable of recording difference, comparing records,
+correcting error, and projecting continuity. An observer is not a
+spectator standing outside the world; an observer is a region of the
+world that has learned to hold and interpret traces of other regions.
+
+This gives knowledge a structural limit. No observer inside the universe
+can hold the universe from outside it. Every record arises through
+selection, transport, loss, projection, and memory. The world as known
+does not coincide with the world as it is — but this does not make
+knowledge illusion. Knowledge is retained difference persisting under
+constraint; it is the world made partially readable to one of its own
+modes.
+
+**This is not a new claim for this corpus — it is §7.21, argued in the
+same vocabulary this whole section uses.** §7.21 already states, `Dr`/
+`[Open]`, that self is "the closure property of the `τ_c^H` loop" — a
+world-model that both results from a loop's own prior passes and
+conditions the loop's next pass — and explicitly disclaims having solved
+consciousness or the hard problem, exactly as §9.18 disclaims it again
+here. Nothing in §9.18 upgrades §7.21's tier or its falsifier
+(`∂π*/∂η_H`, `dR_H/dt`); §9.18 is that same argument, told as part of
+the cosmological case rather than as an isolated definition.
+
+### 9.19 Neither pure materialism nor pure idealism
+
+This proposal stands between materialism and idealism, on purpose.
+Materialism starts from matter, but matter already presupposes
+distinguishable structure. Idealism starts from awareness, but awareness
+already presupposes distinguishable content. This proposal starts
+beneath both: from difference that persists through causal transition.
+Matter is one development of that principle; mind is another; spacetime
+is a third. None of the three is the root by itself.
+
+This is why the proposal can converse with Einstein, Feynman,
+black-hole thermodynamics, quantum information, causal sets, holography,
+and emergent spacetime without needing to be identical to any one of
+them — it is not a replacement for established physics, but an
+ontological reading that gathers what those frontiers are already
+pointing at: time, geometry, matter, and observation may not be
+independent foundations, but the surfaced faces of a deeper causal-
+informational structure.
+
+### 9.20 The proposal, stated in one line
+
+The universe is not the sum of things. It is the survival of
+difference. It is not a container events sit inside; it is the ordering
+of consequence. It is not a smooth stage difference appears upon; it is
+the long-running process by which difference gradually becomes time,
+space, matter, memory, and a world.
+
+What is real, then, is not merely what is seen — it is what still
+generates a difference. A star long extinguished remains real in its
+radiation, its gravity, its chemical descendants, and in memory.
+Particle interactions remain real in their traces. A black hole's
+interior remains real, if its difference has been encoded beyond direct
+access. The universe is the whole history of difference that has not
+simply vanished.
+
+**The proposal, verbatim (translated).** The universe's foundation is
+not matter, mind, or continuous spacetime, but distinguishable,
+retained difference. When difference persists through directed causal
+transition, time arises as a countable sequence. When causal order
+stabilizes, geometry appears. When a pattern persists, matter appears.
+When a pattern is delayed, mass appears. When a pattern returns to
+balance, force appears. When difference is transported, energy appears.
+When a complex pattern records another pattern, an observer appears.
+Einstein showed time is not absolute. Feynman showed the path is not
+singular. Black holes show information, geometry, and access cannot be
+separated. This proposal holds that these findings converge on one
+principle: **what is real is the difference that still generates effect
+through the causal steps of the world.**
+
+### 9.21 What this section explicitly does not claim, held to the same discipline as §6
+
+Following §6's own convention, stated plainly rather than left implicit:
+this section does not claim to have derived general relativity, quantum
+mechanics, or black-hole thermodynamics from `δ_R`; it does not claim
+the graph-Laplacian construction of §5.2/§9.6 *is* physical spacetime,
+only that it is a candidate reading with a machine-checked mathematical
+backbone (§5.2's forcing argument, this session's `DRL_General_EL.v`/
+`DRL_Finite_Cut_Balance.v`, and the companion canon's Face 8) and an
+honestly `Dr` ontological interpretation on top of it; it does not
+claim to have resolved the black-hole information paradox (§9.14 stays
+`Open`); it does not claim §9.10's mass/force/energy readings replace
+their formal physics definitions; it does not claim §9.2a's agency-
+readout grounding fully dissolves the regress objection it answers,
+only that it relocates the objection onto a sharper, non-arbitrary
+target; it does not claim §9.9a's Nāgārjuna comparison means Madhyamaka
+philosophy anticipated `δ_R` or that this corpus supersedes it (`main
+.tex`'s own "no supersession, no anachronism" discipline is inherited
+unchanged); and it does not claim this section adds one atom of new
+evidence to §7.11 or §7.21's own already-stated claims — it argues for
+them at length, in a new register, and connects them into a single
+narrative arc, which is a different and smaller thing than proving
+them.
+
+[domain card: v2/UNIVERSE_STEP_BY_STEP_PROPOSAL.md (full Thai source, founder, 2026-08-03); research_universal_solver/docs/engineering/UNIVERSE_STEP_BY_STEP_RDU.md Part III Faces 5/6/8/9 (~lines 232–301); main.tex "Dialogue with World Traditions"; the information-discrete-math skill's textbook (github.com/morrocwi/information-discrete-math), its opening agency-readout commitment; Lahtee, Y., "Catuṣkoṭi-on-Catuṣkoṭi," doi:10.5281/zenodo.20035321; Lahtee, Y., "The Explanatory Insufficiency of Randomness," doi:10.5281/zenodo.20473230; Lahtee, Y., "Objective Chance and the Priority of Modal Difference," doi:10.5281/zenodo.20537309; evidence/DRL_General_EL.v; evidence/DRL_Finite_Cut_Balance.v; evidence/DRL_NoGo_Single_Field.v]
 
 ---
 

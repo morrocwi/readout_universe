@@ -173,11 +173,194 @@ next_formal_targets:
       result: make verify-urr-coq exit 0; all 7 Print Assumptions calls Closed under the global context.
   - id: C2
     target: general_N_Euler_Lagrange_theorem
+    status: done
+    completed:
+      date: 2026-08-03
+      coqc_version: "The Coq Proof Assistant, version 8.20.1 compiled with OCaml 5.4.0"
+      machine: development workstation
+      git_rev: a102c6f6528f5d56ec8454c4a835483a236a8eec
+      source: evidence/DRL_General_EL.v
+      result: >-
+        coqc evidence/DRL_General_EL.v exit 0; general_N_Euler_Lagrange_theorem
+        and both sanity-check Examples (Lap_matches_ring_LR1,
+        general_N_EL_is_invocable) all report "Closed under the global
+        context" via Print Assumptions.
+      scope: >-
+        General-N, heterogeneous (per-node mass/damping/potential
+        coefficient), arbitrary-symmetric-weighted-graph Euler-Lagrange
+        identity for the Psi-variation only, over Q: for any NoDup
+        node-index list and any node k in it, central-difference
+        stationarity of the discrete action is proved algebraically
+        equivalent (an iff, field/ring, no approximation) to the per-node
+        damped recurrence -- the list-indexed generalization of
+        DRL_Discrete.v's T1_el_psi_node1/node2 (hand-checked at N=3, nodes
+        1/2 of a ring only) to arbitrary node count and arbitrary symmetric
+        graph coupling. Mechanically checked (not just claimed) to subsume
+        the N=3 ring case: instantiating the abstract weight function at
+        the ring's unit weights reproduces DRL_Discrete.v's concrete LR1
+        Laplacian exactly, and the theorem is checked non-vacuous by
+        actually invoking it at that instantiation.
+      not_proved: >-
+        The Phi-variation (sign-flipped recurrence) at general N -- same
+        technique, left for a follow-up, not attempted here; conservation
+        along trajectories (needs the EL equations chained over many
+        steps, out of scope of this target).
   - id: C3
     target: finite_matrix_cut_balance_with_declared_retention_covector
+    status: done
+    completed:
+      date: 2026-08-03
+      coqc_version: "The Coq Proof Assistant, version 8.20.1 compiled with OCaml 5.4.0"
+      machine: development workstation
+      git_rev: a102c6f6528f5d56ec8454c4a835483a236a8eec
+      source: evidence/DRL_Finite_Cut_Balance.v
+      result: >-
+        coqc evidence/DRL_Finite_Cut_Balance.v exit 0; cut_balance_general,
+        all_ones_annihilates_laplacian, total_mass_conserved, and the
+        concrete-N=3 non-vacuousness witness total_mass_conserved_witness
+        all report "Closed under the global context" via Print Assumptions.
+      scope: >-
+        Finite-matrix cut balance for a declared retention covector, over
+        Q: (1) for ANY n, dt, matrix L, and covector r that left-
+        annihilates L (Sum r_i L_ij = 0 at every column j), the explicit
+        linear flow x' = x - dt.L.x exactly conserves r.x -- pure algebra,
+        no approximation; (2) the all-ones covector is always such a
+        left-annihilator when L is a symmetric row-sum-zero graph
+        Laplacian; (3) corollary: total mass Sum x is exactly conserved --
+        the direct N-sector generalization of
+        evidence/URR_C_Foundational_Chain.v's F5_cut_balance (fixed 3
+        named sectors, unspecified dynamics) to an explicit dynamics and
+        arbitrary sector count. Reuses (adapted, not cross-repo required)
+        the finite-sum/matrix/Laplacian vocabulary from the author's own
+        information-discrete-math skill's IDM_Matrix.v (MIT).
+      not_proved: >-
+        That this L / linear flow is literally what any specific DRL/URR
+        construction uses dynamically (F5 itself is agnostic about the
+        update rule); positivity of any sector (matches F5's own
+        disclaimed scope); non-symmetric or non-row-sum-zero L.
   - id: C4
     target: discrete_Lagrange_d_Alembert_forced_master_theorem
+    status: done
+    completed:
+      date: 2026-08-03
+      coqc_version: "The Coq Proof Assistant, version 8.20.1 compiled with OCaml 5.4.0"
+      machine: development workstation
+      git_rev: a102c6f6528f5d56ec8454c4a835483a236a8eec
+      source: evidence/DRL_Forced_Master.v
+      result: >-
+        coqc evidence/DRL_Forced_Master.v exit 0;
+        discrete_Lagrange_d_Alembert_forced_master_theorem and the
+        concrete-N=3 non-vacuousness witness forced_master_is_invocable
+        both report "Closed under the global context" via Print
+        Assumptions.
+      scope: >-
+        Extends C2's unforced general-N Euler-Lagrange identity with the
+        discrete Lagrange-d'Alembert principle: a virtual-work term
+        Sum_i (J_i - eta_i) * Psi_i enters the action ADDITIVELY (not as
+        part of any Lagrangian -- a genuinely non-conservative force has
+        no potential, which is the whole point of the d'Alembert
+        principle over a pure variational one). Proves, for any NoDup
+        node list, any symmetric W, any per-node heterogeneous
+        M/D/K2/J/eta, at any node k: central-difference stationarity of
+        the force-augmented action is algebraically equivalent (an iff,
+        field/ring, no approximation) to the FULL forced master-equation
+        recurrence at node k -- i.e. EQ-015's trunk equation M d2Phi +
+        D dPhi + K.L_R.Phi + K2.Phi = J - eta, at general N.
+      not_proved: >-
+        The Phi-variation (same scope limitation as C2); a general
+        nonlinear gradV(Phi) beyond C2's quadratic K2 potential (a
+        distinct, harder target -- see AP8's H_nl quartic case); that J
+        and eta are individually meaningful beyond their difference
+        (the theorem only ever uses J_k - eta_k, matching the master
+        equation's own right-hand side); conservation along trajectories.
   - id: C5
     target: finite_rational_hidden_elimination_and_convolution_identity
+    status: done
+    completed:
+      date: 2026-08-03
+      coqc_version: "The Coq Proof Assistant, version 8.20.1 compiled with OCaml 5.4.0"
+      machine: development workstation
+      git_rev: a102c6f6528f5d56ec8454c4a835483a236a8eec
+      source: evidence/DRL_Hidden_Elimination_Convolution.v
+      result: >-
+        coqc evidence/DRL_Hidden_Elimination_Convolution.v exit 0;
+        hidden_elimination_convolution, hidden_elimination_zero_forcing,
+        hidden_elimination_witness, and hidden_elimination_witness_value
+        all report "Closed under the global context" via Print
+        Assumptions.
+      scope: >-
+        Discrete/rational analogue of v2/urr/CLAIM_LEDGER.yaml's AP18
+        (finite_diagnostic, a numeric two-capacitor RC-circuit hidden-
+        elimination experiment yielding an exponential memory kernel
+        K_mem(tau)=(1/(RC1))(1/(RC2))exp(-tau/(RC2))). Proves, over Q,
+        exactly (no floating point, no numeric tolerance): a general
+        linear hidden recurrence h[n+1] = r.h[n] + v[n] (r rational, v an
+        arbitrary visible forcing sequence) has the closed form
+        h[n] = r^n.h0 + Sum_{k<n} r^(n-1-k).v[k] -- a finite discrete
+        convolution of v against the geometric kernel K[j]:=r^j, the
+        rational counterpart of AP18's continuous exponential kernel --
+        proved by induction to exactly equal the recurrence's own value.
+        Plus a zero-forcing sanity corollary (v=0 collapses to bare decay
+        r^n.h0) and a concrete numeric witness (r=1/2, v[k]=k, n=3,
+        independently confirmed to equal 23/8).
+      not_proved: >-
+        That this closed form connects to any specific DRL master-
+        equation quantity by name (F5's sectors, or C3's cut-balance
+        result) -- this is the general linear-recurrence elimination
+        fact those constructions could be built on, not a claim they
+        already use it; AP18's own RC-circuit numbers or the
+        exponential-vs-discrete-geometric correspondence (r <-> exp
+        (-1/RC)) are not re-derived or claimed identical, only the
+        shared structure (elimination produces a convolution against a
+        decay kernel) is formalized.
   - id: C6
     target: unified_action_or_formal_no_go_theorem
+    status: done
+    completed:
+      date: 2026-08-03
+      coqc_version: "The Coq Proof Assistant, version 8.20.1 compiled with OCaml 5.4.0"
+      machine: development workstation
+      git_rev: a102c6f6528f5d56ec8454c4a835483a236a8eec
+      source: evidence/DRL_NoGo_Single_Field.v
+      result: >-
+        coqc evidence/DRL_NoGo_Single_Field.v exit 0;
+        Sfun_swap_symmetric, grad_swap_symmetric, no_damping_coefficient,
+        concrete_grad_has_no_damping_term, and
+        concrete_residual_swap_symmetric all report "Closed under the
+        global context" via Print Assumptions. Takes the OR-formal-no-go
+        branch the target's own name offers, not the positive
+        unified-action branch (unified_action itself stays tagged Open
+        in this file's own honesty_boundary, unchanged).
+      scope: >-
+        For the entire class of standard single-field discrete
+        Lagrangians (any time-reversal-symmetric kinetic term KE(d)=
+        KE(-d), any potential V evaluated at the interior/varied slice
+        only), the resulting Euler-Lagrange stationarity condition is
+        proved structurally forced to be symmetric under swapping the
+        two boundary slices (x0<->x2) -- and this symmetry algebraically
+        forbids a nonzero coefficient on the antisymmetric combination
+        (x2-x0), which is exactly the shape of every damping term this
+        repo's own equations carry (DRL's D/(2dt).(P2-P0); RD.v/URR's
+        D_W-W construction itself). A genuinely damped discrete
+        recurrence therefore cannot arise from any single-field
+        Lagrangian of this class -- doubling the field (this repo's
+        actual choice, evidence/DRL_Discrete.v) or adding a
+        non-variational d'Alembert force (C4,
+        evidence/DRL_Forced_Master.v) are the only two ways out, not
+        stylistic alternatives. A concrete, non-vacuous N=1 witness at
+        standard quadratic KE and quadratic V confirms the abstract
+        no-go by direct computation (field_simplify), not only by the
+        abstract argument.
+      not_proved: >-
+        That every conceivable single-field discretization convention
+        lacks damping -- only this class (KE(d)=KE(-d), V at the
+        interior slice only); DRL_Discrete.v's own trapezoidal-style
+        V(x0)+V(x1) convention is not re-derived for the same no-go
+        (out of scope, though the technique would very likely apply); a
+        full unified action in the positive sense (this file takes the
+        no-go branch instead, which the target's own name treats as an
+        equally valid closure); anything about why doubling specifically
+        (as opposed to some other escape) works (that positive fact is
+        established constructively by DRL_Discrete.v's T1/T2 and C2, not
+        by this file, which only closes off the negative space around
+        it).
