@@ -19,6 +19,37 @@ class Tier(str, Enum):
     DEFINITION = "definition"
 
 
+# NOT the same vocabulary as omega.schemas.VERDICT_CLASSES -- must never be
+# conflated (Cross-Role Readout Contamination; see
+# EQUATION_LIBRARY_ROOT_TO_SM_STREAM_research_universal_solver.md's EQ-065
+# note on two same-named-but-differently-derived quantities for this
+# repo's house pattern for this class of warning).
+#
+# This Verdict is the RAR proof kernel's outcome for ONE proof attempt
+# against a single ClaimIR (Gamma, phi) -- it answers "what did
+# native_logic.kernel.solve_claim() conclude about this target atom,
+# having run the eight RAR gates and the rule chain". It is produced only
+# by solve_claim()/failure_proof() in this module.
+#
+# omega.schemas.VERDICT_CLASSES ("DERIVED", "FORCED", "DEFINITIONAL-RELABEL",
+# "POSITED", "BORROWED-SCALE", "OPEN") is the Omega_all translation runner's
+# BRIDGE-CLASS taxonomy for a translated term/claim (POSITION.md §3 item 2)
+# -- it classifies how a foreign term was imported across the translation
+# boundary, before any RAR proof kernel run even starts.
+#
+# The two enumerations happen to share the literal strings "DERIVED" and
+# "OPEN", but a shared string here does NOT mean a shared meaning: a
+# VERDICT_CLASSES value of "OPEN" describes an untranslated/unbridged term,
+# while a Verdict.OPEN here describes a fully-formed ClaimIR whose gates all
+# passed but whose rule chain never reached the target. Comparing or
+# substituting one for the other across the omega <-> native_logic boundary
+# would silently launder a translation-bridge classification into a proof
+# verdict (or vice versa). No declared mapping between them exists, and none
+# should be added without a named, reviewed bridge function -- see
+# native_logic/from_omega.py, which deliberately carries omega bridge_class
+# values through as an opaque string (folded into Fact.source /
+# TranslationTerm.bridge_class) rather than ever comparing them against this
+# Verdict enum.
 class Verdict(str, Enum):
     DERIVED = "DERIVED"
     SUPPORTED_AS_DR = "SUPPORTED_AS_DR"
@@ -409,12 +440,12 @@ def validate_claim(claim: ClaimIR) -> None:
             arg
             for atom in rule.antecedents
             for arg in atom.arguments
-            if arg.startswith("?")
+            if is_variable(arg)
         }
         consequent_vars = {
             arg
             for arg in rule.consequent.arguments
-            if arg.startswith("?")
+            if is_variable(arg)
         }
         unbound = sorted(consequent_vars - antecedent_vars)
 
@@ -433,6 +464,53 @@ def validate_claim(claim: ClaimIR) -> None:
 
     if errors:
         raise ClaimValidationError("; ".join(errors))
+
+
+def is_variable(arg: str) -> bool:
+    """
+    True iff ``arg`` is a unification variable rather than a literal.
+
+    A variable is a single, unescaped leading '?' (e.g. "?a"). A fact
+    or pattern argument whose literal value must itself begin with
+    '?' cannot be written as-is -- it would be indistinguishable from
+    a variable -- so it is escaped by doubling the leading character
+    at construction time ("??foo" means the literal "?foo").
+
+    The escaped form ("??foo") is the canonical representation used
+    throughout this module -- in facts, in pattern arguments, and in
+    bound substitution values alike -- so that comparison, storage,
+    and re-instantiation (``Atom.instantiate``) never need to decode
+    it: two atoms that were built with the same escaping convention
+    compare equal by plain string equality. See ``unescape_literal``
+    for recovering the original, human-readable value; it is a
+    display-only utility and is never called internally by
+    ``atom_unifies`` or ``Atom.instantiate``.
+    """
+    return arg.startswith("?") and not arg.startswith("??")
+
+
+def unescape_literal(arg: str) -> str:
+    """
+    Recover the original literal value from its '??'-escaped form.
+
+    This is a DISPLAY utility only -- for a caller that wants to show
+    a matched or bound literal's real value to a human. It is not, and
+    must not be, used internally for matching or substitution: the
+    escaped form is the canonical representation everywhere data flows
+    through this module (facts, patterns, bound substitutions,
+    instantiated atoms), so two correctly-escaped values already
+    compare equal without decoding. Decoding only at the boundary
+    keeps that round-trip symmetric -- decoding mid-pipeline (e.g. at
+    bind time) would produce a value that no longer round-trips back
+    through ``is_variable``/``Atom.instantiate`` consistently.
+
+    Only meaningful on an argument that is not a variable. A literal
+    with no leading '?' at all is returned unchanged.
+    """
+    if arg.startswith("??"):
+        return arg[1:]
+
+    return arg
 
 
 def cap_tier(
@@ -501,7 +579,7 @@ def atom_unifies(
     result = dict(substitution)
 
     for expected, actual in zip(pattern.arguments, fact.arguments):
-        if expected.startswith("?"):
+        if is_variable(expected):
             existing = result.get(expected)
 
             if existing is not None and existing != actual:
