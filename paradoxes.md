@@ -79,12 +79,14 @@ the committed file's global `g_mono`. Independently recompiled twice from
 clean (`coqc -q`, `Print Assumptions flip_bound_three` →
 `Closed under the global context`, no `Admitted`/`admit`/`Axiom`):
 `Th_coqc`, axiom-free — same tier this row already carries. What is new is
-narrower: this specific extension is **not yet integrated into the
-committed corpus** — it lives only in a scratchpad `.v` file, not
-cross-referenced from this document, `philosophy.md`, or `logic.md`, and
-not yet run through this corpus's own adversarial-review process. The
+narrower: this specific extension is now committed at
+[`code/UPL_Sorites_OneReversal.v`](code/UPL_Sorites_OneReversal.v)
+(re-verified compiling in-place at that path), but is **not yet
+cross-referenced from `philosophy.md`/`logic.md` and has not been run
+through this corpus's own full adversarial-review process** — the
 Scoreboard tier is unchanged because it already read `Th_coqc`; the
-"monotone only" scope note stands until this extension is committed.
+"monotone only" scope note stands until this extension is formally folded
+into the main Sorites result rather than sitting beside it.
 
 ---
 
@@ -232,8 +234,10 @@ building block toward the still-unchecked `LTP5 liar loop` item in
 `v2/ROADMAP_V2.md`, but it is a negative/impossibility result only —
 **no actual self-reference/quining term for the Liar sentence itself was
 built or found**, so this row's verdict stays `Dr` exactly as the corpus
-states it above. The file is uncommitted (`git status` shows `??`) and not
-yet cross-referenced from this document.
+states it above. The file is now committed at
+`research_universal_solver/formal/InfoLiarNoAnchoredResolution_attempt.v`
+(re-verified compiling in-place); not yet cross-referenced from
+`v2/ROADMAP_V2.md`'s own LTP5 item.
 
 ---
 
@@ -431,11 +435,12 @@ where nothing moved, per this corpus's own culture of keeping negative
 results on the record rather than silent.
 
 1. **Sorites (non-monotone extension).** Outcome: **upgraded** (new result,
-   scratchpad-only). Checker: **CONFIRMED**, `Th_coqc` — independently
-   recompiled `UPL_Sorites_OneReversal.v` twice from clean, axiom-free,
-   confirmed the relaxed hypotheses are strictly weaker than the committed
-   file's global monotonicity. Correctly scoped: not yet integrated into the
-   committed corpus, does not replace the existing monotone-only result.
+   now committed at `code/UPL_Sorites_OneReversal.v`). Checker: **CONFIRMED**,
+   `Th_coqc` — independently recompiled `UPL_Sorites_OneReversal.v` twice
+   from clean, axiom-free, confirmed the relaxed hypotheses are strictly
+   weaker than the committed file's global monotonicity. Correctly scoped:
+   sits beside the existing monotone-only result, does not replace it, and
+   is not yet cross-referenced from `philosophy.md`/`logic.md`.
 
 2. **Zeno (untried 7th forcing reading for `M`).** Outcome: **no_progress**.
    Checker: **PARTIALLY_CONFIRMED**, tier unchanged — the two named
