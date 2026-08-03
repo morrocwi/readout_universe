@@ -28,7 +28,7 @@ stronger one than its evidence supports.
 
 **Contents:** [What this repository is](#what-this-repository-is) ·
 [Principles](#principles) · [For AI readers](#for-ai-readers--start-here) ·
-[Reproduce every claim](#reproduce-every-claim-5-minutes) ·
+[Reproduce the machine-checked core](#reproduce-the-machine-checked-core-5-minutes) ·
 [Executed case studies](#executed-case-studies--ap) ·
 [Repository layout](#repository-layout) ·
 [We do NOT claim](#we-do-not-claim) · [Citation](#citation)
