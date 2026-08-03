@@ -270,6 +270,100 @@ number.
 
 [domain card: EQUATION_LIBRARY_ROOT_TO_SM_STREAM_research_universal_solver.md#EQ-069–071 — see also `domains/standard_model/item1_exploration/CONTINUUM_ARC_ERROR_NOTE.md`]
 
+### 2.1a Agrippa's trilemma applied to the tier system itself
+
+*Tier: `Dr` — a philosophical identification, not a new methodological rule*
+
+§2 explains what the tier discipline is *for* — it prevents the two
+named failure modes, quiet overclaiming and quiet underclaiming — and
+§5.1 openly takes the arbitrary-stopping-point horn for `δ_R` itself
+("a declared axiom... chosen, not proven," §5.1 below). Neither
+section defends the tier system's own second-order claim to authority,
+and that gap is a real instance of the oldest objection in classical
+epistemology, not a rhetorical flourish: **Agrippa's trilemma**, in its
+modern form restated by Hans Albert as the **Münchhausen Trilemma**
+(Albert, *Traktat über kritische Vernunft*, Mohr Siebeck, 1968), holds
+that any attempt to justify a claim ends in one of three unsatisfying
+places — infinite regress (each reason needs a further reason), circularity
+(the chain loops back and presupposes what it was meant to establish), or
+dogmatic cutoff (the chain stops at an unjustified, arbitrarily asserted
+point). §5.1 already takes the third horn for `δ_R` and says so plainly.
+But the *procedure* that produced that admission — declare an axiom,
+machine-check its consequences, require independent adversarial review,
+sort every resulting claim into `Th_coqc`/`finite_diagnostic`/`Dr`/
+`definition`/`Open` — is itself a further claim: that *this* is the
+epistemically correct way to run a research program. Ask why, and the
+trilemma bites the meta-level exactly as hard as it bit `δ_R`: either the
+answer rests on some further, unstated principle (regress), or it points
+back at the discipline's own track record — "it caught EQ-069–071,
+therefore it's sound" — which only counts as evidence if a discipline
+already presumed sound gets credit for the catch (circularity), or it is
+simply asserted as good practice without §5.1's honesty about doing so
+(an unacknowledged dogmatic cutoff). §9.2a is not the fix on file for
+this: it defends retained-difference against a *temporal*-regress
+worry feeding §9.3's causal-structure argument, a different target from
+the tier table's authority to sort claims in the first place. §2.1 comes
+closest — it names the Fail-Able Gate Law and narrates EQ-069–071 in
+full — but frames both as the discipline *catching itself*, never as an
+argument for why that catching procedure is the right one to trust,
+and it never names Agrippa, Münchhausen, or the literature built
+specifically to answer this exact charge.
+
+The answer this corpus is committed to, once read structurally, is that
+the tier discipline was never attempting a **justificationist** escape
+from the trilemma at all, and does not need one. This is the same move
+Karl Popper's critical rationalism made against classical
+epistemology's demand that a belief be justified before it counts as
+knowledge, sharpened directly against Albert's own trilemma by W.W.
+Bartley III under the name **pancritical rationalism** (Bartley, *The
+Retreat to Commitment*, Alfred A. Knopf, 1962; revised edition, Open
+Court, 1984 — the revision engages Albert's trilemma by name): the
+trilemma only has teeth against a position that first demands every
+claim be *justified* by an unbroken chain of reasons terminating
+somewhere secure. Drop that demand — require instead only that every
+stopping point stay *open to unlimited criticism and revision*, never
+that it be certified once and for all — and the three horns stop being
+a threat, because nothing in a pancritical position was ever claiming
+the kind of terminal certainty regress/circularity/dogmatism are
+objections *to*. Read this way, §5.1's "chosen, not proven" is not an
+evasion of the arbitrary-horn — it is the correct diagnosis that the
+horn is only fatal under justificationism, stated honestly instead of
+hidden. And the tier system's actual authority does not come from
+justifying its own stopping point either; it comes from the machinery
+already on this page that keeps every stopping point criticizable and
+revisable without ever needing to be re-justified from scratch: the
+Fail-Able Gate Law's demand for a producible *failing* control, not
+just accumulated passing ones (§2.1); the Bounded-Judge Law's mandatory
+independent adversarial review before any claim is accepted (§2); and
+the EQ-069–071 case itself, read correctly — not as evidence that "the
+discipline is sound because it caught something," which would beg the
+question, but as a live demonstration that the discipline's criticizable
+surface actually gets used: a `finite_diagnostic` claim was located as a
+category mistake, retracted in place, numbering preserved, by exactly
+the open-to-criticism channel pancritical rationalism asks a defensible
+stopping point to keep, and by nothing deeper than that.
+
+**What this does and does not settle**, held to the same discipline
+§9.1a and §9.2a apply to their own objections: this does not *prove*
+pancritical rationalism escapes Agrippa's trilemma in general — Bartley's
+position remains contested in the epistemology literature (critics have
+argued pancritical rationalism smuggles back a covert commitment to
+"hold everything open to criticism" that is itself unjustified, a fourth
+horn wearing the first three's clothes), and citing it here is a
+citation of a structurally matched defense, not a formal closure of the
+regress. What it does show is that this corpus's tier discipline is not
+silently asserting its own authority while §5.1 alone takes the honest
+hit for `δ_R` — the same non-justificationist posture already runs one
+level up, in the Fail-Able Gate Law and the Bounded-Judge Law's review
+requirement, and the EQ-069–071 retraction is the citable case where
+that posture actually fired rather than a stopping point quietly
+protected from it. The objection should be pressed against *that*
+specific claim — does keeping a stopping point open to criticism
+actually discharge the trilemma, or only relocate the dogmatism into
+the unexamined choice to value criticism-availability itself? — rather
+than against the tier table as though its authority had gone
+undefended. Tier: `Dr`.
+
 ### 2.2 From tier discipline to a runnable gate — the Three Epistemic Scalars
 
 *Tier: `finite_diagnostic`/`definition`*
@@ -740,6 +834,118 @@ repair. See also §2.5 above, which extends this same operator-grounding
 discipline into a pre-write checklist against contaminated concepts.
 
 [domain card: information-discrete-math SKILL.md + textbook/INFORMATION_DISCRETE_MATHEMATICS.md Parts II-V]
+
+### 5.2b Naming the rival directly — Platonism about the verifying metatheory, and what `Th_coqc` was never claiming
+
+§5.1's RD1–RD9 answer the shallow circularity worry (ℕ and arithmetic are
+*built from* the retention axioms, not presupposed as raw material to
+build them out of), and §5.2a answers the object-level worry one rung up
+(ℚ/ℤ/ℝ are a ladder, each rung defined from the one before, with an
+explicit operator-grounding clause reading `+ − × ÷ ∂ ∇` as
+retained-information operations, not borrowed continuum notation). Neither
+touches a level above both: the *machine-checking itself*. Every RD1–RD9
+axiom, every `Th_coqc` theorem cited across this book (`evidence/RD.v`,
+`evidence/URCF_RD_All.v`, and the rest of the corpus this claim rests on),
+is stated and proved inside Coq's Calculus of Inductive Constructions
+(CIC) — a specific, antecedently-existing, rich formal system with its own
+type-universe hierarchy (`Prop`/`Type`/`Type_i`), its own primitive notion
+of inductive definition, its own built-in structural-recursion and
+induction principles, and its own notion of propositional equality, none
+of which is itself derived from `δ_R` anywhere in this corpus. To
+machine-check the claim "ℕ is generated by, not presupposed by, the
+retention axioms," the derivation has to be *encoded* in a metalanguage
+that is, by any ordinary reading, at least as mathematically rich as the ℕ
+it is deriving — arguably richer, since CIC's inductive-type machinery is
+what proves ℕ's own well-foundedness in the first place. This is the
+mathematical-Platonist's sharpest form of the objection: not that this
+corpus smuggles `ℚ` into `δ_R`'s own definition (§5.1/§5.2a close that),
+but that the *verifying apparatus* is itself a pre-existing piece of
+mathematics, used to certify that mathematics was not presupposed —
+Platonism about the metatheory, not about the object theory.
+
+This is not eliminated by §5.1's elimination move (matter/field/geometry/
+mind/chance) — CIC is none of those candidates, it is a formal system, a
+different kind of rival entirely — and it is not closed by §5.2a's
+operator-grounding clause either: that clause grounds `+ − × ÷ ∂ ∇ = <` as
+retained-information operations, but CIC's universes, its inductive-type
+former, and its structural-recursion principle are not among that list.
+They are the scaffolding the grounding clause's own proofs run *inside*,
+never an object the grounding clause takes as its target.
+
+The answer starts with machinery this book has already committed to, in
+§2's tier table, stated before this objection was ever raised even though
+the table's own wording does not name CIC or the metatheory explicitly:
+`Th_coqc` is defined there as "machine-checked, axiom-free," with the
+explicit "What it is NOT" column reading **"not 'true'; a formal system
+closing under stated axioms/scope."** That clause was written to guard
+against reading any `Th_coqc` badge as certifying truth-simpliciter, and
+this section reads it — an extension of the clause's own logic to the
+verifying apparatus, not a fact the clause already stated outright — as
+refusing exactly the reading a metatheory-Platonist would need this
+corpus to be making: that CIC-checked closure delivers a
+medium-independent, view-from-nowhere guarantee that mathematics was
+generated rather than presupposed. On this reading it does not deliver
+that. What
+`Th_coqc` licenses, read at the letter of its own §2 definition, is
+narrower and fully honest about its own scope: *given* CIC's rules of
+inference, RD1–RD9 generate ℕ without an axiom asserting ℕ in advance. The
+"given CIC's rules of inference" clause is not a hidden cost this section
+is confessing under pressure — it is what "closing under stated
+axioms/scope" already says, plainly, to any reader who takes §2's own
+table at its word rather than at the more triumphant reading the
+narrative prose elsewhere sometimes invites.
+
+That the checker itself must be a system at least as rich as what it
+checks is not a defect unique to this corpus's engineering choice of
+Coq — it is a general fact about formal verification, named by Gödel's
+second incompleteness theorem: no consistent formal system powerful
+enough to encode its own arithmetic can prove its own consistency from
+within itself, so a proof-theoretic guarantee about any sufficiently rich
+system always requires a *different* (typically strictly stronger, or at
+least differently-grounded) metatheory standing outside it, world without
+end. This is the corpus's own philosophical ally on the point, named
+directly rather than folded into "everyone knows this": Solomon Feferman's
+sustained case that all formal-foundational work is **relative
+foundations, never absolute foundations** — "working foundations" chosen
+and justified pragmatically against a background one does not also derive
+from nothing (Feferman, *"Working Foundations,"* Synthese 62 (1985);
+Feferman, *"Does Mathematics Need New Axioms?,"* American Mathematical
+Monthly 106 (1999)). Feferman's point is not a concession that
+foundational work is therefore worthless — it is the standing diagnosis
+that *every* foundational program, including Hilbert's original one
+Gödel's theorem answered, has to be read this way: verified-relative-to-a-
+metatheory, never verified-from-nowhere. CIC standing outside RD1–RD9's
+own derivation is this corpus's particular instance of a structural fact
+about formal verification as such, not a hole specific to this book's
+engineering choices.
+
+**What this does and does not settle**, held to the same discipline §9.1a
+and §9.2a apply to their own objections: this does not make the
+metatheory-Platonist's worry disappear, and it should not be read as
+doing so — CIC really is a rich, antecedently-existing formal system, `ℕ`
+really is checked inside it rather than inside something derived from
+`δ_R`, and no move in this section converts that into a `δ_R`-only
+derivation "all the way down." What it does show is that this corpus's
+own tier discipline, read at the letter §2 already commits to, never
+claimed otherwise — `Th_coqc` was defined, before this objection was ever
+raised, as closure-relative-to-CIC, not truth-relative-to-nothing, and
+Gödel's second incompleteness theorem plus Feferman's relative-foundations
+reading show this is the honest shape *any* machine-checked foundational
+claim can take, not a special weakness invented by choosing Coq. What this
+section does *not* settle, and flags rather than papers over: this book's
+own narrative prose (§5, opening line, "the ontological claim — one
+retained root," and passages elsewhere that read `δ_R` as "prior to and
+generative of mathematics itself") is not always as careful as §2's tier
+table about keeping "generated without presupposing ℕ as an axiom, given
+CIC" distinct from an unconditional, medium-independent generativity
+claim; where the two are run together without the "given CIC" clause made
+explicit, that is an overclaim relative to what `Th_coqc` itself licenses,
+and it is a standing textual-hygiene item this section identifies but does
+not itself go fix throughout the rest of the file. Tier: `Dr` for the
+philosophical identification (reading the metatheory-Platonist's objection
+as answered by §2's own tier definition plus the Gödel/Feferman
+relative-foundations parallel); the `Th_coqc` results this section
+defends the *scope* of remain exactly `Th_coqc`, unchanged, per §5.1/§5.2a.
 
 ### 5.3 The trunk equation
 
@@ -3142,6 +3348,238 @@ already carries. That convergence, reached independently across three
 different papers written for three different purposes, is offered as
 evidence the answer is not ad hoc — not as proof the answer is
 correct. Tier: `Dr` throughout.
+
+### 9.2b Answering the pre-observer agency objection — the reader's operator is L_R, not a proto-mind
+
+§9.2a's own answer to the temporal-regress objection leans, at its base,
+on agent vocabulary this file should not pretend is idle prose: retention
+is defined there as "a difference such that some bounded reader's
+operator, applied to it, returns a non-null result," repeated as "an
+admissible transport is one a reader's operator can carry out" and named
+outright as "the agency-readout operator." That definition does the real
+work — it is what makes §9.2a's regress answer non-temporal at all. But
+§9.18 and §9.20, in the same file, insist the observer *arrives last*:
+§9.20's own ordered list runs time, geometry, matter, mass, force,
+energy, and only then — "when a complex pattern records another
+pattern" — an observer. So the corpus needs some reader/agency already
+active to certify what counts as "retained" at `δ_R`'s own primordial
+step (§9.2a, prior to time, geometry, matter), while simultaneously
+insisting no observer or agency exists that early (§9.18, §9.20). This is
+a sharper seam than either of the two objections this file already
+answers in this cluster: it is not §9.1a's individuation-of-relata worry
+(which concerns `a`/`b`, not the operator applied to them), and it is not
+§9.9a's Madhyamaka comparison, which — unlike the objection here —
+does not propose a positive retaining *mechanism* the way the objection
+below needs one: śūnyatā itself is primarily a negative, deconstructive
+result (the emptiness of svabhāva), and even §9.9a's own further reading
+of it as "relational eigenmodes" names a structural residue, not a
+functional account of what does the retaining. Yogācāra is built to
+press exactly this seam, and does
+propose a positive candidate: Vasubandhu's *ālayavijñāna* ("storehouse
+consciousness"), argued at length in the *Triṃśikā-vijñaptimātratā* and
+Asaṅga's *Mahāyānasaṃgraha*, is a retaining function that stores and
+releases *bīja* (seeds/impressions) *prior to*, and as the condition for,
+the very *grāhya-grāhaka* (perceived–perceiver) split — a pre-egoic
+retaining function occupying, structurally, the identical location
+§9.2a's "reader's operator" occupies: certifying retention before any
+individuated observer exists. Yogācāra's whole argument is that this
+pre-egoic retaining function is still, irreducibly, of the nature of
+*vijñāna* (cognizance) — not neutral structure that merely happens to
+precede mind. Pressed at this corpus: either name what the pre-observer
+"reader/agency" of §9.2a actually is — in which case something
+functionally identical to *ālayavijñāna* has been quietly reintroduced
+under a different label, undermining §9.19's "neither pure materialism
+nor pure idealism" balance, since the primordial operator would in fact
+be mind-natured — or explain how something can certify a readout
+("reads," "non-null," "bounded reader," the corpus's own words) without
+being any kind of cognizer at all, in which case Yogācāra will ask what
+work "reader" and "agency" are doing in that sentence besides a borrowed
+intuition pump from exactly the phenomenal vocabulary this corpus wants
+to avoid owning.
+
+The answer this corpus already has available, read structurally rather
+than loosened: §9.2a's "reader's operator" is not a proto-observer at
+all — it is `L_R := D_W − W` itself, the same object §5.2 already checks
+by finite case-split (symmetric / zero-row-sum / off-diagonal-≤-0) and
+tiers `Th_coqc`. Checking whether a difference is retained is checking
+whether `L_R` returns a non-null result on it — a finite, mechanical
+test, requiring no interpretive or phenomenal step, exactly the same
+sense in which §5.2's forcing argument already treats `L_R` as prior to
+and independent of any interpreter. "Agency" and "reader" in §9.2a's own
+prose are, on this reading, loose shorthand for "whatever finite
+structure instantiates `L_R`'s retention condition" — not a name for a
+mind, proto-mind, or witness standing over the difference. Genuine
+observers and selves — §7.21's `τ_c^H` closure, §9.18's late-arriving
+observer, "a region of the world that has learned to hold and interpret
+traces of other regions" — are then read as one very particular, complex,
+downstream *eigenmode* of that same `L_R` that has folded back to model
+itself (§5.2/§9.9's own "a thing is a persisting eigenmode," applied here
+to the special case of a self-modeling one), not as the primordial
+retaining function itself. On this reading §9.2a's agent-flavored prose
+was never claiming a mind exists at the primordial step; it was naming
+`L_R`'s check in the only vocabulary ordinary language offers for "a
+process that outputs pass/fail on an input," and the objection's force
+falls on that prose, not on the underlying `Th_coqc` object it was
+describing loosely.
+
+This corpus already has, in hand, the exact move needed to place
+Yogācāra's own candidate relative to that answer, because §9.9a already
+licensed it for a different Buddhist school under the same explicit
+discipline: "every comparison is interpretive [`Df`/`Dr`]... we claim no
+supersession" (`main.tex`, "Dialogue with World Traditions"). Extended
+here to Yogācāra rather than invented fresh: *ālayavijñāna* is read as an
+isomorphic, phenomenologically-derived description of the same
+`L_R`-retention function, arrived at through introspective analysis — the
+only vocabulary a first-person-only method has available — not as
+evidence that the retaining function is essentially mental. Vasubandhu's
+tradition worked this ground from the inside of experience, using the
+only instrument available to that method (attention turned on itself),
+and converged on a retaining, seed-storing function operating prior to
+the subject/object split; this corpus's `L_R`, worked from a structural,
+third-person-formal direction, converges on a retention condition
+operating prior to time, geometry, and matter. Convergence from two
+independent, non-overlapping methods on structurally the same location
+is offered, exactly as §9.9a offers it for Madhyamaka, as evidence the
+identification is not ad hoc — not as proof that `L_R` simply *is*
+*ālayavijñāna*, and not as a concession that retention is mind-natured
+after all.
+
+**What this does and does not settle**, held to the same discipline
+§9.1a, §9.1b, and §9.2a apply to their own objections: this does not
+*prove* the pre-observer agency objection is dissolved — that would
+require a completed argument that `L_R`'s own finite check (non-null
+output of `D_W − W`) can be fully specified without recourse to any
+agent-flavored vocabulary even in its informal statement, which this
+paragraph does not attempt and which the objection can still press. Nor
+does it prove Yogācāra is wrong that any function capable of certifying a
+readout is thereby cognizant — that is a live, substantive philosophical
+disagreement between a structural-realist reading of `L_R` and a
+Yogācāra reading of the same location, and this corpus takes the former
+side without claiming to have refuted the latter. What it does show is
+that this corpus is not merely reusing agent-language by fiat: §9.2a's
+"reader's operator" has a `Th_coqc`-tiered, finite-case-split referent
+(`L_R`) that does not itself require any interpreter, genuine observers
+are independently placed downstream of that referent as a special
+self-modeling eigenmode (consistent with §5.2/§9.9/§7.21's own
+derivation order), and Yogācāra is credited, in the same generous,
+non-conceding posture §9.9a already extends to Madhyamaka, with having
+independently converged on the same structural location from an older,
+non-Western, first-person route — not with having anticipated `L_R` or
+being superseded by it. Tier: `Dr`, for the philosophical identification
+and the extension of §9.9a's non-supersession move; `L_R`'s own
+finite-check properties remain `Th_coqc` per §5.2, unchanged by this
+reading.
+
+[domain card: Vasubandhu, *Triṃśikā-vijñaptimātratā* ("Thirty Verses on
+Consciousness-Only"); Asaṅga, *Mahāyānasaṃgraha* ("Compendium of the
+Great Vehicle"), ālayavijñāna chapter; main.tex, "Dialogue with World
+Traditions" part (non-supersession discipline extended here to a second
+Buddhist school under the same stated terms)]
+
+### 9.2c Naming the rival directly — Whitehead's mental pole, and where this corpus already answers it
+
+Process and Reality's central charge against any account that reduces
+"becoming" to bookkeeping over what already happened is not answered by
+§9.1's elimination move (Whitehead is not a candidate starting-point
+substance §9.1 rules out) nor by §9.2a's regress answer (§9.2a defends
+"retained" against smuggling in time, not against smuggling in
+determinism). It needs to be named and met on its own ground.
+
+RD2 ("generation": `x:𝔇 ⇒ σx:𝔇`, every retained state can take one more
+step) and RD3 ("direction": `σx ≠ 0`) together state a pure successor
+operation on retained states — from a given `x`, `σx` follows, and
+nothing in §5.1's axioms as stated says where a step could have gone
+otherwise. Alfred North Whitehead's explicit thesis in *Process and
+Reality* (Whitehead, A. N., *Process and Reality: An Essay in Cosmology*,
+Macmillan, 1929; corrected edition, D. R. Griffin & D. W. Sherburne, eds.,
+Free Press, 1978) is that this is never sufficient to generate a
+genuinely new actual occasion. Every occasion, on his account, has two
+poles: a **physical pole**, the occasion's *prehension* (felt inheritance)
+of antecedent occasions — pure conformation to the given past, and a
+**mental pole**, a *subjective aim* — a valuation, a selection among the
+possibilities the physical pole leaves open, that is not itself read off
+what was inherited. Physical-pole prehension alone, Whitehead insists,
+yields only "more of the same": a frozen, fully-determined unrolling of
+antecedent data, not a world in which anything novel ever occurs. If RD1–
+RD9 supply only §5.1's `σ` — deterministic accumulation from retained
+state to retained state — a Whiteheadian reader is owed an answer to a
+direct question this file has not yet asked itself: where, if anywhere,
+does this corpus's own machinery supply something structurally answering
+to a mental pole, as opposed to explaining retention and calling it a
+day?
+
+The answer is not a new construction written for this paragraph — it is
+two pieces of machinery already in this corpus, proved and drafted
+respectively, that have never before been read together or connected to
+Whitehead by name. **The physical pole is already formalized, named as
+exactly that limit, and proved axiom-free.**
+`research_universal_solver/formal/InfoAgencySelfReadout_attempt.v`
+proves (`Th_coqc`) that `agency(n,edges,x,i) := row_n(L)x_i` is a purely
+deterministic readout of an existing retained state — and the file
+states its own ceiling in almost Whiteheadian language without meaning
+to: *"agency is not an uncaused mover"* (`paradoxes.md` §6.1). This is
+RD2's successor step, made formal, checked, and explicitly self-limited
+to conformation — the physical pole under a different name, arrived at
+independently of Whitehead and for unrelated reasons.
+
+**The mental pole has a candidate formal locus too, at the honest tier
+this corpus already uses for undischarged constructions.**
+`paradoxes.md` §6.2's `Origination(a*, s)` construction (`Dr`, `[Open]`)
+holds exactly where the physical-pole readout runs out: it is defined to
+hold iff `a*` sits in a genuine *tie* in the argmin set of an
+obstruction-minimization under a repair constraint — a point where, in
+the construction's own words, *"`s` alone does not contain enough
+information to determine which action gets chosen — the fact of which
+one *was* chosen is a new `δ_R` created at the decision, not one read out
+of a prior retained state."* That is not a looser restatement of
+Whitehead's mental pole; it is the same structural claim — physical-pole
+retention (the argmin set, everything `s` determines) structurally
+underdetermines the next step, and something beyond bookkeeping is what
+settles it. Reading the two together, without softening either: this
+corpus already contains, at `Th_coqc`/`Dr`+`[Open]` respectively, the same
+two-pole structure Whitehead's cosmology demands — proved deterministic
+conformation on one side, an honestly-undischarged, tie-triggered
+origination construction on the other — it was simply never named as an
+answer to him.
+
+One further point is worth stating plainly rather than treated as a
+retreat. The 2026-08-03 toy-model diagnostic already logged against
+§6.2 (`finite_diagnostic`, `paradoxes.md` §6, "Upgrade attempt") found
+genuine ties in 0 of 7 tested generically-forced states, surviving only
+in an idealized symmetric special case (`s=0, J=0`) destroyed by any
+nonzero forcing as small as `eps=1e-8`. Read cold, that looks like bad
+news for the mental-pole reading. Read against Whitehead's own hierarchy
+of occasions — his explicit claim that most actual occasions, "bare"
+ones especially, exhibit only *trivial* valuation (near-total
+conformation to the given past), and that strong, novelty-bearing
+mental-pole contribution is the rare, high-grade case reserved for
+"living" occasions — the diagnostic's own gradient (physical-pole
+conformation dominant almost everywhere, genuine tie-points rare and
+fragile) is an unexpected structural echo of that hierarchy, not a
+contradiction of it. This is offered as a resemblance the diagnostic
+happened to produce, not as evidence the diagnostic was designed or run
+to confirm Whitehead — the toy model's `O`/`Repair` were built from this
+repo's own `ap6_drl_general.py` obstruction machinery for unrelated
+reasons, before this paragraph existed.
+
+**What this does and does not settle.** This does not show that
+`Origination(a*, s)` *is* a mental pole in Whitehead's full sense — his
+subjective aim carries normative, teleological, and (for high-grade
+occasions) experiential content that §6.2's tie-triggered `δ_R` neither
+asserts nor needs; the parallel claimed here is narrower and structural
+only: both name a specific point where physical-pole/retained-state
+information runs out and something not read off that state is what
+produces the next step. Nor does this upgrade §6.2's own tier — it
+remains `Dr` for the construction and `[Open]` for its consequences,
+exactly as `paradoxes.md` §6 already states, and the bridge from
+"argmin tie" to "subjective aim" is asserted here as a structural
+identification, not proved as a formal equivalence, the same honest gap
+§9.1a and §9.2a leave open for their own cited parallels. What it does
+show is that the objection's own sharpest form — "this corpus explains
+retention/bookkeeping but never says why anything new occurs" — is
+false as a global charge: the corpus already has a named locus for
+exactly that, sitting at the same tier it always sits at, simply never
+before connected to the philosopher who demands it. Tier: `Dr`.
 
 ### 9.3 Time is the count of causal steps, not a container events sit in
 
