@@ -2440,31 +2440,45 @@ same thing.
 
 ### 7.21 Self as a closure property, not a substance — the τ_c^H loop
 
-*Tier: `Dr`/`[Open]` — narrated in the source's own words, no upgrade*
+*Tier: `Dr`/`[Open]` — this entry's own paraphrase of a cited source, not
+an upgrade of that source's tier*
 
 Nothing before this point in either ledger needs a word like "self." The
 source introduces one only because a human-agency loop, once closed, has a
 property none of its individual pieces carry alone: it reads its own
-retained output back into its own retained input. The definition offered,
-stated as carefully as the source states it — not a discovery about what
-selves secretly are, a declared reading of what the word can honestly mean
-inside this framework:
+retained output back into its own retained input. What follows is this
+entry's own restatement of that reading, in this corpus's own words and
+notation, not a verbatim quotation of the source — the source remains the
+authority on its own precise wording, this is a paraphrase offered to fit
+this document's voice:
 
-> **Self, as used here, is not a substance, a location, or a homunculus. It
-> is the closure property of the τ_c^H loop: the fact that Ω_H both (a)
-> results from the loop's own prior passes and (b) conditions the loop's
-> next pass, at a stable, characteristic causal-memory timescale τ_c^H.**
+**This entry names "self" for one specific reason: once a loop closes on
+itself — once a system's running model of the world folds back into
+shaping what that same system does next — something appears that no
+isolated piece of the loop carries on its own. Call that folding-back a
+closure property, and give the loop's holding-together time a symbol,
+τ_c^H: how long the loop keeps its shape before its own memory of itself
+fades. Two conditions make up the closure, and neither alone is enough —
+a world-model Ω_H that only records what already happened, without
+steering what comes next, is inert; a policy that steers without ever
+being reshaped by its own history is memoryless. Self, on this reading,
+is neither of those alone. It is the standing fact that both hold at
+once: the loop's own model is still being made by its own past passes,
+and that same model is what actually drives its next one. Not a
+substance, not a location, not a homunculus watching from inside — just
+this two-way dependency, holding stably, pass after pass.**
 
-Ω_H here is the world-model this loop maintains, and "conditions the loop's
-next pass" is read the way §2.5/§5.2a require every operator in this corpus
-to be read: not a metaphor for influence in general, but a retained-state
-dependency — the value Ω_H holds after one pass is literally an input
-consulted by the selection step of the next pass, a finite readout feeding a
-finite readout, at a declared timescale τ_c^H (a retained memory-time, the
-same kind of scalar §1's trunk-equation reading of `τ_c = M/D` already
-names, not a continuum "moment"). "Both (a) and (b)" is the same discrete,
-decidable `∧` §2.1 already insists on for the Fail-Able Gate Law — two
-retained facts checked to both hold of the same loop, not a continuum
+"Drives its next one" is read the way §2.5/§5.2a require every operator in
+this corpus to be read: not a metaphor for influence in general, but a
+retained-state dependency — the value Ω_H holds after one pass is literally
+an input consulted by the selection step of the next pass, a finite readout
+feeding a finite readout, at a declared timescale τ_c^H (a retained
+memory-time, the same kind of scalar §1's trunk-equation reading of
+`τ_c = M/D` already names, not a continuum "moment"). The two
+conditions above — Ω_H still being shaped by the loop's own past, and Ω_H
+actually steering the loop's next step — are checked together, the same
+discrete, decidable `∧` §2.1 already insists on for the Fail-Able Gate Law:
+two retained facts checked to both hold of the same loop, not a continuum
 logical connective assumed to carry meaning on its own.
 
 "Awakening" (the waking self), on this reading, is not a single event but a
@@ -2551,6 +2565,37 @@ here — a single algebraic readout at a state is not a standing loop-closure
 claim, and neither tier nor evidence transfers between them.
 
 [domain card: research_universal_solver/docs/engineering/GENESIS_STEP_BY_STEP_V3_1.md Part VIII §VIII.6 "Self as a Closure Property, Not a Substance" (~lines 4899-4929); see also §VIII.4's agency gradient/repair-rate definitions and §VIII.1's Φ_H openness declaration]
+
+**Upgrade attempt (2026-08-03), in the same spirit as `paradoxes.md`
+§6.2's own upgrade attempt.** A cross-repo survey found no existing
+formalization of this entry's specific standing, multi-pass claim
+anywhere in the workspace, so two fresh, self-contained artifacts were
+built (neither copies or adapts any proprietary source): (1)
+`evidence/RetentionLoopClosureMonotone.v` proves, for any abstract
+discrete contraction map (`Th_coqc`, axiom-free over ℚ), that its
+convergence bound is monotone in the contraction ratio — a formal
+scaffold for "a weaker/degraded coupling gives a provably worse
+worst-case convergence guarantee at every step," explicitly *not* a
+proof about any real `Ω_H` update rule, τ_c^H, or human cognition; (2)
+`ap/ap22_self_closure_diagnostic.py` (`finite_diagnostic`) runs a fresh
+scalar toy model of a closure loop, injects a perturbation, and measures
+— empirically, via finite difference, not by reading off a parameter
+analytically — both halves of this entry's own falsifier: this run's
+degraded-closure arm showed a measurably flatter agency-gradient
+(≈0.011 vs ≈0.239) and a measurably slower repair rate (≈−0.074 vs
+≈−0.143 per step) than the nominal arm, confirming the falsifier's
+predicted *direction* in this toy setting. Held to the same discipline
+as `paradoxes.md`'s own upgrade attempt: this is one executed numeric
+run on a toy model with one shared gain parameter driving both measured
+quantities by construction — it confirms the measurement methodology
+correctly detects a built-in coupling, not an independent discovery that
+real closure works this way. It does **not** change this entry's own
+tier, which stays `Dr` for the construction and `[Open]` for its
+consequences, exactly as before — the falsifier is now demonstrated to
+be *measurable and internally coherent* in a toy setting, not confirmed
+about anything beyond that toy setting.
+
+[domain card: evidence/RetentionLoopClosureMonotone.v; ap/ap22_self_closure_diagnostic.py]
 
 ### 7.22 AI ethics as a readout-selection structure — the L-16 first-order content §6 points to
 
@@ -4205,14 +4250,15 @@ constraint; it is the world made partially readable to one of its own
 modes.
 
 **This is not a new claim for this corpus — it is §7.21, argued in the
-same vocabulary this whole section uses.** §7.21 already states, `Dr`/
-`[Open]`, that self is "the closure property of the `τ_c^H` loop" — a
-world-model that both results from a loop's own prior passes and
-conditions the loop's next pass — and explicitly disclaims having solved
-consciousness or the hard problem, exactly as §9.18 disclaims it again
-here. Nothing in §9.18 upgrades §7.21's tier or its falsifier
-(`∂π*/∂η_H`, `dR_H/dt`); §9.18 is that same argument, told as part of
-the cosmological case rather than as an isolated definition.
+same vocabulary this whole section uses.** §7.21 already makes this same
+point, `Dr`/`[Open]`: a self is what shows up once a loop's own
+world-model stays shaped by that loop's own past while also steering
+what the loop does next — a two-way dependency, not a spectator. §7.21
+explicitly disclaims having solved consciousness or the hard problem,
+exactly as §9.18 disclaims it again here. Nothing in §9.18 upgrades
+§7.21's tier or its falsifier (`∂π*/∂η_H`, `dR_H/dt`); §9.18 is that same
+argument, told as part of the cosmological case rather than as an
+isolated definition.
 
 ### 9.19 Neither pure materialism nor pure idealism
 
