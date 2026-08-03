@@ -1,6 +1,24 @@
 ---
 name: readout-universe
-description: Load before stating ANY claim as settled fact, in ANY domain — not just math/physics. Trigger points include, but are not limited to: before writing the words "proven," "verified," "safe," "confirmed," "settled," or "this works" about a result you have not personally checked; before citing a benchmark, metric, measurement, or test result as though it were the state of the world rather than one finite executed readout; before writing a claim label of "Open," "unresolved," or "hard/paradoxical" without also stating a stance and a falsifier; before repeating a source's own self-description of its rigor (e.g. "machine-checked," "peer-reviewed," "industry-standard") without re-checking it; before letting a narrative interpretation ("this means X is true") sit next to a measured or derived result without marking which one it is; and before finalizing any document, PR, report, or answer that mixes claims of different evidentiary strength without labeling them differently. Gives the six-tier evidence-tagging discipline (Th_coqc / finite_diagnostic / Dr / Open / fit_calibrated / definition) so a claim's stated strength never exceeds what was actually checked, measured, or declared.
+description: >-
+  Load before stating ANY claim as settled fact, in ANY domain — not just
+  math/physics. Trigger points include, but are not limited to: before
+  writing the words "proven," "verified," "safe," "confirmed," "settled,"
+  or "this works" about a result you have not personally checked; before
+  citing a benchmark, metric, measurement, or test result as though it
+  were the state of the world rather than one finite executed readout;
+  before writing a claim label of "Open," "unresolved," or
+  "hard/paradoxical" without also stating a stance and a falsifier; before
+  repeating a source's own self-description of its rigor (e.g.
+  "machine-checked," "peer-reviewed," "industry-standard") without
+  re-checking it; before letting a narrative interpretation ("this means
+  X is true") sit next to a measured or derived result without marking
+  which one it is; and before finalizing any document, PR, report, or
+  answer that mixes claims of different evidentiary strength without
+  labeling them differently. Gives the six-tier evidence-tagging
+  discipline (Th_coqc / finite_diagnostic / Dr / Open / fit_calibrated /
+  definition) so a claim's stated strength never exceeds what was
+  actually checked, measured, or declared.
 ---
 
 # Readout Universe — tag every claim with the tier its evidence actually earns
