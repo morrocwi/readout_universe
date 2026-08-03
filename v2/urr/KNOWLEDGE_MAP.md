@@ -12,7 +12,7 @@
 ## 2. Current reading order
 
 ```text
-URR_NATIVE_SYSTEM.md
+urr_native_system.md
     -> v2/urr/URR_CUT_EXTENSION.md       canonical master equation
     -> v2/urr/URR_C_MASTER.yaml          machine-readable contract
     -> v2/urr/URR_C_DISCOVERIES.md       discovery and tier ledger

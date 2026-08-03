@@ -506,7 +506,7 @@ underlying general theorem, cited once per relevant section).
 
 ## 7. URR-C 0.4 master system (native calculation contract)
 
-Source: `v2/urr/URR_C_MASTER_0_4.md` / `URR_NATIVE_SYSTEM.md`. Doubled
+Source: `v2/urr/URR_C_MASTER_0_4.md` / `urr_native_system.md`. Doubled
 reader–record space 𝒳_T = 𝓗_T ⊕ 𝓗_T, X_n=(Φ_n,Ψ_n)ᵀ; lifted projector
 Ō_α = I₂⊗O_α, H̄_α = I−Ō_α. `𝔾_T` (URR-2 below) — the lifted graph coupling
 operator, the same construction as EQ-020's `𝔾_n`
@@ -599,7 +599,7 @@ physical_black_hole_from_native_cut_alone: not_claimed
 
 ## 8. Executable LTP battery (v1.0 formal floor)
 
-Source: `README.md`, `CLAIMS.md`, `code/`.
+Source: `README.md`, `claims.md`, `code/`.
 
 | Claim | Statement | Check | Tier |
 |---|---|---|---|
@@ -1127,7 +1127,7 @@ certificate.
 
 Not fully absorbed here — go to source for full depth:
 
-- **AP0–AP20 applied-protocol chain** (Hubble tension, DESI, muon g−2, JWST,
+- **AP0–AP21 applied-protocol chain** (Hubble tension, DESI, muon g−2, JWST,
   the 10⁻³⁹→52→atoms→1/d "mystery ladder", channel-coupling slopes) —
   `v2/MYSTERY_LADDER.md`, `v2/FORCED_IDENTIFICATION.md`, individual
   `ap/apN_*.py` files, `docs/VERIFIED_RUNS.md`.

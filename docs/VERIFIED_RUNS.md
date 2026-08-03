@@ -1,6 +1,6 @@
 # Verified runs — executed check log
 
-Rule: a claim from `CLAIMS.md` may be cited as `finite_diagnostic`/`Th_coqc` only
+Rule: a claim from `claims.md` may be cited as `finite_diagnostic`/`Th_coqc` only
 if a dated executed run appears here (machine-dependent timings are never claimed).
 
 ## 2026-07-19 — development workstation 5 15ARH05 (Ubuntu, Python 3 miniforge, Coq 8.20.1)
@@ -11,7 +11,7 @@ if a dated executed run appears here (machine-dependent timings are never claime
 | C4–C6 | `python3 code/LTP2_3_4_battery.py` | `SUITE: PASS 8/8` — LTP2 3/3 (flip n=1039@Π=0.5, n=2414@Π=0.8); LTP3 2/2; LTP4 3/3 (rank 3/4, det=0) |
 | C7 | `coqc code/UPL_Sorites.v` | exit 0; 3× `Closed under the global context` |
 
-All expected values match `CLAIMS.md` exactly. Note: README floor is Coq 8.18;
+All expected values match `claims.md` exactly. Note: README floor is Coq 8.18;
 this run used 8.20.1 — compiles clean, axiom-free check intact.
 
 ## 2026-07-19 — evidence/ clone re-verification (same machine, Coq 8.20.1)

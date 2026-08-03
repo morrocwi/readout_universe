@@ -8,7 +8,7 @@
 
 ## Why a correction is proposed
 
-The current PR title says AP19 "derives 2 and trace-square response 4"
+The current PR title says AP21 "derives 2 and trace-square response 4"
 and the body calls it "the sharpest remaining Paper III falsifier." Both
 overstate what the file does:
 
@@ -17,7 +17,7 @@ overstate what the file does:
   requires deriving it "จากโครงสร้าง channel บนกราฟ" (from the channel
   structure on the graph) using the repo's graph/spectral engine
   (AP9-AP12).
-- AP19 does not use that engine. It is a standalone finite SU(2)
+- AP21 does not use that engine. It is a standalone finite SU(2)
   Yang-Mills background-field toy computation -- real algebra, but a
   different, borrowed machinery (essentially the known Nielsen 1981 /
   't Hooft g=2 result for a non-Abelian gauge boson, already cited by
@@ -34,12 +34,14 @@ makes the PR title/body match it.
 
 ## Proposed corrected title
 
-> AP19: finite-diagnostic Yang-Mills toy -- self-interaction supplies one
+> AP21: finite-diagnostic Yang-Mills toy -- self-interaction supplies one
 > more curvature unit (multiplier 2, response 4); does NOT close the
 > (2s)^2 graph-derivation falsifier
 
-(Old title for comparison: "AP19: derive spin-1 curvature multiplier and
-response power")
+(Old title for comparison, verbatim: "AP19: derive spin-1 curvature
+multiplier and response power" — the case study was renamed AP19 → AP21
+in a later repo-wide cleanup; this line preserves the PR's actual
+original title text and must not be "corrected" to match.)
 
 ## Proposed corrected body
 
@@ -61,7 +63,7 @@ forced to be exactly 2 rather than fitted.
 
 - NOT a derivation from this repo's graph/spectral engine (AP9-AP12).
   MYSTERY_LADDER.md's (2s)^2 open item explicitly requires the derivation
-  to come "from the channel structure on the graph" -- AP19 does not
+  to come "from the channel structure on the graph" -- AP21 does not
   touch that engine at all. This PR does not close that falsifier.
 - NOT a from-scratch derivation of the non-Abelian curvature expansion or
   the Lie/commutator structure it uses -- that machinery is standard

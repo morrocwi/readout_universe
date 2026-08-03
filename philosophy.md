@@ -1115,7 +1115,7 @@ at `Dr`, `definition`, or `Open`, and this book keeps them there.
 ## 6. What this system explicitly does NOT claim
 
 Carried forward verbatim in spirit from the corpus's own disclaimers
-(`README.md`, `CLAIMS.md`, `v2/EVERYTHING_BRIDGE.md`, `SCOPE_CORRECTION.md`,
+(`README.md`, `claims.md`, `v2/EVERYTHING_BRIDGE.md`, `scope_correction.md`,
 and inline hedges throughout):
 
 - **`finite_diagnostic` ≠ proof.** An executed numeric PASS is evidence, not
@@ -2173,7 +2173,7 @@ directly for full depth:
 - The URR-C sectors (typed accessible/hidden channels, return-transformation
   kernels, physical readability over a time window) — `v2/urr/` (start at
   `URR_C_MASTER_0_4.md`).
-- The AP0–AP20 physics/cosmology benchmark chain (Hubble tension, DESI,
+- The AP0–AP21 physics/cosmology benchmark chain (Hubble tension, DESI,
   muon g−2, JWST, the gravity-weakness "mystery ladder", retention
   self-interaction) — `v2/MYSTERY_LADDER.md`, `v2/RETENTION_SELF_INTERACTION.md`,
   and the individual `ap/apN_*.py` files + `docs/VERIFIED_RUNS.md`.

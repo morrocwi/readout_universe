@@ -3,7 +3,7 @@
 # is data, not prose.
 #
 # There are currently NO live gates declared in readout_universe itself
-# (the tier discipline in CLAIMS.md / docs/AI_READING_GUIDE.md already
+# (the tier discipline in claims.md / docs/AI_READING_GUIDE.md already
 # does the equivalent job for this repo's own claims via executed-run
 # citation, not a pass/fail threshold gate). This file exists so that:
 #   (a) the format is documented in one real, parseable place, not just

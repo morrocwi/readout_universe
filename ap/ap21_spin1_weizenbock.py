@@ -1,4 +1,4 @@
-"""AP19 -- spin-1 Weitzenboeck rung: coefficient 2 -> response power 4
+"""AP21 -- spin-1 Weitzenboeck rung: coefficient 2 -> response power 4
 (toy-tier finite_diagnostic).
 
 NARROW CLAIM
@@ -43,7 +43,7 @@ HONEST SCOPE
 - (b) this does NOT close MYSTERY_LADDER's open item (2s)^2: that falsifier
   explicitly demands the paramagnetic law be derived "จากโครงสร้าง channel
   บนกราฟ" (from the channel structure on the graph) using this repo's own
-  graph/spectral engine (AP9-AP12). AP19 does not touch that engine at all
+  graph/spectral engine (AP9-AP12). AP21 does not touch that engine at all
   -- it is a standalone Yang-Mills toy computation, orthogonal to the
   graph-derivation falsifier;
 - (c) what IS established here, and is genuinely earned: a finite,
@@ -68,7 +68,7 @@ weakness: if the overall normalization convention is wrong by a constant
 factor, the *shape* (self-interaction contributes exactly one more unit of
 the same operator) still holds, but the absolute value "2" / "4" would not.
 
-Run: pytest ap/ap19_spin1_weizenbock.py -q
+Run: pytest ap/ap21_spin1_weizenbock.py -q
 PRIVATE / PROPRIETARY (LICENSE EXCEPTIONS) -- do not publish.
 """
 from fractions import Fraction as F

@@ -113,7 +113,7 @@ summarize:
 2. **[`philosophy.md`](philosophy.md)** and **[`logic.md`](logic.md)** — the
    distilled, standalone core (fastest path to the whole system).
 3. **[`main.tex`](main.tex)** — the full textbook, plain LaTeX, one file.
-4. **[`CLAIMS.md`](CLAIMS.md)** — one falsifiable claim per row, each with
+4. **[`claims.md`](claims.md)** — one falsifiable claim per row, each with
    its own check command.
 5. **[`paradoxes.md`](paradoxes.md)** — see the machinery actually applied
    to hard problems, honestly scored.
@@ -155,9 +155,9 @@ main.tex, main.pdf        full textbook (canonical source + compiled, 83 pp.)
 philosophy.md              distilled epistemology/ontology, standalone
 logic.md                   distilled equation/operator ledger, standalone
 paradoxes.md                worked stress-test against 5 classic paradoxes
-CLAIMS.md                   falsifiable-claims register (C1-C7)
-SCOPE_CORRECTION.md         a recorded self-correction to an earlier scope claim
-URR_NATIVE_SYSTEM.md        entry point for the native URR-C calculation layer
+claims.md                   falsifiable-claims register (C1-C7)
+scope_correction.md         a recorded self-correction to an earlier scope claim
+urr_native_system.md        entry point for the native URR-C calculation layer
 EQUATION_LIBRARY_ROOT_TO_SM_STREAM_research_universal_solver.md
                              root-to-Standard-Model equation stream (imported,
                              synced to the sibling repo's own canonical copy)
@@ -179,13 +179,24 @@ v2/                            the lens doctrine + equations: Information DNA,
                               Domain Ledger, Roadmap, urr/ (URR-C 0.4)
 
 
-ap/                             executed case studies (pytest; AP0-AP20)
+ap/                             executed case studies (pytest; AP0-AP21)
 evidence/                       in-repo Coq evidence (RD.v, URCF_RD_All.v,
                                 DRL_Discrete.v, DRL_General_Legendre.v)
 gates/                          gate-typing support files
 scripts/                        maintenance and build scripts
 ```
 
+
+**Naming convention:** root-level primary documentation is lowercase
+(`philosophy.md`, `logic.md`, `paradoxes.md`, `claims.md`,
+`scope_correction.md`, `urr_native_system.md`); standard project metadata
+files keep their conventional GitHub casing (`README.md`, `LICENSE`).
+`EQUATION_LIBRARY_ROOT_TO_SM_STREAM_research_universal_solver.md` is the
+one deliberate exception — its name is a cross-repository contract with
+`readout_genesis` and `research_universal_solver`, both of which reference
+it by this exact filename, so it is not renamed. Case-study files under
+`ap/`, `code/`, and `v2/` follow their own subdirectory-local conventions
+and are out of scope for this rule.
 
 ## We do NOT claim
 

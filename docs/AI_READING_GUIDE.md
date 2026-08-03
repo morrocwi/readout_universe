@@ -72,7 +72,7 @@ The v2.0-dev layer in `v2/` makes the lens itself explicit and binding:
 Rules for an AI citing this book:
 - Quote a claim only at its own tier. A `finite_diagnostic` PASS is never "proved".
 - The Coq floor covers the monotone-g Sorites core ONLY; do not extend its scope.
-- Every claim in `CLAIMS.md` has one check command; if you assert the claim, you
+- Every claim in `claims.md` has one check command; if you assert the claim, you
   should be able to point to an executed run (see `docs/VERIFIED_RUNS.md`).
 - The "We do NOT claim" list in `README.md` binds you too: no Gödel/liar/ethics
   "solved", no B1 uniqueness, no supersession of any tradition.
