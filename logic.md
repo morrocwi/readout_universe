@@ -1150,5 +1150,9 @@ Not fully absorbed here — go to source for full depth:
   L-06, truth-as-tracking L-07, classical logic as idealized projection
   L-09, Sorites/Liar/Ω_∞ L-10, incompleteness-as-identifiability L-11) —
   `main.tex` Part II.
+- **[`paradoxes.md`](paradoxes.md)** — a worked stress-test applying this
+  ledger's entries (S3, G5, RD4, Q3, `I2`, the Sorites `C4`/`C7` results)
+  to five classic paradoxes. Not core canon — its new content is `Dr`/
+  `[Open]`, unreviewed.
 
 [`EQUATION_LIBRARY_ROOT_TO_SM_STREAM_research_universal_solver.md`]: EQUATION_LIBRARY_ROOT_TO_SM_STREAM_research_universal_solver.md

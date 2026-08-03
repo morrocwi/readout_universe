@@ -2194,6 +2194,10 @@ directly for full depth:
   Appendix C.
 - The frozen v1.0 book text (Part I–VI, the Dialogue with World Traditions,
   the full Method-and-Discipline apparatus) — `main.tex`.
+- **[`paradoxes.md`](paradoxes.md)** — a worked stress-test running this
+  file's machinery against five classic paradoxes (Liar, Sorites, Ship of
+  Theseus, Newcomb, Zeno) and an exploratory `Dr`-tier definition of
+  "origination." Not core canon — flagged there as unreviewed.
 
 [`v2/DOCTRINE_OF_QUANTITY.md`]: v2/DOCTRINE_OF_QUANTITY.md
 [`v2/POSITION.md`]: v2/POSITION.md
