@@ -5,14 +5,10 @@
 # `make verify` (code/LTP1_logic_as_residual_flow.py, code/LTP2_3_4_battery.py,
 # coqc code/UPL_Sorites.v) needs only numpy.
 #
-# The pytest suite (ap/, via lens/) additionally needs scipy (ap1/ap3/ap4:
-# scipy.integrate / scipy.optimize; lens/vendor: scipy.fft) and pytest itself
-# to run it.
+# The pytest suite (ap/) additionally needs scipy (ap1/ap3/ap4:
+# scipy.integrate / scipy.optimize) and pytest itself to run it.
 #
-# sympy is declared too even though lens/vendor/universe.py imports it under
-# a lazy-import contract (absent sympy -> honest [Open], never a crash --
-# see the comment at that import site): CI installs it so the real code path
-# is exercised instead of silently degrading to the fallback branch.
+# sympy is needed by ap/ap20_symbolic_forcing.py.
 numpy>=1.26
 scipy>=1.11
 sympy>=1.12

@@ -13,7 +13,18 @@
 > not proof · `Dr` declared bridge / human narrative · `Open` not
 > established (carries a stance + falsifier at source) · `fit_calibrated`
 > fit to data, not derived · `definition` declared object/gate ·
-> `exact_algebra` identity proved within an explicitly declared model.
+> `exact_algebra` identity proved within an explicitly declared model ·
+> `declared_finite_architecture` a finite step declared exact within one
+> named stepper/model (see §9.2's addendum) · `exact_bridge` an
+> algebraically exact step connecting two declared-finite objects (ditto) ·
+> `exact_algebra_in_declared_ideal_model` identity proved exactly, but only
+> inside one explicitly declared idealized model (§9.4). A handful of
+> further source-verbatim verdict tags (`POSITED`, `DERIVED`,
+> `DEFINITIONAL-RELABEL`, `BORROWED-SCALE`, ...) appear at their point of
+> use (§9.9, §9.10) — these are a separate, narrower vocabulary carried
+> unchanged from `BORROWED_VS_DERIVED_LEDGER.md`'s own verdict classes, not
+> additions to this file's own tier scale above, and are never used to
+> upgrade or replace this legend's tags.
 
 ---
 
@@ -67,7 +78,7 @@ Tier: `Th_coqc` — axiom-free, `Print Assumptions` closed, Coq 8.20.1, ground o
 | A2 | transport | no inference without an admissible grammar (units/types match) |
 | A3 | retention | only distinctions kept above a threshold count as structure |
 | A4 | accessibility | derivability ≠ existence (direct/composite/inaccessible) |
-| A5 | admissibility | the comparison metric is positive — any measure used to compare two retained records (e.g. a squared-norm reading of A7's residual `O(Γ,φ)`, written `‖O‖²` elsewhere in this ledger for the related Face-11 quantity `S_R`) must be non-negative, so "closer"/"farther" is always a meaningful, orderable comparison, never a signed or unconstrained score |
+| A5 | admissibility | the comparison metric is positive — any measure used to compare two retained records (e.g. a squared-norm reading of A7's residual `O(Γ,φ)`, of the same shape as `‖O_R‖²` written in §9.8/Face 11 of this ledger for the related quantity `S_R`) must be non-negative, so "closer"/"farther" is always a meaningful, orderable comparison, never a signed or unconstrained score |
 | A6 | identity-locking | the same entity tracked through every inference |
 | A7 | obstruction | target of inference is consistency O=0, not annihilation — O(Γ,φ) is a measured residual, not a truth value; O=0 is mutual consistency of retaining Γ while reading φ, and a contradiction registers as O>0 (evidence to revise), never as license to derive an arbitrary ψ (no ex-falso explosion) |
 | A8 | lens | validate through a lens that does not distort |
@@ -512,6 +523,8 @@ underlying general theorem, cited once per relevant section).
 
 ## 7. URR-C 0.4 master system (native calculation contract)
 
+URR-C = Universal Retention–Cut–Return–Readout System (per `v2/urr/README.md`, `urr_native_system.md`); expanded here at first use, acronym-only thereafter.
+
 Source: `v2/urr/URR_C_MASTER_0_4.md` / `urr_native_system.md`. Doubled
 reader–record space 𝒳_T = 𝓗_T ⊕ 𝓗_T, X_n=(Φ_n,Ψ_n)ᵀ; lifted projector
 Ō_α = I₂⊗O_α, H̄_α = I−Ō_α. `𝔾_T` (URR-2 below) — the lifted graph coupling
@@ -920,7 +933,7 @@ terse N1-M row with the per-face reassignment detail):
 | ID | Statement | Tier |
 |---|---|---|
 | N1-turb | Turbulence does NOT live in the linear, second-order `M ∂²Φ` term — despite table/row adjacency in EQ-015's per-term breakdown (§1). It lives in the nonlinear `∇V` / `(u·∇)u` paraproduct term (the L3 LP-NS audit's target, cf. §10 N1-L3) | `Dr` (reassignment reading) |
-| N1-τR | The inertia that actually governs turbulent/relaxation-regime behavior is `τ_R`, L2's first-order relaxation-memory time constant — not `M` | `finite_diagnostic` (PASS_WITH_LIMITS, via L2/EQ-017) |
+| N1-τR | The inertia that actually governs turbulent/relaxation-regime behavior is `τ_R`, N1-L2's first-order relaxation-memory time constant (§10's 3-layer spine stack — not the ARCH-L2 "Readout" rung of §9.2c's separate L0–L5 architecture) — not `M` | `finite_diagnostic` (PASS_WITH_LIMITS, via N1-L2/EQ-017) |
 | N1-mass | `M` is a readout, not primitive: `m = ℏ/(2c²τ_c)`, `τ_c` is discrete and logically prior to mass (founder-locked ordering) | `Dr` |
 | N1-QM | `M` is empirically load-bearing only in the quantum-exercised regime (Face 6, Face 9): `D/M` checked against QuTiP, residual `7.6×10⁻⁴` | `finite_diagnostic` |
 
@@ -1117,8 +1130,10 @@ itself as `Dr`.
 ## 11. Three Epistemic Scalars (Re_ep, F_ep, k_ep) — the tier discipline made a runnable gate
 
 Source: `readout_genesis/READOUT_GENESIS_CORE.md` PART VI §VI.3 (~lines
-4373-4417+, `finite_diagnostic`/`definition`). This is the L2-readout rung
-of the L0–L5 nuclear-core stack (§9.2c above; §VI.2 in the source); it does
+4373-4417+, `finite_diagnostic`/`definition`). This is the ARCH-L2 ("Readout")
+rung of the L0–L5 nuclear-core stack (§9.2c above; §VI.2 in the source; not
+to be confused with §9.8/§10's unrelated N1-L2 relaxation layer of the
+3-layer spine stack, a bare "L2" with a different referent); it does
 not sit inside this file's own §9 SM-Domain Synthesis because it is
 domain-independent machinery, not a physics-tier reading. Reads directly
 off §10's N1–N5 spine (N1-N5 above), not a new axiom.
