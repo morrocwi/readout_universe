@@ -9,5 +9,6 @@ every other gate exists as a named stub that honestly reports
 """
 
 from .schemas import Issue, Quantity, TranslationRow, ExtractionResult
+from .claim_ir import Claim
 
-__all__ = ["Issue", "Quantity", "TranslationRow", "ExtractionResult"]
+__all__ = ["Issue", "Quantity", "TranslationRow", "ExtractionResult", "Claim"]

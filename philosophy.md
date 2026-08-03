@@ -2352,6 +2352,409 @@ book — a finite retained-vs-observed residual, never a continuum limit.
 
 ---
 
+## 8. The full arc as one story — δ_R through 42 steps, 11 layers, to society and morality
+
+*Tier: mixed, step-by-step, exactly as the source tags each one — no
+upgrade. This section is a narrative map, not a new derivation; see the
+closing paragraph.*
+
+Source: `research_universal_solver/docs/engineering/GENESIS_STEP_BY_STEP_V3_1.md`
+Part IX (`## PART IX — THE 42-STEP GENESIS STREAM (v3.1, extended)`, the
+42-step/11-LAYER stream, ~lines 5046–5629), cross-checked directly against
+its condensed twin `research_universal_solver/docs/engineering/UNIVERSE_STEP_BY_STEP_RDU.md`
+(same 42 steps, same 11 `LAYER` headers, ~lines 768–953) rather than relied
+on from a prior summary. The two files agree on the 42-step/11-LAYER
+skeleton itself, but they do **not** agree tag-for-tag on every step: step
+13's CFL bound is the one confirmed divergence (see Layer 2 below), where
+V3.1 carries the more hedged tag and RDU carries a plainer, unhedged one —
+flagged there rather than smoothed into a claim of full agreement.
+Everything already given its own entry above —
+§7.21 (self as closure) and §7.22 (AI ethics as a readout-selection
+structure) — is referenced here by section number, not re-derived.
+
+**What this section does and does not attempt.** The 42 steps are one
+continuous stream in the source, Layer 0 through Layer 10, and the point of
+gathering them here is to let a reader walk that stream once, start to
+finish, the way `philosophy.md` elsewhere walks single findings (§7.18's
+Twelve Faces, §7.21's closure loop) — not to compress it into something it
+isn't. Per §2.5/§5.2a's operator-grounding floor, every `+`, `−`, `∂`, `∇`,
+`=`, `<`, `≤` quoted below is, as throughout this book, a retained-
+information operation at a declared, finite resolution (accumulation of
+kept distinctions, finite-difference readout, decidable finite comparison)
+— never bare continuum notation smuggled in as neutral; §7.18 already
+re-grounds `∂²Φ`, `∂Φ`, `∇V` for this exact trunk equation and that
+grounding is inherited here unchanged, not re-argued term by term.
+
+**A naming correspondence, held at `Dr`, not assumed.** Step 1 of the
+stream, `∃ a,b : a ≠ b` (`[Ax]`, "P0, the ontological root"), and this
+book's own primitive δ_R = (a ♯ b) (§5.1, from `readout_genesis`) are two
+different source documents naming what reads as the same founding move —
+"there is a difference, and it is kept." The correspondence is narratively
+obvious and is treated as such throughout this section, but it is not
+independently proven to be one formal object under two names; carry it as a
+`Dr` reading, the same discipline §5.2's own T1/T2 synthesis line already
+applies to itself, not as an upgrade smuggled in by this section.
+
+**The tier legend threaded through every step below** (source's own six
+tags, never collapsed): `[Ax]` accepted axiom; `[Df]` definition, proves
+nothing by itself; `[Th]` informal structural theorem; `[Th_coqc]`
+machine-checked, axiom-free — and the source's own 2026-07-21 hollow-tag
+caution travels with every `[Th_coqc]` step below: the tag certifies the
+*proof object* is axiom-free, not that the *theorem's plain-English gloss*
+carries all the physical content that gloss implies (six of eight
+physics-interpretation cards audited that day turned out hollow under this
+exact test); `[Dr]` discourse-level/narrative, not yet formalized or
+measured; `[finite_diagnostic]` an executed, falsifiable, finite check; and
+`[Open]` explicitly unresolved. By the prior session's own audit of this
+stream, confirmed again against the source directly while writing this
+section: only steps 3, 4, 8, 20, 21, 26, 27, and the Layer 9 block
+(steps 38–41) carry `[Th]`/`[Th_coqc]` in the source; the remaining
+overwhelming majority of the 42 steps are `[Ax]`, `[Df]`, `[Dr]`, or
+`[finite_diagnostic]`. Nothing below moves any step out of the column the
+source itself puts it in.
+
+---
+
+**LAYER 0 — PRIMORDIAL (steps 1–5): before there is a "what," there is a
+difference and something that keeps it.** The story opens on a refusal to
+derive anything further down: `∃ a,b : a ≠ b` (step 1, `[Ax]`) is the one
+thing the source declines to ground in something smaller, because — per
+§1's founding move — there is nothing beneath a bare distinction to ground
+it in. This is where identity, in the narrowest structural sense this
+corpus ever uses the word, is seeded: not a self, not a name, only the fact
+that *this* is discriminable from *that*. A discriminator `A` (step 2,
+`[Ax→Th]`) is the minimal structural role — not yet an observer in any
+anthropic sense — that makes step 1 operative rather than merely logical;
+it is also, narratively, the first appearance of a *quotient*, the same
+translation move Layer 6 later makes load-bearing. Asymmetry (`A→B ≠ B→A`,
+step 3, `[Th]`) is the birth of direction — still not clock-time, only the
+fact that relation need not run both ways — and this is one of the handful
+of steps the source itself tags `[Th]` rather than `[Ax]`/`[Df]`/`[Dr]`.
+Time, `t(s) := min #steps(s₀→s) ∈ ℕ` (step 4, `[Th]`, also one of the named
+`[Th]` steps), is *defined* as a count of admissible transitions, not
+handed over as a pre-existing container to be filled — a count is a
+discrete readout of retained transitions, per §2.5/§5.2a, never a continuum
+duration. And the retention axiom, `τ_c > 0` (step 5, `[Ax]`), is named by
+the source as the single most load-bearing axiom in the entire 42-step
+stream: everything later called mass (step 23), a domain (Layer 6), or a
+society (the q_social leaf, discussed below) is a *readout* of retained
+structure, never an independent primitive layered in for free.
+
+**LAYER 1 — CAUSAL STRUCTURE (steps 6–8): a graph of what-can-reach-what,
+and a first taste of truth as bounded.** The tick size `Δθ > 0` (step 6,
+`[Ax]`) is asserted strictly positive, with `Δθ=0` explicitly undefined —
+the doctrinal refusal of continuum-as-ground, per §5.2a's own reading of
+I2's `h→0` injection. `L_R`, "the retained graph of admissible transport"
+(step 7, `[Df]`), is introduced here as a bare graph-operator definition,
+with none of the richer structure (spectrum, metric, skew coupling) that
+later layers discover *in* it, not smuggled into its definition — the same
+`L_R := D_W − W` this book already forces from δ_R's own meaning at §5.2.
+And causal propagation is shown finite, `v = √(D/τ_c) < ∞` (step 8, `[Th]`
+— one of the seven named `[Th]`/`[Th_coqc]` steps), a direct consequence of
+`τ_c>0` plus the graph structure: infinite-speed propagation would need
+either zero retention or an unbounded graph, and neither is on offer. This
+is the first place the stream quietly touches what "truth" can even mean in
+this framework — not a completed fact reachable in zero steps, but
+something a finite-speed, finite-memory system can only ever approach
+across a bounded causal horizon (sharpened later at Face 5, step 22).
+
+**LAYER 2 — THE DISCRETE STEPPER (steps 9–13): the engine, MQ.08.**
+Damping falls straight out of retention (`γ = 1/τ_c`, step 9, `[Df]`); the
+graph diffusion coefficient scales by tick size (`D_s = D·Δθ`, step 10,
+`[Df]`); the velocity update (step 11, `[MQ.08]`) and state update (step
+12, `[MQ.08]`) are the literal engine of change — "history accretes," each
+tick's state is the last tick's state plus what its velocity carried
+forward, `+` here reading exactly as §2.5/§5.2a require: accumulation of a
+retained record, not addition of a magnitude that already existed apart
+from any record. The CFL-type stability bound (step 13) is tagged with a
+caution the source itself states plainly: it is a conservative *sufficient*
+condition, `[finite_diagnostic]` algebra in its own right, and `[Th_coqc]`
+covers only the downstream energy-non-increase direction built on top of
+it — not the bound's own necessity, and not yet exercised against every
+domain's concrete `L_R(d)`. **This is the one step where the two source
+files diverge, not just in emphasis:** V3.1 gives the hedged tag above plus
+"Sufficient stability gate (conservative)... not proof of breakdown," while
+RDU gives the plainer, unhedged `[CFL bound — Th_coqc for the energy face]`
+and "Stability gate. Step too large → breakdown." This section follows
+V3.1's more cautious wording throughout — no tier upgrade is taken from
+RDU's plainer tag — but the divergence itself is real and is named here
+rather than folded into a claim that both files agree step-for-step.
+
+**LAYER 3 — TELEGRAPH READOUT (steps 14–15): the first controlled
+continuum limit.** The damped-wave equation `τ_c ∂²_t u + ∂_t u = D∇²u`
+(step 14) is explicitly a *readout limit* of the discrete stepper, not a
+new primitive — this is the DRL-Telegraph root, and the source names a
+sibling readout at this same layer, RTPE (`τ_R İ_R + L_R I_R = S_R + η_R`,
+first-order, `PASS_WITH_LIMITS`, `finite_diagnostic`), as a *limit* of the
+same structure (`M→0, V→0`), stacked rather than merged — a distinction
+the LP-NS nonlinear-paraproduct checker later depends on staying honest
+about (Layer 4). The memory kernel (step 15, `[Df]`) makes "the past fades
+exponentially" quantitative and its first moment recovers `τ_c` itself,
+closing the loop back to Layer 0's axiom.
+
+**LAYER 4 — UNIVERSAL SPINE PDE (steps 16–17): the trunk, and where
+turbulence was relocated.** `M ∂²_tΦ + D ∂_tΦ + K L_RΦ + ∇V(Φ) = J − η`
+(step 16, `[SPINE_PDE]`) is the one equation the whole book reads at
+different `τ_c(d), L_R(d)` per domain (Layer 6). This is the exact site of
+the 2026-07-21 correction already narrated in full at §7.18: eight
+independent attempts to force turbulence out of the linear inertial term
+`M ∂²_tΦ` failed, and turbulence was relocated to the nonlinear `∇V(Φ)`
+paraproduct term, with the inertia that actually matters for turbulent
+regimes identified as `τ_R` (Layer 3's relaxation constant), not `M`. That
+finding is not re-derived here; see §7.18 for the full three-layer stack
+(DRL-Telegraph generator / RTPE limit / LP-NS checker) and the operator-
+grounding of `∂²Φ`, `∂Φ`, `∇V` it already carries out. Step 17's
+gauge-covariant extension (`∂_μ → 𝔇_μ = ∂_μ + A_μ`) is a *reading* layered
+onto the spine, where forces in the Standard-Model-effective sense
+originate, not a change to the spine's ontological content.
+
+**LAYER 5 — FACES (steps 18–30): twelve windows onto one skeleton.** This
+is the longest layer, and the one carrying most of the stream's `[Th_coqc]`
+tags — Face 3 dispersion (step 20), Face 4 energy monotonicity (step 21),
+Face 8 operator→metric (step 26), and Face 9 CPTP completeness (step 27)
+are the four the prior audit and this section both single out, each
+carrying the same 2026-07-21 hollow-tag caution: the tag certifies a
+specific proof object, never a blanket seal on the surrounding prose. Of the
+other eight Faces, seven (Faces 1, 2, 5, 7, 10, 11, 12 — steps 18, 19, 22,
+24/25, 28, 29, 30) carry no epistemic-tier suffix at all in the Part IX
+header table, only a bare `[Face N — name]` label; only Face 6 (step 23) is
+explicitly tagged `Dr/readout`. None of this is an upgrade — an untagged
+label is not a stronger claim than `[Dr]`, only a less precisely marked one
+— but it is stated exactly as the source marks it rather than rounded up to
+a uniform `[Dr]`/`[finite_diagnostic]` gloss. §7.18 already narrates this whole layer
+in depth, including the Scalar-Eigenmode Reduction Error found at Face 1
+(step 18) and the mass-memory relation `m = ℏ/(2τ_cc²)` (Face 6, step 23,
+`[Dr]/readout`) — not repeated here. Two Faces matter most for this
+section's own thread toward truth and knowledge: **Face 10, the record
+law** (step 28, `M_A[n] = K_A·θ(E[n]) + η_sel + η_map + η_self, ε_tot > 0`)
+is "readout-not-truth" written as an equation — every observation carries
+irreducible selection, mapping, and self-referential noise, and `ε_tot > 0`
+is the formal guarantee that no readout is ever exact. This is the load-
+bearing statement §1 of this book narrates in prose; here it is the same
+claim, at the same tier, as one Face among twelve. **Face 11, obstruction**
+(step 29, `O_R(R^◇) = 0_{E_R}, S_R = ‖O_R‖²`) redefines "solving" as driving
+a residual bundle to zero rather than reaching some Platonic exact answer —
+the same non-injective-readout discipline this book's §7.1–§7.3 already
+apply to gauge redundancy and SU(3) confinement, seen here at the level of
+the trunk equation itself. Face 12's boundary discipline (step 30) closes
+the layer: the absolute constants `G, ℏ, c, k_B, e, m_e, α` are declared
+measured inputs, never derived outputs — the explicit guard against
+declaring a constant "derived" after first quietly stuffing it in as a free
+parameter.
+
+**LAYER 6 — SCALE BUS (steps 31–32): where a domain, and eventually a
+society, first becomes possible.** `τ_c = ℏ/(2mc²)` run per-domain (step
+31, `[N4 SCALE BUS]`) instantiates the bridge across 37 disciplines and
+~85 orders of magnitude — and this is exactly the number the bR
+cross-domain lineage ledger audits, finding that a single quantum-domain
+quotient does **not** commute straight through to a biological-level
+question without passing through intermediate chemical and protein layers,
+each contributing its own obstruction term (`finite_diagnostic`
+architecture, not yet run on real event-resolved data). Step 32, `∀ domain
+d: PDE(d) = SPINE_PDE at τ_c(d), L_R(d)` — "one trunk, many leaves" — is
+the step that makes the rest of this section possible: it is licensed
+*only* where a domain's translation `T_{a→b}` commutes with the spine's
+evolution operator and preserves readout (the Lens Law's admissibility
+square, §3 above), never as a claim that physics is "really" one thing
+underneath in some mystical sense. **This is the honest point to flag
+something the task asked to check for directly: the 42 numbered steps
+themselves stop being domain-specific at Layer 10 (physics/SM-EFF closure,
+below); the source's *society* and *finance/economics* content does not
+arrive as additional numbered steps 43+ — there are none, the source says
+so explicitly at step 42 — it arrives through this exact translation
+mechanism, as separate domain leaves in the source's Part V, reached by
+applying step 32's `q_α` machinery rather than by extending the stream.**
+Layer 6 is the doorway; it is not itself where society or morality are
+narrated.
+
+**LAYER 7 — RECORD AND AGENCY (steps 33–35): from raw data to a policy,
+and the seed of a standing self.** Record genesis (step 33, `R_O = Ω_A ∘ A
+∘ Π ∘ T_Σ(D_O)`) specializes Face 10's generic record law to how any
+domain's discovered law actually gets written down as evidence. Step 34,
+human readout (`M_H[n] = K_H θ(E[n]) + η_H[n]`, `[Dr]`), is the
+species-level instantiation of that same record law, carrying its own
+characteristic `τ_c^H` — the exact timescale §7.21's self-as-closure entry
+builds on. Step 35, the optimal policy `π* = argmin[E‖Res‖² + λC + ρRisk −
+νVal + μRepairLoss]` (`[Dr]`), explicitly defines "optimal" to *preserve
+repairability* (`μRepairLoss`), not merely to minimize error — the formal
+seed of this book's own recurring claim that an agent's standing is
+measured partly by whether its mistakes stay fixable, a claim that recurs,
+sharpened into a loop rather than a single argmin, at §7.21's `dR_H/dt`
+repair-rate falsifier. **Identity, narrated across the whole arc so far,
+completes its trajectory here**: it began at step 1 as bare
+distinguishability, and by step 34–35 it is a species-specific readout loop
+with a policy that can prefer its own continued repairability. What this
+layer does *not* yet supply is closure — whether that loop reads its own
+output back into its own input, across a stable memory time, is a distinct
+and later claim, not made until Part VIII of the source. **That claim is
+§7.21's self-as-closure entry** (the τ_c^H loop, Ω_H both produced-by and
+conditioning-of its own successive passes) — carried here by cross-
+reference only, at its own `Dr`/`[Open]` tag, not re-derived.
+
+**LAYER 8 — EPISTEMIC CORE (steps 36–37): knowledge compressed to three
+numbers.** Any reasoning step is claimed to reduce to three CPU-computable
+scalars — `Re_ep` (epistemic Reynolds, spread/contestedness), `F_ep`
+(obstruction depth), `k_ep` (consistency coupling) — step 36,
+`[finite_diagnostic]`, the PGCross minimum-parameter core; this is
+*knowledge*, in this corpus's narrow structural sense, reduced to a
+readable statistic rather than a felt certainty. The verdict gate DECIDE /
+ABSTAIN / ESCALATE (step 37, `[Dr]/diagnostic`) routes those three scalars
+to an actual decision, and the source's own FAIL-ABLE gate law travels with
+this step unchanged: a trustworthy gate needs both a passing *and* a
+failing control, both machine-derived — a gate shown only passing examples,
+or a "failing" example hand-picked to look bad, is Type-U, a convention
+dressed as evidence, and must never be cited as a validated threshold. Read
+alongside `logic.md` §10–§11 (N1–N5, the Three Epistemic Scalars, both
+already fully tabled there — not re-tabled here), this is where the
+book's account of *knowing* bottoms out: not a claim to have reached truth,
+but a disciplined, tiered, falsifiable readout of how strong and how
+contested the best available support currently is.
+
+**LAYER 9 — FORMAL FLOOR (steps 38–41): the machine-checked bedrock.** The
+growth ladder, the record law, CPTP completeness, and the operator→metric
+theorem (steps 38–41) are each proven axiom-free in `RDL_*.v` — the formal
+counterpart, in order, to the historical growth intuition threaded through
+Layers 0–2, Face 10's record law, Face 9's CPTP structure, and Face 8's
+operator→metric claim: the same four claims, once in prose and once as a
+checked proof object. The source's own caution is stated exactly here and
+carried forward unchanged: `[Th_coqc]` on these four `∀`-statements
+certifies they are proven without axioms, today — it does not certify that
+every other `[Th_coqc]` tag elsewhere in the stream (steps 13, 20, 26)
+carries equally substantive content, since six of eight physics-
+interpretation cards audited on 2026-07-21 did not.
+
+**LAYER 10 — SM-EFF CLOSURE (step 42): the stream's declared end.** Three
+measured/structural inputs — `v_Higgs = 246.22 GeV` (CODATA), `Σ_Y = 0`
+(hypercharge cancellation), `τ_μ = 2.187×10⁻⁶ s` (measured muon lifetime) —
+close a Standard-Model-effective readout, `[finite_diagnostic]/boundary
+data`, explicitly *not* a derivation from zero: boundary data closes the
+number, Layers 0–9 close the roles and relations that number sits inside.
+The source is emphatic, and this section inherits the emphasis rather than
+softening it: **there is no step 43.** The stream is exactly and only 42
+steps, physics-terminal.
+
+---
+
+**Where society and morality actually enter — and why that is a different
+part of the source, honestly flagged, not smoothed over.** As Layer 6 above
+already notes, the 42-step stream itself never reaches society or morality
+as numbered steps — they are not steps 43, 44, 45. They enter the source's
+architecture as two of the twelve domain *leaves* in Part V
+(`GENESIS_STEP_BY_STEP_V3_1.md` §V.9 SOCIAL and §V.10 FINANCE), reached by
+applying Layer 6's own `q_α` translation to the trunk equation at the
+social-to-civilizational memory-time band — `τ_c` ~10⁰–10⁸ s for the social
+sub-band and ~10⁹–10¹¹ s for the civilizational sub-band (§V.9), two
+distinct sub-bands rather than one continuous span. `q_social`
+reads a civilization as the spine running at that band: testimony and
+institutional memory are this leaf's version of retained structure, and
+institutional *repair* is this leaf's version of Face 11's obstruction
+reduction — a society stays coherent while its institutions keep reducing
+obstruction to shared testimony faster than events introduce new
+obstruction. The source itself flags where this leaf sits relative to the
+physics leaves — explicitly, in its own words, not paraphrased into
+something firmer: this is a **humanities-adjacent leaf, retained "per
+founder instruction" as fully legitimate and not a lesser cousin of the
+physics leaves**, but interpretive in a way the physics Faces above mostly
+are not — no `Th_coqc` tag anywhere in `q_social`, only `Dr`. Where a
+society exhibits turbulence-like bursts (panics, cascades, sudden
+institutional failure), the source's own 2026-07-21 correction applies here
+too: the correct diagnostic reflex is the nonlinear paraproduct term and
+relaxation time `τ_R`, not an inertial "social mass" analogy — the same
+IV.4 correction Layer 4 above already carries for the physics leaves,
+reused rather than re-derived at the social leaf.
+
+**Morality, inside `q_social`, is the AI-ethics subsection already fully
+narrated at §7.22 of this file — cross-referenced here, not repeated.** The
+founder's stated position — an AI has no morality of its own; ethics is a
+readout-selection structure over five ingredients (data retained, the
+accessible answer set, the selection rule, the definer's values, the
+audit/revision process), never a discovered universal good — carries the
+same `Dr` tag §7.22 already gives it, tied to the same three checkable
+goals (disclose, preserve correction/objection capability, adapt without
+erasing dignity) and the same falsifier (a pre-registered deployment test,
+not a policy-document assertion). This section adds nothing to that claim;
+it only places it on the map, at the leaf `q_social` sits inside Layer 6's
+translation opens onto — Part V, not Part IX's 42 steps.
+
+**Finance/economics: present, `Dr`, explicitly retained, and structurally
+parallel to society — not derived.** `q_finance` (§V.10) is stated directly
+off Layer 3's RTPE relaxation form, not Layer 4's full spine: finance is
+the leaf where the `M→0, V→0` limit is the *native* description, not a
+simplification of something richer. The Ornstein–Uhlenbeck mean-reversion
+face reads V.5's graph-spectral synchronization at the market band, and the
+residual `η` is explicitly named "market turbulence" — read, after the
+2026-07-21 correction, as living in nonlinear cascade behavior and `τ_R`,
+exactly as at the social leaf, not as an inertial effect. The source states
+plainly that this leaf, like `q_social`, is retained "per founder
+instruction" as one of the humanities-adjacent leaves not to be dropped —
+`Dr` throughout, no `Th_coqc` claimed for it anywhere in either source
+file.
+
+**Religion, faith, and belief as a topic: absent — checked specifically,
+not merely unmentioned in passing.** Neither source file names a domain
+leaf for religion, faith, or belief-as-doctrine anywhere in Part V's twelve
+leaves (`q_quantum` through `q_formal`) or in the 42-step stream. The word
+"belief" occurs at least twice across the relevant material — both
+non-religious, informal uses: once in a generic cross-domain analogy list
+(`energy/concentration/belief → state/readout`,
+`research_universal_solver/docs/engineering/GENESIS_STEP_BY_STEP_V3_1.md`
+~line 3655), and once in the `Re_ep`/epistemic-Reynolds discussion ("many
+candidate readouts (many 'modes' of belief)," ~line 4132) — neither as a
+treated topic with its own leaf, tier, or equation; "faithfully" appears
+only as the ordinary adverb ("preserved faithfully," "translated
+faithfully"), never as a reference to religious faith. This is a genuine
+absence in the source, not an oversight in this narrative — stated plainly
+per this task's own instruction, rather than invented content standing in
+for it.
+
+**Health: present, but folded inside the Biology leaf — not a leaf of its
+own.** `research_universal_solver/docs/engineering/GENESIS_STEP_BY_STEP_V3_1.md`
+§V.19 (`REGISTERED DOMAIN — Biology`, tier `BIOLOGY_ROOT_NATIVE_PARTIAL`)
+names a green, re-compiled, axiom-clean Coq substrate — `InfoBioHomeostasis`,
+`InfoHealthCausalRelax`, `InfoHealthCuspFold`, `InfoCoupledCuspEP3` —
+backing homeostasis/relaxation/bistability substrate *nodes* within the
+biology leaf's closure, explicitly logged as "quality, not extra %" against
+that leaf's own 47.2%/62.5% closure figures. There is no `q_health` leaf
+alongside `q_social`/`q_finance`/`q_biology` in Part V's own list of twelve
+— health enters only as internal machinery inside biology's own closure
+work, and the same leaf explicitly states real biology, DNA/cell/enzyme/
+protein-semantics, and any derivation validated on real event-resolved data
+all stay `OPEN/uncalibrated`. Treat "health" as present-but-subordinate,
+not as an independently narrated topic the source develops in its own
+right.
+
+**Relationships (interpersonal, marriage, family): absent, in the sense
+the user's question means it — checked specifically, not merely
+unmentioned.** The phrase "cross-domain relationships" occurs (§A.12 of
+`GENESIS_STEP_BY_STEP_V3_1.md`), but it names *relations between domain
+leaves themselves* (how `q_quantum` relates to `q_chemistry`, and so on) —
+a technical term about the translation architecture, not a treatment of
+human relationships, marriage, or family. Neither source file develops
+interpersonal-relationship content as a domain, a leaf, or an equation
+anywhere in the material this section surveys. This is stated here exactly
+because the task asked this to be checked specifically, and honesty about
+an absence is worth more than a narrative that quietly papers over it.
+
+**Closing the loop, one paragraph, plainly.** This section is a map of what
+`GENESIS_STEP_BY_STEP_V3_1.md`'s Part IX (and its condensed twin,
+`UNIVERSE_STEP_BY_STEP_RDU.md`) claims, and at exactly what tier each claim
+is made at — `[Ax]`/`[Df]`/`[Th]`/`[Th_coqc]`/`[Dr]`/`[finite_diagnostic]`/
+`[Open]`, never smoothed into a single confident register, and never
+upgraded past what the source itself tags. It is **not** a new derivation:
+where formal work actually exists behind a stage of this story, it lives in
+the sections this one points to rather than repeats — §5.1–§5.2 for the
+root and `L_R`, §7.18 for the Twelve Faces and the turbulence relocation,
+§7.21 for self as a closure property, §7.22 for AI ethics as a
+readout-selection structure, and `logic.md` §9.11/§12 for the same two
+claims tabled in ledger form. Reading this section is reading a table of
+contents for a 42-step, 11-layer story told once, in full, by the source —
+not a substitute for reading the source, and not a claim that walking the
+story here adds one atom of evidence the source did not already carry.
+
+[domain card: research_universal_solver/docs/engineering/GENESIS_STEP_BY_STEP_V3_1.md Part IX (~lines 5046–5629), Part V §V.9–V.10 (~lines 2377–2438), Part V §V.19 (~lines 2835–2902); research_universal_solver/docs/engineering/UNIVERSE_STEP_BY_STEP_RDU.md Part IX (~lines 762–953)]
+
+---
+
 ## See also
 
 Deeper domain-specific chains were intentionally **not** fully absorbed
