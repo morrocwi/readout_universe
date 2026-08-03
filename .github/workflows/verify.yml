@@ -1,6 +1,14 @@
 name: verify
 
-on: [push, pull_request]
+# push only, deliberately -- NOT pull_request. This workflow runs on a
+# self-hosted runner; a pull_request trigger on a public repo would let any
+# external fork PR execute arbitrary code on that machine (a well-documented
+# GitHub Actions anti-pattern for self-hosted runners + public repos). If
+# PR-triggered CI is ever needed, gate it behind repo Settings > Actions >
+# "Require approval for all outside collaborators" first, and prefer
+# pull_request_target with no untrusted checkout over a bare pull_request
+# trigger.
+on: [push]
 
 # Runs on a self-hosted runner rather than a GitHub-hosted one, so the Coq
 # toolchain is installed once instead of rebuilt every run.
