@@ -28,6 +28,36 @@ from dataclasses import dataclass, field
 from typing import Any, Dict, List, Optional
 
 
+# NOT the same vocabulary as native_logic.kernel.Verdict -- must never be
+# conflated (Cross-Role Readout Contamination; see
+# EQUATION_LIBRARY_ROOT_TO_SM_STREAM_research_universal_solver.md's EQ-065
+# note on two same-named-but-differently-derived quantities for this
+# repo's house pattern for this class of warning).
+#
+# VERDICT_CLASSES is the Omega_all translation runner's BRIDGE-CLASS
+# taxonomy (POSITION.md §3 item 2): it classifies how a foreign term/claim
+# was imported across the translation boundary at Step 1/4
+# (omega/gates.py::step1_translate, step4_bridge_audit), before any RAR
+# proof kernel run even starts. It lives on omega.claim_ir.Claim.bridge_class
+# and on native_logic.kernel.TranslationTerm.bridge_class (carried over
+# verbatim as an opaque str by native_logic/from_omega.py -- never compared
+# against a Verdict).
+#
+# native_logic.kernel.Verdict (DERIVED, SUPPORTED_AS_DR, UNDERDETERMINED,
+# OBSTRUCTED, DISSOLVED, OPEN) is a different module's outcome for ONE proof
+# attempt against a single ClaimIR (Gamma, phi) -- what the RAR proof
+# kernel's solve_claim() concluded about a target atom after running the
+# eight RAR gates and the rule chain.
+#
+# The two enumerations happen to share the literal strings "DERIVED" and
+# "OPEN", but a shared string here does NOT mean a shared meaning: a
+# VERDICT_CLASSES "OPEN" describes an untranslated/unbridged term, while a
+# native_logic Verdict.OPEN describes a fully-formed ClaimIR whose gates all
+# passed but whose rule chain never reached the target. Comparing or
+# substituting one for the other across the omega <-> native_logic boundary
+# would silently launder a translation-bridge classification into a proof
+# verdict (or vice versa). No declared mapping between them exists, and none
+# should be added without a named, reviewed bridge function.
 VERDICT_CLASSES = (
     "DERIVED",
     "FORCED",

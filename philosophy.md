@@ -1229,6 +1229,16 @@ that every abstract/concrete pair in physics behaves this way.
 
 [domain card: SM equation library — EQUATION_LIBRARY_ROOT_TO_SM_STREAM_research_universal_solver.md; "Bottleneck survey" §(2026-07-25 CORRECTED); EQ-021/EQ-015/EQ-063/EQ-042–048/EQ-057–059/EQ-060–062]
 
+*Cross-repo pointer, EQ-015/EQ-063 case specifically:* the sibling repo
+`research_universal_solver` (`domains/standard_model/source_root/
+READOUT_GENESIS_CORE_SNAPSHOT.md`, `M ∂²_t Φ` table row) states the same
+conclusion this survey does — `M` is `[Dr]` posited, not derived, after
+forcing attempts `[finite_diagnostic]` failed 8× — and separately establishes
+mass as a readout of `τ_c` (founder-locked) with a QuTiP-checked `D/M`
+residual of `7.6×10⁻⁴`. This is a summary of that campaign's conclusion, not
+an itemized list of the 8 attempts; see `logic.md`'s EQ-063 row footnote for
+the full quoted passage and tier tags.
+
 ### 7.2 Gauge redundancy — the physics-native worked instance of the non-injective-readout theorem
 
 *Tier: `Th_coqc` (EQ-033, the general theorem) — `Dr` (EQ-042, the

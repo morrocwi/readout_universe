@@ -19,6 +19,37 @@ class Tier(str, Enum):
     DEFINITION = "definition"
 
 
+# NOT the same vocabulary as omega.schemas.VERDICT_CLASSES -- must never be
+# conflated (Cross-Role Readout Contamination; see
+# EQUATION_LIBRARY_ROOT_TO_SM_STREAM_research_universal_solver.md's EQ-065
+# note on two same-named-but-differently-derived quantities for this
+# repo's house pattern for this class of warning).
+#
+# This Verdict is the RAR proof kernel's outcome for ONE proof attempt
+# against a single ClaimIR (Gamma, phi) -- it answers "what did
+# native_logic.kernel.solve_claim() conclude about this target atom,
+# having run the eight RAR gates and the rule chain". It is produced only
+# by solve_claim()/failure_proof() in this module.
+#
+# omega.schemas.VERDICT_CLASSES ("DERIVED", "FORCED", "DEFINITIONAL-RELABEL",
+# "POSITED", "BORROWED-SCALE", "OPEN") is the Omega_all translation runner's
+# BRIDGE-CLASS taxonomy for a translated term/claim (POSITION.md §3 item 2)
+# -- it classifies how a foreign term was imported across the translation
+# boundary, before any RAR proof kernel run even starts.
+#
+# The two enumerations happen to share the literal strings "DERIVED" and
+# "OPEN", but a shared string here does NOT mean a shared meaning: a
+# VERDICT_CLASSES value of "OPEN" describes an untranslated/unbridged term,
+# while a Verdict.OPEN here describes a fully-formed ClaimIR whose gates all
+# passed but whose rule chain never reached the target. Comparing or
+# substituting one for the other across the omega <-> native_logic boundary
+# would silently launder a translation-bridge classification into a proof
+# verdict (or vice versa). No declared mapping between them exists, and none
+# should be added without a named, reviewed bridge function -- see
+# native_logic/from_omega.py, which deliberately carries omega bridge_class
+# values through as an opaque string (folded into Fact.source /
+# TranslationTerm.bridge_class) rather than ever comparing them against this
+# Verdict enum.
 class Verdict(str, Enum):
     DERIVED = "DERIVED"
     SUPPORTED_AS_DR = "SUPPORTED_AS_DR"
@@ -409,12 +440,12 @@ def validate_claim(claim: ClaimIR) -> None:
             arg
             for atom in rule.antecedents
             for arg in atom.arguments
-            if arg.startswith("?")
+            if is_variable(arg)
         }
         consequent_vars = {
             arg
             for arg in rule.consequent.arguments
-            if arg.startswith("?")
+            if is_variable(arg)
         }
         unbound = sorted(consequent_vars - antecedent_vars)
 
@@ -433,6 +464,34 @@ def validate_claim(claim: ClaimIR) -> None:
 
     if errors:
         raise ClaimValidationError("; ".join(errors))
+
+
+def is_variable(arg: str) -> bool:
+    """
+    True iff ``arg`` is a unification variable rather than a literal.
+
+    A variable is a single, unescaped leading '?' (e.g. "?a"). A fact
+    or pattern argument whose literal value must itself begin with
+    '?' cannot be written as-is -- it would be indistinguishable from
+    a variable -- so it is escaped by doubling the leading character
+    at construction time ("??foo" means the literal "?foo"). See
+    ``unescape_literal`` for the inverse, used at comparison/display
+    time.
+    """
+    return arg.startswith("?") and not arg.startswith("??")
+
+
+def unescape_literal(arg: str) -> str:
+    """
+    Undo the '??' -> literal-leading-'?' escape from ``is_variable``.
+
+    Only meaningful on an argument that is not a variable. A literal
+    with no leading '?' at all is returned unchanged.
+    """
+    if arg.startswith("??"):
+        return arg[1:]
+
+    return arg
 
 
 def cap_tier(
@@ -501,7 +560,7 @@ def atom_unifies(
     result = dict(substitution)
 
     for expected, actual in zip(pattern.arguments, fact.arguments):
-        if expected.startswith("?"):
+        if is_variable(expected):
             existing = result.get(expected)
 
             if existing is not None and existing != actual:
@@ -510,7 +569,7 @@ def atom_unifies(
             result[expected] = actual
             continue
 
-        if expected != actual:
+        if unescape_literal(expected) != unescape_literal(actual):
             return None
 
     return result
