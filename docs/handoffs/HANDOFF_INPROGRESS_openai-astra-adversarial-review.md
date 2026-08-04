@@ -121,7 +121,10 @@ philosophy.md content itself, only a recommendation.
 The Workflow run ID will be recorded here once launched:
 
 **Run ID:** `wf_84114bff-09d`
-**Script path:** `/home/yaoharee-lt/.claude/projects/-home-yaoharee-lt-ANSE-ASIA-readout-universe/75a9ebff-0a86-4611-b847-92b6142a4110/workflows/scripts/astra-analogy-adversarial-review-wf_84114bff-09d.js`
+**Script path:** local to the AI session's own workspace-cache directory
+under this session's Claude Code project transcript folder (not part of
+this repo, not portable across machines — resume via the Run ID above
+from within the same session/tool environment that launched it).
 **Task ID:** `wn2ednjxa`
 
 To resume: `Workflow({scriptPath: "<path above>", resumeFromRunId:
@@ -141,9 +144,10 @@ to proceed to drafting.
 
 ## RESULT (workflow completed 2026-08-04)
 
-Full synthesis text is in `/tmp/user/1000/claude-1000/-home-yaoharee-lt-ANSE-ASIA-readout-universe/75a9ebff-0a86-4611-b847-92b6142a4110/tasks/wn2ednjxa.output`
-(ephemeral scratch path — do not rely on it surviving; the essential
-findings are captured below).
+Full synthesis text was written to an ephemeral local task-output file
+under the AI session's own scratch directory (task ID `wn2ednjxa` above)
+— not part of this repo, not portable, not expected to survive; the
+essential findings are captured below in full.
 
 - **Candidate 1 (Connes rigidity → §5.2c R-apparent):** DO NOT PROCEED as
   scoped. 3-of-5 lenses were permissive-with-conditions, but the 2
