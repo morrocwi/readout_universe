@@ -1,4 +1,4 @@
-# HANDOFF (in-progress) — adversarial review of "OpenAI Astra ten math results" as candidate philosophy.md additions
+# HANDOFF (session close) — "OpenAI Astra ten math results" as candidate philosophy.md additions — MERGED, v1.9.0
 
 **Written:** 2026-08-04, before launching an ultracode Workflow. Per this
 workspace's standing rule ("handoff BEFORE every ultracode/Workflow
@@ -265,3 +265,48 @@ pre-publish adversarial-review rule, the review portion of that pattern
 is now satisfied (2 independent reviewers + 3-persona placement panel);
 what remains is the founder's explicit go-ahead to commit/branch/push/PR,
 which has not yet been asked for or given.
+
+## Committed, pushed, reviewed, merged, released (2026-08-04, same session)
+
+Founder gave explicit go-ahead ("เอาเข้าระบบได้เลยผ่าน pipeline"). Full
+pipeline executed:
+
+1. Branch `docs/sec55a-astra-lean-verification-parallel` created off `main`.
+2. Commit `f0e78ed` — the §5.5a note + §5.2b cross-reference + this
+   handoff memo, staged and committed together.
+3. **Mandatory pre-publish privacy/security scan** (workspace standing
+   rule — required before ANY public-facing publish) caught a real leak:
+   this handoff memo's earlier draft embedded two local absolute
+   filesystem paths containing the workstation username
+   (`/home/<user>/.claude/...`, `/tmp/user/.../...`) — the same *class*
+   of finding (local-path/credential-shaped leak caught only by a
+   dedicated pre-publish scan, not by prior passes) as the LICENSE leak
+   from the 2026-08-03/04 session (`HANDOFF_SESSION_CLOSE_2026-08-04.md`,
+   item 4). Fixed in a separate commit `90c59db` rather than amending —
+   redacted to portable, non-identifying descriptions; the Run ID and
+   Task ID (the actually-useful resume identifiers) were preserved.
+4. Pushed, PR opened: **#52**,
+   https://github.com/morrocwi/readout_universe/pull/52.
+5. CI (`verify`) — pass, 1m33s.
+6. Founder explicit go-ahead given ("merge handoff ปิด session") →
+   merged via `gh pr merge --merge --delete-branch` (fast-forward merge
+   commit, feature branch deleted, matches this repo's existing merge
+   style — see `git log --merges`).
+7. Tagged **v1.9.0**, pushed, GitHub release created:
+   https://github.com/morrocwi/readout_universe/releases/tag/v1.9.0.
+
+**Repo state at session close:** `main`, clean, up to date with origin,
+HEAD = the PR #52 merge commit, tag `v1.9.0`. No open PRs from this
+session. No further Astra-episode work pending — the two rejected
+candidates (Connes-rigidity↔R-apparent, non-sofic-group↔finite-readout)
+are closed, not open items; if either is ever reconsidered, start from
+this file's rejection reasoning above, not from scratch.
+
+## To resume (a future session)
+
+Nothing is in-progress. If a future session wants to revisit any part of
+this: the full 5-lens candidate-evaluation reasoning, the 2-reviewer
+draft-review findings, and the 3-persona placement-panel verdicts are all
+recorded in full above, not just summarized — this file is the complete
+audit trail, not a pointer to one. `philosophy.md` §5.2b (cross-reference)
+and §5.5a (the note itself) are the shipped result.
