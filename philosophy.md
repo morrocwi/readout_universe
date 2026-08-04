@@ -946,6 +946,9 @@ philosophical identification (reading the metatheory-Platonist's objection
 as answered by §2's own tier definition plus the Gödel/Feferman
 relative-foundations parallel); the `Th_coqc` results this section
 defends the *scope* of remain exactly `Th_coqc`, unchanged, per §5.1/§5.2a.
+(A 2026-08 external, independently-voiced echo of this exact
+Lean/Coq-verification-≠-acceptance distinction — unrelated to this
+corpus, offered as a parallel, not a corroboration — is noted in §5.5a.)
 
 ### 5.2c Two things §5.2a's `ℝ` rung was calling by one name — R-ideal and R-apparent
 
@@ -1362,6 +1365,40 @@ empirical data and remains, like the theorem's own re-verification,
 pre-registered future work rather than a completed validation.
 
 [domain card: readout_genesis/READOUT_GENESIS_CORE.md PART VI §VI.6 (~lines 4482-4529)]
+
+**Note (2026-08-04), external parallel, not corroboration.** The
+discipline this subsection just applied to itself — flag a `Th_coqc` tag
+honestly, never launder an unverified check into settled fact — has an
+independent echo in outside commentary on an unrelated, much-higher-
+profile episode. OpenAI announced (2026-08-02) that its as-of-writing-
+unreleased "Astra" model had produced ten Lean-4-formalized mathematical
+results, among them (per the announcement) a construction addressing
+group-theoretic soficity and a claimed result concerning von
+Neumann-algebra rigidity — as of this writing, Lean-typechecked only,
+zero independent peer review, the model itself not public, the discovery
+process not reproducible by anyone outside OpenAI. Independent commentary
+on that announcement states plainly that "Lean-checked" and
+"mathematically accepted" are different statuses: Lean verification
+establishes only that a formal term has a claimed type under stated
+axioms, not that the statement faithfully captures the intended informal
+problem, not novelty, not historical accuracy, not peer review. That is a
+different formal mechanism (Lean's kernel) reaching the *same conclusion*
+§5.2b draws for `Th_coqc` (Coq's CIC) — a convergent finding, not a
+demonstrated identity of mechanism, and cited here **not** as evidence
+for or corroboration of this corpus's own tier discipline (which predates
+and does not depend on the Astra episode) and **not** as an endorsement
+of Astra's claims themselves. Regardless of how those claims are
+eventually adjudicated, this note's own point stands or falls
+independently of Astra's fate. Tier: `Dr`, narrowly — covering only "this
+secondary commentary makes this observation," nothing about Astra's
+mathematics.
+
+[source: OpenAI, "Ten advances in mathematics and theoretical computer
+science" (openai.com, 2026-08-02, announcement only, not independently
+verified); the "Lean-checked ≠ mathematically accepted" framing quoted
+above is drawn from independent secondary commentary, not asserted by
+this corpus on its own authority: kingy.ai, "OpenAI Astra's 10 Math
+Results: Evidence and Limits" (2026-08).]
 
 ### 5.6 Forced Identification — a diagnostic thesis, not a law
 
