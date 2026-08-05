@@ -988,6 +988,42 @@ a continuum acceleration `d²x/dt²`.
 [domain card: readout_genesis/READOUT_GENESIS_CORE.md PART III (~lines
 1441-2030) and §VI.1 (~4188-4234)]
 
+### 9.8b Chance presupposes distinguishability — a narrow `Th_coqc` core under §9.8a's `Dr` thesis
+
+§9.8a (`philosophy.md`) argues, at `Dr`, that objective chance is not
+explanatorily prior to retained difference: a chance-fact presupposes a
+determinate, **retained-distinguishable** field of alternatives (Lahtee,
+"The Explanatory Insufficiency of Randomness," 2026-05-31; Lahtee,
+"Objective Chance and the Priority of Modal Difference," 2026-06-04 — both
+`Dr`, preprint, not peer reviewed). That explanatory-priority claim is not
+mechanically checkable and stays `Dr` here unchanged.
+
+| ID | Statement | Tier |
+|---|---|---|
+| CD1 | A finite chance attribution (nonnegative `Q`-weights over a list of possibilities summing to exactly 1) cannot be well-formed over the empty list — `0 == 1` is false in `Q` | `Th_coqc` |
+| CD2 | If a possibility occurs more than once in the list with positive weight, the list-sum strictly exceeds the sum over the underlying set of genuinely distinct possibilities (`nodup`) | `Th_coqc` |
+| CD3 | Consequently, a well-formed chance attribution (sum = 1) whose possibility list carries a positive-weight duplicate does not sum to 1 over its distinct possibilities — the "1" only means "unit mass over N distinct outcomes" when the list is already duplicate-free | `Th_coqc` |
+
+Machine-checked, axiom-free over `Q` (`evidence/RD_Chance_Presupposes_
+Distinguishability.v`, `Print Assumptions` on all three theorems ⇒ *Closed
+under the global context*; list-based, finite, no Reals, no continuum
+measure theory, per §0.5's operator-grounding floor). This is a narrow
+formal fact — a chance attribution's own well-formedness, stated purely as
+a `Q`-sum over a list, requires a nonempty and (for a coherent
+distinct-outcomes reading) duplicate-free domain. **It is not, and is not
+claimed to be, a proof of §9.8a's full explanatory-priority thesis**: it
+does not show chance is never explanatorily fundamental in general, does
+not touch quantum indeterminacy, and (like both cited preprints) takes no
+position on whether the world's dynamics are deterministic. It formalizes
+only the narrowest, load-bearing precondition the prose argument leans
+on — that a coherent chance-fact's own possibility-space must already be a
+distinguishable (duplicate-free, nonempty) structure — nothing broader.
+
+[domain card: Lahtee, Y., "The Explanatory Insufficiency of Randomness,"
+doi:10.5281/zenodo.20473230; Lahtee, Y., "Objective Chance and the Priority
+of Modal Difference," doi:10.5281/zenodo.20537309; `evidence/RD_Chance_
+Presupposes_Distinguishability.v`]
+
 ### 9.9 QM=SR weld — `box_quad_is_spine_residual` as a worked `DEFINITIONAL-RELABEL` instance
 
 | ID | Statement | Tier | Source |

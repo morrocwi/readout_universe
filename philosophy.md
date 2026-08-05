@@ -4515,9 +4515,16 @@ have derived quantum mechanics' interpretation, resolved the
 measurement problem, or shown this corpus's formalism supersedes the
 path-integral formalism; §9.8's own tier note above (Face 9 is
 `[Th_coqc]` only for the Kraus-completeness algebra, not for any claim
-about causal steps) is unchanged and inherited here.
+about causal steps) is unchanged and inherited here. A narrow, load-bearing
+precondition of this section's own argument — that a coherent chance-fact
+presupposes a nonempty, duplicate-free (distinguishable) possibility-space,
+formalized as a fact about `Q`-valued sums over lists — is machine-checked
+axiom-free at `logic.md` §9.8b / `evidence/RD_Chance_Presupposes_
+Distinguishability.v`. That raises only that narrow formal claim; the
+explanatory-priority thesis stated in prose above it remains `Dr`,
+unchanged by it.
 
-[domain card: Lahtee, Y., "The Explanatory Insufficiency of Randomness," preprint, doi:10.5281/zenodo.20473230, 2026-05-31; Lahtee, Y., "Objective Chance and the Priority of Modal Difference," preprint, doi:10.5281/zenodo.20537309, 2026-06-04]
+[domain card: Lahtee, Y., "The Explanatory Insufficiency of Randomness," preprint, doi:10.5281/zenodo.20473230, 2026-05-31; Lahtee, Y., "Objective Chance and the Priority of Modal Difference," preprint, doi:10.5281/zenodo.20537309, 2026-06-04; logic.md §9.8b; evidence/RD_Chance_Presupposes_Distinguishability.v]
 
 ### 9.9 Matter as a name for persistence
 
