@@ -22,10 +22,15 @@ stronger one than its evidence supports.
 > **The mother equation.** `M_A[n] = K_A·θ(E[n]) + η_sel + η_map + η_self`,
 > and `M_A[n] ≠ θ(E)` for every `n` — every record is a *translation* of the
 > true state `θ`, never the state itself, carrying selection/mapping/
-> self-reference noise that never reaches zero (`Th_coqc`, machine-checked,
-> axiom-free). This one relation is "readout-not-truth" cashed out as an
-> equation, and every tier in this repository answers to it — see
-> ["The mother equation" in `logic.md`](logic.md) and
+> self-reference noise that never reaches zero. This one relation is
+> "readout-not-truth" cashed out as an equation, and every tier in this
+> repository answers to it. It is tagged `Th_coqc` by the specific source
+> ledger this instance is drawn from (`EQ-027`/`EQ-028` in `logic.md`) —
+> the same-shaped formula also appears twice more in this repository at
+> different tiers (`definition` at `logic.md`'s N2, untagged at
+> `philosophy.md` §8's Face 10), and that three-way tier difference is
+> named, not smoothed over, at `logic.md`'s "The mother equation" section.
+> See ["The mother equation" in `logic.md`](logic.md) and
 > [`philosophy.md` §1](philosophy.md#1-readout-not-truth--why).
 
 | | |

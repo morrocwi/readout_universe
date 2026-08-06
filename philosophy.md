@@ -1656,7 +1656,13 @@ doing the measuring; `θ` the latent true state being read — the only other
 place this file names θ's role is §7.7's "readout operator A(θ)", ~450
 lines later, a hint rather than a full definition, so treat θ's precise
 formal shape as `Dr`),
-with strictly positive total error — a plain `definition`, not a theorem.
+with strictly positive total error — a plain `definition`, not a theorem
+(this is a deliberate choice this section makes, named directly rather
+than left to look inconsistent: `logic.md`'s "The mother equation" section
+carries a *different* source's `Th_coqc`-tagged rendering of this same
+formula, EQ-027/EQ-028, side by side with this `definition` tag and §5.2d's
+`Dr` rendering — the disagreement is named there rather than resolved
+here or anywhere else in this book).
 Its subtlety this cycle is a *reduction error*, not a defect in the
 equation: `L_R` is in general a full operator acting on many coupled modes
 at once, and a reader who collapses it to a single scalar before reading N2
