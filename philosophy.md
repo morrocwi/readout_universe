@@ -1186,6 +1186,77 @@ classification (*saṃkhyāta*/*asaṃkhyāta*/*ananta*), reported via
 secondary academic sourcing, not a primary-text read;
 `ap/ap23_r_apparent_diagnostic.py`]
 
+### 5.2d The phenomenology chain — from record to appearance, and why appearance ≠ horizon
+
+*Tier: `Dr` throughout except where noted — a declared bridge/narrative
+import, not a machine-checked result. Source: the sibling repo
+`research_universal_solver`'s `canon/genesis_canon_v2.1.md` §Φ — a
+proprietary, all-rights-reserved repo per its own `LICENSE`. The content
+below is paraphrased into this corpus's own vocabulary and imported here
+with the explicit authorization of that repo's copyright holder, who is
+also this book's own founder — it is not a verbatim reproduction of the
+source file's own YAML/prose, and importing it does not upgrade its tier
+to `Th_coqc`.*
+
+§5.2c already names `M_A = K_A·θ+η` (the record — Face 10/N2) as this
+corpus's own standing statement that a readout is a *lossy translation* of
+the true state `θ`, never `θ` itself. The sibling repo extends that same
+relation two steps further, and the extension earns a place here because
+it answers a question §5.2c leaves open: what happens *after* the record —
+how does a bounded reader get from a lossy translation to an experienced
+world?
+
+> **θ(E) → S_A(E) ⊆ Δ(E) → (T_A∘Π_A) → M_A = K_A·θ(E)+η (≠ θ(E)) → P_A = Φ_A(M_A) → H_A**
+
+Read left to right: `Δ(E)` is the unprocessed causal cone of everything
+that *could* reach agency `A`; `S_A(E)` is the bandwidth-forced selection
+out of it (most of `Δ` is never read at all — this is prior to any notion
+of knowing); `T_A∘Π_A` is transport-then-projection into a form `A` can
+receive; `M_A` is the already-established lossy record (§5.2c); and the
+two new links are:
+
+- **`P_A = Φ_A(M_A)`** — the record does not stay a bare record; it
+  becomes an agent-specific *phenomenal field*, via an operator `Φ_A` that
+  the source names but does not close:
+  `Φ_A = Φ(Ξ_A, B_A, Val_A, Coh_A, Own_A)` — phenomenal readiness,
+  embodiment, valence, coherence, ownership — declared as *structural
+  placeholders*, explicitly **not** offered as a reduction of qualia.
+  Tier: `Open` on `Φ_A` itself, carried forward from the source unchanged
+  — this book does not claim to have closed the hard problem by naming an
+  operator for it.
+- **`P_A ≠ H_A`** — what appears (`P_A`) is not the same as the space in
+  which what appears can be assessed, doubted, or revised (`H_A`, an
+  epistemic horizon in the sense §5.6a and elsewhere in this book already
+  use the term). Collapsing the two is the error the source calls out by
+  name — mistaking *having* an appearance for *being able to interrogate*
+  it.
+
+**Why this earns a place next to R-apparent/R-ideal, not a chapter of its
+own.** The position this chain commits to — "a phenomenon is neither
+mind-only construction, nor raw transmission, nor a copy of the world" —
+is exactly this book's own §9.19 stance ("neither pure materialism nor
+pure idealism"), reached independently in the sibling repo from a
+perception/consciousness angle rather than a physics angle, and converging
+on the same refusal: `P_A` is constrained by `θ` (not idealism) and
+`P_A ≠ θ` (not naive realism). The source itself names this
+**finite-access realism**. This subsection is a naming and import, not a
+new derivation — the actual epistemic content is already `M_A = K_A·θ+η`,
+established at §5.2c; what's added here is only the *next* link in the
+same chain, held to the same tier discipline as everything around it.
+
+**What this does not claim.** The hard-problem obstruction is *relocated*
+to `Φ_A`, not solved — the source states this directly, and this book
+repeats it rather than rounding it up. `Φ_A` stays `[Open]`. Nothing above
+should be read as a claim that this corpus has a working account of
+subjective character; it has, at most, a place to point at where such an
+account would have to live, and a discipline (`P_A ≠ H_A`) for not
+conflating the appearing with the assessing.
+
+[domain card: `research_universal_solver/canon/genesis_canon_v2.1.md` §Φ
+(proprietary, imported by the copyright holder's own direction — see tier
+note above); §5.2c (R-apparent/R-ideal, `M_A = K_A·θ+η`); §5.6a (epistemic
+horizon); §9.19 (neither materialism nor idealism)]
+
 ### 5.3 The trunk equation
 
 > **M ∂²Φ + D ∂Φ + K·L_R Φ + ∇V(Φ) = J − η**
