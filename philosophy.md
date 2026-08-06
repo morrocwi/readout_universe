@@ -41,6 +41,8 @@
 > claim boldly and stating its tier honestly are not in tension — this
 > document does both, everywhere, on purpose.
 
+The falsifier this identification already implies, stated plainly: a machine-checked derivation showing `L_R := D_W − W`'s forced algebraic form and the Genesis/Canon/EHC `θ(E)` formalism satisfy the *same* equation under a shared, explicit translation — not merely a matched shape read by a human eye — would upgrade this from `Dr` to `Th_coqc`; conversely, a formalization of `θ(E)` that turns out not reducible to `L_R`'s spectrum-generating structure would refute the identification outright rather than leave it merely undecided. Neither direction has been attempted; the cross-reference stays `Dr` because it currently rests on equation-form resemblance across two documents, not a shared proof.
+
 ---
 
 ## 1. Readout-not-truth — why
@@ -64,6 +66,8 @@ Three consequences the corpus insists on ([`v2/DOCTRINE_OF_QUANTITY.md`], `Dr`):
   their causal/inferential role in the bounded readout graph, not the number
   they happen to display. Substituting one for the other on the strength of
   equal digits is banned ("the equal-number fallacy").
+
+Only Q3 has been given a worked, `fit_calibrated` body in this file — the three PDG mass-ratio numbers just below. Q1 and Q2 have not: a genuinely checkable analog would be a domain where a quantity ordinarily treated as a fixed, pre-existing magnitude shifts under a change of readout policy `Π` in a way no pre-existing-real-number account predicts but a projection-account does. No such worked case is cited for Q1/Q2 in this file; until one is, they stay `Dr` on citation strength alone, one tier lighter in evidential weight than Q3's own worked instance.
 
 **Q3 made concrete — a worked case, not just doctrine.** The physics stream's
 mass-ratio fit gives Q3 a numeric body instead of leaving it abstract. One
@@ -227,6 +231,8 @@ is the failing control, and did it fail correctly — with a stated, citable
 name (`FAIL-ABLE-LAW`) so future gates in this corpus point at the rule
 instead of re-arguing it each time a new gate is introduced.
 
+No falsifier is drafted here by design: the text explicitly states this is a governing/methodological rule, not a physics or math result, and declines to tag it `Open`. Forcing a falsifier onto a stipulated procedural criterion — what counts as Type-P vs Type-U evidence — would be the same category error the rule itself exists to prevent when applied to substantive claims.
+
 [domain card: readout_genesis/READOUT_GENESIS_CORE.md PART VI §VI.7 (~lines 4531-4550)]
 
 This discipline is applied reflexively, not just outward: the corpus's own
@@ -363,6 +369,8 @@ actually discharge the trilemma, or only relocate the dogmatism into
 the unexamined choice to value criticism-availability itself? — rather
 than against the tier table as though its authority had gone
 undefended. Tier: `Dr`.
+
+This is a philosophical identification answering a meta-level objection about justification, not an empirical or structural claim about the world — Agrippa's trilemma concerns justificatory chains in general, and pancritical rationalism's reply is a stance on what counts as an adequate response to it. Forcing a falsifier here would be a category error; the honest check, already named in the text, is contestability within epistemology, not measurement.
 
 ### 2.2 From tier discipline to a runnable gate — the Three Epistemic Scalars
 
@@ -506,6 +514,8 @@ exactly the "quiet underclaiming/overclaiming" failure mode §2 exists to
 catch. Naming the gap plainly is what the discipline requires of this
 passage; closing it is future work, tracked as such and not as done.
 
+The table itself is a discipline/checklist, not a testable claim — it stipulates how operators are to be read and tagged, and its two cited `Th_coqc` witnesses (discrete FTC, `L_R`) already carry their own evidence independently of the table's role as organizing scaffold. A falsifier would be a category error here; the nearer thing to a check, already flagged in-text, is the disclosed-not-fixed gap (EQ-015, EQ-007 untagged), which is a completeness audit, not a hypothesis test.
+
 [domain card: information-discrete-math SKILL.md, contaminated-concept table + Pre-write CHECKLIST section]
 
 See also §5.2a below, which lays the number-ladder and per-operator
@@ -541,6 +551,8 @@ null-space of A, load-bearing relation, memory, the
 capacity). A term with no row yet must be given one — plus its verdict class
 — *before* it can be used; extending the dictionary is itself part of
 solving a problem, not a side task.
+
+The prose-only status flagged here is narrower than it looks from this file alone: `logic.md` §4 gives `V`'s actual defining equation, `V = ½rᵀWr` (residual vector `r` against precision-weight matrix `W`), used by `Φ_FI` and confirmed against its own running implementation (`ap/ap4_phi_fi.py`, computing `Σ((y−Y_OBS)/SIG)²`). This does not upgrade this section's own `Dr` tag on "descent of V" as a dictionary entry — the definition lives in a sibling ledger, not here — but a reader chasing "no further defining equation" should not stop at this file.
 
 **The solve loop Ω_all**, eight steps:
 
@@ -624,6 +636,8 @@ already embedded, informally, in any good scientist" ([`v2/POSITION.md`] §1,
 it *converges with* frontier diagnoses (n=2 case studies, Hubble/FXT), it
 does not surpass them.
 
+A genuinely checkable version of this bundle-claim already exists as a named commitment, not an open promise: [`v2/POSITION.md`] §5 specifies the check as an independent literature search plus blind trials against working-scientist practice. The falsifier is concrete — a documented existing framework, published or in active use, that already combines a machine-checked root, runnable diagnostics, an enforced tier/falsifier discipline, a cross-domain translation protocol, and low marginal cost would refute the "no other philosophy packs this bundle" reading, without requiring any one of the five properties to fail individually. No such search or trial has been run as of this writing, so the claim stays `[Open + stance]`, exactly as tagged.
+
 ---
 
 ## 5. The ontological claim — one retained root
@@ -659,6 +673,8 @@ admissibility, identity-locking, obstruction-not-explosion, lens-validation)
 book's own machinery by a declared (`Dr`) correspondence, not yet a proven
 formal unification.
 
+A falsifier for the correspondence, checkable in principle: a machine-checked mapping from RAR A1–A8's eight named properties (distinguishability, transport, retention threshold, accessibility, admissibility, identity-locking, obstruction-not-explosion, lens-validation) onto this book's own logic-half primitives (N2/N3, the Fail-Able Gate Law's pass/fail controls) would upgrade the correspondence to `Th_coqc` for the properties it covers; a property on either side with no coherent image under any such mapping would refute unification for that property specifically. No such mapping attempt is on record; the correspondence stays `Dr`.
+
 ### 5.2 The one derived link — L_R
 
 > **L_R := D_W − W** — the weighted graph Laplacian, built from a cost-based
@@ -680,6 +696,8 @@ coarse-graining of the underlying graph, recoverable but always a readout, a
 blurred image seen by a bounded reader. This synthesis line is explicitly
 `Dr` over `T1`/`T2` sources — a reading, not an upgrade of the source's own
 tier.
+
+The chain's most checkable-in-principle link is the claim that dimension, distance, and curvature are *read from* `L_R`'s spectrum rather than assumed: a genuine test would compute `L_R`'s eigenvalue spacing/scaling on a concrete finite graph with a known combinatorial dimension and check whether the recovered spectral dimension matches — exactly the kind of `finite_diagnostic` this book runs elsewhere for other claims. No such spectral-dimension-recovery run is cited for this synthesis specifically; until one is, "space is derived" stays `Dr` — a plausible integration of `T1`/`T2` sources, not a measured result of its own.
 
 **Why L_R and not some other operator — the 2026-08 forcing argument.** The
 paragraph above names L_R "the ONE genuinely derived link" but, until now,
@@ -738,6 +756,8 @@ forced, given what a retained distinction already means." Tier: `Th_coqc`
 for the forcing step, resting underneath on the same `Dr` primitive §5.1
 already declares.
 
+This is a declaration of where the forcing argument's own regress stops, not a claim about the world that could be observed to hold or fail — §5.1 already takes the same stopping point openly for `δ_R` as a whole ("chosen, not proven"). A falsifier would be a category error; what could change this is a *different* forcing argument reaching `D_W−W` from something strictly weaker than δ_R's own meaning, which would relocate the root rather than falsify this one.
+
 [domain card: research_universal_solver/docs/root/BORROWED_VS_DERIVED_LEDGER.md row 4]
 
 **Naming the full chain, since it is easy to lose across sections: δ_R →
@@ -763,6 +783,8 @@ Genesis/Canon/EHC θ(E) formalism are four names already in this
 workspace for positions on the same one chain; this paragraph is the
 first place that states the chain as one line rather than leaving the
 identification implicit across files.
+
+See the falsifier already stated at this file's opening block (above, on the `Dr` tag for L_R≡θ(E)) — the same machine-checked-derivation-or-refuting-formalization condition applies here without restatement.
 
 ### 5.2a The floor beneath every `+ − × ÷ ∂ ∇`: the discrete number ladder and the operator-grounding table
 
@@ -963,6 +985,8 @@ philosophical identification (reading the metatheory-Platonist's objection
 as answered by §2's own tier definition plus the Gödel/Feferman
 relative-foundations parallel); the `Th_coqc` results this section
 defends the *scope* of remain exactly `Th_coqc`, unchanged, per §5.1/§5.2a.
+
+This is a philosophical response to an objection about formal verification's own limits, citing Gödel's second incompleteness theorem and Feferman's relative-foundations reading as an interpretive parallel, not a claim with an independent empirical or computational test. Forcing a falsifier onto "is this the honest way to characterize what `Th_coqc` licenses" would be a category error; the actual available check, already built into the text, is whether this book's own narrative prose stays consistent with the "given CIC" qualification — a textual-hygiene audit, not a falsifier.
 (A 2026-08 external, independently-voiced echo of this exact
 Lean/Coq-verification-≠-acceptance distinction — unrelated to this
 corpus, offered as a parallel, not a corroboration — is noted in §5.5a.)
@@ -1127,6 +1151,8 @@ contradiction — R-ideal is the first, never the second, exactly the
 parallel between a 1690 epistemological argument and this book's own
 readout-first ontology, not a claim Locke's own project is this one.)
 
+This is a declared interpretive parallel between a 1690 epistemological text and this book's own vocabulary, flagged as such in the same sentence — it is not offered as a hypothesis about the world, so there is nothing here for a falsifier to attach to. The only available check is textual-interpretive (does Locke's own passage support the reading given), a citation-accuracy question, not an empirical one.
+
 Jain philosophy's classical number theory — reported here via secondary
 academic sourcing (the primary canonical text, the *Dhavalā*
 commentary, was not read directly for this subsection; tier accordingly
@@ -1153,6 +1179,8 @@ distinguishing "a process's own limits" from "actual infinity" by
 process-relative exhaustibility — not with having stated R-apparent's
 agency-relative-readout framing itself, which is this book's own
 addition, not theirs.
+
+Like the Locke parallel above, this is an interpretive citation to a classical tradition, sourced secondarily and flagged as such, offered as evidence the distinction is "not ad hoc" rather than as a testable claim in its own right. A falsifier would be a category error; the only honest check available is bibliographic — reading the primary *Dhavalā* text directly, which this subsection already names as not yet done.
 
 **Upgrade attempt (2026-08-04), in the same spirit as `paradoxes.md`
 §6.2's and §7.21's own upgrade attempts.** The concrete next step this
@@ -1215,6 +1243,8 @@ also this book's own founder — it is not a verbatim reproduction of the
 source file's own YAML/prose, and importing it does not upgrade its tier
 to `Th_coqc`.*
 
+This header is a scope/provenance declaration for the subsection below it — it states where the imported material comes from and what tier it is permitted to carry, not a claim about the world. A falsifier does not apply to a tier-scope declaration; the only available check is provenance/authorization (correct attribution and licensing), which this header already states plainly.
+
 §5.2c already names `M_A = K_A·θ+η` (the record — Face 10/N2) as this
 corpus's own standing statement that a readout is a *lossy translation* of
 the true state `θ`, never `θ` itself. The sibling repo extends that same
@@ -1242,6 +1272,8 @@ two new links are:
   Tier: `Open` on `Φ_A` itself, carried forward from the source unchanged
   — this book does not claim to have closed the hard problem by naming an
   operator for it.
+
+A falsifier at the tier this book can actually state one: `Φ_A` is declared over five named arguments (`Ξ_A, B_A, Val_A, Coh_A, Own_A`) rather than left as one opaque symbol, so a checkable claim sits one level down from qualia itself — a manipulation removing one argument (e.g. `Own_A`) predicting a corresponding, measurable change in reportable phenomenal structure (self/other attribution) independent of the other four would test the *decomposition*, even though no manipulation could test felt character directly. No such correlational test has been run against this decomposition; until one is, `Φ_A` stays `[Open]` on both counts it inherits — the hard problem, and this untested five-way split on top of it.
 - **`P_A ≠ H_A`** — what appears (`P_A`) is not the same as the space in
   which what appears can be assessed, doubted, or revised (`H_A`, the
   epistemic horizon — a term newly introduced to this book at this
@@ -1276,6 +1308,8 @@ subjective character; it has, at most, a place to point at where such an
 account would have to live, and a discipline (`P_A ≠ H_A`) for not
 conflating the appearing with the assessing.
 
+See the falsifier already stated at this section's first `Φ_A` mention above (the `P_A = Φ_A(M_A)` clause) — the same decomposition-level, argument-by-argument falsifier applies here without restatement.
+
 [domain card: `research_universal_solver/canon/genesis_canon_v2.1.md` §Φ
 (proprietary, imported by the copyright holder's own direction — see tier
 note above); §5.2c (R-apparent/R-ideal, `M_A = K_A·θ+η`); §9.19 (neither
@@ -1306,6 +1340,8 @@ assumptions, not forced by the root"* (`v2/EVERYTHING_BRIDGE.md` §0) — this
 equation is a candidate trunk shape, not a theorem derived line-by-line from
 δ_R.
 
+Both halves of this gap already have a defining equation elsewhere in the corpus, though neither is repeated here to avoid duplicating a live ledger: `logic.md` §1 gives the trunk's own `∇V(Φ)=k₂Φ+k₄Φ³` (quadratic+quartic potential, `k₂`/`k₄` paired with `K`), with its resulting nonlinear charge `H_nl` measured at `finite_diagnostic` (quartic drift <2×10⁻³, `ap/ap8_h_quartic.py`, `logic.md` DRL-6); `logic.md` §4 separately gives the residual-energy `V = ½rᵀWr` used by `Φ_FI`, confirmed against its own implementation (`ap/ap4_phi_fi.py`). Neither citation upgrades this section's own `Dr`/`[Open]` tag — the equations live in a sibling file's ledger, not this one — but a reader chasing "no defining equation" should not stop looking one file too early.
+
 ### 5.4 What v2 adds — closing one declared wound honestly
 
 The corpus's own audit named a wound: the dissipation term `D∂Φ` was
@@ -1318,7 +1354,9 @@ paid one level up — the specific shape of the doubling (why the retention
 metric/symplectic tensors `G, Ω` take exactly this form) is itself
 **posited**, not forced by RD4, so this is a recursive borrow: the wound is
 relocated, not eliminated, and `D`'s sign is forced while its value remains
-`[Open]`. See `logic.md` §DRL for the
+`[Open]`.
+
+A genuine falsifier already sits nearby without upgrading the tier: §5.6a's Arrow 4 pins the same sign from a different route (τ_c=M/D staying finite forbids D→0), so any regime where the two derivations disagreed on sign — one forcing D>0, the other permitting D≤0 — would be a real inconsistency in the corpus's own claims, not just an unresolved value. No such disagreement has been found; the value of `D` itself stays exactly `[Open]`, pinned by neither route. See `logic.md` §DRL for the
 equation itself and its tiered status (Euler–Lagrange derivation of the
 damped spine: `finite_diagnostic`, extended to Coq as `DRL-Coq-T1`:
 `Th_coqc` in declared-axiom form — the theorem depends on two declared
@@ -1488,6 +1526,8 @@ independently of Astra's fate. Tier: `Dr`, narrowly — covering only "this
 secondary commentary makes this observation," nothing about Astra's
 mathematics.
 
+This is a citation of external secondary commentary about a different organization's unrelated announcement, offered only to note a convergent methodological point (Lean-checked ≠ mathematically accepted). It is not a claim this corpus makes about the world and carries no hypothesis of its own for a falsifier to attach to; its accuracy rests entirely on the cited source, not on anything checkable inside this repo. Forcing a falsifier here would mistake a citation for a claim.
+
 [source: OpenAI, "Ten advances in mathematics and theoretical computer
 science" (openai.com, 2026-08-02, announcement only, not independently
 verified); the "Lean-checked ≠ mathematically accepted" framing quoted
@@ -1565,6 +1605,8 @@ this buys: the choice is not eliminated, it is *relocated* onto the
 primitive's own meaning. `Th_coqc`-forced-given-δ_R's-meaning, not
 forced-from-nothing.
 
+The identification's checkable edge is the same one Arrow 2 already exploits against rivals: any node operator other than `L_R = D_W − W` shown to also satisfy all three stated structural properties (symmetric, zero-row-sum, off-diagonal ≤ 0) on the witness graph already used to refuse adjacency, the signless Laplacian, and the random-walk Laplacian would directly undercut the uniqueness this arrow claims. No second candidate has been found on that witness graph.
+
 **Arrow 3 — `L_R` → 2nd-order-in-time, and this is where the chain snaps in
 the negative.** The natural hope was that "information is retained" alone
 would force the inertial `M∂²Φ` term. It does not. `M>0` follows only *if*
@@ -1585,6 +1627,8 @@ independent structural ingredient — retention *of the rate*, not retention
 of the state. This is the one arrow the audit explicitly calls settled *in
 the negative* as a root-derivation, while remaining `Th_coqc`-forced *given*
 the flagged posit (re-readability) if that posit is granted.
+
+The posit itself is not immune to test: the six-reading adjudication campaign already implies its own falsifier condition — a first-order (non-re-readable) mode reproducing genuine oscillatory return without smuggling in a second derivative would undercut the claim that `M>0` requires re-readability specifically. No such counter-construction is reported; the posit stands untested-against, not confirmed.
 
 **Arrow 4 — spine → `D>0`, the cleanest forcing in the chain.** Given the
 memory-time law `τ_c = M/D` — itself independently `Th_coqc`, not a fresh
@@ -1633,6 +1677,8 @@ proved here or in the source: none of the five is derivable from the other
 four without smuggling in a sixth assumption, and none of the five names a
 domain — but this is asserted in prose, not machine-checked, and this book
 does not upgrade it. Held at `Dr`.
+
+The checkable condition is a derivation, not a proof of impossibility: a demonstrated construction of any one of N1–N5 from the other four without smuggling in a sixth assumption would falsify the irreducibility claim outright. None of the source's own worked cases (§5.7's N1–N5 narration below) attempts or reports such a derivation, so the claim currently rests on absence of a counterexample rather than a completed search.
 
 Before narrating what the five equations say, a discipline this book has
 already committed to elsewhere (§5.2a, §2.5) has to be honored explicitly
@@ -1725,6 +1771,8 @@ already-checked `dE/dt ≤ 0` bound step-by-step over the parameter range
 fixed at T1's run — a single violating step is a falsifying instance for
 T2.
 
+The checkable condition is internal consistency between the two usages, not an external measurement: a single formal definition for θ that satisfies both N2's role (the latent true state a linear readout `K_A` compresses lossily) and §7.7's later role (the argument of AP14's readout operator `A(θ)`), verified against both passages' stated properties, would close this gap. Until supplied, the two mentions remain merely consistent-sounding, not verified identical.
+
 **N3** is the one equation in the whole nuclear core the source lets carry
 the `Th_coqc` tag honestly: `dE/dt = ⟨∂Φ,J⟩ − D‖∂Φ‖² ≤ 0`; obstruction can
 only fall or hold, never rise, absent external driving doing net positive
@@ -1750,6 +1798,8 @@ back once a domain has been translated into the mechanical lane and the
 readout is run. This is N2's discipline again, in a different costume:
 never let the readout usurp the position of the thing being read.
 
+This directional claim already has one executed check behind it in the same register as the rest of N1–N5: §7.18's D/M-vs-QuTiP residual (7.6×10⁻⁴) treats mass as the derived readout of τ_c rather than the reverse, and the check would have looked identical either way the ontological priority ran. A genuine falsifier is a domain where computing τ_c *from* an independently-measured mass, rather than reading mass off τ_c, produces a materially different, non-reconciling number; no such attempt is reported to have failed this way.
+
 **N5** closes the five with the one kind of readout that needs no adapter
 at all — anomaly ratios, `2/α²`, `π`, `φ`. A force in newtons means nothing
 to an engineer without SI; `π` needs nothing. These are singled out at `Dr`
@@ -1757,6 +1807,8 @@ as the pure numbers every cross-domain bridge in this book must agree on if
 the bridge is claimed to be real, precisely because they are the rare
 readouts that close without first passing through a domain's own unit
 costume.
+
+The checkable condition is cross-domain invariance: `2/α²`, `π`, and `φ` are claimed to need no domain-specific adapter to agree. A genuine falsifier is any two domains in this corpus's own atlas where one of these anomaly ratios must be given a different numeric value to make its bridge close, rather than the same value re-used unchanged; no such domain-dependent divergence is reported for these specific numbers.
 
 Read start to finish, N1–N5 compress the whole book's shape into five
 lines: something moves and is read imperfectly; the reading has a
@@ -1790,6 +1842,8 @@ and inline hedges throughout):
   (L-16) is `Dr`, its first-order content explicitly declared
   non-derivable — see §7.22 below for the readout-selection structure that
   first-order content actually names, and its stated falsifier.
+
+This item already points to its own falsifier location, §7.22 ("AI ethics as a readout-selection structure"), confirmed present later in this file — no separate falsifier is added here to avoid duplicating that passage's text.
 - **No supersession of any tradition** in the Dialogue-with-World-Traditions
   part — the stated relationship is *dialogue*, never replacement.
 - **No machine-independent timing claims.**
@@ -1814,6 +1868,8 @@ and inline hedges throughout):
   it is declared explicitly as a different, complementary ontological layer
   to DRL, not a replacement, and its own composite (one construction giving
   both an action and injective retention) remains `[Open]`.
+
+A running artifact already exercises one half of this pairing in isolation (`ap/ap7_tape_record.py`, the re-executed append-only tape model). The checkable condition is a single construction that is simultaneously an action functional (satisfying Euler–Lagrange) and an injective retention map (no two distinct histories collapsing to one tape state): producing one, or a no-go argument that the two properties structurally exclude each other on this substrate, closes the item either way.
 - **URR-C's own binding boundary is stated in the negative just as much as
   the positive** (URR-C — Universal Retention–Cut–Return–Readout system,
   logic.md §7's typed accessible/hidden-channel calculation contract; see
@@ -1897,6 +1953,8 @@ the fuller paraphrase and tier tags.
 *Tier: `Th_coqc` (EQ-033, the general theorem) — `Dr` (EQ-042, the
 gauge-automorphism-group reading of that theorem, not upgraded)*
 
+This bridge is checkable in the same register §7.3 already exercises: 𝒜's admissible-transformation set, once `F` is supplied, should reproduce a known gauge-automorphism structure on a worked case — e.g. SU(3)'s triality-preserving transformations (§7.3) — as a concrete instance of 𝒜; a mismatch between 𝒜's algebraic definition and the physically-known gauge group on that worked case would falsify the `Dr` bridge reading without touching EQ-033's `Th_coqc` status. This test has not been run.
+
 **Where the abstract theorem stops being abstract.** EQ-032–034 are stated in
 the driest possible form — some readout operator `O`, some states `x1≠x2`
 that collide under it, no decoder able to recover both from the record. It
@@ -1911,6 +1969,8 @@ used here without an available source definition — treat as `[Open]`) is
 exactly the class the abstract theorem quantifies over — every
 `h` in it changes the configuration while leaving every possible readout
 identical.
+
+See the falsifier drafted at the 1847 entry above (this same §7.2 paragraph, the 𝒜 admissible-transformation-set discussion) for `F`'s missing definition and the checkable condition it blocks — not restated here to avoid duplication.
 
 Ontologically this means a gauge group acting transitively on a fiber is not
 a bookkeeping convenience bolted onto "the real physics underneath" — it is
@@ -1940,6 +2000,8 @@ notation for EQ-036–053, referring to a Part 21 of the equation stream's
 upstream source, not a section of this file), read here at `Dr`
 bridge-level — per §5.5's own rule that a domain bridge is always `Dr` even
 where the artifact it bridges to is stronger*
+
+The bridge carries its own checkable edge already stated as a hedge, not smoothed: the source claims ℋ_physical ⊆ ℋ_{τ=0} (necessary, not sufficient), so the genuine falsifier is a physically admitted state with τ≠0, or a τ=0 state that is not physically admitted — either would falsify the reading at `Dr`, not merely need re-tiering; no such case is reported.
 
 **A worked instance, not just an abstraction (color confinement).** Q3 is
 usually stated as a caution — *don't* substitute on equal digits. The
@@ -2038,6 +2100,8 @@ The retraction itself is the corpus practicing what §2 demands of a tier
 system: caught, logged, downgraded, kept as a numbered scar in the stream
 rather than quietly deleted.
 
+This subsection is a historical case narrative — a governance lesson about how a specific overclaim was caught, not a hypothesis about the world — so no fresh falsifier applies here; forcing one would mistake a completed retrospective for an open empirical question. The falsifiable content (the three-generations claim itself) already lived, and died, in the retracted EQ-069–071 entries this passage narrates.
+
 [domain card: EQUATION_LIBRARY_ROOT_TO_SM_STREAM_research_universal_solver.md#EQ-069–071 (RETRACTED 2026-07-26) + domains/standard_model/item1_exploration/CONTINUUM_ARC_ERROR_NOTE.md]
 
 ### 7.6 EQ-066 — the Bounded-Judge Law catching a structurally-vacuous PASS
@@ -2063,6 +2127,8 @@ forces Π₀∈(0,7] on every run; α_ord sits at −0.5, below that entire rang
 No branch-tape reading — real, synthetic, or adversarial — could ever land
 Π₀ ≤ α_ord. The PASS was not a readout confirming the construction; it was
 an identity of the construction's own algebra, dressed as a result.
+
+The checkable condition this case generalizes to is stated at §7.6a immediately below: any stepper whose declared threshold sits outside the algebraically-forced range of its own bound variables is structurally vacuous regardless of domain. A systematic sweep of the corpus's other steppers for this same threshold-vs-bound relationship (not yet run) is the genuine falsifier-hunt this incident licenses, not a one-off patch to EQ-066 alone.
 
 This is the tier discipline doing exactly the job §2 assigns it: the
 numeric claim (`declared_finite_architecture`/`exact_bridge`) was correctly
@@ -2129,6 +2195,8 @@ process. **L5 governance** — readout-not-truth, the bounded-judge law, and
 one binding rule: *only Coq+lib-verified content is core*; everything else
 is diagnostic or open, no matter how confidently physics-flavored its
 vocabulary sounds.
+
+This is an architectural enumeration — naming what each rung of the stack is and does — not a testable hypothesis in its own right; forcing a falsifier onto a taxonomy would be a category error. Each rung's own load-bearing claims (e.g. L0's Coq floor, L3's per-domain adapters) carry falsifiers where they are stated elsewhere in this file; the stack as such is checked only by whether its individual rungs' claims hold, never by a test of the organizing structure.
 
 L5's rule is not decorative. The concrete incident that forced the corpus
 to restate it this bluntly: an audit of physics-interpretation cards found
@@ -2214,6 +2282,8 @@ under an unresolved-provenance weight matrix, on a near-degenerate parameter
 set, is evidence of nothing beyond itself until that weight matrix's source
 is named.
 
+This is already its own falsifier in progress: resolving the weight matrix's provenance — matching it to a documented derivation from Table IV's printed σ/ρ — would let the tier move past `finite_diagnostic` with `external_adapter: Dr`; failing to resolve it, or finding the mismatch grows under a corrected recomputation, would harden the current caveat rather than lift it. §7.8 below tracks this same number as the discipline's own worked catch.
+
 [domain card: readout_universe/ap/AP14_URR_DESI_DR2_COSMOLOGY_BENCHMARK.md §1; §6; §7]
 
 ### 7.8 AP14 §0 — a live case of adversarial review catching a real overclaim on cited external data
@@ -2247,6 +2317,8 @@ bounded knower's claim about another document — and it got the same
 adversarial pass any external number would get. A caught overclaim that is
 *named and left open*, rather than smoothed into silence, is the discipline
 working exactly as designed — not a flaw the reader should discount.
+
+This subsection narrates a completed adversarial-review event — what was claimed, what was checked, what was downgraded — not a standing hypothesis of its own; a fresh falsifier here would be a category error. Its checkable content already lives in §7.7's still-open 0.088% mismatch, which this passage points to and interprets rather than restates.
 
 [domain card: AP14 §0 — readout_universe/ap/AP14_URR_DESI_DR2_COSMOLOGY_BENCHMARK.md#§0-data-provenance]
 
@@ -2361,6 +2433,10 @@ way. The source is explicit that the general balanced-cut flux and the
 unified DRL+cut+tape mechanism are still `Open` (§11) — this passage does
 not silently close that.
 
+The interpretation bridge's own checkable edge is the same one AP15 §11 already names as unresolved: extending the rank/nullity calculation this passage narrates to a non-reciprocal, non-one-way cut (general `R`,`W` rather than the two limiting cases already run) and checking whether the reciprocal/one-way split still exhausts the observable outcomes, or a third regime appears, is the genuine test of whether 'directly unreadable ≠ destroyed' generalizes past the two cases already computed.
+
+The unified-mechanism half of this pair already has an independent cross-check: §7.15 below reports AP19 landing on the identical `unified_DRL_cut_tape_action: Open` item from a domain using no external adapter at all — convergence across two unrelated instances, not resolution (see that entry's falsifier note). The general balanced-cut-flux half has no second witness yet; its checkable condition is a computed flux across a cut with `R`,`W` in general position (neither reciprocal nor one-way) — the two limiting cases AP15 §6 already runs — checked for whether a third observability regime appears beyond the rank-6/nullity-1 and nullity-4 cases reported there.
+
 [domain card: ap/AP15_READ_WRITE_CUT.md §6 (observability matrix, rank/nullity table) + §11 (binding claim boundary)]
 
 ### 7.12 Falsifying the unreadable-⇒-horizon conflation — a discipline-enforcing counterexample set
@@ -2398,6 +2474,8 @@ counterexamples and the null-ray calculation are `finite_diagnostic` (an
 executed PASS, not a theorem); reading the toy as "general relativity" is
 `Dr`; and the actual black-hole information problem is left, plainly,
 `not_tested`.
+
+The checkable condition is generalization past the toy's own symmetry: the Schwarzschild Painlevé–Gullstrand construction relies on static, non-rotating symmetry to get its clean outgoing-ray reversal. Running the same construction on a Kerr (rotating) case and checking whether the same reversal and conjunction (one-way causal cut and geometric horizon certificate) still holds is the genuine test of whether the `Dr`-tier 'general relativity' reading survives past the one worked case reported.
 
 [domain card: ap/AP16_PHYSICAL_UNREADABILITY_SMOKE.md §3–5]
 
@@ -2444,6 +2522,8 @@ the whole run is `finite_diagnostic` (one executed instance, not a proof),
 and the general nonlinear-return case is explicitly `Open` — this passage
 claims only the linear-Gaussian witness, not a universal return law.
 
+The checkable condition is stated by contrast with what was actually run: repeat AP17's harness with a declared nonlinear return kernel (dropping the linear-Gaussian policy) and check whether `I_read` and the reconstruction residual still behave as a well-defined pair. A kernel where reconstructability and the `I_read` formula decouple (high `I_read` with poor decode, or the reverse) would be the first concrete counterexample against generalizing this section's result past the linear-Gaussian case; none has been run.
+
 [domain card: ap/AP17_RETURN_TRANSFORMATION_READABILITY.md §4.1–4.3; boxed verdict §8]
 
 ### 7.14 AP19's non_identifications block — Q3 enforced as a declared negative, before any number is run
@@ -2483,6 +2563,8 @@ ontic record — the source leaves `Open`, and this passage leaves it exactly
 that open; Q3 governs the identity-claim discipline here, it does not
 resolve the underlying question.
 
+See the falsifier at §7.15 below (same file), which tracks this exact open item (`ontic_Psi_record`) landing independently on a second, adapter-free domain instance (AP19) and states the checkable convergence condition — not restated here.
+
 [domain card: ap/AP19_NATIVE_MEANING_CARDS.yaml lines 46–51 (non_identifications) + ap/AP19_NATIVE_URRC_CLOSURE.md "Interpretation boundary" (lines 179–194)]
 
 ### 7.15 AP19 as a second, independent instantiation of §5.4's two named Open items
@@ -2514,6 +2596,8 @@ instances — one leaning on a physics adapter, one leaning on none at all —
 is evidence that both questions live in the retained-distinction structure
 itself, not as residue of any one particular physics bridge. The question
 sharpens (it becomes more domain-general) without acquiring an answer.
+
+The convergence claim this subsection makes has its own checkable edge, distinct from the two underlying open items themselves: a third domain instance, independent of both the physics-adapter case (§5.4) and AP19's adapter-free case, either also landing on `ontic_Psi_record: Open` / `unified_DRL_cut_tape_action: Open`, or breaking the pattern by resolving one of them locally, is the concrete test of whether this is structural to retained-distinction theory or an artifact of the two cases sampled so far. No third instance has been run.
 
 [domain card: ap/AP19_NATIVE_MEANING_CARDS.yaml cards.Psi_i.boundary L18, claim_boundary L53-57; ap/AP19_NATIVE_URRC_CLOSURE.md closing yaml block L185-193]
 
@@ -2597,6 +2681,8 @@ concrete, on the corpus's own headline equation: the dimensionless ratios —
 `τ_c` itself, and elsewhere `α`, particle-mass ratios — are where the
 genuine, still-`[Open]` readouts live; the absolute scale never was one.
 
+`τ_c` already has a partial check behind exactly this claim: the D/M ratio's 7.6×10⁻⁴ agreement against QuTiP (§5.7's N1, §7.18 below) is a first data point that this dimensionless readout, unlike the absolute constants around it, is genuinely cross-checkable. Extending the same style of check to `α` or a particle-mass ratio inside this corpus's own domain map, and finding it fails to reproduce an independent value at comparable precision, is the concrete test of whether 'genuine, still-Open readout' names something more than a labeling choice for these ratios specifically.
+
 [domain card: research_universal_solver/README.md §Adversarial self-audit, 'Constants' bullet]
 
 ### 7.18 The Twelve Faces of the Spine — one skeleton read from twelve windows, and the M-forcing-failure finding that relocated turbulence
@@ -2655,6 +2741,8 @@ Sitting above all twelve faces is an architectural correction dated
 never be merged" back down into one claim: the spine is three **stacked**
 layers, not one equation with two footnotes. Layer 1 is the DRL-Telegraph
 root itself — second order, the generator every face is a reduction *of*.
+
+This physical reading already carries its own executed falsifier, reported later in this same subsection: the D/M ratio checked against QuTiP in the quantum-exercised regime, landing at `7.6×10⁻⁴` residual (`finite_diagnostic`). A re-run landing materially above that residual, or failing to reproduce, would revoke the `Dr` tag for reading Layer 1 physically rather than refine it — the same falsifier §5.7's N1 already states for this identical root.
 Layer 2, RTPE (the Relaxation-Time Paraproduct Equation), is not a second
 law competing with Layer 1; it is Layer 1's own quotient at the limit `M→0,
 V→0` — drop the inertial and potential terms and what survives is a
@@ -2767,6 +2855,8 @@ Minkowski/boost structure by definition, and it proves, by `ring`, that
 two posited residuals coincide under a chosen identification. That is a
 caught instance of the very auto-fail §3 names — a worked example
 belonging beside the definition, not an exception to it.
+
+The `Open` tag here is narrower than it may read in isolation: `evidence/URCF_RD_All.v` (module `InfoDeepClosings`, theorem `born_is_energy_fraction`, `Th_coqc`) already closes the *positive* half — why the Born weight is quadratic (`|ψ|²`) rather than some other power `|ψ|^p` follows axiom-free from R0's own quadratic-information reading, not from an added postulate. What that theorem does not touch, and what `Open` above specifically flags, is Gleason's *hard* direction — the full measure-uniqueness result (any non-contextual additive probability measure on a Hilbert-space lattice of dimension ≥3 must be quadratic-form-valued) — which is checkable in principle against Gleason's own theorem and remains an unclosed formalization gap here, not a settled derivation dressed as one.
 
 [domain card: research_universal_solver/docs/root/BORROWED_VS_DERIVED_LEDGER.md row 20]
 
@@ -2918,6 +3008,8 @@ term is first introduced. What is claimed is narrower: that whatever "self"
 and "awake" pick out, at minimum, structurally require closed-loop coupling
 between an agent's world-model and its own action — and that this closure
 is a *measurable* `Dr`-tier property, not an unexaminable given.
+
+No falsifier is offered for `Φ_H` itself, and none should be forced here: a falsifier requires a proposed mechanism whose consequences could fail to show up, and this entry's entire discipline is to name the closure-loop's *structural* requirements (§7.21's `∂π*/∂η_H`, `dR_H/dt`) while declining to propose any internal mechanism for subjective feel. Attaching a falsifier to `Φ_H` would mean inventing the very mechanism the entry withholds — a category error, not an omission to fill.
 
 **Falsifiable, not merely narrated.** The closure claim is tied to two
 already-declared measurable quantities rather than left as an unfalsifiable
@@ -3199,6 +3291,8 @@ of this corpus's own machinery generalizing past its original problem);
 entry's bistability point is structurally analogous to, not identical
 to)]
 
+This generalization's own checkable residual is not left unstated elsewhere in this file: §7.24 immediately following takes the same closure/repair-rate reading of health specifically to a founder-authored proposal with its own explicit falsifiability conditions, stated `Dr` and self-falsifiable rather than narrated. Read this entry as the generalization's *motivation*, and §7.24 as its one worked, checkable instance — a degraded translation-coherence signature that should show up, and would falsify the proposal in its absence.
+
 ---
 
 ### 7.24 Mental health as translation-coherence between two readout channels — a founder proposal, stated self-falsifiable
@@ -3466,6 +3560,8 @@ independently proven to be one formal object under two names; carry it as a
 `Dr` reading, the same discipline §5.2's own T1/T2 synthesis line already
 applies to itself, not as an upgrade smuggled in by this section.
 
+What would actually settle this `Dr` reading, rather than leave it a permanent narrative gesture: a machine-checked bridge exhibiting `∃ a,b : a≠b`'s witnesses and `δ_R = (a♯b)`'s pair as the same formal object under a stated identification — the same discipline §7.19 applies to the QM=SR weld, checking whether the correspondence is a genuine derivation or a `DEFINITIONAL-RELABEL` once actually attempted. No such bridge exists in this corpus today; absent one, the correspondence stays exactly `Dr`, and a failed bridge attempt (the two primitives provably not unifiable under any natural identification) would be the falsifying outcome.
+
 **The tier legend threaded through every step below** (source's own six
 tags, never collapsed): `[Ax]` accepted axiom; `[Df]` definition, proves
 nothing by itself; `[Th]` informal structural theorem; `[Th_coqc]`
@@ -3662,6 +3758,8 @@ and later claim, not made until Part VIII of the source. **That claim is
 conditioning-of its own successive passes) — carried here by cross-
 reference only, at its own `Dr`/`[Open]` tag, not re-derived.
 
+Step 34/35 supply no independent falsifier of their own, and none is needed: the checkable condition for this exact claim — that an agent's standing tracks whether its errors stay fixable — is already named at §7.21, `∂π*/∂η_H` and `dR_H/dt`. This step's `[Dr]` tag inherits that pointer rather than duplicating or loosening it.
+
 **LAYER 8 — EPISTEMIC CORE (steps 36–37): knowledge compressed to three
 numbers.** Any reasoning step is claimed to reduce to three CPU-computable
 scalars — `Re_ep` (epistemic Reynolds, spread/contestedness), `F_ep`
@@ -3680,6 +3778,8 @@ already fully tabled there — not re-tabled here), this is where the
 book's account of *knowing* bottoms out: not a claim to have reached truth,
 but a disciplined, tiered, falsifiable readout of how strong and how
 contested the best available support currently is.
+
+The concrete, already-runnable version of this requirement is `logic.md` §11's Three Epistemic Scalars gate: `Re_ep`/`F_ep`/`k_ep` computed from real reasoning traces, with the verdict routed through the same three-valued DECIDE/ABSTAIN/ESCALATE structure this step names. The falsifying condition is exactly the FAIL-ABLE gate law stated there — a threshold shown to pass only hand-picked cases, with no matching machine-derived failing case, is a Type-U convention and not evidence the gate discriminates anything.
 
 **LAYER 9 — FORMAL FLOOR (steps 38–41): the machine-checked bedrock.** The
 growth ladder, the record law, CPTP completeness, and the operator→metric
@@ -3734,6 +3834,8 @@ relaxation time `τ_R`, not an inertial "social mass" analogy — the same
 IV.4 correction Layer 4 above already carries for the physics leaves,
 reused rather than re-derived at the social leaf.
 
+The checkable condition this leaf's own language implies, `Dr`, not yet measured against real data: a society reading as coherent on this account should show institutional repair-rate outrunning the rate obstruction is introduced by events, and a society undergoing the panics/cascades this leaf names should show the reverse — the relaxation-time `τ_R` signature lagging obstruction growth. No `Th_coqc` or `finite_diagnostic` run exists for this leaf in either source file; the comparison stays a named, in-principle-testable direction, not a validated result.
+
 **Morality, inside `q_social`, is the AI-ethics subsection already fully
 narrated at §7.22 of this file — cross-referenced here, not repeated.** The
 founder's stated position — an AI has no morality of its own; ethics is a
@@ -3760,6 +3862,8 @@ plainly that this leaf, like `q_social`, is retained "per founder
 instruction" as one of the humanities-adjacent leaves not to be dropped —
 `Dr` throughout, no `Th_coqc` claimed for it anywhere in either source
 file.
+
+The checkable condition this leaf's own reading implies, `Dr`, not yet run against real data: an Ornstein–Uhlenbeck mean-reversion fit should dominate `q_finance`'s residual `η` in calm regimes, while episodes the source calls "market turbulence" should show the nonlinear-cascade/`τ_R` signature §7.23's IV.4 correction predicts rather than an inertial-mass fit — the same reflex Layer 4 states for the physics leaves, applied here to real price series rather than asserted narratively. No such fit is reported anywhere in either source file; this names the test, not its result.
 
 **Religion, faith, and belief as a topic: absent — checked specifically,
 not merely unmentioned in passing.** Neither source file names a domain
@@ -3875,6 +3979,8 @@ a declared axiom (`definition`, chosen and not proven, "like ZFC
 declares its own axiom list"). Tier: `Dr` for the argument that this
 must be the floor; `definition` for `δ_R` itself, unchanged from §5.1.
 
+No falsifier applies to this argument by its own nature: it is a case for which candidate primitive is *least presuppositional*, adjudicated by inspecting what each candidate (matter, field, geometry, mind, bare chance) silently assumes — not a claim about the world that could be measured true or false. Forcing a falsifier onto an axiom-selection argument would be a category error the same way it would be for choosing ZFC's own axiom list; the `Dr` tag marks it as argued-but-not-formally-derived, which is the correct and complete tier for a foundational-choice argument, not an invitation to falsifiability.
+
 ### 9.1a Answering the individuation objection — the relata are constituted, not presupposed
 
 §5.1's notation already invites a sharper, more classical worry than
@@ -3975,6 +4081,8 @@ the direct answer rather than leaving the objection unaddressed. Tier:
 `Dr` for the philosophical identification (reading row-sum-zero as the
 formal locus of the monist's undifferentiated state); the row-sum-zero
 property itself remains `Th_coqc` per §5.2, unchanged by this reading.
+
+A concrete consequence follows from taking the identification seriously rather than leaving it as a label: if any node ever verified at row-sum-zero under §5.2's own finite case-split were shown, by that same check, to still support a nonzero retained difference reaching another node — i.e. distinguishability surviving despite the ledger reading zero — the identification of row-sum-zero with the monist's undifferentiated state would be refuted on the framework's own terms, not merely reinterpreted. No such case has been found; §5.2's forcing argument is offered as the standing (not yet defeated) evidence for the identification, exactly at the `Dr` tier claimed.
 
 ### 9.2 Difference alone is not enough — retention is what makes a world
 
@@ -4115,6 +4223,8 @@ what would independently show the whole apparatus is wrong.** This
 section's own analogous falsifier is not yet stated as explicitly as
 that paper's F1–F3 — that is a genuine gap this paragraph is naming,
 not closing.
+
+A concrete falsifier for this section's own claim, in the spirit of the F1–F3 discipline named above: if the RD-axioms' 'existence' and 'generation' predicates (§5.1's `x:𝔇`, `σx:𝔇`) could be shown to require, even implicitly, an ordering relation external to the reader-operator's own non-null/null output — for instance, if `L_R`'s well-definedness at a node were shown to presuppose a prior enumeration of steps rather than a one-shot finite check — the non-temporal reading defended here would fail, and the regress objection would stand. §5.2's finite case-split is the standing evidence against this, but no proof that the check requires nothing sequential has yet been written down; that remains the gap.
 
 **A second, more directly on-point published source removes even more
 of the hand-waving from this paragraph's own earlier answer.** Lahtee,
@@ -4279,6 +4389,8 @@ and the extension of §9.9a's non-supersession move; `L_R`'s own
 finite-check properties remain `Th_coqc` per §5.2, unchanged by this
 reading.
 
+This item is a declared interpretive parallel to an external philosophical tradition (Yogācāra's ālayavijñāna), stated at `Dr` under an explicit non-supersession discipline — it identifies a structural correspondence reached independently by two methods, not a prediction with a checkable outcome, so no falsifier applies; forcing one would treat a named interpretive comparison as a hypothesis it was never framed as.
+
 [domain card: Vasubandhu, *Triṃśikā-vijñaptimātratā* ("Thirty Verses on
 Consciousness-Only"); Asaṅga, *Mahāyānasaṃgraha* ("Compendium of the
 Great Vehicle"), ālayavijñāna chapter; main.tex, "Dialogue with World
@@ -4317,6 +4429,8 @@ does this corpus's own machinery supply something structurally answering
 to a mental pole, as opposed to explaining retention and calling it a
 day?
 
+A sharper, forward-looking falsifier follows directly from the diagnostic already logged below: if the tie-density found by `paradoxes.md` §6's obstruction-minimization diagnostic does *not* shrink as forcing strength `eps` grows away from the idealized `s=0, J=0` case — i.e. if genuine argmin ties turn out to be common rather than rare and fragile under generic forcing — the structural echo claimed here with Whitehead's hierarchy of trivial-vs-strong valuation fails on its own terms, and `Origination(a*,s)` should be read as unrelated to his mental pole rather than as its candidate locus. The existing diagnostic apparatus (`ap6_drl_general.py`) can already run this sweep; it has not yet been run systematically, and doing so is the natural next test of this specific claim.
+
 The answer is not a new construction written for this paragraph — it is
 two pieces of machinery already in this corpus, proved and drafted
 respectively, that have never before been read together or connected to
@@ -4350,6 +4464,8 @@ two-pole structure Whitehead's cosmology demands — proved deterministic
 conformation on one side, an honestly-undischarged, tie-triggered
 origination construction on the other — it was simply never named as an
 answer to him.
+
+See the falsifier condition stated at this section's own opening claim above (the `eps`-sweep of `paradoxes.md` §6's diagnostic) — this restatement of the physical/mental-pole pairing inherits that same open falsifier, not a separate one.
 
 One further point is worth stating plainly rather than treated as a
 retreat. The 2026-08-03 toy-model diagnostic already logged against
@@ -4389,6 +4505,8 @@ retention/bookkeeping but never says why anything new occurs" — is
 false as a global charge: the corpus already has a named locus for
 exactly that, sitting at the same tier it always sits at, simply never
 before connected to the philosopher who demands it. Tier: `Dr`.
+
+As above: the falsifier this identification stands or falls on is the `eps`-forcing sweep of the diagnostic already logged earlier in this section, not a distinct condition for this closing summary.
 
 ### 9.3 Time is the count of causal steps, not a container events sit in
 
@@ -4478,6 +4596,8 @@ Einstein stays `Dr`; the fact that a finite-propagation-speed structure
 already exists in this corpus's own formal apparatus, independently
 motivated, is offered as resonance, not proof.
 
+A genuinely checkable bridge exists in the Face 5 formula itself: if `τ_c` and the diffusion-like coefficient `D` could ever be independently fixed for a given retained-difference process (rather than only back-solved from an assumed propagation speed), the predicted front speed `v = √(D/τ_c)` would be a number this corpus's own apparatus commits to in advance, checkable against observed finite propagation speed in that regime — a mismatch would falsify the reading that this formula sits beneath relativity's light-cone structure rather than merely resembling it in shape. No independent fixing of `τ_c` and `D` has been attempted in this corpus; this names the test the resonance claim would need to survive.
+
 ### 9.6 Causal structure first, geometry second
 
 In relativity, causal structure lives *inside* spacetime — the
@@ -4505,6 +4625,8 @@ reachability, exactly as §5.2 already has it. Nothing here is claimed
 as new; the case is made in prose because a formal declaration by
 itself does not persuade the way an argued why does.
 
+This paragraph restates an already-anchored formal result (§5.2's forcing argument, `Th_coqc`) in plain argument form; it makes no new claim needing its own falsifier — the genuinely open, falsifier-relevant step (whether the graph *is* the world's substrate) is named explicitly two paragraphs below, where it belongs.
+
 The evidence base is, if anything, stronger than when §5.2 was first
 written into this file. §5.2's own forcing argument (`Th_coqc`,
 `forced_into_DW_minus_W`) already shows that any operator respecting
@@ -4525,6 +4647,8 @@ substrate rather than a useful formal analogy) — that step stays `Dr`,
 exactly as §5.2 already discloses — but the mathematical vocabulary the
 argument leans on is no longer a loose metaphor; it is a construction
 this repo has now checked at general N.
+
+The open step here is a metaphysical identification (graph-as-literal-substrate vs. graph-as-analogy), not a structured empirical hypothesis — the mathematics it leans on is already `Th_coqc`-checked and not in question; what remains open is a philosophical reading of that mathematics, for which no experiment or proof obligation is the right instrument. Forcing a falsifier onto the identification itself, rather than onto the (already-checked) mathematics beneath it, would be a category error.
 
 ### 9.7 Geometry as echo, not foundation
 
@@ -4560,6 +4684,8 @@ on — read a metric off a difference-operator's own structure, rather
 than assume a metric a priori — is not invented for this essay; it is
 already checked, elsewhere in this corpus, exactly as described.
 
+As with §9.6 immediately above, the mathematical content here (Face 8's operator-to-metric map) is already `Th_coqc`-checked; what stays `Dr` is a metaphysical identification — that the physical universe's spacetime literally is this construction — which is a stance about what geometry *is*, not a claim with an independent checkable consequence beyond the mathematics already anchored. No falsifier is drafted for the identification itself for that reason.
+
 ### 9.8 Feynman's door: no single path either
 
 If Einstein removed absolute time, Feynman removed the single classical
@@ -4594,6 +4720,8 @@ information mathematics, not a proof that path-integral histories are
 literally the same object as this corpus's causal steps. No claim of
 that identification is made here; the resonance is named, the tier gap
 is not papered over.
+
+This paragraph explicitly declines to assert the identification it names (path-integral histories = causal-step histories) as a claim at all — it states a resonance and stops. A falsifier cannot attach to an assertion that was deliberately withheld; the honest move here is disclosure of the tier gap, already done in the text itself.
 
 ### 9.8a Why chance is not treated as more fundamental than retained difference
 
@@ -4668,6 +4796,8 @@ Distinguishability.v`. That raises only that narrow formal claim; the
 explanatory-priority thesis stated in prose above it remains `Dr`,
 unchanged by it.
 
+The broader explanatory-priority thesis has a genuine falsifier distinct from the narrow machine-checked claim above: a coherent, contentful ascription of objective chance that demonstrably requires no nonempty, duplicate-free possibility-space at all — not merely one stated loosely, but one surviving formal scrutiny the way §9.8b's own check was formalized — would refute the priority claim that retained difference precedes chance. No such case is known to either cited paper or this corpus; the thesis stands only as long as none is produced.
+
 [domain card: Lahtee, Y., "The Explanatory Insufficiency of Randomness," preprint, doi:10.5281/zenodo.20473230, 2026-05-31; Lahtee, Y., "Objective Chance and the Priority of Modal Difference," preprint, doi:10.5281/zenodo.20537309, 2026-06-04; logic.md §9.8b; evidence/RD_Chance_Presupposes_Distinguishability.v]
 
 ### 9.9 Matter as a name for persistence
@@ -4692,6 +4822,8 @@ Existence is not standing still; it is a form that persists amid change.
 This is §5.2's own "a thing is a persisting eigenmode" (the operator
 `L_R`'s spectrum), argued in ordinary language rather than spectral
 vocabulary. Tier: `Dr`, inherited unchanged from §5.2.
+
+This paragraph is a plain-language restatement of §5.2's own definition, not a new claim in its own right — it inherits whatever falsifier or evidential status §5.2's spectral reading carries and adds none; no separate falsifier is drafted for a restatement.
 
 ### 9.9a Lineage, named plainly — this is not a Western-only conversation
 
@@ -4786,6 +4918,8 @@ what `main.tex` and the cited preprint already state, and the cited
 preprint is itself explicit, on every page, that it is "preprint — not
 peer reviewed."
 
+This is a declared interpretive mapping to an external philosophical tradition (Madhyamaka śūnyatā), explicitly tiered `Df`/`Dr` with an explicit non-supersession, non-anachronism disclaimer stated by the section itself — it is a comparative reading, not a prediction, and per the founder's own decision this session such items are documented as category errors for falsifier-forcing rather than left silently without one.
+
 [domain card: main.tex, "Dialogue with World Traditions" part, chapter "India: Nyāya and Buddhist Logic"; Lahtee, Y., "Catuṣkoṭi-on-Catuṣkoṭi: What Survives the Self-Fold of Nāgārjuna's Method," preprint, doi:10.5281/zenodo.20035321, v2, 2026-05-01, §§6, 8]
 
 ### 9.10 Mass, force, and energy re-read — without replacing their formal definitions
@@ -4814,6 +4948,8 @@ already `Dr`-tier, `τ_c = ℏ/(2mc²)`) is the same relation read from the
 mass side; neither entry claims to *derive* `M`'s role or value in the
 trunk equation (§5.3) — EQ-063 is explicit that 8 forcing attempts to do
 so failed (see `logic.md`'s EQ-063 row and its footnote).
+
+The concrete bridge condition this reading needs is an independent operational measurement of `τ_c` (causal delay) for some system, obtained by a method that does not already presuppose the system's mass — if such a measurement existed and disagreed with `m = ℏ/(2τ_c c²)`, the 'mass is causal delay' reading would be falsified rather than merely under-derived. No such independent measurement exists yet; the 8 failed forcing attempts already logged at EQ-063 are the closest standing evidence, and they show the *derivation* of `M`'s role failing, not (yet) a measured contradiction of the formula itself — a materially different, weaker state of affairs worth distinguishing explicitly.
 
 **A genuinely new formal result from this session bears on the "force"
 half of this reading.** §5.3's trunk equation carries a damping term
@@ -4857,6 +4993,8 @@ drawn from them (that they make the vocabulary of "retained,
 cost-bearing difference" a legitimate dialect of physics) — that
 inference is `Dr`, the founder's own, and stays so.
 
+The physics results cited here (Landauer's bound, Bekenstein–Hawking entropy, holographic scaling) are independently established and not this corpus's own claim to test. What is `Dr` here is a stance about vocabulary — that these results license reading 'retained difference' as a physics dialect rather than metaphor — which is an interpretive framing move, not a prediction with an independent outcome; no falsifier is drafted for the framing itself.
+
 ### 9.12 Black holes as the sharpest instance of the whole argument
 
 No object shows this more clearly than a black hole — not merely a
@@ -4899,6 +5037,8 @@ black-hole horizon is the read-write cut of §7.11, applied to gravity's
 own most extreme instance — the entry adds physical vividness to an
 already-established thesis, it does not add new evidence for it.
 
+The falsifier for the general claim already exists at §7.11: AP15's rank/nullity diagnostic on the write/return pair `W`,`R` is what would fail (and has been checked not to, at `finite_diagnostic` tier) if 'directly unreadable ≠ destroyed' were false for that toy model. What remains genuinely untested is the extension to a real astrophysical event horizon specifically: no gravitational analogue of AP15's write/return channel decomposition has been constructed or checked against this corpus's own apparatus, so the black-hole application inherits the toy model's falsifier in form only, not in substance, until such a construction exists.
+
 ### 9.13 Black-hole entropy read as an accounting device
 
 If black-hole entropy scales with horizon area, the boundary is not
@@ -4915,6 +5055,8 @@ specifically to black holes; it is offered as a natural extension of an
 established idea (the area-scaling of black-hole entropy) into this
 corpus's own vocabulary of accessible/inaccessible retained difference —
 `Dr`, not a re-derivation of the Bekenstein–Hawking result itself.
+
+This paragraph explicitly declines to re-derive or test the Bekenstein–Hawking result itself — it only relabels an already-established, independently-verified physics result in this corpus's own vocabulary. A relabeling carries no independent empirical content to falsify beyond what the original result already carries; no falsifier is drafted for the relabeling move itself.
 
 ### 9.14 The black-hole information question, sharpened
 
@@ -4945,6 +5087,8 @@ attempted anywhere in this corpus and is not attempted here; this stays
 whatever physics eventually settles for real black holes — not
 something this repo's own apparatus can adjudicate.
 
+Concretely, the physics community's own sharpest empirical/theoretical proxy for this question is the Page curve — whether the entanglement entropy of Hawking radiation tracks a unitary (information-preserving) trajectory rather than monotonically rising to the Bekenstein-Hawking bound. A confirmed non-Page (information-destroying) curve for a real evaporating black hole would settle the frame's second branch as false; this corpus takes no position on which outcome obtains and has not itself run any check bearing on it.
+
 ### 9.15 Singularities re-read as a language failure signal, not an object
 
 The singularity's meaning shifts too. In general relativity's continuum
@@ -4966,6 +5110,8 @@ never entitled to them at the root. Tier: `Dr` for the specific reading
 that gravitational singularities are instances of this pattern; the
 underlying I1–I4/Z1–Z4 taxonomy itself is §5.2a's own already-cited,
 machine-checked-through-`ℚ` apparatus.
+
+A checkable consequence follows if this reading is right: any future discrete/pre-geometric theory of gravity that successfully replaces general relativity's continuum description at a would-be singularity should replace the point/infinity with a *finite*, well-defined discrete structure there, rather than reproducing another form of I4/Z1 in different notation. A candidate discrete-gravity theory that itself required an unreduced actual infinity or an exact-zero point at the same locus would be evidence against this reading, not for it. No such candidate theory is evaluated in this corpus; this states the standing this corpus takes on what would count against it.
 
 ### 9.16 Black holes complete the proposal rather than threaten it
 
@@ -5001,6 +5147,8 @@ speculative extension of §9.3's time-as-count argument to cosmology, not
 a claim this corpus has checked anything about the actual early
 universe. No anchor from the companion canon or this corpus's own
 evidence is claimed for this specific paragraph.
+
+This paragraph is a speculative narrative extension of §9.3's argument to cosmology, explicitly disclaiming any anchor or evidence of its own; forcing a falsifier onto a paragraph that already declares itself unanchored would misrepresent it as a hypothesis this corpus is prepared to test, which it is not.
 
 ### 9.18 The observer arrives late, and knowledge is bounded by structure
 
@@ -5135,6 +5283,8 @@ directly for full depth:
     pieces even slightly closer to closure, until there is an artifact
     that derives those three pieces directly from the channel/grammar,
     per the victory condition stated in `v2/MYSTERY_LADDER.md` itself.
+
+This note is a methodological/editorial rule about how to read AP-number ordering, not itself a testable claim — the underlying `unified_DRL_cut_tape_action: Open` finding it points to is the same one already treated in full, including its own epistemic framing, at philosophy.md's §7.15 (line ~2494–2551); no separate falsifier is drafted here to avoid duplicating that treatment.
 - The full Standard-Model root→trunk equation stream (EQ-001 through
   EQ-071, most of which is SM-domain-specific extrapolation beyond the
   philosophy/logic core) —
