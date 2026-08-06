@@ -54,6 +54,44 @@ equations) are the source's own `Th_coqc` claim and carry no such
 disclaimer. [domain card: `philosophy.md` §1; `v2/TRANSLATION_PROTOCOL.md`
 row L-07 ("truth" = tracking, never correspondence to the infinite)]
 
+**Named directly, not silently reconciled — the same-shaped formula
+carries three different tiers elsewhere in this corpus, and that is not an
+oversight to quietly fix by picking one.** This exact equation, under the
+name **N2**, already sits later in this same file (§ "Epistemic Nuclear
+Core", `M_A = K_A·θ+η; ε_tot>0`) tiered `definition`, not `Th_coqc` — and
+`philosophy.md` §5.7 makes this a *load-bearing architectural claim*, not
+an incidental label: of the five nuclear-core equations N1–N5, **N3 is
+named there as "the one equation in the whole nuclear core the source lets
+carry the `Th_coqc` tag honestly"** — the book's own text is explicit that
+N2 is deliberately *not* one of them. A third occurrence, the 42-step
+full-arc narration's Face 10 "record law" (`philosophy.md` §8, same
+`η_sel+η_map+η_self` decomposition), carries no tier suffix at all in its
+own source. Three renderings of the same formula, three different
+provenances, three different tiers — `definition` (N2, the general
+epistemic schema, `readout_genesis/READOUT_GENESIS_CORE.md` Part VI,
+deliberately withheld from `Th_coqc` per §5.7's own argument), untagged
+(Face 10, `V3.1`/`RDU` step 28), and `Th_coqc` (EQ-027/EQ-028 above, per
+`EQUATION_LIBRARY_ROOT_TO_SM_STREAM_research_universal_solver.md`'s own
+"2026-07-25 grounding" tag). This file's own rule is to carry every
+source's tier exactly as given, never upgrading and never silently
+averaging — so all three stand, side by side, rather than one replacing
+the others. **What is and is not independently confirmed here:** this
+corpus's own formal-file audit (`readout_genesis/formal/`) found a
+Coq-verified theorem backing the *abstract* non-injective-map claim
+(`no_decoder_recovers_state`, table above) but did **not** locate a
+separate `.v` file mechanizing the *specific* `K_A`/`η_sel`/`η_map`/`η_self`
+decomposition EQ-027 states — so EQ-027/EQ-028's `Th_coqc` tag is carried
+here exactly as its source states it, not independently re-verified by
+this repo, the same caution this book already applies to other cross-repo
+`Th_coqc` citations (§1's "supporting, not independent" caveat above).
+Read the disagreement as real information, not noise: it says the
+*general* claim "knowing is a lossy read" is this book's own considered
+`definition`, while a *specific* source elsewhere tags one particular
+instantiation of that same shape `Th_coqc` — and this book has not
+resolved which of those two framings should win, on purpose. [domain card:
+`philosophy.md` §5.7 (N1–N5, "why only one of the five is machine-checked");
+`philosophy.md` §8 Face 10; this file's own N2 entry below]
+
 **Extension — record to appearance (`philosophy.md` §5.2d, `Dr`/`Open`,
 not machine-checked, imported from the sibling proprietary repo by the
 copyright holder's own direction — never upgraded to `Th_coqc`):**
@@ -1204,7 +1242,7 @@ infinite decimal."
 | N1-L2 | RTPE turbulence relaxation; `M→0, V→0` limit of L1: `τ_R İ_R + L_R I_R = S_R + η_R` | `finite_diagnostic` (PASS_WITH_LIMITS) | = EQ-017 (§1 above); re-tagged here as Layer 2, not a new equation |
 | N1-L3 | LP-NS audit: nonlinear-paraproduct diagnostic over the `∇V`/`(u·∇)u` term — checks for energy-cascade-without-closure; reports PASS/FAIL | `finite_diagnostic` | a **checker**, not a generator; conflating this audit role with L1's generative role is the tier-collapse the source explicitly forbids (cf. §9.8's face-adjacency finding) |
 | N1-M | `M` is **posited**, not derived (8 independent forcing-derivation attempts failed); `m = ℏ/(2c²τ_c)` — mass is a readout of τ_c; τ_c discrete and prior to mass | `Dr` | = S1 (§1 above; `mass_memory_duality`; `Th_coqc`); only the quantum domain exercises `M` with numerical bite (D/M vs QuTiP; 7.6×10⁻⁴; `finite_diagnostic`); cf. §1.5 Arrow 3 for the independent proof that this posit is not root-derivable |
-| N2 | `M_A = K_A · θ + η`; `ε_tot > 0` — knowing is a lossy linear read of a latent state, never the latent state itself | `definition` | new entry; no prior logic.md coverage |
+| N2 | `M_A = K_A · θ + η`; `ε_tot > 0` — knowing is a lossy linear read of a latent state, never the latent state itself | `definition` | new entry; no prior logic.md coverage; see "The mother equation" at the top of this file for a *different* source's `Th_coqc`-tagged rendering of this same shape (EQ-027/EQ-028), and the disagreement named there rather than resolved |
 | N2-err | Scalar-Eigenmode Reduction Error: `L_R` is a full multimode operator; collapsing it to scalar `λφ` before reading N2 through it silently discards off-diagonal/skew coupling — a category error, not a small approximation | `Dr` (naming the error) | new entry |
 | N2-repair | Proposed split under retention metric G (not naive transpose): `L_R = L_R^(+) + L_R^(-)`; `L_R^(+)` = ordinary damped coupling (already in N1); `L_R^(-)` = skew/rotational coupling; absorbs chemostat/Lotka-Volterra/MHD two-field cases into the same linearized N1 | `Open`; pending falsification test **T1** — a live research lever, not a settled result | new entry |
 | N2-open2 | Endogenous, state-dependent `L_R[I_R]` (coupling operator changes as a function of the state it couples) | `Open`; falsification test **T2**; unresolved | new entry |
