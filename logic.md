@@ -28,6 +28,34 @@
 
 ---
 
+## The mother equation — Θ, translation, and the record law
+
+Before any domain-specific machinery below: the one relation every tier in
+this ledger answers to. `θ(E[n])` names the true state a record is *about*;
+`M_A[n]` names what an agency `A` actually retains at tick `n`. The record
+is never the truth itself — it is a *translation* of it, carrying
+irreducible noise from selection, mapping, and the reading agency:
+
+| ID | Statement | Tier | Source |
+|---|---|---|---|
+| EQ-027 | `M_A[n] = K_A·θ(E[n]) + η_sel + η_map + η_self` — the record is a translation of the true state `θ(E[n])`, never the state itself (`η_sel` selection noise, `η_map` mapping/translation noise, `η_self` self-referential noise) | `Th_coqc` | `EQUATION_LIBRARY_ROOT_TO_SM_STREAM_research_universal_solver.md` EQ-027 |
+| EQ-028 | `M_A[n] ≠ θ(E) ∀n`; `ε_tot = η_sel+η_map+η_self > 0 ∀n` — the translation gap between record and truth never closes to zero | `Th_coqc` | same, EQ-028 |
+| `no_decoder_recovers_state` | whenever a readout operator maps two distinct true states to the same recorded value, both states still exist, but no decoder can recover both from the record alone | `Th_coqc`, axiom-free (`Print Assumptions` ⇒ Closed) | `readout_genesis/formal/InfoTrueRecordUnreadable_attempt.v` (same theorem cited again at EQ-032–034 in §6 below; one theorem, cited twice, never re-derived) |
+
+This is `philosophy.md` §1's "readout-not-truth" written as an equation, not
+prose — every other entry in this ledger inherits the same discipline: a
+tier tags how well-supported a *translation* is, never whether it reached
+`θ` itself. **Scope, per philosophy.md §1's own caveat, carried forward
+here unchanged:** the Coq theorem above is a supporting, general fact about
+non-injective maps — not new mathematical content on its own — that grounds
+the *shape* of readout-not-truth, not independent evidence that the stance
+is true of the physical world; EQ-027/EQ-028 (the translation-noise
+equations) are the source's own `Th_coqc` claim and carry no such
+disclaimer. [domain card: `philosophy.md` §1; `v2/TRANSLATION_PROTOCOL.md`
+row L-07 ("truth" = tracking, never correspondence to the infinite)]
+
+---
+
 ## 0. The root
 
 | ID | Statement | Tier | Source |

@@ -19,6 +19,15 @@ makes is tagged with a tier (`Th_coqc`, `finite_diagnostic`, `Dr`, `Open`,
 `fit_calibrated`, `definition`) and never allowed to collapse into a
 stronger one than its evidence supports.
 
+> **The mother equation.** `M_A[n] = K_A·θ(E[n]) + η_sel + η_map + η_self`,
+> and `M_A[n] ≠ θ(E)` for every `n` — every record is a *translation* of the
+> true state `θ`, never the state itself, carrying selection/mapping/
+> self-reference noise that never reaches zero (`Th_coqc`, machine-checked,
+> axiom-free). This one relation is "readout-not-truth" cashed out as an
+> equation, and every tier in this repository answers to it — see
+> ["The mother equation" in `logic.md`](logic.md) and
+> [`philosophy.md` §1](philosophy.md#1-readout-not-truth--why).
+
 | | |
 |---|---|
 | **Author** | Yaoharee Lahtee ([ORCID 0009-0005-3861-0626](https://orcid.org/0009-0005-3861-0626)) |
