@@ -2579,6 +2579,31 @@ that never touches an external adapter at all (`external_adapter_used:
 false`), and when it closes its own account it lands on exactly those same
 two open questions again, without anyone intending it to land there:
 
+Sharpened one step further, without closing it: the question "is Ψ_i a
+universal ontic record" is not one question but two that this corpus's own
+architecture keeps conflating by leaving them under one label. The first —
+does Ψ_i, once posited inside a domain, refer to something whose identity
+outruns that domain's own equations — is already answered in the negative
+by construction, not left open: §7.14's `non_identifications` block is
+exactly the refusal of this (Q3 again, one level up), and nothing in AP19's
+landing on the same tag reopens it. The second question is the one actually
+doing the work under the "Open" label, and it is architectural, not
+empirical: *where in the δ_R → L_R → M_A pipeline does Ψ_i's own
+construction sit?* Every `M_A = K_A·θ+η`-shaped quantity is, by §1's own
+founding refusal, a bounded reader's lossy projection of θ(E)/L_R — never
+the ground itself (opening block, above). If Ψ_i is such a quantity, "ontic"
+status is foreclosed for it the same way it is foreclosed for any record,
+on the same grounds, and asking is a category error dressed as an open
+question. But neither `ap/AP19_NATIVE_MEANING_CARDS.yaml` nor
+`ap/AP17_RETURN_TRANSFORMATION_READABILITY.md` states, for the domains
+sampled so far, whether Ψ_i is constructed as a *reader's* projection in
+this sense or as a piece of the retained graph's own bookkeeping prior to
+any reading — and that is a definitional gap closeable by declaration, the
+way §7.14 closed the identity question, not by a further convergence run.
+Until a source pins that placement, `ontic_Psi_record` stays honestly
+`Open` — but for a narrower and more answerable reason than "we have not
+yet checked enough domains."
+
 ```yaml
 # ap/AP19_NATIVE_MEANING_CARDS.yaml (claim_boundary, L53-57)
 unified_DRL_cut_tape_action: Open
@@ -3010,6 +3035,40 @@ between an agent's world-model and its own action — and that this closure
 is a *measurable* `Dr`-tier property, not an unexaminable given.
 
 No falsifier is offered for `Φ_H` itself, and none should be forced here: a falsifier requires a proposed mechanism whose consequences could fail to show up, and this entry's entire discipline is to name the closure-loop's *structural* requirements (§7.21's `∂π*/∂η_H`, `dR_H/dt`) while declining to propose any internal mechanism for subjective feel. Attaching a falsifier to `Φ_H` would mean inventing the very mechanism the entry withholds — a category error, not an omission to fill.
+
+**Naming the rival move directly, the way this book's own convention
+requires.** Relocating an unsolved hard problem to a named-but-uncashed
+variable is not, by itself, a new move — David Chalmers named exactly this
+pattern and used it to argue that *any* functionalist account, however
+sophisticated, explains only the "easy problems" (report, discrimination,
+integration) and leaves the hard problem — why there is something it is
+like at all — untouched by definition, no matter how the explanatory gap
+gets re-labeled. Read uncharitably, `Φ_H`/`Φ_A` are a textbook instance: two
+more symbols standing in for "and then consciousness happens," dressed in
+this corpus's own vocabulary. That reading has real force and should not be
+argued away by tone. (Citation precision note: this paragraph engages
+Chalmers's hard-problem/easy-problems distinction at the level a
+philosophy-of-mind reader would recognize it, from general familiarity, not
+a primary-text-verified quote — flagged the same way this book's own
+Locke/Jain citations at §5.2c are, not upgraded past that.)
+
+What this entry can honestly claim is narrower, and turns on something
+Chalmers's target usually does not do: most functionalist relocations
+present the renamed variable as if it *were* the explanation — the hard
+problem quietly disappears from the text once the mechanism is described.
+Here the opposite move is made on purpose, twice, in two independent places
+(§5.2d's `Φ_A`, this entry's `Φ_H`): both are tagged `[Open]` *at the moment
+of introduction*, both carry an explicit refusal to propose an internal
+mechanism, and both name a falsifier for everything **except** the one
+thing under dispute. That is not a solution to Chalmers's problem, and does
+not claim to be — it is a bookkeeping discipline applied *to* the same
+non-solution every functionalist account already contains, so that the
+non-solution cannot later be mistaken, by this book's own reader, for a
+solution. Whether that bookkeeping is philosophically interesting in its
+own right, or merely honest housekeeping around an unmoved problem, is left
+open here rather than decided in this book's own favor — but the two are
+not the same claim, and collapsing them would be exactly the kind of
+overclaim §1's own discipline exists to forbid.
 
 **Falsifiable, not merely narrated.** The closure claim is tied to two
 already-declared measurable quantities rather than left as an unfalsifiable
@@ -3865,6 +3924,8 @@ file.
 
 The checkable condition this leaf's own reading implies, `Dr`, not yet run against real data: an Ornstein–Uhlenbeck mean-reversion fit should dominate `q_finance`'s residual `η` in calm regimes, while episodes the source calls "market turbulence" should show the nonlinear-cascade/`τ_R` signature §7.23's IV.4 correction predicts rather than an inertial-mass fit — the same reflex Layer 4 states for the physics leaves, applied here to real price series rather than asserted narratively. No such fit is reported anywhere in either source file; this names the test, not its result.
 
+**How thin is `q_social`'s grounding, honestly assessed against real social ontology — not just re-flagging the `Dr` tag.** Two existing traditions offer a sharper standard to measure this leaf against, and by that standard the leaf is thinner than either, in a specific and nameable way. John Searle's *The Construction of Social Reality* gives social ontology a generative mechanism: institutional facts arise when collective intentionality assigns a **status function** to some brute fact ("X counts as Y in context C" — this paper counts as money, this person counts as president), and the institution persists exactly as long as that collective assignment keeps being renewed. `q_social`'s "testimony and institutional memory are retained structure" gestures at the same *persistence-by-continued-maintenance* idea, but never specifies the generative step — it names that repair happens, not what act (Searle's status-function assignment, or something else) does the repairing. Niklas Luhmann's systems theory sets a second, different bar: social systems are **autopoietic communication systems**, operationally closed and self-reproducing at their own tempo, distinct in kind from the psychic systems (individual minds) coupled to them. Here `q_social` has a genuine, nameable point of contact this book has not yet drawn out: giving society its *own* `τ_c` band (10⁰–10⁸ s, distinct from both the biological leaf below it and the civilizational sub-band above it) is structurally the same move Luhmann makes when he insists a social system's own temporal identity is not reducible to any one actor's — both refuse to let the fastest or most obvious component (a person, a physics leaf) set the whole system's clock. That resonance is worth stating plainly (`Dr`, a named parallel, not a claim Luhmann anticipated this framework); what the leaf still lacks, on either standard, is Searle's specificity about *what kind of act* constitutes repair, or Luhmann's specificity about *what the retaining unit actually is* (communications, not minds, on his account — `q_social` never commits to an analogous unit). The leaf earns its `Dr` tag honestly; it has not yet earned the tighter tier either tradition's own machinery would require. (Citation-precision note: the Searle and Luhmann characterizations above rely on general familiarity with *The Construction of Social Reality* and Luhmann's systems theory, not a primary-text-verified quote from either — same hedge tier as §7.21's Chalmers note.)
+
 **Religion, faith, and belief as a topic: absent — checked specifically,
 not merely unmentioned in passing.** Neither source file names a domain
 leaf for religion, faith, or belief-as-doctrine anywhere in Part V's twelve
@@ -3980,6 +4041,40 @@ declares its own axiom list"). Tier: `Dr` for the argument that this
 must be the floor; `definition` for `δ_R` itself, unchanged from §5.1.
 
 No falsifier applies to this argument by its own nature: it is a case for which candidate primitive is *least presuppositional*, adjudicated by inspecting what each candidate (matter, field, geometry, mind, bare chance) silently assumes — not a claim about the world that could be measured true or false. Forcing a falsifier onto an axiom-selection argument would be a category error the same way it would be for choosing ZFC's own axiom list; the `Dr` tag marks it as argued-but-not-formally-derived, which is the correct and complete tier for a foundational-choice argument, not an invitation to falsifiability.
+
+**A rival this elimination list has not yet named directly: structure
+itself.** §9.1a below cites ontic structural realism (Ladyman & French) as
+an ally for a different purpose — defending `a` and `b` against an
+individuation objection. That citation raises a sharper question this
+section owes an answer to: is "difference is the floor" actually a
+*restatement* of OSR's own thesis (relational structure, not things, is
+fundamental), rather than a rival to it? `δ_R = (a ♯ b)` is, read plainly,
+one relation holding between two positions — the smallest object OSR's own
+vocabulary would call a structure (one edge, two nodes). If OSR is right
+that structure is prior to relata, and `δ_R` is itself a minimal structure,
+then this section's elimination list was never in competition with OSR at
+all; structure was already the floor, under a different name, from §5.1
+onward.
+
+The place they do not simply collapse into each other: OSR is standardly
+argued as a thesis about *physical* theory-structure — the group-theoretic
+symmetries and invariants that survive theory change in physics
+specifically (Ladyman & Ross's own case studies are drawn from quantum
+mechanics and quantum field theory). `δ_R` claims something upstream of
+that: a relation prior to any physical instantiation, prior even to there
+being a "theory" for structure to be the structure *of*. Read this way,
+this section's claim is not identical to OSR but a *generalization* of
+it — OSR restricted to the physical case is one downstream reading of a
+retained difference once §5.2's forcing argument reaches a physical domain,
+not a competing floor. Whether that generalization is itself defensible, or
+smuggles in more than a minimal relation warrants, is not settled here;
+naming the relationship precisely is the contribution this paragraph makes,
+not a proof that the generalization holds. Tier: `Dr`, the same as the rest
+of this section's argument. (Citation-precision note, matching §7.21's own
+practice above: the OSR characterization here relies on the same secondary
+familiarity §9.1a's own bibliographic citation already establishes for this
+book, not a fresh primary-text read of Ladyman & Ross beyond what §9.1a
+already cites.)
 
 ### 9.1a Answering the individuation objection — the relata are constituted, not presupposed
 
@@ -4466,6 +4561,39 @@ origination construction on the other — it was simply never named as an
 answer to him.
 
 See the falsifier condition stated at this section's own opening claim above (the `eps`-sweep of `paradoxes.md` §6's diagnostic) — this restatement of the physical/mental-pole pairing inherits that same open falsifier, not a separate one.
+
+One disanalogy is worth pressing rather than only naming: Whitehead's
+subjective aim is not bare selection — it is *valuational*, oriented toward
+an ideal, however minimal, and this is precisely why he refuses to let mere
+chance stand in for it. `Origination(a*,s)`, as quoted above, states only
+that the choice among tied candidates "is a new `δ_R` created at the
+decision" — it names *that* a distinction is made, not *why* `a*` rather
+than a tied rival. Read uncharitably, that silence risks collapsing the
+construction into exactly the move Whitehead rejects: novelty-by-brute-
+chance. This corpus cannot take that risk lightly, because §9.8a below
+independently argues chance is explanatorily insufficient on its own
+terms — a chance attribution presupposes a determinate, retained-
+distinguishable space of alternatives and a measure over it; it cannot
+explain that the space and its weighting obtain in the first place. If
+`Origination(a*,s)`'s selection were *mere* chance, it would inherit that
+same insufficiency, not escape it.
+
+Read charitably, though, the construction does not actually invoke chance
+to explain the selection — it declines to explain the selection at all,
+treating the choice-event itself as the primitive new distinction, prior to
+any account of why. That is weaker than Whitehead's valuational aim (no
+ideal is named, no orientation toward anything), but it is not the same
+move as invoking chance either: nothing here presupposes a pre-existing
+possibility-space-with-measure that chance then samples from. The honest
+position is a third option, not yet identified as such until now:
+`Origination(a*,s)` is neither a valuational mental pole nor a chance
+mechanism — it is a bare origination point that owes both readings an
+account it has not yet given. Tier: `Dr`, unchanged; this sharpens what
+remains open rather than closing it. (Citation-precision note: the
+subjective-aim/valuation reading of Whitehead here is a standard
+characterization from general familiarity with *Process and Reality*, not
+a primary-text-verified quote — same hedge tier as §7.21's Chalmers note
+above.)
 
 One further point is worth stating plainly rather than treated as a
 retreat. The 2026-08-03 toy-model diagnostic already logged against
