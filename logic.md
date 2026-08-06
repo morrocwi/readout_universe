@@ -38,14 +38,20 @@ irreducible noise from selection, mapping, and the reading agency:
 
 | ID | Statement | Tier | Source |
 |---|---|---|---|
-| EQ-026 | `M_A[n] = K_A·θ(E[n]) + η_sel + η_map + η_self` — the record is a translation of the true state `θ(E[n])`, never the state itself (`η_sel` selection noise, `η_map` mapping/translation noise, `η_self` self-referential noise) | `Th_coqc` | `EQUATION_LIBRARY_ROOT_TO_SM_STREAM_research_universal_solver.md` EQ-026 |
-| EQ-027 | `M_A[n] ≠ θ(E) ∀n`; `ε_tot = η_sel+η_map+η_self > 0 ∀n` — the translation gap between record and truth never closes to zero | `Th_coqc` | same, EQ-027 |
-| `no_decoder_recovers_state` | whenever a readout operator maps two distinct true states to the same recorded value, both states still exist, but no decoder can recover both from the record alone | `Th_coqc`, axiom-free (`Print Assumptions` ⇒ Closed) | `readout_genesis/formal/InfoTrueRecordUnreadable_attempt.v` (imported as EQ-032–034 above; cross-referenced, not re-derived) |
+| EQ-027 | `M_A[n] = K_A·θ(E[n]) + η_sel + η_map + η_self` — the record is a translation of the true state `θ(E[n])`, never the state itself (`η_sel` selection noise, `η_map` mapping/translation noise, `η_self` self-referential noise) | `Th_coqc` | `EQUATION_LIBRARY_ROOT_TO_SM_STREAM_research_universal_solver.md` EQ-027 |
+| EQ-028 | `M_A[n] ≠ θ(E) ∀n`; `ε_tot = η_sel+η_map+η_self > 0 ∀n` — the translation gap between record and truth never closes to zero | `Th_coqc` | same, EQ-028 |
+| `no_decoder_recovers_state` | whenever a readout operator maps two distinct true states to the same recorded value, both states still exist, but no decoder can recover both from the record alone | `Th_coqc`, axiom-free (`Print Assumptions` ⇒ Closed) | `readout_genesis/formal/InfoTrueRecordUnreadable_attempt.v` (same theorem cited again at EQ-032–034 in §6 below; one theorem, cited twice, never re-derived) |
 
 This is `philosophy.md` §1's "readout-not-truth" written as an equation, not
 prose — every other entry in this ledger inherits the same discipline: a
 tier tags how well-supported a *translation* is, never whether it reached
-`θ` itself. [domain card: `philosophy.md` §1; `v2/TRANSLATION_PROTOCOL.md`
+`θ` itself. **Scope, per philosophy.md §1's own caveat, carried forward
+here unchanged:** the Coq theorem above is a supporting, general fact about
+non-injective maps — not new mathematical content on its own — that grounds
+the *shape* of readout-not-truth, not independent evidence that the stance
+is true of the physical world; EQ-027/EQ-028 (the translation-noise
+equations) are the source's own `Th_coqc` claim and carry no such
+disclaimer. [domain card: `philosophy.md` §1; `v2/TRANSLATION_PROTOCOL.md`
 row L-07 ("truth" = tracking, never correspondence to the infinite)]
 
 ---
