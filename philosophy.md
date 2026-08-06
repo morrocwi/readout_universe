@@ -429,6 +429,23 @@ perturbation-certified**; no percentage is asserted here, and none should
 be repeated as settled. That stays `Open`, plainly, not smoothed into a
 benchmark number.
 
+Falsifier: instrument `reasoning_min_cost.py`'s `nucleus_verdict()`
+(already cited above as executed) to log, per reasoning step, the
+`F_ep`/`k_ep`/`Re_ep` triple alongside whether the large model was
+actually invoked. As executed, the gate's ABSTAIN branch tests `F_ep<0.42`
+alone — `k_ep` is computed but not read in that boolean, a narrower
+condition than this section's own preceding paragraph describes ("that
+number and its coupling companion both read low"); flagging that
+doc-vs-code gap here as a separate open discrepancy, not silently
+repeated. Given the code as written, the cost-savings claim is refuted by
+any logged step where invocation occurs under DECIDE (`F_ep>0.6,
+Re_ep<0.3`) or ABSTAIN (`F_ep<0.42`) rather than ESCALATE. A clean trace
+over one workload confirms only that this gate instance honored its own
+rule on that run — no percentage or cross-workload generalization is
+licensed by passing it, and the thresholds `0.6`/`0.3`/`0.42` are
+themselves flagged `UNCALIBRATED` in-source — a separate reason no
+percentage claim should be repeated.
+
 [domain card: readout_genesis/READOUT_GENESIS_CORE.md PART VI §VI.3 (~lines 4373-4417+)]
 
 ---
@@ -1578,6 +1595,15 @@ Refusing that infinity forces `D>0`: *some* dissipation is required for
 `τ_c` to be any finite readout at all. This pins down a **sign**, never a
 **value** — `D` itself stays `Open`/`OPEN_CONSTANTS`, same as `M` and `K`.
 
+Falsifier: per EQ-016b (`Th_coqc`, `InfoScaleGaugeNonReadout`, `logic.md`
+§1), absolute `M,D,K` are non-readouts under `(M,D,K)→(s·M,s·D,s·K)`
+rescaling — so no experiment pins them, and that question is `[Refused]`,
+not open. Only the ratio `τ_c=M/D` is checkable, and it has already been
+tested once (`D/M` vs QuTiP in the quantum regime, residual `7.6×10⁻⁴`,
+`finite_diagnostic`, `logic.md` N1-QM); a second, independent-regime
+repeat of that same check either converging or failing to converge is the
+real falsifiable test here.
+
 **What this earns, stated without upgrading anything.** §5.3's flat
 sentence survives, but now it has texture: the graph carrier and the
 specific `L_R` operator are genuinely forced, given the primitive's
@@ -1650,6 +1676,17 @@ forcing failed, so `M` stands as **posited**, and what *is* derived
 reverse, even though the formula connecting them is algebraically
 reversible.
 
+N1's `Dr` tag (physical reading) already has a standing empirical check
+behind it, not just prose: §7.18 below reports the trunk's own `D/M`
+ratio checked against an independent solver (QuTiP) in the
+quantum-exercised regime (Faces 6, 9), landing at `7.6×10⁻⁴` residual
+(`finite_diagnostic`, cf. `logic.md` N1-M/N1-QM). That comparison is this
+tag's falsifier — a re-run landing materially above `7.6×10⁻⁴`, or
+failing to reproduce, would revoke `Dr` status for the physical reading
+rather than refine it. It covers only the quantum-exercised `D/M` ratio,
+so it does not itself license upgrading `Dr` to `finite_diagnostic` or
+`Th_coqc` for the physical reading generally.
+
 **N2** states knowing itself as a lossy linear read, `M_A = K_A·θ + η`
 (`M_A` the measured/recorded readout; `K_A` the linear read/gain operator
 doing the measuring; `θ` the latent true state being read — the only other
@@ -1673,7 +1710,14 @@ previously-separate two-field cases (predator-prey coupling,
 magnetohydrodynamic field-flow coupling) back into the same linearized N1.
 A harder case, where the coupling operator itself changes as a function of
 the state it couples, stays unresolved and open under a second, distinct
-falsification test.
+falsification test. Concretely (`logic.md` §10's T1/T2, defined there for
+the first time): T1 constructs the antisymmetric part for one named
+two-field case and checks the residual against a self-defined 5%
+relative-magnitude bound (`finite_diagnostic` PASS/FAIL); T2 repeats the
+construction with endogenous state-dependent coupling and checks N3's
+already-checked `dE/dt ≤ 0` bound step-by-step over the parameter range
+fixed at T1's run — a single violating step is a falsifying instance for
+T2.
 
 **N3** is the one equation in the whole nuclear core the source lets carry
 the `Th_coqc` tag honestly: `dE/dt = ⟨∂Φ,J⟩ − D‖∂Φ‖² ≤ 0`; obstruction can
@@ -2784,6 +2828,22 @@ Tier discipline holds exactly as the ledger states it: `BORROWED-SCALE` on
 the value of `c`, `DERIVED` on the ratio `c^2=K/M`, `Open` — not `Dr`, not
 upgraded by proximity to a derived result — on whether the two name the
 same thing.
+
+A genuine falsifier for the identification, stated without leaving `ℚ`:
+once `K` and `M` receive numeric values from a calibration independent of
+`c` itself — i.e. not one that already presupposes light-speed — compare
+`K/M` against `c-VAL^2` (squaring the measured constant is a decidable
+rational operation) in matching units. Agreement within the stated
+derivation/measurement error would count as evidence for the
+identification; a stable, out-of-error-band mismatch would refute it,
+leaving the graph-native ratio and the physical constant as two distinct
+quantities sharing a symbol. This deliberately avoids `sqrt(K/M)` — the
+source file itself flags taking that square root as an I1
+(R-completeness) non-readout move
+(`InfoCattaneoFiniteSpeed_attempt.v:49-54`, `[Refused]`), so the checkable
+comparison stays on the squared side. Until `K` and `M` are so fixed, the
+comparison is undecided in practice, not only in principle, and the tier
+stays `Open`.
 
 [domain card: research_universal_solver/docs/root/BORROWED_VS_DERIVED_LEDGER.md row 14]
 

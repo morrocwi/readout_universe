@@ -356,6 +356,15 @@ is retained" alone. Constants `M, D, K` remain entirely `[Open]`/
 `OPEN_CONSTANTS` throughout; only the qualitative graph/Laplacian/
 dissipation-sign structure is forced, never a numerical value.
 
+Falsifier for `OPEN_CONSTANTS`: per EQ-016b (`InfoScaleGaugeNonReadout`,
+`Th_coqc`, §1 above), no measurement can ever pin absolute `M,D,K` — that
+question is `[Refused]`, not a pending gap. What is checkable is the
+dimensionless ratio `τ_c=M/D`, already tested once (N1-QM below, `D/M` vs
+QuTiP, residual `7.6×10⁻⁴`, `finite_diagnostic`); running the same
+`D/M`-vs-independent-simulation check in a second, disjoint regime and
+finding it does *not* converge to a comparable residual would falsify the
+claim that this ratio is domain-stable.
+
 See §1 above for the trunk equation's own per-term tier table (EQ-015),
 which this chain feeds.
 
@@ -1127,6 +1136,18 @@ number *is* the physical constant `c`) stays `Open`, unresolved, not even
 `Dr`. No tier is upgraded here — `BORROWED-SCALE` on `c-VAL` and `Open` on
 `c-ID` are preserved exactly as the source states them.
 
+Falsifier for c-ID, kept inside `ℚ`: once `K` and `M` in
+`InfoCattaneoFiniteSpeed_attempt.v` are fixed by any measurement or
+graph-native calibration that does not already presuppose `c`, compare
+`K/M` against `c-VAL^2` (squaring the measured constant, a decidable
+rational operation) in matching units — not `sqrt(K/M)` against `c-VAL`,
+since the file itself marks that square root as an I1/R-completeness
+`[Refused]` non-readout move (lines 49-54). Agreement within stated error
+bounds supports c-ID; a stable mismatch refutes it, showing c-VAL and
+c-RATIO are distinct constants sharing a symbol. Not yet testable — `K`,`M`
+are currently un-fixed (philosophy.md §7.20) — so c-ID remains `Open`, not
+`Dr`.
+
 [domain card: `research_universal_solver/docs/root/BORROWED_VS_DERIVED_LEDGER.md` row 14; `InfoCattaneoFiniteSpeed_attempt.v:19-71`]
 
 ### 9.11 AI ethics as a readout-selection structure — L-16's first-order content (extends §6's non-absorption stance)
@@ -1200,14 +1221,14 @@ infinite decimal."
 | ID | Statement | Tier | Note |
 |---|---|---|---|
 | N1 | `M ∂²Φ + D ∂Φ + K·L_R Φ + ∇V = J − η` — the spine; regime `λ_c = D²/4MK` | `Th_coqc` (structure) / `Dr` (physical reading) | = trunk equation EQ-015 (§1 above); do not duplicate the per-term tier table there |
-| N1-L1 | DRL-Telegraph root: `M ∂²Φ + D ∂Φ + K·L_R Φ + ∇V = J − η` (2nd-order; native N1) | `Th_coqc` (structure) / `Dr` (physical reading) | Layer 1 of the 3-layer stack; identical statement to N1/EQ-015 |
+| N1-L1 | DRL-Telegraph root: `M ∂²Φ + D ∂Φ + K·L_R Φ + ∇V = J − η` (2nd-order; native N1) | `Th_coqc` (structure) / `Dr` (physical reading) | Layer 1 of the 3-layer stack; identical statement to N1/EQ-015; falsifier for the `Dr` (physical reading) tag is already in-table — see N1-M below (`D/M` vs QuTiP, residual `7.6×10⁻⁴`, `finite_diagnostic`; N1-QM at §9.8 states the same figure independently): a materially larger residual on re-run, or non-reproduction, revokes `Dr` for the physical reading; it does not upgrade N1/N1-L1's own tier |
 | N1-L2 | RTPE turbulence relaxation; `M→0, V→0` limit of L1: `τ_R İ_R + L_R I_R = S_R + η_R` | `finite_diagnostic` (PASS_WITH_LIMITS) | = EQ-017 (§1 above); re-tagged here as Layer 2, not a new equation |
 | N1-L3 | LP-NS audit: nonlinear-paraproduct diagnostic over the `∇V`/`(u·∇)u` term — checks for energy-cascade-without-closure; reports PASS/FAIL | `finite_diagnostic` | a **checker**, not a generator; conflating this audit role with L1's generative role is the tier-collapse the source explicitly forbids (cf. §9.8's face-adjacency finding) |
 | N1-M | `M` is **posited**, not derived (8 independent forcing-derivation attempts failed); `m = ℏ/(2c²τ_c)` — mass is a readout of τ_c; τ_c discrete and prior to mass | `Dr` | = S1 (§1 above; `mass_memory_duality`; `Th_coqc`); only the quantum domain exercises `M` with numerical bite (D/M vs QuTiP; 7.6×10⁻⁴; `finite_diagnostic`); cf. §1.5 Arrow 3 for the independent proof that this posit is not root-derivable |
 | N2 | `M_A = K_A · θ + η`; `ε_tot > 0` — knowing is a lossy linear read of a latent state, never the latent state itself | `definition` | new entry; no prior logic.md coverage |
 | N2-err | Scalar-Eigenmode Reduction Error: `L_R` is a full multimode operator; collapsing it to scalar `λφ` before reading N2 through it silently discards off-diagonal/skew coupling — a category error, not a small approximation | `Dr` (naming the error) | new entry |
-| N2-repair | Proposed split under retention metric G (not naive transpose): `L_R = L_R^(+) + L_R^(-)`; `L_R^(+)` = ordinary damped coupling (already in N1); `L_R^(-)` = skew/rotational coupling; absorbs chemostat/Lotka-Volterra/MHD two-field cases into the same linearized N1 | `Open`; pending falsification test **T1** — a live research lever, not a settled result | new entry |
-| N2-open2 | Endogenous, state-dependent `L_R[I_R]` (coupling operator changes as a function of the state it couples) | `Open`; falsification test **T2**; unresolved | new entry |
+| N2-repair | Proposed split under retention metric G (not naive transpose): `L_R = L_R^(+) + L_R^(-)`; `L_R^(+)` = ordinary damped coupling (already in N1); `L_R^(-)` = skew/rotational coupling; absorbs chemostat/Lotka-Volterra/MHD two-field cases into the same linearized N1 | `Open`; pending falsification test **T1**, defined below — a live research lever, not a settled result | new entry |
+| N2-open2 | Endogenous, state-dependent `L_R[I_R]` (coupling operator changes as a function of the state it couples) | `Open`; falsification test **T2**, defined below; unresolved | new entry |
 | N3 | `dE/dt = ⟨∂Φ, J⟩ − D‖∂Φ‖² ≤ 0`; `O → 0` — the monotone; obstruction can only fall or hold absent net-positive external driving | `Th_coqc` (monotonicity structure only; `RDL_*.v`; axiom-free) | the **only** N carrying a machine-checked tag; buys a checked structural non-increase guarantee; **not** that any domain's obstruction reaches zero in finite time; **not** that the Coq proof extends to a specific empirical dataset (those steps remain `finite_diagnostic`/`Dr` at most) |
 | N4 | `τ_c = ℏ/(2mc²)` — the scale bus; every domain connects via its memory time; τ_c atlas spans 37 disciplines | `Dr` | direction is founder-locked: `τ_c` is discrete and prior to mass; `m = ℏ/(2c²τ_c)` reads mass OFF τ_c, not the reverse, even though the formula is algebraically reversible — same discipline N2 enforces (readout must not usurp the position of the thing read) |
 | N5 | Anomaly ratios; `2/α²`; `π`; `φ` — dimensionless readouts that close without an adapter | `Dr` | singled out because these are the only nuclear-core items that need no per-domain unit adapter to mean something; cross-domain-bridge agreement (§9.7's admissibility square) is judged against these numbers |
@@ -1223,6 +1244,28 @@ from the other four without smuggling in a sixth assumption") — no formal
 independence proof is offered or claimed here; this ledger does not upgrade
 that to `Th_coqc`/`finite_diagnostic`. Treat the irreducibility claim
 itself as `Dr`.
+
+**T1/T2, defined here for the first time — self-contained protocols, not
+sourced from prior text (naming the gap honestly rather than leaving the
+labels empty).** **T1** (for N2-repair): for at least one of the three
+named cases (chemostat/Lotka-Volterra/MHD), construct `L_R^(-)` explicitly
+under retention metric `G`, substitute the `G`-split into linearized N1,
+and compute the residual `r = |N1_predicted − N1_actual known-solution
+term|` at the system's known oscillatory/rotational frequency; the test's
+own pass bound is `r ≤ 0.05` × the known term's own magnitude (a 5%
+relative-residual threshold, stated here for the first time), reported as
+a `finite_diagnostic` PASS/FAIL against that self-defined bound. A case
+where no `G` renders the split antisymmetric, or `r` exceeds 5%, refutes
+N2-repair for that case, without upgrading the row's `Open` tag either
+way. **T2** (for N2-open2): run T1's construction with `L_R` replaced by
+the state-dependent `L_R[I_R]` through N3's stepper, over the parameter
+range T1's chosen case already uses (its standard operating range for
+that system), and check the already-`Th_coqc` bound `dE/dt ≤ 0` at every
+discrete step across that range; one violating step is a `finite_diagnostic`
+FAIL and a genuine falsifying instance, holding across the full range is a
+PASS — neither outcome resolves the row's `Open` status by itself, since
+passing T1/T2 shows the repair works on the tested case(s), not that it is
+forced.
 
 [domain card: `readout_genesis/READOUT_GENESIS_CORE.md` PART VI §VI.1 (~L4144-4303)]
 
@@ -1280,6 +1323,17 @@ of pairing a claim with an actual executed check and its printed result —
 that pairing is absent at the cited source lines); ES-7 stays `Open` because
 the source itself declines to assert a percentage or a perturbation
 certificate.
+
+Falsifier for ES-7: log the `F_ep`/`k_ep`/`Re_ep` triple per step from the
+same ES-6 code path, paired with actual large-model invocation. The
+executed `nucleus_verdict()` ABSTAIN condition is `F_ep<0.42` alone
+(`k_ep` computed but unused in that branch) — record this as a named
+doc-vs-code discrepancy against ES-3/ES-4's `k_ep`-centric framing, not as
+ES-7's falsifier condition itself. ES-7 is refuted by any step where
+invocation occurs outside the ESCALATE branch as coded. Passing on one
+logged trace upgrades nothing beyond that run — not a workload-general
+percentage, and not independent of the source's own `UNCALIBRATED`-
+threshold caveat on `0.6`/`0.3`/`0.42`.
 
 [domain card: readout_genesis/READOUT_GENESIS_CORE.md PART VI §VI.3 (~lines 4373-4417+)]
 
