@@ -1220,16 +1220,17 @@ two new links are:
   the source names but does not close:
   `Φ_A = Φ(Ξ_A, B_A, Val_A, Coh_A, Own_A)` — phenomenal readiness,
   embodiment, valence, coherence, ownership — declared as *structural
-  placeholders*, explicitly **not** offered as a reduction of qualia.
+  placeholders*, explicitly not put forward as any kind of solution to
+  what qualia are.
   Tier: `Open` on `Φ_A` itself, carried forward from the source unchanged
   — this book does not claim to have closed the hard problem by naming an
   operator for it.
 - **`P_A ≠ H_A`** — what appears (`P_A`) is not the same as the space in
-  which what appears can be assessed, doubted, or revised (`H_A`, an
-  epistemic horizon in the sense §5.6a and elsewhere in this book already
-  use the term). Collapsing the two is the error the source calls out by
-  name — mistaking *having* an appearance for *being able to interrogate*
-  it.
+  which what appears can be assessed, doubted, or revised (`H_A`, the
+  epistemic horizon — a term newly introduced to this book at this
+  subsection, not a prior usage being recalled). Collapsing the two is the
+  error the source calls out by name — mistaking *having* an appearance
+  for *being able to interrogate* it.
 
 **Why this earns a place next to R-apparent/R-ideal, not a chapter of its
 own.** The position this chain commits to — "a phenomenon is neither
@@ -1239,7 +1240,13 @@ pure idealism"), reached independently in the sibling repo from a
 perception/consciousness angle rather than a physics angle, and converging
 on the same refusal: `P_A` is constrained by `θ` (not idealism) and
 `P_A ≠ θ` (not naive realism). The source itself names this
-**finite-access realism**. This subsection is a naming and import, not a
+**finite-access realism**, and names two further exclusions this
+subsection carries forward rather than narrows: `Φ_A` is not offered as a
+complete theory of consciousness (a point already made above), and the
+chain is not "mere predictive processing" — `θ` is world-side causal
+structure the record answers to, not a latent variable inside a
+generative model the agency is only predicting against. This subsection
+is a naming and import, not a
 new derivation — the actual epistemic content is already `M_A = K_A·θ+η`,
 established at §5.2c; what's added here is only the *next* link in the
 same chain, held to the same tier discipline as everything around it.
@@ -1254,8 +1261,8 @@ conflating the appearing with the assessing.
 
 [domain card: `research_universal_solver/canon/genesis_canon_v2.1.md` §Φ
 (proprietary, imported by the copyright holder's own direction — see tier
-note above); §5.2c (R-apparent/R-ideal, `M_A = K_A·θ+η`); §5.6a (epistemic
-horizon); §9.19 (neither materialism nor idealism)]
+note above); §5.2c (R-apparent/R-ideal, `M_A = K_A·θ+η`); §9.19 (neither
+materialism nor idealism)]
 
 ### 5.3 The trunk equation
 

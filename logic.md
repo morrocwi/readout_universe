@@ -60,7 +60,7 @@ copyright holder's own direction — never upgraded to `Th_coqc`):**
 
 | ID | Statement | Tier | Source |
 |---|---|---|---|
-| `P_A=Φ_A(M_A)` | the record `M_A` becomes an agent-specific phenomenal field `P_A` via `Φ_A=Φ(Ξ_A,B_A,Val_A,Coh_A,Own_A)` — phenomenal readiness, embodiment, valence, coherence, ownership, declared structural placeholders, not a reduction of qualia | `Dr` (chain/import); `Open` on `Φ_A` itself | `research_universal_solver/canon/genesis_canon_v2.1.md` §Φ |
+| `P_A=Φ_A(M_A)` | the record `M_A` becomes an agent-specific phenomenal field `P_A` via `Φ_A=Φ(Ξ_A,B_A,Val_A,Coh_A,Own_A)` — phenomenal readiness, embodiment, valence, coherence, ownership, declared structural placeholders, not put forward as a solution to what qualia are | `Dr` (chain/import); `Open` on `Φ_A` itself | `research_universal_solver/canon/genesis_canon_v2.1.md` §Φ |
 | `P_A ≠ H_A` | what appears (`P_A`) is not the space in which it can be assessed/doubted/revised (`H_A`, epistemic horizon) — collapsing the two is a named error | `Dr` | same |
 
 Full chain: `θ(E) → S_A(E)⊆Δ(E) → (T_A∘Π_A) → M_A=K_A·θ(E)+η (≠θ(E)) → P_A=Φ_A(M_A) → H_A`.
