@@ -3873,6 +3873,148 @@ without inheriting any of their tiers or evidence)]
 
 ---
 
+### 7.26a A taxonomy of need, desire, drive, habit, value, and compulsion — three axes, no equation behind them
+
+*Tier: `Dr` for the three-axis distinctions drawn below, as an ordinary
+piece of philosophical/psychological conceptual analysis; `[Open]` for
+whether the six terms are jointly exhaustive of the affect/motivation
+vocabulary, whether the boundaries drawn are the only defensible ones,
+and for any claim that this taxonomy is complete. This note answers
+exactly the gap §7.26 named and no other: it does not resolve §7.26's own
+governing question (whether affect functions as a pre-selection
+weighting operator on N2's `θ`-to-sample step), does not touch §7.26's
+finding on missing "productive tension" material, and adds no equation
+to this corpus. Checked directly for this note: neither `birca` nor
+`research_universal_solver` contain the word "compulsion" or the
+word-bounded string "desire" anywhere in their `.md`/`.yaml` files
+(`grep -rniE '\bcompulsion\b'`/`'\bdesire\b'`, full tree, run
+2026-08-07, zero hits in either repository for either — an unbounded
+substring search on "desire" alone returns 22 false-positive hits, all
+`desired`/`desired_*` as an engineering config field name in `birca`'s
+drug/food-lane YAML, unrelated to the motivational concept). "Habit"
+returns ten hits: seven are the identical duplicated-across-domains
+sentence "This corrects an earlier informal habit of [a naming
+convention]" (`research_universal_solver/domains/{quantum,standard_model,
+relativity,chem,chem/anchor_v0_901,biology}/source_root/
+READOUT_GENESIS_CORE_SNAPSHOT.md` and `docs/engineering/
+GENESIS_STEP_BY_STEP_V3_1.md`), unrelated to motivation or affect; the
+remaining three are `birca` clinical-intake examples using "habit" in
+its ordinary behavioral sense — "eating habits" (`birca/spec/
+birca_universal_skill.yaml` line 116), "screen habits" (`birca/spec/
+BIRCA_DEPTH_GATE_BALANCE_PROPOSAL.md` line 83), and a ranked-habits
+intake prompt (`birca/spec/BIRCA_100_CROSS_AI_EXTREME_TEST_PLAN.md` line
+192) — named as intake topics only, with no definition, taxonomy, or
+theoretical treatment of habit as a concept anywhere in any of the
+three;
+`birca` returns zero hits for "habit." So this taxonomy stands as a
+freestanding conceptual note, not a synthesis of raw material already
+sitting in this corpus — unlike every other subsection of §7.26, which
+draws on cited existing sources.*
+
+Three axes distinguish the six terms below, none of them native to this
+book's own formalism. N2's `η` is left fully undifferentiated per §7.26;
+none of need, desire, drive, habit, value, or compulsion is assigned a
+`τ_c`, an `Ω_H` role, or any other quantity this corpus defines
+elsewhere. The axes are ordinary-language psychological/philosophical
+distinctions, stated in prose, not derived from or expressed in this
+corpus's own equations, and no attempt is made here to force that
+connection:
+
+- **Object-directedness** — is the state about a specific intentional
+  object or act ("I want *that* sandwich," "I keep checking *that*
+  lock"), or about a generic condition satisfiable by any of a class of
+  objects ("I am hungry," "I am thirsty")?
+- **Persistence/duration** — is the state episodic, discharged once its
+  object is attained or its absence is accepted, or standing/
+  dispositional, present as a background structure whether or not
+  currently active?
+- **Controllability** — can the agent's own higher-order evaluation
+  suspend, redirect, or override the state at will, or does the state
+  resist that override regardless of what the agent, on reflection,
+  endorses? (Frankfurt-style hierarchical-desire language — Frankfurt,
+  "Freedom of the Will and the Concept of a Person," 1971 — used here
+  from general familiarity with the argument's structure, not a
+  primary-text-verified quote; same citation-precision hedge this book
+  already applies to its Searle/Luhmann note and its Chalmers reference
+  in §7.21.)
+
+Against these three axes:
+
+- **Need** is low object-directedness (generic — hunger is not hunger
+  *for* a specific meal), standing/recurring persistence (satisfied only
+  temporarily; it returns), and low controllability at the limit
+  (deferrable, not eliminable — a body that needs calories does not stop
+  needing them because the agent decides otherwise).
+- **Desire** is high object-directedness (a desire is *for* a particular
+  object or state of affairs, not a generic condition), typically
+  episodic (extinguished, at least locally, once satisfied or
+  abandoned), and moderate controllability — the paradigm case of a
+  first-order state that higher-order evaluation can approve, suppress,
+  or redirect, on Frankfurt's own reading.
+- **Drive** sits between need and desire on object-directedness — closer
+  to need's genericity (a hunger drive is satisfied by any of a class of
+  foods, not one), but with need's low controllability sharpened toward
+  §7.24's own language: "inner drive intensifies until it gradually
+  overtakes" how the outer world is perceived (§7.24, line 3444). On
+  that reading, drive is what need's low controllability looks like
+  pushed toward the limit of overtaking perception itself, not a
+  distinct low-controllability profile invented for this note.
+- **Habit** is not object-directed in the same sense as the other five —
+  it is action-pattern-directed, indifferent to whether the need or
+  desire that originally formed it is still present (the standard case:
+  reaching for a cigarette after the craving itself has passed). It has
+  the highest persistence of the six, surviving the extinction of its
+  own originating motivational state, and its controllability splits by
+  timescale: low at the moment of the triggering cue (automaticity
+  resists in-the-moment override), but more tractable than need, drive,
+  or compulsion over a longer retraining horizon — consistent with why
+  habit-change methods work by altering cues and repetition rather than
+  by a single act of will.
+- **Value** is the only one of the six that can motivate in the total
+  absence of a present first-order pull — an agent can act from a value
+  (telling an inconvenient truth) with no accompanying desire to do so
+  at that moment. It has the highest persistence and the highest
+  controllability of the six on the Frankfurt-style reading above:
+  values sit closest to the standpoint *from which* desires, drives, and
+  habits are themselves evaluated and endorsed or rejected, rather than
+  competing with them as an item at the same level.
+- **Compulsion** is high object-directedness (aimed at a specific act —
+  checking *that* lock, washing *those* hands — not a generic
+  condition), episodic-recurring persistence (intrusive, returning), and
+  the lowest controllability of the six, by definition: what makes a
+  state compulsion rather than a strong desire is precisely that the
+  agent's own higher-order evaluation does *not* endorse it and still
+  cannot suspend it. §7.24's own OCD passage already states this exact
+  structure without naming it as a controllability claim: "a separate
+  component within the mind generates repeated worry, doubt, or
+  compulsion... suffering arising from conflict inside the inner world"
+  (§7.24, lines 3467–3469).
+
+Two honest limits, stated rather than smoothed over. First, this
+taxonomy does not resolve where addiction sits — it shares compulsion's
+low controllability and drive's object-class generality, and nothing
+said above forces a unique placement; that question is left `[Open]`
+here. Second, and more consequential: nothing above claims the three
+axes are jointly sufficient to individuate the six terms, only that each
+of the six occupies a distinguishable region of the same three-
+dimensional space, stated in prose rather than measured. Whether some
+seventh term (craving, urge, aversion) would fall outside all six
+existing regions, and whether these three axes are the right three
+rather than merely three that happen to separate this particular list,
+are both `[Open]`.
+
+[domain card: §7.24 lines 3442–3469 (the "two-shape translation crisis"
+language this note distinguishes formally, quoted above); §7.26 (the
+entry that named this gap and proposed the candidate axes this note
+adopts); §9.2a/N2 (`M_A = K_A·θ + η`, cited only to state that this
+taxonomy modifies none of it and assigns none of the six terms any
+formal role in it); `grep -rniE` for "compulsion"/"desire"/"habit"
+across `birca/` and `research_universal_solver/` full trees, `.md`/
+`.yaml` files, run 2026-08-07, returning no motivation/affect-relevant
+material in either repository]
+
+---
+
 ### 7.27 Psychological self beyond the single loop — embodiment, relational, and institutional extensions not yet attempted
 
 §7.21's closure construction — `Ω_H` both produced-by and conditioning-of
@@ -4357,6 +4499,130 @@ monograph by this book's own author, uncited here until this entry.
 Regime Mapping," pp.43–47; §8's `q_social` entry (philosophy.md, lines
 4647–4707, the institutional/social-memory account this entry sits
 alongside); §7.29 (the no-conflation discipline this entry inherits)]
+
+---
+
+### 7.33 Two coupled closure loops — `L_H`'s commutation clause as a formal handle for meaningful communication, not a two-loop closure construction
+
+*Tier: `Dr`/`[Open]` throughout — this entry does not inherit §7.21's
+tier, falsifier, or evidence. §7.21's closure claim (`Ω_H`/`τ_c^H`,
+confirmed in a toy diagnostic, §7.21's own upgrade-attempt paragraph) is
+a single-loop result; nothing below upgrades it to a two-loop result, and
+nothing below has been run through any diagnostic, formal or numeric.
+This entry answers the narrower question §7.27's Level-3 paragraph names
+and leaves open — not the general question of co-regulation, attachment,
+or relational selfhood, which stays exactly as open as §7.27 leaves it.*
+
+§7.21 defines self-as-closure for one loop: a world-model `Ω_H` that is
+both produced by, and steering, the same loop's own successive passes,
+at a declared memory-time `τ_c^H`. Nothing in that construction says
+anything about two such loops side by side — §7.27's Level-3 paragraph
+names this gap explicitly and points to the one formal handle already
+sitting, uncarried-forward, in the same source tuple: `L_H`, the
+language/symbol layer, with its inter-agent clause. Quoted at the point
+this book already cites it (§7.27, `GENESIS_STEP_BY_STEP_V3_1.md`
+§VIII.1, ~lines 4591–4599): "Two agents' `L_H`'s only *communicate*
+meaningfully to the extent that translation between them commutes with
+each agent's own record law `F#_H`... exactly the admissibility-square
+condition of the founder ontology, `q_{n+1}·F_n = F#_n·q_n`, applied here
+to two humans instead of two physics domains." The general form of that
+square — `T_{a→b}·F#_a = F#_b·T_{a→b}` — is the same commutation check
+§7.9 already uses on the physics side to gate whether a domain "bridge
+commutes cleanly with the readout structure" (§7.9) before its label is
+allowed to stick, and is a general form of `GENESIS_STEP_BY_STEP_V3_1.md` §II.9's
+(~lines 1192–1208) machine-checked `InfoQuotientCompressionExactness`, a
+Kemeny–Snell-lumpability result cited there — not independently
+re-verified here, and not claimed to apply to the human case below beyond
+structural analogy. (§7.19, checked directly, uses a related but
+distinct audit tool — the `DEFINITIONAL-RELABEL` verdict class, which
+catches a *failed* bridge dressed up as one, not the commutation-square
+check itself — and is not cited here as a positive instance of this
+check.) What follows
+is this entry's own attempt to carry that one clause into §7.21's own
+two-loop gap, offered as a starting handle, not a solution.
+
+**The proposed criterion.** Take two agents `i`, `j`, each already
+satisfying §7.21's own single-loop closure — each running its own
+`Ω_H^i`/`τ_c^{H,i}` pair, its own record law `M_H^i[n] = K_H^i·θ(E^i[n])
++ η_H^i[n]`, and its own language/symbol quotient `L_H^i`. A message from
+`j` reaches `i` only via some translation `T_{j→i}` between the two
+`L_H`'s. This entry proposes, as its own addition and not the source's:
+call that channel's communication **closure-meaningful** exactly when
+`T_{j→i}` commutes with both agents' own record laws at the resolution
+`i`'s `Ω_H^i` actually consults — i.e. `T_{j→i}·F#_H^j = F#_H^i·T_{j→i}`
+holds on the specific slice of the record that `i`'s next `Ω_H^i` update
+would read. This is deliberately narrower than "the two loops are now
+one joint loop": it says nothing about a shared `Ω_H^{ij}` or a shared
+`τ_c`, does not propose one, and should not be read as proposing one —
+it is a gate on whether a single message crossing the channel is the
+kind of thing `i`'s own closure could legitimately fold back into `Ω_H^i`
+at all, not a claim that two closed loops thereby become a third,
+larger closed loop.
+
+**Why this is a handle and not a mechanism.** The source names four
+failure modes for when the square does not commute — mistranslation,
+lost information, insufficient resolution, or the target lacking the
+variables needed to hold what was said (§VIII.1, same lines) — and
+states the diagnostic payoff directly: "the honest diagnosis is not
+'they disagree about facts' but one of" those four. Carried into the
+two-loop case, this gives the criterion above real discriminating power
+in principle: a channel can fail to be closure-meaningful for a reason
+other than either loop's own closure being degraded, which is exactly
+the distinction §7.21's own falsifier cannot make on its own (`∂π*/∂η_H`
+and `dR_H/dt` are single-loop quantities; neither one, alone, can tell a
+reader whether a flat agency-gradient in `i` reflects `i`'s own degraded
+closure or an honest translation failure at the channel `j→i`). That
+discriminating power is the entire content of what this entry adds; it
+is not a proof that the criterion is the right one, or the only one,
+for "meaningful communication" in any everyday or clinical sense of
+that phrase.
+
+**A checkable condition, honestly labeled as untested.** Unlike §7.21's
+own falsifier — which was carried through a toy numeric diagnostic
+(`ap22_self_closure_diagnostic.py`) and showed a measured, directional
+signature — nothing below has been run. What can honestly be stated is
+a *condition that would be checkable* if it were: if the criterion above
+is doing real work, then a message from `j` translated across a channel
+where `T_{j→i}` is shown (by the four-failure-mode diagnosis) not to
+commute should produce no measurable shift in `i`'s own `∂π*/∂η_H` or
+`dR_H/dt` attributable to that message, while a message across a
+channel where the square does commute should produce a measurable
+shift in at least one of them. This is offered as the honest checkable
+form of the claim, not as a result — no diagnostic, formal or numeric,
+has been built to test it, and it is entirely possible a real two-loop
+system shows partial, graded uptake that this binary commutes/does-not
+framing cannot capture, in which case the criterion above would need
+revision, not just re-measurement. Stated this plainly because forcing
+a stronger falsifier than the construction actually earns would repeat
+the exact move §7.21 itself declines to make for `Φ_H`.
+
+**What this entry does not do.** It does not define two-loop closure —
+only a gate on when one channel between two independently-closed loops
+counts as meaningful in this narrow sense. It says nothing about
+attachment, co-regulation, caregiving, or developmental selfhood, and
+does not touch `birca`'s Layer 0b clinical circuit at all — that
+remains, per §7.27's own fence, a separate clinical artifact answering
+a separate question, not a source of ontological content for this
+entry or vice versa. It does not resolve §7.27's Level-3 gap; it gives
+that gap one formal starting point where, before this entry, there was
+none. Whether this specific commutation-gated criterion is the right
+formal shape for "meaningful" inter-agent communication in any richer
+psychological sense remains `[Open]`, exactly as open as it was before
+this entry, less one previously entirely-missing formal handle.
+
+[domain card: `research_universal_solver/docs/engineering
+/GENESIS_STEP_BY_STEP_V3_1.md` §VIII.1 (~lines 4591–4599, the `L_H`
+inter-agent clause and its four named failure modes), §II.9 (~lines
+1192–1208, the general admissibility-square form and
+`InfoQuotientCompressionExactness`); §7.21 (the single-loop closure
+construction and falsifier this entry does not inherit); §7.27 (the
+Level-3 paragraph naming this exact gap and pointing to `L_H` as its
+anchor); §7.9 (this book's own prior use of the same commutation check on
+the physics side, cited here only for the check's general shape, not for
+any physics-to-human evidentiary transfer); §7.19 (a related but
+distinct audit tool, the `DEFINITIONAL-RELABEL` verdict class, cited
+only to distinguish it from the commutation check above, not as a
+further instance of it)]
 
 ---
 
