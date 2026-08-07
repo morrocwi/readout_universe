@@ -3622,14 +3622,22 @@ source file §5.2d already cites for `Φ_A`. It names: the organism as a
 self-sustained eigenmode at a body-specific closure timescale
 (`living_system`); health as obstruction-near-zero with repair capacity
 (`health`); symptom as an interoceptive readout of a residual, stated
-explicitly as "not yet a diagnosis" (`illness_as_signal`); a three-layer
+explicitly, in the entry's own Thai gloss, as ยังไม่ใช่การวินิจฉัย —
+"not yet a diagnosis," a translation of that gloss rather than the
+source's own marked English quote field (which reads "symptom =
+interoceptive readout of Res_body = R_body^obs − R_body^model")
+(`illness_as_signal`); a three-layer
 distinction between what a patient can report, what a clinician can
 access, and the actual bodily state (`clinical_accessibility`); care as
 repair-preserving agency, tied to this book's own step-36 agency
 definition (`care_as_repair_agency`); mortality as organismic decay under
 the same impermanence theorem already stated in physics terms elsewhere in
-this book (`|a_k[n]| ≤ |a_k[0]|e^{-γ_k nΔθ}`, main.tex), framed as
-"personal, not failure" (`mortality`); and an explicit no-diagnosis,
+this book (`|a_self[n]| ≤ |a_self[0]| e^{−γ_self·nΔθ}, γ_self > 0`, the
+entry's own formula field, `genesis_canon_v2.1.md` L06), glossed there in
+Thai as "มรณะ = การสลายที่เป็นเรื่องส่วนตน ไม่ใช่ความล้มเหลว" — rendered
+here in translation, not quoted from the source's own marked English
+quote field, as "death is a dissolution that is personal, not a
+failure" (`mortality`); and an explicit no-diagnosis,
 crisis-bridge discipline this book's own §7.23 already independently
 enforces (`care_claim_discipline`). None of these six labels appears
 anywhere in this book prior to this entry. Importing any one of them is a
@@ -3653,13 +3661,14 @@ naming, for any proposal, "what feedback marker will show whether it is
 working?" and "when should the user escalate," scored on a 0–3
 `context_fit_score`, with an `actor_tool_ladder` (self-internal through
 clinician/pharmacist-only) grading who is authorized to act at each tier.
-A "feedback marker" is a concrete, single-instance version of the
-retained-information readout `dR_H/dt` already commits to in the
-abstract — it needs *something* observable to measure repair against, and
-`birca`'s schema is one working example of what that something looks
-like. An "escalation threshold" is a concrete instance of a repair-
-capacity boundary condition, structurally analogous to, though not
-derived from, §7.21's own closure-degradation falsifier. None of this — 
+A "feedback marker" is structurally analogous to, though not derived
+from, the retained-information readout `dR_H/dt` already commits to in
+the abstract — it needs *something* observable to measure repair
+against, and `birca`'s schema is one working example of what that
+something looks like, not an instance of the same object. An "escalation
+threshold" is a concrete instance of a repair-capacity boundary
+condition, structurally analogous to, though not derived from, §7.21's
+own closure-degradation falsifier. None of this — 
 "feedback marker," "escalation threshold," "context-bound," or the actor-
 tool ladder as a named structure — has previously been cited in this book.
 
@@ -3696,7 +3705,7 @@ five threads is this entry's own "what to add and where" step; none is
 performed here.
 
 [domain card: `research_universal_solver/canon/genesis_canon_v2.1.md`
-`PHASE_V_LIFE_AND_HEALTH`, lines 179–193; `birca/spec/
+`PHASE_V_LIFE_AND_HEALTH`, lines 179–186; `birca/spec/
 birca_universal_skill.yaml` `layer_3_mandatory_schema` (lines 251–260),
 `context_binding_rule` (lines 261–274), `actor_tool_ladder` (lines
 285–291); `birca/SYSTEM_PROMPT.md` lines 37–38, 153–160; §5.2d (the `Φ_A`
@@ -3745,11 +3754,19 @@ loosen: having noted that a shared restoring-term structure recurs across
 `birca`'s repair equations and this book's own toy diagnostic, it refuses
 to elevate the parallel beyond "mildly suggestive," since bistability-
 from-a-restoring-term is generic dynamical-systems structure, true of
-systems with no closure property at all. The same cusp-fold algebra
-recurs a third time in `research_universal_solver`'s `InfoDecisionAgency
-_attempt` (`AGENCY_VS_AGENCY_LIKE.md` §6.3) — three sources converging on
-one shared form, and every one of them, on its own initiative, refuses to
-read the convergence as evidence of one underlying mechanism. §7.24's
+systems with no closure property at all. Only these two lines are
+independent. A third citation was once made here to
+`research_universal_solver`'s `InfoDecisionAgency_attempt`
+(`AGENCY_VS_AGENCY_LIKE.md` §6.3) as if it were a third independently-
+arrived-at instance; the same document discloses otherwise. The cusp
+`InfoDecisionAgency_attempt` actually uses is `InfoHealthCuspFold_attempt`
+(same §6.3, ~line 494), named there as "the reused cusp underlying
+agency's decision link" and built as "the discrete, contamination-free
+core of the BIRCA repair equation (PR #7, FIX-3/EP-2)" — a direct
+Coq-formalization of `birca`'s own equation, not a separately-converged
+line. So two sources converge on one shared form, not three, and both,
+on their own initiative, refuse to read the convergence as evidence of
+one underlying mechanism. §7.24's
 "two-shape translation crisis" is this book's fullest naming of affect-
 adjacent terms, but it is a list, not a taxonomy — no criterion separates
 need from desire from drive from habit from value from compulsion — and
@@ -3757,7 +3774,11 @@ its directional language (drive "intensifies until it overtakes" the
 outer world; the opposite, "emotional numbness") is the closest existing
 language to affect having a magnitude, offered as a `Dr`-tier, explicitly
 non-clinical account of crisis, not a claim about affect functioning this
-way under ordinary conditions.
+way under ordinary conditions. What to add, and where: a short `Dr`/
+`[Open]`-tier taxonomy note — candidate location: §7.24 or a new
+subsection near it — distinguishing the six terms along a stated axis
+(e.g. object-directedness, persistence/duration, or controllability),
+which no entry in this corpus currently attempts at any tier.
 
 **`birca`'s raw material, and what it does not establish.** `birca`
 supplies the sharpest formal object touching "drive": a machine-checked,
@@ -3780,6 +3801,46 @@ quantity as *productive* — reward-prediction error driving learning via
 relaxation toward reward, not rescue from disturbance — but the source
 disclaims it explicitly as sharing only structural FORM, "NOT evidence"
 for the closure/`τ_c` thesis, and it is uncited here.
+
+**A second, more granular physiological layer `birca` names but this book
+has not cited.** Beyond the calm-anchor theorem above, `birca/spec/
+birca_universal_skill.yaml`'s `autonomic_respiratory_connectors` block
+(lines 378–417, claim tier `finite_diagnostic`/`Dr` — each model verified
+by real integration reproducing its own textbook behavior; cross-domain
+connection to `birca`'s psychological framing is `Dr`, structural reading
+only) names six further such models as the substrate or proxy for the
+same calm/panic axis: sympatho-vagal balance (Berntson et al. 1991) as
+the same two-branch restoring-operator structure as the psychological
+relaxation form; heart-rate variability and respiratory sinus arrhythmia
+(Task Force of the ESC/NASPE 1996; Eckberg 1983) as the measurable proxy
+for calm-anchor strength; the baroreflex (De Boer et al. 1987) as a
+second, independent restoring loop of the identical damped-relaxation
+form; the chemoreflex CO2-ventilation loop (Grodins 1954; Khoo 1991) as
+the physiological mechanism behind panic-linked hyperventilation (Klein
+1993's "false suffocation alarm" theory, Ley 1985 — independent,
+pre-existing clinical literature the connection is drawn TO, not FROM);
+cardiorespiratory phase coupling (Schafer et al. 1998, a Kuramoto-type
+synchronization) as the mechanism behind paced breathing's calming
+effect; and the pre-Bötzinger complex bursting pacemaker (Butera, Rinzel
+& Smith 1999) as the brainstem rhythm generator the other two sit
+downstream of. Separately, `birca/README.md` (line 113) and `birca/
+SYSTEM_PROMPT.md` (line 176) both name "allostatic burden" by that term —
+HPA-axis (CRH→ACTH→cortisol) stress-dynamics literature cited as the
+physiological substrate for `birca`'s own "chronic burden" concept — as a
+further equation-form-only corroboration, explicitly not clinical
+validation of `birca`'s scores. Neither the six-model autonomic/
+respiratory list nor "allostatic burden" by name has previously been
+cited anywhere in this book, including in the preceding paragraph's own
+accounting of `birca`'s affective-science corroborations. Its status here
+is identical to what that paragraph already states: substrate-or-proxy
+relationships to a psychological "calm" or "burden" state, individually
+verified by real integration, but stated at arm's length from `birca`'s
+own scoring and explicitly not read as `birca` modeling the ANS,
+respiration, or HPA axis directly. And, per this entry's own governing
+question, every one of these citations still frames panic or chronic
+burden as a disturbance to be dissipated or regulated, not as a selector
+of what enters attention — none of it moves the drive-as-selection-
+mechanism question argued above.
 
 **The honest finding on directionality, and two concepts with no material
 at all.** Every closure/repair passage reviewed — §7.21's falsifier,
@@ -3804,10 +3865,11 @@ theorem has a second competing-anchor term in its stated equations.
 [domain card: logic.md §10 (N2); `research_universal_solver/docs/claims/
 HUMAN_AGENCY_SINGLE_TAU_C.md` lines 163–169; `research_universal_solver/
 docs/root/AGENCY_VS_AGENCY_LIKE.md` §6.3, lines 482–492; `birca/spec/
-birca_universal_skill.yaml` lines 133–156; `birca/SYSTEM_PROMPT.md` lines
-147–150; §7.21, §7.23, §7.24 (the closure/health/translation-coherence
-machinery this entry checks against, without inheriting any of their
-tiers or evidence)]
+birca_universal_skill.yaml` lines 133–156, 378–417 (`autonomic_
+respiratory_connectors`); `birca/README.md` line 113; `birca/
+SYSTEM_PROMPT.md` lines 147–150, 176; §7.21, §7.23, §7.24 (the
+closure/health/translation-coherence machinery this entry checks against,
+without inheriting any of their tiers or evidence)]
 
 ---
 
@@ -3832,13 +3894,26 @@ of `Ω_H`/`τ_c^H` at §7.21 nor logic.md §12's formal mirror restates or
 names `B_H` — the body-ground term is dropped from this book's own
 paraphrase entirely. §7.25 reaches the identical gap independently, from
 the embodiment side, via `PHASE_V_LIFE_AND_HEALTH`'s organism-as-eigenmode
-item in the same source repository.
+item in the same source repository. What to add, and where: a future entry
+at or near §7.21/§7.25 should import `B_H`'s embodied-substrate language
+into this book's own closure vocabulary and explicitly cross-reference
+§7.25's `PHASE_V_LIFE_AND_HEALTH` discussion as the natural companion piece
+for closing exactly this Level-1 gap, rather than leaving the two entries
+to reach the same absence independently without citing each other.
+
+**Level 2 (person) is not treated separately here because it is this
+entry's own base case.** Section I above IS this entry's Level-2/personal
+account — §7.21's closure construction, discussed there at length, is
+what the three-level framing organizes around. The gap this entry tracks
+is not a missing Level 2, but Level 2's own single-loop scope not yet
+being extended to Levels 1 and 3, which is why the subsections below skip
+directly from Level 1 to Level 3 rather than restating Level 2 again.
 
 **Level 3 (relational): the one formal handle exists and has not been
 carried forward.** The same tuple names `L_H`, the language/symbol layer,
 with an explicit inter-agent clause: "two agents' `L_H`'s only communicate
 meaningfully to the extent that translation between them commutes with
-each agent's own record law" — the only explicit inter-agent construct
+each agent's own record law..." — the only explicit inter-agent construct
 anywhere in the tuple, and directly relevant to any co-regulation or
 attachment reading. Neither §7.21 nor logic.md §12 carries this clause
 forward. The words "attachment," "co-regulation," "caregiver,"
@@ -3869,8 +3944,12 @@ relate; reading it as the latter would be an unwarranted transfer. The
 mathematics behind that same question is a machine-checked, axiom-free
 Coq theorem describing a 2-node calm-anchor/turbulent-mode energy-balance
 system, in which a coupled calm anchor still dissipates energy even when
-the panicking system's own damping has vanished entirely. `birca`'s own
-spec fences the reading in its own words: "This is NOT itself a claim
+the panicking system's own damping has vanished entirely — `birca`'s own
+self-reported provenance claim for the discrete math itself, not
+independently re-run via `coqc`/`Print Assumptions` here, so treated as
+unverified-model pending that check, per the same verification discipline
+§7.26 applies to this identical theorem. `birca`'s own spec fences the
+physiological reading in its own words: "...it is NOT itself a claim
 that a real human 'support person' physiologically or psychologically
 functions this way... requiring real patient/behavioural data to
 validate, not proven by this theorem." No passage anywhere in this book —
@@ -4012,10 +4091,14 @@ two conjuncts genuinely pull apart.
 **7. Testing whether an objection channel is actually open, not merely
 documented.** ETH-6 names its own falsifier honestly as specified but not
 executed. `birca`'s README reports a structurally analogous, domain-
-different 15-item adversarial suite (15/15 pass, one real defect actually
-caught — Claude Haiku 4.5 making the correct safety call while silently
-dropping a mandatory disclosure line) — AI-graded, not independently
-audited, with a human two-reviewer clinical-safety audit still pending.
+different 15-item adversarial suite (15/15 pass, 0 automatic-fail,
+AI-graded) — a separate evaluation from that. A real-scenario spot-check
+and cross-model comparison run under v1.7.0–v1.7.1 (not the 15-item
+suite itself) is what actually caught one real defect — Claude Haiku 4.5
+making the correct safety call while silently dropping a mandatory
+disclosure line. Neither evaluation has completed the human two-reviewer
+clinical-safety audit `birca`'s own documentation still lists as
+pending.
 No bridge connects that precedent to this book's own falsifier; without
 one, a reader could mistake the mere existence of a domain-similar test
 elsewhere for ETH-6 having been partially executed, when it has not.
@@ -4070,10 +4153,13 @@ insists for the closure/bistability echo it shares with `birca`. CE's
 `Δ_spec(R)` (spectral stability margin, CE-11) and `V_{A,R}(M)`
 (Lyapunov ethical load, CE-09) are CE's own primitives, defined over
 CE's own state space `M`, not this book's `M_A`/`Ω_H`. Every entry below
-names the specific CE/CG equation it draws on and states plainly that no
-independent Coq re-verification of CE's own claims has been performed
-here — the tier is `Dr` throughout, read from CE's own stated definitions,
-never elevated by this book's citation of it.
+names the specific CE equation it draws on, or the specific CG concept
+where CG's own qualitative vocabulary — structure/conflict/violence/
+repair/peace — is used instead (CG, unlike CE, carries no equation-ID
+apparatus of its own). No independent Coq re-verification of either
+paper's claims has been performed here — the tier is `Dr` throughout,
+read from each paper's own stated definitions, never elevated by this
+book's citation of it.
 
 **What CE adds that this book does not yet have.** CE's Ethics
 Inequality (CE-12: `d/dt′ V_{A,R} ≤ 0 ∧ τ_c′(R) > 0 ∧ Δ_spec(R) > 0`)
@@ -4122,6 +4208,16 @@ read as a historical instance where "short calm" (local stability, visible
 tension reduction) coexisted with "long instability" (accumulating
 structural cost the collective's own local metric does not register).
 
+CG's own regime table (§5, Table 1) names this same shape in its separate,
+non-equational vocabulary: what CE's panic-regime case exhibits is CG's
+**pseudo-peace** row — "Compatible appearance" paired with a "Restricted"
+possibility space and a "Suppressed" capacity for repair — distinct from
+CG's own **peace** row, where possibility space is "Preserved" and repair
+stays "Protected." This is a second, genuinely independent-vocabulary
+parallel, not a derivation from CE: CG reaches the same appearance/reality
+split from conflict-sociology sources (Coser, Galtung), CE from
+regime-admissibility dynamics, and neither paper cites the other.
+
 Read as a `Dr`-tier structural echo, not a proof, this gives ETH-9's
 question a concrete shape: the failure mode is not that the objection
 channel is formally closed, but that a majority's own local stability
@@ -4131,15 +4227,26 @@ erasure as a cost. This sharpens what ETH-9's falsifier would need to
 detect — not merely "is a channel documented," but "does erasing this
 party's standing improve or degrade the majority's own locally-measured
 stability" — without CE's own regime-admissibility formalism being
-adopted here as this book's mechanism. No claim is made that CE's
-`Δ_spec`/panic-regime apparatus IS this book's own five-ingredient
-structure under another name; it is offered as a named, worked parallel
-that ETH-9 currently lacks.
+adopted here as this book's mechanism. This falsifier-shape suggestion is
+itself a fresh, unproven proposal, not an established refinement of
+ETH-9: §7.22's five-ingredient apparatus has not been shown to contain
+any object resembling CE's "locally-measured stability" quantity for a
+majority to game in the first place, so borrowing CE's *mechanism-content*
+— HOW majority-gaming works, not just its symbols — to shape what ETH-9's
+evaluation criterion should test for is a hypothesis to test against
+§7.22 directly, not a result already earned from it. No claim is made
+that CE's `Δ_spec`/panic-regime apparatus IS this book's own
+five-ingredient structure under another name; it is offered as a named,
+worked parallel that ETH-9 currently lacks.
 
 [domain card: Lahtee, Y., *Causal Ethics* Ch.14, pp.63–67 (CE-20, CE-21,
-CE-24 as invoked by the case study); §7.28 open question 3 / logic.md
-§9.11 ETH-9 (the open item this entry supplies a worked parallel for,
-without closing it)]
+CE-24: equations this reading draws on by symbol-matching back to their
+Ch.3 definitions, not literally tagged "(CE-XX)" in Ch.14's own text the
+way Ch.9 tags its citations); Lahtee, Y., *Causal Grammar of Structured
+Coexistence* (2026, Zenodo:10.5281/zenodo.18925131) §5, Table 1 (the
+pseudo-peace/peace regime distinction this entry now also draws on);
+§7.28 open question 3 / logic.md §9.11 ETH-9 (the open item this entry
+supplies a worked parallel for, without closing it)]
 
 ---
 
@@ -4191,10 +4298,10 @@ through this book's own N2/`Ω_H` vocabulary, rather than importing CE's
 verdicts directly, remains a `Dr`/`[Open]` task not attempted here.
 
 [domain card: Lahtee, Y., *Causal Ethics* Ch.9 "Canonical Paradox Suite,"
-pp.39–42 (CE-05, CE-06, CE-07, CE-11, CE-17, CE-18, CE-20, CE-21, CE-23,
-CE-24, CE-25, CE-26, CE-27, CE-30, CE-31, CE-32, CE-33 as variously
-invoked per paradox); §7.22/§7.28 (this book's own ethics entries, engaged
-alongside, not amended by, this reading)]
+pp.39–42 (CE-05, CE-06, CE-07, CE-11, CE-12, CE-13, CE-17, CE-18, CE-20,
+CE-21, CE-23, CE-24, CE-25, CE-26, CE-27, CE-30, CE-31, CE-32, CE-33 as
+variously invoked per paradox); §7.22/§7.28 (this book's own ethics entries,
+engaged alongside, not amended by, this reading)]
 
 ---
 
@@ -4243,7 +4350,7 @@ monograph by this book's own author, uncited here until this entry.
 
 [domain card: Lahtee, Y., *Causal Ethics* Ch.10 "Religion, Culture, and
 Regime Mapping," pp.43–47; §8's `q_social` entry (philosophy.md, lines
-3868–3928, the institutional/social-memory account this entry sits
+4647–4707, the institutional/social-memory account this entry sits
 alongside); §7.29 (the no-conflation discipline this entry inherits)]
 
 ---
