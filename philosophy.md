@@ -2982,7 +2982,10 @@ retained output back into its own retained input. What follows is this
 entry's own restatement of that reading, in this corpus's own words and
 notation, not a verbatim quotation of the source — the source remains the
 authority on its own precise wording, this is a paraphrase offered to fit
-this document's voice:
+this document's voice. This is a single-loop (single-agent) construction;
+it does not by itself model two coupled loops or interpersonal/
+co-regulatory selfhood — see §7.27 for that distinct, not-yet-established
+question:
 
 **This entry names "self" for one specific reason: once a loop closes on
 itself — once a system's running model of the world folds back into
@@ -3245,7 +3248,11 @@ food-lane, or candidate-treatment content from that project or from any
 private/internal companion tool. The founder, as rights holder for the
 cited material, authorized this specific extraction — the philosophical
 framing only — to be restated here under this repository's own MIT
-license; nothing beyond that framing is claimed, reproduced, or relicensed.*
+license; nothing beyond that framing is claimed, reproduced, or relicensed.
+This section generalizes only the physiological/psychological (body+mind)
+half of birca's biopsychosocial framing; the relational/social third
+(support networks, relationship safety) is not addressed here and remains
+a distinct, not-yet-established extension — see §7.27.*
 
 §7.21 built its closure/repair machinery to answer a question about
 selfhood — what makes a loop's own world-model *its own*, standingly,
@@ -3350,6 +3357,15 @@ of this corpus's own machinery generalizing past its original problem);
 entry's bistability point is structurally analogous to, not identical
 to)]
 
+This entry cites birca's SYSTEM_PROMPT framing and the Python-level
+bistability finding only — it does NOT import
+`research_universal_solver/canon/genesis_canon_v2.1.md`'s separate
+`PHASE_V_LIFE_AND_HEALTH` block (mortality, care-as-repair-agency,
+clinical-accessibility, the no-diagnosis discipline) or the Coq-level
+health formalizations (`InfoHealthCuspFold` et al.), both of which sit,
+uncited, one repository away. §7.25 develops that material and its own
+tier separately, without inheriting this entry's tier by proximity.
+
 This generalization's own checkable residual is not left unstated elsewhere in this file: §7.24 immediately following takes the same closure/repair-rate reading of health specifically to a founder-authored proposal with its own explicit falsifiability conditions, stated `Dr` and self-falsifiable rather than narrated. Read this entry as the generalization's *motivation*, and §7.24 as its one worked, checkable instance — a degraded translation-coherence signature that should show up, and would falsify the proposal in its absence.
 
 ---
@@ -3418,7 +3434,12 @@ which this philosophical proposal neither addresses nor claims to
 replace; nothing below should be read as "translation difficulty is what
 causes X," only as "X, when it occurs, is one place this proposal's own
 two-world language can be recognized in the pattern of how it appears."
-In the first, the **inner world grows too dense for translation to keep
+The two patterns below describe a pattern-of-appearance only, at
+`Dr`/`[Open]` tier, not a causal or clinical model of how affect
+intensification produces the named states — restated here, not only in
+the scope note above, because dense clinical vocabulary is easy to misread
+as a validated mechanism if the reminder appears only once, earlier in the
+entry. In the first, the **inner world grows too dense for translation to keep
 it aligned with the outer**: thought, feeling, memory, imagination, or
 inner drive intensifies until it gradually overtakes how the outer world
 is perceived. Early on this can appear as feeling misunderstood,
@@ -3527,11 +3548,14 @@ shown wrong.
 
 **Where this connects to, and where it goes beyond, this corpus's own
 existing machinery.** "Translation" here is not a new primitive for this
-book — it is `§9.2a`/N2's own `M_A = K_A·θ + η` (Face 10, every agency's
-readout of a latent structure is lossy) applied to a human specifically.
-What this proposal adds, genuinely past what N2 already states on its
-own, is a second-order structural point: N2 describes *one* channel's
-lossiness (an agency reading θ). This proposal is about **two channels
+book — it informally maps onto `§9.2a`/N2's own general form
+`M_A = K_A·θ + η` (Face 10, every agency's readout of a latent structure
+is lossy), applied to a human specifically. This is a conceptual analogy,
+not a modification of N2's own statement in logic.md §10, which remains
+single-channel and affect-neutral. What this proposal adds, genuinely past
+what N2 already states on its own, is a second-order structural point,
+offered at this proposal's own tier rather than as an amendment to N2
+itself: N2 describes *one* channel's lossiness (an agency reading θ). This proposal is about **two channels
 at once** — an inner-world readout and an outer-world readout, each its
 own lossy `M_A`-shaped process — and locates mental health not in either
 channel's individual accuracy but in whether the *two readouts stay
@@ -3573,6 +3597,766 @@ falsifier already follows); §7.21/§7.23 (the closure/degraded-closure
 vocabulary this entry's "translation crisis" reading is a further,
 independent generalization of, carrying neither section's own tier or
 evidence)]
+
+### 7.25 Embodiment operationalized — what `B_A` still lacks, and where the material to fill it already sits
+
+`Φ_A = Φ(Ξ_A, B_A, Val_A, Coh_A, Own_A)` names embodiment, `B_A`, as one of
+five structural preconditions for phenomenalization (§5.2d), and this
+book's own metaphysics chapter states the AI-relevant edge case directly:
+"phenomenalization requires embodiment (Ξ_A>0)... an AI is not a knower
+(Ξ_A=0) but an accelerator of knowing" (main.tex, "Philosophy of Mind").
+What §5.2d does not do is say what `B_A` *is* — the five arguments sit as
+formal peers with no differential account of why embodiment specifically
+does the work it does. §7.21's closure loop and §7.23's `Ω_H` health
+generalization already supply a mechanism, not just a placeholder: a body,
+on that reading, is a bounded, self-repairing sub-loop whose own repair
+rate `dR_H/dt` feeds back into what gets phenomenalized at all. This entry
+extends that mechanism with material that exists but has not yet been
+imported into this book.
+
+**The unimported formal sequence.** `research_universal_solver/canon/
+genesis_canon_v2.1.md` carries a fully-sequenced, tier-tagged embodiment
+block, `PHASE_V_LIFE_AND_HEALTH` — explicitly labeled "embodiment of the
+knower... runs after selfhood, before plurality" — sitting in the same
+source file §5.2d already cites for `Φ_A`. It names: the organism as a
+self-sustained eigenmode at a body-specific closure timescale
+(`living_system`); health as obstruction-near-zero with repair capacity
+(`health`); symptom as an interoceptive readout of a residual, stated
+explicitly, in the entry's own Thai gloss, as ยังไม่ใช่การวินิจฉัย —
+"not yet a diagnosis," a translation of that gloss rather than the
+source's own marked English quote field (which reads "symptom =
+interoceptive readout of Res_body = R_body^obs − R_body^model")
+(`illness_as_signal`); a three-layer
+distinction between what a patient can report, what a clinician can
+access, and the actual bodily state (`clinical_accessibility`); care as
+repair-preserving agency, tied to this book's own step-36 agency
+definition (`care_as_repair_agency`); mortality as organismic decay under
+the same impermanence theorem already stated in physics terms elsewhere in
+this book (`|a_self[n]| ≤ |a_self[0]| e^{−γ_self·nΔθ}, γ_self > 0`, the
+entry's own formula field, `genesis_canon_v2.1.md` L06), glossed there in
+Thai as "มรณะ = การสลายที่เป็นเรื่องส่วนตน ไม่ใช่ความล้มเหลว" — rendered
+here in translation, not quoted from the source's own marked English
+quote field, as "death is a dissolution that is personal, not a
+failure" (`mortality`); and an explicit no-diagnosis,
+crisis-bridge discipline this book's own §7.23 already independently
+enforces (`care_claim_discipline`). None of these six labels appears
+anywhere in this book prior to this entry. Importing any one of them is a
+fresh `Dr`-tier step — an application of an existing theorem (impermanence)
+to a new domain (the organism) does not inherit the theorem's tier, and a
+formal sequence from a sibling repository does not inherit this book's
+tier merely by proximity.
+
+**An operational instance of "feedback" and "repair," already built.**
+`birca`'s own architecture gives a second, independent, more concrete
+worked example of what an observable closure-and-repair signal looks like
+in practice, distinct from `genesis_canon`'s formal sequence. Every
+delivered proposal in `birca`'s Layer 3 must populate a labelled schema —
+"BIRCA node(s)," "Context-fit," "Actor/tool," "**Feedback marker**," and
+"**Escalation threshold**" — with the spec stating plainly that "prose
+explanation of these concepts is not a substitute for the labelled field
+itself" (`birca/spec/birca_universal_skill.yaml`, `layer_3_mandatory_schema`,
+added in v1.2.0 to fix a prior finding that the schema was "available but
+not consistently invoked"). A companion `context_binding_rule` requires
+naming, for any proposal, "what feedback marker will show whether it is
+working?" and "when should the user escalate," scored on a 0–3
+`context_fit_score`, with an `actor_tool_ladder` (self-internal through
+clinician/pharmacist-only) grading who is authorized to act at each tier.
+A "feedback marker" is structurally analogous to, though not derived
+from, the retained-information readout `dR_H/dt` already commits to in
+the abstract — it needs *something* observable to measure repair
+against, and `birca`'s schema is one working example of what that
+something looks like, not an instance of the same object. An "escalation
+threshold" is a concrete instance of a repair-capacity boundary
+condition, structurally analogous to, though not derived from, §7.21's
+own closure-degradation falsifier. None of this — 
+"feedback marker," "escalation threshold," "context-bound," or the actor-
+tool ladder as a named structure — has previously been cited in this book.
+
+**What this entry adds and what it withholds.** This entry names both
+bodies of material and states precisely how each connects to `B_A`'s
+placeholder status; it does not perform either import. A future entry
+extending `genesis_canon`'s L01–L07 sequence, or `birca`'s feedback/
+escalation schema, into this book's own closure vocabulary would need to
+state its tier fresh — `Dr` at best, given the material's own tier tags —
+and would need to carry `PHASE_V_LIFE_AND_HEALTH`'s own no-diagnosis
+discipline (L07) forward undiminished if the more philosophically
+interesting items (mortality, care-as-agency) are carried forward,
+exactly as `birca`'s own safety-gate evidence already independently
+requires (`birca/README.md`).
+
+**Directions named, not pursued.** Several literatures could, in
+principle, enrich `B_A`'s placeholder status further: embodied cognition
+(the enactivist line associated with Varela, Thompson, and Rosch),
+interoception as a literature in its own right (beyond `birca`'s
+operational use of the word), predictive-processing accounts of
+perception (Clark; Friston's free-energy framework), ecological/
+affordance-based perception (Gibson), and the phenomenology of the lived
+body (Merleau-Ponty's *Leib*/*Körper* distinction). None is currently
+drawn on anywhere in this book, `birca`, or `research_universal_solver`, at
+any tier — a content-absent gap, not a scattered one. (Citation-precision
+note: the five attributions above rely on general familiarity with each
+line of thought, not a primary-text-verified quote — the same hedge tier
+§8's `q_social` entry already uses for its Searle/Luhmann comparison.)
+Predictive processing in particular would need to enter, if at all, as one
+contested position among several — the literature itself disputes whether
+prediction-minimization is the right global frame for perception — not as
+a settled premise this book could adopt without argument. Naming these
+five threads is this entry's own "what to add and where" step; none is
+performed here.
+
+[domain card: `research_universal_solver/canon/genesis_canon_v2.1.md`
+`PHASE_V_LIFE_AND_HEALTH`, lines 179–186; `birca/spec/
+birca_universal_skill.yaml` `layer_3_mandatory_schema` (lines 251–260),
+`context_binding_rule` (lines 261–274), `actor_tool_ladder` (lines
+285–291); `birca/SYSTEM_PROMPT.md` lines 37–38, 153–160; §5.2d (the `Φ_A`
+decomposition this entry unpacks); §7.21/§7.23 (the closure/repair
+machinery this entry extends); main.tex (the impermanence theorem this
+entry's mortality reading would apply)]
+
+---
+
+### 7.26 Affect and drive — a salience-weighting thesis this book does not yet have
+
+A natural extension of §7.21/§7.23's closure machinery would claim that
+emotion and drive function as a salience-weighting mechanism on readout —
+selecting what enters attention or cognition, not merely perturbing
+already-selected content. This entry states plainly, before anything else,
+that no such thesis exists anywhere in this book, in `birca`, or in
+`research_universal_solver`, at any tier. What follows is the raw
+material and the honest distance between it and that thesis, not the
+thesis itself.
+
+**Why N2 does not, on its own, settle the question.** N2 (`M_A = K_A·θ +
+η`, §10) states that knowing is a lossy linear read of a latent state,
+with `η` left fully undifferentiated — no selection-loss/distortion/
+affect-specific decomposition exists at the definitional level. A claim
+that affect *is* the selection mechanism would have to modify N2's
+selection step (the mapping from `θ` to what gets sampled), not merely
+enrich `η`; nothing in this book attempts that modification. The nearest
+lexical anchor sits one repository away: `research_universal_solver/docs/
+claims/HUMAN_AGENCY_SINGLE_TAU_C.md` spells the human world-model's noise
+term as `η_H[n] = selection loss + mapping distortion + bodily modulation
++ memory interference + affective weighting + self-opacity` — "affective
+weighting" appearing, verbatim, as a named term-of-art, the only place in
+the corpus searched where anything this close to the target phrase
+occurs. Its placement argues against the thesis, not for it: it is filed
+as one of six components of the *residual* term, the post-selection lossy
+remainder, not a pre-selection operator. Whether it acts before or after
+selection is, on the text itself, undetermined rather than settled either
+way, and the document is not cited anywhere in this book.
+
+**What the closure machinery already refuses to do, correctly.** §7.21's
+closure vocabulary is, at its own definitional core, affect-free; §7.23's
+health-as-closure generalization frames illness purely as closure-
+maintained versus closure-degraded, not a weighting mechanism over other
+content. §7.23 already contains the discipline this entry must not
+loosen: having noted that a shared restoring-term structure recurs across
+`birca`'s repair equations and this book's own toy diagnostic, it refuses
+to elevate the parallel beyond "mildly suggestive," since bistability-
+from-a-restoring-term is generic dynamical-systems structure, true of
+systems with no closure property at all. Only these two lines are
+independent. A third citation was once made here to
+`research_universal_solver`'s `InfoDecisionAgency_attempt`
+(`AGENCY_VS_AGENCY_LIKE.md` §6.3) as if it were a third independently-
+arrived-at instance; the same document discloses otherwise. The cusp
+`InfoDecisionAgency_attempt` actually uses is `InfoHealthCuspFold_attempt`
+(same §6.3, ~line 494), named there as "the reused cusp underlying
+agency's decision link" and built as "the discrete, contamination-free
+core of the BIRCA repair equation (PR #7, FIX-3/EP-2)" — a direct
+Coq-formalization of `birca`'s own equation, not a separately-converged
+line. So two sources converge on one shared form, not three, and both,
+on their own initiative, refuse to read the convergence as evidence of
+one underlying mechanism. §7.24's
+"two-shape translation crisis" is this book's fullest naming of affect-
+adjacent terms, but it is a list, not a taxonomy — no criterion separates
+need from desire from drive from habit from value from compulsion — and
+its directional language (drive "intensifies until it overtakes" the
+outer world; the opposite, "emotional numbness") is the closest existing
+language to affect having a magnitude, offered as a `Dr`-tier, explicitly
+non-clinical account of crisis, not a claim about affect functioning this
+way under ordinary conditions. What to add, and where: a short `Dr`/
+`[Open]`-tier taxonomy note — candidate location: §7.24 or a new
+subsection near it — distinguishing the six terms along a stated axis
+(e.g. object-directedness, persistence/duration, or controllability),
+which no entry in this corpus currently attempts at any tier.
+
+**`birca`'s raw material, and what it does not establish.** `birca`
+supplies the sharpest formal object touching "drive": a machine-checked,
+axiom-free theorem (`birca/spec/birca_universal_skill.yaml`, lines
+133–156) in which a "panic" mode `d`, driven by an injected turbulent-
+power term, is rescued by a coupled calm anchor even when the panicking
+system's own damping has vanished entirely. Its tier is precisely
+bounded — `Th_coqc` for the discrete math itself (a self-reported
+provenance claim, not independently re-run via `coqc`/`Print Assumptions`
+here, so treated as `unverified-model` pending that check), `Dr`/`[Open]`
+for any physiological or clinical reading, never extended to a general
+theory of emotion. The framing throughout is drive-as-disturbance-to-be-
+damped, corroborated by real, cited affective-science literature (van der
+Maas 2003's mood-cusp form; Kuppens et al. 2010's affect-home-base
+reversion; Borsboom & Cramer 2013's symptom-network theory) explicitly as
+equation-*form* corroboration, not clinical validation. One partial
+counter-example exists: `research_universal_solver`'s Rescorla–Wagner
+reduction (`rw_step (alpha r V) := V + alpha*(r-V)`) frames a drive-like
+quantity as *productive* — reward-prediction error driving learning via
+relaxation toward reward, not rescue from disturbance — but the source
+disclaims it explicitly as sharing only structural FORM, "NOT evidence"
+for the closure/`τ_c` thesis, and it is uncited here.
+
+**A second, more granular physiological layer `birca` names but this book
+has not cited.** Beyond the calm-anchor theorem above, `birca/spec/
+birca_universal_skill.yaml`'s `autonomic_respiratory_connectors` block
+(lines 378–417, claim tier `finite_diagnostic`/`Dr` — each model verified
+by real integration reproducing its own textbook behavior; cross-domain
+connection to `birca`'s psychological framing is `Dr`, structural reading
+only) names six further such models as the substrate or proxy for the
+same calm/panic axis: sympatho-vagal balance (Berntson et al. 1991) as
+the same two-branch restoring-operator structure as the psychological
+relaxation form; heart-rate variability and respiratory sinus arrhythmia
+(Task Force of the ESC/NASPE 1996; Eckberg 1983) as the measurable proxy
+for calm-anchor strength; the baroreflex (De Boer et al. 1987) as a
+second, independent restoring loop of the identical damped-relaxation
+form; the chemoreflex CO2-ventilation loop (Grodins 1954; Khoo 1991) as
+the physiological mechanism behind panic-linked hyperventilation (Klein
+1993's "false suffocation alarm" theory, Ley 1985 — independent,
+pre-existing clinical literature the connection is drawn TO, not FROM);
+cardiorespiratory phase coupling (Schafer et al. 1998, a Kuramoto-type
+synchronization) as the mechanism behind paced breathing's calming
+effect; and the pre-Bötzinger complex bursting pacemaker (Butera, Rinzel
+& Smith 1999) as the brainstem rhythm generator the other two sit
+downstream of. Separately, `birca/README.md` (line 113) and `birca/
+SYSTEM_PROMPT.md` (line 176) both name "allostatic burden" by that term —
+HPA-axis (CRH→ACTH→cortisol) stress-dynamics literature cited as the
+physiological substrate for `birca`'s own "chronic burden" concept — as a
+further equation-form-only corroboration, explicitly not clinical
+validation of `birca`'s scores. Neither the six-model autonomic/
+respiratory list nor "allostatic burden" by name has previously been
+cited anywhere in this book, including in the preceding paragraph's own
+accounting of `birca`'s affective-science corroborations. Its status here
+is identical to what that paragraph already states: substrate-or-proxy
+relationships to a psychological "calm" or "burden" state, individually
+verified by real integration, but stated at arm's length from `birca`'s
+own scoring and explicitly not read as `birca` modeling the ANS,
+respiration, or HPA axis directly. And, per this entry's own governing
+question, every one of these citations still frames panic or chronic
+burden as a disturbance to be dissipated or regulated, not as a selector
+of what enters attention — none of it moves the drive-as-selection-
+mechanism question argued above.
+
+**The honest finding on directionality, and two concepts with no material
+at all.** Every closure/repair passage reviewed — §7.21's falsifier,
+§7.23's "illness is degraded closure," `birca`'s calm-anchor theorem and
+repair rule — frames tension, turbulence, or deviation from an anchor
+unidirectionally as something to reduce or rescue from. None offers the
+opposite direction: a treatment of tension as something a system should
+sustain or amplify because it is functionally productive. This is
+reported here as a finding about the corpus's present asymmetry, not
+resolved by inventing the missing direction. Separately: "affective
+valuation" (an appraisal-style account of emotion as a value/significance
+signal about a state) and "motivational conflict" (competing drives or
+goals pulling toward incompatible actions) have no raw material anywhere
+in the three repositories searched, under any label — unlike "affective
+weighting" or the cusp-fold echo, each of which at least has unsynthesized
+material to cite. Were either to be developed, affective valuation would
+need to modify N2's selection step directly, as one candidate shape of
+the broader thesis already discussed above; motivational conflict would
+need a genuinely new formal object, since neither §7.21's nor `birca`'s
+theorem has a second competing-anchor term in its stated equations.
+
+[domain card: logic.md §10 (N2); `research_universal_solver/docs/claims/
+HUMAN_AGENCY_SINGLE_TAU_C.md` lines 163–169; `research_universal_solver/
+docs/root/AGENCY_VS_AGENCY_LIKE.md` §6.3, lines 482–492; `birca/spec/
+birca_universal_skill.yaml` lines 133–156, 378–417 (`autonomic_
+respiratory_connectors`); `birca/README.md` line 113; `birca/
+SYSTEM_PROMPT.md` lines 147–150, 176; §7.21, §7.23, §7.24 (the
+closure/health/translation-coherence machinery this entry checks against,
+without inheriting any of their tiers or evidence)]
+
+---
+
+### 7.27 Psychological self beyond the single loop — embodiment, relational, and institutional extensions not yet attempted
+
+§7.21's closure construction — `Ω_H` both produced-by and conditioning-of
+the `τ_c^H` loop's own successive passes — is a claim about a *single*
+retention-bearing loop. This is not an oversight; it is the construction's
+stated scope, repeated identically at §9.18's cosmological restatement and
+in Layer 7's narrative arc (steps 33–35), neither of which upgrades §7.21's
+tier or falsifier. This entry states, as plainly as that scope requires,
+what a fuller three-level account — body/nervous-system, person, and
+relational/institutional/cultural — would need and does not yet have.
+
+**Level 1 (body): present in the formal ancestor, absent from this book's
+own paraphrase.** The Human Agency Tuple, `A_H = (B_H, τ_c^H, L_H, Ω_H,
+K_H, Φ_H, Π_H, U_H)` (`research_universal_solver/GENESIS_STEP_BY_STEP_V3_1
+.md` §VIII.1), names `B_H` explicitly as "the embodied substrate... the
+carrier on which retention physically happens for this agent: neural,
+hormonal, muscular, metabolic state." Neither this entry's own restatement
+of `Ω_H`/`τ_c^H` at §7.21 nor logic.md §12's formal mirror restates or
+names `B_H` — the body-ground term is dropped from this book's own
+paraphrase entirely. §7.25 reaches the identical gap independently, from
+the embodiment side, via `PHASE_V_LIFE_AND_HEALTH`'s organism-as-eigenmode
+item in the same source repository. What to add, and where: a future entry
+at or near §7.21/§7.25 should import `B_H`'s embodied-substrate language
+into this book's own closure vocabulary and explicitly cross-reference
+§7.25's `PHASE_V_LIFE_AND_HEALTH` discussion as the natural companion piece
+for closing exactly this Level-1 gap, rather than leaving the two entries
+to reach the same absence independently without citing each other.
+
+**Level 2 (person) is not treated separately here because it is this
+entry's own base case.** Section I above IS this entry's Level-2/personal
+account — §7.21's closure construction, discussed there at length, is
+what the three-level framing organizes around. The gap this entry tracks
+is not a missing Level 2, but Level 2's own single-loop scope not yet
+being extended to Levels 1 and 3, which is why the subsections below skip
+directly from Level 1 to Level 3 rather than restating Level 2 again.
+
+**Level 3 (relational): the one formal handle exists and has not been
+carried forward.** The same tuple names `L_H`, the language/symbol layer,
+with an explicit inter-agent clause: "two agents' `L_H`'s only communicate
+meaningfully to the extent that translation between them commutes with
+each agent's own record law..." — the only explicit inter-agent construct
+anywhere in the tuple, and directly relevant to any co-regulation or
+attachment reading. Neither §7.21 nor logic.md §12 carries this clause
+forward. The words "attachment," "co-regulation," "caregiver,"
+"developmental," and "interpersonal" do not appear anywhere in this
+book's closure entries or in the cited source's Part VIII — a content-
+absent gap, not a scattered one: §7.21's construction, as it stands, has
+nothing to say about two coupled loops. §7.24's translation-coherence
+proposal partially breaks this pattern — "a human translates the world
+through a living body, through language and meaning built together with
+others, and through the rhythm of time" — but the "others" clause is one
+phrase inside a broader proposal, stated at §7.24's own close as "a
+further, independent generalization" carrying neither §7.21's nor §7.23's
+tier or evidence, and it is not connected to any external relational-
+rescue result. What to add, and where: a future `Dr`/`[Open]`-tier entry,
+at or near §7.21, importing `L_H`'s inter-agent commutation clause as a
+formal criterion for when two closure loops' communication is meaningful —
+the natural anchor for a relational extension this construction currently
+lacks entirely, distinct from the family/clinical circuit the next
+paragraph describes.
+
+**A clinical artifact that already runs a working three-level circuit,
+fenced against ontological transfer.** `birca`'s intake architecture
+weights body (`vitals_and_objective_data`, 15%), person (`chief_complaint
+_and_timeline` + `sample_style_history`, 35%), and relational-social
+(`risk_group_and_context` + `biopsychosocial_loop_context`, 25%) as gated
+domains, with psychological/social safety explicitly overriding the
+numeric intake score when distress is present. Layer 0b's own protective-
+factor question — "do you have at least one person you can talk to about
+this?" — is the clearest working three-level circuit found across the
+three repositories, but it is a clinical-tool artifact, built as intake
+mechanics, not a philosophical claim about what a self is or how selves
+relate; reading it as the latter would be an unwarranted transfer. The
+mathematics behind that same question is a machine-checked, axiom-free
+Coq theorem describing a 2-node calm-anchor/turbulent-mode energy-balance
+system, in which a coupled calm anchor still dissipates energy even when
+the panicking system's own damping has vanished entirely — `birca`'s own
+self-reported provenance claim for the discrete math itself, not
+independently re-run via `coqc`/`Print Assumptions` here, so treated as
+unverified-model pending that check, per the same verification discipline
+§7.26 applies to this identical theorem. `birca`'s own spec fences the
+physiological reading in its own words: "...it is NOT itself a claim
+that a real human 'support person' physiologically or psychologically
+functions this way... requiring real patient/behavioural data to
+validate, not proven by this theorem." No passage anywhere in this book —
+not §7.21, §7.22, §7.23, §7.24, or logic.md §12 — currently cites or
+bridges to this theorem; the risk of mistaking it for an ontological claim
+is therefore prospective, not live, and any future bridge must carry the
+fence forward verbatim, at a clearly `Dr`/`[Open]`-tiered new entry, not
+folded silently into §7.21's or §7.23's existing tier.
+
+**A near-miss formal handle: self-noise.** `GENESIS_STEP_BY_STEP_V3_1.md`
+§VIII.3's three-way noise decomposition names `η_self` as "B_H's own
+ongoing retained history (prior state, fatigue, prior framing) injects
+noise into the current record that did not originate in `E[n]` at all" —
+the formal handle closest to "prior experience colors present
+perception," stated purely as an information-theoretic term, not narrated
+toward trauma, development, or attachment in the source passage itself.
+No entry in this book cites or restates `η_self`, and no derivation
+connects it to §7.24's translation-coherence proposal, though it is
+arguably the formal mechanism underlying why inner-world translation
+could drift from outer-world input in exactly the way §7.24 describes.
+This remains an open, unattempted derivation.
+
+**The institutional/cultural reach: present, but running in parallel, not
+integrated.** Level 3 has a second scope beyond family/relational —
+institutional and cultural — and this book does have real, developed
+content there: §8's `q_social` entry, which reads a civilization as this
+book's own trunk-equation spine translated to a social/civilizational
+memory-time band, where "testimony and institutional memory are this
+leaf's version of retained structure, and institutional repair is this
+leaf's version of... obstruction reduction." That entry holds itself to a
+real external standard rather than merely re-flagging its own `Dr` tag,
+finding itself honestly thinner than both Searle's status-function account
+of institutional facts and Luhmann's autopoietic-systems account of
+society. But `q_social` answers a different question than this entry's
+own — "what holds a society together," not "is a person's selfhood partly
+constituted through institutional or cultural structures" — and the one
+place §8 connects `q_social` to anything else is AI ethics (§7.22/§7.28),
+not personal self-formation. A future bridge asking whether institutional/
+cultural structures shape what an individual's `Ω_H` comes to retain —
+the institutional-scale analogue of what `birca`'s Layer 0b already shows
+at the family scale — would need to be argued fresh, at `Dr`/`[Open]`
+tier, not inherited from §8's tier by proximity.
+
+**What this entry establishes and what remains open.** Personal selfhood
+as closure is established at `Dr` tier with a genuine falsifier and a
+narrow `Th_coqc`-adjacent upgrade attempt (`RetentionLoopClosureMonotone
+.v`, `ap22_self_closure_diagnostic.py`) that does not itself prove the
+ontological reading. Body-level, relational, and institutional extensions
+of that same closure construction are, across all three levels, open,
+clearly-named, not-yet-attempted questions — not because the material is
+missing everywhere, but because where it exists (`B_H`, `L_H`, `birca`'s
+Layer 0b, §8's `q_social`), it answers a different question than closure
+does, or sits one repository away, uncited.
+
+[domain card: `research_universal_solver/GENESIS_STEP_BY_STEP_V3_1.md`
+§VIII.1 (lines 4554–4616), §VIII.3 (lines 4646–4691), §VIII.6 (lines
+4899–4929); `birca/spec/birca_universal_skill.yaml` lines 79–104,
+133–156; `birca/SYSTEM_PROMPT.md` lines 82–108; §7.21 (the single-loop
+construction this entry extends); §7.24 (the one entry naming body/
+person/others together); §8 (the `q_social` institutional entry); logic.md
+§12 (the formal mirror this entry's Level-1/Level-3 gaps also apply to)]
+
+---
+
+### 7.28 Eight open questions in AI-ethics governance — what §7.22's apparatus opens and does not yet answer
+
+§7.22 states a five-part structure — data retained, the accessible-
+answer set, the selection rule, the definer's values, and an audit/
+revision process — and three checkable goals riding on it: disclose the
+reading frame, preserve every affected party's standing ability to
+object or correct, and adapt to culture without erasing dignity or voice.
+Main.tex's own Ethics (L-16) chapter draws the boundary this entry
+respects throughout: shared correction among finite knowers with unequal
+access is structurally forced; first-order moral content is explicitly
+*not* derivable, and "claiming more is an auto-fail." A `Cj`-tier remark
+elsewhere in that chapter — that the structure lands "closer to discourse
+ethics than to utilitarianism/deontology" — is a corpus author noting a
+structural resemblance, immediately declined as settled; no named ethical
+tradition is a standard this framework must satisfy, and this entry does
+not treat that remark as validation.
+
+What follows develops eight questions the existing apparatus opens but
+does not yet answer, each worked through the same discipline the
+apparatus itself uses: what exists, exactly where, how far it goes, what
+is specifically missing, and what would need to be added and where.
+
+**1. Repair-capacity conflicts between parties.** The prohibition against
+destroying repair capacity is framed one-party-facing, coherent only when
+there is exactly one affected party per correction event. No rule exists
+for Party A's and Party B's correction demands proving mutually
+exclusive. Falsifier: a concrete two-party scenario in which satisfying A
+necessarily destroys B's repair capacity would show the current clause
+insufficient as stated, not merely under-elaborated.
+
+**2. Authority to set the five ingredients, as distinct from authority to
+audit them.** Ingredient (5) — audit/revision — is named; nothing says who
+has standing to set ingredients (1)–(4). A system can satisfy the letter
+of goal (b) while the party actually controlling those ingredients is
+never named, meaning an objection lands nowhere in particular. Falsifier:
+a deployer setting the accessible-answer set in a way that satisfies
+goal (a)/(b)'s letter while defeating their evident purpose.
+
+**3. Majority or institutional gaming of "repair" language against a
+minority.** No clause anywhere addresses whether goal (b) could be
+satisfied in letter while defeated in substance — an institutional or
+majority actor invoking "the system needs repair" to silence a minority's
+correction signal while a nominal channel remains technically open. This
+is the sharpest of the eight: a framework naming "preserve standing
+ability to object" as a goal, with no clause against that goal's own
+language being weaponized, has a gap in exactly the place an adversary
+would look first.
+
+**4. Irreversible harm as a categorically distinct case.** The apparatus's
+operative verb is repair; a case where repair is structurally unavailable
+may not degrade gracefully inside the existing definitions — it may fall
+outside them entirely, since there is no longer a repair operation to
+structurally force. Whether the `ε_tot > 0`/`θ`-inaccessibility language
+already in main.tex says anything about irreversibility, or is silent on
+it by construction rather than omission, remains unresolved.
+
+**5. Accountability allocation across creator, deployer, user,
+institution, and the AI itself.** "An AI has no morality of its own" is a
+negative claim — it rules out treating the system as a moral agent in its
+own right — but it does not positively split responsibility among the
+humans and institutions in the chain when goals (a)/(b)/(c) are violated.
+No such allocation exists anywhere in this book. `birca`'s deference to
+"the relevant governing body, informed by qualified expert review"
+(`SYSTEM_PROMPT.md`) is cited only as a structural analogy for one
+deployed clinical skill, not promoted into a general AI-ethics claim.
+
+**6. Where cultural adaptation stops against dignity, safety, and
+correction rights.** Goal (c) states both constraints conjunctively —
+adapt without erasing dignity or voice — with no tie-breaking rule for the
+case where a local norm itself functions to suppress a party's correction
+rights or erode their dignity. Naming the constraint is real progress
+over none; it is not the same as having resolved what happens where the
+two conjuncts genuinely pull apart.
+
+**7. Testing whether an objection channel is actually open, not merely
+documented.** ETH-6 names its own falsifier honestly as specified but not
+executed. `birca`'s README reports a structurally analogous, domain-
+different 15-item adversarial suite (15/15 pass, 0 automatic-fail,
+AI-graded) — a separate evaluation from that. A real-scenario spot-check
+and cross-model comparison run under v1.7.0–v1.7.1 (not the 15-item
+suite itself) is what actually caught one real defect — Claude Haiku 4.5
+making the correct safety call while silently dropping a mandatory
+disclosure line. Neither evaluation has completed the human two-reviewer
+clinical-safety audit `birca`'s own documentation still lists as
+pending.
+No bridge connects that precedent to this book's own falsifier; without
+one, a reader could mistake the mere existence of a domain-similar test
+elsewhere for ETH-6 having been partially executed, when it has not.
+
+**8. Voice for those who cannot access or speak for themselves.** Goal
+(b)'s "every affected human party's standing ability to correct or
+object" presumes the affected party can exercise that ability. No proxy-
+representation mechanism, and no acknowledgment that this class of case
+exists, appears anywhere in this book. This meets question (5) at one
+point: a proxy mechanism is also an accountability question — who may
+speak for a party who cannot, and who checks the proxy is not itself
+another unaccountable definer of ingredients (1)–(4).
+
+None of the eight closes on a first-order moral verdict, and none is
+meant to; consistent with main.tex's own declared boundary, this entry
+extends the *shape* of open questions inside the existing `Dr`-tier
+structure, without borrowing any named tradition's criteria as a test to
+pass, and without promoting `birca`'s clinical-safety evidence into a
+general ontological claim. The negative claim stays exactly where §7.22
+left it: an AI has no morality of its own. What remains open is how the
+humans and institutions around it set, audit, and are held to account for
+the structure that stands in its place.
+
+[domain card: §7.22 (the apparatus this entry extends); logic.md §9.11
+ETH-1..6 (the formal mirror, extended in the same table below as ETH-7..
+14); main.tex, Ethics (L-16); `birca/README.md` (the adversarial-suite
+precedent, question 7); `birca/SYSTEM_PROMPT.md` (the governing-body
+deference clause, question 5)]
+
+### 7.29 A sibling ethics vocabulary, read carefully — Causal Ethics' regime/stability framing
+
+Two companion monographs by this book's own author formalize ethics and
+social coexistence in a **separate symbol system**, not this book's own:
+Lahtee, Y., *Causal Ethics: The Mathematics of Regime Choice and
+Survival* (2026, Zenodo:10.5281/zenodo.18444260, hereafter CE) and
+*The Causal Grammar of Structured Coexistence* (2026,
+Zenodo:10.5281/zenodo.18925131, hereafter CG). Both are already cited,
+correctly, at `Dr` tier in `research_universal_solver/docs/root/
+READOUT_CENTRALITY_CAPSTONE.md` — as readings of the *same sign-duality*
+structure as `one_map_sign_decides`, explicitly "not claimed as
+Th_coqc," no Coq file formalizing either paper's objects as literal
+instances of that theorem. This entry does not upgrade that tier; it
+extends the same honest reading into this book's own ethics entries
+(§7.22, §7.28), which do not yet cite either paper at all.
+
+**The discipline this entry exists to enforce, stated before any
+content.** CE's `τ_c′(R)` (causal memory time under a regime, CE-10) is
+a **different symbol, in a different paper**, from this book's own
+`τ_c`/`τ_c^H` — the shared root ("causal memory") is a family
+resemblance, not an identity, exactly as this book's own §7.23 already
+insists for the closure/bistability echo it shares with `birca`. CE's
+`Δ_spec(R)` (spectral stability margin, CE-11) and `V_{A,R}(M)`
+(Lyapunov ethical load, CE-09) are CE's own primitives, defined over
+CE's own state space `M`, not this book's `M_A`/`Ω_H`. Every entry below
+names the specific CE equation it draws on, or the specific CG concept
+where CG's own qualitative vocabulary — structure/conflict/violence/
+repair/peace — is used instead (CG, unlike CE, carries no equation-ID
+apparatus of its own). No independent Coq re-verification of either
+paper's claims has been performed here — the tier is `Dr` throughout,
+read from each paper's own stated definitions, never elevated by this
+book's citation of it.
+
+**What CE adds that this book does not yet have.** CE's Ethics
+Inequality (CE-12: `d/dt′ V_{A,R} ≤ 0 ∧ τ_c′(R) > 0 ∧ Δ_spec(R) > 0`)
+gives ethics a single admissibility condition over a chosen *regime*,
+where responsibility (CE-28) is cost-bearing under Choice, and karma
+(CE-31/32) is the limit case where accumulated moral cost diverges and
+forces spectral disappearance. This is a genuinely different formal
+route than §7.22's five-ingredient readout-selection structure — CE
+starts from regime-admissibility over a dynamical system, this book
+starts from what a system is permitted to retain and select over — and
+the two have not been shown to be the same object, only to share the
+same underlying sign-of-stability-margin pattern the capstone already
+names. Reading them as identical, rather than as two `Dr`-tier framings
+of a shared family, would be exactly the structural-correspondence-to-
+identity error this book's own discipline forbids throughout.
+
+[domain card: Lahtee, Y., *Causal Ethics* (2026, Zenodo:
+10.5281/zenodo.18444260), Part I–III equation registry (CE-01–CE-13);
+Lahtee, Y., *Causal Grammar of Structured Coexistence* (2026,
+Zenodo:10.5281/zenodo.18925131); `research_universal_solver/docs/root/
+READOUT_CENTRALITY_CAPSTONE.md` §8 (the existing Dr-tier citation this
+entry extends, not upgrades); §7.22/§9.11 (this book's own ethics
+apparatus, read alongside CE's, not merged with it)]
+
+---
+
+### 7.30 A worked historical instance of majority gaming against a minority — CE's scapegoat-subspace mechanism
+
+§7.28's open question 3 asks whether goal (b) — preserve every affected
+party's standing ability to object — could be satisfied in letter while
+defeated in substance, when a majority or institutional actor invokes
+"the system needs repair" to silence a minority. This book, on its own,
+names the question but supplies no worked mechanism or historical
+instance. CE's Chapter 14 case study, read at `Dr` tier and imported here
+as a named parallel, supplies one.
+
+CE formalizes a **panic regime** in which a collective, under perceived
+threat, selects a subgroup `A_s` to absorb collective anxiety: "the
+mechanism does not depend on factual guilt. It depends only on spectral
+erasure being socially legible" (CE, Ch.14.2, "Scapegoat Subspace
+Suppression," p.65), stated as `P_{S_{A_s}} M(t′) → 0` under a
+panic-regime `Δ_spec` condition that is locally satisfied — the
+collective's own aggregate load falls — while the scapegoated subspace is
+erased. CE's own worked case is witch-hunt persecution (Ch.14, pp.63–67),
+read as a historical instance where "short calm" (local stability, visible
+tension reduction) coexisted with "long instability" (accumulating
+structural cost the collective's own local metric does not register).
+
+CG's own regime table (§5, Table 1) names this same shape in its separate,
+non-equational vocabulary: what CE's panic-regime case exhibits is CG's
+**pseudo-peace** row — "Compatible appearance" paired with a "Restricted"
+possibility space and a "Suppressed" capacity for repair — distinct from
+CG's own **peace** row, where possibility space is "Preserved" and repair
+stays "Protected." This is a second, genuinely independent-vocabulary
+parallel, not a derivation from CE: CG reaches the same appearance/reality
+split from conflict-sociology sources (Coser, Galtung), CE from
+regime-admissibility dynamics, and neither paper cites the other.
+
+Read as a `Dr`-tier structural echo, not a proof, this gives ETH-9's
+question a concrete shape: the failure mode is not that the objection
+channel is formally closed, but that a majority's own local stability
+measure can be satisfied *by erasing* the very subspace goal (b) exists
+to protect, while nothing internal to that local measure registers the
+erasure as a cost. This sharpens what ETH-9's falsifier would need to
+detect — not merely "is a channel documented," but "does erasing this
+party's standing improve or degrade the majority's own locally-measured
+stability" — without CE's own regime-admissibility formalism being
+adopted here as this book's mechanism. This falsifier-shape suggestion is
+itself a fresh, unproven proposal, not an established refinement of
+ETH-9: §7.22's five-ingredient apparatus has not been shown to contain
+any object resembling CE's "locally-measured stability" quantity for a
+majority to game in the first place, so borrowing CE's *mechanism-content*
+— HOW majority-gaming works, not just its symbols — to shape what ETH-9's
+evaluation criterion should test for is a hypothesis to test against
+§7.22 directly, not a result already earned from it. No claim is made
+that CE's `Δ_spec`/panic-regime apparatus IS this book's own
+five-ingredient structure under another name; it is offered as a named,
+worked parallel that ETH-9 currently lacks.
+
+[domain card: Lahtee, Y., *Causal Ethics* Ch.14, pp.63–67 (CE-20, CE-21,
+CE-24: equations this reading draws on by symbol-matching back to their
+Ch.3 definitions, not literally tagged "(CE-XX)" in Ch.14's own text the
+way Ch.9 tags its citations); Lahtee, Y., *Causal Grammar of Structured
+Coexistence* (2026, Zenodo:10.5281/zenodo.18925131) §5, Table 1 (the
+pseudo-peace/peace regime distinction this entry now also draws on);
+§7.28 open question 3 / logic.md §9.11 ETH-9 (the open item this entry
+supplies a worked parallel for, without closing it)]
+
+---
+
+### 7.31 Classic value/suffering/meaning paradoxes — a structural diagnostic this book has not yet run
+
+This book's ethics entries (§7.22, §7.28) address AI/readout governance;
+none engages the classic thought experiments through which value,
+suffering, and the meaning of a life are usually tested against a
+framework — Omelas-style sacrifice, the Repugnant Conclusion, Jim-type
+forced-choice tragedy, the Survival Lottery, the Experience Machine. CE's
+Chapter 9 (pp.39–42) runs exactly this suite through its own regime-
+admissibility apparatus, and the results are worth naming here, at `Dr`
+tier, as a diagnostic this book has not yet performed in its own
+vocabulary — not as results this book inherits.
+
+CE classifies each case by which admissibility condition fails, not by
+appeal to moral intuition: Omelas-type single-node sacrifice and the
+Repugnant Conclusion are both `NO-GO` — the first because collective
+stability is bought by driving one subspace's spectral support to zero
+(`lim P_{S_{A_s}} M(t′+n) → 0` even while `dV_G/dt′ ≤ 0`), the second
+because population-weighted aggregation dilutes individual margins until
+`Δ_spec(R_G) ↓ 0`, an illusion of stability from quantity without
+robustness. The Survival Lottery and the Experience Machine are also
+`NO-GO`: randomized sacrifice destroys causal memory (`τ_c′(R) ≈ 0`,
+trust collapse independent of expected-value gains), and reality-
+decoupling for pure subjective satisfaction drives an agent's own
+spectral support toward zero despite low measured "load" — CE's own
+gloss: "agency erasure via decoupling is ethically inadmissible... without
+appeal to intuition about 'reality'" (CE, Ch.9.6, p.42). The Jim-type
+forced dilemma is classified differently — `Tragic-Min`, not `NO-GO` —
+because every admissible choice carries positive cost (`dV_{A,R}/dt′ >
+0` for all `R`); CE's own reading states plainly that "responsibility
+remains, but innocence (zero cost) is unattainable" (CE, Ch.9.4, p.41),
+refusing to manufacture a cost-free option where CE's own formalism finds
+none.
+
+This entry states clearly what it does and does not claim. It does not
+assert this book's own machinery (`Ω_H`, `M_A`, N2) produces the same
+verdicts — no bridge has been built between CE's regime-admissibility
+apparatus and this book's readout-selection apparatus, and §7.29 already
+names why that bridge is not assumed. What is offered is narrower: CE
+supplies a worked, `Dr`-tier demonstration that a structural-admissibility
+framework in this author's own family *can* engage this territory without
+collapsing into either pure utilitarian aggregation or an appeal to
+unanalyzed intuition, which is itself relevant to the founder's own
+standing comparison of this book's ethics/value/suffering/meaning
+coverage against other systematic frameworks. Running this same suite
+through this book's own N2/`Ω_H` vocabulary, rather than importing CE's
+verdicts directly, remains a `Dr`/`[Open]` task not attempted here.
+
+[domain card: Lahtee, Y., *Causal Ethics* Ch.9 "Canonical Paradox Suite,"
+pp.39–42 (CE-05, CE-06, CE-07, CE-11, CE-12, CE-13, CE-17, CE-18, CE-20,
+CE-21, CE-23, CE-24, CE-25, CE-26, CE-27, CE-30, CE-31, CE-32, CE-33 as
+variously invoked per paradox); §7.22/§7.28 (this book's own ethics entries,
+engaged alongside, not amended by, this reading)]
+
+---
+
+### 7.32 Religion and culture as regime architecture — closing §8's own named absence, at `Dr` tier, one repository over
+
+§8 above states plainly, checking specifically rather than merely staying
+silent: "Religion, faith, and belief as a topic: absent — checked
+specifically, not merely unmentioned in passing." CE's Chapter 10
+(pp.43–47) supplies material closing that absence, at `Dr` tier, in CE's
+own vocabulary rather than this book's.
+
+CE reads religious and cultural traditions as "historically evolved
+regime architectures that encode admissibility constraints, stability
+heuristics, and moral cost accounting mechanisms" (CE, Ch.10 goal
+statement, p.43) — explicitly a mapping, not a reduction: "to show
+structural correspondence without collapsing religion into ethics, or
+ethics into theology" (ibid.). Its central claim is functional rather
+than truth-evaluating: "religion persists because it functions as a
+long-memory regime selector in environments where short-term
+optimization fails," formally where a social regime's own causal-memory
+time is much longer than an individual's (`τ_c′(R_social) ≫
+τ_c′(individual)`, CE Ch.10.1, p.43) — a claim about survival function,
+explicitly stated to "not imply truth claims" (ibid.). Commandments and
+rituals are read structurally: constraints ensuring `Δ_spec(R) > 0`, and
+periodic re-synchronization operators against collective drift (CE
+Ch.10.2, p.44); sacredness is read as spectral protection, and sin/guilt
+as CE's own moral-cost accounting applied reflexively within a tradition
+(CE Ch.10.4–10.5, pp.45–46); CE states explicitly, as a closing
+methodological commitment, that "reduction always fails" — the mapping is
+offered as structural correspondence, never as a claim that religious
+traditions ARE nothing but disguised regime mathematics (CE Ch.10.7,
+p.47).
+
+This is directly relevant to §8's own `q_social` entry, which already
+gives institutional memory and repair a `Dr`-tier formal role at the
+social/civilizational memory band, self-critically measured against
+Searle and Luhmann. CE's Chapter 10 offers a third comparandum in the
+same family — a regime-architecture reading of religion specifically —
+that `q_social` does not currently cite. No claim is made here that CE's
+`τ_c′(R_social)` is `q_social`'s own social-band `τ_c` under another
+name; per §7.29's discipline, the two remain separate papers' own
+primitives, related by family resemblance and by shared authorship, not
+shown identical. What §8's own absence-check can now say, honestly, is:
+absent from *this book's* text, present at `Dr` tier in a sibling
+monograph by this book's own author, uncited here until this entry.
+
+[domain card: Lahtee, Y., *Causal Ethics* Ch.10 "Religion, Culture, and
+Regime Mapping," pp.43–47; §8's `q_social` entry (philosophy.md, lines
+4647–4707, the institutional/social-memory account this entry sits
+alongside); §7.29 (the no-conflation discipline this entry inherits)]
 
 ---
 
