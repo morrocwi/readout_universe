@@ -3927,7 +3927,12 @@ others, and through the rhythm of time" — but the "others" clause is one
 phrase inside a broader proposal, stated at §7.24's own close as "a
 further, independent generalization" carrying neither §7.21's nor §7.23's
 tier or evidence, and it is not connected to any external relational-
-rescue result.
+rescue result. What to add, and where: a future `Dr`/`[Open]`-tier entry,
+at or near §7.21, importing `L_H`'s inter-agent commutation clause as a
+formal criterion for when two closure loops' communication is meaningful —
+the natural anchor for a relational extension this construction currently
+lacks entirely, distinct from the family/clinical circuit the next
+paragraph describes.
 
 **A clinical artifact that already runs a working three-level circuit,
 fenced against ontological transfer.** `birca`'s intake architecture
