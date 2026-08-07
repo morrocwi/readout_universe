@@ -2708,6 +2708,8 @@ genuine, still-`[Open]` readouts live; the absolute scale never was one.
 
 `τ_c` already has a partial check behind exactly this claim: the D/M ratio's 7.6×10⁻⁴ agreement against QuTiP (§5.7's N1, §7.18 below) is a first data point that this dimensionless readout, unlike the absolute constants around it, is genuinely cross-checkable. Extending the same style of check to `α` or a particle-mass ratio inside this corpus's own domain map, and finding it fails to reproduce an independent value at comparable precision, is the concrete test of whether 'genuine, still-Open readout' names something more than a labeling choice for these ratios specifically.
 
+The same gauge structure sharpens a falsifier stated three entries later, in §7.20's treatment of `c^2=K/M`: since `K/M` scales as `(sK)/(sM) = K/M`, it survives the rescaling this row certifies invisible, and is therefore among the genuine `[Open]` readouts this row's closing sentence names — while `K` and `M` asked for separately are not. §7.20's own falsifier is restated there to ask for an independent physical route to the ratio `K/M` directly, not to `K` and `M` fixed one at a time, precisely because this row already rules the latter out as a non-readout question rather than an unmeasured one.
+
 [domain card: research_universal_solver/README.md §Adversarial self-audit, 'Constants' bullet]
 
 ### 7.18 The Twelve Faces of the Spine — one skeleton read from twelve windows, and the M-forcing-failure finding that relocated turbulence
@@ -2950,9 +2952,25 @@ the value of `c`, `DERIVED` on the ratio `c^2=K/M`, `Open` — not `Dr`, not
 upgraded by proximity to a derived result — on whether the two name the
 same thing.
 
-A genuine falsifier for the identification, stated without leaving `ℚ`:
-once `K` and `M` receive numeric values from a calibration independent of
-`c` itself — i.e. not one that already presupposes light-speed — compare
+A genuine falsifier for the identification, stated without leaving `ℚ` —
+and stated more carefully here than the earlier phrasing of this
+paragraph managed, for a reason worth making explicit rather than
+silently correcting. §7.17 above (`InfoScaleGaugeNonReadout`, `Th_coqc`)
+proves that `K` and `M` individually have no fixed absolute value at
+all: rescaling the triple `(M,D,K) → (s·M, s·D, s·K)` for any `s>0`
+leaves every readout the trunk equation can produce unchanged, so "the
+numeric value of `K`" and "the numeric value of `M`," asked separately,
+are non-readout questions — refused, not merely hard. Asking a
+calibration experiment to fix `K` and `M` "independently" would therefore
+be asking it to answer a question this corpus's own machine-checked
+theorem says has no answer, not a question that is merely awaiting more
+data. What survives that same rescaling untouched, because `s` cancels
+in the quotient, is the ratio `K/M` itself — exactly the quantity this
+falsifier actually needs, and the only one of the two that is a genuine
+readout in §7.17's own sense. Correctly stated, then: the falsifier
+calls for an independent physical determination of the *ratio* `K/M` as
+one quantity, via a route that does not already presuppose light-speed —
+not for `K` and `M` fixed one at a time. With that ratio in hand, compare
 `K/M` against `c-VAL^2` (squaring the measured constant is a decidable
 rational operation) in matching units. Agreement within the stated
 derivation/measurement error would count as evidence for the
@@ -2962,11 +2980,13 @@ quantities sharing a symbol. This deliberately avoids `sqrt(K/M)` — the
 source file itself flags taking that square root as an I1
 (R-completeness) non-readout move
 (`InfoCattaneoFiniteSpeed_attempt.v:49-54`, `[Refused]`), so the checkable
-comparison stays on the squared side. Until `K` and `M` are so fixed, the
-comparison is undecided in practice, not only in principle, and the tier
-stays `Open`.
+comparison stays on the squared side. Until an independent route to the
+ratio `K/M` is supplied, the comparison is undecided in practice, not
+only in principle, and the tier stays `Open` — and no such route is
+proposed or claimed here; naming what shape it would have to take is as
+far as this entry goes.
 
-[domain card: research_universal_solver/docs/root/BORROWED_VS_DERIVED_LEDGER.md row 14]
+[domain card: research_universal_solver/docs/root/BORROWED_VS_DERIVED_LEDGER.md row 14; §7.17 above (the `Th_coqc` gauge theorem this falsifier's own coherence depends on — not previously cross-referenced from this entry)]
 
 ---
 

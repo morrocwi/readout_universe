@@ -1333,7 +1333,24 @@ PASS — neither outcome resolves the row's `Open` status by itself, since
 passing T1/T2 shows the repair works on the tested case(s), not that it is
 forced.
 
-[domain card: `readout_genesis/READOUT_GENESIS_CORE.md` PART VI §VI.1 (~L4144-4303)]
+**Adjacent, real, and not T1 — named so a reader does not conflate the
+two.** `research_universal_solver/CLAIMS.md` (C-bio-3, `textbook_closure`
+tier, mechanically checkable: `python -m pytest
+tests/test_bio_cross_consistency.py -q`) already runs a check that touches
+the same named system T1 would use: "a from-scratch direct Jacobian
+eigenvalue computation at the Lotka-Volterra interior equilibrium agrees
+with the registered `lotka_volterra_interior_stability` closed form"
+(`|Im(λ)| = √(αγ)`, `engine/formulas.py:2649`). This is a real,
+independently-run, passing check — but it verifies the *standard*
+Lotka-Volterra model's own textbook neutral-stability result is correctly
+implemented, not the `G`-split of `L_R` into `L_R^(+)+L_R^(-)` T1 actually
+requires; it says nothing about retention-metric antisymmetry, the 5%
+residual bound, or N1's linearized prediction, and must not be read as
+partial progress on T1 itself. It is cited here only so a reader searching
+this ecosystem for "Lotka-Volterra" work already done does not mistake
+this different, already-passing check for T1's own unrun test.
+
+[domain card: `readout_genesis/READOUT_GENESIS_CORE.md` PART VI §VI.1 (~L4144-4303); `research_universal_solver/CLAIMS.md` C-bio-3 (the adjacent, non-T1 Lotka-Volterra check named above); `research_universal_solver/engine/formulas.py:2649` (`lotka_volterra_interior_stability`)]
 
 ---
 
