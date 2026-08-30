@@ -1,42 +1,44 @@
 # The Readout Contract for Human–AI Systems
 
-Status: executable design specification (v0.1, experimental)
+Status: **v0.1 experimental; Phase-1 scope frozen**
 
-This document translates the **Readout Condition** into a runtime contract for
-Human–AI systems.  It does not claim that the current repository solves
-hallucination, chain-of-thought faithfulness, contamination, or memory revision
-in general.  It defines a narrow interface that makes those failure families
-auditable at the level of **distinctions**, not merely whole answers.
+This document translates the **Readout Condition** into a small executable
+contract for Human–AI systems.  Phase 1 deliberately does **two things only**:
+
+1. a distinction-level **Separation Eval** with bilingual clinical pilot data;
+2. a stable **five-state runtime status vocabulary** in `omega/gates.py`.
+
+Everything else discussed below is Phase 2.  It must not be reported as an
+implemented capability.
 
 The governing rule is:
 
 > **No epistemic discrimination without provenance.**
 
-A Human–AI system should therefore be able to do four things for each
-claim-level distinction:
+For Human–AI design the normative interface is four verbs:
 
-1. **Separate** — show that its support distinguishes the asserted claim from a
-   relevant rival.
-2. **Attribute** — identify a jointly sufficient support bundle and distinguish
-   retrieved/tool/user/memory/parametric/instruction/model/policy contributions.
-3. **Revise** — withdraw or re-check downstream distinctions when all surviving
-   minimal support bundles are defeated.
-4. **Abstain structurally** — when the supplied records do not identify the
-   contrast, return the unresolved rival and the additional access that would
-   resolve it rather than guessing.
+```text
+Separate -> Attribute -> Revise -> Abstain
+```
 
-This contract is intentionally compatible with the existing Omega/Claim-IR
-architecture.  `omega.claim_ir.Claim` remains the claim-level layer.
-`omega.rc_ir.DistinctionToken` is a new layer above it.
+- **Separate** — the support must distinguish the asserted claim from a
+  relevant rival.
+- **Attribute** — the stated or contextually implicated basis must contain a
+  jointly sufficient support bundle.
+- **Revise** — if all surviving minimal support bundles are defeated, the
+  downstream distinction must be withdrawn/re-checked.
+- **Abstain** — if the records do not identify the contrast, do not guess.
+
+The main paper should keep this layer normative.  Benchmark engineering lives
+here and in the companion code, not in the philosophy paper.
 
 ---
 
 ## 1. Unit of audit
 
-A full sentence is often too coarse.  One sentence can contain multiple
-licensed and unlicensed distinctions at once.
-
-RC-IR therefore uses:
+A sentence is often too coarse: one sentence can contain both licensed and
+unlicensed distinctions.  RC-IR therefore represents one asserted contrast at
+a time:
 
 ```text
 DistinctionToken(
@@ -50,8 +52,8 @@ DistinctionToken(
 )
 ```
 
-The distinction between `claim` and `rival` is essential.  A source that is
-compatible with both does not license choosing one over the other.
+`claim` and `rival` are semantic contrast roles.  `response_rule`, when known,
+records how the output token was produced.  These are not the same object.
 
 ### Example
 
@@ -66,23 +68,40 @@ claim = "the treatment is safe"
 rival = "the study is too small to establish safety"
 ```
 
-If the source remains compatible with both alternatives, the correct RC verdict
-is `NOT_IDENTIFIED`, not `LICENSED`.
+If the source is compatible with both, the categorical claim is
+`NOT_IDENTIFIED`, even if the source is perfectly consistent with the words
+"the treatment is safe".
 
-This is stronger than consistency checking:
+Thus:
 
 ```text
-consistent(source, claim) = true
-consistent(source, rival) = true
-=> separation = false
+consistency(source, claim) != separation(claim, rival | source)
 ```
 
 ---
 
-## 2. Typed provenance
+## 2. Rival generation is part of the research problem
 
-`ProvenanceNode.node_type` is functional rather than ontological.  The current
-v0.1 vocabulary is:
+Separation Eval requires `(S, p, q)`.  The hard object is often `q`.
+
+A useful rival is not necessarily logical negation.  It is a materially
+relevant alternative that remains epistemically live under the source.
+
+Phase 1 therefore **does not automate rival generation**.  The bilingual pilot
+uses source-first human adjudication described in:
+
+`benchmarks/rc_clinical_th_en/README.md`
+
+The current 100-item builder produces only `DRAFT_SYNTHETIC` seed items.  They
+must not be used for headline benchmark claims until independent human
+annotation/adjudication has accepted the rivals and Thai/English equivalence.
+
+---
+
+## 3. Typed provenance
+
+`ProvenanceNode.node_type` is functional rather than ontological.  The v0.1
+vocabulary includes:
 
 ```text
 retrieved
@@ -100,24 +119,20 @@ testimony
 other
 ```
 
-A single physical artifact may play different roles in different pipelines.
-The purpose of the type is to make route changes visible, not to declare a
-universal ontology of information.
+The point is to prevent route laundering.  Retrieved evidence, parametric
+memory, user testimony, calibration, and decision policy may jointly support a
+claim but must remain separately auditable.
 
-### Why route typing matters
-
-For a RAG answer, retrieved text and parametric memory are not interchangeable.
-For an agent, a current user statement and an old episodic memory are not
-interchangeable.  For a diagnosis, a test result and a population prior are not
-interchangeable.  RC requires those routes to remain separately auditable even
-when they jointly support one final claim.
+`implicated_basis` is **not automated in Phase 1**.  Contextually implicated
+basis is optional/human-annotated.  Missing implicature annotation must not
+block the benchmark.
 
 ---
 
-## 3. Minimal jointly sufficient support bundles
+## 4. Minimal jointly sufficient support bundles
 
-A distinction may have several independent sufficient routes.  RC-IR stores the
-family of **minimal** support bundles rather than one flat dependency list.
+RC-IR stores a family of minimal support bundles rather than one flat dependency
+list:
 
 ```text
 minimal_support_bundles = [
@@ -126,33 +141,28 @@ minimal_support_bundles = [
 ]
 ```
 
-The stored family must be an antichain: a strict superset of an already stored
-bundle is not minimal and is rejected by the schema.
+The family must be an antichain.  If `{A}` is sufficient, `{A,B}` is not stored
+as another *minimal* bundle.
 
-This representation supports node-specific undercutting defeat:
+Node-specific undercutting defeat then routes as:
 
 ```text
-defeat(retrieved_doc)
-=> first bundle dies
-=> independent_tool_result bundle survives
-=> distinction remains supported
+defeat(A)
+-> all bundles containing A die
+-> if another minimal bundle survives, support survives
+-> if none survives, re-check/withdraw
 ```
 
-If all minimal bundles die, the distinction must become stale, withdrawn, or
-re-checked.
-
-This v0.1 mechanism does **not** solve rebutting defeat or topology-changing
-policy revision.  If the rule of decision itself changes, a new RC-IR graph must
-be produced and audited.
+This v0.1 mechanism does not solve rebutting defeat or topology-changing policy
+revision.  A policy change that rewires dependencies requires a newly compiled
+RC-IR graph.
 
 ---
 
-## 4. Signed support contributions
+## 5. Signed support contributions
 
-Support layers are not assumed to improve monotonically.  A prior, background
-model, or later observation may weaken an earlier evidential contribution.
-
-RC-IR therefore stores signed contributions on an explicitly named scale:
+Support is not assumed monotone.  Additional information can weaken an earlier
+support direction.
 
 ```text
 SupportContribution(node_id="test",  value=+2.3026, scale="log_odds")
@@ -165,17 +175,14 @@ Total:
 -2.2925 log_odds
 ```
 
-The runtime must never add unlike scales.  If more than one scale is present,
-the caller must select one explicitly.
+Unlike scales must never be added silently.
 
 ---
 
-## 5. Separation Eval
+## 6. Separation Eval
 
-`omega.separation_eval` implements the first executable Human–AI evaluation
-surface.
-
-The caller supplies bundle-level readouts:
+`omega.separation_eval` evaluates bundle-level compatibility readouts supplied
+by a human annotator or another declared instrument:
 
 ```json
 {
@@ -186,189 +193,140 @@ The caller supplies bundle-level readouts:
 }
 ```
 
-The evaluator returns one of:
+Gold audit outcomes:
 
 ```text
-LICENSED
-NOT_IDENTIFIED
-UNSUPPORTED
-PROVENANCE_INCOMPLETE
-```
-
-### Decision rule
-
-For a recorded minimal support bundle `B`:
-
-```text
-claim compatible = true
-rival compatible = false
-=> LICENSED
-```
-
-```text
-claim compatible = true
-rival compatible = true
-=> NOT_IDENTIFIED
-```
-
-```text
-claim compatible = false for every evaluated minimal bundle
-=> UNSUPPORTED
-```
-
-```text
-no readout for a recorded minimal bundle
-=> PROVENANCE_INCOMPLETE
+claim yes, rival no   -> LICENSED
+claim yes, rival yes  -> NOT_IDENTIFIED
+claim no              -> UNSUPPORTED
+missing bundle readout -> PROVENANCE_INCOMPLETE
 ```
 
 A readout over a strict superset does **not** silently certify a smaller minimal
-bundle.  That would hide which added node supplied the separation.  The caller
-must run the ablation/readout explicitly.
+bundle.  The extra node may be the thing doing the separating.
 
 ---
 
-## 6. Unauthorized Separation Rate
+## 7. USR and MSR are a mandatory pair
 
-For a benchmark in which the system actually makes categorical assertions:
+### Unauthorized Separation Rate (USR)
 
 ```text
-USR = unauthorized asserted distinctions / asserted distinctions
+USR = unauthorized categorical assertions / categorical assertions
 ```
 
-An asserted distinction is unauthorized when:
+### Missed Separation Rate (MSR)
 
-- the separation verdict is not `LICENSED`; or
-- the distinction is supportable but the represented/implicated basis omits a
-  sufficient support bundle.
+```text
+MSR = licensed separations withheld / gold licensed separations
+```
 
-This metric is intentionally harsher than factual accuracy.  A lucky true
-answer can still be an unauthorized separation if the stated source did not
-license the distinction it asserted.
+**USR must never be reported alone.**  An always-abstain system trivially avoids
+unauthorized assertions but fails useful separation.
+
+For systems that emit a continuous separation score, report the operating curve
+across declared `kappa` values:
+
+```python
+evaluate_operating_curve(cases, kappas=[...])
+```
+
+RC does not posit one universal kappa.
 
 ---
 
-## 7. Structured abstention
+## 8. Five-state runtime vocabulary
 
-When a distinction is not identified, the preferred output is not a generic
-"low confidence" message.  The system should return an epistemic receipt:
+`omega.gates.RCGateStatus` defines exactly:
+
+```text
+LICENSED
+AUGMENTED
+PROVENANCE_INCOMPLETE
+NOT_IDENTIFIED
+ABSTAIN
+```
+
+These are Human–AI runtime/disposition states.  They do **not** replace:
+
+- `RUN / NOT_IMPLEMENTED` implementation status;
+- Claim-IR tiers;
+- bridge classes;
+- proof-kernel verdicts.
+
+A legacy stub remains `NOT_IMPLEMENTED` and receives no fake RC verdict.
+
+`ABSTAIN` is an action state.  The underlying audit result must still record
+whether abstention arose from non-identification, unsupported content,
+provenance incompleteness, or an external safety/governance rule.
+
+---
+
+## 9. Structured abstention
+
+When the source does not separate the alternatives, preferred output is not
+just "low confidence".  The audit record should preserve:
 
 ```text
 status: ABSTAIN
 claim: <requested conclusion>
 unresolved_rival: <still-compatible alternative>
-reason: available support does not separate the alternatives
-required_access:
-  - <new record/test/tool that would discriminate>
+reason: <why current support does not separate them>
+required_access: <information that a qualified workflow would need>
 ```
 
-This follows the existing Translation Protocol discipline: a null-space or
-non-identifiable question is answered as structurally unanswerable from the
-current records rather than guessed.
+In clinical contexts, `required_access` is an **epistemic requirement**, not a
+patient-facing medical order.  RC must route any actual test/treatment action
+through the appropriate clinician/governance layer.
 
 ---
 
-## 8. Human-facing Readout Card
+## 10. Phase-2 items — explicitly deferred
 
-RC-IR is machine-facing.  Human users should normally receive a compact
-`Readout Card` rather than the full provenance graph:
+The following are **not** Phase-1 deliverables:
 
-```text
-Answer: X
-Based on: source A + tool B
-Added assumptions: model C
-Still compatible with: rival D
-Would change if: node E is defeated
-Next useful access: test F
-```
+- automatic rival generation;
+- automatic implicature detection;
+- causal-influence / faithfulness perturbation runner;
+- contamination probe generator;
+- provenance-aware long-term agent memory;
+- Readout Card UI;
+- automatic clinical next-step recommendation.
 
-This is not chain-of-thought.  It is a claim-level epistemic receipt.
+Before an agent-memory claim is promoted, the design must collide explicitly
+with knowledge-editing / ripple-effect literature as well as TMS/ATMS/argument
+maintenance.  "Defeat upstream -> stale downstream" is not presented as an
+engineering novelty merely because RC gives it a provenance interpretation.
 
----
-
-## 9. Mapping to AI failure families
-
-### Hallucination
-
-RC reading: an asserted distinction has no licensed support bundle or no
-recoverable provenance route.
-
-Design response: block or abstain at distinction level rather than treating the
-whole answer as one pass/fail object.
-
-### Unfaithful explanation / silent lift
-
-RC reading: represented basis differs materially from the support route that
-actually changes the response.
-
-Design response: perturb omitted nodes.  If the distinction changes while the
-represented basis remains unchanged, record an undeclared-influence witness.
-RC does not require private chain-of-thought to run this test.
-
-### Contamination / memorization
-
-RC reading: output varies across cases that are equivalent under the declared
-source route because an undeclared retained route distinguishes them.
-
-Design response: construct source-equivalent probes and test whether downstream
-responses separate them.  Detection power is relative to the declared source:
-a fully discriminating source leaves fewer equivalence pairs to probe.
-
-### Agent memory
-
-RC reading: stored proposition without stored minimal support family cannot be
-revised correctly when upstream support is defeated.
-
-Design response: memory objects should store at least
-`(claim, support_bundles, provenance_version, status)` and route defeat through
-those bundles.
+If a Readout Card is later implemented, it **must compile deterministically from
+RC-IR/audit records**.  It must not be a free-form explanation generated by the
+same model whose provenance is under audit.  Otherwise the receipt becomes a
+new unverified claim surface.
 
 ---
 
-## 10. What is implemented now
+## 11. Phase-1 deliverables
 
 Implemented on branch `rc-ir-separation-eval`:
 
 - `omega/rc_ir.py`
-  - typed `ProvenanceNode`
-  - signed `SupportContribution`
-  - antichain-validated `SupportBundle`
   - `DistinctionToken`
-  - represented/implicated basis
-  - minimal-support defeat routing
+  - typed provenance nodes
+  - signed contributions
+  - minimal support bundles
+  - node-specific support survival
 - `omega/separation_eval.py`
-  - bundle-level separation evaluator
-  - `LICENSED / NOT_IDENTIFIED / UNSUPPORTED / PROVENANCE_INCOMPLETE`
-  - Unauthorized Separation Rate
-  - structured-abstention recall
-  - JSON CLI
+  - distinction separation
+  - USR + MSR
+  - kappa operating curve
+- `omega/gates.py`
+  - five RC runtime statuses
+  - legacy stubs remain visibly `NOT_IMPLEMENTED`
+- `benchmarks/rc_clinical_th_en/`
+  - rival/adjudication protocol
+  - reproducible 100-item Thai/English synthetic seed builder
+  - seed items remain non-headline evidence until human adjudication
 - regression tests under `tests/`
 
-Not yet implemented:
-
-- automatic extraction of relevant rivals from free text;
-- automatic NLI/entailment scoring;
-- causal influence perturbation runner;
-- contamination probe generator;
-- provenance-aware long-term agent memory store;
-- automatic Readout Card renderer;
-- topology-changing defeat/revision.
-
-The absence of these components is not reported as a PASS.  They remain explicit
-next-stage work.
-
----
-
-## 11. Minimal adoption path
-
-A Human–AI team can use v0.1 without adopting the larger Readout Universe:
-
-1. decompose one output into claim-level distinctions;
-2. name one relevant rival per distinction;
-3. type the sources that materially support it;
-4. record minimal jointly sufficient support bundles;
-5. obtain claim/rival compatibility readouts for those bundles;
-6. run `omega.separation_eval`;
-7. abstain when the source does not separate the alternatives;
-8. store the support family if the claim enters agent memory.
-
-That is the smallest executable contract implied by the Readout Condition.
+The next evidence step is not another AI review.  It is independent human
+annotation/review of the rivals and the first model comparison on USR/MSR.
