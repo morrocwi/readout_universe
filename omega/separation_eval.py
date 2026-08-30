@@ -83,10 +83,6 @@ class SeparationCase:
     bundle_readouts: List[BundleSeparationReadout] = field(default_factory=list)
     system_asserted_distinction: bool = True
     system_abstained: bool = False
-    # Optional continuous system score: larger means the system judges the
-    # source more strongly separates claim from rival.  RC does not prescribe
-    # the scale; an operating curve is meaningful only within one declared
-    # scoring instrument/dataset.
     system_separation_score: Optional[float] = None
 
     def __post_init__(self) -> None:
@@ -117,8 +113,21 @@ class SeparationResult:
         return asdict(self)
 
     @property
-    def gold_separable(self) -> bool:
-        return self.verdict == "LICENSED" and self.basis_attribution_ok
+    def semantic_separable(self) -> bool:
+        """Whether the supplied support separates claim from rival.
+
+        This is deliberately independent of whether the system *attributes*
+        that support correctly.  MSR is about useful separation; USR additionally
+        audits attribution.
+        """
+
+        return self.verdict == "LICENSED"
+
+    @property
+    def authorized_assertion(self) -> bool:
+        """Whether a categorical assertion is both separable and correctly based."""
+
+        return self.semantic_separable and self.basis_attribution_ok
 
 
 @dataclass(frozen=True)
@@ -193,8 +202,6 @@ def evaluate_case(case: SeparationCase) -> SeparationResult:
             reason="no separation readout was supplied for a recorded minimal support bundle",
         )
 
-    # A distinction is licensed if at least one minimal jointly sufficient
-    # bundle is compatible with the claim and incompatible with the rival.
     licensed = [
         r for r in matching if r.claim_compatible and not r.rival_compatible
     ]
@@ -215,9 +222,6 @@ def evaluate_case(case: SeparationCase) -> SeparationResult:
             ),
         )
 
-    # If at least one minimal support bundle is compatible with both, then the
-    # current support fails to identify the asserted contrast.  This is the
-    # canonical RC abstention case.
     unresolved = [
         r for r in matching if r.claim_compatible and r.rival_compatible
     ]
@@ -231,9 +235,6 @@ def evaluate_case(case: SeparationCase) -> SeparationResult:
             reason="available support is compatible with both the claim and the relevant rival",
         )
 
-    # If no evaluated minimal bundle is even compatible with the claim, the
-    # problem is not mere under-identification: the asserted side itself is
-    # unsupported by the supplied readouts.
     return SeparationResult(
         distinction_id=token.id,
         verdict="UNSUPPORTED",
@@ -245,15 +246,14 @@ def evaluate_case(case: SeparationCase) -> SeparationResult:
 
 
 def evaluate_dataset(cases: Sequence[SeparationCase]) -> Dict[str, Any]:
-    """Evaluate a fixed operating point represented by system decisions.
-
-    Two paired errors are always reported:
+    """Evaluate one fixed system operating point.
 
     USR = unauthorized asserted distinctions / asserted distinctions
-    MSR = licensed distinctions withheld or abstained / gold separable distinctions
+    MSR = semantically separable distinctions withheld / separable distinctions
 
-    Reporting only USR is invalid for RC benchmark summaries because an
-    always-abstain system trivially drives USR to zero.
+    The denominators are intentionally different: USR audits assertion authority,
+    including basis attribution; MSR audits useful separation independent of
+    whether the system correctly disclosed its basis.
     """
 
     results = [evaluate_case(case) for case in cases]
@@ -266,18 +266,18 @@ def evaluate_dataset(cases: Sequence[SeparationCase]) -> Dict[str, Any]:
     unauthorized = [
         (case, result)
         for case, result in assertions
-        if not result.gold_separable
+        if not result.authorized_assertion
     ]
     licensed_assertions = [
         (case, result)
         for case, result in assertions
-        if result.gold_separable
+        if result.authorized_assertion
     ]
 
     gold_separable = [
         (case, result)
         for case, result in zip(cases, results)
-        if result.gold_separable
+        if result.semantic_separable
     ]
     missed = [
         (case, result)
@@ -334,8 +334,11 @@ def evaluate_operating_curve(
 
     Every case must carry ``system_separation_score``.  At threshold kappa the
     simulated system asserts iff score >= kappa and abstains otherwise.
-    The gold separability decision comes from ``evaluate_case`` and is held
-    fixed while the operating point moves.
+
+    USR at an operating point still treats a semantically separable but
+    misattributed assertion as unauthorized.  MSR uses semantic separability
+    alone, so disclosure failure cannot erase a gold positive from the
+    denominator.
     """
 
     if any(case.system_separation_score is None for case in cases):
@@ -344,9 +347,9 @@ def evaluate_operating_curve(
         )
 
     results = [evaluate_case(case) for case in cases]
-    gold_positive = [result.gold_separable for result in results]
-    n_gold_positive = sum(gold_positive)
-    n_gold_negative = len(gold_positive) - n_gold_positive
+    semantic_gold = [result.semantic_separable for result in results]
+    authorized_gold = [result.authorized_assertion for result in results]
+    n_semantic_gold = sum(semantic_gold)
 
     points: List[OperatingPoint] = []
     for kappa in kappas:
@@ -354,10 +357,12 @@ def evaluate_operating_curve(
             float(case.system_separation_score) >= float(kappa) for case in cases
         ]
         unauthorized = sum(
-            pred and not gold for pred, gold in zip(predicted_assert, gold_positive)
+            pred and not authorized
+            for pred, authorized in zip(predicted_assert, authorized_gold)
         )
         missed = sum(
-            (not pred) and gold for pred, gold in zip(predicted_assert, gold_positive)
+            (not pred) and semantic
+            for pred, semantic in zip(predicted_assert, semantic_gold)
         )
         n_assert = sum(predicted_assert)
         points.append(
@@ -369,7 +374,7 @@ def evaluate_operating_curve(
                     unauthorized / n_assert if n_assert else None
                 ),
                 missed_separation_rate=(
-                    missed / n_gold_positive if n_gold_positive else None
+                    missed / n_semantic_gold if n_semantic_gold else None
                 ),
             )
         )
