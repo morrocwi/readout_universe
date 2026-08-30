@@ -4,19 +4,25 @@ This evaluator operationalizes one narrow Readout Condition question:
 
     Does the stated support separate the asserted claim from a relevant rival?
 
-It is intentionally *not* a fact checker, entailment model, or NLI system.
-A caller (human annotation, retrieval evaluator, calibrated model, tool, etc.)
-must provide bundle-level compatibility readouts.  The evaluator then applies
-the RC separation rule without silently inventing missing evidence.
+It is intentionally *not* a fact checker, entailment model, rival generator, or
+NLI system.  A caller (human annotation, retrieval evaluator, calibrated model,
+tool, etc.) must provide bundle-level compatibility readouts.  The evaluator
+then applies the RC separation rule without silently inventing missing evidence.
 
 The key distinction is:
 
     consistency with the claim != separation from the rival.
 
-If the same support remains compatible with both the claim and its rival, a
-categorical assertion is NOT_IDENTIFIED and the recommended runtime behavior
-is structured abstention, optionally naming additional access that could
-resolve the contrast.
+If the same support remains compatible with both alternatives, a categorical
+assertion is NOT_IDENTIFIED and the recommended runtime behavior is structured
+abstention, optionally naming additional access that could resolve the contrast.
+
+Evaluation is deliberately two-sided.  Unauthorized Separation Rate (USR) must
+never be reported alone, because a system that abstains on everything trivially
+gets USR=0.  The paired error is Missed Separation Rate (MSR): abstaining or
+withholding when the source *does* separate the claim from its rival.  Systems
+that emit continuous separation scores can be compared across a kappa operating
+curve.
 """
 
 from __future__ import annotations
@@ -28,7 +34,7 @@ import json
 from pathlib import Path
 import sys
 
-from .rc_ir import DistinctionToken, SupportBundle
+from .rc_ir import DistinctionToken
 
 
 SEPARATION_VERDICTS = (
@@ -77,6 +83,11 @@ class SeparationCase:
     bundle_readouts: List[BundleSeparationReadout] = field(default_factory=list)
     system_asserted_distinction: bool = True
     system_abstained: bool = False
+    # Optional continuous system score: larger means the system judges the
+    # source more strongly separates claim from rival.  RC does not prescribe
+    # the scale; an operating curve is meaningful only within one declared
+    # scoring instrument/dataset.
+    system_separation_score: Optional[float] = None
 
     def __post_init__(self) -> None:
         known = set(self.token.node_map)
@@ -105,6 +116,10 @@ class SeparationResult:
     def to_dict(self) -> Dict[str, Any]:
         return asdict(self)
 
+    @property
+    def gold_separable(self) -> bool:
+        return self.verdict == "LICENSED" and self.basis_attribution_ok
+
 
 @dataclass(frozen=True)
 class SeparationMetrics:
@@ -113,9 +128,24 @@ class SeparationMetrics:
     n_licensed_assertions: int
     n_unauthorized_separations: int
     unauthorized_separation_rate: Optional[float]
+    n_gold_separable: int
+    n_missed_separations: int
+    missed_separation_rate: Optional[float]
     n_required_abstentions: int
     n_correct_abstentions: int
     structured_abstention_recall: Optional[float]
+
+    def to_dict(self) -> Dict[str, Any]:
+        return asdict(self)
+
+
+@dataclass(frozen=True)
+class OperatingPoint:
+    kappa: float
+    n_predicted_assert: int
+    n_predicted_abstain: int
+    unauthorized_separation_rate: Optional[float]
+    missed_separation_rate: Optional[float]
 
     def to_dict(self) -> Dict[str, Any]:
         return asdict(self)
@@ -215,22 +245,44 @@ def evaluate_case(case: SeparationCase) -> SeparationResult:
 
 
 def evaluate_dataset(cases: Sequence[SeparationCase]) -> Dict[str, Any]:
+    """Evaluate a fixed operating point represented by system decisions.
+
+    Two paired errors are always reported:
+
+    USR = unauthorized asserted distinctions / asserted distinctions
+    MSR = licensed distinctions withheld or abstained / gold separable distinctions
+
+    Reporting only USR is invalid for RC benchmark summaries because an
+    always-abstain system trivially drives USR to zero.
+    """
+
     results = [evaluate_case(case) for case in cases]
 
     assertions = [
         (case, result)
         for case, result in zip(cases, results)
-        if case.system_asserted_distinction
+        if case.system_asserted_distinction and not case.system_abstained
     ]
     unauthorized = [
         (case, result)
         for case, result in assertions
-        if result.verdict != "LICENSED" or not result.basis_attribution_ok
+        if not result.gold_separable
     ]
     licensed_assertions = [
         (case, result)
         for case, result in assertions
-        if result.verdict == "LICENSED" and result.basis_attribution_ok
+        if result.gold_separable
+    ]
+
+    gold_separable = [
+        (case, result)
+        for case, result in zip(cases, results)
+        if result.gold_separable
+    ]
+    missed = [
+        (case, result)
+        for case, result in gold_separable
+        if case.system_abstained or not case.system_asserted_distinction
     ]
 
     required_abstentions = [
@@ -245,6 +297,7 @@ def evaluate_dataset(cases: Sequence[SeparationCase]) -> Dict[str, Any]:
     ]
 
     n_assertions = len(assertions)
+    n_gold_separable = len(gold_separable)
     n_required_abstentions = len(required_abstentions)
     metrics = SeparationMetrics(
         n_cases=len(cases),
@@ -253,6 +306,11 @@ def evaluate_dataset(cases: Sequence[SeparationCase]) -> Dict[str, Any]:
         n_unauthorized_separations=len(unauthorized),
         unauthorized_separation_rate=(
             len(unauthorized) / n_assertions if n_assertions else None
+        ),
+        n_gold_separable=n_gold_separable,
+        n_missed_separations=len(missed),
+        missed_separation_rate=(
+            len(missed) / n_gold_separable if n_gold_separable else None
         ),
         n_required_abstentions=n_required_abstentions,
         n_correct_abstentions=len(correct_abstentions),
@@ -269,6 +327,55 @@ def evaluate_dataset(cases: Sequence[SeparationCase]) -> Dict[str, Any]:
     }
 
 
+def evaluate_operating_curve(
+    cases: Sequence[SeparationCase], kappas: Sequence[float]
+) -> List[OperatingPoint]:
+    """Evaluate paired separation errors across score thresholds.
+
+    Every case must carry ``system_separation_score``.  At threshold kappa the
+    simulated system asserts iff score >= kappa and abstains otherwise.
+    The gold separability decision comes from ``evaluate_case`` and is held
+    fixed while the operating point moves.
+    """
+
+    if any(case.system_separation_score is None for case in cases):
+        raise ValueError(
+            "evaluate_operating_curve requires system_separation_score for every case"
+        )
+
+    results = [evaluate_case(case) for case in cases]
+    gold_positive = [result.gold_separable for result in results]
+    n_gold_positive = sum(gold_positive)
+    n_gold_negative = len(gold_positive) - n_gold_positive
+
+    points: List[OperatingPoint] = []
+    for kappa in kappas:
+        predicted_assert = [
+            float(case.system_separation_score) >= float(kappa) for case in cases
+        ]
+        unauthorized = sum(
+            pred and not gold for pred, gold in zip(predicted_assert, gold_positive)
+        )
+        missed = sum(
+            (not pred) and gold for pred, gold in zip(predicted_assert, gold_positive)
+        )
+        n_assert = sum(predicted_assert)
+        points.append(
+            OperatingPoint(
+                kappa=float(kappa),
+                n_predicted_assert=n_assert,
+                n_predicted_abstain=len(cases) - n_assert,
+                unauthorized_separation_rate=(
+                    unauthorized / n_assert if n_assert else None
+                ),
+                missed_separation_rate=(
+                    missed / n_gold_positive if n_gold_positive else None
+                ),
+            )
+        )
+    return points
+
+
 def _case_from_dict(data: Dict[str, Any]) -> SeparationCase:
     return SeparationCase(
         token=DistinctionToken.from_dict(data["token"]),
@@ -277,6 +384,7 @@ def _case_from_dict(data: Dict[str, Any]) -> SeparationCase:
         ],
         system_asserted_distinction=data.get("system_asserted_distinction", True),
         system_abstained=data.get("system_abstained", False),
+        system_separation_score=data.get("system_separation_score"),
     )
 
 
@@ -304,10 +412,20 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
         action="store_true",
         help="pretty-print JSON output",
     )
+    parser.add_argument(
+        "--kappas",
+        nargs="*",
+        type=float,
+        help="optional operating-curve thresholds; requires system_separation_score on every case",
+    )
     args = parser.parse_args(argv)
 
     cases = _load_cases(args.input)
     out = evaluate_dataset(cases)
+    if args.kappas:
+        out["operating_curve"] = [
+            point.to_dict() for point in evaluate_operating_curve(cases, args.kappas)
+        ]
     print(
         json.dumps(
             out,
@@ -329,6 +447,8 @@ __all__ = [
     "SeparationCase",
     "SeparationResult",
     "SeparationMetrics",
+    "OperatingPoint",
     "evaluate_case",
     "evaluate_dataset",
+    "evaluate_operating_curve",
 ]
