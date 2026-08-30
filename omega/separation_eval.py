@@ -9,14 +9,6 @@ NLI system.  A caller (human annotation, retrieval evaluator, calibrated model,
 tool, etc.) must provide bundle-level compatibility readouts.  The evaluator
 then applies the RC separation rule without silently inventing missing evidence.
 
-The key distinction is:
-
-    consistency with the claim != separation from the rival.
-
-If the same support remains compatible with both alternatives, a categorical
-assertion is NOT_IDENTIFIED and the recommended runtime behavior is structured
-abstention, optionally naming additional access that could resolve the contrast.
-
 Evaluation is deliberately two-sided.  Unauthorized Separation Rate (USR) must
 never be reported alone, because a system that abstains on everything trivially
 gets USR=0.  The paired error is Missed Separation Rate (MSR): abstaining or
@@ -34,6 +26,7 @@ import json
 from pathlib import Path
 import sys
 
+from .gates import rc_runtime_status
 from .rc_ir import DistinctionToken
 
 
@@ -47,18 +40,6 @@ SEPARATION_VERDICTS = (
 
 @dataclass(frozen=True)
 class BundleSeparationReadout:
-    """External readout for one jointly evaluated provenance bundle.
-
-    ``claim_compatible`` and ``rival_compatible`` are deliberately separate.
-    A source that is compatible with both alternatives does not license their
-    separation.
-
-    The booleans can come from human labels, a domain-specific verifier, a
-    calibrated NLI model, a symbolic checker, or another declared instrument.
-    RC does not privilege one implementation here; provenance of the verifier
-    itself should be recorded in ``evaluator`` / ``metadata``.
-    """
-
     node_ids: Sequence[str]
     claim_compatible: bool
     rival_compatible: bool
@@ -114,19 +95,10 @@ class SeparationResult:
 
     @property
     def semantic_separable(self) -> bool:
-        """Whether the supplied support separates claim from rival.
-
-        This is deliberately independent of whether the system *attributes*
-        that support correctly.  MSR is about useful separation; USR additionally
-        audits attribution.
-        """
-
         return self.verdict == "LICENSED"
 
     @property
     def authorized_assertion(self) -> bool:
-        """Whether a categorical assertion is both separable and correctly based."""
-
         return self.semantic_separable and self.basis_attribution_ok
 
 
@@ -167,12 +139,7 @@ def _minimal_support_sets(token: DistinctionToken) -> List[Set[str]]:
 def _matching_readouts(
     token: DistinctionToken, readouts: Iterable[BundleSeparationReadout]
 ) -> List[BundleSeparationReadout]:
-    """Keep readouts that evaluate a stored minimal support bundle exactly.
-
-    Exact matching is intentional.  A readout over a strict superset may hide
-    which additional node supplied the separation and therefore cannot certify
-    the minimal bundle without a separate ablation/readout.
-    """
+    """Keep readouts that evaluate a stored minimal support bundle exactly."""
 
     support_sets = _minimal_support_sets(token)
     return [r for r in readouts if r.node_set() in support_sets]
@@ -202,9 +169,7 @@ def evaluate_case(case: SeparationCase) -> SeparationResult:
             reason="no separation readout was supplied for a recorded minimal support bundle",
         )
 
-    licensed = [
-        r for r in matching if r.claim_compatible and not r.rival_compatible
-    ]
+    licensed = [r for r in matching if r.claim_compatible and not r.rival_compatible]
     if licensed:
         chosen = licensed[0]
         basis_ok = chosen.node_set() <= token.represented_basis()
@@ -222,9 +187,7 @@ def evaluate_case(case: SeparationCase) -> SeparationResult:
             ),
         )
 
-    unresolved = [
-        r for r in matching if r.claim_compatible and r.rival_compatible
-    ]
+    unresolved = [r for r in matching if r.claim_compatible and r.rival_compatible]
     if unresolved:
         return SeparationResult(
             distinction_id=token.id,
@@ -245,15 +208,23 @@ def evaluate_case(case: SeparationCase) -> SeparationResult:
     )
 
 
+def runtime_status_for_case(case: SeparationCase, result: SeparationResult) -> str:
+    """Compile a separation audit into the stable five-state runtime vocabulary."""
+
+    augmented = case.token.status == "AUGMENTED"
+    return rc_runtime_status(
+        separation_verdict=result.verdict,
+        basis_attribution_ok=result.basis_attribution_ok,
+        augmented=augmented,
+        system_abstained=case.system_abstained,
+    ).value
+
+
 def evaluate_dataset(cases: Sequence[SeparationCase]) -> Dict[str, Any]:
     """Evaluate one fixed system operating point.
 
     USR = unauthorized asserted distinctions / asserted distinctions
     MSR = semantically separable distinctions withheld / separable distinctions
-
-    The denominators are intentionally different: USR audits assertion authority,
-    including basis attribution; MSR audits useful separation independent of
-    whether the system correctly disclosed its basis.
     """
 
     results = [evaluate_case(case) for case in cases]
@@ -321,8 +292,14 @@ def evaluate_dataset(cases: Sequence[SeparationCase]) -> Dict[str, Any]:
         ),
     )
 
+    serialized_results = []
+    for case, result in zip(cases, results):
+        record = result.to_dict()
+        record["runtime_status"] = runtime_status_for_case(case, result)
+        serialized_results.append(record)
+
     return {
-        "results": [result.to_dict() for result in results],
+        "results": serialized_results,
         "metrics": metrics.to_dict(),
     }
 
@@ -330,17 +307,6 @@ def evaluate_dataset(cases: Sequence[SeparationCase]) -> Dict[str, Any]:
 def evaluate_operating_curve(
     cases: Sequence[SeparationCase], kappas: Sequence[float]
 ) -> List[OperatingPoint]:
-    """Evaluate paired separation errors across score thresholds.
-
-    Every case must carry ``system_separation_score``.  At threshold kappa the
-    simulated system asserts iff score >= kappa and abstains otherwise.
-
-    USR at an operating point still treats a semantically separable but
-    misattributed assertion as unauthorized.  MSR uses semantic separability
-    alone, so disclosure failure cannot erase a gold positive from the
-    denominator.
-    """
-
     if any(case.system_separation_score is None for case in cases):
         raise ValueError(
             "evaluate_operating_curve requires system_separation_score for every case"
@@ -454,6 +420,7 @@ __all__ = [
     "SeparationMetrics",
     "OperatingPoint",
     "evaluate_case",
+    "runtime_status_for_case",
     "evaluate_dataset",
     "evaluate_operating_curve",
 ]
