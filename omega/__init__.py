@@ -9,6 +9,7 @@ missing evidence.
 
 from .schemas import Issue, Quantity, TranslationRow, ExtractionResult
 from .claim_ir import Claim
+from .gates import RCGateStatus, rc_runtime_status
 from .rc_ir import (
     ProvenanceNode,
     SupportContribution,
@@ -20,8 +21,10 @@ from .separation_eval import (
     SeparationCase,
     SeparationResult,
     SeparationMetrics,
+    OperatingPoint,
     evaluate_case,
     evaluate_dataset,
+    evaluate_operating_curve,
 )
 
 __all__ = [
@@ -30,6 +33,8 @@ __all__ = [
     "TranslationRow",
     "ExtractionResult",
     "Claim",
+    "RCGateStatus",
+    "rc_runtime_status",
     "ProvenanceNode",
     "SupportContribution",
     "SupportBundle",
@@ -38,6 +43,8 @@ __all__ = [
     "SeparationCase",
     "SeparationResult",
     "SeparationMetrics",
+    "OperatingPoint",
     "evaluate_case",
     "evaluate_dataset",
+    "evaluate_operating_curve",
 ]
