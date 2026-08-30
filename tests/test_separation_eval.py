@@ -8,6 +8,7 @@ from omega.separation_eval import (
     SeparationCase,
     evaluate_case,
     evaluate_dataset,
+    evaluate_operating_curve,
 )
 
 
@@ -115,8 +116,6 @@ def test_missing_bundle_readout_is_provenance_incomplete_not_fabricated_pass():
 
 
 def test_superset_readout_does_not_silently_certify_minimal_bundle():
-    # The evaluator refuses to infer that a readout over {source, extra}
-    # demonstrates what {source} alone would have done.
     case = SeparationCase(
         token=_token(),
         bundle_readouts=[
@@ -131,31 +130,73 @@ def test_superset_readout_does_not_silently_certify_minimal_bundle():
     assert result.verdict == "PROVENANCE_INCOMPLETE"
 
 
-def test_dataset_metrics_measure_unauthorized_separation_and_abstention():
-    licensed = SeparationCase(
+def test_dataset_reports_usr_and_msr_together():
+    licensed_asserted = SeparationCase(
         token=_token(),
-        bundle_readouts=[
-            BundleSeparationReadout(["source"], True, False)
-        ],
+        bundle_readouts=[BundleSeparationReadout(["source"], True, False)],
         system_asserted_distinction=True,
         system_abstained=False,
     )
-    unresolved = SeparationCase(
+    unresolved_asserted = SeparationCase(
         token=_token(),
-        bundle_readouts=[
-            BundleSeparationReadout(["source"], True, True)
-        ],
+        bundle_readouts=[BundleSeparationReadout(["source"], True, True)],
         system_asserted_distinction=True,
+        system_abstained=False,
+    )
+    licensed_but_abstained = SeparationCase(
+        token=_token(),
+        bundle_readouts=[BundleSeparationReadout(["source"], True, False)],
+        system_asserted_distinction=False,
         system_abstained=True,
     )
 
-    out = evaluate_dataset([licensed, unresolved])
+    out = evaluate_dataset([licensed_asserted, unresolved_asserted, licensed_but_abstained])
     metrics = out["metrics"]
-    assert metrics["n_cases"] == 2
+    assert metrics["n_cases"] == 3
     assert metrics["n_assertions"] == 2
     assert metrics["n_licensed_assertions"] == 1
     assert metrics["n_unauthorized_separations"] == 1
     assert metrics["unauthorized_separation_rate"] == pytest.approx(0.5)
-    assert metrics["n_required_abstentions"] == 1
-    assert metrics["n_correct_abstentions"] == 1
-    assert metrics["structured_abstention_recall"] == pytest.approx(1.0)
+    assert metrics["n_gold_separable"] == 2
+    assert metrics["n_missed_separations"] == 1
+    assert metrics["missed_separation_rate"] == pytest.approx(0.5)
+
+
+def test_always_abstain_has_zero_assertions_but_bad_missed_separation_rate():
+    cases = [
+        SeparationCase(
+            token=_token(),
+            bundle_readouts=[BundleSeparationReadout(["source"], True, False)],
+            system_asserted_distinction=False,
+            system_abstained=True,
+        )
+        for _ in range(3)
+    ]
+    metrics = evaluate_dataset(cases)["metrics"]
+    assert metrics["n_assertions"] == 0
+    assert metrics["unauthorized_separation_rate"] is None
+    assert metrics["missed_separation_rate"] == pytest.approx(1.0)
+
+
+def test_operating_curve_trades_unauthorized_against_missed_separation():
+    licensed = SeparationCase(
+        token=_token(),
+        bundle_readouts=[BundleSeparationReadout(["source"], True, False)],
+        system_separation_score=0.8,
+    )
+    unresolved = SeparationCase(
+        token=_token(),
+        bundle_readouts=[BundleSeparationReadout(["source"], True, True)],
+        system_separation_score=0.6,
+    )
+
+    points = evaluate_operating_curve([licensed, unresolved], [0.5, 0.7, 0.9])
+    # kappa .5: assert both => one unauthorized, no missed licensed distinction
+    assert points[0].unauthorized_separation_rate == pytest.approx(0.5)
+    assert points[0].missed_separation_rate == pytest.approx(0.0)
+    # kappa .7: assert only the licensed case => ideal point for this toy set
+    assert points[1].unauthorized_separation_rate == pytest.approx(0.0)
+    assert points[1].missed_separation_rate == pytest.approx(0.0)
+    # kappa .9: assert none => miss the licensed separation
+    assert points[2].unauthorized_separation_rate is None
+    assert points[2].missed_separation_rate == pytest.approx(1.0)
