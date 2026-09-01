@@ -1,0 +1,496 @@
+\documentclass[9pt,twocolumn]{article}
+
+\usepackage[a4paper,top=1.35cm,bottom=1.45cm,left=1.45cm,right=1.45cm,columnsep=0.58cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{mathptmx}
+\usepackage[scaled=0.92]{helvet}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{booktabs,array,tabularx}
+\usepackage{microtype}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{balance}
+\usepackage{url}
+
+\definecolor{RRHMNavy}{HTML}{17263A}
+\definecolor{RRHMSlate}{HTML}{5A6877}
+\definecolor{RRHMBlue}{HTML}{315D86}
+\definecolor{RRHMLight}{HTML}{E9EEF3}
+
+\hypersetup{
+  colorlinks=true,
+  linkcolor=RRHMNavy,
+  citecolor=RRHMBlue,
+  urlcolor=RRHMBlue,
+  pdfauthor={Yaoharee Lahtee},
+  pdftitle={Why We Phobia? The Regulatory Recoverability Horizon Model of Specific Phobia -- Adversarial Review Edition},
+  pdfsubject={Medical Hypothesis / Translational Systems Neuroscience},
+  pdfkeywords={specific phobia, threat imminence, controllability, exposure therapy, recoverability, psychophysiology, computational psychiatry}
+}
+
+\setlength{\parindent}{1em}
+\setlength{\parskip}{0.15em}
+\setlength{\columnsep}{0.58cm}
+\setlength{\emergencystretch}{1.5em}
+\setlist{nosep,leftmargin=1.3em}
+\raggedbottom
+\sloppy
+\allowdisplaybreaks
+
+\titleformat{\section}
+  {\sffamily\bfseries\color{RRHMNavy}\large}
+  {\thesection}{0.45em}{}
+\titleformat{\subsection}
+  {\sffamily\bfseries\color{RRHMNavy}\normalsize}
+  {\thesubsection}{0.42em}{}
+\titleformat{\subsubsection}
+  {\sffamily\bfseries\color{RRHMSlate}\small}
+  {\thesubsubsection}{0.40em}{}
+\titlespacing*{\section}{0pt}{0.95em}{0.34em}
+\titlespacing*{\subsection}{0pt}{0.65em}{0.22em}
+\titlespacing*{\subsubsection}{0pt}{0.50em}{0.18em}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\sffamily\scriptsize\color{RRHMSlate} WHY WE PHOBIA?}
+\fancyhead[R]{\sffamily\scriptsize\color{RRHMSlate} RRHM \textbullet\ ADVERSARIAL MEDICAL EDITION}
+\fancyfoot[C]{\sffamily\scriptsize\color{RRHMSlate}\thepage}
+\renewcommand{\headrulewidth}{0.3pt}
+\renewcommand{\footrulewidth}{0pt}
+
+\captionsetup{font=small,labelfont={bf,sf,color=RRHMNavy}}
+\renewcommand{\arraystretch}{1.08}
+
+\title{\vspace{-1.1em}
+{\sffamily\bfseries\fontsize{19}{21}\selectfont\color{RRHMNavy} Why We Phobia?}\\[0.35em]
+{\sffamily\bfseries\fontsize{12.0}{14}\selectfont The Regulatory Recoverability Horizon Model of Specific Phobia}\\[0.18em]
+{\sffamily\fontsize{9.2}{11}\selectfont\color{RRHMSlate} Adversarial Review Edition: A Falsifiable Translational Systems-Neuroscience Hypothesis}}
+\author{\sffamily\bfseries Yaoharee Lahtee}
+\date{\sffamily\small 1 September 2026}
+
+\begin{document}
+\maketitle
+
+\begin{center}
+\small\sffamily\color{RRHMSlate}
+Article type: Medical Hypothesis / Translational Systems-Neuroscience Concept Paper / Adversarial Falsification Edition
+\end{center}
+
+\begin{abstract}
+\textbf{Background:} Specific phobia is defined clinically by persistent, disproportionate fear or anxiety toward a circumscribed cue, accompanied by avoidance or endurance with intense distress and functional impairment. Conditioning, extinction, threat-imminence neuroscience, controllability, interoception, active inference, and exposure therapy explain major parts of the phenotype, yet three problems remain incompletely unified: physiologically heterogeneous phobias converge on similar defensive termination; only some ordinary fears become persistent disorders; and remission is variably durable.
+
+\textbf{Concept:} The Regulatory Recoverability Horizon Model (RRHM) proposes that the critical latent variable is not fear intensity itself but the estimated remaining interval during which continued engagement can still be preserved or restored by effective corrective action. This engagement-preserving Regulatory Recoverability Horizon (eRRH) is separated from escape availability. Specific phobia is hypothesized to involve cue-locked premature contraction of estimated eRRH relative to causal eRRH, termed Premature Regulatory Horizon Contraction (PRHC).
+
+\textbf{Adversarial objective:} This edition treats the theory as guilty until discriminating evidence is produced. It specifies failure modes, rival-model predictions, anti-circular measurement rules, subtype counterexamples, transdiagnostic challenges, and explicit kill criteria. The strongest test holds objective threat, physical threat imminence, uncertainty, perceived control, action number, and escape availability constant while manipulating only whether available action preserves continued engagement.
+
+\textbf{Proposed methods:} A safe 2$\times$2 eRRH-by-exit-availability paradigm, prospective explicit and nonverbal horizon estimation, multimodal psychophysiology, independent transition outcomes, parameter-recovery analysis, hierarchical hazard models, and preregistered held-out comparison against conditioning/extinction, threat imminence, perceived control, allostatic self-efficacy, and active-inference models.
+
+\textbf{Conclusion:} RRHM should survive only if eRRH can be independently measured before defensive transition, remains identifiable after rival variables are modeled, predicts transition timing across phobia classes, and prospectively predicts disease-course outcomes. Until then, it is an experiment-ready medical hypothesis rather than an established mechanism.
+\end{abstract}
+
+\noindent\textbf{Keywords:} specific phobia; psychophysiology; systems neuroscience; avoidance; exposure therapy; threat imminence; controllability; recoverability; computational psychiatry; falsification.
+
+\section{Background: the medical problem before the theory}
+Specific phobia is common, frequently begins early, and may persist for years despite being tied to circumscribed cues. World Mental Health Survey data estimated lifetime prevalence at approximately 7.4\%, with substantial impairment and comorbidity \cite{wardenaar2017}. Exposure-based treatments are effective, including efficient single-session formats \cite{odgers2022}, but treatment efficacy does not by itself identify the upstream variable that governs pathological defensive transition.
+
+Three clinical problems motivate RRHM. First, animal phobia, blood-injection-injury (BII) phobia, height phobia, situational phobia, and procedural or visceral phobias differ in stimulus properties, physiology, true hazard, and sensorimotor constraints yet converge on escape, freezing, avoidance, or distressed endurance. Second, ordinary fear is adaptive, whereas only some cue-linked fears become persistent disorders. Third, remission and relapse are incompletely predicted by conventional fear and extinction measures \cite{trumpf2009remission,devos2025,bohnlein2020}.
+
+The proposed unifying question is therefore not simply ``why is the cue feared?'' but:
+\begin{quote}
+\textbf{When does the organism predict that continued engagement will cease to remain recoverable, and does that predicted deadline govern defensive transition independently of conventional threat and control variables?}
+\end{quote}
+
+\section{Clinical boundary and medical mimic gate}
+RRHM is not a diagnostic substitute. Palpitations, dyspnea, dizziness, presyncope, syncope, weakness, paresthesia, swallowing difficulty, altered awareness, or chest discomfort can arise from cardiovascular, respiratory, neurological, vestibular, metabolic, autonomic, medication-related, or substance-related conditions. True physiological danger must be evaluated when clinically indicated before a defensive response is interpreted as predictive miscalibration.
+
+The model distinguishes:
+\begin{enumerate}
+\item appropriate defense to genuine hazard;
+\item excessive predicted contraction despite preserved causal recoverability;
+\item mixed cases containing real physiological vulnerability plus predictive underestimation.
+\end{enumerate}
+
+This distinction is especially important in BII phobia, where vasovagal susceptibility may shorten actual circulatory recoverability, and in height-related disorders, where postural and vestibular instability may be genuine contributors \cite{ayala2009,ritz2010,huppert2020}.
+
+\section{Formal construct}
+\subsection{Organism--environment state}
+Let $x_t$ denote the integrated organism--environment state relevant to continued task engagement, potentially including cardiovascular, respiratory, vestibular, postural, visceral, nociceptive, motor, sensory, spatial, communicative, and contextual variables.
+
+Let $\mathcal V$ denote a preregistered functional viability region. In experimental medicine, viability means preserved safe task-compatible regulation, not merely survival. The boundary must be defined prospectively and independently of whether the participant later escapes.
+
+\subsection{Two policy classes}
+Available policies are partitioned as
+\[
+\Pi_t=\Pi_t^E\cup\Pi_t^D,
+\]
+where $\Pi_t^E$ contains engagement-preserving policies and $\Pi_t^D$ contains defensive-termination policies.
+
+$\Pi_t^E$ includes actions that permit continued contact while maintaining or restoring functional regulation. $\Pi_t^D$ includes escape, full withdrawal, termination, or avoidance.
+
+\subsection{Causal engagement-preserving horizon}
+The adversarial edition uses a \emph{latest-effective-intervention} definition rather than defining horizon by indefinite future viability. Let $\tau\ge0$ denote delay before an engagement-preserving corrective policy begins. Define
+\[
+ eRRH_C(x_t)=\sup\Big\{\tau\ge0:\exists\,\pi^E\in\Pi^E_{t+\tau}
+\;\text{s.t. continued engagement until }t+\tau
+\;\text{followed by }\pi^E
+\;\text{preserves or restores }\mathcal V\Big\}.
+\]
+Thus $eRRH_C$ is the latest delay at which an engagement-preserving corrective action remains causally effective.
+
+The nervous system estimate is denoted
+\[
+\widehat{eRRH}_t.
+\]
+It is hypothesized to be latent and does not require explicit verbal awareness.
+
+\subsection{Calibration and transition margin}
+Define recoverability calibration error
+\[
+RCE_t=eRRH_C-\widehat{eRRH}_t.
+\]
+Positive $RCE$ denotes underestimation of the causal engagement window.
+
+Let $\widehat{\tau}^{E}_{corr,t}$ denote estimated latency required to execute an effective engagement-preserving correction. Define the estimated engagement margin
+\[
+M_t^E=\widehat{eRRH}_t-\widehat{\tau}^{E}_{corr,t}.
+\]
+RRHM predicts increasing defensive-transition hazard as $M_t^E$ approaches or crosses zero. A generic preregistered hazard model is
+\[
+h_D(t)=\sigma\!\left(\beta_0-\beta_1M_t^E+\boldsymbol\gamma^{\top}\mathbf z_t\right),
+\]
+where $\mathbf z_t$ contains rival variables such as threat intensity, physical imminence, uncertainty, perceived control, baseline fear, and state burden. No universal biological threshold is claimed.
+
+\subsection{Premature Regulatory Horizon Contraction}
+PRHC denotes persistent cue-linked underestimation of engagement-preserving recoverability:
+\[
+\widehat{eRRH}_{cue}\ll eRRH_{C,cue}.
+\]
+Specific phobia is not equated with low eRRH in general. The disease hypothesis requires circumscribed cue locking, persistent avoidance or distressed endurance, disproportionality, and functional impairment.
+
+\section{The Open-Door Paradox and the central dissociation}
+A spider-phobic participant may stand near an open exit, fully understand that escape is immediately available, and still experience severe defensive urgency. Any theory equating recoverability with the ability to terminate the encounter predicts excessive safety from the open door.
+
+RRHM separates exit availability from continued-engagement recoverability. In the open-door case:
+\[
+ dRRH\gg0,\qquad \widehat{eRRH}\rightarrow0.
+\]
+The participant can leave, but predicts that remaining engaged is no longer regulatable.
+
+The reverse case is a calm patient undergoing MRI: immediate exit may be constrained, yet engagement remains tolerable:
+\[
+ dRRH\downarrow,\qquad \widehat{eRRH}\gg0.
+\]
+The defining dissociation is
+\[
+\boxed{\text{escape availability}\neq\text{engagement-preserving recoverability}}.
+\]
+
+\section{What neighboring theories already explain}
+RRHM should not claim novelty by relabeling established science.
+
+\subsection{Conditioning and extinction}
+Associative learning explains how cues acquire aversive predictions, how avoidance is learned, and how exposure can produce inhibitory or extinction-related learning \cite{krypotos2015,pittig2018,kausche2025}. RRHM adds only a candidate variable for \emph{when engagement is terminated}.
+
+\subsection{Threat imminence}
+Threat-imminence models predict changing defensive strategies as danger approaches, with human work showing prefrontal-to-periaqueductal gray shifts under increasing imminence \cite{mobbs2007}. RRHM is distinct only if regulatory imminence can vary while physical threat imminence remains fixed.
+
+\subsection{Perceived control and learned controllability}
+Control strongly modulates defensive behavior and extinction. RRHM is distinct only if two conditions can be matched on action number and perceived control yet differ because one action preserves engagement while the other only permits termination.
+
+\subsection{Allostatic self-efficacy}
+Allostatic self-efficacy concerns estimated regulatory capacity \cite{stephan2016}. RRHM is narrower: it proposes a cue-specific temporal estimate of how long effective engagement-preserving regulation remains available. Failure to discriminate the constructs statistically is a failure of RRHM, not a semantic dispute.
+
+\subsection{Active inference}
+Active inference is broad enough to represent interoception, uncertainty, policy selection, expected future states, and an eRRH-like quantity \cite{paulus2019}. RRHM therefore claims no ontological superiority. Its value must come from parsimony, clinical interpretability, and predictive performance on a defined transition problem.
+
+\section{Adversarial attacks the theory must survive}
+\begin{table*}[t]
+\centering
+\caption{Precommitted adversarial attacks, discriminating predictions, and kill criteria.}
+\small
+\begin{tabularx}{\textwidth}{p{0.17\textwidth}X X p{0.20\textwidth}}
+\toprule
+\textbf{Attack} & \textbf{Why a rival account may suffice} & \textbf{RRHM-specific burden} & \textbf{Kill criterion} \\
+\midrule
+Circularity & ``Recoverability'' may merely redescribe persistence or escape. & Estimate $eRRH_C$ and $\widehat{eRRH}$ before $T_{DT}$ using independent channels. & If either horizon requires the eventual escape outcome, reject construct. \\
+Threat imminence & Earlier defense may simply reflect closer or more intense threat. & Hold physical imminence and threat constant while manipulating causal engagement deadline. & No incremental effect beyond threat-imminence variables. \\
+Perceived control & A stop button may explain differences through control alone. & Match explicit control, action count, and exit availability; vary only engagement-preserving efficacy. & Control fully absorbs eRRH effect. \\
+Self-efficacy & eRRH may be a temporal phrasing of regulatory confidence. & Demonstrate discriminant validity and parameter separability from ASE. & Parameters non-identifiable or perfectly collinear. \\
+Active inference & A sufficiently general generative model can retrofit eRRH. & Win on preregistered held-out prediction with fewer clinically interpretable parameters. & No predictive gain or parsimony advantage. \\
+BII counterexample & Vasovagal physiology violates a universal sympathetic model. & Allow causal eRRH to shorten genuinely and downstream effectors to differ. & Model requires universal sympathetic arousal. \\
+Acrophobia counterexample & Postural and vestibular instability may drive behavior directly. & Treat sensorimotor state as part of $x_t$ and test whether transition timing follows recoverability margin. & eRRH adds nothing beyond postural state. \\
+High arousal without phobia & Skydiving/roller coasters show arousal without pathological avoidance. & Predict voluntary engagement when eRRH remains adequate despite arousal. & Model equates arousal with phobia. \\
+Unconscious/VR exposure & Therapeutic updating can occur without explicit appraisal or direct hazard contact. & $\widehat{eRRH}$ must be latent and representation-mediated, not verbal belief only. & Model requires conscious report or literal hazard exposure. \\
+Natural remission & Recovery occurs outside formal CBT. & Allow informative naturalistic sampling and changes in actual capacity/context. & Formal exposure is required by model. \\
+Transdiagnostic spillover & Recoverability may also matter in panic, PTSD, pain, dyspnea, FND. & Establish cue-locked disease specificity and incremental prediction for specific phobia. & Same construct predicts all disorders equally without phobia-specific structure. \\
+\bottomrule
+\end{tabularx}
+\end{table*}
+
+\section{Cross-phobia stress test}
+RRHM predicts a shared transition variable but not shared physiology.
+
+\begin{table*}[t]
+\centering
+\caption{Cross-phobia mapping under the RRHM hypothesis.}
+\small
+\begin{tabularx}{\textwidth}{p{0.16\textwidth}p{0.23\textwidth}X p{0.22\textwidth}}
+\toprule
+\textbf{Class} & \textbf{Dominant systems} & \textbf{Candidate eRRH contraction} & \textbf{Expected downstream output} \\
+\midrule
+Animal & sensory tracking, injury avoidance, motor escape & stimulus movement makes continued engagement appear to lose safe corrective options rapidly & vigilance, withdrawal, flight \\
+Heights / natural environment & visual--vestibular--postural regulation & estimated balance-correction window narrows despite objective protection & gaze restriction, stiffening, cautious gait, withdrawal \\
+BII & cardiovascular/autonomic, nociceptive, disgust-related systems & actual or estimated circulatory recoverability contracts around puncture, blood, or injury cues & presyncope, vasovagal response, disgust, withdrawal \\
+Situational / MRI / flying & respiratory, spatial, procedural, communicative systems & continued engagement is predicted to become non-recoverable while objective danger remains stable & trapped distress, escape urge, freezing \\
+Procedural / dental & jaw motor, swallowing, respiratory comfort, communication & task-compatible regulatory actions are expected to become ineffective during continued procedure & stop request, escalating distress, withdrawal \\
+Visceral / choking / vomiting & airway, swallowing, visceral motor systems & predicted point of no effective correction approaches too early & avoidance, motor restriction, escape \\
+\bottomrule
+\end{tabularx}
+\end{table*}
+
+The cross-class claim survives only if a shared eRRH parameter improves prediction of transition timing without requiring unrelated parameter definitions for every subtype. If every subtype needs a different construct hidden under one acronym, the unification claim fails.
+
+\section{Treatment observations as stress tests, not proof}
+RRHM is compatible with several treatment observations but must not use compatibility as validation. Single-session exposure can be as effective as multi-session formats in pooled analyses, implying that information gain may matter more than session count alone \cite{odgers2022}. Virtual exposure can produce clinically meaningful improvement, indicating that therapeutic updating can occur through surrogate representations. Nonconscious exposure studies show that phobic responding can change without conscious fear during intervention, supporting a latent rather than exclusively verbal updating process \cite{siegel2025}. Safety behaviors show context-dependent effects, cautioning against a binary ``all safety behavior is harmful'' rule \cite{meckes2025}.
+
+RRHM therefore classifies behavior by causal function:
+\begin{enumerate}
+\item \textbf{engagement-expanding}: increases actual task-compatible regulation;
+\item \textbf{learning-blocking}: permits contact but prevents independent sampling of the feared boundary;
+\item \textbf{termination}: ends engagement and restores global regulation through escape.
+\end{enumerate}
+
+These categories are hypotheses about function, not treatment prescriptions.
+
+\section{Independent measurement: IRHAB}
+Direct validation requires the Independent Recoverability Horizon Assessment Battery (IRHAB), with strict separation of predictor and outcome.
+
+\subsection{Module A: causal ground truth}
+A task externally programs a deadline $D_j$ until which an engagement-preserving action remains effective. For trial onset $t_{0,j}$:
+\[
+ eRRH_{C,j}=D_j-t_{0,j}.
+\]
+The deadline is fixed by design and does not depend on participant behavior.
+
+\subsection{Module B: prospective explicit estimate}
+Before the outcome occurs, participants estimate how much time remains before engagement-preserving correction will cease to work. Fear, threat expectancy, perceived control, and self-efficacy are rated separately.
+
+\subsection{Module C: nonverbal choice-derived estimate}
+An adaptive staircase estimates the indifference point between correcting now and delaying corrective action. This generates a nonverbal estimate of $\widehat{eRRH}$ and reduces dependence on introspective language.
+
+\subsection{Module D: multimodal physiology}
+Candidate channels include ECG/heart rate, beat-to-beat blood pressure, respiration, end-tidal CO$_2$, electrodermal activity, pupil diameter, EMG, postural sway, and movement kinematics. No single channel is defined as an eRRH biomarker.
+
+\subsection{Module E: independent outcome}
+Only after horizon estimation is completed should the experiment score escape latency, termination, persistence, freezing, behavioral approach, or action switching as outcomes.
+
+The anti-circularity rule is:
+\begin{quote}
+\textbf{$eRRH_C$ and $\widehat{eRRH}$ must never be computed from the defensive-transition outcome they are intended to predict.}
+\end{quote}
+
+\section{Decisive experiment}
+The primary proof-of-principle study is a safe 2$\times$2 design manipulating:
+\[
+ eRRH:\;\text{long vs short}
+\]
+and
+\[
+ dRRH:\;\text{high vs low exit availability}.
+\]
+Objective threat, threat probability, physical imminence, uncertainty, sensory intensity, action number, and perceived control should be matched as closely as experimentally feasible.
+
+The critical comparison holds exit availability constant while varying whether the available corrective action permits continued engagement. The precommitted prediction is
+\[
+\boxed{
+\begin{aligned}
+&\text{same threat} + \text{same physical imminence} + \text{same uncertainty}\\
+&+\text{same perceived control} + \text{same exit availability}\\
+&+\text{same number of actions} + \textbf{different }eRRH\\
+&\Rightarrow \textbf{different defensive-transition timing}.
+\end{aligned}}
+\]
+If this dissociation does not occur reliably, the distinctive mechanism of RRHM is substantially weakened.
+
+\section{Statistical and computational adjudication}
+The primary dependent quantity is transition hazard
+\[
+h_D(t)=P(\text{defensive transition at }t\mid\text{no prior transition}).
+\]
+A preregistered hierarchical survival or discrete-time hazard model should test whether trialwise $\widehat{eRRH}$ predicts transition after adjustment for fear, threat expectancy, perceived control, self-efficacy, uncertainty, physical imminence, and baseline physiology.
+
+Rival models should be implemented prospectively:
+\[
+M_{CE},\;M_{TI},\;M_{Control},\;M_{ASE},\;M_{AI},\;M_{RRHM}.
+\]
+Evaluation should privilege nested cross-validation, held-out log likelihood, predictive calibration, and preregistered information criteria or Bayesian model comparison. RRHM must not be declared superior because it can retrospectively fit the same data.
+
+Before clinical use, parameter recovery must be demonstrated in simulated subjects with known parameters. If eRRH cannot be recovered independently from threat, control, generic delay discounting, or risk preference, the construct is non-identifiable and should be redesigned or abandoned.
+
+\section{Disease-course predictions}
+\subsection{Acquisition}
+The onset hypothesis is
+\[
+CueLocking+PRHC+PrematureTermination+Avoidance+RestrictedSampling
+\Rightarrow P(Phobia)\uparrow.
+\]
+Prospective prediction must exceed established predictors such as baseline fear, trait anxiety, behavioral inhibition, prior adverse experience, family history, and avoidance \cite{trumpf2010incidence}.
+
+\subsection{Persistence}
+Escape restores immediate regulation but prevents observation that engagement-preserving correction may have remained possible. Persistent early termination therefore predicts maintenance of low $\widehat{eRRH}$.
+
+\subsection{Remission}
+Remission is hypothesized to involve recalibration of $\widehat{eRRH}$ toward causal eRRH through sufficiently informative state sampling. Formal exposure is one route; naturalistic benign encounters, virtual exposure, social modeling, sensorimotor retraining, or physiological change may also update the estimate.
+
+\subsection{Durability and relapse}
+Durable remission requires generalization across contexts, body states, cue intensities, and time. Relapse is predicted when illness, pain, sleep disruption, stress, context change, new adverse experience, or reduced physical capacity again contracts causal or estimated eRRH.
+
+\section{External-data stress testing before new recruitment}
+Existing public datasets cannot directly validate eRRH because they were not designed to manipulate causal recoverability. They can nevertheless test necessary implications and identify contradictions before new participant recruitment.
+
+Candidate resources include SpiderPhy for multimodal spider-fear psychophysiology, PsPM-FER02 for return-of-fear dynamics, CTX3 for contextual fear retention, PsPM-PCF3 for reinforcement-probability competition, SpiDa-MRI for neural--behavioral relations in spider fear, and NIMH Data Archive/ABCD resources for developmental and longitudinal benchmarks.
+
+The rule is explicit:
+\[
+\boxed{\text{external compatibility}\neq\text{direct RRHM validation}}.
+\]
+A direct test requires purpose-built independent measurement of $eRRH_C$, $\widehat{eRRH}$, and transition outcome.
+
+\section{Neural implementation: temporal predictions, not a region list}
+RRHM does not posit a single neural locus. Candidate circuitry includes interoceptive and sensory integration, valuation and action selection, controllability-related prefrontal systems, striatal policy selection, amygdala/BNST threat processing, periaqueductal gray defensive organization, brainstem autonomic control, and vestibular/postural networks. Such a list is not evidence for the theory.
+
+The falsifiable neural claim is temporal: trialwise neural and physiological state estimates associated with horizon contraction should change \emph{before} defensive transition and should improve prediction beyond conventional threat and control variables. EEG is suitable for temporal precedence; fMRI can test distributed network dynamics after the behavioral phenomenon is established.
+
+\section{Safety and ethics}
+Initial experiments should use healthy adults or non-clinical fearful participants and low-risk reversible paradigms. Investigators should not intentionally induce hypoxia, airway obstruction, syncope, arrhythmia, seizure, or uncontrolled panic. Participants must retain a genuine emergency stop; the manipulation concerns the geometry of engagement-preserving action, not removal of safety protection.
+
+BII paradigms require syncope precautions. Height paradigms require objective physical protection. Choking or vomiting paradigms should use validated representational cues rather than genuine airway or aspiration risk. Dental paradigms should avoid prolonged maximal mouth opening and intentional respiratory restriction. Clinical safety overrides theoretical discrimination.
+
+\section{Hard falsification criteria}
+RRHM should be rejected, reduced, or substantially revised if repeated studies show any of the following:
+\begin{enumerate}
+\item eRRH cannot be independently measured before the behavior it predicts;
+\item parameter recovery is poor or eRRH is non-identifiable;
+\item eRRH is statistically indistinguishable from threat imminence, perceived control, self-efficacy, or generic expectancy;
+\item manipulating causal eRRH does not alter defensive-transition timing when threat, exit, and control are matched;
+\item RRHM adds no held-out predictive value over preregistered rival models;
+\item a shared eRRH parameter does not generalize across major specific-phobia classes;
+\item baseline eRRH miscalibration does not prospectively predict onset beyond established risk factors;
+\item eRRH recalibration does not predict functional remission or relapse resistance beyond conventional treatment variables;
+\item the theory requires a different hidden meaning of eRRH for each subtype;
+\item similar eRRH abnormalities occur equally across unrelated disorders with no phobia-specific cue locking or phenotype structure.
+\end{enumerate}
+
+A theory that can absorb every outcome after the fact is not a useful medical theory.
+
+\section{Discussion}
+RRHM changes the proposed unit of explanation from fear intensity to the estimated time remaining before effective engagement-preserving regulation ceases to be available. Its narrow novelty claim rests on three dissociations:
+\[
+\boxed{\text{escape availability}\neq\text{engagement recoverability}},
+\]
+\[
+\boxed{\text{physical threat imminence}\neq\text{regulatory imminence}},
+\]
+\[
+\boxed{\text{perceived control}\neq\text{causally effective engagement preservation}}.
+\]
+
+The Open-Door Paradox is the most intuitive example: immediate escape can coexist with severe phobic urgency because the relevant prediction concerns staying regulated while engagement continues. The same architecture permits a calm low-exit MRI state, high-arousal voluntary activities without phobia, vasovagal BII physiology, and sensorimotor height responses without forcing them into one autonomic signature.
+
+The model remains vulnerable in precisely the way a medical theory should be vulnerable. If eRRH is merely a new label for control, imminence, or expected value, it should disappear under head-to-head modeling. If it cannot be measured independently, the central construct fails. If it does not predict future onset, remission, and relapse, the disease-course claim fails. If cross-phobia generalization requires incompatible definitions, the unification claim fails.
+
+\section{Limitations}
+RRHM currently lacks direct empirical validation. eRRH is a proposed latent variable, not a biomarker. The viability boundary $\mathcal V$ must be operationalized separately for each experimental paradigm. The correct mathematical transition function is unknown. Active inference may subsume eRRH mathematically. Existing exposure, safety-behavior, nonconscious-learning, epidemiological, and neuroimaging findings are compatible with portions of the model but are not specific evidence for RRHM.
+
+The construct may prove transdiagnostic rather than specific to specific phobia. That possibility is a scientific result, not a reason to redefine the theory post hoc. Until prospective validation exists, no RRHM-derived quantity should be used for diagnosis, prognosis, treatment selection, or clinical risk stratification.
+
+\section{Conclusion}
+RRHM proposes that specific phobia may involve a cue-locked premature contraction of the estimated engagement-preserving regulatory horizon: the predicted interval during which continued engagement can still be maintained or restored by effective corrective action.
+
+The strongest test is deliberately unforgiving. When objective threat, physical threat imminence, uncertainty, perceived control, escape availability, and action number are held constant, a manipulation that changes only the causal duration of engagement-preserving effectiveness must change defensive-transition timing. If it does not, the distinctive RRHM mechanism should not survive.
+
+If the dissociation replicates across healthy experiments, clinically diagnosed specific-phobia groups, physiologically heterogeneous subtypes, treatment studies, and longitudinal cohorts---and if eRRH outperforms preregistered rival models in held-out data---then RRHM would qualify as a candidate new explanatory variable in human defensive regulation. Until then it remains an explicit, measurable, and falsifiable medical-science hypothesis.
+
+\section*{Declarations}
+\subsection*{Ethics statement}
+This manuscript presents a theoretical medical-science framework and reports no new human or animal experimentation.
+
+\subsection*{Patient consent}
+Not applicable.
+
+\subsection*{Data availability}
+No new dataset was generated for this theoretical manuscript. Proposed secondary analyses are described as future work and require compliance with the source datasets' licenses and data-use conditions.
+
+\subsection*{Funding}
+To be completed by the author before submission.
+
+\subsection*{Competing interests}
+To be completed by the author before submission.
+
+\subsection*{Author contributions}
+Conceptualization, literature integration, model development, and manuscript preparation: to be completed by the author before submission.
+
+\begin{thebibliography}{99}
+\small
+
+\bibitem{wardenaar2017}
+Wardenaar KJ, Lim CCW, Al-Hamzawi AO, et al. The cross-national epidemiology of specific phobia in the World Mental Health Surveys. \emph{Psychol Med}. 2017;47(10):1744--1760. PMID: 28222820. doi:10.1017/S0033291717000174.
+
+\bibitem{odgers2022}
+Odgers K, Kershaw KA, Li SH, Graham BM. The relative efficacy and efficiency of single- and multi-session exposure therapies for specific phobia: A meta-analysis. \emph{Behav Res Ther}. 2022;159:104203. PMID: 36323055. doi:10.1016/j.brat.2022.104203.
+
+\bibitem{trumpf2010incidence}
+Trumpf J, Becker ES, Vriends N, Meyer AH, Margraf J. Incidence and predictors of specific phobia in young women: a prospective community study. \emph{J Anxiety Disord}. 2010;24(1):87--93. PMID: 19815371. doi:10.1016/j.janxdis.2009.09.002.
+
+\bibitem{trumpf2009remission}
+Trumpf J, Becker ES, Vriends N, Meyer AH, Margraf J. Rates and predictors of remission in young women with specific phobia: a prospective community study. \emph{J Anxiety Disord}. 2009;23(7):958--964. PMID: 19604666. doi:10.1016/j.janxdis.2009.06.005.
+
+\bibitem{bohnlein2020}
+Bohnlein J, Altegoer L, Muck NK, et al. Factors influencing the success of exposure therapy for specific phobia: A systematic review. \emph{Neurosci Biobehav Rev}. 2020;108:796--820. PMID: 31830494.
+
+\bibitem{devos2025}
+de Vos JH, Lange I, Goossens L, et al. Long-term exposure therapy outcome in phobia and the link with behavioral and neural indices of extinction learning. \emph{J Affect Disord}. 2025;375:324--330. PMID: 39889926. doi:10.1016/j.jad.2025.01.133.
+
+\bibitem{krypotos2015}
+Krypotos AM, Effting M, Kindt M, Beckers T. Avoidance learning: a review of theoretical models and recent developments. \emph{Front Behav Neurosci}. 2015;9:189. PMID: 26257618.
+
+\bibitem{pittig2018}
+Pittig A, Treanor M, LeBeau RT, Craske MG. The role of associative fear and avoidance learning in anxiety disorders: gaps and directions for future research. \emph{Neurosci Biobehav Rev}. 2018. PMID: 29550209.
+
+\bibitem{kausche2025}
+Kausche FM, Carsten HP, Sobania KM, Riesel A. Fear and safety learning in anxiety- and stress-related disorders: An updated meta-analysis. \emph{Neurosci Biobehav Rev}. 2025. PMID: 39706234.
+
+\bibitem{mobbs2007}
+Mobbs D, Petrovic P, Marchant JL, et al. When fear is near: threat imminence elicits prefrontal-periaqueductal gray shifts in humans. \emph{Science}. 2007;317:1079--1083. PMID: 17717184.
+
+\bibitem{stephan2016}
+Stephan KE, et al. Allostatic Self-efficacy: A Metacognitive Theory of Dyshomeostasis-Induced Fatigue and Depression. \emph{Front Hum Neurosci}. 2016;10:550. PMID: 27895566.
+
+\bibitem{paulus2019}
+Paulus MP, Feinstein JS, Khalsa SS. An Active Inference Approach to Interoceptive Psychopathology. \emph{Annu Rev Clin Psychol}. 2019;15:97--122. PMID: 31067416.
+
+\bibitem{ayala2009}
+Ayala ES, Meuret AE, Ritz T. Treatments for blood-injury-injection phobia: a critical review of current evidence. \emph{J Psychiatr Res}. 2009;43:1235--1242. PMID: 19464700.
+
+\bibitem{ritz2010}
+Ritz T, Meuret AE, Ayala ES. The psychophysiology of blood-injection-injury phobia: looking beyond the diphasic response paradigm. \emph{Int J Psychophysiol}. 2010. PMID: 20576505.
+
+\bibitem{huppert2020}
+Huppert D, Wuehr M, Brandt T. Acrophobia and visual height intolerance: advances in epidemiology and mechanisms. \emph{J Neurol}. 2020;267(Suppl 1):231--240. PMID: 32444982.
+
+\bibitem{siegel2025}
+Siegel P, Peterson BS. Unconscious exposure as a treatment strategy for fear and anxiety: review of controlled experiments. \emph{J Child Psychol Psychiatry}. 2025;66:98--121. PMID: 39128857. doi:10.1111/jcpp.14037.
+
+\bibitem{meckes2025}
+Meckes J, et al. Safety behavior during exposure for spider fear: effects of fading, non-fading, and no safety behavior. \emph{Cognit Ther Res}. 2025. PMID: 42267056. doi:10.1007/s10608-025-10667-1.
+
+\end{thebibliography}
+
+\balance
+\end{document}
