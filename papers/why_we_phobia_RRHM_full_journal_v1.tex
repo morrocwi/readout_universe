@@ -1,0 +1,802 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs,longtable,array}
+\usepackage{microtype}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{setspace}
+\setstretch{1.08}
+\hypersetup{colorlinks=true,linkcolor=black,citecolor=black,urlcolor=blue}
+\setlength{\parindent}{1.2em}
+\setlength{\parskip}{0.35em}
+
+\title{\textbf{Why We Phobia?}\\[0.4em]
+\large The Regulatory Recoverability Horizon Model of Specific Phobia\\[0.25em]
+\normalsize A Systems-Medicine Account of Phenotypic Convergence, Disease Transition, and Durable Remission}
+\author{Yaoharee Lahtee}
+\date{1 September 2026}
+
+\begin{document}
+\maketitle
+
+\begin{center}
+\textit{Article type: Medical Concept Paper / Systems-Neuroscience Hypothesis}
+\end{center}
+
+\begin{abstract}
+Specific phobia is a common psychiatric disorder characterized by persistent, disproportionate fear or anxiety linked to a circumscribed object or situation, accompanied by avoidance or intense distress and clinically meaningful impairment. Despite decades of progress in conditioning theory, exposure therapy, neuroimaging, interoception, avoidance science, and defensive-neuroscience research, three clinically fundamental problems remain incompletely resolved: (1) why physiologically heterogeneous phobic stimuli converge on similar defensive behavior; (2) why ordinary fear develops into persistent specific phobia in only some individuals; and (3) why effective exposure treatment produces durable remission in some patients but incomplete response or later recurrence in others.
+
+This concept paper proposes the \textbf{Regulatory Recoverability Horizon Model (RRHM)}. Rather than beginning with fear as the primary causal variable, RRHM treats the patient as a single organism--environment regulatory system. The model defines the \textbf{Regulatory Recoverability Horizon (RRH)} as the predicted future interval during which at least one effective corrective or compensatory action remains capable of preventing, terminating, or recovering from an anticipated adverse organismic state. The central pathological hypothesis is \textbf{Premature Regulatory Horizon Contraction (PRHC)}: a circumscribed cue causes the nervous system to predict that effective recovery will become unavailable substantially earlier than it causally would under the same conditions.
+
+RRHM predicts that defensive-state recruitment becomes increasingly probable as the estimated RRH approaches the latency required for effective corrective action. It further predicts that specific phobia emerges when cue-linked PRHC is repeatedly followed by premature defensive termination and avoidance, thereby preventing adequate sampling of the causal recoverability horizon. Persistence reflects repeated failure of corrective sampling. Remission reflects \textbf{recoverability recalibration} across relevant cues, bodily states, and contexts. Relapse is predicted when new physiological or contextual conditions again contract the estimated horizon.
+
+The model incorporates established findings from fear and safety learning, avoidance, threat imminence, interoception, allostatic control, autonomic physiology, sensorimotor regulation, and exposure therapy without assigning causal primacy to either cognition or peripheral physiology. Its key falsifiable prediction is that experimentally manipulated recoverability horizon should predict the timing of defensive transition beyond objective threat, threat probability, uncertainty, perceived control, self-efficacy, physical threat imminence, and the number of available actions. Prospective tests are proposed for phobia onset, persistence, treatment response, durable remission, and relapse.
+\end{abstract}
+
+\noindent\textbf{Keywords:} specific phobia; systems medicine; systems neuroscience; fear; avoidance; exposure therapy; interoception; autonomic nervous system; threat imminence; recoverability; computational psychiatry; psychophysiology.
+
+\section{Introduction: Three Problems That Specific-Phobia Science Still Has Not Closed}
+
+Specific phobia is common, often begins early, and can persist despite the objectively circumscribed nature of the feared stimulus. World Mental Health Survey data from 22 countries estimated lifetime prevalence at approximately 7.4\% and 12-month prevalence at approximately 5.5\%, with substantial cross-national and sex differences \cite{wardenaar2017}. Exposure therapy is an effective treatment, and both single-session and multisession approaches can produce large clinical effects \cite{odgers2022}. Yet treatment efficacy should not be confused with a complete disease theory.
+
+Three problems remain particularly important for medicine and clinical science.
+
+\subsection{Problem 1: the phenotypic convergence problem}
+
+A spider, a syringe, blood, a high balcony, a closed elevator, an aircraft cabin, deep water, vomiting, and a dental procedure are not physiologically equivalent. They differ in sensory characteristics, actual hazard, interoceptive consequences, motor constraints, temporal structure, and downstream autonomic response. Blood-injection-injury (BII) phobia may include vasovagal presyncope or syncope and prominent disgust, whereas other phobias may show sympathetic activation, freezing, escape, or sensorimotor stiffening \cite{ducasse2013,ritz2010}. Nevertheless, these heterogeneous triggers can converge on a common clinical endpoint: restricted behavioral repertoire, escalating urge to terminate exposure, and avoidance.
+
+The unresolved question is therefore not simply why each stimulus is frightening. It is: \emph{what common organism-level operation can cause radically different stimuli and physiological states to converge on a similar decision to terminate exposure?}
+
+\subsection{Problem 2: the disease-transition problem}
+
+Fear is normal and adaptive. Yet only some fears become persistent specific phobias. Prospective community studies identify risk factors such as pre-existing psychopathology, coping-related variables, and cognitive style, but do not provide a single neurophysiological transition variable that explains when ordinary defensive responding becomes a stable clinical disorder \cite{trumpf2010incidence}. A disease theory should distinguish an acute fear episode from acquisition of a persistent cue-linked pathological state and should ultimately predict future onset.
+
+\subsection{Problem 3: the durable-remission problem}
+
+Exposure therapy is highly effective at the group level \cite{odgers2022}, yet factors determining individual success are heterogeneous. A systematic review of 111 studies found no single consensus set of moderators that reliably determines exposure success \cite{bohnlein2020}. Long-term follow-up also demonstrates that treatment response does not guarantee permanent absence of clinically meaningful avoidance or endurance with dread \cite{ost2000longterm}. A mechanistic disease model should therefore explain not only why exposure can work, but why improvement becomes durable in some patients, remains incomplete in others, and can later relapse.
+
+These three problems---\textbf{convergence, transition, and durable remission}---are usually investigated through partially separate literatures. The present paper proposes that they may be different manifestations of a single neuroregulatory variable: \textbf{the estimated time remaining before effective recovery ceases to be available}. This paper develops that hypothesis as the Regulatory Recoverability Horizon Model (RRHM).
+
+\section{Clinical Scope and Medical Mimic Gate}
+
+RRHM is a mechanistic hypothesis for \emph{specific phobia}. It is not a replacement for psychiatric diagnosis and is not a diagnostic score. Specific phobia requires persistent, marked fear or anxiety tied to a circumscribed stimulus, reliable cue triggering, avoidance or intense distress, disproportionality to actual danger, and meaningful impairment or distress, with exclusion of better explanations by other psychiatric or medical conditions \cite{who2024}.
+
+The model therefore begins with a \textbf{Medical Mimic Gate}. Symptoms commonly occurring during phobic episodes---palpitations, dyspnea, dizziness, presyncope, syncope, weakness, paresthesia, tremor, swallowing difficulty, chest discomfort, or altered awareness---can also occur in cardiovascular, respiratory, neurological, vestibular, metabolic, autonomic, medication-related, or substance-related disease. Where clinically indicated, genuine medical hazards must be assessed before defensive responding is interpreted as phobic miscalibration.
+
+This distinction is central because the same defensive response can be (i) appropriate to true physiological hazard; (ii) disproportionate to hazard but based on an underestimated recovery window; or (iii) a mixture of genuine physiological vulnerability and learned overprediction. RRHM is designed to represent these possibilities rather than collapsing all fear into ``irrational cognition.''
+
+\section{Established Science Absorbed by the Model}
+
+RRHM does not claim novelty for fear conditioning, extinction, avoidance, threat imminence, interoception, controllability, self-efficacy, or predictive control. These literatures provide the empirical substrate of the model.
+
+\subsection{Fear and safety learning}
+
+Fear acquisition and extinction remain central to anxiety research. An updated meta-analysis across anxiety- and stress-related disorders found measurable abnormalities across acquisition, extinction, and extinction recall, although effects vary across paradigms and diagnoses \cite{kausche2025}. RRHM accepts learned cue--outcome associations as important determinants of the state estimate from which recoverability is inferred.
+
+\subsection{Avoidance learning}
+
+Avoidance can reduce immediate distress while preventing observation of what would have happened without escape. Contemporary avoidance models therefore treat avoidance as both an adaptive behavior and a mechanism capable of maintaining pathological threat expectations \cite{krypotos2015,pittig2018}. RRHM incorporates this established principle but specifies the missing counterfactual information as the \emph{causal recoverability horizon}.
+
+\subsection{Threat imminence}
+
+Defensive behavior changes as danger approaches. Human experimental work demonstrates shifts in neural recruitment, including greater midbrain/periaqueductal gray involvement at higher threat imminence \cite{mobbs2007}. RRHM retains threat imminence but distinguishes it from \textbf{regulatory imminence}: proximity to the estimated point at which effective corrective action will no longer remain sufficient.
+
+\subsection{Interoception}
+
+Interoceptive signals contribute to anxiety, but current evidence does not support a simple universal impairment of objective interoceptive accuracy. Anxiety is particularly associated with attention to and negative evaluation of bodily signals \cite{jenkinson2024,clemente2024}. RRHM therefore does not require the body to be ``read incorrectly.'' Accurate bodily signals can still support an inaccurate inference about future recoverability.
+
+\subsection{Active inference and allostatic regulation}
+
+Active-inference frameworks place perception, interoception, action, and physiological regulation within hierarchical predictive control \cite{paulus2019}. Allostatic self-efficacy theory further proposes a metacognitive estimate of the organism's capacity to regulate bodily states \cite{stephan2016}. RRHM does not claim priority for the proposition that the brain estimates regulatory capacity. Its proposed addition is specifically temporal: \emph{how long effective recovery is expected to remain reachable under continuing exposure}.
+
+\subsection{Specific-phobia neurobiology}
+
+Specific-phobia neuroimaging implicates distributed networks involving the amygdala, insula, anterior cingulate, thalamic, prefrontal, orbitofrontal, and related systems rather than a single ``fear center'' \cite{linares2012,etkin2007}. RRHM accordingly predicts a distributed computation linking sensory, interoceptive, contextual, autonomic, and action-selection systems.
+
+\subsection{Exposure therapy}
+
+Exposure therapy remains a preferred treatment for specific phobia, with large effects in single-session and multisession formats \cite{odgers2022}. RRHM must therefore explain why therapeutic exposure works without requiring exposure efficacy to validate the proposed mechanism.
+
+\section{From Fear to Recoverability}
+
+The central claim of RRHM is that \textbf{fear intensity is not the most fundamental variable governing defensive transition}. A nervous system must regulate more than danger detection. It must determine whether viable corrective trajectories remain available.
+
+Consider two states with similar hazard. In State A, the organism can stop, withdraw, breathe, regain posture, communicate, stabilize circulation, or obtain help. In State B, the organism predicts that if exposure continues, those responses will soon be unavailable, ineffective, or too slow. RRHM predicts more urgent defensive recruitment in State B even when objective hazard and conscious fear statements are initially similar.
+
+The key question is therefore:
+
+\begin{quote}
+\textbf{If exposure continues, how long does the nervous system predict that effective recovery will remain possible?}
+\end{quote}
+
+\section{Formal Model}
+
+The following equations are model definitions and hypotheses, not established physiological laws.
+
+\subsection{Integrated organism--environment state}
+
+Let
+\[
+x_t
+\]
+represent the organism--environment state at time $t$. Relevant dimensions can include cardiovascular state, respiratory state, vestibular and postural state, nociception and pain, musculoskeletal state, visceral signals, sensory environment, spatial geometry, procedural constraints, available motor responses, access to communication or assistance, learned cue associations, and current goals.
+
+RRHM does not require a causal sequence of ``mind first, body second.'' Cognitive reports, autonomic activity, motor behavior, visceral state, and environmental interaction are components of the same regulatory process.
+
+\subsection{Functional viability region}
+
+Let
+\[
+\mathcal{V}
+\]
+denote the set of states compatible with continued functional integrity for the clinical or experimental task. In a laboratory phobia paradigm, viability need not mean literal survival. It can refer to preservation of consciousness, breathing, stable posture, motor control, communication, and safe task engagement.
+
+\subsection{Corrective policies}
+
+Let
+\[
+\pi \in \Pi_t
+\]
+denote a candidate corrective or compensatory policy. A policy counts as \emph{effective} only if it is available, accessible, executable, causally capable of altering the relevant state, and sufficiently rapid.
+
+\subsection{Recoverable policy set}
+
+For horizon $H$, define
+\[
+\mathcal{R}_H(x_t)=\left\{\pi\in\Pi_t:\;x_{t:t+H}^{\pi}\text{ remains within or returns to }\mathcal{V}\right\}.
+\]
+If
+\[
+\mathcal{R}_H(x_t)\neq\varnothing,
+\]
+at least one viable corrective trajectory remains.
+
+\subsection{Causal Regulatory Recoverability Horizon}
+
+Define
+\[
+RRH_C(x_t)=\sup\left\{H\ge 0:\mathcal{R}_H(x_t)\neq\varnothing\right\}.
+\]
+$RRH_C$ is the \textbf{causal} interval during which successful recovery remains possible.
+
+\subsection{Estimated Regulatory Recoverability Horizon}
+
+The nervous system does not possess direct knowledge of $RRH_C$. It must estimate it from sensory, interoceptive, proprioceptive, contextual, and learned information. Define
+\[
+\widehat{RRH}_t
+\]
+as the estimated regulatory recoverability horizon.
+
+\subsection{Recoverability Calibration Error}
+
+Define
+\[
+RCE_t=RRH_C-\widehat{RRH}_t.
+\]
+Positive $RCE$ indicates \textbf{underestimation of recoverability}. Negative $RCE$ indicates \textbf{overestimation of recoverability}, which can also be maladaptive when real danger is present. The model is therefore one of \emph{calibration}, not of maximizing subjective safety.
+
+\section{Premature Regulatory Horizon Contraction}
+
+The central pathological event is \textbf{Premature Regulatory Horizon Contraction (PRHC)}, defined as a cue-linked contraction of the estimated recoverability horizon substantially earlier than the causal recoverability horizon under the same organism--environment conditions.
+
+Conceptually,
+\[
+\widehat{RRH}_{cue}\ll RRH_{C,cue}.
+\]
+PRHC is not synonymous with fear. It is proposed to occur upstream of the timing of defensive policy selection.
+
+A person can experience arousal without PRHC---for example during voluntary exercise while retaining confidence that effective correction remains available. A person can also exhibit PRHC before intense conscious fear is reported, particularly in children or in rapid sensorimotor defensive responses.
+
+\section{Regulatory Imminence and Defensive Transition}
+
+Let
+\[
+\tau_{corr}
+\]
+represent the predicted time required to execute a successful corrective response. The model proposes that defensive urgency rises as
+\[
+\widehat{RRH}\rightarrow \tau_{corr}.
+\]
+A conceptual index is
+\[
+DTI=\frac{\tau_{corr}+m}{\widehat{RRH}},
+\]
+where $m$ represents a context-dependent uncertainty or safety margin. No universal numerical threshold is claimed.
+
+The theoretical point is relational: \textbf{a defensive transition becomes increasingly adaptive as the remaining estimated recovery window approaches the time required to act}. Physical threat imminence asks how close danger is. Regulatory imminence asks how close the system is to the point where successful correction will be too late. These variables can dissociate.
+
+\section{Solving Problem 1: Why Heterogeneous Phobias Converge}
+
+Specific-phobia subtypes need not share one sensory trigger or one autonomic phenotype. RRHM predicts convergence at the level of \textbf{recoverability estimation}.
+
+\begin{longtable}{p{0.24\textwidth}p{0.68\textwidth}}
+\toprule
+\textbf{Phobic phenotype} & \textbf{Illustrative recoverability problem} \\
+\midrule
+Animal & Unpredictable movement may reduce the predicted time for injury avoidance. \\
+Heights & Balance failure may be represented as having a rapidly closing corrective interval. \\
+Flying & Exit and environmental-control trajectories are constrained for prolonged periods. \\
+Claustrophobic situations & Exit, movement, communication, or respiratory comfort may be represented as shrinking. \\
+Needle & Puncture is temporally irreversible once initiated; pain or fainting may be anticipated. \\
+Blood/injury & Anticipated syncope, injury, disgust, or circulatory instability can constrain recovery. \\
+Dental procedures & Jaw rest, swallowing, communication, breathing comfort, and procedural demands may compete. \\
+Choking/swallowing & Airway or swallowing deterioration is represented as having a short corrective margin. \\
+Vomiting-related fear & Visceral progression may be represented as crossing a point of no voluntary return. \\
+Deep water & Respiratory and locomotor corrective options may fail jointly. \\
+\bottomrule
+\end{longtable}
+
+The common operation is therefore neither the same stimulus nor the same autonomic response. It is the \textbf{anticipated contraction of the remaining effective recovery window}.
+
+\section{Blood-Injection-Injury Phobia: A Critical Falsification Case}
+
+BII phobia is a stringent test because some affected individuals develop vasovagal presyncope or syncope and may show substantial disgust \cite{ducasse2013,ritz2010,ayala2009}. A universal model equating phobia with sympathetic arousal would fail this subtype.
+
+RRHM instead predicts
+\[
+PRHC\rightarrow P(\text{restrictive defensive policy})\uparrow,
+\]
+while allowing downstream physiology to differ. Possible outputs include escape, freezing, sympathetic activation, vasovagal transition, disgust-related withdrawal, or motor inhibition.
+
+Applied tension in fainting-prone BII patients can also be interpreted without mind--body dualism: it may increase \textbf{actual circulatory recoverability}, thereby altering the organismic state on which subsequent predictions are based \cite{ayala2009}. BII therefore becomes a test of the model rather than an exception hidden in the limitations section.
+
+\section{Acrophobia: A Sensorimotor Test Case}
+
+Visual height intolerance and acrophobia illustrate why specific phobia cannot be reduced to detached cognition. Clinical and experimental literature describes changes in visual exploration, postural stiffness, balance control, and locomotor strategies at height \cite{huppert2020,wuehr2015}.
+
+RRHM represents the relevant system as
+\[
+\text{visual geometry}+\text{vestibular state}+\text{postural control}+\text{motor affordance}+\text{autonomic state}+\text{learned history}\rightarrow\widehat{RRH}.
+\]
+The conscious statement ``I will fall'' can be treated as one clinical report of the integrated regulatory state rather than as a separate mental cause commanding a passive body.
+
+The model predicts that interventions improving \textbf{actual sensorimotor recoverability} could alter phobic responding even if explicit verbal beliefs change only later.
+
+\section{Solving Problem 2: From Ordinary Fear to Clinical Phobia}
+
+An acute defensive episode is not equivalent to phobia acquisition. RRHM proposes a multistep transition.
+
+\subsection{Initial adverse-state learning}
+
+A cue may become associated with adverse outcomes through direct experience, observational learning, verbal learning, developmental learning, prepared biological sensitivity, interoceptive coupling, or genuine physiological vulnerability. The model is agnostic about a single universal origin.
+
+\subsection{Cue locking}
+
+The critical transition is the acquisition of
+\[
+Cue\Rightarrow\widehat{RRH}\downarrow.
+\]
+The learned association becomes more specific than ``cue = danger.'' It becomes
+\[
+Cue\Rightarrow\text{``the effective recovery window is closing.''}
+\]
+
+\subsection{Premature defensive termination}
+
+If $\widehat{RRH}$ is much shorter than $RRH_C$, escape or interruption occurs before objective correction becomes necessary.
+
+\subsection{Avoidance reinforcement}
+
+Escape changes the organism--environment state and often produces rapid relief:
+\[
+Escape\rightarrow\widehat{RRH}\uparrow.
+\]
+The behavior therefore appears successful. However, early termination prevents observation of the counterfactual: what would $RRH_C$ have been if exposure had continued?
+
+\subsection{Corrective-sampling failure}
+
+Repeated avoidance therefore creates
+\[
+Cue\rightarrow PRHC\rightarrow Escape\rightarrow Relief\rightarrow No\ adequate\ sampling\ of\ RRH_C\rightarrow PRHC\ persists.
+\]
+This is the proposed transition from episodic fear toward persistent phobic organization.
+
+\subsection{Generalization}
+
+PRHC may spread to associated sensory features, places, bodily sensations, anticipatory cues, verbal labels, or contexts. Generalization broadens the functional impact without requiring an increase in objective hazard.
+
+\section{Prospective Prediction of Phobia Onset}
+
+A disease model must eventually predict future incidence. RRHM predicts that among individuals without current specific phobia, \textbf{stable cue-specific underestimation of RRH} should predict subsequent persistent avoidance and phobia onset.
+
+Prospective models should test
+\[
+P(SP_{future})=f(RCE_{baseline},\ avoidance,\ generalization,\ history,\ physiological\ vulnerability,\ known\ risk\ factors).
+\]
+The crucial scientific criterion is incremental validity. RRH-related measures must improve prediction beyond baseline fear, trait anxiety, behavioral inhibition, prior trauma, family history, threat expectancy, avoidance, and generic self-efficacy. If they do not, RRH should not be retained as a distinct developmental construct.
+
+\section{Maintenance as a Neurobehavioral Attractor}
+
+Once established, phobia can become self-maintaining:
+\[
+Cue\rightarrow\widehat{RRH}\downarrow\rightarrow DefensiveTransition\rightarrow Avoidance\rightarrow ImmediateRelief\rightarrow InsufficientCorrectiveSampling\rightarrow\widehat{RRH}\text{ remains low}.
+\]
+
+This formulation has an important implication. Chronic phobia may eventually involve both (i) estimated recoverability distortion and (ii) actual loss of competence. Long avoidance can reduce procedural familiarity, postural confidence, social skills, physical conditioning, or experience with the stimulus. Thus $RRH_C$ itself may become smaller over time. A disorder that initially began primarily as miscalibration can therefore develop genuine functional constraints.
+
+\section{Solving Problem 3: Why Exposure Produces Remission in Some but Not All Patients}
+
+Exposure therapy is clinically effective \cite{odgers2022}, but individual outcomes and moderators remain heterogeneous \cite{bohnlein2020}. RRHM proposes that symptom reduction is not the fundamental therapeutic event. The critical event is \textbf{Recoverability Recalibration}.
+
+During successful, clinically safe exposure,
+\[
+Cue\ persists
+\]
+while effective correction remains possible:
+\[
+RRH_C>\widehat{RRH}_{previously\ predicted}.
+\]
+The nervous system is therefore exposed to an informative discrepancy: \emph{the predicted recovery window should already have closed, but recovery remains available}. Repeated experience can produce
+\[
+\widehat{RRH}_{post}>\widehat{RRH}_{pre},
+\]
+and ideally
+\[
+\widehat{RRH}\rightarrow RRH_C.
+\]
+Fear need not become zero for this to constitute mechanistic improvement.
+
+\section{Exposure Is Not Mere Endurance}
+
+RRHM specifically rejects the interpretation that effective exposure requires forcing a patient to remain until distress becomes extreme. An exposure can fail mechanistically if it introduces real physiological danger, produces an uncontrolled traumatic experience, removes necessary medically protective actions, confirms the patient's feared loss of recoverability, terminates before the target prediction is tested, or teaches that recovery is possible only because of one narrow safety condition.
+
+The therapeutic requirement is not maximal distress. It is \textbf{informative, safe sampling of preserved recoverability beyond the patient's predicted boundary}. This is compatible with contemporary inhibitory-learning approaches while specifying a candidate state variable being recalibrated.
+
+\section{Functional Remission}
+
+RRHM distinguishes fear reduction from remission. Mechanistic remission includes:
+
+\begin{enumerate}[label=\arabic*.]
+\item \textbf{Behavioral re-entry}: the patient resumes functionally relevant activity.
+\item \textbf{Reduced premature transition}: the phobic cue no longer triggers defensive termination substantially before it is physiologically required.
+\item \textbf{RRH recalibration}: $RCE_{post}<RCE_{pre}$.
+\item \textbf{Generalization}: recalibration persists across contexts, days, cue intensities, bodily states, therapist absence, and reduction of unnecessary safety behaviors.
+\end{enumerate}
+
+A prospective community study found substantial partial and full remission in young women with specific phobia and suggested that predictors of remission differ from predictors of incidence \cite{trumpf2009remission}. RRHM therefore treats acquisition and remission as related but not necessarily symmetric processes.
+
+\section{Durable Remission and Relapse}
+
+Long-term treatment response is not equivalent to permanent elimination of symptoms. Follow-up over 10--16 years has demonstrated clinically meaningful later avoidance or endurance with dread in some patients who initially responded well \cite{ost2000longterm}.
+
+RRHM defines \textbf{durable mechanistic remission} as
+\[
+\text{functional recovery}+\text{stable RRH recalibration}+\text{cross-context generalization}.
+\]
+Relapse is predicted when the estimated or causal horizon contracts again. Potential mechanisms include prolonged avoidance, new aversive experiences, acute illness, severe stress, altered physical capacity, pain, vestibular change, autonomic instability, or context shifts not represented during treatment.
+
+Thus return of phobic behavior need not imply that all prior learning was erased. The organism may now occupy a different state with a different actual or estimated recovery horizon.
+
+\section{Safety Behaviors Reclassified}
+
+A major clinical implication is that ``safety behavior'' should not be treated as one category. RRHM divides such behaviors into four mechanistic classes:
+
+\begin{enumerate}[label=\arabic*.]
+\item \textbf{Causally protective}: genuinely extends $RRH_C$.
+\item \textbf{Informationally supportive}: primarily reduces uncertainty or improves state estimation.
+\item \textbf{Corrective-learning blocking}: terminates exposure before the target recoverability prediction can be tested.
+\item \textbf{Mechanistically neutral}: has little effect on either causal recovery or learning.
+\end{enumerate}
+
+This distinction predicts that indiscriminately removing all safety behaviors may sometimes be clinically counterproductive.
+
+\section{Procedural Phobias and Actual Constraint}
+
+Procedural contexts such as dentistry, MRI, injections, and surgery provide an important translational boundary because corrective actions can be genuinely constrained. The model therefore separates
+\[
+Objective\ Regulatory\ Constraint
+\]
+from
+\[
+Premature\ Estimated\ Horizon\ Contraction.
+\]
+
+For example, during dental treatment, prolonged mouth opening can constrain swallowing, jaw movement, speech, or interruption. These are not imaginary restrictions. Appropriate microbreaks or a reliable stop signal can therefore increase actual recoverability. A patient may simultaneously have (i) a genuine procedural constraint and (ii) an excessive prediction that recovery will become unavailable much sooner than it actually will. Treatment may need to modify both.
+
+\section{Neural Implementation}
+
+RRHM does not posit a single anatomical ``recoverability center.'' The computation is hypothesized to emerge from distributed systems involved in sensory and interoceptive representation, salience, contextual memory, action selection, threat evaluation, autonomic control, defensive-state organization, and learning.
+
+Candidate structures include the insular cortex, anterior and mid-cingulate regions, amygdala, hippocampal systems, thalamus, prefrontal and orbitofrontal cortex, corticostriatal circuits, hypothalamus, periaqueductal gray, parabrachial regions, and brainstem autonomic nuclei. Existing neuroimaging in specific phobia supports distributed rather than single-region abnormalities \cite{linares2012,etkin2007}.
+
+RRHM makes a stronger temporal prediction: neural and physiological transitions should track \textbf{estimated approach to loss of recoverability}, not merely cue presence or reported fear. Existing neuroimaging studies have not directly measured RRH.
+
+\section{Regulatory Imminence Versus Threat Imminence}
+
+Threat-imminence theory is the strongest neighboring framework. RRHM therefore distinguishes
+\[
+Physical\ Threat\ Imminence
+\]
+from
+\[
+Regulatory\ Imminence.
+\]
+Regulatory imminence is the proximity to the estimated point at which effective corrective action will no longer remain sufficient.
+
+A threat can remain physically constant while regulatory imminence increases. Examples include remaining at the same physical height while postural confidence deteriorates; a stable aircraft environment in which exit remains unavailable; a dental procedure in which jaw fatigue or swallowing demand accumulates; or a closed scanner in which the patient increasingly predicts inability to terminate the procedure.
+
+The theory survives only if regulatory imminence predicts behavior after physical threat imminence has been controlled.
+
+\section{RRHM Versus Perceived Control}
+
+Perceived control is established as an important determinant of stress and defensive behavior. RRHM therefore cannot define itself as ``the feeling that one can do something.'' Two conditions can contain the same number of actions and the same subjective control while differing in whether those actions remain effective before a deadline.
+
+This yields the key distinction
+\[
+Action\ Availability\neq Effective\ Recoverability.
+\]
+A stop button that genuinely prevents an adverse state differs from a button that changes something irrelevant. A button that works now but becomes ineffective after five seconds differs from one that remains effective for thirty seconds. RRHM predicts these differences even when self-reported control is experimentally matched.
+
+\section{RRHM Versus Allostatic Self-Efficacy}
+
+Allostatic self-efficacy (ASE) proposes that individuals maintain a metacognitive estimate of their capacity to regulate bodily states \cite{stephan2016}. RRHM is compatible with this framework but narrower. ASE asks approximately ``Can I regulate this state?'' RRHM asks \textbf{``How long will effective regulation remain possible if the current trajectory continues?''}
+
+This temporal distinction provides an experimental path to discriminant validity. If RRH measures collapse into generic self-efficacy with no incremental prediction, RRHM should be reduced to a derivative formulation rather than maintained as a new construct.
+
+\section{RRHM Versus Active Inference}
+
+Active inference is broader than RRHM and can accommodate interoception, physiological control, uncertainty, and policy selection \cite{paulus2019}. RRHM should therefore be treated as a domain-specific hypothesis that can potentially be embedded within several computational frameworks.
+
+Its distinctive empirical commitment is
+\[
+\boxed{\text{The timing of defensive transition depends on an estimated recoverability horizon.}}
+\]
+The model is useful only if this temporal variable produces predictions not already exhausted by generic expected threat, policy value, uncertainty, or control.
+
+\section{The Primary Falsification Experiment}
+
+The decisive proof-of-principle experiment should manipulate \textbf{recoverability horizon} independently of neighboring variables.
+
+Hold constant:
+\begin{itemize}
+\item objective threat magnitude;
+\item threat probability;
+\item physical threat imminence;
+\item uncertainty;
+\item number of available actions;
+\item perceived control;
+\item baseline physiological load.
+\end{itemize}
+
+Manipulate only \textbf{how long an effective corrective action remains causally capable of restoring the target state}.
+
+\paragraph{Condition A: Long RRH.} The corrective action remains effective for a long interval.
+
+\paragraph{Condition B: Short RRH.} The same action becomes ineffective after an early deadline.
+
+\paragraph{Condition C: Sham control.} An action remains available but does not causally correct the target state.
+
+\paragraph{Condition D: Delayed effective control.} The action is effective but requires longer to work than the remaining horizon.
+
+The core prediction is
+\[
+DefensiveTransition_{short\ RRH}>DefensiveTransition_{long\ RRH}
+\]
+despite matched perceived control and physical threat.
+
+Potential outcomes include escape latency, motor freezing, action restriction, autonomic change, pupillary response, attentional narrowing, and behavioral persistence. If RRH does not explain incremental variance beyond established predictors, the central novelty claim fails.
+
+\section{Clinical Prediction 1: Phobia Onset}
+
+A longitudinal cohort should recruit individuals without current specific phobia and measure cue-specific estimated RRH, causal RRH under safe laboratory conditions, baseline fear, threat expectancy, perceived control, self-efficacy, avoidance, behavioral inhibition, and relevant physiological vulnerability.
+
+RRHM predicts that
+\[
+RCE_{baseline}
+\]
+will prospectively predict future specific-phobia onset. A stringent analysis must test whether this remains after adjustment for established risk factors. Failure of prospective incremental prediction would falsify the acquisition extension of the theory.
+
+\section{Clinical Prediction 2: Persistence}
+
+Among people with comparable baseline phobic severity, RRHM predicts greater persistence when avoidance repeatedly prevents observation beyond the predicted horizon. Thus two patients with equal fear scores may diverge: Patient A repeatedly samples preserved recoverability; Patient B terminates exposure before the predicted failure point. RRHM predicts poorer long-term outcome in Patient B.
+
+\section{Clinical Prediction 3: Treatment Response}
+
+Before, during, and after exposure therapy, measure $\widehat{RRH}$. The model predicts
+\[
+\Delta\widehat{RRH}>0
+\]
+will relate to behavioral approach, reduced avoidance, and functional recovery. The critical test is whether RRH change predicts outcome beyond fear reduction, expectancy violation, perceived control, self-efficacy, and extinction measures.
+
+\section{Clinical Prediction 4: Durable Remission}
+
+Post-treatment testing should deliberately vary context, cue intensity, bodily state, therapist presence, and environmental predictability. RRHM predicts that \textbf{cross-context stability of recalibrated RRH} will predict long-term remission better than symptom reduction measured in the treatment context alone.
+
+\section{Clinical Prediction 5: Relapse}
+
+The model predicts relapse when $\widehat{RRH}$ contracts again under a new organism--environment configuration. Therefore relapse risk should be higher when treatment learning is narrow and lower when recalibration has been demonstrated across multiple contexts, physiological states, cue variants, and action configurations.
+
+\section{Measurement Strategy}
+
+RRH is a latent systems variable. No single biomarker should be presented as ``the RRH marker.''
+
+\subsection{Behavioral measures}
+Approach distance, escape latency, persistence, stop behavior, motor freezing, action-switching flexibility, and exploration.
+
+\subsection{Patient-reported measures}
+Predicted adverse outcome, fear, perceived control, perceived ability to cope, predicted time until effective correction becomes impossible, expected recovery time, and urge to escape. The RRH measure must not be merely a differently worded fear scale.
+
+\subsection{Cardiovascular and autonomic measures}
+Depending on the study: ECG/heart rate, beat-to-beat blood pressure, electrodermal activity, pupillometry, and selected HRV metrics with appropriate methodological caution.
+
+\subsection{Respiratory measures}
+Respiratory rate, respiratory pattern, and end-tidal $CO_2$ where appropriate.
+
+\subsection{Sensorimotor measures}
+EMG, postural sway, gait, movement kinematics, and jaw movement for dental paradigms.
+
+\subsection{Neural measures}
+EEG for temporal dynamics, fMRI for network-level correlates, and model-based analyses using trialwise RRH estimates.
+
+Multimodal measurement is preferable because specific phobias do not share a single autonomic phenotype.
+
+\section{Precision Exposure Medicine}
+
+If RRHM is supported, exposure treatment could be individualized according to \textbf{what the patient predicts will cease to remain recoverable}.
+
+\paragraph{Height phobia.} Target actual postural/sensorimotor recoverability as well as threat prediction.
+
+\paragraph{BII phobia.} Patients with vasovagal susceptibility may require management of actual circulatory recoverability alongside exposure.
+
+\paragraph{Dental phobia.} Separate true procedural constraints from excessive horizon contraction. Reliable interruption, jaw rest, swallowing opportunity, and communication may alter $RRH_C$, while graded exposure recalibrates $\widehat{RRH}$.
+
+\paragraph{Claustrophobic situations.} The relevant horizon may involve perceived exit, movement, communication, or respiratory correction.
+
+\paragraph{Animal phobia.} The target may be predicted time available for injury avoidance relative to the animal's movement.
+
+The treatment question becomes:
+\begin{quote}
+\textbf{What does the patient's nervous system predict will soon become unrecoverable, and what safe experience can directly test that prediction?}
+\end{quote}
+
+\section{Developmental Implications}
+
+Specific phobia frequently begins in childhood \cite{wardenaar2017}. RRHM must therefore operate without requiring explicit verbal cognition. The estimated horizon is hypothesized to be generated from sensory contingencies, interoceptive signals, proprioception, motor affordances, previous learning, caregiver/social information, and environmental structure. The verbal thought ``I cannot get out'' may occur later as one conscious representation of the same organism-level state estimate.
+
+This prevents the theory from relying on adult-style reflective cognition as a necessary cause of childhood phobia.
+
+\section{Disease Architecture}
+
+RRHM generates a complete natural-history architecture.
+
+\subsection*{Acquisition}
+\[
+Cue\text{-}locking+PRHC+PrematureDefensiveTermination+Avoidance+InsufficientCorrectiveSampling
+\Rightarrow P(SpecificPhobia)\uparrow.
+\]
+
+\subsection*{Persistence}
+\[
+PRHC+RepeatedAvoidance+RestrictedSampling\Rightarrow StablePhobicState.
+\]
+
+\subsection*{Remission}
+\[
+SafeCorrectiveExposure+PreservedCausalRecoverability+ReducedAvoidance+Generalization
+\Rightarrow RRHRecalibration\Rightarrow P(Remission)\uparrow.
+\]
+
+\subsection*{Relapse}
+\[
+Contextual/PhysiologicalShift+NarrowPriorLearning
+\Rightarrow\widehat{RRH}\downarrow
+\Rightarrow P(ReturnOfPhobicBehavior)\uparrow.
+\]
+
+\section{Three Decisive Questions}
+
+The theory ultimately stands or falls on three questions.
+
+\paragraph{Question 1---Unification.} Can RRH predict the timing of defensive transitions across physiologically heterogeneous specific-phobia subtypes?
+
+\paragraph{Question 2---Acquisition.} Does cue-specific RRH underestimation prospectively predict the transition from nonclinical fear to specific phobia?
+
+\paragraph{Question 3---Remission.} Does RRH recalibration and its cross-context generalization predict treatment response and relapse beyond fear intensity, threat expectancy, perceived control, self-efficacy, avoidance, and extinction indices?
+
+A negative answer to these questions would substantially weaken the theory.
+
+\section{Falsification Criteria}
+
+RRHM should be rejected or substantially revised if repeated studies show that:
+\begin{enumerate}[label=\arabic*.]
+\item experimentally shortening causal RRH does not alter defensive transition when threat and control are matched;
+\item RRH measures are statistically indistinguishable from fear, perceived control, self-efficacy, or threat imminence;
+\item patients with specific phobia do not show cue-linked RRH underestimation relative to relevant controls;
+\item RRH miscalibration does not prospectively predict onset;
+\item RRH recalibration does not track treatment response;
+\item generalized RRH recalibration does not predict durable remission;
+\item relapse is unrelated to renewed horizon contraction;
+\item explaining different subtypes requires so many independent mechanisms that RRH becomes explanatorily redundant.
+\end{enumerate}
+
+A model that can accommodate every outcome retrospectively is not a medical theory.
+
+\section{What RRHM Does Not Claim}
+
+RRHM does not claim that phobia is caused by one brain region; sympathetic activation is universal across phobias; every phobia originates from trauma; conscious cognition is required for phobia; bodily signals are necessarily misperceived; exposure erases fear memory; all safety behaviors are harmful; all anxiety disorders are specific phobia; reachability, viability, predictive processing, or allostasis are newly invented concepts; or RRH is already a validated biomarker.
+
+The novelty claim is intentionally narrower:
+
+\begin{quote}
+\textbf{Specific phobia may involve a cue-locked premature contraction of the estimated time window during which effective corrective action remains capable of preserving or restoring an organismically functional state.}
+\end{quote}
+
+\section{Discussion}
+
+The central contribution of RRHM is a change in the unit of explanation. Fear conditioning, cognition, avoidance, interoception, autonomic physiology, sensorimotor control, and threat imminence have traditionally been studied through partly separate explanatory languages. RRHM proposes that these processes may converge upon a common organism-level control problem: \textbf{whether a recoverable future remains reachable for long enough to act}.
+
+The model therefore does not ask the nervous system to calculate ``fear.'' A living organism requires no explicit representation of fear in order to protect itself. It must, however, regulate time-sensitive transitions between continued engagement and defensive action.
+
+This perspective can explain why objective danger and phobic intensity are imperfectly correlated. An objectively hazardous situation can be tolerated when corrective capacity and time margin are high. Conversely, an objectively low-risk cue can produce urgent withdrawal if the organism predicts that the opportunity for successful recovery is rapidly disappearing.
+
+The same formulation also provides a medical bridge between conventionally ``psychological'' and ``physical'' phobia phenomena. In acrophobia, the relevant state includes visual geometry, vestibular information, postural control, and motor strategy. In BII phobia, circulatory susceptibility and vasovagal dynamics can directly alter causal recoverability. In procedural phobia, the treatment itself may genuinely restrict action. In each case, the nervous system is embedded in the body and environment it regulates.
+
+This does not invalidate CBT or exposure science. Rather, cognitive restructuring, inhibitory learning, applied tension, graded sensorimotor exposure, procedural modification, and restoration of reliable control may all alter different components of the same regulatory geometry.
+
+The clinical question is therefore shifted from ``How frightened is the patient?'' toward:
+
+\begin{quote}
+\textbf{What does the organism predict will become impossible to correct if exposure continues, and when does it expect that point to occur?}
+\end{quote}
+
+\section{Conclusion}
+
+Despite major advances in fear learning and treatment, specific-phobia science still faces three linked problems: heterogeneous triggers converge on similar defensive behavior; only some ordinary fears transition into persistent disorder; and successful exposure does not guarantee durable remission.
+
+The Regulatory Recoverability Horizon Model proposes one candidate variable connecting all three. A phobic cue is hypothesized to induce
+\[
+\widehat{RRH}\downarrow,
+\]
+and specific phobia emerges when this contraction occurs systematically and prematurely relative to causal recoverability:
+\[
+\widehat{RRH}_{cue}\ll RRH_{C,cue}.
+\]
+Premature defensive termination and avoidance prevent adequate sampling of the true recovery window, stabilizing the disorder. Therapeutic exposure succeeds when safe experience demonstrates that recoverability persists beyond the predicted boundary, permitting recalibration. Durable remission requires this recalibration to generalize across contexts and organismic states. Relapse occurs when the estimated horizon contracts again.
+
+The model therefore proposes a complete disease trajectory:
+\[
+\boxed{Acquisition\rightarrow Persistence\rightarrow Treatment\rightarrow Remission\rightarrow Relapse}
+\]
+around a single testable systems variable.
+
+Its strongest prediction is intentionally simple:
+
+\begin{quote}
+\textbf{When objective threat, physical threat imminence, uncertainty, perceived control, and the number of available actions are held constant, shortening the interval during which an effective corrective action remains useful should cause an earlier defensive transition.}
+\end{quote}
+
+If this does not occur, the model should not survive in its present form. If it does occur, and if RRH miscalibration prospectively predicts onset while RRH recalibration predicts durable remission across distinct phobia subtypes, specific phobia may be more precisely understood as a disorder of \textbf{premature regulatory horizon contraction} than as excessive fear alone.
+
+\section*{Declarations}
+
+\textbf{Ethics statement.} This article presents a theoretical medical-science framework and reports no new human or animal experimentation.
+
+\textbf{Patient consent.} Not applicable.
+
+\textbf{Data availability.} No new dataset was generated.
+
+\textbf{Funding.} To be completed by the author before submission.
+
+\textbf{Competing interests.} To be completed by the author before submission.
+
+\textbf{Author contributions.} Conceptualization, literature synthesis, model development, and manuscript preparation: Yaoharee Lahtee; final contribution statement to be confirmed before submission.
+
+\appendix
+\section{Core Construct Dictionary}
+
+\begin{longtable}{p{0.22\textwidth}p{0.56\textwidth}p{0.15\textwidth}}
+\toprule
+\textbf{Construct} & \textbf{Medical-science definition} & \textbf{Status} \\
+\midrule
+$RRH_C$ & Causal interval during which at least one effective corrective trajectory can maintain or restore functional viability & Definition \\
+$\widehat{RRH}$ & Nervous-system estimate of the remaining recoverability interval & Open latent construct \\
+RCE & $RRH_C-\widehat{RRH}$ & Model definition \\
+PRHC & Cue-linked contraction of estimated RRH substantially earlier than causal RRH & Central hypothesis \\
+$\tau_{corr}$ & Estimated time required for effective corrective action & Operational variable \\
+Regulatory imminence & Proximity to the point at which correction is predicted to become too late & Proposed construct \\
+Recoverability recalibration & Adjustment of estimated RRH toward causal RRH through corrective experience & Proposed treatment mechanism \\
+Durable mechanistic remission & Functional recovery plus stable, generalized RRH recalibration & Proposed longitudinal endpoint \\
+\bottomrule
+\end{longtable}
+
+\section{Minimum Experimental Falsification Battery}
+
+A serious validation program should require all of the following:
+\begin{enumerate}[label=\arabic*.]
+\item Discriminant validity: RRH must be separable from fear, perceived control, self-efficacy, uncertainty, and threat imminence.
+\item Causal manipulation: experimentally shortening effective recovery time must alter defensive transition.
+\item Clinical discrimination: specific-phobia patients must demonstrate cue-linked RRH distortion relative to healthy and psychiatric controls.
+\item Cross-subtype replication: findings must replicate in at least animal, height/situational, and BII phobias.
+\item Prospective incidence: baseline RRH miscalibration must predict later phobia onset.
+\item Treatment mechanism: RRH recalibration must predict functional improvement.
+\item Durability: cross-context generalization of RRH recalibration must predict relapse resistance.
+\item Incremental value: results must survive adjustment for established threat, control, conditioning, avoidance, and self-efficacy variables.
+\end{enumerate}
+
+\section{Proposed Empirical Program}
+
+\paragraph{Study 1---Human proof of principle.} Healthy volunteers; manipulate RRH while holding physical threat and perceived control constant.
+
+\paragraph{Study 2---Cross-sectional clinical study.} Specific phobia versus healthy controls versus anxiety-disorder controls.
+
+\paragraph{Study 3---Cross-phobia replication.} Animal, height/situational, and BII cohorts.
+
+\paragraph{Study 4---Treatment-mechanism study.} Repeated RRH measurement during exposure therapy.
+
+\paragraph{Study 5---Prospective onset cohort.} Participants without specific phobia followed longitudinally.
+
+\paragraph{Study 6---Durable-remission cohort.} Post-treatment cross-context RRH testing with long-term follow-up.
+
+\begin{thebibliography}{99}
+
+\bibitem{wardenaar2017}
+Wardenaar KJ, Lim CCW, Al-Hamzawi AO, et al. The cross-national epidemiology of specific phobia in the World Mental Health Surveys. \textit{Psychological Medicine}. 2017;47(10):1744--1760. PMID: 28222820. doi:10.1017/S0033291717000174.
+
+\bibitem{odgers2022}
+Odgers K, Kershaw KA, Li SH, Graham BM. The relative efficacy and efficiency of single- and multi-session exposure therapies for specific phobia: A meta-analysis. \textit{Behaviour Research and Therapy}. 2022;159:104203. PMID: 36323055. doi:10.1016/j.brat.2022.104203.
+
+\bibitem{ducasse2013}
+Ducasse D, Capdevielle D, Attal J, et al. Blood-injection-injury phobia: psychophysiological and therapeutical specificities. \textit{L'Encephale}. 2013;39(5):326--331. PMID: 23095595. doi:10.1016/j.encep.2012.06.031.
+
+\bibitem{ritz2010}
+Ritz T, Meuret AE, Ayala ES. The psychophysiology of blood-injection-injury phobia: looking beyond the diphasic response paradigm. \textit{International Journal of Psychophysiology}. 2010. PMID: 20576505.
+
+\bibitem{trumpf2010incidence}
+Trumpf J, Becker ES, Vriends N, Meyer AH, Margraf J. Incidence and predictors of specific phobia in young women: a prospective community study. \textit{Journal of Anxiety Disorders}. 2010. PMID: 19815371.
+
+\bibitem{bohnlein2020}
+Bohnlein J, Altegoer L, Muck NK, et al. Factors influencing the success of exposure therapy for specific phobia: A systematic review. \textit{Neuroscience \& Biobehavioral Reviews}. 2020;108:796--820. PMID: 31830494. doi:10.1016/j.neubiorev.2019.12.009.
+
+\bibitem{ost2000longterm}
+Ost LG, et al. Specific phobia 10--16 years after treatment. PMID: 10604083.
+
+\bibitem{who2024}
+World Health Organization. \textit{Clinical Descriptions and Diagnostic Requirements for ICD-11 Mental, Behavioural and Neurodevelopmental Disorders}. Geneva: WHO; 2024.
+
+\bibitem{kausche2025}
+Kausche FM, Carsten HP, Sobania KM, Riesel A. Fear and safety learning in anxiety- and stress-related disorders: An updated meta-analysis. \textit{Neuroscience \& Biobehavioral Reviews}. 2025. PMID: 39706234.
+
+\bibitem{krypotos2015}
+Krypotos AM, Effting M, Kindt M, Beckers T. Avoidance learning: a review of theoretical models and recent developments. \textit{Frontiers in Behavioral Neuroscience}. 2015;9:189. PMID: 26257618.
+
+\bibitem{pittig2018}
+Pittig A, Treanor M, LeBeau RT, Craske MG. The role of associative fear and avoidance learning in anxiety disorders: Gaps and directions for future research. \textit{Neuroscience \& Biobehavioral Reviews}. 2018. PMID: 29550209.
+
+\bibitem{mobbs2007}
+Mobbs D, Petrovic P, Marchant JL, et al. When fear is near: threat imminence elicits prefrontal-periaqueductal gray shifts in humans. \textit{Science}. 2007;317:1079--1083. PMID: 17717184.
+
+\bibitem{jenkinson2024}
+Jenkinson PM, Fotopoulou A, Ibanez A, Rossell S. Interoception in anxiety, depression, and psychosis: a review. \textit{EClinicalMedicine}. 2024;73:102673. PMID: 38873633.
+
+\bibitem{clemente2024}
+Clemente R, Murphy A, Murphy J. The relationship between self-reported interoception and anxiety: A systematic review and meta-analysis. \textit{Neuroscience \& Biobehavioral Reviews}. 2024;167:105923. PMID: 39427810.
+
+\bibitem{paulus2019}
+Paulus MP, Feinstein JS, Khalsa SS. An Active Inference Approach to Interoceptive Psychopathology. \textit{Annual Review of Clinical Psychology}. 2019;15:97--122. PMID: 31067416.
+
+\bibitem{stephan2016}
+Stephan KE, et al. Allostatic Self-efficacy: A Metacognitive Theory of Dyshomeostasis-Induced Fatigue and Depression. \textit{Frontiers in Human Neuroscience}. 2016;10:550. PMID: 27895566.
+
+\bibitem{linares2012}
+Linares IMP, Trzesniak C, Chagas MHN, et al. Neuroimaging in specific phobia disorder: a systematic review of the literature. \textit{Brazilian Journal of Psychiatry}. 2012;34(1):101--111. PMID: 22392396.
+
+\bibitem{etkin2007}
+Etkin A, Wager TD. Functional neuroimaging of anxiety: a meta-analysis of emotional processing in PTSD, social anxiety disorder, and specific phobia. \textit{American Journal of Psychiatry}. 2007;164:1476--1488. PMID: 17898336.
+
+\bibitem{ayala2009}
+Ayala ES, Meuret AE, Ritz T. Treatments for blood-injury-injection phobia: a critical review of current evidence. \textit{Journal of Psychiatric Research}. 2009;43:1235--1242. PMID: 19464700.
+
+\bibitem{huppert2020}
+Huppert D, Wuehr M, Brandt T. Acrophobia and visual height intolerance: advances in epidemiology and mechanisms. \textit{Journal of Neurology}. 2020;267(Suppl 1):231--240. PMID: 32444982.
+
+\bibitem{wuehr2015}
+Wuehr M, et al. Acrophobia impairs visual exploration and balance during standing and walking. \textit{Annals of the New York Academy of Sciences}. 2015. PMID: 25722015.
+
+\bibitem{trumpf2009remission}
+Trumpf J, Becker ES, Vriends N, Meyer AH, Margraf J. Rates and predictors of remission in young women with specific phobia: a prospective community study. \textit{Journal of Anxiety Disorders}. 2009;23(7):958--964. PMID: 19604666. doi:10.1016/j.janxdis.2009.06.005.
+
+\end{thebibliography}
+
+\end{document}
