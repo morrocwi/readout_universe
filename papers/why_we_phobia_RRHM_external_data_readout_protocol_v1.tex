@@ -1,0 +1,262 @@
+\documentclass[11pt]{article}
+\usepackage[margin=0.8in]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs,longtable,array}
+\usepackage{microtype}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{setspace}
+\setstretch{1.05}
+\hypersetup{colorlinks=true,linkcolor=black,citecolor=black,urlcolor=blue}
+\setlength{\parindent}{1.1em}
+\setlength{\parskip}{0.35em}
+
+\title{\textbf{Why We Phobia?}\\[0.35em]
+\large RRHM External Data Readout Protocol\\[0.2em]
+\normalsize A Secondary-Analysis Program for Stress-Testing the Regulatory Recoverability Horizon Model Before New Data Collection}
+\author{Yaoharee Lahtee}
+\date{1 September 2026}
+
+\begin{document}
+\maketitle
+
+\begin{center}
+\textit{Status: External-data protocol / secondary-analysis plan. No RRHM claim is treated as validated by the datasets listed here.}
+\end{center}
+
+\begin{abstract}
+The Regulatory Recoverability Horizon Model (RRHM) proposes that specific phobia may involve premature contraction of an estimated engagement-preserving Regulatory Recoverability Horizon (eRRH), the predicted interval during which continued engagement remains compatible with effective organismic regulation without defensive termination. Direct validation of RRHM requires a prospective experiment in which causal eRRH is independently manipulated and estimated before defensive outcome. Existing public datasets were not designed for that purpose and therefore cannot establish eRRH or Premature Regulatory Horizon Contraction (PRHC) directly. They can, however, provide an immediate external stress test of several necessary implications of the theory: multimodal rather than single-channel defensive dynamics, divergence between subjective fear and physiological/action readouts, cross-trial adaptation, return of fear, contextual retention, probability-dependent threat responding, brain--behavior relations, and prospective disease-course benchmarks. This protocol defines a staged secondary-analysis program using SpiderPhy, PsPM-FER02, CTX3, PsPM-PCF3, SpiDa-MRI, and the NIMH Data Archive/ABCD resource. The program explicitly separates \emph{direct RRHM tests} from \emph{construct-compatible external readouts}. Results inconsistent with RRHM will be treated as model pressure rather than rationalized post hoc.
+\end{abstract}
+
+\noindent\textbf{Keywords:} specific phobia; external validation; secondary analysis; psychophysiology; fear learning; return of fear; virtual reality; fMRI; computational psychiatry; recoverability.
+
+\section{Purpose and epistemic boundary}
+
+The purpose of this protocol is not to retrofit eRRH into datasets that never manipulated or measured it. The purpose is to answer a narrower and scientifically useful question:
+
+\begin{quote}
+\textbf{Do existing independent datasets contradict, constrain, or provisionally support the physiological, behavioral, temporal, and disease-course architecture required by RRHM?}
+\end{quote}
+
+The evidence hierarchy is therefore:
+
+\begin{enumerate}[leftmargin=2em]
+\item \textbf{Level A---Direct causal validation:} requires experimentally programmed $eRRH_C$, prospective $\widehat{eRRH}$, and independent defensive-transition outcome. No public dataset identified here currently satisfies this criterion.
+\item \textbf{Level B---Construct-convergent phobia data:} phobia-relevant behavioral, physiological, and neural data capable of testing whether multimodal engagement/withdrawal dynamics exist independently of fear ratings.
+\item \textbf{Level C---Temporal learning and return-of-fear data:} longitudinal or repeated-session data capable of testing persistence, extinction, reinstatement, contextual retention, and delayed return.
+\item \textbf{Level D---Rival-variable stress tests:} datasets manipulating threat probability or other conventional variables that can determine whether candidate RRHM-compatible signals reduce to known threat variables.
+\item \textbf{Level E---Prospective disease benchmark:} large longitudinal clinical-developmental data against which future eRRH predictors must eventually demonstrate incremental value.
+\end{enumerate}
+
+No Level B--E result will be described as proof of RRHM.
+
+\section{Primary data sources}
+
+\begin{longtable}{p{0.15\linewidth}p{0.14\linewidth}p{0.24\linewidth}p{0.37\linewidth}}
+\toprule
+Dataset & Sample & Available signals & RRHM role \\
+\midrule
+SpiderPhy & $N=54$ spider-fearful adults & ECG, EDA/SCR, respiration, gaze, pupil size, trial fear ratings, fear/disgust state ratings, FSQ/SPQ/SAS/STAI-T, reaction times & Phobia-specific multimodal temporal dynamics; gaze disengagement as a withdrawal surrogate; trial-to-trial adaptation; physiological--subjective dissociation; pre/post symptom change. \\
+PsPM-FER02 & $N=74$ healthy unmedicated adults & pupil, SCR, ECG, respiration, CS/US events, keyboard responses, response times, shock expectancy; acquisition, reminder, extinction, reinstatement, re-extinction, generalization and relearning across 3 sessions & Return-of-fear and persistence architecture; whether extinction-state physiology predicts later reinstatement/relearning beyond expectancy-related measures. \\
+CTX3 & $N=28$ healthy unmedicated adults & SCR, ECG, respiration, startle EMG, contextual VR event structure, subjective valence/arousal/anxiety/US expectancy; acquisition and one-week retention/extinction & Contextual retention and delayed return; multimodal state carry-over across one week; context-specific defensive dynamics. \\
+PsPM-PCF3 & $N=31$ healthy adults & SCR, heartbeat, respiration, pupil size, gaze; reinforcement probabilities 20\%, 50\%, 80\% & Rival-variable stress test: determine how much multimodal defensive variation is explained by threat probability alone. \\
+SpiDa-MRI & $N=49$ spider-fearful adults & anatomical MRI, 5 passive-viewing fMRI runs, 2 resting-state runs, real-spider BAT, computerized BAT, questionnaires, image ratings, follow-ups & Neural--behavioral triangulation; test whether approach behavior contains variance beyond fear/disgust and whether neural state predicts later approach/function. \\
+NDA/ABCD & large longitudinal cohort; study-specific $N$ varies & KSADS specific-phobia items, broader psychiatric/behavioral, medical, developmental, cognitive and imaging variables depending release & Prospective disease-course benchmark; identify established predictors of specific-phobia onset/persistence that future eRRH must outperform. \\
+\bottomrule
+\end{longtable}
+
+\section{Dataset 1: SpiderPhy---first external readout}
+
+SpiderPhy is the first-priority dataset because it is phobia-specific and densely multimodal. The published dataset contains 54 subclinical spider-fearful individuals exposed to 174 spider-related and 16 neutral images across four blocks. Each spider exposure is followed by a 0--100 fear rating. Simultaneous physiological recordings include ECG, EDA/SCR, respiration, eye gaze and pupil size. FSQ, SPQ, SAS and STAI-T are available, with FSQ and SAS repeated after exposure. Trial files also include image identity, fear rating, rating reaction time, and baseline jitter.
+
+\subsection{What SpiderPhy can test}
+
+\textbf{S1. Multimodal-state hypothesis.} A latent multichannel defensive state derived from ECG, SCR, respiration, pupil and gaze should explain trial-level variability that is not reducible to the participant's fear rating alone.
+
+\textbf{S2. Visual disengagement hypothesis.} Eye-gaze withdrawal from the spider stimulus will be treated as a \emph{surrogate withdrawal readout}, not as defensive termination. We will test whether time-resolved gaze disengagement is predicted by the latent multimodal state after controlling for stimulus identity and subjective fear.
+
+\textbf{S3. Temporal adaptation hypothesis.} Within-person latent-state trajectories across four exposure blocks will be estimated. We will test whether physiological/gaze adaptation slopes explain pre--post FSQ/SAS change beyond mean fear rating and baseline severity.
+
+\textbf{S4. Subjective--physiological dissociation.} The model requires that no single conscious fear score is sufficient to represent the organismic state. We will quantify participants in whom similar fear ratings are accompanied by materially different physiological/gaze states and ask whether those states differ in subsequent trial behavior or symptom change.
+
+\textbf{S5. Predictive rather than descriptive analysis.} Models will be trained on earlier trials/blocks and evaluated on held-out later trials/blocks. Candidate outcomes include next-trial fear, gaze withdrawal, rating latency, and block-level symptom-state measures.
+
+\subsection{What SpiderPhy cannot test}
+
+SpiderPhy has no programmed causal recoverability deadline, no explicit engagement-preserving action manipulation, and no voluntary trial-termination endpoint. Therefore it cannot estimate $eRRH_C$, cannot identify PRHC, and cannot validate the central causal prediction of RRHM. Any eRRH terminology in SpiderPhy analyses will be prohibited unless explicitly labeled as a candidate surrogate.
+
+\section{Dataset 2: PsPM-FER02---return of fear}
+
+FER02 includes 74 healthy unmedicated participants in a repeated-measures design with pupil, SCR, ECG and respiration plus CS/US information, keyboard responses, response times and shock expectancy. Session 1 includes fear acquisition; session 2 includes a reminder and extinction; session 3 includes reinstatement, re-extinction, generalization and relearning.
+
+\subsection{Pre-registered external questions}
+
+\textbf{F1. Does a multichannel extinction-state model predict later return of fear?} Latent physiology near the end of extinction will be used to predict session-3 reinstatement/re-extinction responses.
+
+\textbf{F2. Does the multichannel model add information beyond expectancy?} Where expectancy measurements and task semantics permit valid comparison, predictive models will compare physiology/action variables against expectancy-related variables.
+
+\textbf{F3. Is persistence better described by a dynamic state than by one response channel?} Held-out prediction from combined pupil/SCR/ECG/respiration will be compared with single-channel models.
+
+\textbf{F4. Are keyboard-response variables defensive?} No assumption will be made. The Cogent task structure will be audited first. Keyboard latency or correctness will be used as a defensive/action proxy only if the original task definition supports that interpretation.
+
+\subsection{Failure pressure on RRHM}
+
+RRHM is weakened if future engagement/return-related outcomes are consistently predicted as well by a single standard threat-learning variable as by any multichannel state representation, especially if multichannel dynamics show no incremental temporal information.
+
+\section{Dataset 3: CTX3---context and one-week retention}
+
+CTX3 includes 28 healthy unmedicated participants in a differential contextual fear-conditioning paradigm under virtual reality. The dataset includes SCR, ECG, respiration and startle EMG. Participants experienced CTX+ and CTX- virtual rooms during acquisition, and returned one week later for retention/extinction without the original US. Subject files additionally include subjective valence, arousal, anxiety and US expectancy.
+
+\subsection{Pre-registered external questions}
+
+\textbf{C1. One-week carry-over.} Does the multichannel state estimated during acquisition predict retention/extinction responses one week later?
+
+\textbf{C2. Context specificity.} Can the latent state distinguish CTX+ from CTX- and predict context-specific retention beyond subjective anxiety/arousal/US expectancy?
+
+\textbf{C3. Time-to-state-transition analysis.} Within the approximately 31-s context exposures, change-point or hidden-state models will test whether defensive-state transitions occur at reproducible temporal positions within context entry, without calling those transitions eRRH collapse.
+
+\textbf{C4. Relapse analogue.} Session-2 retention is treated only as an experimental analogue of persistence/return, not clinical relapse.
+
+\section{Dataset 4: PsPM-PCF3---threat-probability rival test}
+
+PCF3 contains 31 healthy participants undergoing fear conditioning with three conditioned stimuli reinforced at 20\%, 50\% and 80\%. Available measures include SCR, heartbeat, respiration, pupil size and gaze coordinates.
+
+The primary role of PCF3 is adversarial. If a candidate RRHM-compatible latent defensive state is almost completely determined by reinforcement probability, then the model risks being a repackaging of threat probability or expected threat. Conversely, residual temporal/multimodal structure after explicit probability is accounted for would justify further RRHM-specific testing.
+
+The planned comparison is:
+\[
+M_{probability}\quad vs\quad M_{probability+multimodal\ state}.
+\]
+
+No RRHM-specific causal claim will be made from PCF3 because engagement-preserving recoverability is not manipulated.
+
+\section{Dataset 5: SpiDa-MRI---neural and behavioral triangulation}
+
+SpiDa-MRI contains 49 spider-fearful participants, anatomical MRI, five passive-viewing fMRI runs, two resting-state runs, a physical behavioral avoidance test (BAT) using a spider, a computerized BAT, self-report questionnaires, post-scan image ratings of fear/disgust/willingness to approach, and follow-up assessments.
+
+This dataset provides a stronger action endpoint than SpiderPhy because actual approach distance is available.
+
+\subsection{Pre-registered external questions}
+
+\textbf{M1. Approach beyond fear.} Does neural or multivariate state during passive spider viewing predict BAT/cBAT approach after controlling for self-reported fear, disgust and willingness-to-approach ratings?
+
+\textbf{M2. Cross-time prediction.} Where follow-up structure permits, does baseline neural/behavioral state predict later BAT or questionnaire change?
+
+\textbf{M3. Distributed rather than single-region mechanism.} Analyses will prioritize multivariate/network-level predictive models over claims that a single region is an RRH biomarker.
+
+\textbf{M4. External action triangulation.} If the same individual shows high self-reported fear but preserved approach, this dissociation is particularly informative for RRHM because functional engagement is not equivalent to subjective fear intensity.
+
+\section{Dataset 6: NDA/ABCD---prospective benchmark}
+
+NIMH Data Archive studies using ABCD releases contain parent-reported KSADS specific-phobia individual questions in large longitudinal samples, with study-specific sample sizes ranging from thousands to approximately 11,000+ records in major releases. Depending on the release, additional developmental, cognitive, family, medical, sleep, imaging and behavioral variables are available.
+
+ABCD cannot validate eRRH because eRRH is not measured. Its value is as a \textbf{benchmark model} for prospective risk. A future RRHM cohort should not claim disease prediction merely because eRRH predicts onset; it must improve prediction above established variables obtainable from longitudinal developmental data.
+
+Potential baseline benchmark domains include age/sex, baseline anxiety and psychopathology, family history, stressful life events, sleep, medical history, cognitive variables and available imaging measures, subject to the exact data-use agreement and release dictionary.
+
+\section{Unified analysis architecture}
+
+\subsection{Stage 0: provenance and reproducibility}
+For every dataset:
+\begin{enumerate}[leftmargin=2em]
+\item archive DOI/version, license, original paper and README;
+\item record inclusion/exclusion rules and missingness;
+\item preserve original event labels and task semantics;
+\item separate exploratory from preregistered analyses;
+\item generate a machine-readable variable manifest before modeling.
+\end{enumerate}
+
+\subsection{Stage 1: signal processing}
+Signal processing will follow dataset-specific acquisition characteristics. Candidate outputs include event-related SCR, heart-period/heart-rate features, respiratory amplitude/rate, pupil response, gaze displacement/avoidance, startle EMG, and task-specific behavioral latency. Raw and preprocessed versions will be kept separate when both are available.
+
+No HRV measure will be described as a global measure of autonomic ``balance.'' No individual physiological channel will be labeled an eRRH biomarker.
+
+\subsection{Stage 2: latent-state estimation}
+Candidate methods include hierarchical state-space models, hidden Markov models, dynamic factor models, penalized multivariate regression, and supervised temporal prediction. Method choice will be determined by sample size and trial count, with complexity penalized to avoid overfitting.
+
+A generic candidate state is:
+\[
+z_{it}=f(ECG,SCR,Resp,Pupil,Gaze,EMG,Behavior)_{it},
+\]
+where $z_{it}$ is deliberately called a \textbf{multimodal defensive-state readout}, not eRRH.
+
+\subsection{Stage 3: rival-model comparison}
+Where variables permit, compare:
+\[
+M_{fear},\ M_{expectancy},\ M_{probability},\ M_{single\ physiology},\ M_{multimodal\ state}.
+\]
+
+The criterion is held-out prediction, not in-sample significance. Subject-level cross-validation will be preferred where sample size permits to prevent trial-level leakage.
+
+\subsection{Stage 4: cross-dataset replication}
+A feature is considered externally credible only if its direction and predictive role survive at least two independent datasets with compatible measurement. Exact coefficient replication is not expected across different tasks.
+
+\section{RRHM-compatible signatures versus direct RRHM evidence}
+
+\begin{longtable}{p{0.43\linewidth}p{0.20\linewidth}p{0.27\linewidth}}
+\toprule
+Finding & Status & Interpretation \\
+\midrule
+Multimodal state predicts gaze/approach beyond fear & Compatible support & Supports separation of functional engagement from subjective fear; does not measure eRRH. \\
+Physiological state during extinction predicts delayed return & Compatible support & Supports temporal state persistence; not PRHC proof. \\
+Context-specific latent state predicts one-week retention & Compatible support & Supports context-dependent persistence/recalibration architecture. \\
+Threat probability explains all candidate state variance & Model pressure & Suggests RRHM-compatible state may reduce to conventional threat probability. \\
+BAT approach remains predictable after controlling fear/disgust & Compatible support & Supports functional-engagement dissociation. \\
+No multichannel model beats fear/expectancy in any dataset & Strong model pressure & Weakens claim that an independent organism-level transition variable is needed. \\
+Programmed $eRRH_C$ changes $T_{DT}$ in future IRHAB experiment & Direct evidence & Required for central RRHM causal claim. \\
+\bottomrule
+\end{longtable}
+
+\section{Immediate work order}
+
+\textbf{Phase 1---SpiderPhy.} Download OSF dataset, audit README/codebook, build synchronized trial table, extract event-level ECG/SCR/respiration/pupil/gaze features, model within-person fear and visual disengagement, and test pre--post symptom association.
+
+\textbf{Phase 2---FER02.} Download the preprocessed dataset first for rapid validation, reconstruct acquisition/extinction/return phases, create end-of-extinction state features, and predict session-3 reinstatement/re-extinction.
+
+\textbf{Phase 3---CTX3.} Build context-entry aligned features in CTX+/CTX- during acquisition and predict one-week retention/extinction.
+
+\textbf{Phase 4---PCF3.} Run probability-controlled rival analysis.
+
+\textbf{Phase 5---SpiDa-MRI.} Add BAT/cBAT and neural multivariate models after the psychophysiology pipeline is stable.
+
+\textbf{Phase 6---ABCD/NDA.} Apply for/confirm data access and construct a longitudinal specific-phobia benchmark model.
+
+\section{Predefined stopping and revision rules}
+
+The external-data program should force revision of RRHM if any of the following replicates across appropriate datasets:
+\begin{enumerate}[leftmargin=2em]
+\item subjective fear or threat expectancy alone predicts action/return outcomes as well as richer organism-level models, with no reproducible incremental signal;
+\item multimodal state estimates are unstable across resampling or fail subject-level out-of-sample validation;
+\item phobia-specific action behavior is fully explained by fear severity with no meaningful engagement--fear dissociation;
+\item delayed return is unrelated to earlier dynamic state after known learning variables are controlled;
+\item cross-dataset features have inconsistent direction with no task-grounded explanation.
+\end{enumerate}
+
+These findings would not logically disprove every formulation of RRHM, but they would materially weaken the rationale for a distinct engagement-recoverability construct and should narrow or revise the theory before new clinical claims are made.
+
+\section{Interpretation standard}
+
+External datasets are used here as an adversarial preclinical filter. The strongest permissible statement before a direct eRRH manipulation is:
+
+\begin{quote}
+\textbf{Independent datasets are consistent or inconsistent with specific necessary predictions of the RRHM architecture.}
+\end{quote}
+
+The statement \textbf{``RRHM has been validated''} is prohibited until causal $eRRH_C$ and prospective $\widehat{eRRH}$ are independently measured and predict defensive transition in a purpose-built experiment.
+
+\section{Source registry}
+
+\begin{itemize}[leftmargin=2em]
+\item SpiderPhy OSF: \url{https://osf.io/98cnd}; data descriptor: Lor CS et al. \textit{Scientific Data}. 2025;12:599. DOI: 10.1038/s41597-025-04908-x.
+\item PsPM-FER02 Zenodo: \url{https://zenodo.org/records/5573760}; DOI: 10.5281/zenodo.5573760.
+\item CTX3 Zenodo: \url{https://zenodo.org/records/6418992}; DOI: 10.5281/zenodo.6418992.
+\item PsPM-PCF3 Zenodo: \url{https://zenodo.org/records/10849996}.
+\item SpiDa-MRI data descriptor: Zhang M et al. \textit{Scientific Data}. 2025;12:284. DOI: 10.1038/s41597-025-04569-w. Behavioral data: OSF \url{https://osf.io/w4s2h/}; imaging: OpenNeuro ds004630.
+\item NIMH Data Archive/ABCD: \url{https://nda.nih.gov/}.
+\end{itemize}
+
+\section*{Conclusion}
+
+RRHM can begin external falsification immediately without waiting for a new cohort. SpiderPhy, FER02 and CTX3 form the first analytic triad: phobia-specific multimodal fear physiology, return-of-fear dynamics, and one-week contextual retention. PCF3 serves as an adversarial threat-probability control; SpiDa-MRI adds real approach behavior and neural data; ABCD/NDA provides the prospective benchmark. None substitutes for the future IRHAB causal experiment. Together, however, they can determine whether RRHM is worth taking into expensive prospective clinical research or whether the theory should be narrowed before new data are collected.
+
+\end{document}
