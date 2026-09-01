@@ -1,0 +1,157 @@
+name: compile-rrhm-arxiv
+
+on:
+  push:
+    paths:
+      - '.github/workflows/compile_rrhm_arxiv.yml'
+      - 'papers/why_we_phobia_RRHM_full_medical_journal_v3.tex'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install TeX
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y texlive-latex-base texlive-latex-extra texlive-fonts-recommended latexmk
+
+      - name: Generate two-column arXiv-style source
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          src = Path('papers/why_we_phobia_RRHM_full_medical_journal_v3.tex').read_text(encoding='utf-8')
+          marker = r'\begin{document}'
+          body = src.split(marker, 1)[1]
+          body = body.rsplit(r'\end{document}', 1)[0]
+
+          # Make longtable safe in a two-column manuscript by giving it a dedicated full-width page.
+          body = body.replace(r'\begin{longtable}', r'\onecolumn\begin{longtable}', 1)
+          body = body.replace(r'\end{longtable}', r'\end{longtable}\twocolumn', 1)
+
+          # Full-width abstract immediately below the title.
+          body = body.replace(r'\begin{abstract}', r'\begin{strip}\begin{abstract}', 1)
+          body = body.replace(r'\end{abstract}', r'\end{abstract}\end{strip}', 1)
+
+          preamble = r'''\documentclass[9pt,twocolumn]{article}
+\usepackage[a4paper,top=1.35cm,bottom=1.45cm,left=1.45cm,right=1.45cm,columnsep=0.58cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{mathptmx}
+\usepackage[scaled=0.92]{helvet}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{booktabs,longtable,array,tabularx}
+\usepackage{microtype}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{cuted}
+\usepackage{balance}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{setspace}
+\usepackage{etoolbox}
+
+\definecolor{RRHMNavy}{HTML}{17263A}
+\definecolor{RRHMSlate}{HTML}{5A6877}
+\definecolor{RRHMLight}{HTML}{E9EEF3}
+\definecolor{RRHMBlue}{HTML}{315D86}
+
+\hypersetup{
+  colorlinks=true,
+  linkcolor=RRHMNavy,
+  citecolor=RRHMBlue,
+  urlcolor=RRHMBlue,
+  pdfauthor={Yaoharee Lahtee},
+  pdftitle={Why We Phobia? The Regulatory Recoverability Horizon Model of Specific Phobia},
+  pdfsubject={Medical Hypothesis / Translational Systems Neuroscience},
+  pdfkeywords={specific phobia, systems neuroscience, recoverability, psychophysiology, computational psychiatry}
+}
+
+\setlength{\parindent}{1em}
+\setlength{\parskip}{0.18em}
+\setlength{\columnsep}{0.58cm}
+\setlength{\emergencystretch}{1.5em}
+\raggedbottom
+\sloppy
+\allowdisplaybreaks
+\setlist{nosep,leftmargin=1.25em}
+
+\titleformat{\section}
+  {\sffamily\bfseries\color{RRHMNavy}\large}
+  {\thesection}{0.45em}{}
+\titleformat{\subsection}
+  {\sffamily\bfseries\color{RRHMNavy}\normalsize}
+  {\thesubsection}{0.42em}{}
+\titleformat{\subsubsection}
+  {\sffamily\bfseries\color{RRHMSlate}\small}
+  {\thesubsubsection}{0.40em}{}
+\titlespacing*{\section}{0pt}{1.0em}{0.38em}
+\titlespacing*{\subsection}{0pt}{0.72em}{0.25em}
+\titlespacing*{\subsubsection}{0pt}{0.55em}{0.2em}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\sffamily\scriptsize\color{RRHMSlate} WHY WE PHOBIA?}
+\fancyhead[R]{\sffamily\scriptsize\color{RRHMSlate} RRHM \textbullet\ MEDICAL HYPOTHESIS}
+\fancyfoot[C]{\sffamily\scriptsize\color{RRHMSlate}\thepage}
+\renewcommand{\headrulewidth}{0.3pt}
+\renewcommand{\footrulewidth}{0pt}
+
+\renewenvironment{abstract}
+{\small\noindent\textsf{\bfseries\color{RRHMNavy}ABSTRACT}\par\smallskip\noindent}
+{\par\vspace{0.5em}}
+
+\captionsetup{font=small,labelfont={bf,sf,color=RRHMNavy}}
+\renewcommand{\arraystretch}{1.05}
+
+\title{\vspace{-1.2em}
+{\sffamily\bfseries\fontsize{19}{21}\selectfont\color{RRHMNavy} Why We Phobia?}\\[0.38em]
+{\sffamily\bfseries\fontsize{12.2}{14}\selectfont The Regulatory Recoverability Horizon Model of Specific Phobia}\\[0.22em]
+{\sffamily\fontsize{9.3}{11}\selectfont\color{RRHMSlate} A Translational Systems-Neuroscience Hypothesis for Acquisition, Persistence, Remission, and Relapse}}
+\author{\sffamily\bfseries Yaoharee Lahtee}
+\date{\sffamily\small 1 September 2026}
+'''
+
+          out = Path('papers/why_we_phobia_RRHM_full_medical_journal_arxiv_v1.tex')
+          out.write_text(preamble + '\n\\begin{document}\n' + body + '\n\\balance\n\\end{document}\n', encoding='utf-8')
+          print(f'generated {out}')
+          PY
+
+      - name: Compile PDF
+        run: |
+          cd papers
+          latexmk -pdf -interaction=nonstopmode -halt-on-error why_we_phobia_RRHM_full_medical_journal_arxiv_v1.tex
+          latexmk -pdf -interaction=nonstopmode -halt-on-error why_we_phobia_RRHM_full_medical_journal_arxiv_v1.tex
+
+      - name: Basic PDF quality checks
+        run: |
+          test -s papers/why_we_phobia_RRHM_full_medical_journal_arxiv_v1.pdf
+          pdfinfo papers/why_we_phobia_RRHM_full_medical_journal_arxiv_v1.pdf | head -20 || true
+          ls -lh papers/why_we_phobia_RRHM_full_medical_journal_arxiv_v1.pdf
+
+      - name: Commit generated TeX and PDF
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add papers/why_we_phobia_RRHM_full_medical_journal_arxiv_v1.tex papers/why_we_phobia_RRHM_full_medical_journal_arxiv_v1.pdf
+          if git diff --cached --quiet; then
+            echo 'No generated changes to commit.'
+          else
+            git commit -m 'Build arXiv-style two-column RRHM manuscript PDF'
+            git push
+          fi
+
+      - name: Upload PDF artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: RRHM-arxiv-two-column-PDF
+          path: papers/why_we_phobia_RRHM_full_medical_journal_arxiv_v1.pdf
+          if-no-files-found: error
