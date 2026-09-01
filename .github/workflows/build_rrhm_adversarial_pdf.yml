@@ -1,0 +1,33 @@
+name: Build RRHM Adversarial PDF
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'papers/why_we_phobia_RRHM_adversarial_medical_arxiv_v4.tex'
+      - '.github/workflows/build_rrhm_adversarial_pdf.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Compile LaTeX
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: why_we_phobia_RRHM_adversarial_medical_arxiv_v4.tex
+          working_directory: papers
+          latexmk_use_xelatex: false
+          args: -pdf -file-line-error -halt-on-error -interaction=nonstopmode
+
+      - name: Commit compiled PDF
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: 'build: compile RRHM adversarial medical PDF'
+          file_pattern: 'papers/why_we_phobia_RRHM_adversarial_medical_arxiv_v4.pdf'
