@@ -1,0 +1,320 @@
+\documentclass[11pt]{article}
+\usepackage[margin=0.8in]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs,longtable,array}
+\usepackage{microtype}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\hypersetup{colorlinks=true,linkcolor=black,citecolor=black,urlcolor=blue}
+\setlength{\parindent}{1.1em}
+\setlength{\parskip}{0.35em}
+
+\title{\textbf{Why We Phobia?}\\[0.35em]
+\large Future Work: Independent Measurement and Identifiability of the Engagement-Preserving Regulatory Recoverability Horizon\\[0.2em]
+\normalsize A Measurement Specification for the Regulatory Recoverability Horizon Model (RRHM)}
+\author{Yaoharee Lahtee}
+\date{1 September 2026}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+A central requirement for the Regulatory Recoverability Horizon Model (RRHM) is that its proposed latent quantity---the engagement-preserving regulatory recoverability horizon (eRRH)---must be measurable independently of the outcome it is intended to predict. Otherwise, the model risks circularity: defining recoverability from continued engagement and then using recoverability to explain continued engagement. This Future Work specification proposes an independent measurement architecture that separates (i) causal engagement-preserving recoverability, (ii) the nervous-system estimate of recoverability, and (iii) the observed defensive-transition outcome. The proposed \textbf{Independent Recoverability Horizon Assessment Battery (IRHAB)} combines an externally programmed causal deadline task, a prospective temporal-estimation task, a nonverbal choice-based latent estimate, multimodal physiological measurements, and an independent behavioral-approach outcome. The battery is explicitly designed so that neither causal eRRH nor estimated eRRH is calculated from escape, termination, or task-persistence behavior. Validation requires parameter recovery, test--retest reliability, discriminant validity against fear, threat imminence, perceived control and self-efficacy, measurement invariance across phobia classes, treatment sensitivity, and prospective prediction of onset and relapse. IRHAB is proposed as future work and is not a validated clinical instrument.
+\end{abstract}
+
+\noindent\textbf{Keywords:} specific phobia; measurement; recoverability; psychophysiology; computational psychiatry; behavioral approach test; parameter recovery; identifiability; exposure therapy.
+
+\section{Why an independent instrument is necessary}
+The strongest current criticism of RRHM is an identifiability problem. If eRRH is defined as the time during which the participant can continue engagement, and task termination is then used as evidence that eRRH has collapsed, the theory becomes partly circular. A medical-science formulation therefore requires three quantities that are measured through \emph{different channels}:
+\[
+\boxed{eRRH_C}\qquad\boxed{\widehat{eRRH}}\qquad\boxed{T_{DT}}
+\]
+where $eRRH_C$ is the causal engagement-preserving recoverability horizon, $\widehat{eRRH}$ is the participant's estimated horizon, and $T_{DT}$ is the independently observed time of defensive transition or termination.
+
+The core design rule is:
+\begin{quote}
+\textbf{No component of $eRRH_C$ or $\widehat{eRRH}$ may be calculated from the participant's eventual escape, termination, or task-persistence outcome.}
+\end{quote}
+Only after both horizons are estimated prospectively should they be used to predict $T_{DT}$.
+
+\section{Proposed instrument: Independent Recoverability Horizon Assessment Battery (IRHAB)}
+IRHAB is proposed as a modular research battery rather than a single questionnaire. It contains five separable channels.
+
+\subsection{Module A: Externally programmed causal horizon}
+The first module establishes a causal ground truth by design. Participants interact with a safe laboratory task in which a corrective action is objectively effective only until an experimentally programmed deadline $D$.
+
+For trial $j$,
+\[
+eRRH_{C,j}=D_j-t_{0,j},
+\]
+where $t_{0,j}$ is the onset of the relevant state and $D_j$ is the externally specified last time at which the engagement-preserving corrective action remains causally effective.
+
+The deadline is not inferred from the participant's behavior. It is programmed by the task.
+
+Example structure:
+\begin{enumerate}[leftmargin=2em]
+\item A standardized, non-dangerous aversive or performance challenge begins.
+\item An engagement-preserving action remains available throughout the trial.
+\item The action is causally effective if executed before a programmed deadline and ineffective after that deadline.
+\item The participant is informed only probabilistically or through learning, depending on the experimental question.
+\item Physical threat magnitude, sensory intensity, and number of available actions remain constant across horizon conditions.
+\end{enumerate}
+
+A phobia-specific version may later adapt the same logic to virtual spiders, heights, scanner-like confinement, procedural cues, or other validated safe stimuli. Genuine medical risk must not be created to define a causal horizon.
+
+\subsection{Module B: Prospective explicit horizon estimate}
+Before the behavioral outcome occurs, participants answer a temporal question such as:
+\begin{quote}
+``If you continue for now, what is the latest point at which the corrective action would still work well enough for you to remain in the task?''
+\end{quote}
+The response is recorded in seconds or in a bounded temporal scale, generating
+\[
+\widehat{eRRH}^{\,explicit}_{j}.
+\]
+This variable is deliberately separated from fear intensity, perceived control, self-efficacy, and predicted threat probability, which are measured in separate items.
+
+Because RRHM does not require conscious verbal representation, this explicit estimate is only one measurement channel and cannot serve as the sole operationalization of eRRH.
+
+\subsection{Module C: Nonverbal latent horizon estimate}
+A second estimate should be recoverable from prospective choices rather than verbal report. Participants repeatedly choose between paired options such as:
+\begin{quote}
+Option A: continue engagement for $\Delta t$ seconds and retain access to a later corrective action.\\
+Option B: use the corrective action now while sacrificing a small task reward or information gain.
+\end{quote}
+The delay $\Delta t$ is varied adaptively using a staircase or Bayesian design. The indifference point estimates the longest future interval the participant treats as still engagement-recoverable.
+
+A simple choice model may be written as
+\[
+P(Continue_j)=\sigma\left(\beta_0+\beta_1(\widehat{eRRH}^{\,latent}-\Delta t_j)+\beta_2R_j+\beta_3U_j\right),
+\]
+where $R_j$ represents task reward and $U_j$ represents uncertainty. The fitted latent parameter $\widehat{eRRH}^{\,latent}$ is estimated from prospective choices, not from final escape or termination.
+
+This module is the key protection against reducing eRRH to a self-report belief.
+
+\subsection{Module D: Multimodal physiological state characterization}
+Physiology is measured as state information and possible mechanistic covariates, not as a single eRRH biomarker. Depending on the paradigm, measures may include:
+\begin{itemize}[leftmargin=2em]
+\item ECG and heart rate;
+\item beat-to-beat blood pressure when clinically appropriate;
+\item respiration and end-tidal CO$_2$;
+\item electrodermal activity;
+\item pupillometry;
+\item postural sway or gait;
+\item electromyography;
+\item subtype-specific measures such as circulatory variables in blood-injection-injury paradigms.
+\end{itemize}
+
+Current interoception literature warns that standardized cross-domain measures remain limited and that self-report or unimodal physiological metrics are insufficient for a complete latent construct \cite{interotech2023}. IRHAB therefore treats physiology as multimodal evidence rather than as a diagnostic shortcut.
+
+\subsection{Module E: Independent behavioral outcome}
+Only after Modules A--D have generated independent predictor variables is the outcome observed.
+
+The primary outcome is
+\[
+T_{DT}=\text{time to engagement-to-defensive transition},
+\]
+which may be operationalized as voluntary trial termination, transition to a predefined defensive option, or objectively coded failure of task-compatible engagement.
+
+Secondary outcomes may include:
+\begin{itemize}[leftmargin=2em]
+\item Behavioral Approach Test (BAT) distance or completion;
+\item escape latency;
+\item task persistence;
+\item avoidance choice;
+\item functional re-entry at follow-up.
+\end{itemize}
+
+BATs are already established as useful multi-domain assessments of behavioral, subjective, and physiological responding in specific phobia, although those response channels can be discordant \cite{tripartite2011}. IRHAB uses BAT-like outcomes as the dependent variable rather than as the definition of eRRH.
+
+\section{Independent calibration error}
+Once causal and estimated horizons are obtained independently, the proposed calibration error is
+\[
+RCE_j=eRRH_{C,j}-\widehat{eRRH}_j.
+\]
+The central RRHM prediction becomes non-circular:
+\[
+RCE_j\;\longrightarrow\;T_{DT,j},
+\]
+with positive $RCE$ indicating underestimation of engagement-preserving recoverability.
+
+A strong test requires that $RCE$ predicts transition timing after adjustment for fear, expected threat, physical threat imminence, perceived control, self-efficacy, uncertainty, and prior avoidance.
+
+\section{Measurement model}
+The recommended measurement architecture is a latent-variable model in which explicit temporal estimates, choice-derived indifference points, and selected physiological dynamics provide partially independent indicators of a latent estimate:
+\[
+\widehat{eRRH}^{*}
+\rightarrow
+\begin{cases}
+\widehat{eRRH}^{\,explicit},\\
+\widehat{eRRH}^{\,choice},\\
+Z_{physiology}.
+\end{cases}
+\]
+The behavioral termination outcome is excluded from this measurement equation and enters only in a downstream predictive model:
+\[
+T_{DT}\sim f(\widehat{eRRH}^{*},eRRH_C,Threat,Control,ASE,Uncertainty,Subtype).
+\]
+This separation is essential for construct identifiability.
+
+\section{Parameter-recovery requirement}
+Before clinical interpretation, the computational task must demonstrate that its parameters can be recovered from simulated data.
+
+The development sequence should include:
+\begin{enumerate}[leftmargin=2em]
+\item generate synthetic participants with known $eRRH_C$, $\widehat{eRRH}$, uncertainty, reward sensitivity, and threat parameters;
+\item simulate task choices and physiological observations;
+\item refit the model without access to the generating values;
+\item quantify parameter-recovery correlations, bias, posterior uncertainty, and parameter trade-offs;
+\item reject or redesign the task if $\widehat{eRRH}$ cannot be separated from control, threat expectancy, or general risk aversion.
+\end{enumerate}
+
+A parameter that cannot be reliably recovered should not be interpreted clinically.
+
+\section{Psychometric validation pathway}
+\subsection{Phase 1: Healthy-participant construct validation}
+Test whether programmed changes in $eRRH_C$ move explicit and choice-derived horizon estimates while threat magnitude and action number remain fixed.
+
+\subsection{Phase 2: Discriminant validity}
+Demonstrate that eRRH measures are not reducible to:
+\begin{itemize}[leftmargin=2em]
+\item subjective fear;
+\item threat expectancy;
+\item physical threat imminence;
+\item perceived control;
+\item allostatic self-efficacy;
+\item generic risk aversion;
+\item intolerance of uncertainty.
+\end{itemize}
+
+\subsection{Phase 3: Reliability}
+Estimate test--retest reliability, within-session precision, and learning effects. An unstable measure cannot serve as a prospective disease marker.
+
+\subsection{Phase 4: Known-groups validity}
+Compare people with diagnosed specific phobia, healthy controls, and appropriate psychiatric controls. The primary prediction is cue-specific horizon underestimation rather than globally shortened eRRH.
+
+\subsection{Phase 5: Cross-phobia measurement invariance}
+Test animal, height/natural-environment, blood-injection-injury, situational, and procedural/visceral phobia groups. A shared latent construct should show at least partial measurement invariance while allowing subtype-specific physiological effectors.
+
+\subsection{Phase 6: Sensitivity to change}
+Measure eRRH before, during, and after treatment. Exposure-therapy literature shows substantial heterogeneity in moderators and operationalization of successful treatment \cite{bohnlein2020}. A useful RRHM instrument should demonstrate that change in eRRH predicts functional improvement beyond fear reduction alone.
+
+\subsection{Phase 7: Prospective validity}
+The decisive medical-science test is longitudinal. Baseline eRRH miscalibration should predict future phobia onset, and generalized post-treatment recalibration should predict durable remission and lower relapse risk.
+
+\section{A proposed first-generation score set}
+IRHAB should not initially collapse all information into a single total score. The first generation should preserve four separately interpretable variables:
+\[
+\boxed{eRRH_C}
+\]
+externally programmed causal horizon,
+\[
+\boxed{\widehat{eRRH}_{explicit}}
+\]
+prospective verbal temporal estimate,
+\[
+\boxed{\widehat{eRRH}_{choice}}
+\]
+nonverbal choice-derived latent estimate,
+and
+\[
+\boxed{RCE=eRRH_C-\widehat{eRRH}}
+\]
+calibration error.
+
+Only after replication should a composite latent score be considered.
+
+\section{Preregistered superiority test}
+The measurement program should compare RRHM against rival constructs using held-out prediction rather than in-sample explanation.
+
+Candidate models include:
+\[
+M_{fear},\quad M_{threat},\quad M_{control},\quad M_{ASE},\quad M_{AI},\quad M_{RRHM}.
+\]
+The core question is whether
+\[
+M_{RRHM}
+\]
+improves out-of-sample prediction of $T_{DT}$ and later clinical outcomes after all rival measurements are included.
+
+If it does not, eRRH should be reduced to a derivative or redundant construct.
+
+\section{Safety constraints for instrument development}
+IRHAB is intended for safe experimental and clinical research. Development should follow these constraints:
+\begin{enumerate}[leftmargin=2em]
+\item no paradigm should create true hypoxia, airway obstruction, clinically significant arrhythmia, syncope, severe hypoglycaemia, seizure risk, or deliberate medical instability;
+\item blood-injection-injury studies require syncope precautions and appropriate medical screening;
+\item height paradigms should use virtual or physically secured environments;
+\item choking and vomiting paradigms should use validated cues rather than induce aspiration or actual emesis as a requirement of measurement;
+\item dental paradigms should not require prolonged maximal mouth opening, respiratory restriction, or withholding a genuine stop signal;
+\item clinical diagnostic status should be established independently of IRHAB.
+\end{enumerate}
+
+\section{Decision rules for future development}
+The measurement program should be terminated or substantially revised if:
+\begin{enumerate}[leftmargin=2em]
+\item programmed changes in causal eRRH do not alter prospective eRRH estimates;
+\item explicit and choice-derived eRRH estimates show poor reliability;
+\item the latent parameter is not recoverable in simulation;
+\item eRRH cannot be separated from perceived control, self-efficacy, or threat expectancy;
+\item eRRH calibration error fails to predict defensive-transition timing;
+\item the construct fails measurement-invariance tests across phobia classes;
+\item treatment-related change in eRRH adds no predictive information beyond fear and avoidance;
+\item prospective eRRH fails to predict onset, remission, or relapse.
+\end{enumerate}
+
+\section{Future-work roadmap}
+The recommended sequence is:
+\[
+\boxed{Task\ engineering}
+\rightarrow
+\boxed{Parameter\ recovery}
+\rightarrow
+\boxed{Healthy\ validation}
+\rightarrow
+\boxed{Clinical\ discrimination}
+\rightarrow
+\boxed{Cross\! -\! phobia\ invariance}
+\rightarrow
+\boxed{Treatment\ sensitivity}
+\rightarrow
+\boxed{Prospective\ prediction}.
+\]
+
+This progression deliberately postpones any claim that eRRH is a biomarker. The immediate objective is narrower: establish whether it is an independently measurable, reliable, discriminable, and prospectively useful latent variable.
+
+\section{How this changes the status of RRHM}
+If IRHAB or an equivalent independent instrument can recover eRRH without using escape or persistence behavior to define it, RRHM becomes substantially more testable. The theory would then make the sequence
+\[
+eRRH_C,\widehat{eRRH}\quad\text{measured first}
+\]
+\[
+\Downarrow
+\]
+\[
+T_{DT}\quad\text{predicted later}
+\]
+rather than inferring eRRH retrospectively from the outcome it is supposed to explain.
+
+This is the key transition from a conceptual construct to a candidate medical-science variable.
+
+\section{Conclusion}
+The principal Future Work requirement for RRHM is not the addition of another questionnaire. It is the development of an \textbf{independent measurement system} that separates causal recoverability, estimated recoverability, and behavioral outcome.
+
+IRHAB is proposed as one route to that objective. Its defining scientific rule is simple:
+\[
+\boxed{\text{Measure recoverability before using it to explain defensive termination.}}
+\]
+If this separation can be achieved with adequate reliability, parameter recoverability, discriminant validity, cross-phobia measurement invariance, and prospective clinical prediction, eRRH could become a genuine empirically attackable variable in the medical science of specific phobia. Until then, it remains a theoretical construct and should be described accordingly.
+
+\begin{thebibliography}{99}
+\bibitem{interotech2023}
+Interoceptive technologies for psychiatric interventions: From diagnosis to clinical applications. \emph{Neurosci Biobehav Rev}. 2023. PMID: 38007168. doi:10.1016/j.neubiorev.2023.105478.
+
+\bibitem{tripartite2011}
+The tripartite model of fear in children with specific phobias: assessing concordance and discordance using the behavioral approach test. \emph{Behav Res Ther}. 2011. PMID: 21596371. doi:10.1016/j.brat.2011.04.003.
+
+\bibitem{bohnlein2020}
+B\"ohnlein J, et al. Factors influencing the success of exposure therapy for specific phobia: A systematic review. \emph{Neurosci Biobehav Rev}. 2020;108:796--820. PMID: 31830494.
+\end{thebibliography}
+
+\end{document}
