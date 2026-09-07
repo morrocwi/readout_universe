@@ -21,7 +21,7 @@ class Tier(str, Enum):
 
 # NOT the same vocabulary as omega.schemas.VERDICT_CLASSES -- must never be
 # conflated (Cross-Role Readout Contamination; see
-# EQUATION_LIBRARY_ROOT_TO_SM_STREAM_research_universal_solver.md's EQ-065
+# EQUATION_LIBRARY_ROOT_TO_SM_STREAM_solver-arc-private.md's EQ-065
 # note on two same-named-but-differently-derived quantities for this
 # repo's house pattern for this class of warning).
 #

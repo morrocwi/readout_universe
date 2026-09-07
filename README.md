@@ -110,7 +110,7 @@ summarize:
      (`DRL_General_Legendre.v` — a separate theorem, kept distinct), plus
      conservation of pairing across the whole nonlinear family
      (`v2/DISCRETE_RETENTION_LAGRANGIAN.md`, AP5/6/8). Imported into
-     `research_universal_solver`'s own equation ledger, where the D-term
+     `solver-arc-private`'s own equation ledger, where the D-term
      was reclassified from a borrowed assumption to a narrowly-derived
      result after independent review (see that repo's own ledger/CHANGELOG
      for the audit trail; not reproduced here since it isn't publicly
@@ -195,7 +195,7 @@ paradoxes.md                worked stress-test against 5 classic paradoxes
 claims.md                   falsifiable-claims register (C1-C7)
 scope_correction.md         a recorded self-correction to an earlier scope claim
 urr_native_system.md        entry point for the native URR-C calculation layer
-EQUATION_LIBRARY_ROOT_TO_SM_STREAM_research_universal_solver.md
+EQUATION_LIBRARY_ROOT_TO_SM_STREAM_solver-arc-private.md
                              root-to-Standard-Model equation stream (imported,
                              synced to the sibling repo's own canonical copy)
 Makefile                    verify / pdf / all
@@ -247,9 +247,9 @@ EXCEPTIONS" section for the exact file list and terms.
 (`philosophy.md`, `logic.md`, `paradoxes.md`, `claims.md`,
 `scope_correction.md`, `urr_native_system.md`); standard project metadata
 files keep their conventional GitHub casing (`README.md`, `LICENSE`).
-`EQUATION_LIBRARY_ROOT_TO_SM_STREAM_research_universal_solver.md` is the
+`EQUATION_LIBRARY_ROOT_TO_SM_STREAM_solver-arc-private.md` is the
 one deliberate exception — its name is a cross-repository contract with
-`readout_genesis` and `research_universal_solver`, both of which reference
+`readout_genesis` and `solver-arc-private`, both of which reference
 it by this exact filename, so it is not renamed. Case-study files under
 `ap/`, `code/`, and `v2/` follow their own subdirectory-local conventions
 and are out of scope for this rule.

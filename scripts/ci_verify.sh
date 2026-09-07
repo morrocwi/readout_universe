@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # CI gate for readout_universe -- one command re-checks the whole repo.
 # Exits nonzero on any failure. Pattern copied from
-# research_universal_solver/scripts/ci_verify.sh (this repo's sibling).
+# solver-arc-private/scripts/ci_verify.sh (this repo's sibling).
 #
 # CRITICAL: never pipe test/coqc output into tail/grep -- a real incident in
 # this repo had `pytest | tail` swallow a non-zero exit code and a RED test

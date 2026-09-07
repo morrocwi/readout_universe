@@ -1,7 +1,7 @@
 # สกัดออกมาให้หมด — DNA · ปฏิสัมพันธ์ · ปริภูมิ (The Complete Extraction, v2.0-dev)
 
 > Extracted verbatim-faithfully from the canonical corpus
-> (`research_universal_solver/docs/root/math/PGFT_Roots_of_Mathematics_and_Geometry.md`,
+> (`solver-arc-private/docs/root/math/PGFT_Roots_of_Mathematics_and_Geometry.md`,
 > chunk-ids cited per row; tiers are the SOURCE's tiers, not upgraded here).
 > Companion of `INFORMATION_DNA.md` (the nine strands in full) and
 > `TRANSLATION_PROTOCOL.md` (how to use the lens). Nothing in this file is new

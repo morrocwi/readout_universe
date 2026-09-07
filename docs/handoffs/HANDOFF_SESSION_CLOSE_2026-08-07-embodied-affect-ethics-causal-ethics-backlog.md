@@ -14,7 +14,7 @@ Founder supplied a comparison table (Kant/Nietzsche/Readout Universe,
 20 topics) flagging body/affect/drive/self/morality as "thin." A two-phase
 ultracode Workflow (research → coverage map → drafting → adversarial
 review) found the relevant material already existed, scattered across
-`birca` and `research_universal_solver`, uncited from `readout_universe`
+`birca` and `solver-arc-private`, uncited from `readout_universe`
 itself. Merged as new philosophy.md entries:
 
 - **§7.25** Embodiment (BIRCA's Actor/Feedback/Escalation schema,
@@ -89,7 +89,7 @@ ratio `K/M` survives. The falsifier was asking for an answer to a question
 the book's own theorem says doesn't exist. Rewritten to require an
 independent route to the ratio `K/M` directly; added the missing §7.17↔
 §7.20 cross-reference (zero links existed before). Also added one honest
-citation (`research_universal_solver/CLAIMS.md`'s C-bio-3, a Lotka-
+citation (`solver-arc-private/CLAIMS.md`'s C-bio-3, a Lotka-
 Volterra Jacobian-eigenvalue check) to logic.md's N2-repair/T1 entry,
 explicitly marked as adjacent but NOT T1 itself. Independent verification
 fork caught one directional citation error ("§7.17 below" when §7.17 is

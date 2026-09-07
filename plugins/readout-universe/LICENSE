@@ -38,6 +38,6 @@ including non-.md code/data files such as v2/urr/*.py and v2/urr/*.yaml),
 the ap/ directory, the docs/ directory, the evidence/ directory, the gates/
 directory, the scripts/ directory, and root-level documents such as
 scope_correction.md, urr_native_system.md, and
-EQUATION_LIBRARY_ROOT_TO_SM_STREAM_research_universal_solver.md. There is no
+EQUATION_LIBRARY_ROOT_TO_SM_STREAM_solver-arc-private.md. There is no
 carved-out exception; no file in this repository is excluded from the MIT
 License.

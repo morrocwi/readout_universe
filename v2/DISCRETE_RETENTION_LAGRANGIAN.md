@@ -135,9 +135,9 @@ novelty ledger ก่อนอ้างสิ่งใด
 (ค) ตัวเลข stress test ของผู้เสนอเป็น [SimulatedData] ภายนอก — ยังไม่ executed ใน
 repo นี้ ⇒ ยังอ้างไม่ได้จนกว่าจะ re-implement เป็น AP7 พร้อม pytest
 
-**Cross-repo note (2026-07-25, sibling `research_universal_solver`) — the pigeonhole point in (ก)
+**Cross-repo note (2026-07-25, sibling `solver-arc-private`) — the pigeonhole point in (ก)
 now has an exact, general, axiom-free Coq proof, in a DIFFERENT formal system than DRL's own
-Coq chain.** `formal/InfoTrueRecordUnreadable_attempt.v` in `research_universal_solver` proves,
+Coq chain.** `formal/InfoTrueRecordUnreadable_attempt.v` in `solver-arc-private` proves,
 Type-polymorphically and unconditionally (no DNA/RD axioms, no DRL-specific structure): whenever a
 readout `O` maps two distinct true states `x1≠x2` to the same recorded value, no decoder function
 can recover both correctly from the record alone (`no_decoder_recovers_state`, `Print Assumptions`
@@ -155,5 +155,5 @@ later without noticing it already exists, in general form, elsewhere.
 
 - ~~หา H_quartic~~ ✅ RESOLVED (AP8): H_nl = MΦ̇Ψ̇+KΦL_wΨ+Ψᵀ∇V(Φ)−JᵀΨ — เหลือ Coq lift ของ nonlinear cancellation (รวมกับ general-N)
 - Coq general-N + per-node params (ตอนนี้ 3-ring)
-- เสนอ DRL เข้า `research_universal_solver` ปิดแถว BORROWED ของ D-term ใน ledger
+- เสนอ DRL เข้า `solver-arc-private` ปิดแถว BORROWED ของ D-term ใน ledger
   ต้นทาง (ผ่าน PR + adversarial audit ของ repo นั้น)

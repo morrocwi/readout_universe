@@ -18,7 +18,7 @@
 > connected section-by-section to this corpus's own already-tiered claims
 > (`philosophy.md` §5.1–5.2, §5.2a, §5.3, §7.11, §7.21) and to a companion
 > canon document that independently shares this file's own title in Thai
-> (`research_universal_solver/docs/engineering/UNIVERSE_STEP_BY_STEP_RDU.md`,
+> (`solver-arc-private/docs/engineering/UNIVERSE_STEP_BY_STEP_RDU.md`,
 > "กำเนิดจักรวาลทีละก้าว") — see `philosophy.md` §9, "The Step-by-Step
 > Universe." This file remains the verbatim Thai source of record; §9 is the
 > integrated argument, correctly tiered claim by claim (most `Dr`, two
@@ -153,7 +153,7 @@ readout ที่ระบบสามารถให้ได้ มันไ�
   trunk equation, §7.11 unreadable≠destroyed, §7.21 self-as-closure) พร้อม
   เชื่อมกับ Coq evidence ใหม่ในเซสชันนี้ (`DRL_General_EL.v`,
   `DRL_Finite_Cut_Balance.v`, `DRL_NoGo_Single_Field.v`) และกับ companion
-  canon `research_universal_solver/docs/engineering/UNIVERSE_STEP_BY_STEP_RDU.md`
+  canon `solver-arc-private/docs/engineering/UNIVERSE_STEP_BY_STEP_RDU.md`
   (พบว่ามีชื่อไทยเดียวกัน "กำเนิดจักรวาลทีละก้าว" อยู่แล้ว — ไม่ใช่เรื่องบังเอิญ)
 - ✅ **แปลอังกฤษแล้ว** — ใน `philosophy.md` §9 (21 subsections), ไฟล์นี้ยังคงเก็บ
   ภาษาไทยต้นฉบับไว้คู่ขนานตามเดิม (source of record, ไม่ใช่แปลทับ)

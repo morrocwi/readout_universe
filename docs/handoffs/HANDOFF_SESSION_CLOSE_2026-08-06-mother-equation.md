@@ -16,7 +16,7 @@ on it." Located and reported (no edits made in this step):
 - `philosophy.md` §1 (lines ~100–132): the `Th_coqc` theorem
   (`no_decoder_recovers_state`) from
   `readout_genesis/formal/InfoTrueRecordUnreadable_attempt.v`.
-- `EQUATION_LIBRARY_ROOT_TO_SM_STREAM_research_universal_solver.md` EQ-026
+- `EQUATION_LIBRARY_ROOT_TO_SM_STREAM_solver-arc-private.md` EQ-026
   (later corrected to EQ-027) / EQ-027 (→ EQ-028): `M_A[n] = K_A·θ(E[n]) +
   η_sel+η_map+η_self`, `M_A[n] ≠ θ(E) ∀n`.
 
@@ -33,10 +33,10 @@ fixed in a second commit. CI passed. Merged
 
 ### 3. PR #55 (merged) — the phenomenology chain, §5.2d
 
-Founder: "จริงๆเรามี สมการปรากฏการวิทยาใน research_universal_solver ด้วยนะ
+Founder: "จริงๆเรามี สมการปรากฏการวิทยาใน solver-arc-private ด้วยนะ
 ดึงมาใช้ ในโลกภววิทยา กับญานวิทยา และ logic" (pull in the "phenomenology
-equation" from research_universal_solver, use it in ontology + epistemology,
-and logic too). Located `research_universal_solver/canon/genesis_canon_v2.1.md`
+equation" from solver-arc-private, use it in ontology + epistemology,
+and logic too). Located `solver-arc-private/canon/genesis_canon_v2.1.md`
 §Φ (a **proprietary, all-rights-reserved** sibling repo — reuse here is by
 the copyright holder's own direction, since the founder both owns that repo
 and directed this import; content was paraphrased into this book's own

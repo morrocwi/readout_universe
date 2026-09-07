@@ -235,7 +235,7 @@ pretend otherwise.
 **Upgrade attempt (2026-08-03):** an independent maker/checker round
 produced a new, genuinely axiom-free lemma in the corpus's own
 Evidence/Policy vocabulary — `no_policy_can_anchor_its_own_negation`
-(`research_universal_solver/formal/InfoLiarNoAnchoredResolution_attempt.v`),
+(`solver-arc-private/formal/InfoLiarNoAnchoredResolution_attempt.v`),
 formalizing that no policy can be anchored to its own negation.
 Independently recompiled: both `Print Assumptions` calls report
 `Closed under the global context` — `Th_coqc`. This is a genuine new
@@ -244,7 +244,7 @@ building block toward the still-unchecked `LTP5 liar loop` item in
 **no actual self-reference/quining term for the Liar sentence itself was
 built or found**, so this row's verdict stays `Dr` exactly as the corpus
 states it above. The file is now committed at
-`research_universal_solver/formal/InfoLiarNoAnchoredResolution_attempt.v`
+`solver-arc-private/formal/InfoLiarNoAnchoredResolution_attempt.v`
 (re-verified compiling in-place); not yet cross-referenced from
 `v2/ROADMAP_V2.md`'s own LTP5 item.
 
@@ -305,7 +305,7 @@ executed diagnostic behind it*
 
 ### 6.1 What already exists, one repo over
 
-`research_universal_solver/formal/InfoAgencySelfReadout_attempt.v` proves
+`solver-arc-private/formal/InfoAgencySelfReadout_attempt.v` proves
 (`Th_coqc`, axiom-free) that `agency(n,edges,x,i) := row_n(L)x_i` — a purely
 deterministic readout of an existing state. That file states its own limit
 directly: *"agency is not an uncaused mover... Held OFF this tier: any
@@ -313,7 +313,7 @@ claim that this is human free will (Dr)."* It is **not** what S3 means by
 origination; it is the self-sensing-loop half of S3's own distinction.
 
 A draft formula for the other half already exists, undischarged, in
-`research_universal_solver/docs/root/AGENCY_VS_AGENCY_LIKE.md`:
+`solver-arc-private/docs/root/AGENCY_VS_AGENCY_LIKE.md`:
 
 > `a* = argmin_a O(s,a)` subject to `Repair(s') ≥ R_min` — "the argmin/
 > Repair layer and the felt-quality hard problem are **relocated, not
@@ -397,8 +397,8 @@ fresh, unreviewed `Dr`-tier hypothesis with a declared falsifier, not a
 result. It should not be cited as more than that until a formal bridge
 (Coq or an executed diagnostic) backs the tie-breaking claim in §6.2.
 
-[domain card: research_universal_solver/formal/InfoAgencySelfReadout_attempt.v;
-research_universal_solver/docs/root/AGENCY_VS_AGENCY_LIKE.md;
+[domain card: solver-arc-private/formal/InfoAgencySelfReadout_attempt.v;
+solver-arc-private/docs/root/AGENCY_VS_AGENCY_LIKE.md;
 philosophy.md §4 (G5), §5.1 (non-injective readout), §6]
 
 **Upgrade attempt (2026-08-03):** an independent maker/checker round built
@@ -424,8 +424,8 @@ consequences, exactly as before.
 - [`philosophy.md`](philosophy.md) and [`logic.md`](logic.md) — the core
   distillation this file stress-tests; nothing here has been folded back
   into either.
-- `research_universal_solver/formal/InfoAgencySelfReadout_attempt.v` and
-  `research_universal_solver/docs/root/AGENCY_VS_AGENCY_LIKE.md` — the
+- `solver-arc-private/formal/InfoAgencySelfReadout_attempt.v` and
+  `solver-arc-private/docs/root/AGENCY_VS_AGENCY_LIKE.md` — the
   un-discharged origination draft §6 builds on.
 - This file's own status: every `Dr`/`[Open]` item above is a candidate for
   future adversarial review, not a settled addition to the corpus's
