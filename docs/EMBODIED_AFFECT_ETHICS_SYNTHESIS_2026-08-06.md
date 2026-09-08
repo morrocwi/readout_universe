@@ -493,7 +493,7 @@ The individual parts' cross-reference contributions are merged below. Per the re
 12. **Who has authority to SET (not just audit) the five ingredients of the ethics structure?**
     *Current stance:* Unaddressed — ingredient (5) covers audit/revision only; ingredients (1)-(4) have no stated authority allocation.
     *Why still open:* This is a governance question the philosophical framework has not yet turned to, distinct from the ontological/structural claims it does make.
-    *What to check:* Whether cpg's own AGENTS.md / governance protocols (which do allocate authority for ANSE.ASIA's own systems) could serve as a worked precedent to adapt, rather than inventing a new allocation scheme from scratch.
+    *What to check:* Whethersolver-arc-privates own AGENTS.md / governance protocols (which do allocate authority for ANSE.ASIA's own systems) could serve as a worked precedent to adapt, rather than inventing a new allocation scheme from scratch.
     *Falsifier:* A scenario where the deployer sets the accessible-answer set in a way that satisfies the letter of goal (a)/(b) while defeating their evident purpose would test whether an authority-allocation gap is actually load-bearing.
 
 13. **Does irreversible harm require a categorically different treatment from ordinary correctable error?**
