@@ -30,7 +30,7 @@ Founder pasted a long Thai philosophical essay mid-session ("จักรวา�
 Extracted verbatim to `v2/UNIVERSE_STEP_BY_STEP_PROPOSAL.md`, then translated
 and fused into a new `philosophy.md` §9 (21 subsections + lettered
 insertions §9.2a/§9.8a/§9.9a), cross-referenced against the existing RDU
-canon in `solver-arc-private` and `main.tex`'s "Dialogue with World
+canon in `solver arc (private)` and `main.tex`'s "Dialogue with World
 Traditions" chapter. Integrated three real Zenodo preprints by the founder
 (same ORCID as this repo), all quotes verified against the actual PDFs
 before committing: `doi:10.5281/zenodo.20035321`, `.20473230`, `.20537309`.
@@ -66,7 +66,7 @@ Built fresh (no proprietary reuse): `evidence/RetentionLoopClosureMonotone.v`
 degraded-closure falsifier's predicted direction in a toy model). **While
 researching this, found a second real leak**: §7.21's own opening
 definition was a near-verbatim reproduction of prose from
-`solver-arc-private` (an ALL RIGHTS RESERVED sibling repo, same
+`solver arc (private)` (an ALL RIGHTS RESERVED sibling repo, same
 author). Took two rounds to fix properly — round 1's "paraphrase" left one
 sentence byte-identical to the source; round 2 genuinely restructured it,
 and a repo-wide sweep found the *same* phrasing had also leaked into

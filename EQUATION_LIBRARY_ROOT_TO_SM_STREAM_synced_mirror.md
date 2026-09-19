@@ -6,7 +6,7 @@
      readout_universe's own C1-C7 claims register and carries no v2/ROADMAP status.
      SOT DESIGNATION (2026-07-25): READOUT_GENESIS_CORE.md's Appendix C, in the readout_genesis
      repo (the true root canon), is the primary Source of Truth for this equation stream's
-     numbering/tiers/text. The solver-arc-private sibling copy is synced to match it. This
+     numbering/tiers/text. The solver arc (private) sibling copy is synced to match it. This
      file is kept in sync with both; if a mismatch is ever found, Appendix C wins. -->
 
 # Equation Library — Root → Standard-Model Stream (imported, synced to READOUT_GENESIS_CORE.md Appendix C)
@@ -306,8 +306,8 @@ EQ-068  `finite_diagnostic` (THREE NEGATIVE FINDINGS, all disclosed, none hidden
         (`PERSISTENT_WALK_TELEGRAPH_DERIVATION.md`, τ_c-parametrized, "partially discharged") was
         located and is structural only — supplies no numeric GeV conversion. An `ultracode`
         multi-agent survey for further candidate bridge mechanisms was launched the same day;
-        check `solver-arc-private/domains/standard_model/item1_exploration/
-        ITEM1_EXPLORATION_LOG.md` for the outcome before citing this as final.
+        check `domains/standard_model/item1_exploration/
+        ITEM1_EXPLORATION_LOG.md` (solver arc (private)) for the outcome before citing this as final.
 
 EQ-069  RETRACTED 2026-07-26 (continuum contamination — founder ruling; number kept so the
         stream stays stable). The continuous-Θ graph-accumulation approach was a continuum detour:

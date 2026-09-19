@@ -13,7 +13,7 @@
 
 v1.0 of this book derives the logic of the finite knower from residual flow
 (Aε = δ read at the knower's τ_c). The physics corpus
-(`solver-arc-private`) starts from the same single assumption:
+(`solver arc (private)`) starts from the same single assumption:
 
 > **δ_R — a retained distinction.** "There is a difference, and it is kept."
 
@@ -30,14 +30,14 @@ cannot be posed on L_R, or vice versa.
 **Carried-over deflations (binding here too):** the master equation's FORM is
 posited from narrower assumptions, not forced by the root; several cross-domain
 `=` are definitional relabels; no surviving readout-vs-readout falsifiable
-prediction yet. See `solver-arc-private/docs/root/BORROWED_VS_DERIVED_LEDGER.md`
+prediction yet. See `docs/root/BORROWED_VS_DERIVED_LEDGER.md` (solver arc (private))
 (canonical, per-element, file:line-cited). Any chapter of v2 that quotes a physics result MUST quote its
 ledger verdict class (DERIVED / FORCED / DEFINITIONAL-RELABEL / POSITED /
 BORROWED-SCALE / OPEN) alongside.
 
 ## 1. The Universal Step (เสตปสรรพสิ่ง) as the book's missing physics chapter
 
-Canonical source: `solver-arc-private/docs/root/UNIVERSAL_STEP_ALL_THINGS.md`
+Canonical source: `docs/root/UNIVERSAL_STEP_ALL_THINGS.md` (solver arc (private))
 (tier: `Dr` synthesis over `Th_coqc` structure + `finite_diagnostic` measurement).
 
 Every δ_R-entity takes one readout step of L_R, with per-clause tiers already
