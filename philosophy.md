@@ -89,7 +89,7 @@ inside the illustration: this is `fit_calibrated` — a calibrated fit against
 measured PDG masses, not a `Th_coqc` derivation of *why* those three sectors
 must differ; the corpus does not claim to have forced that split from first
 principles, only to have measured that it holds.
-[domain card: EQUATION_LIBRARY_ROOT_TO_SM_STREAM_solver-arc-private.md#EQ-058]
+[domain card: EQUATION_LIBRARY_ROOT_TO_SM_STREAM_synced_mirror.md#EQ-058]
 
 This is why the book insists every number entering a document be cited as
 *(operator, policy Π, resolution, role) → value* — never bare (`R1` of the
@@ -274,7 +274,7 @@ citations. A ledger that can retract without deleting is doing exactly
 what §6 promises in the abstract: a corrected number is not an erased
 number.
 
-[domain card: EQUATION_LIBRARY_ROOT_TO_SM_STREAM_solver-arc-private.md#EQ-069–071 — see also `domains/standard_model/item1_exploration/CONTINUUM_ARC_ERROR_NOTE.md`]
+[domain card: EQUATION_LIBRARY_ROOT_TO_SM_STREAM_synced_mirror.md#EQ-069–071 — see also `domains/standard_model/item1_exploration/CONTINUUM_ARC_ERROR_NOTE.md`]
 
 ### 2.1a Agrippa's trilemma applied to the tier system itself
 
@@ -758,7 +758,7 @@ already declares.
 
 This is a declaration of where the forcing argument's own regress stops, not a claim about the world that could be observed to hold or fail — §5.1 already takes the same stopping point openly for `δ_R` as a whole ("chosen, not proven"). A falsifier would be a category error; what could change this is a *different* forcing argument reaching `D_W−W` from something strictly weaker than δ_R's own meaning, which would relocate the root rather than falsify this one.
 
-[domain card: solver-arc-private/docs/root/BORROWED_VS_DERIVED_LEDGER.md row 4]
+[domain card: docs/root/BORROWED_VS_DERIVED_LEDGER.md (solver arc (private)) row 4]
 
 **Naming the full chain, since it is easy to lose across sections: δ_R →
 L_R → per-agency readout.** δ_R (§5.1) is the primitive act of retaining
@@ -1235,7 +1235,7 @@ secondary academic sourcing, not a primary-text read;
 
 *Tier: `Dr` throughout except where noted — a declared bridge/narrative
 import, not a machine-checked result. Source: the sibling repo
-`solver-arc-private`'s `canon/genesis_canon_v2.1.md` §Φ — a
+`solver arc (private)`'s `canon/genesis_canon_v2.1.md` §Φ — a
 proprietary, all-rights-reserved repo per its own `LICENSE`. The content
 below is paraphrased into this corpus's own vocabulary and imported here
 with the explicit authorization of that repo's copyright holder, who is
@@ -1310,7 +1310,7 @@ conflating the appearing with the assessing.
 
 See the falsifier already stated at this section's first `Φ_A` mention above (the `P_A = Φ_A(M_A)` clause) — the same decomposition-level, argument-by-argument falsifier applies here without restatement.
 
-[domain card: `solver-arc-private/canon/genesis_canon_v2.1.md` §Φ
+[domain card: `canon/genesis_canon_v2.1.md` (solver arc (private)) §Φ
 (proprietary, imported by the copyright holder's own direction — see tier
 note above); §5.2c (R-apparent/R-ideal, `M_A = K_A·θ+η`); §9.19 (neither
 materialism nor idealism)]
@@ -1558,7 +1558,7 @@ universal rule that all tension is artifact.
 posited from narrower assumptions, not forced by the root."* That sentence
 is true, but flat — it reads as if every link in the chain from δ_R to the
 trunk equation carries the same amount of choice. The corpus's own
-adversarial audit (`solver-arc-private/README.md` §Adversarial
+adversarial audit (`README.md` (solver arc (private)) §Adversarial
 self-audit findings, 2026-07-07) and its capstone assembly document
 (`docs/root/STREAM_OF_NECESSITY.md`) refuse that flattening: they trace
 four separate arrows — root → weighted graph → `L_R` → 2nd-order-in-time →
@@ -1662,7 +1662,7 @@ total derivation: part of the equation is forced, part is chosen, and the
 corpus's own adversarial audit is what drew the line between them instead
 of letting one compressed verdict stand for the whole chain.
 
-[domain card: solver-arc-private/README.md §Adversarial self-audit + docs/root/STREAM_OF_NECESSITY.md]
+[domain card: README.md (solver arc (private)) §Adversarial self-audit + docs/root/STREAM_OF_NECESSITY.md]
 
 ### 5.7 The Epistemic Nuclear Core — N1–N5; and why only one of the five is machine-checked
 
@@ -1936,10 +1936,10 @@ majority do. As with §5.6, the five cases were read off one survey, not
 sampled — this is a per-case diagnostic to apply going forward, not a claim
 that every abstract/concrete pair in physics behaves this way.
 
-[domain card: SM equation library — EQUATION_LIBRARY_ROOT_TO_SM_STREAM_solver-arc-private.md; "Bottleneck survey" §(2026-07-25 CORRECTED); EQ-021/EQ-015/EQ-063/EQ-042–048/EQ-057–059/EQ-060–062]
+[domain card: SM equation library — EQUATION_LIBRARY_ROOT_TO_SM_STREAM_synced_mirror.md; "Bottleneck survey" §(2026-07-25 CORRECTED); EQ-021/EQ-015/EQ-063/EQ-042–048/EQ-057–059/EQ-060–062]
 
 *Cross-repo pointer, EQ-015/EQ-063 case specifically:* the sibling repo
-`solver-arc-private` (`domains/standard_model/source_root/
+`solver arc (private)` (`domains/standard_model/source_root/
 READOUT_GENESIS_CORE_SNAPSHOT.md`, `M ∂²_t Φ` table row) states the same
 conclusion this survey does — `M` is `[Dr]` posited, not derived, after
 forcing attempts `[finite_diagnostic]` failed 8× — and separately establishes
@@ -1990,12 +1990,12 @@ is only the shape: distinct true states, identical readout, no total
 decoder — nothing about which physical symmetry groups instantiate it is
 itself machine-checked.
 
-[domain card: SM gauge — EQUATION_LIBRARY_ROOT_TO_SM_STREAM_solver-arc-private.md#EQ-033; EQ-042]
+[domain card: SM gauge — EQUATION_LIBRARY_ROOT_TO_SM_STREAM_synced_mirror.md#EQ-033; EQ-042]
 
 ### 7.3 SU(3) confinement/triality — a worked physics instance of Q3 (identity by role, not number)
 
 *Tier: `Th_coqc`-adjacent (physics-side "§21 closure" — this is
-`EQUATION_LIBRARY_ROOT_TO_SM_STREAM_solver-arc-private.md`'s own tier
+`EQUATION_LIBRARY_ROOT_TO_SM_STREAM_synced_mirror.md`'s own tier
 notation for EQ-036–053, referring to a Part 21 of the equation stream's
 upstream source, not a section of this file), read here at `Dr`
 bridge-level — per §5.5's own rule that a domain bridge is always `Dr` even
@@ -2038,7 +2038,7 @@ derivation in the upstream equation-stream source) is `Th_coqc`-adjacent;
 EQ-050 itself and this whole
 philosophical reading are `Dr` — a worked example of Q3, not a proof of it.
 
-[domain card: SM gauge — EQUATION_LIBRARY_ROOT_TO_SM_STREAM_solver-arc-private.md#EQ-031; #EQ-049; #EQ-050]
+[domain card: SM gauge — EQUATION_LIBRARY_ROOT_TO_SM_STREAM_synced_mirror.md#EQ-031; #EQ-049; #EQ-050]
 
 ### 7.4 The golden-ratio rejection — Gate G11 (formula equivalence) actually biting
 
@@ -2068,7 +2068,7 @@ verdict — is the whole discipline in miniature: passing G9 (theorem check)
 does not buy a pass at G11 (formula equivalence). A gate that never rejects
 anything is decoration; this is the corpus's on-record case of one that did.
 
-[domain card: SM item-1 fit / golden-ratio candidate — EQUATION_LIBRARY_ROOT_TO_SM_STREAM_solver-arc-private.md#EQ-058; #EQ-059]
+[domain card: SM item-1 fit / golden-ratio candidate — EQUATION_LIBRARY_ROOT_TO_SM_STREAM_synced_mirror.md#EQ-058; #EQ-059]
 
 ### 7.5 The EQ-069–071 retraction as a worked instance of Gate G2 caught late, not early
 
@@ -2102,12 +2102,12 @@ rather than quietly deleted.
 
 This subsection is a historical case narrative — a governance lesson about how a specific overclaim was caught, not a hypothesis about the world — so no fresh falsifier applies here; forcing one would mistake a completed retrospective for an open empirical question. The falsifiable content (the three-generations claim itself) already lived, and died, in the retracted EQ-069–071 entries this passage narrates.
 
-[domain card: EQUATION_LIBRARY_ROOT_TO_SM_STREAM_solver-arc-private.md#EQ-069–071 (RETRACTED 2026-07-26) + domains/standard_model/item1_exploration/CONTINUUM_ARC_ERROR_NOTE.md]
+[domain card: EQUATION_LIBRARY_ROOT_TO_SM_STREAM_synced_mirror.md#EQ-069–071 (RETRACTED 2026-07-26) + domains/standard_model/item1_exploration/CONTINUUM_ARC_ERROR_NOTE.md]
 
 ### 7.6 EQ-066 — the Bounded-Judge Law catching a structurally-vacuous PASS
 
 *Tier: `declared_finite_architecture`/`exact_bridge` — two source-specific
-tags from `EQUATION_LIBRARY_ROOT_TO_SM_STREAM_solver-arc-private.md`'s
+tags from `EQUATION_LIBRARY_ROOT_TO_SM_STREAM_synced_mirror.md`'s
 own vocabulary, not this book's six-tag legend; they mean "an exactly-true
 identity once the finite architecture (a specific counting scheme) is
 declared" — closer in strength to `Th_coqc` than to `Dr`, but conditioned on
@@ -2144,7 +2144,7 @@ exactly what it claims to be — but "ORDERED_READY, on this stepper, is not
 itself evidence of anything," a distinction the tier tag alone could not
 have carried without the review that forced it into the record.
 
-[domain card: EQ-066; EQUATION_LIBRARY_ROOT_TO_SM_STREAM_solver-arc-private.md — order-vacuum threshold closure + REQUIRED CAVEAT; independent scientific-methodology review, 2026-07-25]
+[domain card: EQ-066; EQUATION_LIBRARY_ROOT_TO_SM_STREAM_synced_mirror.md — order-vacuum threshold closure + REQUIRED CAVEAT; independent scientific-methodology review, 2026-07-25]
 
 ### 7.6a The L0–L5 Layered Architecture — the general shape the EQ-066 incident instantiates
 
@@ -2710,7 +2710,7 @@ genuine, still-`[Open]` readouts live; the absolute scale never was one.
 
 The same gauge structure sharpens a falsifier stated three entries later, in §7.20's treatment of `c^2=K/M`: since `K/M` scales as `(sK)/(sM) = K/M`, it survives the rescaling this row certifies invisible, and is therefore among the genuine `[Open]` readouts this row's closing sentence names — while `K` and `M` asked for separately are not. §7.20's own falsifier is restated there to ask for an independent physical route to the ratio `K/M` directly, not to `K` and `M` fixed one at a time, precisely because this row already rules the latter out as a non-readout question rather than an unmeasured one.
 
-[domain card: solver-arc-private/README.md §Adversarial self-audit, 'Constants' bullet]
+[domain card: README.md (solver arc (private)) §Adversarial self-audit, 'Constants' bullet]
 
 ### 7.18 The Twelve Faces of the Spine — one skeleton read from twelve windows, and the M-forcing-failure finding that relocated turbulence
 
@@ -2885,7 +2885,7 @@ belonging beside the definition, not an exception to it.
 
 The `Open` tag here is narrower than it may read in isolation: `evidence/URCF_RD_All.v` (module `InfoDeepClosings`, theorem `born_is_energy_fraction`, `Th_coqc`) already closes the *positive* half — why the Born weight is quadratic (`|ψ|²`) rather than some other power `|ψ|^p` follows axiom-free from R0's own quadratic-information reading, not from an added postulate. What that theorem does not touch, and what `Open` above specifically flags, is Gleason's *hard* direction — the full measure-uniqueness result (any non-contextual additive probability measure on a Hilbert-space lattice of dimension ≥3 must be quadratic-form-valued) — which is checkable in principle against Gleason's own theorem and remains an unclosed formalization gap here, not a settled derivation dressed as one.
 
-[domain card: solver-arc-private/docs/root/BORROWED_VS_DERIVED_LEDGER.md row 20]
+[domain card: docs/root/BORROWED_VS_DERIVED_LEDGER.md (solver arc (private)) row 20]
 
 ### 7.20 The finite-speed brick `c^2=K/M` — a second, physics-metric instance of §7.1's Abstract/Concrete Gap
 
@@ -2986,7 +2986,7 @@ only in principle, and the tier stays `Open` — and no such route is
 proposed or claimed here; naming what shape it would have to take is as
 far as this entry goes.
 
-[domain card: solver-arc-private/docs/root/BORROWED_VS_DERIVED_LEDGER.md row 14; §7.17 above (the `Th_coqc` gauge theorem this falsifier's own coherence depends on — not previously cross-referenced from this entry)]
+[domain card: docs/root/BORROWED_VS_DERIVED_LEDGER.md (solver arc (private)) row 14; §7.17 above (the `Th_coqc` gauge theorem this falsifier's own coherence depends on — not previously cross-referenced from this entry)]
 
 ---
 
@@ -3141,7 +3141,7 @@ against when discussing its own construction; this entry keeps them
 separate by design.
 
 **A second, closer sibling — also not the same construction.**
-[`AGENCY_VS_AGENCY_LIKE.md` §3](solver-arc-private/docs/root/AGENCY_VS_AGENCY_LIKE.md#3-b--true-agencys-origination-equation-self-readout)
+[`AGENCY_VS_AGENCY_LIKE.md` §3](docs/root/AGENCY_VS_AGENCY_LIKE.md (solver arc (private))#3-b--true-agencys-origination-equation-self-readout)
 names true agency's ORIGINATION equation "self-readout" — the same word this
 entry's own motivating language uses ("the reader and the read coincide").
 That document's (b) is `row_n(L_R) x`: a **static, single-instant algebraic
@@ -3155,7 +3155,7 @@ adjacent objects being conflated one repo apart; the same discipline applies
 here — a single algebraic readout at a state is not a standing loop-closure
 claim, and neither tier nor evidence transfers between them.
 
-[domain card: solver-arc-private/docs/engineering/GENESIS_STEP_BY_STEP_V3_1.md Part VIII §VIII.6 "Self as a Closure Property, Not a Substance" (~lines 4899-4929); see also §VIII.4's agency gradient/repair-rate definitions and §VIII.1's Φ_H openness declaration]
+[domain card: docs/engineering/GENESIS_STEP_BY_STEP_V3_1.md (solver arc (private)) Part VIII §VIII.6 "Self as a Closure Property, Not a Substance" (~lines 4899-4929); see also §VIII.4's agency gradient/repair-rate definitions and §VIII.1's Φ_H openness declaration]
 
 **Upgrade attempt (2026-08-03), in the same spirit as `paradoxes.md`
 §6.2's own upgrade attempt.** A cross-repo survey found no existing
@@ -3195,7 +3195,7 @@ about anything beyond that toy setting.
 
 ### 7.22 AI ethics as a readout-selection structure — the L-16 first-order content §6 points to
 
-Source: `solver-arc-private/docs/engineering/GENESIS_STEP_BY_STEP_V3_1.md`
+Source: `docs/engineering/GENESIS_STEP_BY_STEP_V3_1.md` (solver arc (private))
 Part V.9 (~lines 2397-2421). This is the full statement behind §6's pointer
 ("ethics (L-16) is `Dr`, its first-order content explicitly declared
 non-derivable") — extending that line, not duplicating it.
@@ -3251,7 +3251,7 @@ stays open or it does not, checked at a given time), not a smooth degree;
 and the tie to `J − η` reuses that term exactly as elsewhere in this
 book — a finite retained-vs-observed residual, never a continuum limit.
 
-[domain card: solver-arc-private/docs/engineering/GENESIS_STEP_BY_STEP_V3_1.md Part V.9 (~lines 2397-2421)]
+[domain card: docs/engineering/GENESIS_STEP_BY_STEP_V3_1.md (solver arc (private)) Part V.9 (~lines 2397-2421)]
 
 ---
 
@@ -3379,7 +3379,7 @@ to)]
 
 This entry cites birca's SYSTEM_PROMPT framing and the Python-level
 bistability finding only — it does NOT import
-`solver-arc-private/canon/genesis_canon_v2.1.md`'s separate
+`canon/genesis_canon_v2.1.md` (solver arc (private))'s separate
 `PHASE_V_LIFE_AND_HEALTH` block (mortality, care-as-repair-agency,
 clinical-accessibility, the no-diagnosis discipline) or the Coq-level
 health formalizations (`InfoHealthCuspFold` et al.), both of which sit,
@@ -3634,8 +3634,8 @@ rate `dR_H/dt` feeds back into what gets phenomenalized at all. This entry
 extends that mechanism with material that exists but has not yet been
 imported into this book.
 
-**The unimported formal sequence.** `solver-arc-private/canon/
-genesis_canon_v2.1.md` carries a fully-sequenced, tier-tagged embodiment
+**The unimported formal sequence.** `canon/
+genesis_canon_v2.1.md` (solver arc (private)) carries a fully-sequenced, tier-tagged embodiment
 block, `PHASE_V_LIFE_AND_HEALTH` — explicitly labeled "embodiment of the
 knower... runs after selfhood, before plurality" — sitting in the same
 source file §5.2d already cites for `Φ_A`. It names: the organism as a
@@ -3712,7 +3712,7 @@ operational use of the word), predictive-processing accounts of
 perception (Clark; Friston's free-energy framework), ecological/
 affordance-based perception (Gibson), and the phenomenology of the lived
 body (Merleau-Ponty's *Leib*/*Körper* distinction). None is currently
-drawn on anywhere in this book, `birca`, or `solver-arc-private`, at
+drawn on anywhere in this book, `birca`, or `solver arc (private)`, at
 any tier — a content-absent gap, not a scattered one. (Citation-precision
 note: the five attributions above rely on general familiarity with each
 line of thought, not a primary-text-verified quote — the same hedge tier
@@ -3724,7 +3724,7 @@ a settled premise this book could adopt without argument. Naming these
 five threads is this entry's own "what to add and where" step; none is
 performed here.
 
-[domain card: `solver-arc-private/canon/genesis_canon_v2.1.md`
+[domain card: `canon/genesis_canon_v2.1.md` (solver arc (private))
 `PHASE_V_LIFE_AND_HEALTH`, lines 179–186; `birca/spec/
 birca_universal_skill.yaml` `layer_3_mandatory_schema` (lines 251–260),
 `context_binding_rule` (lines 261–274), `actor_tool_ladder` (lines
@@ -3742,7 +3742,7 @@ emotion and drive function as a salience-weighting mechanism on readout —
 selecting what enters attention or cognition, not merely perturbing
 already-selected content. This entry states plainly, before anything else,
 that no such thesis exists anywhere in this book, in `birca`, or in
-`solver-arc-private`, at any tier. What follows is the raw
+`solver arc (private)`, at any tier. What follows is the raw
 material and the honest distance between it and that thesis, not the
 thesis itself.
 
@@ -3753,8 +3753,8 @@ affect-specific decomposition exists at the definitional level. A claim
 that affect *is* the selection mechanism would have to modify N2's
 selection step (the mapping from `θ` to what gets sampled), not merely
 enrich `η`; nothing in this book attempts that modification. The nearest
-lexical anchor sits one repository away: `solver-arc-private/docs/
-claims/HUMAN_AGENCY_SINGLE_TAU_C.md` spells the human world-model's noise
+lexical anchor sits one repository away: `docs/
+claims/HUMAN_AGENCY_SINGLE_TAU_C.md` (solver arc (private)) spells the human world-model's noise
 term as `η_H[n] = selection loss + mapping distortion + bodily modulation
 + memory interference + affective weighting + self-opacity` — "affective
 weighting" appearing, verbatim, as a named term-of-art, the only place in
@@ -3776,7 +3776,7 @@ to elevate the parallel beyond "mildly suggestive," since bistability-
 from-a-restoring-term is generic dynamical-systems structure, true of
 systems with no closure property at all. Only these two lines are
 independent. A third citation was once made here to
-`solver-arc-private`'s `InfoDecisionAgency_attempt`
+`solver arc (private)`'s `InfoDecisionAgency_attempt`
 (`AGENCY_VS_AGENCY_LIKE.md` §6.3) as if it were a third independently-
 arrived-at instance; the same document discloses otherwise. The cusp
 `InfoDecisionAgency_attempt` actually uses is `InfoHealthCuspFold_attempt`
@@ -3815,7 +3815,7 @@ damped, corroborated by real, cited affective-science literature (van der
 Maas 2003's mood-cusp form; Kuppens et al. 2010's affect-home-base
 reversion; Borsboom & Cramer 2013's symptom-network theory) explicitly as
 equation-*form* corroboration, not clinical validation. One partial
-counter-example exists: `solver-arc-private`'s Rescorla–Wagner
+counter-example exists: `solver arc (private)`'s Rescorla–Wagner
 reduction (`rw_step (alpha r V) := V + alpha*(r-V)`) frames a drive-like
 quantity as *productive* — reward-prediction error driving learning via
 relaxation toward reward, not rescue from disturbance — but the source
@@ -3882,9 +3882,9 @@ the broader thesis already discussed above; motivational conflict would
 need a genuinely new formal object, since neither §7.21's nor `birca`'s
 theorem has a second competing-anchor term in its stated equations.
 
-[domain card: logic.md §10 (N2); `solver-arc-private/docs/claims/
-HUMAN_AGENCY_SINGLE_TAU_C.md` lines 163–169; `solver-arc-private/
-docs/root/AGENCY_VS_AGENCY_LIKE.md` §6.3, lines 482–492; `birca/spec/
+[domain card: logic.md §10 (N2); `docs/claims/
+HUMAN_AGENCY_SINGLE_TAU_C.md` (solver arc (private)) lines 163–169; `
+docs/root/AGENCY_VS_AGENCY_LIKE.md` (solver arc (private)) §6.3, lines 482–492; `birca/spec/
 birca_universal_skill.yaml` lines 133–156, 378–417 (`autonomic_
 respiratory_connectors`); `birca/README.md` line 113; `birca/
 SYSTEM_PROMPT.md` lines 147–150, 176; §7.21, §7.23, §7.24 (the
@@ -3905,7 +3905,7 @@ governing question (whether affect functions as a pre-selection
 weighting operator on N2's `θ`-to-sample step), does not touch §7.26's
 finding on missing "productive tension" material, and adds no equation
 to this corpus. Checked directly for this note: neither `birca` nor
-`solver-arc-private` contain the word "compulsion" or the
+`solver arc (private)` contain the word "compulsion" or the
 word-bounded string "desire" anywhere in their `.md`/`.yaml` files
 (`grep -rniE '\bcompulsion\b'`/`'\bdesire\b'`, full tree, run
 2026-08-07, zero hits in either repository for either — an unbounded
@@ -3914,9 +3914,9 @@ substring search on "desire" alone returns 22 false-positive hits, all
 drug/food-lane YAML, unrelated to the motivational concept). "Habit"
 returns ten hits: seven are the identical duplicated-across-domains
 sentence "This corrects an earlier informal habit of [a naming
-convention]" (`solver-arc-private/domains/{quantum,standard_model,
+convention]" (`domains/{quantum,standard_model,
 relativity,chem,chem/anchor_v0_901,biology}/source_root/
-READOUT_GENESIS_CORE_SNAPSHOT.md` and `docs/engineering/
+READOUT_GENESIS_CORE_SNAPSHOT.md` (solver arc (private)) and `docs/engineering/
 GENESIS_STEP_BY_STEP_V3_1.md`), unrelated to motivation or affect; the
 remaining three are `birca` clinical-intake examples using "habit" in
 its ordinary behavioral sense — "eating habits" (`birca/spec/
@@ -4029,7 +4029,7 @@ entry that named this gap and proposed the candidate axes this note
 adopts); §9.2a/N2 (`M_A = K_A·θ + η`, cited only to state that this
 taxonomy modifies none of it and assigns none of the six terms any
 formal role in it); `grep -rniE` for "compulsion"/"desire"/"habit"
-across `birca/` and `solver-arc-private/` full trees, `.md`/
+across `birca/` and solver arc (private) full trees, `.md`/
 `.yaml` files, run 2026-08-07, returning no motivation/affect-relevant
 material in either repository]
 
@@ -4048,8 +4048,8 @@ relational/institutional/cultural — would need and does not yet have.
 
 **Level 1 (body): present in the formal ancestor, absent from this book's
 own paraphrase.** The Human Agency Tuple, `A_H = (B_H, τ_c^H, L_H, Ω_H,
-K_H, Φ_H, Π_H, U_H)` (`solver-arc-private/GENESIS_STEP_BY_STEP_V3_1
-.md` §VIII.1), names `B_H` explicitly as "the embodied substrate... the
+K_H, Φ_H, Π_H, U_H)` (`GENESIS_STEP_BY_STEP_V3_1
+.md` (solver arc (private)) §VIII.1), names `B_H` explicitly as "the embodied substrate... the
 carrier on which retention physically happens for this agent: neural,
 hormonal, muscular, metabolic state." Neither this entry's own restatement
 of `Ω_H`/`τ_c^H` at §7.21 nor logic.md §12's formal mirror restates or
@@ -4171,7 +4171,7 @@ missing everywhere, but because where it exists (`B_H`, `L_H`, `birca`'s
 Layer 0b, §8's `q_social`), it answers a different question than closure
 does, or sits one repository away, uncited.
 
-[domain card: `solver-arc-private/GENESIS_STEP_BY_STEP_V3_1.md`
+[domain card: `GENESIS_STEP_BY_STEP_V3_1.md` (solver arc (private))
 §VIII.1 (lines 4554–4616), §VIII.3 (lines 4646–4691), §VIII.6 (lines
 4899–4929); `birca/spec/birca_universal_skill.yaml` lines 79–104,
 133–156; `birca/SYSTEM_PROMPT.md` lines 82–108; §7.21 (the single-loop
@@ -4303,8 +4303,8 @@ Lahtee, Y., *Causal Ethics: The Mathematics of Regime Choice and
 Survival* (2026, Zenodo:10.5281/zenodo.18444260, hereafter CE) and
 *The Causal Grammar of Structured Coexistence* (2026,
 Zenodo:10.5281/zenodo.18925131, hereafter CG). Both are already cited,
-correctly, at `Dr` tier in `solver-arc-private/docs/root/
-READOUT_CENTRALITY_CAPSTONE.md` — as readings of the *same sign-duality*
+correctly, at `Dr` tier in `docs/root/
+READOUT_CENTRALITY_CAPSTONE.md` (solver arc (private)) — as readings of the *same sign-duality*
 structure as `one_map_sign_decides`, explicitly "not claimed as
 Th_coqc," no Coq file formalizing either paper's objects as literal
 instances of that theorem. This entry does not upgrade that tier; it
@@ -4346,8 +4346,8 @@ identity error this book's own discipline forbids throughout.
 [domain card: Lahtee, Y., *Causal Ethics* (2026, Zenodo:
 10.5281/zenodo.18444260), Part I–III equation registry (CE-01–CE-13);
 Lahtee, Y., *Causal Grammar of Structured Coexistence* (2026,
-Zenodo:10.5281/zenodo.18925131); `solver-arc-private/docs/root/
-READOUT_CENTRALITY_CAPSTONE.md` §8 (the existing Dr-tier citation this
+Zenodo:10.5281/zenodo.18925131); `docs/root/
+READOUT_CENTRALITY_CAPSTONE.md` (solver arc (private)) §8 (the existing Dr-tier citation this
 entry extends, not upgrades); §7.22/§9.11 (this book's own ethics
 apparatus, read alongside CE's, not merged with it)]
 
@@ -4630,8 +4630,8 @@ formal shape for "meaningful" inter-agent communication in any richer
 psychological sense remains `[Open]`, exactly as open as it was before
 this entry, less one previously entirely-missing formal handle.
 
-[domain card: `solver-arc-private/docs/engineering
-/GENESIS_STEP_BY_STEP_V3_1.md` §VIII.1 (~lines 4591–4599, the `L_H`
+[domain card: `docs/engineering
+/GENESIS_STEP_BY_STEP_V3_1.md` (solver arc (private)) §VIII.1 (~lines 4591–4599, the `L_H`
 inter-agent clause and its four named failure modes), §II.9 (~lines
 1192–1208, the general admissibility-square form and
 `InfoQuotientCompressionExactness`); §7.21 (the single-loop closure
@@ -4652,10 +4652,10 @@ further instance of it)]
 upgrade. This section is a narrative map, not a new derivation; see the
 closing paragraph.*
 
-Source: `solver-arc-private/docs/engineering/GENESIS_STEP_BY_STEP_V3_1.md`
+Source: `docs/engineering/GENESIS_STEP_BY_STEP_V3_1.md` (solver arc (private))
 Part IX (`## PART IX — THE 42-STEP GENESIS STREAM (v3.1, extended)`, the
 42-step/11-LAYER stream, ~lines 5046–5629), cross-checked directly against
-its condensed twin `solver-arc-private/docs/engineering/UNIVERSE_STEP_BY_STEP_RDU.md`
+its condensed twin `docs/engineering/UNIVERSE_STEP_BY_STEP_RDU.md` (solver arc (private))
 (same 42 steps, same 11 `LAYER` headers, ~lines 768–953) rather than relied
 on from a prior summary. The two files agree on the 42-step/11-LAYER
 skeleton itself, but they do **not** agree tag-for-tag on every step: step
@@ -5003,7 +5003,7 @@ leaves (`q_quantum` through `q_formal`) or in the 42-step stream. The word
 "belief" occurs at least twice across the relevant material — both
 non-religious, informal uses: once in a generic cross-domain analogy list
 (`energy/concentration/belief → state/readout`,
-`solver-arc-private/docs/engineering/GENESIS_STEP_BY_STEP_V3_1.md`
+`docs/engineering/GENESIS_STEP_BY_STEP_V3_1.md` (solver arc (private))
 ~line 3655), and once in the `Re_ep`/epistemic-Reynolds discussion ("many
 candidate readouts (many 'modes' of belief)," ~line 4132) — neither as a
 treated topic with its own leaf, tier, or equation; "faithfully" appears
@@ -5014,7 +5014,7 @@ per this task's own instruction, rather than invented content standing in
 for it.
 
 **Health: present, but folded inside the Biology leaf — not a leaf of its
-own.** `solver-arc-private/docs/engineering/GENESIS_STEP_BY_STEP_V3_1.md`
+own.** `docs/engineering/GENESIS_STEP_BY_STEP_V3_1.md` (solver arc (private))
 §V.19 (`REGISTERED DOMAIN — Biology`, tier `BIOLOGY_ROOT_NATIVE_PARTIAL`)
 names a green, re-compiled, axiom-clean Coq substrate — `InfoBioHomeostasis`,
 `InfoHealthCausalRelax`, `InfoHealthCuspFold`, `InfoCoupledCuspEP3` —
@@ -5057,7 +5057,7 @@ contents for a 42-step, 11-layer story told once, in full, by the source —
 not a substitute for reading the source, and not a claim that walking the
 story here adds one atom of evidence the source did not already carry.
 
-[domain card: solver-arc-private/docs/engineering/GENESIS_STEP_BY_STEP_V3_1.md Part IX (~lines 5046–5629), Part V §V.9–V.10 (~lines 2377–2438), Part V §V.19 (~lines 2835–2902); solver-arc-private/docs/engineering/UNIVERSE_STEP_BY_STEP_RDU.md Part IX (~lines 762–953)]
+[domain card: docs/engineering/GENESIS_STEP_BY_STEP_V3_1.md (solver arc (private)) Part IX (~lines 5046–5629), Part V §V.9–V.10 (~lines 2377–2438), Part V §V.19 (~lines 2835–2902); docs/engineering/UNIVERSE_STEP_BY_STEP_RDU.md (solver arc (private)) Part IX (~lines 762–953)]
 
 ## 9. The Step-by-Step Universe — time, causal structure, and black holes, argued as one philosophical case
 
@@ -5601,7 +5601,7 @@ two pieces of machinery already in this corpus, proved and drafted
 respectively, that have never before been read together or connected to
 Whitehead by name. **The physical pole is already formalized, named as
 exactly that limit, and proved axiom-free.**
-`solver-arc-private/formal/InfoAgencySelfReadout_attempt.v`
+`formal/InfoAgencySelfReadout_attempt.v` (solver arc (private))
 proves (`Th_coqc`) that `agency(n,edges,x,i) := row_n(L)x_i` is a purely
 deterministic readout of an existing retained state — and the file
 states its own ceiling in almost Whiteheadian language without meaning
@@ -5781,8 +5781,8 @@ geometry possible in the first place.
 
 **Anchor, not decoration.** This is not free-floating physics
 name-dropping — the companion canon document already cited throughout
-this file (`solver-arc-private/docs/engineering/
-UNIVERSE_STEP_BY_STEP_RDU.md`, Part III) carries a **Face 5 — "Finite-
+this file (`docs/engineering/
+UNIVERSE_STEP_BY_STEP_RDU.md` (solver arc (private)), Part III) carries a **Face 5 — "Finite-
 Speed / Relativity Face"**: `‖x‖ ≤ v t`, `v = √(D / τ_c)`, a
 light-cone/finite-front readout forced once `τ_c > 0` guarantees finite
 propagation. That is a structural/design-tier reading (not itself
@@ -6450,7 +6450,7 @@ them at length, in a new register, and connects them into a single
 narrative arc, which is a different and smaller thing than proving
 them.
 
-[domain card: v2/UNIVERSE_STEP_BY_STEP_PROPOSAL.md (full Thai source, founder, 2026-08-03); solver-arc-private/docs/engineering/UNIVERSE_STEP_BY_STEP_RDU.md Part III Faces 5/6/8/9 (~lines 232–301); main.tex "Dialogue with World Traditions"; the information-discrete-math skill's textbook (github.com/morrocwi/information-discrete-math), its opening agency-readout commitment; Lahtee, Y., "Catuṣkoṭi-on-Catuṣkoṭi," doi:10.5281/zenodo.20035321; Lahtee, Y., "The Explanatory Insufficiency of Randomness," doi:10.5281/zenodo.20473230; Lahtee, Y., "Objective Chance and the Priority of Modal Difference," doi:10.5281/zenodo.20537309; evidence/DRL_General_EL.v; evidence/DRL_Finite_Cut_Balance.v; evidence/DRL_NoGo_Single_Field.v]
+[domain card: v2/UNIVERSE_STEP_BY_STEP_PROPOSAL.md (full Thai source, founder, 2026-08-03); docs/engineering/UNIVERSE_STEP_BY_STEP_RDU.md (solver arc (private)) Part III Faces 5/6/8/9 (~lines 232–301); main.tex "Dialogue with World Traditions"; the information-discrete-math skill's textbook (github.com/morrocwi/information-discrete-math), its opening agency-readout commitment; Lahtee, Y., "Catuṣkoṭi-on-Catuṣkoṭi," doi:10.5281/zenodo.20035321; Lahtee, Y., "The Explanatory Insufficiency of Randomness," doi:10.5281/zenodo.20473230; Lahtee, Y., "Objective Chance and the Priority of Modal Difference," doi:10.5281/zenodo.20537309; evidence/DRL_General_EL.v; evidence/DRL_Finite_Cut_Balance.v; evidence/DRL_NoGo_Single_Field.v]
 
 ---
 
@@ -6486,7 +6486,7 @@ This note is a methodological/editorial rule about how to read AP-number orderin
 - The full Standard-Model root→trunk equation stream (EQ-001 through
   EQ-071, most of which is SM-domain-specific extrapolation beyond the
   philosophy/logic core) —
-  [`EQUATION_LIBRARY_ROOT_TO_SM_STREAM_solver-arc-private.md`],
+  [`EQUATION_LIBRARY_ROOT_TO_SM_STREAM_synced_mirror.md`],
   whose Source-of-Truth root is `readout_genesis/READOUT_GENESIS_CORE.md`
   Appendix C.
 - The frozen v1.0 book text (Part I–VI, the Dialogue with World Traditions,
@@ -6498,4 +6498,4 @@ This note is a methodological/editorial rule about how to read AP-number orderin
 
 [`v2/DOCTRINE_OF_QUANTITY.md`]: v2/DOCTRINE_OF_QUANTITY.md
 [`v2/POSITION.md`]: v2/POSITION.md
-[`EQUATION_LIBRARY_ROOT_TO_SM_STREAM_solver-arc-private.md`]: EQUATION_LIBRARY_ROOT_TO_SM_STREAM_solver-arc-private.md
+[`EQUATION_LIBRARY_ROOT_TO_SM_STREAM_synced_mirror.md`]: EQUATION_LIBRARY_ROOT_TO_SM_STREAM_synced_mirror.md

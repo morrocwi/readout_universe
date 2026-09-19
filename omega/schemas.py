@@ -30,7 +30,7 @@ from typing import Any, Dict, List, Optional
 
 # NOT the same vocabulary as native_logic.kernel.Verdict -- must never be
 # conflated (Cross-Role Readout Contamination; see
-# EQUATION_LIBRARY_ROOT_TO_SM_STREAM_solver-arc-private.md's EQ-065
+# EQUATION_LIBRARY_ROOT_TO_SM_STREAM_synced_mirror.md's EQ-065
 # note on two same-named-but-differently-derived quantities for this
 # repo's house pattern for this class of warning).
 #

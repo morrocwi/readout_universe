@@ -38,7 +38,7 @@ irreducible noise from selection, mapping, and the reading agency:
 
 | ID | Statement | Tier | Source |
 |---|---|---|---|
-| EQ-027 | `M_A[n] = K_A·θ(E[n]) + η_sel + η_map + η_self` — the record is a translation of the true state `θ(E[n])`, never the state itself (`η_sel` selection noise, `η_map` mapping/translation noise, `η_self` self-referential noise) | `Th_coqc` | `EQUATION_LIBRARY_ROOT_TO_SM_STREAM_solver-arc-private.md` EQ-027 |
+| EQ-027 | `M_A[n] = K_A·θ(E[n]) + η_sel + η_map + η_self` — the record is a translation of the true state `θ(E[n])`, never the state itself (`η_sel` selection noise, `η_map` mapping/translation noise, `η_self` self-referential noise) | `Th_coqc` | `EQUATION_LIBRARY_ROOT_TO_SM_STREAM_synced_mirror.md` EQ-027 |
 | EQ-028 | `M_A[n] ≠ θ(E) ∀n`; `ε_tot = η_sel+η_map+η_self > 0 ∀n` — the translation gap between record and truth never closes to zero | `Th_coqc` | same, EQ-028 |
 | `no_decoder_recovers_state` | whenever a readout operator maps two distinct true states to the same recorded value, both states still exist, but no decoder can recover both from the record alone | `Th_coqc`, axiom-free (`Print Assumptions` ⇒ Closed) | `readout_genesis/formal/InfoTrueRecordUnreadable_attempt.v` (same theorem cited again at EQ-032–034 in §6 below; one theorem, cited twice, never re-derived) |
 
@@ -71,7 +71,7 @@ provenances, three different tiers — `definition` (N2, the general
 epistemic schema, `readout_genesis/READOUT_GENESIS_CORE.md` Part VI,
 deliberately withheld from `Th_coqc` per §5.7's own argument), untagged
 (Face 10, `V3.1`/`RDU` step 28), and `Th_coqc` (EQ-027/EQ-028 above, per
-`EQUATION_LIBRARY_ROOT_TO_SM_STREAM_solver-arc-private.md`'s own
+`EQUATION_LIBRARY_ROOT_TO_SM_STREAM_synced_mirror.md`'s own
 "2026-07-25 grounding" tag). This file's own rule is to carry every
 source's tier exactly as given, never upgrading and never silently
 averaging — so all three stand, side by side, rather than one replacing
@@ -98,7 +98,7 @@ copyright holder's own direction — never upgraded to `Th_coqc`):**
 
 | ID | Statement | Tier | Source |
 |---|---|---|---|
-| `P_A=Φ_A(M_A)` | the record `M_A` becomes an agent-specific phenomenal field `P_A` via `Φ_A=Φ(Ξ_A,B_A,Val_A,Coh_A,Own_A)` — phenomenal readiness, embodiment, valence, coherence, ownership, declared structural placeholders, not put forward as a solution to what qualia are | `Dr` (chain/import); `Open` on `Φ_A` itself | `solver-arc-private/canon/genesis_canon_v2.1.md` §Φ ; no further falsifier is needed here beyond what the surrounding text (logic.md L95-108) already states: `Φ_A`'s components are declared structural placeholders, and the text is explicit that the hard-problem obstruction is *relocated*, not solved. A falsifier would require `Φ_A` to be filled in as a computable function first — that filling-in is exactly what is marked `Open`, so no additional note is added beyond confirming the existing text already carries this honestly. |
+| `P_A=Φ_A(M_A)` | the record `M_A` becomes an agent-specific phenomenal field `P_A` via `Φ_A=Φ(Ξ_A,B_A,Val_A,Coh_A,Own_A)` — phenomenal readiness, embodiment, valence, coherence, ownership, declared structural placeholders, not put forward as a solution to what qualia are | `Dr` (chain/import); `Open` on `Φ_A` itself | `canon/genesis_canon_v2.1.md` (solver arc (private)) §Φ ; no further falsifier is needed here beyond what the surrounding text (logic.md L95-108) already states: `Φ_A`'s components are declared structural placeholders, and the text is explicit that the hard-problem obstruction is *relocated*, not solved. A falsifier would require `Φ_A` to be filled in as a computable function first — that filling-in is exactly what is marked `Open`, so no additional note is added beyond confirming the existing text already carries this honestly. |
 | `P_A ≠ H_A` | what appears (`P_A`) is not the space in which it can be assessed/doubted/revised (`H_A`, epistemic horizon) — collapsing the two is a named error | `Dr` | same |
 
 Full chain: `θ(E) → S_A(E)⊆Δ(E) → (T_A∘Π_A) → M_A=K_A·θ(E)+η (≠θ(E)) → P_A=Φ_A(M_A) → H_A`.
@@ -120,7 +120,7 @@ this converges with (§9.19, independently reached in this book).
 
 | ID | Statement | Tier | Source |
 |---|---|---|---|
-| R-L-uniq | Three properties on a weighted vertex operator L — **symmetric**, **zero-row-sum**, **off-diagonal ≤ 0** — read as δ_R's own meaning (symmetric: "A differs from B" is one fact, not two; zero-row-sum: a uniform state retains no distinction; off-diag≤0: reads *difference*, not *connection*) FORCE any L satisfying them into exactly `D_W − W` form — `forced_into_DW_minus_W`, general 3-vertex case, `Q`, proved by `ring`/`lra` | `Th_coqc` | `solver-arc-private/formal/InfoRetainedDistinctionForcesLaplacian_attempt.v` Part 1 |
+| R-L-uniq | Three properties on a weighted vertex operator L — **symmetric**, **zero-row-sum**, **off-diagonal ≤ 0** — read as δ_R's own meaning (symmetric: "A differs from B" is one fact, not two; zero-row-sum: a uniform state retains no distinction; off-diag≤0: reads *difference*, not *connection*) FORCE any L satisfying them into exactly `D_W − W` form — `forced_into_DW_minus_W`, general 3-vertex case, `Q`, proved by `ring`/`lra` | `Th_coqc` | `formal/InfoRetainedDistinctionForcesLaplacian_attempt.v` (solver arc (private)) Part 1 |
 
 Witness enumeration (concrete weighted path graph 0–a–1–b–2; a=2, b=3, all `Q`; Part 2 of the same file):
 
@@ -134,7 +134,7 @@ Witness enumeration (concrete weighted path graph 0–a–1–b–2; a=2, b=3, a
 
 Tier: `Th_coqc` — axiom-free, `Print Assumptions` closed, Coq 8.20.1, ground over `Q`, 3-vertex numeral case (the general characterization theorem `forced_into_DW_minus_W` is stated for arbitrary `L : nat → nat → Q` on 3 vertices, not merely the one numeral instance). **Relocates, does not close, the "chosen operator" gap**: the theorem proves `L_R` forced GIVEN the three axioms; it does NOT derive those three axioms from anything weaker than δ_R's own meaning (symmetric retained difference) — that meaning remains the irreducible `Dr` root the forcing argument starts from, per the source file's own stated caveat.
 
-[domain card: `solver-arc-private/docs/root/BORROWED_VS_DERIVED_LEDGER.md` row 4; `solver-arc-private/formal/InfoRetainedDistinctionForcesLaplacian_attempt.v`]
+[domain card: `docs/root/BORROWED_VS_DERIVED_LEDGER.md` (solver arc (private)) row 4; `formal/InfoRetainedDistinctionForcesLaplacian_attempt.v` (solver arc (private))]
 
 ### RD1–RD9 — the arithmetic genome
 
@@ -293,14 +293,14 @@ table + Pre-write CHECKLIST section]
 
 **M ∂²Φ + D ∂Φ + K·L_R Φ + ∇V(Φ) = J − η**  (EQ-015)
 
-Mixed tier, per-term ([`EQUATION_LIBRARY_ROOT_TO_SM_STREAM_solver-arc-private.md`]):
+Mixed tier, per-term ([`EQUATION_LIBRARY_ROOT_TO_SM_STREAM_synced_mirror.md`]):
 
 | Term | Tier |
 |---|---|
 | M ∂²Φ | `Dr` ; this term's `Dr` tag is already load-bearing evidence, not a placeholder: Arrow 3 (§0.5-adjacent chain, logic.md ~L376) settles that `M∂²` is **not** forced from δ_R alone — it is an independent structural ingredient requiring the extra posit of re-readability/oscillation, with five of six candidate forcing readings refuted by explicit witness. A future reading that derives 2nd-order-in-time dynamics from 1st-order retention alone, without adding a new posit, would falsify Arrow 3's negative result and upgrade this term's tier. |
 | D ∂Φ | `finite_diagnostic` |
 | K·L_R Φ | `Th_coqc` (admissibility skeleton only) |
-| ∇V(Φ) | untagged in source (the source bracket at `EQUATION_LIBRARY_ROOT_TO_SM_STREAM_solver-arc-private.md`#EQ-015 tiers only the four terms above; §10's N1-L3 (cf. §9.8) audits this term's nonlinear paraproduct behavior at `finite_diagnostic`, but that is a checker result on the term, not a per-term tier of EQ-015 itself) |
+| ∇V(Φ) | untagged in source (the source bracket at `EQUATION_LIBRARY_ROOT_TO_SM_STREAM_synced_mirror.md`#EQ-015 tiers only the four terms above; §10's N1-L3 (cf. §9.8) audits this term's nonlinear paraproduct behavior at `finite_diagnostic`, but that is a checker result on the term, not a per-term tier of EQ-015 itself) |
 | J | untagged in source (same bracket omission as ∇V(Φ); no tier is assigned to the forcing term `J` anywhere in the source ledger) |
 | η | `finite_diagnostic`/`Open` ; the `finite_diagnostic` half of this split is not free-floating: EQ-017's continuum reader form `τ_R İ_R + L_R I_R = S_R + η_R` (§1, PASS_WITH_LIMITS) is the concrete instance where this same residual term is actually measured. The `Open` half stays open in exactly the sense OPEN_CONSTANTS is open below — no claim about η's absolute magnitude is made, only that a residual term must be present; a run of EQ-017 returning `η_R≡0` under declared conditions would falsify the residual's necessity, not merely its size. |
 
@@ -326,7 +326,7 @@ analogue provably cannot be posed on L_R, or vice versa.
 | S3 | alive/agency-like iff τ_c > τ_c*; true agency adds origination | `Th_coqc` (`self_sensing_loops_if_above_lambda_c`, `InfoAgencySelfReadout`) |
 
 **We do NOT claim** that S1–S3 make mass/horizon/agency claims of this book —
-they remain claims of their home repo (`solver-arc-private`), imported
+they remain claims of their home repo (`solver arc (private)`), imported
 here only by the declared (`Dr`) bridge (`v2/EVERYTHING_BRIDGE.md` §"We do NOT
 claim (v2 additions)").
 
@@ -339,7 +339,7 @@ No independent falsifier applies to the composite reading itself: it is an inter
 
 | ID | Statement | Tier | Source |
 |---|---|---|---|
-| EQ-016b | `InfoScaleGaugeNonReadout`: ∀s>0, rescaling (M,D,K)→(s·M,s·D,s·K) leaves τ_c=M/D, the dispersion relation, and the discriminant sign invariant ⇒ absolute M,D,K are non-readouts (asking for their absolute value is `[Refused]` as a dimensional/non-readout question, not an open gap); only dimensionless ratios (τ_c, α, mass ratios) are genuine readouts | `Th_coqc` | `solver-arc-private/README.md` §Adversarial self-audit, 'Constants' bullet |
+| EQ-016b | `InfoScaleGaugeNonReadout`: ∀s>0, rescaling (M,D,K)→(s·M,s·D,s·K) leaves τ_c=M/D, the dispersion relation, and the discriminant sign invariant ⇒ absolute M,D,K are non-readouts (asking for their absolute value is `[Refused]` as a dimensional/non-readout question, not an open gap); only dimensionless ratios (τ_c, α, mass ratios) are genuine readouts | `Th_coqc` | `README.md` (solver arc (private)) §Adversarial self-audit, 'Constants' bullet |
 
 Operator note on `s·(_)` here: this is not the continuum group ℝ_{>0} acting
 on a real-valued triple by ordinary multiplication, injected as a bare
@@ -357,8 +357,8 @@ ratios) — those are readouts but are not forced by the graph; they remain
 
 ## 1.5 Stream of Necessity — root→graph→L_R→2nd-order→D>0 (four-arrow necessity chain)
 
-Source: `solver-arc-private/docs/root/STREAM_OF_NECESSITY.md` +
-`solver-arc-private/README.md` §Adversarial self-audit findings
+Source: `docs/root/STREAM_OF_NECESSITY.md` (solver arc (private)) +
+`README.md` (solver arc (private)) §Adversarial self-audit findings
 (2026-07-07). Chain (`=` here means *definitional identity of the readout*,
 a decidable finite check, never an ℝ-equality asserted by fiat):
 
@@ -518,7 +518,7 @@ Landauer 1961/Bennett 1982.
 
 **Cross-repo grounding (2026-07-25):** the pigeonhole point underlying T2/T3
 now has an independent, general, `Th_coqc` axiom-free proof in
-`solver-arc-private/formal/InfoTrueRecordUnreadable_attempt.v`
+`formal/InfoTrueRecordUnreadable_attempt.v` (solver arc (private))
 (`no_decoder_recovers_state`) — a general non-injective-map theorem, not
 DRL/tape-specific, not evidence for or against the tape's own posited B_γ.
 Recorded as cross-reference only, not imported.
@@ -593,7 +593,7 @@ algebra; why curvature = commutator; why self-carrier closure; why premise
 ## 6. Physics/logic bridge equations — root→SM stream (core subset)
 
 Full stream: EQ-001 through EQ-071 in
-[`EQUATION_LIBRARY_ROOT_TO_SM_STREAM_solver-arc-private.md`]
+[`EQUATION_LIBRARY_ROOT_TO_SM_STREAM_synced_mirror.md`]
 (imported reference; SoT numbering = `readout_genesis/READOUT_GENESIS_CORE.md`
 Appendix C). Only the root→trunk-adjacent entries are reproduced here —
 the Standard-Model gauge/representation stream (EQ-018 onward into SU(3),
@@ -618,13 +618,13 @@ which names this non-absorption explicitly and closes part of the gap.
 | EQ-032 | ∀X,R,O,x1,x2: x1≠x2 → O(x1)=O(x2) → ∀D: D(O(x1))=x1 → D(O(x2))=x2 → False (`no_decoder_recovers_state`) | `Th_coqc` |
 | EQ-033 | gauge-redundancy analogue: h(x)≠x → O(h(x))=O(x) → no total decoder (`gauge_redundancy_forces_undecodability`) | `Th_coqc` |
 | EQ-034 | both true states exist, no total decoder recovers both (`true_state_exists_but_no_total_decoder`) | `Th_coqc` |
-| EQ-063 | τ_c = ℏ/(2mc²); m = ℏ/(2c²τ_c) — unit/calibration bridge ONLY, does NOT derive EQ-015's M coefficient (8 forcing attempts failed; campaign logged at EQ-063's own entry in `EQUATION_LIBRARY_ROOT_TO_SM_STREAM_solver-arc-private.md`, self-caught during founder's bottleneck review; cross-repo summary footnote¹ below) | `Dr` (bridge) ; this entry already reports a completed falsification, not an open one: 8 independent attempts to force EQ-063 into deriving EQ-015's M coefficient failed (logged at the source ledger's EQ-063 entry, self-caught during founder review), which is why the tier is capped at `Dr` (bridge) rather than any derivation tier. A 9th attempt succeeding would reopen this, but the current status is a settled negative, and should be read as such rather than as a pending gap. |
+| EQ-063 | τ_c = ℏ/(2mc²); m = ℏ/(2c²τ_c) — unit/calibration bridge ONLY, does NOT derive EQ-015's M coefficient (8 forcing attempts failed; campaign logged at EQ-063's own entry in `EQUATION_LIBRARY_ROOT_TO_SM_STREAM_synced_mirror.md`, self-caught during founder's bottleneck review; cross-repo summary footnote¹ below) | `Dr` (bridge) ; this entry already reports a completed falsification, not an open one: 8 independent attempts to force EQ-063 into deriving EQ-015's M coefficient failed (logged at the source ledger's EQ-063 entry, self-caught during founder review), which is why the tier is capped at `Dr` (bridge) rather than any derivation tier. A 9th attempt succeeding would reopen this, but the current status is a settled negative, and should be read as such rather than as a pending gap. |
 
 ¹ **EQ-063 cross-repo summary (external citation, paraphrased — a conclusion
 summary, NOT an itemized log of the 8 attempts; no such itemized list is known
 to exist in this repo or the source repo).** Per the `M ∂²_t Φ` row of the
 mother-equation table in the sibling (proprietary, not publicly readable)
-`solver-arc-private` repo's `domains/standard_model/source_root/
+`solver arc (private)` repo's `domains/standard_model/source_root/
 READOUT_GENESIS_CORE_SNAPSHOT.md` (same content also present in that repo's
 `docs/engineering/GENESIS_STEP_BY_STEP_V3_1.md`): `M` is a posit, not a
 derivation (`Dr`); a direct attempt to force `M` out of more primitive
@@ -635,7 +635,7 @@ a `D/M` ratio checked against QuTiP giving a residual of 7.6×10⁻⁴
 (`finite_diagnostic`). Tiers reported here match what the source itself
 assigns to each piece — not upgraded.
 
-Source file for EQ-032–034: `solver-arc-private/formal/InfoTrueRecordUnreadable_attempt.v`
+Source file for EQ-032–034: `formal/InfoTrueRecordUnreadable_attempt.v` (solver arc (private))
 (cross-referenced in `philosophy.md` §1 and `logic.md` §3 above — same
 underlying general theorem, cited once per relevant section).
 
@@ -649,7 +649,7 @@ Source: `v2/urr/URR_C_MASTER_0_4.md` / `urr_native_system.md`. Doubled
 reader–record space 𝒳_T = 𝓗_T ⊕ 𝓗_T, X_n=(Φ_n,Ψ_n)ᵀ; lifted projector
 Ō_α = I₂⊗O_α, H̄_α = I−Ō_α. `𝔾_T` (URR-2 below) — the lifted graph coupling
 operator, the same construction as EQ-020's `𝔾_n`
-(`EQUATION_LIBRARY_ROOT_TO_SM_STREAM_solver-arc-private.md`#EQ-020 —
+(`EQUATION_LIBRARY_ROOT_TO_SM_STREAM_synced_mirror.md`#EQ-020 —
 SM-stream entry, `Dr` tier at source; not reproduced in §6's core subset,
 which stops at EQ-017/EQ-032-034/EQ-063 per §6's own stated non-absorption
 of EQ-018 onward): `L_R` Kronecker-lifted onto the field/reader-record
@@ -768,14 +768,14 @@ below.
 | ID | Statement | Tier | Source |
 |---|---|---|---|
 | A9 | Given any readout map `O : X → R`, define `~_O` by `x ~_O y :⇔ O(x)=O(y)` — always an equivalence relation on `X` (kernel of `O`). The only logic-accessible object is the quotient `[X]/~_O`; a raw pre-image element `x ∈ O⁻¹(r)` is not itself retrievable (cf. EQ-032/033/034 in §6; `Th_coqc`) | `definition` (elementary set theory; untiered in source) | this entry — general construction; no physics-domain source line |
-| A9-phys | Physics-domain instance of A9: `X ∼ X' ⟺ O(X)=O(X')`; physical state `:= [X]` (EQ-031); the readout-preserving automorphism group `𝒜 = {h : Oh=O; hF=Fh; h†Gh=G}` (EQ-042) is `~_O`'s automorphism group specialized to a Lie-group action | `Dr` | EQ-031; EQ-042 [`EQUATION_LIBRARY_ROOT_TO_SM_STREAM_solver-arc-private.md`] ; no falsifier applies to A9-phys as such: the surrounding text (logic.md L761-762) is explicit that A9 (and its physics specialization) is a standing logical/structural construction — the definition of what counts as 'the same physical state' under a readout-preserving equivalence — not itself a physics prediction. Falsifiability, if any, attaches to EQ-031/EQ-042's own downstream physical consequences, not to the automorphism-group definition. |
+| A9-phys | Physics-domain instance of A9: `X ∼ X' ⟺ O(X)=O(X')`; physical state `:= [X]` (EQ-031); the readout-preserving automorphism group `𝒜 = {h : Oh=O; hF=Fh; h†Gh=G}` (EQ-042) is `~_O`'s automorphism group specialized to a Lie-group action | `Dr` | EQ-031; EQ-042 [`EQUATION_LIBRARY_ROOT_TO_SM_STREAM_synced_mirror.md`] ; no falsifier applies to A9-phys as such: the surrounding text (logic.md L761-762) is explicit that A9 (and its physics specialization) is a standing logical/structural construction — the definition of what counts as 'the same physical state' under a readout-preserving equivalence — not itself a physics prediction. Falsifiability, if any, attaches to EQ-031/EQ-042's own downstream physical consequences, not to the automorphism-group definition. |
 
 A9 is the same kind of entry as RAR A1–A8 (§0) — a standing logical
 construction, not a physics claim. A9-phys is the *only* SM-stream item this
 ledger absorbs; EQ-018 onward (SU(3) uniqueness, generation counting, mass
 fits) remains intentionally out of scope per §6 — unchanged.
 
-[domain card: SM gauge — `EQUATION_LIBRARY_ROOT_TO_SM_STREAM_solver-arc-private.md`#EQ-031;EQ-042]
+[domain card: SM gauge — `EQUATION_LIBRARY_ROOT_TO_SM_STREAM_synced_mirror.md`#EQ-031;EQ-042]
 
 ### 9.2 Tier legend addendum — `declared_finite_architecture` / `exact_bridge` (mass-fit stream, root→SM §6/§7)
 
@@ -797,11 +797,11 @@ No falsifier applies to this addendum itself: it defines two tier labels (govern
 | EQ-066 | α_ord=a/2; β_ord=b/4 (inherited, not new dials); Π₀ > α_ord ⇒ ORDERED_READY; r*=3.823356105009073. Caveat: ORDERED_READY is structurally guaranteed on this stepper (λ_j∈(0,1] ⇒ Π₀∈(0,7]; α_ord=−0.5 below that bound) — not evidence the branch construction is predictive | `declared_finite_architecture`/`exact_bridge` |
 | EQ-067 | v_native = √(2 r*) = 2.7652689218262565 (r=v²/2 convention; exact step on EQ-066's declared r*; no physical unit attached) | `declared_finite_architecture` |
 
-Source: `EQUATION_LIBRARY_ROOT_TO_SM_STREAM_solver-arc-private.md`
+Source: `EQUATION_LIBRARY_ROOT_TO_SM_STREAM_synced_mirror.md`
 EQ-065–067 (feeds EQ-068's still-`Open` GeV-bridge question — not resolved
 here).
 
-[domain card: `EQUATION_LIBRARY_ROOT_TO_SM_STREAM_solver-arc-private.md`#EQ-065;EQ-066;EQ-067]
+[domain card: `EQUATION_LIBRARY_ROOT_TO_SM_STREAM_synced_mirror.md`#EQ-065;EQ-066;EQ-067]
 
 ### 9.2b The Fail-Able Gate Law — Type-P vs Type-U evidence gates (`Dr`; governs every gate above)
 
@@ -1156,12 +1156,12 @@ stated variable identification"); the overreach sits in the theorem name
 and the corpus's "unification" language, not in the `ring` step itself,
 which is correct on its own narrow terms.
 
-[domain card: solver-arc-private/docs/root/BORROWED_VS_DERIVED_LEDGER.md row 20]
+[domain card: docs/root/BORROWED_VS_DERIVED_LEDGER.md (solver arc (private)) row 20]
 
 ### 9.10 `c` — BORROWED-SCALE value, DERIVED graph-native ratio `c^2=K/M`, identification `Open`
 
 Same ledger row as EQ-063's `Dr`-bridge neighbor (§6), one entry over: row
-14 of `solver-arc-private/docs/root/BORROWED_VS_DERIVED_LEDGER.md`
+14 of `docs/root/BORROWED_VS_DERIVED_LEDGER.md` (solver arc (private))
 (`InfoCattaneoFiniteSpeed_attempt.v:19-71`) splits `c` into two verdicts
 that must not be collapsed into one tier tag.
 
@@ -1206,11 +1206,11 @@ c-RATIO are distinct constants sharing a symbol. Not yet testable — `K`,`M`
 are currently un-fixed (philosophy.md §7.20) — so c-ID remains `Open`, not
 `Dr`.
 
-[domain card: `solver-arc-private/docs/root/BORROWED_VS_DERIVED_LEDGER.md` row 14; `InfoCattaneoFiniteSpeed_attempt.v:19-71`]
+[domain card: `docs/root/BORROWED_VS_DERIVED_LEDGER.md` (solver arc (private)) row 14; `InfoCattaneoFiniteSpeed_attempt.v:19-71`]
 
 ### 9.11 AI ethics as a readout-selection structure — L-16's first-order content (extends §6's non-absorption stance)
 
-Source: `solver-arc-private/docs/engineering/GENESIS_STEP_BY_STEP_V3_1.md`
+Source: `docs/engineering/GENESIS_STEP_BY_STEP_V3_1.md` (solver arc (private))
 Part V.9 (~lines 2397-2421, `Dr`). Full narrative: `philosophy.md` §7.22,
 which extends that file's §6 pointer ("ethics (L-16) is `Dr`, its
 first-order content explicitly declared non-derivable").
@@ -1254,7 +1254,7 @@ machinery, two separate claims, each carrying its own `Dr` tag and its own
 falsifier (SC-5's `∂π*/∂η_H`,`dR_H/dt` vs. ETH-6's deployment test) — one
 tier and evidence set does not stand in for the other.
 
-[domain card: solver-arc-private/docs/engineering/GENESIS_STEP_BY_STEP_V3_1.md Part V.9 (~lines 2397-2421)]
+[domain card: docs/engineering/GENESIS_STEP_BY_STEP_V3_1.md (solver arc (private)) Part V.9 (~lines 2397-2421)]
 
 ---
 
@@ -1334,7 +1334,7 @@ passing T1/T2 shows the repair works on the tested case(s), not that it is
 forced.
 
 **Adjacent, real, and not T1 — named so a reader does not conflate the
-two.** `solver-arc-private/CLAIMS.md` (C-bio-3, `textbook_closure`
+two.** `CLAIMS.md` (solver arc (private)) (C-bio-3, `textbook_closure`
 tier, mechanically checkable: `python -m pytest
 tests/test_bio_cross_consistency.py -q`) already runs a check that touches
 the same named system T1 would use: "a from-scratch direct Jacobian
@@ -1350,7 +1350,7 @@ partial progress on T1 itself. It is cited here only so a reader searching
 this ecosystem for "Lotka-Volterra" work already done does not mistake
 this different, already-passing check for T1's own unrun test.
 
-[domain card: `readout_genesis/READOUT_GENESIS_CORE.md` PART VI §VI.1 (~L4144-4303); `solver-arc-private/CLAIMS.md` C-bio-3 (the adjacent, non-T1 Lotka-Volterra check named above); `solver-arc-private/engine/formulas.py:2649` (`lotka_volterra_interior_stability`)]
+[domain card: `readout_genesis/READOUT_GENESIS_CORE.md` PART VI §VI.1 (~L4144-4303); `CLAIMS.md` (solver arc (private)) C-bio-3 (the adjacent, non-T1 Lotka-Volterra check named above); `engine/formulas.py:2649` (solver arc (private)) (`lotka_volterra_interior_stability`)]
 
 ---
 
@@ -1424,7 +1424,7 @@ threshold caveat on `0.6`/`0.3`/`0.42`.
 
 ## 12. Self as a closure property — the τ_c^H loop (Ω_H)
 
-Source: `solver-arc-private/docs/engineering/GENESIS_STEP_BY_STEP_V3_1.md`
+Source: `docs/engineering/GENESIS_STEP_BY_STEP_V3_1.md` (solver arc (private))
 Part VIII §VIII.6 (~lines 4899-4929, `Dr`/`[Open]`). Full narrative:
 `philosophy.md` §7.21.
 
@@ -1468,7 +1468,7 @@ hard problem. See `philosophy.md` §7.21 for the full cross-reference
 discussion.
 
 **A second, closer sibling — also distinct.**
-`AGENCY_VS_AGENCY_LIKE.md` §3 (`solver-arc-private/docs/root/`)
+`AGENCY_VS_AGENCY_LIKE.md` §3 (`docs/root/` (solver arc (private)))
 names true agency's ORIGINATION equation "self-readout" —
 `row_n(L_R) x`, `Th_coqc` (`InfoAgencySelfReadout_attempt.v`; named
 `human_action` in `InfoAgencyExpansion_attempt`): a static, single-instant
@@ -1477,7 +1477,7 @@ iterative, multi-pass loop-closure property over `τ_c^H`, `Dr`. Same
 "self-readout" naming, structurally different objects; tier and evidence do
 not transfer either direction. Full discussion at `philosophy.md` §7.21.
 
-[domain card: solver-arc-private/docs/engineering/GENESIS_STEP_BY_STEP_V3_1.md Part VIII §VIII.6 (~lines 4899-4929)]
+[domain card: docs/engineering/GENESIS_STEP_BY_STEP_V3_1.md (solver arc (private)) Part VIII §VIII.6 (~lines 4899-4929)]
 
 ---
 
@@ -1501,7 +1501,7 @@ Not fully absorbed here — go to source for full depth:
   `CLAIM_LEDGER.yaml`).
 - **The full Standard-Model equation stream** (SU(3) closure, generation
   counting, gauge/representation assignment, mass fits, EQ-018–EQ-071) —
-  [`EQUATION_LIBRARY_ROOT_TO_SM_STREAM_solver-arc-private.md`],
+  [`EQUATION_LIBRARY_ROOT_TO_SM_STREAM_synced_mirror.md`],
   cross-referenced against `readout_genesis/READOUT_GENESIS_CORE.md`
   Appendix C (Source of Truth for this numbering).
 - **v1.0 book's own logic-of-the-finite-knower chapters** (defeasibility
@@ -1513,4 +1513,4 @@ Not fully absorbed here — go to source for full depth:
   to five classic paradoxes. Not core canon — its new content is `Dr`/
   `[Open]`, unreviewed.
 
-[`EQUATION_LIBRARY_ROOT_TO_SM_STREAM_solver-arc-private.md`]: EQUATION_LIBRARY_ROOT_TO_SM_STREAM_solver-arc-private.md
+[`EQUATION_LIBRARY_ROOT_TO_SM_STREAM_synced_mirror.md`]: EQUATION_LIBRARY_ROOT_TO_SM_STREAM_synced_mirror.md

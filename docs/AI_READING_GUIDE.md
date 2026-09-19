@@ -102,5 +102,5 @@ Expected: LTP1 `SUITE: PASS 3/3`; LTP2–4 `SUITE: PASS 8/8`; `coqc` exit 0 with
 ## Relation to the wider ANSE research system
 
 This book is the philosophy/logic layer of the readout-not-truth research line
-(spine / PGFT / solver-arc-private). Cross-repo references are declared
+(spine / PGFT / solver arc (private)). Cross-repo references are declared
 bridges (`Dr`), not identities: this repo stands alone and must verify alone.
