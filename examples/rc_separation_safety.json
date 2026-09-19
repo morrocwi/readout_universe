@@ -1,0 +1,55 @@
+{
+  "cases": [
+    {
+      "token": {
+        "id": "d:safety",
+        "claim_id": "claim:safety",
+        "claim": "the treatment is safe",
+        "rival": "the study is too small to establish safety",
+        "response_rule": "human-ai answer",
+        "observed_record": "No serious adverse effects were observed in 32 participants.",
+        "kappa": null,
+        "kappa_scale": "",
+        "provenance_nodes": [
+          {
+            "id": "source",
+            "node_type": "retrieved",
+            "label": "small safety study",
+            "source_ref": "example:study",
+            "version": "v1",
+            "timestamp": "",
+            "metadata": {}
+          }
+        ],
+        "minimal_support_bundles": [
+          {
+            "node_ids": ["source"],
+            "label": "declared evidence route"
+          }
+        ],
+        "basis_node_ids": ["source"],
+        "basis_mode": "explicit",
+        "contributions": [],
+        "decision_policy_node_ids": [],
+        "required_access": [
+          "a sufficiently powered safety study or registry capable of separating safety from insufficient evidence"
+        ],
+        "status": "OPEN",
+        "notes": "Source is consistent with both alternatives; categorical safety should abstain."
+      },
+      "bundle_readouts": [
+        {
+          "node_ids": ["source"],
+          "claim_compatible": true,
+          "rival_compatible": true,
+          "evaluator": "human annotation",
+          "metadata": {
+            "note": "The study reports no observed serious harms but is too small to rule out important risk."
+          }
+        }
+      ],
+      "system_asserted_distinction": true,
+      "system_abstained": false
+    }
+  ]
+}
